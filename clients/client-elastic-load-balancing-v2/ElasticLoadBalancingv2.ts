@@ -2,173 +2,149 @@ import { ElasticLoadBalancingv2Client } from "./ElasticLoadBalancingv2Client";
 import {
   AddListenerCertificatesCommand,
   AddListenerCertificatesCommandInput,
-  AddListenerCertificatesCommandOutput
+  AddListenerCertificatesCommandOutput,
 } from "./commands/AddListenerCertificatesCommand";
-import {
-  AddTagsCommand,
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   CreateListenerCommand,
   CreateListenerCommandInput,
-  CreateListenerCommandOutput
+  CreateListenerCommandOutput,
 } from "./commands/CreateListenerCommand";
 import {
   CreateLoadBalancerCommand,
   CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput
+  CreateLoadBalancerCommandOutput,
 } from "./commands/CreateLoadBalancerCommand";
-import {
-  CreateRuleCommand,
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand";
+import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateTargetGroupCommand,
   CreateTargetGroupCommandInput,
-  CreateTargetGroupCommandOutput
+  CreateTargetGroupCommandOutput,
 } from "./commands/CreateTargetGroupCommand";
 import {
   DeleteListenerCommand,
   DeleteListenerCommandInput,
-  DeleteListenerCommandOutput
+  DeleteListenerCommandOutput,
 } from "./commands/DeleteListenerCommand";
 import {
   DeleteLoadBalancerCommand,
   DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput
+  DeleteLoadBalancerCommandOutput,
 } from "./commands/DeleteLoadBalancerCommand";
-import {
-  DeleteRuleCommand,
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
+import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteTargetGroupCommand,
   DeleteTargetGroupCommandInput,
-  DeleteTargetGroupCommandOutput
+  DeleteTargetGroupCommandOutput,
 } from "./commands/DeleteTargetGroupCommand";
 import {
   DeregisterTargetsCommand,
   DeregisterTargetsCommandInput,
-  DeregisterTargetsCommandOutput
+  DeregisterTargetsCommandOutput,
 } from "./commands/DeregisterTargetsCommand";
 import {
   DescribeAccountLimitsCommand,
   DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput
+  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
   DescribeListenerCertificatesCommand,
   DescribeListenerCertificatesCommandInput,
-  DescribeListenerCertificatesCommandOutput
+  DescribeListenerCertificatesCommandOutput,
 } from "./commands/DescribeListenerCertificatesCommand";
 import {
   DescribeListenersCommand,
   DescribeListenersCommandInput,
-  DescribeListenersCommandOutput
+  DescribeListenersCommandOutput,
 } from "./commands/DescribeListenersCommand";
 import {
   DescribeLoadBalancerAttributesCommand,
   DescribeLoadBalancerAttributesCommandInput,
-  DescribeLoadBalancerAttributesCommandOutput
+  DescribeLoadBalancerAttributesCommandOutput,
 } from "./commands/DescribeLoadBalancerAttributesCommand";
 import {
   DescribeLoadBalancersCommand,
   DescribeLoadBalancersCommandInput,
-  DescribeLoadBalancersCommandOutput
+  DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
 import {
   DescribeRulesCommand,
   DescribeRulesCommandInput,
-  DescribeRulesCommandOutput
+  DescribeRulesCommandOutput,
 } from "./commands/DescribeRulesCommand";
 import {
   DescribeSSLPoliciesCommand,
   DescribeSSLPoliciesCommandInput,
-  DescribeSSLPoliciesCommandOutput
+  DescribeSSLPoliciesCommandOutput,
 } from "./commands/DescribeSSLPoliciesCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
   DescribeTargetGroupAttributesCommand,
   DescribeTargetGroupAttributesCommandInput,
-  DescribeTargetGroupAttributesCommandOutput
+  DescribeTargetGroupAttributesCommandOutput,
 } from "./commands/DescribeTargetGroupAttributesCommand";
 import {
   DescribeTargetGroupsCommand,
   DescribeTargetGroupsCommandInput,
-  DescribeTargetGroupsCommandOutput
+  DescribeTargetGroupsCommandOutput,
 } from "./commands/DescribeTargetGroupsCommand";
 import {
   DescribeTargetHealthCommand,
   DescribeTargetHealthCommandInput,
-  DescribeTargetHealthCommandOutput
+  DescribeTargetHealthCommandOutput,
 } from "./commands/DescribeTargetHealthCommand";
 import {
   ModifyListenerCommand,
   ModifyListenerCommandInput,
-  ModifyListenerCommandOutput
+  ModifyListenerCommandOutput,
 } from "./commands/ModifyListenerCommand";
 import {
   ModifyLoadBalancerAttributesCommand,
   ModifyLoadBalancerAttributesCommandInput,
-  ModifyLoadBalancerAttributesCommandOutput
+  ModifyLoadBalancerAttributesCommandOutput,
 } from "./commands/ModifyLoadBalancerAttributesCommand";
-import {
-  ModifyRuleCommand,
-  ModifyRuleCommandInput,
-  ModifyRuleCommandOutput
-} from "./commands/ModifyRuleCommand";
+import { ModifyRuleCommand, ModifyRuleCommandInput, ModifyRuleCommandOutput } from "./commands/ModifyRuleCommand";
 import {
   ModifyTargetGroupAttributesCommand,
   ModifyTargetGroupAttributesCommandInput,
-  ModifyTargetGroupAttributesCommandOutput
+  ModifyTargetGroupAttributesCommandOutput,
 } from "./commands/ModifyTargetGroupAttributesCommand";
 import {
   ModifyTargetGroupCommand,
   ModifyTargetGroupCommandInput,
-  ModifyTargetGroupCommandOutput
+  ModifyTargetGroupCommandOutput,
 } from "./commands/ModifyTargetGroupCommand";
 import {
   RegisterTargetsCommand,
   RegisterTargetsCommandInput,
-  RegisterTargetsCommandOutput
+  RegisterTargetsCommandOutput,
 } from "./commands/RegisterTargetsCommand";
 import {
   RemoveListenerCertificatesCommand,
   RemoveListenerCertificatesCommandInput,
-  RemoveListenerCertificatesCommandOutput
+  RemoveListenerCertificatesCommandOutput,
 } from "./commands/RemoveListenerCertificatesCommand";
-import {
-  RemoveTagsCommand,
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   SetIpAddressTypeCommand,
   SetIpAddressTypeCommandInput,
-  SetIpAddressTypeCommandOutput
+  SetIpAddressTypeCommandOutput,
 } from "./commands/SetIpAddressTypeCommand";
 import {
   SetRulePrioritiesCommand,
   SetRulePrioritiesCommandInput,
-  SetRulePrioritiesCommandOutput
+  SetRulePrioritiesCommandOutput,
 } from "./commands/SetRulePrioritiesCommand";
 import {
   SetSecurityGroupsCommand,
   SetSecurityGroupsCommandInput,
-  SetSecurityGroupsCommandOutput
+  SetSecurityGroupsCommandOutput,
 } from "./commands/SetSecurityGroupsCommand";
-import {
-  SetSubnetsCommand,
-  SetSubnetsCommandInput,
-  SetSubnetsCommandOutput
-} from "./commands/SetSubnetsCommand";
+import { SetSubnetsCommand, SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -228,17 +204,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public addListenerCertificates(
     args: AddListenerCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddListenerCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddListenerCertificatesCommandOutput) => void),
     cb?: (err: any, data?: AddListenerCertificatesCommandOutput) => void
   ): Promise<AddListenerCertificatesCommandOutput> | void {
     const command = new AddListenerCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -253,14 +226,8 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
    *          <p>To list the current tags for your resources, use <a>DescribeTags</a>. To
    *       remove tags from your resources, use <a>RemoveTags</a>.</p>
    */
-  public addTags(
-    args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddTagsCommandOutput>;
-  public addTags(
-    args: AddTagsCommandInput,
-    cb: (err: any, data?: AddTagsCommandOutput) => void
-  ): void;
+  public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
+  public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
   public addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -268,17 +235,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -314,17 +278,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public createListener(
     args: CreateListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateListenerCommandOutput) => void),
     cb?: (err: any, data?: CreateListenerCommandOutput) => void
   ): Promise<CreateListenerCommandOutput> | void {
     const command = new CreateListenerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -366,17 +327,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public createLoadBalancer(
     args: CreateLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: CreateLoadBalancerCommandOutput) => void
   ): Promise<CreateLoadBalancerCommandOutput> | void {
     const command = new CreateLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -392,14 +350,8 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
    *          <p>To view your current rules, use <a>DescribeRules</a>. To update a rule, use
    *         <a>ModifyRule</a>. To set the priorities of your rules, use <a>SetRulePriorities</a>. To delete a rule, use <a>DeleteRule</a>.</p>
    */
-  public createRule(
-    args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRuleCommandOutput>;
-  public createRule(
-    args: CreateRuleCommandInput,
-    cb: (err: any, data?: CreateRuleCommandOutput) => void
-  ): void;
+  public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
+  public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
   public createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -407,17 +359,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public createRule(
     args: CreateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleCommandOutput) => void
   ): Promise<CreateRuleCommandOutput> | void {
     const command = new CreateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -455,17 +404,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public createTargetGroup(
     args: CreateTargetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTargetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTargetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateTargetGroupCommandOutput) => void
   ): Promise<CreateTargetGroupCommandOutput> | void {
     const command = new CreateTargetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -492,17 +438,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public deleteListener(
     args: DeleteListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteListenerCommandOutput) => void),
     cb?: (err: any, data?: DeleteListenerCommandOutput) => void
   ): Promise<DeleteListenerCommandOutput> | void {
     const command = new DeleteListenerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -533,17 +476,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public deleteLoadBalancer(
     args: DeleteLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: DeleteLoadBalancerCommandOutput) => void
   ): Promise<DeleteLoadBalancerCommandOutput> | void {
     const command = new DeleteLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -553,14 +493,8 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   /**
    * <p>Deletes the specified rule.</p>
    */
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRuleCommandOutput>;
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    cb: (err: any, data?: DeleteRuleCommandOutput) => void
-  ): void;
+  public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
+  public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -568,17 +502,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -605,17 +536,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public deleteTargetGroup(
     args: DeleteTargetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTargetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTargetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteTargetGroupCommandOutput) => void
   ): Promise<DeleteTargetGroupCommandOutput> | void {
     const command = new DeleteTargetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -641,17 +569,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public deregisterTargets(
     args: DeregisterTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterTargetsCommandOutput) => void),
     cb?: (err: any, data?: DeregisterTargetsCommandOutput) => void
   ): Promise<DeregisterTargetsCommandOutput> | void {
     const command = new DeregisterTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -681,17 +606,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountLimitsCommandOutput) => void
   ): Promise<DescribeAccountLimitsCommandOutput> | void {
     const command = new DescribeAccountLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -720,17 +642,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeListenerCertificates(
     args: DescribeListenerCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeListenerCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeListenerCertificatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeListenerCertificatesCommandOutput) => void
   ): Promise<DescribeListenerCertificatesCommandOutput> | void {
     const command = new DescribeListenerCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -759,17 +678,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeListeners(
     args: DescribeListenersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeListenersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeListenersCommandOutput) => void),
     cb?: (err: any, data?: DescribeListenersCommandOutput) => void
   ): Promise<DescribeListenersCommandOutput> | void {
     const command = new DescribeListenersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -798,20 +714,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeLoadBalancerAttributes(
     args: DescribeLoadBalancerAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLoadBalancerAttributesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoadBalancerAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoadBalancerAttributesCommandOutput) => void
   ): Promise<DescribeLoadBalancerAttributesCommandOutput> | void {
     const command = new DescribeLoadBalancerAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -838,17 +748,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeLoadBalancers(
     args: DescribeLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoadBalancersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoadBalancersCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoadBalancersCommandOutput) => void
   ): Promise<DescribeLoadBalancersCommandOutput> | void {
     const command = new DescribeLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -874,17 +781,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeRules(
     args: DescribeRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRulesCommandOutput) => void),
     cb?: (err: any, data?: DescribeRulesCommandOutput) => void
   ): Promise<DescribeRulesCommandOutput> | void {
     const command = new DescribeRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -911,17 +815,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeSSLPolicies(
     args: DescribeSSLPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSSLPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSSLPoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribeSSLPoliciesCommandOutput) => void
   ): Promise<DescribeSSLPoliciesCommandOutput> | void {
     const command = new DescribeSSLPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -936,10 +837,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
     args: DescribeTagsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTagsCommandOutput>;
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    cb: (err: any, data?: DescribeTagsCommandOutput) => void
-  ): void;
+  public describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   public describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -947,17 +845,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -985,17 +880,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeTargetGroupAttributes(
     args: DescribeTargetGroupAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTargetGroupAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTargetGroupAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeTargetGroupAttributesCommandOutput) => void
   ): Promise<DescribeTargetGroupAttributesCommandOutput> | void {
     const command = new DescribeTargetGroupAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1025,17 +917,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeTargetGroups(
     args: DescribeTargetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTargetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTargetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTargetGroupsCommandOutput) => void
   ): Promise<DescribeTargetGroupsCommandOutput> | void {
     const command = new DescribeTargetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1060,17 +949,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeTargetHealth(
     args: DescribeTargetHealthCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTargetHealthCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTargetHealthCommandOutput) => void),
     cb?: (err: any, data?: DescribeTargetHealthCommandOutput) => void
   ): Promise<DescribeTargetHealthCommandOutput> | void {
     const command = new DescribeTargetHealthCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1102,17 +988,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public modifyListener(
     args: ModifyListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyListenerCommandOutput) => void),
     cb?: (err: any, data?: ModifyListenerCommandOutput) => void
   ): Promise<ModifyListenerCommandOutput> | void {
     const command = new ModifyListenerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1140,17 +1023,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public modifyLoadBalancerAttributes(
     args: ModifyLoadBalancerAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyLoadBalancerAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyLoadBalancerAttributesCommandOutput) => void),
     cb?: (err: any, data?: ModifyLoadBalancerAttributesCommandOutput) => void
   ): Promise<ModifyLoadBalancerAttributesCommandOutput> | void {
     const command = new ModifyLoadBalancerAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1165,14 +1045,8 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
    *       current actions plus the new action.</p>
    *          <p>To modify the actions for the default rule, use <a>ModifyListener</a>.</p>
    */
-  public modifyRule(
-    args: ModifyRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ModifyRuleCommandOutput>;
-  public modifyRule(
-    args: ModifyRuleCommandInput,
-    cb: (err: any, data?: ModifyRuleCommandOutput) => void
-  ): void;
+  public modifyRule(args: ModifyRuleCommandInput, options?: __HttpHandlerOptions): Promise<ModifyRuleCommandOutput>;
+  public modifyRule(args: ModifyRuleCommandInput, cb: (err: any, data?: ModifyRuleCommandOutput) => void): void;
   public modifyRule(
     args: ModifyRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1180,17 +1054,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public modifyRule(
     args: ModifyRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyRuleCommandOutput) => void),
     cb?: (err: any, data?: ModifyRuleCommandOutput) => void
   ): Promise<ModifyRuleCommandOutput> | void {
     const command = new ModifyRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1217,17 +1088,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public modifyTargetGroup(
     args: ModifyTargetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyTargetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyTargetGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyTargetGroupCommandOutput) => void
   ): Promise<ModifyTargetGroupCommandOutput> | void {
     const command = new ModifyTargetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1252,17 +1120,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public modifyTargetGroupAttributes(
     args: ModifyTargetGroupAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyTargetGroupAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyTargetGroupAttributesCommandOutput) => void),
     cb?: (err: any, data?: ModifyTargetGroupAttributesCommandOutput) => void
   ): Promise<ModifyTargetGroupAttributesCommandOutput> | void {
     const command = new ModifyTargetGroupAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1300,17 +1165,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public registerTargets(
     args: RegisterTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTargetsCommandOutput) => void),
     cb?: (err: any, data?: RegisterTargetsCommandOutput) => void
   ): Promise<RegisterTargetsCommandOutput> | void {
     const command = new RegisterTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1338,17 +1200,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public removeListenerCertificates(
     args: RemoveListenerCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveListenerCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveListenerCertificatesCommandOutput) => void),
     cb?: (err: any, data?: RemoveListenerCertificatesCommandOutput) => void
   ): Promise<RemoveListenerCertificatesCommandOutput> | void {
     const command = new RemoveListenerCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1360,14 +1219,8 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
    *       resource.</p>
    *          <p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
    */
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RemoveTagsCommandOutput>;
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    cb: (err: any, data?: RemoveTagsCommandOutput) => void
-  ): void;
+  public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
+  public removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
   public removeTags(
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1375,17 +1228,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1411,17 +1261,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public setIpAddressType(
     args: SetIpAddressTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetIpAddressTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetIpAddressTypeCommandOutput) => void),
     cb?: (err: any, data?: SetIpAddressTypeCommandOutput) => void
   ): Promise<SetIpAddressTypeCommandOutput> | void {
     const command = new SetIpAddressTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1448,17 +1295,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public setRulePriorities(
     args: SetRulePrioritiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetRulePrioritiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetRulePrioritiesCommandOutput) => void),
     cb?: (err: any, data?: SetRulePrioritiesCommandOutput) => void
   ): Promise<SetRulePrioritiesCommandOutput> | void {
     const command = new SetRulePrioritiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1485,17 +1329,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public setSecurityGroups(
     args: SetSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetSecurityGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: SetSecurityGroupsCommandOutput) => void
   ): Promise<SetSecurityGroupsCommandOutput> | void {
     const command = new SetSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1509,14 +1350,8 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
    *       subnets that were enabled previously, with their existing configurations, plus any
    *       additional subnets.</p>
    */
-  public setSubnets(
-    args: SetSubnetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetSubnetsCommandOutput>;
-  public setSubnets(
-    args: SetSubnetsCommandInput,
-    cb: (err: any, data?: SetSubnetsCommandOutput) => void
-  ): void;
+  public setSubnets(args: SetSubnetsCommandInput, options?: __HttpHandlerOptions): Promise<SetSubnetsCommandOutput>;
+  public setSubnets(args: SetSubnetsCommandInput, cb: (err: any, data?: SetSubnetsCommandOutput) => void): void;
   public setSubnets(
     args: SetSubnetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1524,17 +1359,14 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public setSubnets(
     args: SetSubnetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetSubnetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetSubnetsCommandOutput) => void),
     cb?: (err: any, data?: SetSubnetsCommandOutput) => void
   ): Promise<SetSubnetsCommandOutput> | void {
     const command = new SetSubnetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

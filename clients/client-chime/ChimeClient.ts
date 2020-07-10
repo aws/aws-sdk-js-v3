@@ -1,378 +1,252 @@
 import {
   AssociatePhoneNumberWithUserCommandInput,
-  AssociatePhoneNumberWithUserCommandOutput
+  AssociatePhoneNumberWithUserCommandOutput,
 } from "./commands/AssociatePhoneNumberWithUserCommand";
 import {
   AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-  AssociatePhoneNumbersWithVoiceConnectorCommandOutput
+  AssociatePhoneNumbersWithVoiceConnectorCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorCommand";
 import {
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-  AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
+  AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
 import {
   AssociateSigninDelegateGroupsWithAccountCommandInput,
-  AssociateSigninDelegateGroupsWithAccountCommandOutput
+  AssociateSigninDelegateGroupsWithAccountCommandOutput,
 } from "./commands/AssociateSigninDelegateGroupsWithAccountCommand";
 import {
   BatchCreateAttendeeCommandInput,
-  BatchCreateAttendeeCommandOutput
+  BatchCreateAttendeeCommandOutput,
 } from "./commands/BatchCreateAttendeeCommand";
 import {
   BatchCreateRoomMembershipCommandInput,
-  BatchCreateRoomMembershipCommandOutput
+  BatchCreateRoomMembershipCommandOutput,
 } from "./commands/BatchCreateRoomMembershipCommand";
 import {
   BatchDeletePhoneNumberCommandInput,
-  BatchDeletePhoneNumberCommandOutput
+  BatchDeletePhoneNumberCommandOutput,
 } from "./commands/BatchDeletePhoneNumberCommand";
-import {
-  BatchSuspendUserCommandInput,
-  BatchSuspendUserCommandOutput
-} from "./commands/BatchSuspendUserCommand";
-import {
-  BatchUnsuspendUserCommandInput,
-  BatchUnsuspendUserCommandOutput
-} from "./commands/BatchUnsuspendUserCommand";
+import { BatchSuspendUserCommandInput, BatchSuspendUserCommandOutput } from "./commands/BatchSuspendUserCommand";
+import { BatchUnsuspendUserCommandInput, BatchUnsuspendUserCommandOutput } from "./commands/BatchUnsuspendUserCommand";
 import {
   BatchUpdatePhoneNumberCommandInput,
-  BatchUpdatePhoneNumberCommandOutput
+  BatchUpdatePhoneNumberCommandOutput,
 } from "./commands/BatchUpdatePhoneNumberCommand";
-import {
-  BatchUpdateUserCommandInput,
-  BatchUpdateUserCommandOutput
-} from "./commands/BatchUpdateUserCommand";
-import {
-  CreateAccountCommandInput,
-  CreateAccountCommandOutput
-} from "./commands/CreateAccountCommand";
-import {
-  CreateAttendeeCommandInput,
-  CreateAttendeeCommandOutput
-} from "./commands/CreateAttendeeCommand";
-import {
-  CreateBotCommandInput,
-  CreateBotCommandOutput
-} from "./commands/CreateBotCommand";
-import {
-  CreateMeetingCommandInput,
-  CreateMeetingCommandOutput
-} from "./commands/CreateMeetingCommand";
+import { BatchUpdateUserCommandInput, BatchUpdateUserCommandOutput } from "./commands/BatchUpdateUserCommand";
+import { CreateAccountCommandInput, CreateAccountCommandOutput } from "./commands/CreateAccountCommand";
+import { CreateAttendeeCommandInput, CreateAttendeeCommandOutput } from "./commands/CreateAttendeeCommand";
+import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
+import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "./commands/CreateMeetingCommand";
 import {
   CreatePhoneNumberOrderCommandInput,
-  CreatePhoneNumberOrderCommandOutput
+  CreatePhoneNumberOrderCommandOutput,
 } from "./commands/CreatePhoneNumberOrderCommand";
-import {
-  CreateRoomCommandInput,
-  CreateRoomCommandOutput
-} from "./commands/CreateRoomCommand";
+import { CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
 import {
   CreateRoomMembershipCommandInput,
-  CreateRoomMembershipCommandOutput
+  CreateRoomMembershipCommandOutput,
 } from "./commands/CreateRoomMembershipCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateVoiceConnectorCommandInput,
-  CreateVoiceConnectorCommandOutput
+  CreateVoiceConnectorCommandOutput,
 } from "./commands/CreateVoiceConnectorCommand";
 import {
   CreateVoiceConnectorGroupCommandInput,
-  CreateVoiceConnectorGroupCommandOutput
+  CreateVoiceConnectorGroupCommandOutput,
 } from "./commands/CreateVoiceConnectorGroupCommand";
-import {
-  DeleteAccountCommandInput,
-  DeleteAccountCommandOutput
-} from "./commands/DeleteAccountCommand";
-import {
-  DeleteAttendeeCommandInput,
-  DeleteAttendeeCommandOutput
-} from "./commands/DeleteAttendeeCommand";
+import { DeleteAccountCommandInput, DeleteAccountCommandOutput } from "./commands/DeleteAccountCommand";
+import { DeleteAttendeeCommandInput, DeleteAttendeeCommandOutput } from "./commands/DeleteAttendeeCommand";
 import {
   DeleteEventsConfigurationCommandInput,
-  DeleteEventsConfigurationCommandOutput
+  DeleteEventsConfigurationCommandOutput,
 } from "./commands/DeleteEventsConfigurationCommand";
-import {
-  DeleteMeetingCommandInput,
-  DeleteMeetingCommandOutput
-} from "./commands/DeleteMeetingCommand";
-import {
-  DeletePhoneNumberCommandInput,
-  DeletePhoneNumberCommandOutput
-} from "./commands/DeletePhoneNumberCommand";
-import {
-  DeleteRoomCommandInput,
-  DeleteRoomCommandOutput
-} from "./commands/DeleteRoomCommand";
+import { DeleteMeetingCommandInput, DeleteMeetingCommandOutput } from "./commands/DeleteMeetingCommand";
+import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "./commands/DeletePhoneNumberCommand";
+import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand";
 import {
   DeleteRoomMembershipCommandInput,
-  DeleteRoomMembershipCommandOutput
+  DeleteRoomMembershipCommandOutput,
 } from "./commands/DeleteRoomMembershipCommand";
 import {
   DeleteVoiceConnectorCommandInput,
-  DeleteVoiceConnectorCommandOutput
+  DeleteVoiceConnectorCommandOutput,
 } from "./commands/DeleteVoiceConnectorCommand";
 import {
   DeleteVoiceConnectorGroupCommandInput,
-  DeleteVoiceConnectorGroupCommandOutput
+  DeleteVoiceConnectorGroupCommandOutput,
 } from "./commands/DeleteVoiceConnectorGroupCommand";
 import {
   DeleteVoiceConnectorOriginationCommandInput,
-  DeleteVoiceConnectorOriginationCommandOutput
+  DeleteVoiceConnectorOriginationCommandOutput,
 } from "./commands/DeleteVoiceConnectorOriginationCommand";
 import {
   DeleteVoiceConnectorStreamingConfigurationCommandInput,
-  DeleteVoiceConnectorStreamingConfigurationCommandOutput
+  DeleteVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorStreamingConfigurationCommand";
 import {
   DeleteVoiceConnectorTerminationCommandInput,
-  DeleteVoiceConnectorTerminationCommandOutput
+  DeleteVoiceConnectorTerminationCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCommand";
 import {
   DeleteVoiceConnectorTerminationCredentialsCommandInput,
-  DeleteVoiceConnectorTerminationCredentialsCommandOutput
+  DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
 import {
   DisassociatePhoneNumberFromUserCommandInput,
-  DisassociatePhoneNumberFromUserCommandOutput
+  DisassociatePhoneNumberFromUserCommandOutput,
 } from "./commands/DisassociatePhoneNumberFromUserCommand";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-  DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
+  DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorCommand";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
+  DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput,
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorGroupCommand";
 import {
   DisassociateSigninDelegateGroupsFromAccountCommandInput,
-  DisassociateSigninDelegateGroupsFromAccountCommandOutput
+  DisassociateSigninDelegateGroupsFromAccountCommandOutput,
 } from "./commands/DisassociateSigninDelegateGroupsFromAccountCommand";
-import {
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "./commands/GetAccountCommand";
-import {
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput
-} from "./commands/GetAccountSettingsCommand";
-import {
-  GetAttendeeCommandInput,
-  GetAttendeeCommandOutput
-} from "./commands/GetAttendeeCommand";
-import {
-  GetBotCommandInput,
-  GetBotCommandOutput
-} from "./commands/GetBotCommand";
+import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
+import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
+import { GetAttendeeCommandInput, GetAttendeeCommandOutput } from "./commands/GetAttendeeCommand";
+import { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
 import {
   GetEventsConfigurationCommandInput,
-  GetEventsConfigurationCommandOutput
+  GetEventsConfigurationCommandOutput,
 } from "./commands/GetEventsConfigurationCommand";
-import {
-  GetGlobalSettingsCommandInput,
-  GetGlobalSettingsCommandOutput
-} from "./commands/GetGlobalSettingsCommand";
-import {
-  GetMeetingCommandInput,
-  GetMeetingCommandOutput
-} from "./commands/GetMeetingCommand";
-import {
-  GetPhoneNumberCommandInput,
-  GetPhoneNumberCommandOutput
-} from "./commands/GetPhoneNumberCommand";
+import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "./commands/GetGlobalSettingsCommand";
+import { GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand";
+import { GetPhoneNumberCommandInput, GetPhoneNumberCommandOutput } from "./commands/GetPhoneNumberCommand";
 import {
   GetPhoneNumberOrderCommandInput,
-  GetPhoneNumberOrderCommandOutput
+  GetPhoneNumberOrderCommandOutput,
 } from "./commands/GetPhoneNumberOrderCommand";
 import {
   GetPhoneNumberSettingsCommandInput,
-  GetPhoneNumberSettingsCommandOutput
+  GetPhoneNumberSettingsCommandOutput,
 } from "./commands/GetPhoneNumberSettingsCommand";
-import {
-  GetRoomCommandInput,
-  GetRoomCommandOutput
-} from "./commands/GetRoomCommand";
-import {
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand";
-import {
-  GetUserSettingsCommandInput,
-  GetUserSettingsCommandOutput
-} from "./commands/GetUserSettingsCommand";
-import {
-  GetVoiceConnectorCommandInput,
-  GetVoiceConnectorCommandOutput
-} from "./commands/GetVoiceConnectorCommand";
+import { GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import { GetUserSettingsCommandInput, GetUserSettingsCommandOutput } from "./commands/GetUserSettingsCommand";
+import { GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput } from "./commands/GetVoiceConnectorCommand";
 import {
   GetVoiceConnectorGroupCommandInput,
-  GetVoiceConnectorGroupCommandOutput
+  GetVoiceConnectorGroupCommandOutput,
 } from "./commands/GetVoiceConnectorGroupCommand";
 import {
   GetVoiceConnectorLoggingConfigurationCommandInput,
-  GetVoiceConnectorLoggingConfigurationCommandOutput
+  GetVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorLoggingConfigurationCommand";
 import {
   GetVoiceConnectorOriginationCommandInput,
-  GetVoiceConnectorOriginationCommandOutput
+  GetVoiceConnectorOriginationCommandOutput,
 } from "./commands/GetVoiceConnectorOriginationCommand";
 import {
   GetVoiceConnectorStreamingConfigurationCommandInput,
-  GetVoiceConnectorStreamingConfigurationCommandOutput
+  GetVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorStreamingConfigurationCommand";
 import {
   GetVoiceConnectorTerminationCommandInput,
-  GetVoiceConnectorTerminationCommandOutput
+  GetVoiceConnectorTerminationCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationCommand";
 import {
   GetVoiceConnectorTerminationHealthCommandInput,
-  GetVoiceConnectorTerminationHealthCommandOutput
+  GetVoiceConnectorTerminationHealthCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationHealthCommand";
-import {
-  InviteUsersCommandInput,
-  InviteUsersCommandOutput
-} from "./commands/InviteUsersCommand";
-import {
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput
-} from "./commands/ListAccountsCommand";
-import {
-  ListAttendeesCommandInput,
-  ListAttendeesCommandOutput
-} from "./commands/ListAttendeesCommand";
-import {
-  ListBotsCommandInput,
-  ListBotsCommandOutput
-} from "./commands/ListBotsCommand";
-import {
-  ListMeetingsCommandInput,
-  ListMeetingsCommandOutput
-} from "./commands/ListMeetingsCommand";
+import { InviteUsersCommandInput, InviteUsersCommandOutput } from "./commands/InviteUsersCommand";
+import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
+import { ListAttendeesCommandInput, ListAttendeesCommandOutput } from "./commands/ListAttendeesCommand";
+import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import { ListMeetingsCommandInput, ListMeetingsCommandOutput } from "./commands/ListMeetingsCommand";
 import {
   ListPhoneNumberOrdersCommandInput,
-  ListPhoneNumberOrdersCommandOutput
+  ListPhoneNumberOrdersCommandOutput,
 } from "./commands/ListPhoneNumberOrdersCommand";
-import {
-  ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput
-} from "./commands/ListPhoneNumbersCommand";
+import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
 import {
   ListRoomMembershipsCommandInput,
-  ListRoomMembershipsCommandOutput
+  ListRoomMembershipsCommandOutput,
 } from "./commands/ListRoomMembershipsCommand";
-import {
-  ListRoomsCommandInput,
-  ListRoomsCommandOutput
-} from "./commands/ListRoomsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ListVoiceConnectorGroupsCommandInput,
-  ListVoiceConnectorGroupsCommandOutput
+  ListVoiceConnectorGroupsCommandOutput,
 } from "./commands/ListVoiceConnectorGroupsCommand";
 import {
   ListVoiceConnectorTerminationCredentialsCommandInput,
-  ListVoiceConnectorTerminationCredentialsCommandOutput
+  ListVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
 import {
   ListVoiceConnectorsCommandInput,
-  ListVoiceConnectorsCommandOutput
+  ListVoiceConnectorsCommandOutput,
 } from "./commands/ListVoiceConnectorsCommand";
-import {
-  LogoutUserCommandInput,
-  LogoutUserCommandOutput
-} from "./commands/LogoutUserCommand";
+import { LogoutUserCommandInput, LogoutUserCommandOutput } from "./commands/LogoutUserCommand";
 import {
   PutEventsConfigurationCommandInput,
-  PutEventsConfigurationCommandOutput
+  PutEventsConfigurationCommandOutput,
 } from "./commands/PutEventsConfigurationCommand";
 import {
   PutVoiceConnectorLoggingConfigurationCommandInput,
-  PutVoiceConnectorLoggingConfigurationCommandOutput
+  PutVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorLoggingConfigurationCommand";
 import {
   PutVoiceConnectorOriginationCommandInput,
-  PutVoiceConnectorOriginationCommandOutput
+  PutVoiceConnectorOriginationCommandOutput,
 } from "./commands/PutVoiceConnectorOriginationCommand";
 import {
   PutVoiceConnectorStreamingConfigurationCommandInput,
-  PutVoiceConnectorStreamingConfigurationCommandOutput
+  PutVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorStreamingConfigurationCommand";
 import {
   PutVoiceConnectorTerminationCommandInput,
-  PutVoiceConnectorTerminationCommandOutput
+  PutVoiceConnectorTerminationCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCommand";
 import {
   PutVoiceConnectorTerminationCredentialsCommandInput,
-  PutVoiceConnectorTerminationCredentialsCommandOutput
+  PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCredentialsCommand";
 import {
   RegenerateSecurityTokenCommandInput,
-  RegenerateSecurityTokenCommandOutput
+  RegenerateSecurityTokenCommandOutput,
 } from "./commands/RegenerateSecurityTokenCommand";
-import {
-  ResetPersonalPINCommandInput,
-  ResetPersonalPINCommandOutput
-} from "./commands/ResetPersonalPINCommand";
-import {
-  RestorePhoneNumberCommandInput,
-  RestorePhoneNumberCommandOutput
-} from "./commands/RestorePhoneNumberCommand";
+import { ResetPersonalPINCommandInput, ResetPersonalPINCommandOutput } from "./commands/ResetPersonalPINCommand";
+import { RestorePhoneNumberCommandInput, RestorePhoneNumberCommandOutput } from "./commands/RestorePhoneNumberCommand";
 import {
   SearchAvailablePhoneNumbersCommandInput,
-  SearchAvailablePhoneNumbersCommandOutput
+  SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
-import {
-  UpdateAccountCommandInput,
-  UpdateAccountCommandOutput
-} from "./commands/UpdateAccountCommand";
+import { UpdateAccountCommandInput, UpdateAccountCommandOutput } from "./commands/UpdateAccountCommand";
 import {
   UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput
+  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
-import {
-  UpdateBotCommandInput,
-  UpdateBotCommandOutput
-} from "./commands/UpdateBotCommand";
+import { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
 import {
   UpdateGlobalSettingsCommandInput,
-  UpdateGlobalSettingsCommandOutput
+  UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
-import {
-  UpdatePhoneNumberCommandInput,
-  UpdatePhoneNumberCommandOutput
-} from "./commands/UpdatePhoneNumberCommand";
+import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "./commands/UpdatePhoneNumberCommand";
 import {
   UpdatePhoneNumberSettingsCommandInput,
-  UpdatePhoneNumberSettingsCommandOutput
+  UpdatePhoneNumberSettingsCommandOutput,
 } from "./commands/UpdatePhoneNumberSettingsCommand";
-import {
-  UpdateRoomCommandInput,
-  UpdateRoomCommandOutput
-} from "./commands/UpdateRoomCommand";
+import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
 import {
   UpdateRoomMembershipCommandInput,
-  UpdateRoomMembershipCommandOutput
+  UpdateRoomMembershipCommandOutput,
 } from "./commands/UpdateRoomMembershipCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
-import {
-  UpdateUserSettingsCommandInput,
-  UpdateUserSettingsCommandOutput
-} from "./commands/UpdateUserSettingsCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import { UpdateUserSettingsCommandInput, UpdateUserSettingsCommandOutput } from "./commands/UpdateUserSettingsCommand";
 import {
   UpdateVoiceConnectorCommandInput,
-  UpdateVoiceConnectorCommandOutput
+  UpdateVoiceConnectorCommandOutput,
 } from "./commands/UpdateVoiceConnectorCommand";
 import {
   UpdateVoiceConnectorGroupCommandInput,
-  UpdateVoiceConnectorGroupCommandOutput
+  UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -381,38 +255,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -423,7 +292,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -618,8 +487,7 @@ export type ServiceOutputTypes =
   | UpdateVoiceConnectorCommandOutput
   | UpdateVoiceConnectorGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -708,9 +576,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ChimeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ChimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -719,9 +585,7 @@ export type ChimeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -780,7 +644,7 @@ export class ChimeClient extends __Client<
   constructor(configuration: ChimeClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

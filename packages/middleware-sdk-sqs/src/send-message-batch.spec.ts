@@ -18,21 +18,21 @@ describe("sendMessageBatchMiddleware", () => {
       output: {
         Successful: [
           { Id: "foo", MD5OfMessageBody: "00" },
-          { Id: "bar", MD5OfMessageBody: "00" }
-        ]
-      }
+          { Id: "bar", MD5OfMessageBody: "00" },
+        ],
+      },
     });
     const handler = sendMessageBatchMiddleware({
-      md5: MockHash
+      md5: MockHash,
     })(next, {} as any);
 
     await handler({
       input: {
         Entries: [
           { Id: "foo", MessageBody: "0" },
-          { Id: "bar", MessageBody: "0" }
-        ]
-      }
+          { Id: "bar", MessageBody: "0" },
+        ],
+      },
     });
 
     expect(mockHashUpdate.mock.calls.length).toBe(2);
@@ -44,12 +44,12 @@ describe("sendMessageBatchMiddleware", () => {
       output: {
         Successful: [
           { Id: "foo", MD5OfMessageBody: "00", MessageId: "fooMessage" },
-          { Id: "bar", MD5OfMessageBody: "1", MessageId: "barMessage" }
-        ]
-      }
+          { Id: "bar", MD5OfMessageBody: "1", MessageId: "barMessage" },
+        ],
+      },
     });
     const handler = sendMessageBatchMiddleware({
-      md5: MockHash
+      md5: MockHash,
     })(next, {} as any);
 
     await expect(
@@ -57,13 +57,11 @@ describe("sendMessageBatchMiddleware", () => {
         input: {
           Entries: [
             { Id: "foo", MessageBody: "0" },
-            { Id: "bar", MessageBody: "0" }
-          ]
-        }
+            { Id: "bar", MessageBody: "0" },
+          ],
+        },
       })
-    ).rejects.toThrow(
-      new Error("Invalid MD5 checksum on messages: barMessage")
-    );
+    ).rejects.toThrow(new Error("Invalid MD5 checksum on messages: barMessage"));
     expect(mockHashUpdate.mock.calls.length).toBe(2);
     expect(mockHashDigest.mock.calls.length).toBe(2);
   });

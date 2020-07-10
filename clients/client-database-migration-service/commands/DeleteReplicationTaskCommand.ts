@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteReplicationTaskMessage,
-  DeleteReplicationTaskResponse
-} from "../models/index";
+import { DeleteReplicationTaskMessage, DeleteReplicationTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteReplicationTaskCommand,
-  serializeAws_json1_1DeleteReplicationTaskCommand
+  serializeAws_json1_1DeleteReplicationTaskCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteReplicationTaskCommandInput = DeleteReplicationTaskMessage;
-export type DeleteReplicationTaskCommandOutput = DeleteReplicationTaskResponse &
-  __MetadataBearer;
+export type DeleteReplicationTaskCommandOutput = DeleteReplicationTaskResponse & __MetadataBearer;
 
 export class DeleteReplicationTaskCommand extends $Command<
   DeleteReplicationTaskCommandInput,
@@ -49,18 +42,13 @@ export class DeleteReplicationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReplicationTaskCommandInput,
-    DeleteReplicationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReplicationTaskCommandInput, DeleteReplicationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +58,11 @@ export class DeleteReplicationTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteReplicationTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReplicationTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteReplicationTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationTaskCommandOutput> {
     return deserializeAws_json1_1DeleteReplicationTaskCommand(output, context);
   }
 

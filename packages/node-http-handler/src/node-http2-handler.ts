@@ -40,10 +40,7 @@ export class NodeHttp2Handler implements HttpHandler {
     this.connectionPool.clear();
   }
 
-  handle(
-    request: HttpRequest,
-    { abortSignal }: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return new Promise((resolve, reject) => {
       // if the request was already aborted, prevent doing extra work
       if (abortSignal?.aborted) {
@@ -57,21 +54,17 @@ export class NodeHttp2Handler implements HttpHandler {
       const queryString = buildQueryString(query || {});
 
       // create the http2 request
-      const req = this.getSession(
-        `${protocol}//${hostname}${port ? `:${port}` : ""}`
-      ).request({
+      const req = this.getSession(`${protocol}//${hostname}${port ? `:${port}` : ""}`).request({
         ...request.headers,
-        [constants.HTTP2_HEADER_PATH]: queryString
-          ? `${path}?${queryString}`
-          : path,
-        [constants.HTTP2_HEADER_METHOD]: method
+        [constants.HTTP2_HEADER_PATH]: queryString ? `${path}?${queryString}` : path,
+        [constants.HTTP2_HEADER_METHOD]: method,
       });
 
-      req.on("response", headers => {
+      req.on("response", (headers) => {
         const httpResponse = new HttpResponse({
           statusCode: headers[":status"] || -1,
           headers: getTransformedHeaders(headers),
-          body: req
+          body: req,
         });
         resolve({ response: httpResponse });
       });
@@ -84,9 +77,7 @@ export class NodeHttp2Handler implements HttpHandler {
       if (requestTimeout) {
         req.setTimeout(requestTimeout, () => {
           req.close();
-          const timeoutError = new Error(
-            `Stream timed out because of no activity for ${requestTimeout} ms`
-          );
+          const timeoutError = new Error(`Stream timed out because of no activity for ${requestTimeout} ms`);
           timeoutError.name = "TimeoutError";
           reject(timeoutError);
         });

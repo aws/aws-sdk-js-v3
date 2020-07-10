@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  SendAutomationSignalRequest,
-  SendAutomationSignalResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/index";
 import {
   deserializeAws_json1_1SendAutomationSignalCommand,
-  serializeAws_json1_1SendAutomationSignalCommand
+  serializeAws_json1_1SendAutomationSignalCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SendAutomationSignalCommandInput = SendAutomationSignalRequest;
-export type SendAutomationSignalCommandOutput = SendAutomationSignalResult &
-  __MetadataBearer;
+export type SendAutomationSignalCommandOutput = SendAutomationSignalResult & __MetadataBearer;
 
 export class SendAutomationSignalCommand extends $Command<
   SendAutomationSignalCommandInput,
@@ -49,18 +38,13 @@ export class SendAutomationSignalCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SendAutomationSignalCommandInput,
-    SendAutomationSignalCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SendAutomationSignalCommandInput, SendAutomationSignalCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class SendAutomationSignalCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendAutomationSignalCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendAutomationSignalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendAutomationSignalCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendAutomationSignalCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAutomationSignalCommandOutput> {
     return deserializeAws_json1_1SendAutomationSignalCommand(output, context);
   }
 

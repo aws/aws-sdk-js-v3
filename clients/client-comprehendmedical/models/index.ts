@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -61,7 +57,7 @@ export interface Attribute {
 
 export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
@@ -70,7 +66,7 @@ export enum AttributeName {
   DIAGNOSIS = "DIAGNOSIS",
   NEGATION = "NEGATION",
   SIGN = "SIGN",
-  SYMPTOM = "SYMPTOM"
+  SYMPTOM = "SYMPTOM",
 }
 
 /**
@@ -105,13 +101,10 @@ export interface ComprehendMedicalAsyncJobFilter {
 }
 
 export namespace ComprehendMedicalAsyncJobFilter {
-  export const filterSensitiveLog = (
-    obj: ComprehendMedicalAsyncJobFilter
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobFilter): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ComprehendMedicalAsyncJobFilter =>
-    __isa(o, "ComprehendMedicalAsyncJobFilter");
+  export const isa = (o: any): o is ComprehendMedicalAsyncJobFilter => __isa(o, "ComprehendMedicalAsyncJobFilter");
 }
 
 /**
@@ -196,10 +189,8 @@ export interface ComprehendMedicalAsyncJobProperties {
 }
 
 export namespace ComprehendMedicalAsyncJobProperties {
-  export const filterSensitiveLog = (
-    obj: ComprehendMedicalAsyncJobProperties
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobProperties): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ComprehendMedicalAsyncJobProperties =>
     __isa(o, "ComprehendMedicalAsyncJobProperties");
@@ -216,10 +207,8 @@ export interface DescribeEntitiesDetectionV2JobRequest {
 }
 
 export namespace DescribeEntitiesDetectionV2JobRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeEntitiesDetectionV2JobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEntitiesDetectionV2JobRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeEntitiesDetectionV2JobRequest =>
     __isa(o, "DescribeEntitiesDetectionV2JobRequest");
@@ -234,10 +223,8 @@ export interface DescribeEntitiesDetectionV2JobResponse {
 }
 
 export namespace DescribeEntitiesDetectionV2JobResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeEntitiesDetectionV2JobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEntitiesDetectionV2JobResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeEntitiesDetectionV2JobResponse =>
     __isa(o, "DescribeEntitiesDetectionV2JobResponse");
@@ -253,13 +240,10 @@ export interface DescribePHIDetectionJobRequest {
 }
 
 export namespace DescribePHIDetectionJobRequest {
-  export const filterSensitiveLog = (
-    obj: DescribePHIDetectionJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePHIDetectionJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePHIDetectionJobRequest =>
-    __isa(o, "DescribePHIDetectionJobRequest");
+  export const isa = (o: any): o is DescribePHIDetectionJobRequest => __isa(o, "DescribePHIDetectionJobRequest");
 }
 
 export interface DescribePHIDetectionJobResponse {
@@ -271,13 +255,10 @@ export interface DescribePHIDetectionJobResponse {
 }
 
 export namespace DescribePHIDetectionJobResponse {
-  export const filterSensitiveLog = (
-    obj: DescribePHIDetectionJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePHIDetectionJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePHIDetectionJobResponse =>
-    __isa(o, "DescribePHIDetectionJobResponse");
+  export const isa = (o: any): o is DescribePHIDetectionJobResponse => __isa(o, "DescribePHIDetectionJobResponse");
 }
 
 export interface DetectEntitiesRequest {
@@ -291,10 +272,9 @@ export interface DetectEntitiesRequest {
 
 export namespace DetectEntitiesRequest {
   export const filterSensitiveLog = (obj: DetectEntitiesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesRequest =>
-    __isa(o, "DetectEntitiesRequest");
+  export const isa = (o: any): o is DetectEntitiesRequest => __isa(o, "DetectEntitiesRequest");
 }
 
 export interface DetectEntitiesResponse {
@@ -327,10 +307,9 @@ export interface DetectEntitiesResponse {
 
 export namespace DetectEntitiesResponse {
   export const filterSensitiveLog = (obj: DetectEntitiesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesResponse =>
-    __isa(o, "DetectEntitiesResponse");
+  export const isa = (o: any): o is DetectEntitiesResponse => __isa(o, "DetectEntitiesResponse");
 }
 
 export interface DetectEntitiesV2Request {
@@ -344,10 +323,9 @@ export interface DetectEntitiesV2Request {
 
 export namespace DetectEntitiesV2Request {
   export const filterSensitiveLog = (obj: DetectEntitiesV2Request): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesV2Request =>
-    __isa(o, "DetectEntitiesV2Request");
+  export const isa = (o: any): o is DetectEntitiesV2Request => __isa(o, "DetectEntitiesV2Request");
 }
 
 export interface DetectEntitiesV2Response {
@@ -380,10 +358,9 @@ export interface DetectEntitiesV2Response {
 
 export namespace DetectEntitiesV2Response {
   export const filterSensitiveLog = (obj: DetectEntitiesV2Response): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesV2Response =>
-    __isa(o, "DetectEntitiesV2Response");
+  export const isa = (o: any): o is DetectEntitiesV2Response => __isa(o, "DetectEntitiesV2Response");
 }
 
 export interface DetectPHIRequest {
@@ -397,10 +374,9 @@ export interface DetectPHIRequest {
 
 export namespace DetectPHIRequest {
   export const filterSensitiveLog = (obj: DetectPHIRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetectPHIRequest =>
-    __isa(o, "DetectPHIRequest");
+  export const isa = (o: any): o is DetectPHIRequest => __isa(o, "DetectPHIRequest");
 }
 
 export interface DetectPHIResponse {
@@ -428,10 +404,9 @@ export interface DetectPHIResponse {
 
 export namespace DetectPHIResponse {
   export const filterSensitiveLog = (obj: DetectPHIResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetectPHIResponse =>
-    __isa(o, "DetectPHIResponse");
+  export const isa = (o: any): o is DetectPHIResponse => __isa(o, "DetectPHIResponse");
 }
 
 /**
@@ -490,7 +465,7 @@ export interface Entity {
 
 export namespace Entity {
   export const filterSensitiveLog = (obj: Entity): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
@@ -523,7 +498,7 @@ export enum EntitySubType {
   TEST_UNITS = "TEST_UNITS",
   TEST_VALUE = "TEST_VALUE",
   TREATMENT_NAME = "TREATMENT_NAME",
-  URL = "URL"
+  URL = "URL",
 }
 
 export enum EntityType {
@@ -531,7 +506,7 @@ export enum EntityType {
   MEDICAL_CONDITION = "MEDICAL_CONDITION",
   MEDICATION = "MEDICATION",
   PROTECTED_HEALTH_INFORMATION = "PROTECTED_HEALTH_INFORMATION",
-  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE"
+  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE",
 }
 
 /**
@@ -592,10 +567,9 @@ export interface ICD10CMAttribute {
 
 export namespace ICD10CMAttribute {
   export const filterSensitiveLog = (obj: ICD10CMAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ICD10CMAttribute =>
-    __isa(o, "ICD10CMAttribute");
+  export const isa = (o: any): o is ICD10CMAttribute => __isa(o, "ICD10CMAttribute");
 }
 
 export enum ICD10CMAttributeType {
@@ -603,7 +577,7 @@ export enum ICD10CMAttributeType {
   DIRECTION = "DIRECTION",
   QUALITY = "QUALITY",
   QUANTITY = "QUANTITY",
-  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE"
+  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
 }
 
 /**
@@ -631,10 +605,9 @@ export interface ICD10CMConcept {
 
 export namespace ICD10CMConcept {
   export const filterSensitiveLog = (obj: ICD10CMConcept): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ICD10CMConcept =>
-    __isa(o, "ICD10CMConcept");
+  export const isa = (o: any): o is ICD10CMConcept => __isa(o, "ICD10CMConcept");
 }
 
 /**
@@ -709,17 +682,17 @@ export interface ICD10CMEntity {
 
 export namespace ICD10CMEntity {
   export const filterSensitiveLog = (obj: ICD10CMEntity): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ICD10CMEntity => __isa(o, "ICD10CMEntity");
 }
 
 export enum ICD10CMEntityCategory {
-  MEDICAL_CONDITION = "MEDICAL_CONDITION"
+  MEDICAL_CONDITION = "MEDICAL_CONDITION",
 }
 
 export enum ICD10CMEntityType {
-  DX_NAME = "DX_NAME"
+  DX_NAME = "DX_NAME",
 }
 
 /**
@@ -743,7 +716,7 @@ export interface ICD10CMTrait {
 
 export namespace ICD10CMTrait {
   export const filterSensitiveLog = (obj: ICD10CMTrait): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ICD10CMTrait => __isa(o, "ICD10CMTrait");
 }
@@ -752,7 +725,7 @@ export enum ICD10CMTraitName {
   DIAGNOSIS = "DIAGNOSIS",
   NEGATION = "NEGATION",
   SIGN = "SIGN",
-  SYMPTOM = "SYMPTOM"
+  SYMPTOM = "SYMPTOM",
 }
 
 export interface InferICD10CMRequest {
@@ -766,10 +739,9 @@ export interface InferICD10CMRequest {
 
 export namespace InferICD10CMRequest {
   export const filterSensitiveLog = (obj: InferICD10CMRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InferICD10CMRequest =>
-    __isa(o, "InferICD10CMRequest");
+  export const isa = (o: any): o is InferICD10CMRequest => __isa(o, "InferICD10CMRequest");
 }
 
 export interface InferICD10CMResponse {
@@ -796,10 +768,9 @@ export interface InferICD10CMResponse {
 
 export namespace InferICD10CMResponse {
   export const filterSensitiveLog = (obj: InferICD10CMResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InferICD10CMResponse =>
-    __isa(o, "InferICD10CMResponse");
+  export const isa = (o: any): o is InferICD10CMResponse => __isa(o, "InferICD10CMResponse");
 }
 
 export interface InferRxNormRequest {
@@ -813,10 +784,9 @@ export interface InferRxNormRequest {
 
 export namespace InferRxNormRequest {
   export const filterSensitiveLog = (obj: InferRxNormRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InferRxNormRequest =>
-    __isa(o, "InferRxNormRequest");
+  export const isa = (o: any): o is InferRxNormRequest => __isa(o, "InferRxNormRequest");
 }
 
 export interface InferRxNormResponse {
@@ -843,10 +813,9 @@ export interface InferRxNormResponse {
 
 export namespace InferRxNormResponse {
   export const filterSensitiveLog = (obj: InferRxNormResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InferRxNormResponse =>
-    __isa(o, "InferRxNormResponse");
+  export const isa = (o: any): o is InferRxNormResponse => __isa(o, "InferRxNormResponse");
 }
 
 /**
@@ -870,18 +839,15 @@ export interface InputDataConfig {
 
 export namespace InputDataConfig {
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputDataConfig =>
-    __isa(o, "InputDataConfig");
+  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 /**
  * <p> An internal server error occurred. Retry your request. </p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -889,19 +855,16 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your
  *    request.</p>
  */
-export interface InvalidEncodingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEncodingException extends __SmithyException, $MetadataBearer {
   name: "InvalidEncodingException";
   $fault: "client";
   Message?: string;
@@ -909,19 +872,16 @@ export interface InvalidEncodingException
 
 export namespace InvalidEncodingException {
   export const filterSensitiveLog = (obj: InvalidEncodingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidEncodingException =>
-    __isa(o, "InvalidEncodingException");
+  export const isa = (o: any): o is InvalidEncodingException => __isa(o, "InvalidEncodingException");
 }
 
 /**
  * <p> The request that you made is invalid. Check your request to determine why it's invalid and
  *    then retry the request.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -929,10 +889,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export enum JobStatus {
@@ -942,11 +901,11 @@ export enum JobStatus {
   PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
   STOPPED = "STOPPED",
   STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED"
+  SUBMITTED = "SUBMITTED",
 }
 
 export enum LanguageCode {
-  EN = "en"
+  EN = "en",
 }
 
 export interface ListEntitiesDetectionV2JobsRequest {
@@ -969,10 +928,8 @@ export interface ListEntitiesDetectionV2JobsRequest {
 }
 
 export namespace ListEntitiesDetectionV2JobsRequest {
-  export const filterSensitiveLog = (
-    obj: ListEntitiesDetectionV2JobsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEntitiesDetectionV2JobsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListEntitiesDetectionV2JobsRequest =>
     __isa(o, "ListEntitiesDetectionV2JobsRequest");
@@ -992,10 +949,8 @@ export interface ListEntitiesDetectionV2JobsResponse {
 }
 
 export namespace ListEntitiesDetectionV2JobsResponse {
-  export const filterSensitiveLog = (
-    obj: ListEntitiesDetectionV2JobsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEntitiesDetectionV2JobsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListEntitiesDetectionV2JobsResponse =>
     __isa(o, "ListEntitiesDetectionV2JobsResponse");
@@ -1021,13 +976,10 @@ export interface ListPHIDetectionJobsRequest {
 }
 
 export namespace ListPHIDetectionJobsRequest {
-  export const filterSensitiveLog = (
-    obj: ListPHIDetectionJobsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPHIDetectionJobsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListPHIDetectionJobsRequest =>
-    __isa(o, "ListPHIDetectionJobsRequest");
+  export const isa = (o: any): o is ListPHIDetectionJobsRequest => __isa(o, "ListPHIDetectionJobsRequest");
 }
 
 export interface ListPHIDetectionJobsResponse {
@@ -1044,13 +996,10 @@ export interface ListPHIDetectionJobsResponse {
 }
 
 export namespace ListPHIDetectionJobsResponse {
-  export const filterSensitiveLog = (
-    obj: ListPHIDetectionJobsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPHIDetectionJobsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListPHIDetectionJobsResponse =>
-    __isa(o, "ListPHIDetectionJobsResponse");
+  export const isa = (o: any): o is ListPHIDetectionJobsResponse => __isa(o, "ListPHIDetectionJobsResponse");
 }
 
 /**
@@ -1075,19 +1024,16 @@ export interface OutputDataConfig {
 
 export namespace OutputDataConfig {
   export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OutputDataConfig =>
-    __isa(o, "OutputDataConfig");
+  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 /**
  * <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the
  *    ARN and try your request again.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1095,10 +1041,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1158,10 +1103,9 @@ export interface RxNormAttribute {
 
 export namespace RxNormAttribute {
   export const filterSensitiveLog = (obj: RxNormAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RxNormAttribute =>
-    __isa(o, "RxNormAttribute");
+  export const isa = (o: any): o is RxNormAttribute => __isa(o, "RxNormAttribute");
 }
 
 export enum RxNormAttributeType {
@@ -1171,7 +1115,7 @@ export enum RxNormAttributeType {
   FREQUENCY = "FREQUENCY",
   RATE = "RATE",
   ROUTE_OR_MODE = "ROUTE_OR_MODE",
-  STRENGTH = "STRENGTH"
+  STRENGTH = "STRENGTH",
 }
 
 /**
@@ -1199,7 +1143,7 @@ export interface RxNormConcept {
 
 export namespace RxNormConcept {
   export const filterSensitiveLog = (obj: RxNormConcept): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RxNormConcept => __isa(o, "RxNormConcept");
 }
@@ -1274,18 +1218,18 @@ export interface RxNormEntity {
 
 export namespace RxNormEntity {
   export const filterSensitiveLog = (obj: RxNormEntity): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RxNormEntity => __isa(o, "RxNormEntity");
 }
 
 export enum RxNormEntityCategory {
-  MEDICATION = "MEDICATION"
+  MEDICATION = "MEDICATION",
 }
 
 export enum RxNormEntityType {
   BRAND_NAME = "BRAND_NAME",
-  GENERIC_NAME = "GENERIC_NAME"
+  GENERIC_NAME = "GENERIC_NAME",
 }
 
 /**
@@ -1308,35 +1252,30 @@ export interface RxNormTrait {
 
 export namespace RxNormTrait {
   export const filterSensitiveLog = (obj: RxNormTrait): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RxNormTrait => __isa(o, "RxNormTrait");
 }
 
 export enum RxNormTraitName {
-  NEGATION = "NEGATION"
+  NEGATION = "NEGATION",
 }
 
 /**
  * <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
  *   </p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartEntitiesDetectionV2JobRequest {
@@ -1381,10 +1320,8 @@ export interface StartEntitiesDetectionV2JobRequest {
 }
 
 export namespace StartEntitiesDetectionV2JobRequest {
-  export const filterSensitiveLog = (
-    obj: StartEntitiesDetectionV2JobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartEntitiesDetectionV2JobRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartEntitiesDetectionV2JobRequest =>
     __isa(o, "StartEntitiesDetectionV2JobRequest");
@@ -1400,10 +1337,8 @@ export interface StartEntitiesDetectionV2JobResponse {
 }
 
 export namespace StartEntitiesDetectionV2JobResponse {
-  export const filterSensitiveLog = (
-    obj: StartEntitiesDetectionV2JobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartEntitiesDetectionV2JobResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartEntitiesDetectionV2JobResponse =>
     __isa(o, "StartEntitiesDetectionV2JobResponse");
@@ -1451,13 +1386,10 @@ export interface StartPHIDetectionJobRequest {
 }
 
 export namespace StartPHIDetectionJobRequest {
-  export const filterSensitiveLog = (
-    obj: StartPHIDetectionJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartPHIDetectionJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartPHIDetectionJobRequest =>
-    __isa(o, "StartPHIDetectionJobRequest");
+  export const isa = (o: any): o is StartPHIDetectionJobRequest => __isa(o, "StartPHIDetectionJobRequest");
 }
 
 export interface StartPHIDetectionJobResponse {
@@ -1470,13 +1402,10 @@ export interface StartPHIDetectionJobResponse {
 }
 
 export namespace StartPHIDetectionJobResponse {
-  export const filterSensitiveLog = (
-    obj: StartPHIDetectionJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartPHIDetectionJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartPHIDetectionJobResponse =>
-    __isa(o, "StartPHIDetectionJobResponse");
+  export const isa = (o: any): o is StartPHIDetectionJobResponse => __isa(o, "StartPHIDetectionJobResponse");
 }
 
 export interface StopEntitiesDetectionV2JobRequest {
@@ -1488,13 +1417,10 @@ export interface StopEntitiesDetectionV2JobRequest {
 }
 
 export namespace StopEntitiesDetectionV2JobRequest {
-  export const filterSensitiveLog = (
-    obj: StopEntitiesDetectionV2JobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopEntitiesDetectionV2JobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopEntitiesDetectionV2JobRequest =>
-    __isa(o, "StopEntitiesDetectionV2JobRequest");
+  export const isa = (o: any): o is StopEntitiesDetectionV2JobRequest => __isa(o, "StopEntitiesDetectionV2JobRequest");
 }
 
 export interface StopEntitiesDetectionV2JobResponse {
@@ -1506,10 +1432,8 @@ export interface StopEntitiesDetectionV2JobResponse {
 }
 
 export namespace StopEntitiesDetectionV2JobResponse {
-  export const filterSensitiveLog = (
-    obj: StopEntitiesDetectionV2JobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopEntitiesDetectionV2JobResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StopEntitiesDetectionV2JobResponse =>
     __isa(o, "StopEntitiesDetectionV2JobResponse");
@@ -1525,10 +1449,9 @@ export interface StopPHIDetectionJobRequest {
 
 export namespace StopPHIDetectionJobRequest {
   export const filterSensitiveLog = (obj: StopPHIDetectionJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopPHIDetectionJobRequest =>
-    __isa(o, "StopPHIDetectionJobRequest");
+  export const isa = (o: any): o is StopPHIDetectionJobRequest => __isa(o, "StopPHIDetectionJobRequest");
 }
 
 export interface StopPHIDetectionJobResponse {
@@ -1540,35 +1463,27 @@ export interface StopPHIDetectionJobResponse {
 }
 
 export namespace StopPHIDetectionJobResponse {
-  export const filterSensitiveLog = (
-    obj: StopPHIDetectionJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopPHIDetectionJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopPHIDetectionJobResponse =>
-    __isa(o, "StopPHIDetectionJobResponse");
+  export const isa = (o: any): o is StopPHIDetectionJobResponse => __isa(o, "StopPHIDetectionJobResponse");
 }
 
 /**
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *    use a smaller document and then retry your request. </p>
  */
-export interface TextSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TextSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TextSizeLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: TextSizeLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TextSizeLimitExceededException =>
-    __isa(o, "TextSizeLimitExceededException");
+  export const isa = (o: any): o is TextSizeLimitExceededException => __isa(o, "TextSizeLimitExceededException");
 }
 
 /**
@@ -1576,9 +1491,7 @@ export namespace TextSizeLimitExceededException {
  *    then try your request again. Contact customer support for more information about a service limit
  *    increase. </p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1586,10 +1499,9 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1610,7 +1522,7 @@ export interface Trait {
 
 export namespace Trait {
   export const filterSensitiveLog = (obj: Trait): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Trait => __isa(o, "Trait");
 }
@@ -1635,19 +1547,16 @@ export interface UnmappedAttribute {
 
 export namespace UnmappedAttribute {
   export const filterSensitiveLog = (obj: UnmappedAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnmappedAttribute =>
-    __isa(o, "UnmappedAttribute");
+  export const isa = (o: any): o is UnmappedAttribute => __isa(o, "UnmappedAttribute");
 }
 
 /**
  * <p>The filter that you specified for the operation is invalid. Check the filter values that you
  *    entered and try your request again.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
@@ -1655,8 +1564,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

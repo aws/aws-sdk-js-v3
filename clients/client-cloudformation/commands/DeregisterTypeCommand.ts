@@ -1,18 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DeregisterTypeInput, DeregisterTypeOutput } from "../models/index";
 import {
   deserializeAws_queryDeregisterTypeCommand,
-  serializeAws_queryDeregisterTypeCommand
+  serializeAws_queryDeregisterTypeCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeregisterTypeCommandInput = DeregisterTypeInput;
-export type DeregisterTypeCommandOutput = DeregisterTypeOutput &
-  __MetadataBearer;
+export type DeregisterTypeCommandOutput = DeregisterTypeOutput & __MetadataBearer;
 
 export class DeregisterTypeCommand extends $Command<
   DeregisterTypeCommandInput,
@@ -47,14 +39,12 @@ export class DeregisterTypeCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterTypeCommandInput, DeregisterTypeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DeregisterTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeregisterTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeregisterTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeregisterTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeregisterTypeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTypeCommandOutput> {
     return deserializeAws_queryDeregisterTypeCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
-import {
-  CreateHsmConfigurationMessage,
-  CreateHsmConfigurationResult
-} from "../models/index";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { CreateHsmConfigurationMessage, CreateHsmConfigurationResult } from "../models/index";
 import {
   deserializeAws_queryCreateHsmConfigurationCommand,
-  serializeAws_queryCreateHsmConfigurationCommand
+  serializeAws_queryCreateHsmConfigurationCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateHsmConfigurationCommandInput = CreateHsmConfigurationMessage;
-export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult &
-  __MetadataBearer;
+export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult & __MetadataBearer;
 
 export class CreateHsmConfigurationCommand extends $Command<
   CreateHsmConfigurationCommandInput,
@@ -49,18 +38,13 @@ export class CreateHsmConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateHsmConfigurationCommandInput,
-    CreateHsmConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateHsmConfigurationCommandInput, CreateHsmConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateHsmConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateHsmConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateHsmConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateHsmConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateHsmConfigurationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHsmConfigurationCommandOutput> {
     return deserializeAws_queryCreateHsmConfigurationCommand(output, context);
   }
 

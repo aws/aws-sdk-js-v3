@@ -15,6 +15,6 @@ export function resolveMd5BodyChecksumConfig<T>(
   input: T & PreviouslyResolved & Md5BodyChecksumInputConfig
 ): T & Md5BodyChecksumResolvedConfig {
   return {
-    ...input
+    ...input,
   };
 }

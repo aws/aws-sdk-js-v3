@@ -2,372 +2,312 @@ import { OpsWorksClient } from "./OpsWorksClient";
 import {
   AssignInstanceCommand,
   AssignInstanceCommandInput,
-  AssignInstanceCommandOutput
+  AssignInstanceCommandOutput,
 } from "./commands/AssignInstanceCommand";
 import {
   AssignVolumeCommand,
   AssignVolumeCommandInput,
-  AssignVolumeCommandOutput
+  AssignVolumeCommandOutput,
 } from "./commands/AssignVolumeCommand";
 import {
   AssociateElasticIpCommand,
   AssociateElasticIpCommandInput,
-  AssociateElasticIpCommandOutput
+  AssociateElasticIpCommandOutput,
 } from "./commands/AssociateElasticIpCommand";
 import {
   AttachElasticLoadBalancerCommand,
   AttachElasticLoadBalancerCommandInput,
-  AttachElasticLoadBalancerCommandOutput
+  AttachElasticLoadBalancerCommandOutput,
 } from "./commands/AttachElasticLoadBalancerCommand";
-import {
-  CloneStackCommand,
-  CloneStackCommandInput,
-  CloneStackCommandOutput
-} from "./commands/CloneStackCommand";
-import {
-  CreateAppCommand,
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
+import { CloneStackCommand, CloneStackCommandInput, CloneStackCommandOutput } from "./commands/CloneStackCommand";
+import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateDeploymentCommand,
   CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
+  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
   CreateInstanceCommand,
   CreateInstanceCommandInput,
-  CreateInstanceCommandOutput
+  CreateInstanceCommandOutput,
 } from "./commands/CreateInstanceCommand";
-import {
-  CreateLayerCommand,
-  CreateLayerCommandInput,
-  CreateLayerCommandOutput
-} from "./commands/CreateLayerCommand";
-import {
-  CreateStackCommand,
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand";
+import { CreateLayerCommand, CreateLayerCommandInput, CreateLayerCommandOutput } from "./commands/CreateLayerCommand";
+import { CreateStackCommand, CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateUserProfileCommand,
   CreateUserProfileCommandInput,
-  CreateUserProfileCommandOutput
+  CreateUserProfileCommandOutput,
 } from "./commands/CreateUserProfileCommand";
-import {
-  DeleteAppCommand,
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { DeleteAppCommand, DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteInstanceCommand,
   DeleteInstanceCommandInput,
-  DeleteInstanceCommandOutput
+  DeleteInstanceCommandOutput,
 } from "./commands/DeleteInstanceCommand";
-import {
-  DeleteLayerCommand,
-  DeleteLayerCommandInput,
-  DeleteLayerCommandOutput
-} from "./commands/DeleteLayerCommand";
-import {
-  DeleteStackCommand,
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand";
+import { DeleteLayerCommand, DeleteLayerCommandInput, DeleteLayerCommandOutput } from "./commands/DeleteLayerCommand";
+import { DeleteStackCommand, DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteUserProfileCommand,
   DeleteUserProfileCommandInput,
-  DeleteUserProfileCommandOutput
+  DeleteUserProfileCommandOutput,
 } from "./commands/DeleteUserProfileCommand";
 import {
   DeregisterEcsClusterCommand,
   DeregisterEcsClusterCommandInput,
-  DeregisterEcsClusterCommandOutput
+  DeregisterEcsClusterCommandOutput,
 } from "./commands/DeregisterEcsClusterCommand";
 import {
   DeregisterElasticIpCommand,
   DeregisterElasticIpCommandInput,
-  DeregisterElasticIpCommandOutput
+  DeregisterElasticIpCommandOutput,
 } from "./commands/DeregisterElasticIpCommand";
 import {
   DeregisterInstanceCommand,
   DeregisterInstanceCommandInput,
-  DeregisterInstanceCommandOutput
+  DeregisterInstanceCommandOutput,
 } from "./commands/DeregisterInstanceCommand";
 import {
   DeregisterRdsDbInstanceCommand,
   DeregisterRdsDbInstanceCommandInput,
-  DeregisterRdsDbInstanceCommandOutput
+  DeregisterRdsDbInstanceCommandOutput,
 } from "./commands/DeregisterRdsDbInstanceCommand";
 import {
   DeregisterVolumeCommand,
   DeregisterVolumeCommandInput,
-  DeregisterVolumeCommandOutput
+  DeregisterVolumeCommandOutput,
 } from "./commands/DeregisterVolumeCommand";
 import {
   DescribeAgentVersionsCommand,
   DescribeAgentVersionsCommandInput,
-  DescribeAgentVersionsCommandOutput
+  DescribeAgentVersionsCommandOutput,
 } from "./commands/DescribeAgentVersionsCommand";
 import {
   DescribeAppsCommand,
   DescribeAppsCommandInput,
-  DescribeAppsCommandOutput
+  DescribeAppsCommandOutput,
 } from "./commands/DescribeAppsCommand";
 import {
   DescribeCommandsCommand,
   DescribeCommandsCommandInput,
-  DescribeCommandsCommandOutput
+  DescribeCommandsCommandOutput,
 } from "./commands/DescribeCommandsCommand";
 import {
   DescribeDeploymentsCommand,
   DescribeDeploymentsCommandInput,
-  DescribeDeploymentsCommandOutput
+  DescribeDeploymentsCommandOutput,
 } from "./commands/DescribeDeploymentsCommand";
 import {
   DescribeEcsClustersCommand,
   DescribeEcsClustersCommandInput,
-  DescribeEcsClustersCommandOutput
+  DescribeEcsClustersCommandOutput,
 } from "./commands/DescribeEcsClustersCommand";
 import {
   DescribeElasticIpsCommand,
   DescribeElasticIpsCommandInput,
-  DescribeElasticIpsCommandOutput
+  DescribeElasticIpsCommandOutput,
 } from "./commands/DescribeElasticIpsCommand";
 import {
   DescribeElasticLoadBalancersCommand,
   DescribeElasticLoadBalancersCommandInput,
-  DescribeElasticLoadBalancersCommandOutput
+  DescribeElasticLoadBalancersCommandOutput,
 } from "./commands/DescribeElasticLoadBalancersCommand";
 import {
   DescribeInstancesCommand,
   DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
+  DescribeInstancesCommandOutput,
 } from "./commands/DescribeInstancesCommand";
 import {
   DescribeLayersCommand,
   DescribeLayersCommandInput,
-  DescribeLayersCommandOutput
+  DescribeLayersCommandOutput,
 } from "./commands/DescribeLayersCommand";
 import {
   DescribeLoadBasedAutoScalingCommand,
   DescribeLoadBasedAutoScalingCommandInput,
-  DescribeLoadBasedAutoScalingCommandOutput
+  DescribeLoadBasedAutoScalingCommandOutput,
 } from "./commands/DescribeLoadBasedAutoScalingCommand";
 import {
   DescribeMyUserProfileCommand,
   DescribeMyUserProfileCommandInput,
-  DescribeMyUserProfileCommandOutput
+  DescribeMyUserProfileCommandOutput,
 } from "./commands/DescribeMyUserProfileCommand";
 import {
   DescribeOperatingSystemsCommand,
   DescribeOperatingSystemsCommandInput,
-  DescribeOperatingSystemsCommandOutput
+  DescribeOperatingSystemsCommandOutput,
 } from "./commands/DescribeOperatingSystemsCommand";
 import {
   DescribePermissionsCommand,
   DescribePermissionsCommandInput,
-  DescribePermissionsCommandOutput
+  DescribePermissionsCommandOutput,
 } from "./commands/DescribePermissionsCommand";
 import {
   DescribeRaidArraysCommand,
   DescribeRaidArraysCommandInput,
-  DescribeRaidArraysCommandOutput
+  DescribeRaidArraysCommandOutput,
 } from "./commands/DescribeRaidArraysCommand";
 import {
   DescribeRdsDbInstancesCommand,
   DescribeRdsDbInstancesCommandInput,
-  DescribeRdsDbInstancesCommandOutput
+  DescribeRdsDbInstancesCommandOutput,
 } from "./commands/DescribeRdsDbInstancesCommand";
 import {
   DescribeServiceErrorsCommand,
   DescribeServiceErrorsCommandInput,
-  DescribeServiceErrorsCommandOutput
+  DescribeServiceErrorsCommandOutput,
 } from "./commands/DescribeServiceErrorsCommand";
 import {
   DescribeStackProvisioningParametersCommand,
   DescribeStackProvisioningParametersCommandInput,
-  DescribeStackProvisioningParametersCommandOutput
+  DescribeStackProvisioningParametersCommandOutput,
 } from "./commands/DescribeStackProvisioningParametersCommand";
 import {
   DescribeStackSummaryCommand,
   DescribeStackSummaryCommandInput,
-  DescribeStackSummaryCommandOutput
+  DescribeStackSummaryCommandOutput,
 } from "./commands/DescribeStackSummaryCommand";
 import {
   DescribeStacksCommand,
   DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
+  DescribeStacksCommandOutput,
 } from "./commands/DescribeStacksCommand";
 import {
   DescribeTimeBasedAutoScalingCommand,
   DescribeTimeBasedAutoScalingCommandInput,
-  DescribeTimeBasedAutoScalingCommandOutput
+  DescribeTimeBasedAutoScalingCommandOutput,
 } from "./commands/DescribeTimeBasedAutoScalingCommand";
 import {
   DescribeUserProfilesCommand,
   DescribeUserProfilesCommandInput,
-  DescribeUserProfilesCommandOutput
+  DescribeUserProfilesCommandOutput,
 } from "./commands/DescribeUserProfilesCommand";
 import {
   DescribeVolumesCommand,
   DescribeVolumesCommandInput,
-  DescribeVolumesCommandOutput
+  DescribeVolumesCommandOutput,
 } from "./commands/DescribeVolumesCommand";
 import {
   DetachElasticLoadBalancerCommand,
   DetachElasticLoadBalancerCommandInput,
-  DetachElasticLoadBalancerCommandOutput
+  DetachElasticLoadBalancerCommandOutput,
 } from "./commands/DetachElasticLoadBalancerCommand";
 import {
   DisassociateElasticIpCommand,
   DisassociateElasticIpCommandInput,
-  DisassociateElasticIpCommandOutput
+  DisassociateElasticIpCommandOutput,
 } from "./commands/DisassociateElasticIpCommand";
 import {
   GetHostnameSuggestionCommand,
   GetHostnameSuggestionCommandInput,
-  GetHostnameSuggestionCommandOutput
+  GetHostnameSuggestionCommandOutput,
 } from "./commands/GetHostnameSuggestionCommand";
-import {
-  GrantAccessCommand,
-  GrantAccessCommandInput,
-  GrantAccessCommandOutput
-} from "./commands/GrantAccessCommand";
-import {
-  ListTagsCommand,
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { GrantAccessCommand, GrantAccessCommandInput, GrantAccessCommandOutput } from "./commands/GrantAccessCommand";
+import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   RebootInstanceCommand,
   RebootInstanceCommandInput,
-  RebootInstanceCommandOutput
+  RebootInstanceCommandOutput,
 } from "./commands/RebootInstanceCommand";
 import {
   RegisterEcsClusterCommand,
   RegisterEcsClusterCommandInput,
-  RegisterEcsClusterCommandOutput
+  RegisterEcsClusterCommandOutput,
 } from "./commands/RegisterEcsClusterCommand";
 import {
   RegisterElasticIpCommand,
   RegisterElasticIpCommandInput,
-  RegisterElasticIpCommandOutput
+  RegisterElasticIpCommandOutput,
 } from "./commands/RegisterElasticIpCommand";
 import {
   RegisterInstanceCommand,
   RegisterInstanceCommandInput,
-  RegisterInstanceCommandOutput
+  RegisterInstanceCommandOutput,
 } from "./commands/RegisterInstanceCommand";
 import {
   RegisterRdsDbInstanceCommand,
   RegisterRdsDbInstanceCommandInput,
-  RegisterRdsDbInstanceCommandOutput
+  RegisterRdsDbInstanceCommandOutput,
 } from "./commands/RegisterRdsDbInstanceCommand";
 import {
   RegisterVolumeCommand,
   RegisterVolumeCommandInput,
-  RegisterVolumeCommandOutput
+  RegisterVolumeCommandOutput,
 } from "./commands/RegisterVolumeCommand";
 import {
   SetLoadBasedAutoScalingCommand,
   SetLoadBasedAutoScalingCommandInput,
-  SetLoadBasedAutoScalingCommandOutput
+  SetLoadBasedAutoScalingCommandOutput,
 } from "./commands/SetLoadBasedAutoScalingCommand";
 import {
   SetPermissionCommand,
   SetPermissionCommandInput,
-  SetPermissionCommandOutput
+  SetPermissionCommandOutput,
 } from "./commands/SetPermissionCommand";
 import {
   SetTimeBasedAutoScalingCommand,
   SetTimeBasedAutoScalingCommandInput,
-  SetTimeBasedAutoScalingCommandOutput
+  SetTimeBasedAutoScalingCommandOutput,
 } from "./commands/SetTimeBasedAutoScalingCommand";
 import {
   StartInstanceCommand,
   StartInstanceCommandInput,
-  StartInstanceCommandOutput
+  StartInstanceCommandOutput,
 } from "./commands/StartInstanceCommand";
-import {
-  StartStackCommand,
-  StartStackCommandInput,
-  StartStackCommandOutput
-} from "./commands/StartStackCommand";
+import { StartStackCommand, StartStackCommandInput, StartStackCommandOutput } from "./commands/StartStackCommand";
 import {
   StopInstanceCommand,
   StopInstanceCommandInput,
-  StopInstanceCommandOutput
+  StopInstanceCommandOutput,
 } from "./commands/StopInstanceCommand";
-import {
-  StopStackCommand,
-  StopStackCommandInput,
-  StopStackCommandOutput
-} from "./commands/StopStackCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StopStackCommand, StopStackCommandInput, StopStackCommandOutput } from "./commands/StopStackCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnassignInstanceCommand,
   UnassignInstanceCommandInput,
-  UnassignInstanceCommandOutput
+  UnassignInstanceCommandOutput,
 } from "./commands/UnassignInstanceCommand";
 import {
   UnassignVolumeCommand,
   UnassignVolumeCommandInput,
-  UnassignVolumeCommandOutput
+  UnassignVolumeCommandOutput,
 } from "./commands/UnassignVolumeCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateAppCommand,
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand";
+import { UpdateAppCommand, UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
   UpdateElasticIpCommand,
   UpdateElasticIpCommandInput,
-  UpdateElasticIpCommandOutput
+  UpdateElasticIpCommandOutput,
 } from "./commands/UpdateElasticIpCommand";
 import {
   UpdateInstanceCommand,
   UpdateInstanceCommandInput,
-  UpdateInstanceCommandOutput
+  UpdateInstanceCommandOutput,
 } from "./commands/UpdateInstanceCommand";
-import {
-  UpdateLayerCommand,
-  UpdateLayerCommandInput,
-  UpdateLayerCommandOutput
-} from "./commands/UpdateLayerCommand";
+import { UpdateLayerCommand, UpdateLayerCommandInput, UpdateLayerCommandOutput } from "./commands/UpdateLayerCommand";
 import {
   UpdateMyUserProfileCommand,
   UpdateMyUserProfileCommandInput,
-  UpdateMyUserProfileCommandOutput
+  UpdateMyUserProfileCommandOutput,
 } from "./commands/UpdateMyUserProfileCommand";
 import {
   UpdateRdsDbInstanceCommand,
   UpdateRdsDbInstanceCommandInput,
-  UpdateRdsDbInstanceCommandOutput
+  UpdateRdsDbInstanceCommandOutput,
 } from "./commands/UpdateRdsDbInstanceCommand";
-import {
-  UpdateStackCommand,
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand";
+import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateUserProfileCommand,
   UpdateUserProfileCommandInput,
-  UpdateUserProfileCommandOutput
+  UpdateUserProfileCommandOutput,
 } from "./commands/UpdateUserProfileCommand";
 import {
   UpdateVolumeCommand,
   UpdateVolumeCommandInput,
-  UpdateVolumeCommandOutput
+  UpdateVolumeCommandOutput,
 } from "./commands/UpdateVolumeCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -524,17 +464,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public assignInstance(
     args: AssignInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssignInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignInstanceCommandOutput) => void),
     cb?: (err: any, data?: AssignInstanceCommandOutput) => void
   ): Promise<AssignInstanceCommandOutput> | void {
     const command = new AssignInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -556,10 +493,7 @@ export class OpsWorks extends OpsWorksClient {
     args: AssignVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssignVolumeCommandOutput>;
-  public assignVolume(
-    args: AssignVolumeCommandInput,
-    cb: (err: any, data?: AssignVolumeCommandOutput) => void
-  ): void;
+  public assignVolume(args: AssignVolumeCommandInput, cb: (err: any, data?: AssignVolumeCommandOutput) => void): void;
   public assignVolume(
     args: AssignVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -567,17 +501,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public assignVolume(
     args: AssignVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssignVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignVolumeCommandOutput) => void),
     cb?: (err: any, data?: AssignVolumeCommandOutput) => void
   ): Promise<AssignVolumeCommandOutput> | void {
     const command = new AssignVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -610,17 +541,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public associateElasticIp(
     args: AssociateElasticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateElasticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateElasticIpCommandOutput) => void),
     cb?: (err: any, data?: AssociateElasticIpCommandOutput) => void
   ): Promise<AssociateElasticIpCommandOutput> | void {
     const command = new AssociateElasticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -658,17 +586,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public attachElasticLoadBalancer(
     args: AttachElasticLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachElasticLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachElasticLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: AttachElasticLoadBalancerCommandOutput) => void
   ): Promise<AttachElasticLoadBalancerCommandOutput> | void {
     const command = new AttachElasticLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -683,14 +608,8 @@ export class OpsWorks extends OpsWorksClient {
    *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public cloneStack(
-    args: CloneStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CloneStackCommandOutput>;
-  public cloneStack(
-    args: CloneStackCommandInput,
-    cb: (err: any, data?: CloneStackCommandOutput) => void
-  ): void;
+  public cloneStack(args: CloneStackCommandInput, options?: __HttpHandlerOptions): Promise<CloneStackCommandOutput>;
+  public cloneStack(args: CloneStackCommandInput, cb: (err: any, data?: CloneStackCommandOutput) => void): void;
   public cloneStack(
     args: CloneStackCommandInput,
     options: __HttpHandlerOptions,
@@ -698,17 +617,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public cloneStack(
     args: CloneStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CloneStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CloneStackCommandOutput) => void),
     cb?: (err: any, data?: CloneStackCommandOutput) => void
   ): Promise<CloneStackCommandOutput> | void {
     const command = new CloneStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -724,14 +640,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public createApp(
-    args: CreateAppCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAppCommandOutput>;
-  public createApp(
-    args: CreateAppCommandInput,
-    cb: (err: any, data?: CreateAppCommandOutput) => void
-  ): void;
+  public createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
+  public createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
   public createApp(
     args: CreateAppCommandInput,
     options: __HttpHandlerOptions,
@@ -739,17 +649,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -780,17 +687,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -821,17 +725,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createInstance(
     args: CreateInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateInstanceCommandOutput) => void
   ): Promise<CreateInstanceCommandOutput> | void {
     const command = new CreateInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -854,14 +755,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public createLayer(
-    args: CreateLayerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLayerCommandOutput>;
-  public createLayer(
-    args: CreateLayerCommandInput,
-    cb: (err: any, data?: CreateLayerCommandOutput) => void
-  ): void;
+  public createLayer(args: CreateLayerCommandInput, options?: __HttpHandlerOptions): Promise<CreateLayerCommandOutput>;
+  public createLayer(args: CreateLayerCommandInput, cb: (err: any, data?: CreateLayerCommandOutput) => void): void;
   public createLayer(
     args: CreateLayerCommandInput,
     options: __HttpHandlerOptions,
@@ -869,17 +764,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createLayer(
     args: CreateLayerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLayerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLayerCommandOutput) => void),
     cb?: (err: any, data?: CreateLayerCommandOutput) => void
   ): Promise<CreateLayerCommandOutput> | void {
     const command = new CreateLayerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -894,14 +786,8 @@ export class OpsWorks extends OpsWorksClient {
    *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public createStack(
-    args: CreateStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateStackCommandOutput>;
-  public createStack(
-    args: CreateStackCommandInput,
-    cb: (err: any, data?: CreateStackCommandOutput) => void
-  ): void;
+  public createStack(args: CreateStackCommandInput, options?: __HttpHandlerOptions): Promise<CreateStackCommandOutput>;
+  public createStack(args: CreateStackCommandInput, cb: (err: any, data?: CreateStackCommandOutput) => void): void;
   public createStack(
     args: CreateStackCommandInput,
     options: __HttpHandlerOptions,
@@ -909,17 +795,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createStack(
     args: CreateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackCommandOutput) => void),
     cb?: (err: any, data?: CreateStackCommandOutput) => void
   ): Promise<CreateStackCommandOutput> | void {
     const command = new CreateStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -948,17 +831,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createUserProfile(
     args: CreateUserProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateUserProfileCommandOutput) => void
   ): Promise<CreateUserProfileCommandOutput> | void {
     const command = new CreateUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -973,14 +853,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAppCommandOutput>;
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    cb: (err: any, data?: DeleteAppCommandOutput) => void
-  ): void;
+  public deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
+  public deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
   public deleteApp(
     args: DeleteAppCommandInput,
     options: __HttpHandlerOptions,
@@ -988,17 +862,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1030,17 +901,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteInstance(
     args: DeleteInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): Promise<DeleteInstanceCommandOutput> | void {
     const command = new DeleteInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1057,14 +925,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public deleteLayer(
-    args: DeleteLayerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteLayerCommandOutput>;
-  public deleteLayer(
-    args: DeleteLayerCommandInput,
-    cb: (err: any, data?: DeleteLayerCommandOutput) => void
-  ): void;
+  public deleteLayer(args: DeleteLayerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLayerCommandOutput>;
+  public deleteLayer(args: DeleteLayerCommandInput, cb: (err: any, data?: DeleteLayerCommandOutput) => void): void;
   public deleteLayer(
     args: DeleteLayerCommandInput,
     options: __HttpHandlerOptions,
@@ -1072,17 +934,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteLayer(
     args: DeleteLayerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLayerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLayerCommandOutput) => void),
     cb?: (err: any, data?: DeleteLayerCommandOutput) => void
   ): Promise<DeleteLayerCommandOutput> | void {
     const command = new DeleteLayerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1099,14 +958,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public deleteStack(
-    args: DeleteStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteStackCommandOutput>;
-  public deleteStack(
-    args: DeleteStackCommandInput,
-    cb: (err: any, data?: DeleteStackCommandOutput) => void
-  ): void;
+  public deleteStack(args: DeleteStackCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStackCommandOutput>;
+  public deleteStack(args: DeleteStackCommandInput, cb: (err: any, data?: DeleteStackCommandOutput) => void): void;
   public deleteStack(
     args: DeleteStackCommandInput,
     options: __HttpHandlerOptions,
@@ -1114,17 +967,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteStack(
     args: DeleteStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackCommandOutput) => void
   ): Promise<DeleteStackCommandOutput> | void {
     const command = new DeleteStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1153,17 +1003,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteUserProfile(
     args: DeleteUserProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserProfileCommandOutput) => void
   ): Promise<DeleteUserProfileCommandOutput> | void {
     const command = new DeleteUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1196,17 +1043,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deregisterEcsCluster(
     args: DeregisterEcsClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterEcsClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterEcsClusterCommandOutput) => void),
     cb?: (err: any, data?: DeregisterEcsClusterCommandOutput) => void
   ): Promise<DeregisterEcsClusterCommandOutput> | void {
     const command = new DeregisterEcsClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1237,17 +1081,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deregisterElasticIp(
     args: DeregisterElasticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterElasticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterElasticIpCommandOutput) => void),
     cb?: (err: any, data?: DeregisterElasticIpCommandOutput) => void
   ): Promise<DeregisterElasticIpCommandOutput> | void {
     const command = new DeregisterElasticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1279,17 +1120,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deregisterInstance(
     args: DeregisterInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeregisterInstanceCommandOutput) => void
   ): Promise<DeregisterInstanceCommandOutput> | void {
     const command = new DeregisterInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1319,17 +1157,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deregisterRdsDbInstance(
     args: DeregisterRdsDbInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void
   ): Promise<DeregisterRdsDbInstanceCommandOutput> | void {
     const command = new DeregisterRdsDbInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1361,17 +1196,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deregisterVolume(
     args: DeregisterVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterVolumeCommandOutput) => void),
     cb?: (err: any, data?: DeregisterVolumeCommandOutput) => void
   ): Promise<DeregisterVolumeCommandOutput> | void {
     const command = new DeregisterVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1398,17 +1230,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeAgentVersions(
     args: DescribeAgentVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAgentVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgentVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAgentVersionsCommandOutput) => void
   ): Promise<DescribeAgentVersionsCommandOutput> | void {
     const command = new DescribeAgentVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1430,10 +1259,7 @@ export class OpsWorks extends OpsWorksClient {
     args: DescribeAppsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAppsCommandOutput>;
-  public describeApps(
-    args: DescribeAppsCommandInput,
-    cb: (err: any, data?: DescribeAppsCommandOutput) => void
-  ): void;
+  public describeApps(args: DescribeAppsCommandInput, cb: (err: any, data?: DescribeAppsCommandOutput) => void): void;
   public describeApps(
     args: DescribeAppsCommandInput,
     options: __HttpHandlerOptions,
@@ -1441,17 +1267,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeApps(
     args: DescribeAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAppsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAppsCommandOutput) => void
   ): Promise<DescribeAppsCommandOutput> | void {
     const command = new DescribeAppsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1484,17 +1307,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeCommands(
     args: DescribeCommandsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCommandsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCommandsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCommandsCommandOutput) => void
   ): Promise<DescribeCommandsCommandOutput> | void {
     const command = new DescribeCommandsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1527,17 +1347,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeDeployments(
     args: DescribeDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeploymentsCommandOutput) => void
   ): Promise<DescribeDeploymentsCommandOutput> | void {
     const command = new DescribeDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1571,17 +1388,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeEcsClusters(
     args: DescribeEcsClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEcsClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEcsClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeEcsClustersCommandOutput) => void
   ): Promise<DescribeEcsClustersCommandOutput> | void {
     const command = new DescribeEcsClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1614,17 +1428,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeElasticIps(
     args: DescribeElasticIpsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeElasticIpsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticIpsCommandOutput) => void),
     cb?: (err: any, data?: DescribeElasticIpsCommandOutput) => void
   ): Promise<DescribeElasticIpsCommandOutput> | void {
     const command = new DescribeElasticIpsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1657,17 +1468,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeElasticLoadBalancers(
     args: DescribeElasticLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void),
     cb?: (err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void
   ): Promise<DescribeElasticLoadBalancersCommandOutput> | void {
     const command = new DescribeElasticLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1700,17 +1508,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeInstances(
     args: DescribeInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstancesCommandOutput) => void
   ): Promise<DescribeInstancesCommandOutput> | void {
     const command = new DescribeInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1743,17 +1548,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeLayers(
     args: DescribeLayersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLayersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLayersCommandOutput) => void),
     cb?: (err: any, data?: DescribeLayersCommandOutput) => void
   ): Promise<DescribeLayersCommandOutput> | void {
     const command = new DescribeLayersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1786,17 +1588,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeLoadBasedAutoScaling(
     args: DescribeLoadBasedAutoScalingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void
   ): Promise<DescribeLoadBasedAutoScalingCommandOutput> | void {
     const command = new DescribeLoadBasedAutoScalingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1826,17 +1625,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeMyUserProfile(
     args: DescribeMyUserProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMyUserProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMyUserProfileCommandOutput) => void),
     cb?: (err: any, data?: DescribeMyUserProfileCommandOutput) => void
   ): Promise<DescribeMyUserProfileCommandOutput> | void {
     const command = new DescribeMyUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1861,17 +1657,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeOperatingSystems(
     args: DescribeOperatingSystemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOperatingSystemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOperatingSystemsCommandOutput) => void),
     cb?: (err: any, data?: DescribeOperatingSystemsCommandOutput) => void
   ): Promise<DescribeOperatingSystemsCommandOutput> | void {
     const command = new DescribeOperatingSystemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1901,17 +1694,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describePermissions(
     args: DescribePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePermissionsCommandOutput) => void),
     cb?: (err: any, data?: DescribePermissionsCommandOutput) => void
   ): Promise<DescribePermissionsCommandOutput> | void {
     const command = new DescribePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1944,17 +1734,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeRaidArrays(
     args: DescribeRaidArraysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRaidArraysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRaidArraysCommandOutput) => void),
     cb?: (err: any, data?: DescribeRaidArraysCommandOutput) => void
   ): Promise<DescribeRaidArraysCommandOutput> | void {
     const command = new DescribeRaidArraysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1985,17 +1772,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeRdsDbInstances(
     args: DescribeRdsDbInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRdsDbInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRdsDbInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeRdsDbInstancesCommandOutput) => void
   ): Promise<DescribeRdsDbInstancesCommandOutput> | void {
     const command = new DescribeRdsDbInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2026,17 +1810,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeServiceErrors(
     args: DescribeServiceErrorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServiceErrorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServiceErrorsCommandOutput) => void),
     cb?: (err: any, data?: DescribeServiceErrorsCommandOutput) => void
   ): Promise<DescribeServiceErrorsCommandOutput> | void {
     const command = new DescribeServiceErrorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2057,38 +1838,23 @@ export class OpsWorks extends OpsWorksClient {
   ): Promise<DescribeStackProvisioningParametersCommandOutput>;
   public describeStackProvisioningParameters(
     args: DescribeStackProvisioningParametersCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeStackProvisioningParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
   ): void;
   public describeStackProvisioningParameters(
     args: DescribeStackProvisioningParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeStackProvisioningParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
   ): void;
   public describeStackProvisioningParameters(
     args: DescribeStackProvisioningParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeStackProvisioningParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeStackProvisioningParametersCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
   ): Promise<DescribeStackProvisioningParametersCommandOutput> | void {
     const command = new DescribeStackProvisioningParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2118,17 +1884,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeStacks(
     args: DescribeStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStacksCommandOutput) => void),
     cb?: (err: any, data?: DescribeStacksCommandOutput) => void
   ): Promise<DescribeStacksCommandOutput> | void {
     const command = new DescribeStacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2159,17 +1922,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeStackSummary(
     args: DescribeStackSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackSummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackSummaryCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackSummaryCommandOutput) => void
   ): Promise<DescribeStackSummaryCommandOutput> | void {
     const command = new DescribeStackSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2202,17 +1962,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeTimeBasedAutoScaling(
     args: DescribeTimeBasedAutoScalingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void),
     cb?: (err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void
   ): Promise<DescribeTimeBasedAutoScalingCommandOutput> | void {
     const command = new DescribeTimeBasedAutoScalingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2241,17 +1998,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeUserProfiles(
     args: DescribeUserProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserProfilesCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserProfilesCommandOutput) => void
   ): Promise<DescribeUserProfilesCommandOutput> | void {
     const command = new DescribeUserProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2284,17 +2038,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeVolumes(
     args: DescribeVolumesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVolumesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVolumesCommandOutput) => void
   ): Promise<DescribeVolumesCommandOutput> | void {
     const command = new DescribeVolumesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2324,17 +2075,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public detachElasticLoadBalancer(
     args: DetachElasticLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachElasticLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachElasticLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: DetachElasticLoadBalancerCommandOutput) => void
   ): Promise<DetachElasticLoadBalancerCommandOutput> | void {
     const command = new DetachElasticLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2365,17 +2113,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public disassociateElasticIp(
     args: DisassociateElasticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateElasticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateElasticIpCommandOutput) => void),
     cb?: (err: any, data?: DisassociateElasticIpCommandOutput) => void
   ): Promise<DisassociateElasticIpCommandOutput> | void {
     const command = new DisassociateElasticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2405,17 +2150,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public getHostnameSuggestion(
     args: GetHostnameSuggestionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHostnameSuggestionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostnameSuggestionCommandOutput) => void),
     cb?: (err: any, data?: GetHostnameSuggestionCommandOutput) => void
   ): Promise<GetHostnameSuggestionCommandOutput> | void {
     const command = new GetHostnameSuggestionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2428,14 +2170,8 @@ export class OpsWorks extends OpsWorksClient {
    *          </note>
    *          <p>Grants RDP access to a Windows instance for a specified time period.</p>
    */
-  public grantAccess(
-    args: GrantAccessCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GrantAccessCommandOutput>;
-  public grantAccess(
-    args: GrantAccessCommandInput,
-    cb: (err: any, data?: GrantAccessCommandOutput) => void
-  ): void;
+  public grantAccess(args: GrantAccessCommandInput, options?: __HttpHandlerOptions): Promise<GrantAccessCommandOutput>;
+  public grantAccess(args: GrantAccessCommandInput, cb: (err: any, data?: GrantAccessCommandOutput) => void): void;
   public grantAccess(
     args: GrantAccessCommandInput,
     options: __HttpHandlerOptions,
@@ -2443,17 +2179,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public grantAccess(
     args: GrantAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GrantAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GrantAccessCommandOutput) => void),
     cb?: (err: any, data?: GrantAccessCommandOutput) => void
   ): Promise<GrantAccessCommandOutput> | void {
     const command = new GrantAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2463,14 +2196,8 @@ export class OpsWorks extends OpsWorksClient {
   /**
    * <p>Returns a list of tags that are applied to the specified stack or layer.</p>
    */
-  public listTags(
-    args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
+  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
   public listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2478,17 +2205,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2519,17 +2243,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public rebootInstance(
     args: RebootInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootInstanceCommandOutput) => void
   ): Promise<RebootInstanceCommandOutput> | void {
     const command = new RebootInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2564,17 +2285,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public registerEcsCluster(
     args: RegisterEcsClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterEcsClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterEcsClusterCommandOutput) => void),
     cb?: (err: any, data?: RegisterEcsClusterCommandOutput) => void
   ): Promise<RegisterEcsClusterCommandOutput> | void {
     const command = new RegisterEcsClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2606,17 +2324,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public registerElasticIp(
     args: RegisterElasticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterElasticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterElasticIpCommandOutput) => void),
     cb?: (err: any, data?: RegisterElasticIpCommandOutput) => void
   ): Promise<RegisterElasticIpCommandOutput> | void {
     const command = new RegisterElasticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2659,17 +2374,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public registerInstance(
     args: RegisterInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterInstanceCommandOutput) => void),
     cb?: (err: any, data?: RegisterInstanceCommandOutput) => void
   ): Promise<RegisterInstanceCommandOutput> | void {
     const command = new RegisterInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2699,17 +2411,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public registerRdsDbInstance(
     args: RegisterRdsDbInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterRdsDbInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterRdsDbInstanceCommandOutput) => void),
     cb?: (err: any, data?: RegisterRdsDbInstanceCommandOutput) => void
   ): Promise<RegisterRdsDbInstanceCommandOutput> | void {
     const command = new RegisterRdsDbInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2741,17 +2450,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public registerVolume(
     args: RegisterVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterVolumeCommandOutput) => void),
     cb?: (err: any, data?: RegisterVolumeCommandOutput) => void
   ): Promise<RegisterVolumeCommandOutput> | void {
     const command = new RegisterVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2786,17 +2492,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public setLoadBasedAutoScaling(
     args: SetLoadBasedAutoScalingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void),
     cb?: (err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void
   ): Promise<SetLoadBasedAutoScalingCommandOutput> | void {
     const command = new SetLoadBasedAutoScalingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2827,17 +2530,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public setPermission(
     args: SetPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetPermissionCommandOutput) => void),
     cb?: (err: any, data?: SetPermissionCommandOutput) => void
   ): Promise<SetPermissionCommandOutput> | void {
     const command = new SetPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2869,17 +2569,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public setTimeBasedAutoScaling(
     args: SetTimeBasedAutoScalingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void),
     cb?: (err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void
   ): Promise<SetTimeBasedAutoScalingCommandOutput> | void {
     const command = new SetTimeBasedAutoScalingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2910,17 +2607,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public startInstance(
     args: StartInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInstanceCommandOutput) => void),
     cb?: (err: any, data?: StartInstanceCommandOutput) => void
   ): Promise<StartInstanceCommandOutput> | void {
     const command = new StartInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2935,14 +2629,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public startStack(
-    args: StartStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartStackCommandOutput>;
-  public startStack(
-    args: StartStackCommandInput,
-    cb: (err: any, data?: StartStackCommandOutput) => void
-  ): void;
+  public startStack(args: StartStackCommandInput, options?: __HttpHandlerOptions): Promise<StartStackCommandOutput>;
+  public startStack(args: StartStackCommandInput, cb: (err: any, data?: StartStackCommandOutput) => void): void;
   public startStack(
     args: StartStackCommandInput,
     options: __HttpHandlerOptions,
@@ -2950,17 +2638,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public startStack(
     args: StartStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartStackCommandOutput) => void),
     cb?: (err: any, data?: StartStackCommandOutput) => void
   ): Promise<StartStackCommandOutput> | void {
     const command = new StartStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2982,10 +2667,7 @@ export class OpsWorks extends OpsWorksClient {
     args: StopInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopInstanceCommandOutput>;
-  public stopInstance(
-    args: StopInstanceCommandInput,
-    cb: (err: any, data?: StopInstanceCommandOutput) => void
-  ): void;
+  public stopInstance(args: StopInstanceCommandInput, cb: (err: any, data?: StopInstanceCommandOutput) => void): void;
   public stopInstance(
     args: StopInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -2993,17 +2675,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public stopInstance(
     args: StopInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInstanceCommandOutput) => void),
     cb?: (err: any, data?: StopInstanceCommandOutput) => void
   ): Promise<StopInstanceCommandOutput> | void {
     const command = new StopInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3018,14 +2697,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public stopStack(
-    args: StopStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopStackCommandOutput>;
-  public stopStack(
-    args: StopStackCommandInput,
-    cb: (err: any, data?: StopStackCommandOutput) => void
-  ): void;
+  public stopStack(args: StopStackCommandInput, options?: __HttpHandlerOptions): Promise<StopStackCommandOutput>;
+  public stopStack(args: StopStackCommandInput, cb: (err: any, data?: StopStackCommandOutput) => void): void;
   public stopStack(
     args: StopStackCommandInput,
     options: __HttpHandlerOptions,
@@ -3033,17 +2706,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public stopStack(
     args: StopStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopStackCommandOutput) => void),
     cb?: (err: any, data?: StopStackCommandOutput) => void
   ): Promise<StopStackCommandOutput> | void {
     const command = new StopStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3053,14 +2723,8 @@ export class OpsWorks extends OpsWorksClient {
   /**
    * <p>Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks. For more information about how tagging works, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html">Tags</a> in the AWS OpsWorks User Guide.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3068,17 +2732,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3111,17 +2772,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public unassignInstance(
     args: UnassignInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnassignInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignInstanceCommandOutput) => void),
     cb?: (err: any, data?: UnassignInstanceCommandOutput) => void
   ): Promise<UnassignInstanceCommandOutput> | void {
     const command = new UnassignInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3153,17 +2811,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public unassignVolume(
     args: UnassignVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnassignVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignVolumeCommandOutput) => void),
     cb?: (err: any, data?: UnassignVolumeCommandOutput) => void
   ): Promise<UnassignVolumeCommandOutput> | void {
     const command = new UnassignVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3188,17 +2843,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3213,14 +2865,8 @@ export class OpsWorks extends OpsWorksClient {
    *       more information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public updateApp(
-    args: UpdateAppCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAppCommandOutput>;
-  public updateApp(
-    args: UpdateAppCommandInput,
-    cb: (err: any, data?: UpdateAppCommandOutput) => void
-  ): void;
+  public updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
+  public updateApp(args: UpdateAppCommandInput, cb: (err: any, data?: UpdateAppCommandOutput) => void): void;
   public updateApp(
     args: UpdateAppCommandInput,
     options: __HttpHandlerOptions,
@@ -3228,17 +2874,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateApp(
     args: UpdateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppCommandOutput) => void),
     cb?: (err: any, data?: UpdateAppCommandOutput) => void
   ): Promise<UpdateAppCommandOutput> | void {
     const command = new UpdateAppCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3268,17 +2911,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateElasticIp(
     args: UpdateElasticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateElasticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateElasticIpCommandOutput) => void),
     cb?: (err: any, data?: UpdateElasticIpCommandOutput) => void
   ): Promise<UpdateElasticIpCommandOutput> | void {
     const command = new UpdateElasticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3308,17 +2948,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateInstance(
     args: UpdateInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceCommandOutput) => void),
     cb?: (err: any, data?: UpdateInstanceCommandOutput) => void
   ): Promise<UpdateInstanceCommandOutput> | void {
     const command = new UpdateInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3333,14 +2970,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public updateLayer(
-    args: UpdateLayerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateLayerCommandOutput>;
-  public updateLayer(
-    args: UpdateLayerCommandInput,
-    cb: (err: any, data?: UpdateLayerCommandOutput) => void
-  ): void;
+  public updateLayer(args: UpdateLayerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLayerCommandOutput>;
+  public updateLayer(args: UpdateLayerCommandInput, cb: (err: any, data?: UpdateLayerCommandOutput) => void): void;
   public updateLayer(
     args: UpdateLayerCommandInput,
     options: __HttpHandlerOptions,
@@ -3348,17 +2979,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateLayer(
     args: UpdateLayerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLayerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLayerCommandOutput) => void),
     cb?: (err: any, data?: UpdateLayerCommandOutput) => void
   ): Promise<UpdateLayerCommandOutput> | void {
     const command = new UpdateLayerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3388,17 +3016,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateMyUserProfile(
     args: UpdateMyUserProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMyUserProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMyUserProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateMyUserProfileCommandOutput) => void
   ): Promise<UpdateMyUserProfileCommandOutput> | void {
     const command = new UpdateMyUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3428,17 +3053,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateRdsDbInstance(
     args: UpdateRdsDbInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRdsDbInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRdsDbInstanceCommandOutput) => void),
     cb?: (err: any, data?: UpdateRdsDbInstanceCommandOutput) => void
   ): Promise<UpdateRdsDbInstanceCommandOutput> | void {
     const command = new UpdateRdsDbInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3453,14 +3075,8 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    */
-  public updateStack(
-    args: UpdateStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateStackCommandOutput>;
-  public updateStack(
-    args: UpdateStackCommandInput,
-    cb: (err: any, data?: UpdateStackCommandOutput) => void
-  ): void;
+  public updateStack(args: UpdateStackCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStackCommandOutput>;
+  public updateStack(args: UpdateStackCommandInput, cb: (err: any, data?: UpdateStackCommandOutput) => void): void;
   public updateStack(
     args: UpdateStackCommandInput,
     options: __HttpHandlerOptions,
@@ -3468,17 +3084,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateStack(
     args: UpdateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackCommandOutput) => void
   ): Promise<UpdateStackCommandOutput> | void {
     const command = new UpdateStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3507,17 +3120,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateUserProfile(
     args: UpdateUserProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserProfileCommandOutput) => void
   ): Promise<UpdateUserProfileCommandOutput> | void {
     const command = new UpdateUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3536,10 +3146,7 @@ export class OpsWorks extends OpsWorksClient {
     args: UpdateVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVolumeCommandOutput>;
-  public updateVolume(
-    args: UpdateVolumeCommandInput,
-    cb: (err: any, data?: UpdateVolumeCommandOutput) => void
-  ): void;
+  public updateVolume(args: UpdateVolumeCommandInput, cb: (err: any, data?: UpdateVolumeCommandOutput) => void): void;
   public updateVolume(
     args: UpdateVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -3547,17 +3154,14 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateVolume(
     args: UpdateVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVolumeCommandOutput) => void),
     cb?: (err: any, data?: UpdateVolumeCommandOutput) => void
   ): Promise<UpdateVolumeCommandOutput> | void {
     const command = new UpdateVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

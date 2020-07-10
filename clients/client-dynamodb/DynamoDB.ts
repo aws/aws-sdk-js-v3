@@ -2,207 +2,159 @@ import { DynamoDBClient } from "./DynamoDBClient";
 import {
   BatchGetItemCommand,
   BatchGetItemCommandInput,
-  BatchGetItemCommandOutput
+  BatchGetItemCommandOutput,
 } from "./commands/BatchGetItemCommand";
 import {
   BatchWriteItemCommand,
   BatchWriteItemCommandInput,
-  BatchWriteItemCommandOutput
+  BatchWriteItemCommandOutput,
 } from "./commands/BatchWriteItemCommand";
 import {
   CreateBackupCommand,
   CreateBackupCommandInput,
-  CreateBackupCommandOutput
+  CreateBackupCommandOutput,
 } from "./commands/CreateBackupCommand";
 import {
   CreateGlobalTableCommand,
   CreateGlobalTableCommandInput,
-  CreateGlobalTableCommandOutput
+  CreateGlobalTableCommandOutput,
 } from "./commands/CreateGlobalTableCommand";
-import {
-  CreateTableCommand,
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "./commands/CreateTableCommand";
+import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
   DeleteBackupCommand,
   DeleteBackupCommandInput,
-  DeleteBackupCommandOutput
+  DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand";
-import {
-  DeleteItemCommand,
-  DeleteItemCommandInput,
-  DeleteItemCommandOutput
-} from "./commands/DeleteItemCommand";
-import {
-  DeleteTableCommand,
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "./commands/DeleteTableCommand";
+import { DeleteItemCommand, DeleteItemCommandInput, DeleteItemCommandOutput } from "./commands/DeleteItemCommand";
+import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
   DescribeBackupCommand,
   DescribeBackupCommandInput,
-  DescribeBackupCommandOutput
+  DescribeBackupCommandOutput,
 } from "./commands/DescribeBackupCommand";
 import {
   DescribeContinuousBackupsCommand,
   DescribeContinuousBackupsCommandInput,
-  DescribeContinuousBackupsCommandOutput
+  DescribeContinuousBackupsCommandOutput,
 } from "./commands/DescribeContinuousBackupsCommand";
 import {
   DescribeContributorInsightsCommand,
   DescribeContributorInsightsCommandInput,
-  DescribeContributorInsightsCommandOutput
+  DescribeContributorInsightsCommandOutput,
 } from "./commands/DescribeContributorInsightsCommand";
 import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
+  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
   DescribeGlobalTableCommand,
   DescribeGlobalTableCommandInput,
-  DescribeGlobalTableCommandOutput
+  DescribeGlobalTableCommandOutput,
 } from "./commands/DescribeGlobalTableCommand";
 import {
   DescribeGlobalTableSettingsCommand,
   DescribeGlobalTableSettingsCommandInput,
-  DescribeGlobalTableSettingsCommandOutput
+  DescribeGlobalTableSettingsCommandOutput,
 } from "./commands/DescribeGlobalTableSettingsCommand";
 import {
   DescribeLimitsCommand,
   DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput
+  DescribeLimitsCommandOutput,
 } from "./commands/DescribeLimitsCommand";
 import {
   DescribeTableCommand,
   DescribeTableCommandInput,
-  DescribeTableCommandOutput
+  DescribeTableCommandOutput,
 } from "./commands/DescribeTableCommand";
 import {
   DescribeTableReplicaAutoScalingCommand,
   DescribeTableReplicaAutoScalingCommandInput,
-  DescribeTableReplicaAutoScalingCommandOutput
+  DescribeTableReplicaAutoScalingCommandOutput,
 } from "./commands/DescribeTableReplicaAutoScalingCommand";
 import {
   DescribeTimeToLiveCommand,
   DescribeTimeToLiveCommandInput,
-  DescribeTimeToLiveCommandOutput
+  DescribeTimeToLiveCommandOutput,
 } from "./commands/DescribeTimeToLiveCommand";
-import {
-  GetItemCommand,
-  GetItemCommandInput,
-  GetItemCommandOutput
-} from "./commands/GetItemCommand";
-import {
-  ListBackupsCommand,
-  ListBackupsCommandInput,
-  ListBackupsCommandOutput
-} from "./commands/ListBackupsCommand";
+import { GetItemCommand, GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import { ListBackupsCommand, ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommand,
   ListContributorInsightsCommandInput,
-  ListContributorInsightsCommandOutput
+  ListContributorInsightsCommandOutput,
 } from "./commands/ListContributorInsightsCommand";
 import {
   ListGlobalTablesCommand,
   ListGlobalTablesCommandInput,
-  ListGlobalTablesCommandOutput
+  ListGlobalTablesCommandOutput,
 } from "./commands/ListGlobalTablesCommand";
-import {
-  ListTablesCommand,
-  ListTablesCommandInput,
-  ListTablesCommandOutput
-} from "./commands/ListTablesCommand";
+import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
   ListTagsOfResourceCommand,
   ListTagsOfResourceCommandInput,
-  ListTagsOfResourceCommandOutput
+  ListTagsOfResourceCommandOutput,
 } from "./commands/ListTagsOfResourceCommand";
-import {
-  PutItemCommand,
-  PutItemCommandInput,
-  PutItemCommandOutput
-} from "./commands/PutItemCommand";
-import {
-  QueryCommand,
-  QueryCommandInput,
-  QueryCommandOutput
-} from "./commands/QueryCommand";
+import { PutItemCommand, PutItemCommandInput, PutItemCommandOutput } from "./commands/PutItemCommand";
+import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   RestoreTableFromBackupCommand,
   RestoreTableFromBackupCommandInput,
-  RestoreTableFromBackupCommandOutput
+  RestoreTableFromBackupCommandOutput,
 } from "./commands/RestoreTableFromBackupCommand";
 import {
   RestoreTableToPointInTimeCommand,
   RestoreTableToPointInTimeCommandInput,
-  RestoreTableToPointInTimeCommandOutput
+  RestoreTableToPointInTimeCommandOutput,
 } from "./commands/RestoreTableToPointInTimeCommand";
-import {
-  ScanCommand,
-  ScanCommandInput,
-  ScanCommandOutput
-} from "./commands/ScanCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TransactGetItemsCommand,
   TransactGetItemsCommandInput,
-  TransactGetItemsCommandOutput
+  TransactGetItemsCommandOutput,
 } from "./commands/TransactGetItemsCommand";
 import {
   TransactWriteItemsCommand,
   TransactWriteItemsCommandInput,
-  TransactWriteItemsCommandOutput
+  TransactWriteItemsCommandOutput,
 } from "./commands/TransactWriteItemsCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateContinuousBackupsCommand,
   UpdateContinuousBackupsCommandInput,
-  UpdateContinuousBackupsCommandOutput
+  UpdateContinuousBackupsCommandOutput,
 } from "./commands/UpdateContinuousBackupsCommand";
 import {
   UpdateContributorInsightsCommand,
   UpdateContributorInsightsCommandInput,
-  UpdateContributorInsightsCommandOutput
+  UpdateContributorInsightsCommandOutput,
 } from "./commands/UpdateContributorInsightsCommand";
 import {
   UpdateGlobalTableCommand,
   UpdateGlobalTableCommandInput,
-  UpdateGlobalTableCommandOutput
+  UpdateGlobalTableCommandOutput,
 } from "./commands/UpdateGlobalTableCommand";
 import {
   UpdateGlobalTableSettingsCommand,
   UpdateGlobalTableSettingsCommandInput,
-  UpdateGlobalTableSettingsCommandOutput
+  UpdateGlobalTableSettingsCommandOutput,
 } from "./commands/UpdateGlobalTableSettingsCommand";
-import {
-  UpdateItemCommand,
-  UpdateItemCommandInput,
-  UpdateItemCommandOutput
-} from "./commands/UpdateItemCommand";
-import {
-  UpdateTableCommand,
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "./commands/UpdateTableCommand";
+import { UpdateItemCommand, UpdateItemCommandInput, UpdateItemCommandOutput } from "./commands/UpdateItemCommand";
+import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTableReplicaAutoScalingCommand,
   UpdateTableReplicaAutoScalingCommandInput,
-  UpdateTableReplicaAutoScalingCommandOutput
+  UpdateTableReplicaAutoScalingCommandOutput,
 } from "./commands/UpdateTableReplicaAutoScalingCommand";
 import {
   UpdateTimeToLiveCommand,
   UpdateTimeToLiveCommandInput,
-  UpdateTimeToLiveCommandOutput
+  UpdateTimeToLiveCommandOutput,
 } from "./commands/UpdateTimeToLiveCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -280,10 +232,7 @@ export class DynamoDB extends DynamoDBClient {
     args: BatchGetItemCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetItemCommandOutput>;
-  public batchGetItem(
-    args: BatchGetItemCommandInput,
-    cb: (err: any, data?: BatchGetItemCommandOutput) => void
-  ): void;
+  public batchGetItem(args: BatchGetItemCommandInput, cb: (err: any, data?: BatchGetItemCommandOutput) => void): void;
   public batchGetItem(
     args: BatchGetItemCommandInput,
     options: __HttpHandlerOptions,
@@ -291,17 +240,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public batchGetItem(
     args: BatchGetItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetItemCommandOutput) => void),
     cb?: (err: any, data?: BatchGetItemCommandOutput) => void
   ): Promise<BatchGetItemCommandOutput> | void {
     const command = new BatchGetItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -400,17 +346,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public batchWriteItem(
     args: BatchWriteItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchWriteItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchWriteItemCommandOutput) => void),
     cb?: (err: any, data?: BatchWriteItemCommandOutput) => void
   ): Promise<BatchWriteItemCommandOutput> | void {
     const command = new BatchWriteItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -453,10 +396,7 @@ export class DynamoDB extends DynamoDBClient {
     args: CreateBackupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateBackupCommandOutput>;
-  public createBackup(
-    args: CreateBackupCommandInput,
-    cb: (err: any, data?: CreateBackupCommandOutput) => void
-  ): void;
+  public createBackup(args: CreateBackupCommandInput, cb: (err: any, data?: CreateBackupCommandOutput) => void): void;
   public createBackup(
     args: CreateBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -464,17 +404,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public createBackup(
     args: CreateBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupCommandOutput) => void
   ): Promise<CreateBackupCommandOutput> | void {
     const command = new CreateBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -550,17 +487,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public createGlobalTable(
     args: CreateGlobalTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGlobalTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGlobalTableCommandOutput) => void),
     cb?: (err: any, data?: CreateGlobalTableCommandOutput) => void
   ): Promise<CreateGlobalTableCommandOutput> | void {
     const command = new CreateGlobalTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -582,14 +516,8 @@ export class DynamoDB extends DynamoDBClient {
    *       any given time.</p>
    *          <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
    */
-  public createTable(
-    args: CreateTableCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTableCommandOutput>;
-  public createTable(
-    args: CreateTableCommandInput,
-    cb: (err: any, data?: CreateTableCommandOutput) => void
-  ): void;
+  public createTable(args: CreateTableCommandInput, options?: __HttpHandlerOptions): Promise<CreateTableCommandOutput>;
+  public createTable(args: CreateTableCommandInput, cb: (err: any, data?: CreateTableCommandOutput) => void): void;
   public createTable(
     args: CreateTableCommandInput,
     options: __HttpHandlerOptions,
@@ -597,17 +525,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public createTable(
     args: CreateTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTableCommandOutput) => void),
     cb?: (err: any, data?: CreateTableCommandOutput) => void
   ): Promise<CreateTableCommandOutput> | void {
     const command = new CreateTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -622,10 +547,7 @@ export class DynamoDB extends DynamoDBClient {
     args: DeleteBackupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBackupCommandOutput>;
-  public deleteBackup(
-    args: DeleteBackupCommandInput,
-    cb: (err: any, data?: DeleteBackupCommandOutput) => void
-  ): void;
+  public deleteBackup(args: DeleteBackupCommandInput, cb: (err: any, data?: DeleteBackupCommandOutput) => void): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -633,17 +555,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupCommandOutput) => void
   ): Promise<DeleteBackupCommandOutput> | void {
     const command = new DeleteBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -658,14 +577,8 @@ export class DynamoDB extends DynamoDBClient {
    *       multiple times on the same item or attribute does <i>not</i> result in an error response.</p>
    *          <p>Conditional deletes are useful for deleting items only if specific conditions are met. If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not deleted.</p>
    */
-  public deleteItem(
-    args: DeleteItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteItemCommandOutput>;
-  public deleteItem(
-    args: DeleteItemCommandInput,
-    cb: (err: any, data?: DeleteItemCommandOutput) => void
-  ): void;
+  public deleteItem(args: DeleteItemCommandInput, options?: __HttpHandlerOptions): Promise<DeleteItemCommandOutput>;
+  public deleteItem(args: DeleteItemCommandInput, cb: (err: any, data?: DeleteItemCommandOutput) => void): void;
   public deleteItem(
     args: DeleteItemCommandInput,
     options: __HttpHandlerOptions,
@@ -673,17 +586,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public deleteItem(
     args: DeleteItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteItemCommandOutput) => void),
     cb?: (err: any, data?: DeleteItemCommandOutput) => void
   ): Promise<DeleteItemCommandOutput> | void {
     const command = new DeleteItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -709,14 +619,8 @@ export class DynamoDB extends DynamoDBClient {
    *
    *          <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
    */
-  public deleteTable(
-    args: DeleteTableCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTableCommandOutput>;
-  public deleteTable(
-    args: DeleteTableCommandInput,
-    cb: (err: any, data?: DeleteTableCommandOutput) => void
-  ): void;
+  public deleteTable(args: DeleteTableCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTableCommandOutput>;
+  public deleteTable(args: DeleteTableCommandInput, cb: (err: any, data?: DeleteTableCommandOutput) => void): void;
   public deleteTable(
     args: DeleteTableCommandInput,
     options: __HttpHandlerOptions,
@@ -724,17 +628,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public deleteTable(
     args: DeleteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTableCommandOutput) => void),
     cb?: (err: any, data?: DeleteTableCommandOutput) => void
   ): Promise<DeleteTableCommandOutput> | void {
     const command = new DeleteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -760,17 +661,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeBackup(
     args: DescribeBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupCommandOutput) => void
   ): Promise<DescribeBackupCommandOutput> | void {
     const command = new DescribeBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -805,17 +703,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeContinuousBackups(
     args: DescribeContinuousBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeContinuousBackupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContinuousBackupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeContinuousBackupsCommandOutput) => void
   ): Promise<DescribeContinuousBackupsCommandOutput> | void {
     const command = new DescribeContinuousBackupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -840,17 +735,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeContributorInsights(
     args: DescribeContributorInsightsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeContributorInsightsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContributorInsightsCommandOutput) => void),
     cb?: (err: any, data?: DescribeContributorInsightsCommandOutput) => void
   ): Promise<DescribeContributorInsightsCommandOutput> | void {
     const command = new DescribeContributorInsightsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -875,17 +767,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): Promise<DescribeEndpointsCommandOutput> | void {
     const command = new DescribeEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -913,17 +802,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeGlobalTable(
     args: DescribeGlobalTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGlobalTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGlobalTableCommandOutput) => void),
     cb?: (err: any, data?: DescribeGlobalTableCommandOutput) => void
   ): Promise<DescribeGlobalTableCommandOutput> | void {
     const command = new DescribeGlobalTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -951,17 +837,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeGlobalTableSettings(
     args: DescribeGlobalTableSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGlobalTableSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGlobalTableSettingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeGlobalTableSettingsCommandOutput) => void
   ): Promise<DescribeGlobalTableSettingsCommandOutput> | void {
     const command = new DescribeGlobalTableSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1048,17 +931,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeLimits(
     args: DescribeLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLimitsCommandOutput) => void
   ): Promise<DescribeLimitsCommandOutput> | void {
     const command = new DescribeLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1089,17 +969,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeTable(
     args: DescribeTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTableCommandOutput) => void),
     cb?: (err: any, data?: DescribeTableCommandOutput) => void
   ): Promise<DescribeTableCommandOutput> | void {
     const command = new DescribeTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1127,20 +1004,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeTableReplicaAutoScaling(
     args: DescribeTableReplicaAutoScalingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTableReplicaAutoScalingCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTableReplicaAutoScalingCommandOutput) => void),
     cb?: (err: any, data?: DescribeTableReplicaAutoScalingCommandOutput) => void
   ): Promise<DescribeTableReplicaAutoScalingCommandOutput> | void {
     const command = new DescribeTableReplicaAutoScalingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1165,17 +1036,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeTimeToLive(
     args: DescribeTimeToLiveCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTimeToLiveCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTimeToLiveCommandOutput) => void),
     cb?: (err: any, data?: DescribeTimeToLiveCommandOutput) => void
   ): Promise<DescribeTimeToLiveCommandOutput> | void {
     const command = new DescribeTimeToLiveCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1191,14 +1059,8 @@ export class DynamoDB extends DynamoDBClient {
    *       a strongly consistent read might take more time than an eventually consistent read, it always
    *       returns the last updated value.</p>
    */
-  public getItem(
-    args: GetItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetItemCommandOutput>;
-  public getItem(
-    args: GetItemCommandInput,
-    cb: (err: any, data?: GetItemCommandOutput) => void
-  ): void;
+  public getItem(args: GetItemCommandInput, options?: __HttpHandlerOptions): Promise<GetItemCommandOutput>;
+  public getItem(args: GetItemCommandInput, cb: (err: any, data?: GetItemCommandOutput) => void): void;
   public getItem(
     args: GetItemCommandInput,
     options: __HttpHandlerOptions,
@@ -1206,17 +1068,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public getItem(
     args: GetItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetItemCommandOutput) => void),
     cb?: (err: any, data?: GetItemCommandOutput) => void
   ): Promise<GetItemCommandOutput> | void {
     const command = new GetItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1232,14 +1091,8 @@ export class DynamoDB extends DynamoDBClient {
    *             limits are for the time at which the original backup was requested.</p>
    *          <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
    */
-  public listBackups(
-    args: ListBackupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBackupsCommandOutput>;
-  public listBackups(
-    args: ListBackupsCommandInput,
-    cb: (err: any, data?: ListBackupsCommandOutput) => void
-  ): void;
+  public listBackups(args: ListBackupsCommandInput, options?: __HttpHandlerOptions): Promise<ListBackupsCommandOutput>;
+  public listBackups(args: ListBackupsCommandInput, cb: (err: any, data?: ListBackupsCommandOutput) => void): void;
   public listBackups(
     args: ListBackupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1247,17 +1100,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public listBackups(
     args: ListBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupsCommandOutput) => void),
     cb?: (err: any, data?: ListBackupsCommandOutput) => void
   ): Promise<ListBackupsCommandOutput> | void {
     const command = new ListBackupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1282,17 +1132,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public listContributorInsights(
     args: ListContributorInsightsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContributorInsightsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContributorInsightsCommandOutput) => void),
     cb?: (err: any, data?: ListContributorInsightsCommandOutput) => void
   ): Promise<ListContributorInsightsCommandOutput> | void {
     const command = new ListContributorInsightsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1320,17 +1167,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public listGlobalTables(
     args: ListGlobalTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGlobalTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGlobalTablesCommandOutput) => void),
     cb?: (err: any, data?: ListGlobalTablesCommandOutput) => void
   ): Promise<ListGlobalTablesCommandOutput> | void {
     const command = new ListGlobalTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1342,14 +1186,8 @@ export class DynamoDB extends DynamoDBClient {
    *       from <code>ListTables</code> is paginated, with each page returning a maximum of 100 table
    *       names.</p>
    */
-  public listTables(
-    args: ListTablesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTablesCommandOutput>;
-  public listTables(
-    args: ListTablesCommandInput,
-    cb: (err: any, data?: ListTablesCommandOutput) => void
-  ): void;
+  public listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
+  public listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
   public listTables(
     args: ListTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -1357,17 +1195,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public listTables(
     args: ListTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTablesCommandOutput) => void),
     cb?: (err: any, data?: ListTablesCommandOutput) => void
   ): Promise<ListTablesCommandOutput> | void {
     const command = new ListTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1395,17 +1230,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public listTagsOfResource(
     args: ListTagsOfResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsOfResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsOfResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsOfResourceCommandOutput) => void
   ): Promise<ListTagsOfResourceCommandOutput> | void {
     const command = new ListTagsOfResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1480,14 +1312,8 @@ export class DynamoDB extends DynamoDBClient {
    *          </note>
    *          <p>For more information about <code>PutItem</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">Working with Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  public putItem(
-    args: PutItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutItemCommandOutput>;
-  public putItem(
-    args: PutItemCommandInput,
-    cb: (err: any, data?: PutItemCommandOutput) => void
-  ): void;
+  public putItem(args: PutItemCommandInput, options?: __HttpHandlerOptions): Promise<PutItemCommandOutput>;
+  public putItem(args: PutItemCommandInput, cb: (err: any, data?: PutItemCommandOutput) => void): void;
   public putItem(
     args: PutItemCommandInput,
     options: __HttpHandlerOptions,
@@ -1495,17 +1321,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public putItem(
     args: PutItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutItemCommandOutput) => void),
     cb?: (err: any, data?: PutItemCommandOutput) => void
   ): Promise<PutItemCommandOutput> | void {
     const command = new PutItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1570,14 +1393,8 @@ export class DynamoDB extends DynamoDBClient {
    *             only, so do not specify <code>ConsistentRead</code> when querying a global
    *             secondary index.</p>
    */
-  public query(
-    args: QueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<QueryCommandOutput>;
-  public query(
-    args: QueryCommandInput,
-    cb: (err: any, data?: QueryCommandOutput) => void
-  ): void;
+  public query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
+  public query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;
   public query(
     args: QueryCommandInput,
     options: __HttpHandlerOptions,
@@ -1585,17 +1402,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public query(
     args: QueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: QueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryCommandOutput) => void),
     cb?: (err: any, data?: QueryCommandOutput) => void
   ): Promise<QueryCommandOutput> | void {
     const command = new QueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1644,17 +1458,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public restoreTableFromBackup(
     args: RestoreTableFromBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreTableFromBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreTableFromBackupCommandOutput) => void),
     cb?: (err: any, data?: RestoreTableFromBackupCommandOutput) => void
   ): Promise<RestoreTableFromBackupCommandOutput> | void {
     const command = new RestoreTableFromBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1734,17 +1545,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public restoreTableToPointInTime(
     args: RestoreTableToPointInTimeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreTableToPointInTimeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreTableToPointInTimeCommandOutput) => void),
     cb?: (err: any, data?: RestoreTableToPointInTimeCommandOutput) => void
   ): Promise<RestoreTableToPointInTimeCommandOutput> | void {
     const command = new RestoreTableToPointInTimeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1778,14 +1586,8 @@ export class DynamoDB extends DynamoDBClient {
    *             the time that the <code>Scan</code> begins, you can set the <code>ConsistentRead</code>
    *             parameter to <code>true</code>.</p>
    */
-  public scan(
-    args: ScanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ScanCommandOutput>;
-  public scan(
-    args: ScanCommandInput,
-    cb: (err: any, data?: ScanCommandOutput) => void
-  ): void;
+  public scan(args: ScanCommandInput, options?: __HttpHandlerOptions): Promise<ScanCommandOutput>;
+  public scan(args: ScanCommandInput, cb: (err: any, data?: ScanCommandOutput) => void): void;
   public scan(
     args: ScanCommandInput,
     options: __HttpHandlerOptions,
@@ -1793,17 +1595,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public scan(
     args: ScanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ScanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ScanCommandOutput) => void),
     cb?: (err: any, data?: ScanCommandOutput) => void
   ): Promise<ScanCommandOutput> | void {
     const command = new ScanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1819,14 +1618,8 @@ export class DynamoDB extends DynamoDBClient {
    *       <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
    *       in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1834,17 +1627,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1894,17 +1684,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public transactGetItems(
     args: TransactGetItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TransactGetItemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransactGetItemsCommandOutput) => void),
     cb?: (err: any, data?: TransactGetItemsCommandOutput) => void
   ): Promise<TransactGetItemsCommandOutput> | void {
     const command = new TransactGetItemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2002,17 +1789,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public transactWriteItems(
     args: TransactWriteItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TransactWriteItemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransactWriteItemsCommandOutput) => void),
     cb?: (err: any, data?: TransactWriteItemsCommandOutput) => void
   ): Promise<TransactWriteItemsCommandOutput> | void {
     const command = new TransactWriteItemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2041,17 +1825,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2087,17 +1868,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateContinuousBackups(
     args: UpdateContinuousBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateContinuousBackupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContinuousBackupsCommandOutput) => void),
     cb?: (err: any, data?: UpdateContinuousBackupsCommandOutput) => void
   ): Promise<UpdateContinuousBackupsCommandOutput> | void {
     const command = new UpdateContinuousBackupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2122,17 +1900,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateContributorInsights(
     args: UpdateContributorInsightsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateContributorInsightsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContributorInsightsCommandOutput) => void),
     cb?: (err: any, data?: UpdateContributorInsightsCommandOutput) => void
   ): Promise<UpdateContributorInsightsCommandOutput> | void {
     const command = new UpdateContributorInsightsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2185,17 +1960,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateGlobalTable(
     args: UpdateGlobalTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGlobalTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGlobalTableCommandOutput) => void),
     cb?: (err: any, data?: UpdateGlobalTableCommandOutput) => void
   ): Promise<UpdateGlobalTableCommandOutput> | void {
     const command = new UpdateGlobalTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2220,17 +1992,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateGlobalTableSettings(
     args: UpdateGlobalTableSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGlobalTableSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGlobalTableSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateGlobalTableSettingsCommandOutput) => void
   ): Promise<UpdateGlobalTableSettingsCommandOutput> | void {
     const command = new UpdateGlobalTableSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2242,14 +2011,8 @@ export class DynamoDB extends DynamoDBClient {
    *          <p>You can also return the item's attribute values in the same <code>UpdateItem</code>
    *       operation using the <code>ReturnValues</code> parameter.</p>
    */
-  public updateItem(
-    args: UpdateItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateItemCommandOutput>;
-  public updateItem(
-    args: UpdateItemCommandInput,
-    cb: (err: any, data?: UpdateItemCommandOutput) => void
-  ): void;
+  public updateItem(args: UpdateItemCommandInput, options?: __HttpHandlerOptions): Promise<UpdateItemCommandOutput>;
+  public updateItem(args: UpdateItemCommandInput, cb: (err: any, data?: UpdateItemCommandOutput) => void): void;
   public updateItem(
     args: UpdateItemCommandInput,
     options: __HttpHandlerOptions,
@@ -2257,17 +2020,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateItem(
     args: UpdateItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateItemCommandOutput) => void),
     cb?: (err: any, data?: UpdateItemCommandOutput) => void
   ): Promise<UpdateItemCommandOutput> | void {
     const command = new UpdateItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2299,14 +2059,8 @@ export class DynamoDB extends DynamoDBClient {
    *       you cannot issue another <code>UpdateTable</code> request. When the table returns to the
    *         <code>ACTIVE</code> state, the <code>UpdateTable</code> operation is complete.</p>
    */
-  public updateTable(
-    args: UpdateTableCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTableCommandOutput>;
-  public updateTable(
-    args: UpdateTableCommandInput,
-    cb: (err: any, data?: UpdateTableCommandOutput) => void
-  ): void;
+  public updateTable(args: UpdateTableCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTableCommandOutput>;
+  public updateTable(args: UpdateTableCommandInput, cb: (err: any, data?: UpdateTableCommandOutput) => void): void;
   public updateTable(
     args: UpdateTableCommandInput,
     options: __HttpHandlerOptions,
@@ -2314,17 +2068,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateTable(
     args: UpdateTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTableCommandOutput) => void),
     cb?: (err: any, data?: UpdateTableCommandOutput) => void
   ): Promise<UpdateTableCommandOutput> | void {
     const command = new UpdateTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2352,17 +2103,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateTableReplicaAutoScaling(
     args: UpdateTableReplicaAutoScalingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTableReplicaAutoScalingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTableReplicaAutoScalingCommandOutput) => void),
     cb?: (err: any, data?: UpdateTableReplicaAutoScalingCommandOutput) => void
   ): Promise<UpdateTableReplicaAutoScalingCommandOutput> | void {
     const command = new UpdateTableReplicaAutoScalingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2411,17 +2159,14 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateTimeToLive(
     args: UpdateTimeToLiveCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTimeToLiveCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTimeToLiveCommandOutput) => void),
     cb?: (err: any, data?: UpdateTimeToLiveCommandOutput) => void
   ): Promise<UpdateTimeToLiveCommandOutput> | void {
     const command = new UpdateTimeToLiveCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
-import {
-  DescribeDataSourcePermissionsRequest,
-  DescribeDataSourcePermissionsResponse
-} from "../models/index";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeDataSourcePermissionsRequest, DescribeDataSourcePermissionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeDataSourcePermissionsCommand,
-  serializeAws_restJson1DescribeDataSourcePermissionsCommand
+  serializeAws_restJson1DescribeDataSourcePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDataSourcePermissionsCommandInput = DescribeDataSourcePermissionsRequest;
-export type DescribeDataSourcePermissionsCommandOutput = DescribeDataSourcePermissionsResponse &
-  __MetadataBearer;
+export type DescribeDataSourcePermissionsCommandOutput = DescribeDataSourcePermissionsResponse & __MetadataBearer;
 
 export class DescribeDataSourcePermissionsCommand extends $Command<
   DescribeDataSourcePermissionsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDataSourcePermissionsCommandInput,
-    DescribeDataSourcePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDataSourcePermissionsCommandInput, DescribeDataSourcePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDataSourcePermissionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDataSourcePermissionsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeDataSourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeDataSourcePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeDataSourcePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeDataSourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

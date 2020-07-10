@@ -7,8 +7,8 @@ describe("getValueFromTextNode", () => {
     const input = {
       key: "value",
       keyObj: {
-        keyInsideObj: "valueInsideObj"
-      }
+        keyInsideObj: "valueInsideObj",
+      },
     };
     const output = getValueFromTextNode(input);
     expect(output).toBe(input);
@@ -18,11 +18,11 @@ describe("getValueFromTextNode", () => {
     const input = {
       key: "value",
       keyWithoutTextNode: {
-        key: "value"
+        key: "value",
       },
       keyWithTextNode: {
-        "#text": valueInsideTextNode
-      }
+        "#text": valueInsideTextNode,
+      },
     };
     const output = getValueFromTextNode(input);
     expect(output.key).toBe(input.key);
@@ -35,22 +35,18 @@ describe("getValueFromTextNode", () => {
       key: "value",
       keyWithoutTextNodeAtAnyLevel: {
         keyObj: {
-          key: "value"
-        }
+          key: "value",
+        },
       },
       keyWithTextNodeAtLevel2: {
         keyWithTextNode: {
-          "#text": valueInsideTextNode
-        }
-      }
+          "#text": valueInsideTextNode,
+        },
+      },
     };
     const output = getValueFromTextNode(input);
     expect(output.key).toBe(input.key);
-    expect(output.keyWithoutTextNodeAtAnyLevel).toBe(
-      input.keyWithoutTextNodeAtAnyLevel
-    );
-    expect(output.keyWithTextNodeAtLevel2.keyWithTextNode).toBe(
-      valueInsideTextNode
-    );
+    expect(output.keyWithoutTextNodeAtAnyLevel).toBe(input.keyWithoutTextNodeAtAnyLevel);
+    expect(output.keyWithTextNodeAtLevel2.keyWithTextNode).toBe(valueInsideTextNode);
   });
 });

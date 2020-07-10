@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  SetLoadBalancerPoliciesOfListenerInput,
-  SetLoadBalancerPoliciesOfListenerOutput
-} from "../models/index";
+import { SetLoadBalancerPoliciesOfListenerInput, SetLoadBalancerPoliciesOfListenerOutput } from "../models/index";
 import {
   deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand,
-  serializeAws_querySetLoadBalancerPoliciesOfListenerCommand
+  serializeAws_querySetLoadBalancerPoliciesOfListenerCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SetLoadBalancerPoliciesOfListenerCommandInput = SetLoadBalancerPoliciesOfListenerInput;
-export type SetLoadBalancerPoliciesOfListenerCommandOutput = SetLoadBalancerPoliciesOfListenerOutput &
-  __MetadataBearer;
+export type SetLoadBalancerPoliciesOfListenerCommandOutput = SetLoadBalancerPoliciesOfListenerOutput & __MetadataBearer;
 
 export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<
   SetLoadBalancerPoliciesOfListenerCommandInput,
@@ -49,18 +42,13 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetLoadBalancerPoliciesOfListenerCommandInput,
-    SetLoadBalancerPoliciesOfListenerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetLoadBalancerPoliciesOfListenerCommandInput, SetLoadBalancerPoliciesOfListenerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +62,14 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<
     input: SetLoadBalancerPoliciesOfListenerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetLoadBalancerPoliciesOfListenerCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetLoadBalancerPoliciesOfListenerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> {
-    return deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

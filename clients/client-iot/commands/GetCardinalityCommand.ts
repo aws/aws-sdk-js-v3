@@ -1,18 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetCardinalityRequest, GetCardinalityResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetCardinalityCommand,
-  serializeAws_restJson1GetCardinalityCommand
+  serializeAws_restJson1GetCardinalityCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetCardinalityCommandInput = GetCardinalityRequest;
-export type GetCardinalityCommandOutput = GetCardinalityResponse &
-  __MetadataBearer;
+export type GetCardinalityCommandOutput = GetCardinalityResponse & __MetadataBearer;
 
 export class GetCardinalityCommand extends $Command<
   GetCardinalityCommandInput,
@@ -47,14 +39,12 @@ export class GetCardinalityCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCardinalityCommandInput, GetCardinalityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetCardinalityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCardinalityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCardinalityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCardinalityCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCardinalityCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCardinalityCommandOutput> {
     return deserializeAws_restJson1GetCardinalityCommand(output, context);
   }
 

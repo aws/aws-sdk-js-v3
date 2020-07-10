@@ -1,21 +1,11 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  FileSystemPolicyDescription,
-  PutFileSystemPolicyRequest
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { FileSystemPolicyDescription, PutFileSystemPolicyRequest } from "../models/index";
 import {
   deserializeAws_restJson1PutFileSystemPolicyCommand,
-  serializeAws_restJson1PutFileSystemPolicyCommand
+  serializeAws_restJson1PutFileSystemPolicyCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutFileSystemPolicyCommandInput = PutFileSystemPolicyRequest;
-export type PutFileSystemPolicyCommandOutput = FileSystemPolicyDescription &
-  __MetadataBearer;
+export type PutFileSystemPolicyCommandOutput = FileSystemPolicyDescription & __MetadataBearer;
 
 export class PutFileSystemPolicyCommand extends $Command<
   PutFileSystemPolicyCommandInput,
@@ -49,18 +38,13 @@ export class PutFileSystemPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutFileSystemPolicyCommandInput,
-    PutFileSystemPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutFileSystemPolicyCommandInput, PutFileSystemPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class PutFileSystemPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutFileSystemPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutFileSystemPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutFileSystemPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFileSystemPolicyCommandOutput> {
     return deserializeAws_restJson1PutFileSystemPolicyCommand(output, context);
   }
 

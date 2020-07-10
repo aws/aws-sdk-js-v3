@@ -1,21 +1,11 @@
-import {
-  CostExplorerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CostExplorerClient";
-import {
-  GetCostForecastRequest,
-  GetCostForecastResponse
-} from "../models/index";
+import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import { GetCostForecastRequest, GetCostForecastResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCostForecastCommand,
-  serializeAws_json1_1GetCostForecastCommand
+  serializeAws_json1_1GetCostForecastCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetCostForecastCommandInput = GetCostForecastRequest;
-export type GetCostForecastCommandOutput = GetCostForecastResponse &
-  __MetadataBearer;
+export type GetCostForecastCommandOutput = GetCostForecastResponse & __MetadataBearer;
 
 export class GetCostForecastCommand extends $Command<
   GetCostForecastCommandInput,
@@ -50,14 +39,12 @@ export class GetCostForecastCommand extends $Command<
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCostForecastCommandInput, GetCostForecastCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetCostForecastCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCostForecastCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCostForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCostForecastCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCostForecastCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostForecastCommandOutput> {
     return deserializeAws_json1_1GetCostForecastCommand(output, context);
   }
 

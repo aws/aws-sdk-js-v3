@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  StopRelationalDatabaseRequest,
-  StopRelationalDatabaseResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/index";
 import {
   deserializeAws_json1_1StopRelationalDatabaseCommand,
-  serializeAws_json1_1StopRelationalDatabaseCommand
+  serializeAws_json1_1StopRelationalDatabaseCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StopRelationalDatabaseCommandInput = StopRelationalDatabaseRequest;
-export type StopRelationalDatabaseCommandOutput = StopRelationalDatabaseResult &
-  __MetadataBearer;
+export type StopRelationalDatabaseCommandOutput = StopRelationalDatabaseResult & __MetadataBearer;
 
 export class StopRelationalDatabaseCommand extends $Command<
   StopRelationalDatabaseCommandInput,
@@ -49,18 +38,13 @@ export class StopRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopRelationalDatabaseCommandInput,
-    StopRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopRelationalDatabaseCommandInput, StopRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class StopRelationalDatabaseCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopRelationalDatabaseCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopRelationalDatabaseCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopRelationalDatabaseCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRelationalDatabaseCommandOutput> {
     return deserializeAws_json1_1StopRelationalDatabaseCommand(output, context);
   }
 

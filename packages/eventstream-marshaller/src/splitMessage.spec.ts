@@ -40,7 +40,7 @@ describe("splitMessage", () => {
 
     expect(splitMessage(message)).toEqual({
       headers: new DataView(new ArrayBuffer(0)),
-      body: new Uint8Array(0)
+      body: new Uint8Array(0),
     });
   });
 });

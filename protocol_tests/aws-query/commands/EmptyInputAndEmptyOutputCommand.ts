@@ -1,21 +1,11 @@
-import {
-  QueryProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QueryProtocolClient";
-import {
-  EmptyInputAndEmptyOutputInput,
-  EmptyInputAndEmptyOutputOutput
-} from "../models/index";
+import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
+import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/index";
 import {
   deserializeAws_queryEmptyInputAndEmptyOutputCommand,
-  serializeAws_queryEmptyInputAndEmptyOutputCommand
+  serializeAws_queryEmptyInputAndEmptyOutputCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type EmptyInputAndEmptyOutputCommandInput = EmptyInputAndEmptyOutputInput;
-export type EmptyInputAndEmptyOutputCommandOutput = EmptyInputAndEmptyOutputOutput &
-  __MetadataBearer;
+export type EmptyInputAndEmptyOutputCommandOutput = EmptyInputAndEmptyOutputOutput & __MetadataBearer;
 
 export class EmptyInputAndEmptyOutputCommand extends $Command<
   EmptyInputAndEmptyOutputCommandInput,
@@ -49,18 +38,13 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EmptyInputAndEmptyOutputCommandInput,
-    EmptyInputAndEmptyOutputCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EmptyInputAndEmptyOutputCommandInput, EmptyInputAndEmptyOutputCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EmptyInputAndEmptyOutputCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EmptyInputAndEmptyOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEmptyInputAndEmptyOutputCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EmptyInputAndEmptyOutputCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EmptyInputAndEmptyOutputCommandOutput> {
     return deserializeAws_queryEmptyInputAndEmptyOutputCommand(output, context);
   }
 

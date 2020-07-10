@@ -7,9 +7,9 @@ const minimalRequest = new HttpRequest({
   protocol: "https:",
   path: "/",
   headers: {
-    host: "foo.us-bar-1.amazonaws.com"
+    host: "foo.us-bar-1.amazonaws.com",
   },
-  hostname: "foo.us-bar-1.amazonaws.com"
+  hostname: "foo.us-bar-1.amazonaws.com",
 });
 
 describe("prepareRequest", () => {
@@ -26,8 +26,8 @@ describe("prepareRequest", () => {
         headers: {
           [AUTH_HEADER]: "foo",
           [AMZ_DATE_HEADER]: "bar",
-          [DATE_HEADER]: "baz"
-        }
+          [DATE_HEADER]: "baz",
+        },
       })
     );
     expect(headers[AUTH_HEADER]).toBeUndefined();

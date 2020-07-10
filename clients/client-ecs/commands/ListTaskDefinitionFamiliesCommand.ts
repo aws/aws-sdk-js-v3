@@ -1,21 +1,11 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  ListTaskDefinitionFamiliesRequest,
-  ListTaskDefinitionFamiliesResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTaskDefinitionFamiliesCommand,
-  serializeAws_json1_1ListTaskDefinitionFamiliesCommand
+  serializeAws_json1_1ListTaskDefinitionFamiliesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListTaskDefinitionFamiliesCommandInput = ListTaskDefinitionFamiliesRequest;
-export type ListTaskDefinitionFamiliesCommandOutput = ListTaskDefinitionFamiliesResponse &
-  __MetadataBearer;
+export type ListTaskDefinitionFamiliesCommandOutput = ListTaskDefinitionFamiliesResponse & __MetadataBearer;
 
 export class ListTaskDefinitionFamiliesCommand extends $Command<
   ListTaskDefinitionFamiliesCommandInput,
@@ -49,18 +38,13 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTaskDefinitionFamiliesCommandInput,
-    ListTaskDefinitionFamiliesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTaskDefinitionFamiliesCommandInput, ListTaskDefinitionFamiliesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTaskDefinitionFamiliesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTaskDefinitionFamiliesCommand(
-      input,
-      context
-    );
+  private serialize(input: ListTaskDefinitionFamiliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListTaskDefinitionFamiliesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTaskDefinitionFamiliesCommandOutput> {
-    return deserializeAws_json1_1ListTaskDefinitionFamiliesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTaskDefinitionFamiliesCommand(output, context);
   }
 
   // Start section: command_body_extra

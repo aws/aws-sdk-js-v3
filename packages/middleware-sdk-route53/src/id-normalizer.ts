@@ -5,7 +5,7 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { IDENTIFIER_PREFIX_PATTERN } from "./constants";
 
@@ -15,11 +15,7 @@ export interface IdentifierBearer {
   Id?: string;
 }
 
-const IDENTIFIER_PARAMETERS: Array<keyof IdentifierBearer> = [
-  "DelegationSetId",
-  "HostedZoneId",
-  "Id"
-];
+const IDENTIFIER_PARAMETERS: Array<keyof IdentifierBearer> = ["DelegationSetId", "HostedZoneId", "Id"];
 
 export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
@@ -37,7 +33,7 @@ export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
 
     return next({
       ...args,
-      input
+      input,
     });
   };
 }
@@ -45,11 +41,11 @@ export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
 export const idNormalizerMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["ROUTE53_IDS"],
-  name: "idNormalizerMiddleware"
+  name: "idNormalizerMiddleware",
 };
 
 export const getIdNormalizerPlugin = (unused: any): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(idNormalizerMiddleware(), idNormalizerMiddlewareOptions);
-  }
+  },
 });

@@ -1,21 +1,11 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient";
-import {
-  EnableAllFeaturesRequest,
-  EnableAllFeaturesResponse
-} from "../models/index";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
+import { EnableAllFeaturesRequest, EnableAllFeaturesResponse } from "../models/index";
 import {
   deserializeAws_json1_1EnableAllFeaturesCommand,
-  serializeAws_json1_1EnableAllFeaturesCommand
+  serializeAws_json1_1EnableAllFeaturesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type EnableAllFeaturesCommandInput = EnableAllFeaturesRequest;
-export type EnableAllFeaturesCommandOutput = EnableAllFeaturesResponse &
-  __MetadataBearer;
+export type EnableAllFeaturesCommandOutput = EnableAllFeaturesResponse & __MetadataBearer;
 
 export class EnableAllFeaturesCommand extends $Command<
   EnableAllFeaturesCommandInput,
@@ -50,14 +39,12 @@ export class EnableAllFeaturesCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class EnableAllFeaturesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EnableAllFeaturesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EnableAllFeaturesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableAllFeaturesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableAllFeaturesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAllFeaturesCommandOutput> {
     return deserializeAws_json1_1EnableAllFeaturesCommand(output, context);
   }
 

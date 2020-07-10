@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2018-08-08",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "globalaccelerator"
+  signingName: "globalaccelerator",
 };

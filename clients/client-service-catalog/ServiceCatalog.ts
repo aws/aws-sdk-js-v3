@@ -2,417 +2,413 @@ import { ServiceCatalogClient } from "./ServiceCatalogClient";
 import {
   AcceptPortfolioShareCommand,
   AcceptPortfolioShareCommandInput,
-  AcceptPortfolioShareCommandOutput
+  AcceptPortfolioShareCommandOutput,
 } from "./commands/AcceptPortfolioShareCommand";
 import {
   AssociateBudgetWithResourceCommand,
   AssociateBudgetWithResourceCommandInput,
-  AssociateBudgetWithResourceCommandOutput
+  AssociateBudgetWithResourceCommandOutput,
 } from "./commands/AssociateBudgetWithResourceCommand";
 import {
   AssociatePrincipalWithPortfolioCommand,
   AssociatePrincipalWithPortfolioCommandInput,
-  AssociatePrincipalWithPortfolioCommandOutput
+  AssociatePrincipalWithPortfolioCommandOutput,
 } from "./commands/AssociatePrincipalWithPortfolioCommand";
 import {
   AssociateProductWithPortfolioCommand,
   AssociateProductWithPortfolioCommandInput,
-  AssociateProductWithPortfolioCommandOutput
+  AssociateProductWithPortfolioCommandOutput,
 } from "./commands/AssociateProductWithPortfolioCommand";
 import {
   AssociateServiceActionWithProvisioningArtifactCommand,
   AssociateServiceActionWithProvisioningArtifactCommandInput,
-  AssociateServiceActionWithProvisioningArtifactCommandOutput
+  AssociateServiceActionWithProvisioningArtifactCommandOutput,
 } from "./commands/AssociateServiceActionWithProvisioningArtifactCommand";
 import {
   AssociateTagOptionWithResourceCommand,
   AssociateTagOptionWithResourceCommandInput,
-  AssociateTagOptionWithResourceCommandOutput
+  AssociateTagOptionWithResourceCommandOutput,
 } from "./commands/AssociateTagOptionWithResourceCommand";
 import {
   BatchAssociateServiceActionWithProvisioningArtifactCommand,
   BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
-  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput,
 } from "./commands/BatchAssociateServiceActionWithProvisioningArtifactCommand";
 import {
   BatchDisassociateServiceActionFromProvisioningArtifactCommand,
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
-  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/BatchDisassociateServiceActionFromProvisioningArtifactCommand";
-import {
-  CopyProductCommand,
-  CopyProductCommandInput,
-  CopyProductCommandOutput
-} from "./commands/CopyProductCommand";
+import { CopyProductCommand, CopyProductCommandInput, CopyProductCommandOutput } from "./commands/CopyProductCommand";
 import {
   CreateConstraintCommand,
   CreateConstraintCommandInput,
-  CreateConstraintCommandOutput
+  CreateConstraintCommandOutput,
 } from "./commands/CreateConstraintCommand";
 import {
   CreatePortfolioCommand,
   CreatePortfolioCommandInput,
-  CreatePortfolioCommandOutput
+  CreatePortfolioCommandOutput,
 } from "./commands/CreatePortfolioCommand";
 import {
   CreatePortfolioShareCommand,
   CreatePortfolioShareCommandInput,
-  CreatePortfolioShareCommandOutput
+  CreatePortfolioShareCommandOutput,
 } from "./commands/CreatePortfolioShareCommand";
 import {
   CreateProductCommand,
   CreateProductCommandInput,
-  CreateProductCommandOutput
+  CreateProductCommandOutput,
 } from "./commands/CreateProductCommand";
 import {
   CreateProvisionedProductPlanCommand,
   CreateProvisionedProductPlanCommandInput,
-  CreateProvisionedProductPlanCommandOutput
+  CreateProvisionedProductPlanCommandOutput,
 } from "./commands/CreateProvisionedProductPlanCommand";
 import {
   CreateProvisioningArtifactCommand,
   CreateProvisioningArtifactCommandInput,
-  CreateProvisioningArtifactCommandOutput
+  CreateProvisioningArtifactCommandOutput,
 } from "./commands/CreateProvisioningArtifactCommand";
 import {
   CreateServiceActionCommand,
   CreateServiceActionCommandInput,
-  CreateServiceActionCommandOutput
+  CreateServiceActionCommandOutput,
 } from "./commands/CreateServiceActionCommand";
 import {
   CreateTagOptionCommand,
   CreateTagOptionCommandInput,
-  CreateTagOptionCommandOutput
+  CreateTagOptionCommandOutput,
 } from "./commands/CreateTagOptionCommand";
 import {
   DeleteConstraintCommand,
   DeleteConstraintCommandInput,
-  DeleteConstraintCommandOutput
+  DeleteConstraintCommandOutput,
 } from "./commands/DeleteConstraintCommand";
 import {
   DeletePortfolioCommand,
   DeletePortfolioCommandInput,
-  DeletePortfolioCommandOutput
+  DeletePortfolioCommandOutput,
 } from "./commands/DeletePortfolioCommand";
 import {
   DeletePortfolioShareCommand,
   DeletePortfolioShareCommandInput,
-  DeletePortfolioShareCommandOutput
+  DeletePortfolioShareCommandOutput,
 } from "./commands/DeletePortfolioShareCommand";
 import {
   DeleteProductCommand,
   DeleteProductCommandInput,
-  DeleteProductCommandOutput
+  DeleteProductCommandOutput,
 } from "./commands/DeleteProductCommand";
 import {
   DeleteProvisionedProductPlanCommand,
   DeleteProvisionedProductPlanCommandInput,
-  DeleteProvisionedProductPlanCommandOutput
+  DeleteProvisionedProductPlanCommandOutput,
 } from "./commands/DeleteProvisionedProductPlanCommand";
 import {
   DeleteProvisioningArtifactCommand,
   DeleteProvisioningArtifactCommandInput,
-  DeleteProvisioningArtifactCommandOutput
+  DeleteProvisioningArtifactCommandOutput,
 } from "./commands/DeleteProvisioningArtifactCommand";
 import {
   DeleteServiceActionCommand,
   DeleteServiceActionCommandInput,
-  DeleteServiceActionCommandOutput
+  DeleteServiceActionCommandOutput,
 } from "./commands/DeleteServiceActionCommand";
 import {
   DeleteTagOptionCommand,
   DeleteTagOptionCommandInput,
-  DeleteTagOptionCommandOutput
+  DeleteTagOptionCommandOutput,
 } from "./commands/DeleteTagOptionCommand";
 import {
   DescribeConstraintCommand,
   DescribeConstraintCommandInput,
-  DescribeConstraintCommandOutput
+  DescribeConstraintCommandOutput,
 } from "./commands/DescribeConstraintCommand";
 import {
   DescribeCopyProductStatusCommand,
   DescribeCopyProductStatusCommandInput,
-  DescribeCopyProductStatusCommandOutput
+  DescribeCopyProductStatusCommandOutput,
 } from "./commands/DescribeCopyProductStatusCommand";
 import {
   DescribePortfolioCommand,
   DescribePortfolioCommandInput,
-  DescribePortfolioCommandOutput
+  DescribePortfolioCommandOutput,
 } from "./commands/DescribePortfolioCommand";
 import {
   DescribePortfolioShareStatusCommand,
   DescribePortfolioShareStatusCommandInput,
-  DescribePortfolioShareStatusCommandOutput
+  DescribePortfolioShareStatusCommandOutput,
 } from "./commands/DescribePortfolioShareStatusCommand";
 import {
   DescribeProductAsAdminCommand,
   DescribeProductAsAdminCommandInput,
-  DescribeProductAsAdminCommandOutput
+  DescribeProductAsAdminCommandOutput,
 } from "./commands/DescribeProductAsAdminCommand";
 import {
   DescribeProductCommand,
   DescribeProductCommandInput,
-  DescribeProductCommandOutput
+  DescribeProductCommandOutput,
 } from "./commands/DescribeProductCommand";
 import {
   DescribeProductViewCommand,
   DescribeProductViewCommandInput,
-  DescribeProductViewCommandOutput
+  DescribeProductViewCommandOutput,
 } from "./commands/DescribeProductViewCommand";
 import {
   DescribeProvisionedProductCommand,
   DescribeProvisionedProductCommandInput,
-  DescribeProvisionedProductCommandOutput
+  DescribeProvisionedProductCommandOutput,
 } from "./commands/DescribeProvisionedProductCommand";
 import {
   DescribeProvisionedProductPlanCommand,
   DescribeProvisionedProductPlanCommandInput,
-  DescribeProvisionedProductPlanCommandOutput
+  DescribeProvisionedProductPlanCommandOutput,
 } from "./commands/DescribeProvisionedProductPlanCommand";
 import {
   DescribeProvisioningArtifactCommand,
   DescribeProvisioningArtifactCommandInput,
-  DescribeProvisioningArtifactCommandOutput
+  DescribeProvisioningArtifactCommandOutput,
 } from "./commands/DescribeProvisioningArtifactCommand";
 import {
   DescribeProvisioningParametersCommand,
   DescribeProvisioningParametersCommandInput,
-  DescribeProvisioningParametersCommandOutput
+  DescribeProvisioningParametersCommandOutput,
 } from "./commands/DescribeProvisioningParametersCommand";
 import {
   DescribeRecordCommand,
   DescribeRecordCommandInput,
-  DescribeRecordCommandOutput
+  DescribeRecordCommandOutput,
 } from "./commands/DescribeRecordCommand";
 import {
   DescribeServiceActionCommand,
   DescribeServiceActionCommandInput,
-  DescribeServiceActionCommandOutput
+  DescribeServiceActionCommandOutput,
 } from "./commands/DescribeServiceActionCommand";
 import {
   DescribeServiceActionExecutionParametersCommand,
   DescribeServiceActionExecutionParametersCommandInput,
-  DescribeServiceActionExecutionParametersCommandOutput
+  DescribeServiceActionExecutionParametersCommandOutput,
 } from "./commands/DescribeServiceActionExecutionParametersCommand";
 import {
   DescribeTagOptionCommand,
   DescribeTagOptionCommandInput,
-  DescribeTagOptionCommandOutput
+  DescribeTagOptionCommandOutput,
 } from "./commands/DescribeTagOptionCommand";
 import {
   DisableAWSOrganizationsAccessCommand,
   DisableAWSOrganizationsAccessCommandInput,
-  DisableAWSOrganizationsAccessCommandOutput
+  DisableAWSOrganizationsAccessCommandOutput,
 } from "./commands/DisableAWSOrganizationsAccessCommand";
 import {
   DisassociateBudgetFromResourceCommand,
   DisassociateBudgetFromResourceCommandInput,
-  DisassociateBudgetFromResourceCommandOutput
+  DisassociateBudgetFromResourceCommandOutput,
 } from "./commands/DisassociateBudgetFromResourceCommand";
 import {
   DisassociatePrincipalFromPortfolioCommand,
   DisassociatePrincipalFromPortfolioCommandInput,
-  DisassociatePrincipalFromPortfolioCommandOutput
+  DisassociatePrincipalFromPortfolioCommandOutput,
 } from "./commands/DisassociatePrincipalFromPortfolioCommand";
 import {
   DisassociateProductFromPortfolioCommand,
   DisassociateProductFromPortfolioCommandInput,
-  DisassociateProductFromPortfolioCommandOutput
+  DisassociateProductFromPortfolioCommandOutput,
 } from "./commands/DisassociateProductFromPortfolioCommand";
 import {
   DisassociateServiceActionFromProvisioningArtifactCommand,
   DisassociateServiceActionFromProvisioningArtifactCommandInput,
-  DisassociateServiceActionFromProvisioningArtifactCommandOutput
+  DisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/DisassociateServiceActionFromProvisioningArtifactCommand";
 import {
   DisassociateTagOptionFromResourceCommand,
   DisassociateTagOptionFromResourceCommandInput,
-  DisassociateTagOptionFromResourceCommandOutput
+  DisassociateTagOptionFromResourceCommandOutput,
 } from "./commands/DisassociateTagOptionFromResourceCommand";
 import {
   EnableAWSOrganizationsAccessCommand,
   EnableAWSOrganizationsAccessCommandInput,
-  EnableAWSOrganizationsAccessCommandOutput
+  EnableAWSOrganizationsAccessCommandOutput,
 } from "./commands/EnableAWSOrganizationsAccessCommand";
 import {
   ExecuteProvisionedProductPlanCommand,
   ExecuteProvisionedProductPlanCommandInput,
-  ExecuteProvisionedProductPlanCommandOutput
+  ExecuteProvisionedProductPlanCommandOutput,
 } from "./commands/ExecuteProvisionedProductPlanCommand";
 import {
   ExecuteProvisionedProductServiceActionCommand,
   ExecuteProvisionedProductServiceActionCommandInput,
-  ExecuteProvisionedProductServiceActionCommandOutput
+  ExecuteProvisionedProductServiceActionCommandOutput,
 } from "./commands/ExecuteProvisionedProductServiceActionCommand";
 import {
   GetAWSOrganizationsAccessStatusCommand,
   GetAWSOrganizationsAccessStatusCommandInput,
-  GetAWSOrganizationsAccessStatusCommandOutput
+  GetAWSOrganizationsAccessStatusCommandOutput,
 } from "./commands/GetAWSOrganizationsAccessStatusCommand";
 import {
   ListAcceptedPortfolioSharesCommand,
   ListAcceptedPortfolioSharesCommandInput,
-  ListAcceptedPortfolioSharesCommandOutput
+  ListAcceptedPortfolioSharesCommandOutput,
 } from "./commands/ListAcceptedPortfolioSharesCommand";
 import {
   ListBudgetsForResourceCommand,
   ListBudgetsForResourceCommandInput,
-  ListBudgetsForResourceCommandOutput
+  ListBudgetsForResourceCommandOutput,
 } from "./commands/ListBudgetsForResourceCommand";
 import {
   ListConstraintsForPortfolioCommand,
   ListConstraintsForPortfolioCommandInput,
-  ListConstraintsForPortfolioCommandOutput
+  ListConstraintsForPortfolioCommandOutput,
 } from "./commands/ListConstraintsForPortfolioCommand";
 import {
   ListLaunchPathsCommand,
   ListLaunchPathsCommandInput,
-  ListLaunchPathsCommandOutput
+  ListLaunchPathsCommandOutput,
 } from "./commands/ListLaunchPathsCommand";
 import {
   ListOrganizationPortfolioAccessCommand,
   ListOrganizationPortfolioAccessCommandInput,
-  ListOrganizationPortfolioAccessCommandOutput
+  ListOrganizationPortfolioAccessCommandOutput,
 } from "./commands/ListOrganizationPortfolioAccessCommand";
 import {
   ListPortfolioAccessCommand,
   ListPortfolioAccessCommandInput,
-  ListPortfolioAccessCommandOutput
+  ListPortfolioAccessCommandOutput,
 } from "./commands/ListPortfolioAccessCommand";
 import {
   ListPortfoliosCommand,
   ListPortfoliosCommandInput,
-  ListPortfoliosCommandOutput
+  ListPortfoliosCommandOutput,
 } from "./commands/ListPortfoliosCommand";
 import {
   ListPortfoliosForProductCommand,
   ListPortfoliosForProductCommandInput,
-  ListPortfoliosForProductCommandOutput
+  ListPortfoliosForProductCommandOutput,
 } from "./commands/ListPortfoliosForProductCommand";
 import {
   ListPrincipalsForPortfolioCommand,
   ListPrincipalsForPortfolioCommandInput,
-  ListPrincipalsForPortfolioCommandOutput
+  ListPrincipalsForPortfolioCommandOutput,
 } from "./commands/ListPrincipalsForPortfolioCommand";
 import {
   ListProvisionedProductPlansCommand,
   ListProvisionedProductPlansCommandInput,
-  ListProvisionedProductPlansCommandOutput
+  ListProvisionedProductPlansCommandOutput,
 } from "./commands/ListProvisionedProductPlansCommand";
 import {
   ListProvisioningArtifactsCommand,
   ListProvisioningArtifactsCommandInput,
-  ListProvisioningArtifactsCommandOutput
+  ListProvisioningArtifactsCommandOutput,
 } from "./commands/ListProvisioningArtifactsCommand";
 import {
   ListProvisioningArtifactsForServiceActionCommand,
   ListProvisioningArtifactsForServiceActionCommandInput,
-  ListProvisioningArtifactsForServiceActionCommandOutput
+  ListProvisioningArtifactsForServiceActionCommandOutput,
 } from "./commands/ListProvisioningArtifactsForServiceActionCommand";
 import {
   ListRecordHistoryCommand,
   ListRecordHistoryCommandInput,
-  ListRecordHistoryCommandOutput
+  ListRecordHistoryCommandOutput,
 } from "./commands/ListRecordHistoryCommand";
 import {
   ListResourcesForTagOptionCommand,
   ListResourcesForTagOptionCommandInput,
-  ListResourcesForTagOptionCommandOutput
+  ListResourcesForTagOptionCommandOutput,
 } from "./commands/ListResourcesForTagOptionCommand";
 import {
   ListServiceActionsCommand,
   ListServiceActionsCommandInput,
-  ListServiceActionsCommandOutput
+  ListServiceActionsCommandOutput,
 } from "./commands/ListServiceActionsCommand";
 import {
   ListServiceActionsForProvisioningArtifactCommand,
   ListServiceActionsForProvisioningArtifactCommandInput,
-  ListServiceActionsForProvisioningArtifactCommandOutput
+  ListServiceActionsForProvisioningArtifactCommandOutput,
 } from "./commands/ListServiceActionsForProvisioningArtifactCommand";
 import {
   ListStackInstancesForProvisionedProductCommand,
   ListStackInstancesForProvisionedProductCommandInput,
-  ListStackInstancesForProvisionedProductCommandOutput
+  ListStackInstancesForProvisionedProductCommandOutput,
 } from "./commands/ListStackInstancesForProvisionedProductCommand";
 import {
   ListTagOptionsCommand,
   ListTagOptionsCommandInput,
-  ListTagOptionsCommandOutput
+  ListTagOptionsCommandOutput,
 } from "./commands/ListTagOptionsCommand";
 import {
   ProvisionProductCommand,
   ProvisionProductCommandInput,
-  ProvisionProductCommandOutput
+  ProvisionProductCommandOutput,
 } from "./commands/ProvisionProductCommand";
 import {
   RejectPortfolioShareCommand,
   RejectPortfolioShareCommandInput,
-  RejectPortfolioShareCommandOutput
+  RejectPortfolioShareCommandOutput,
 } from "./commands/RejectPortfolioShareCommand";
 import {
   ScanProvisionedProductsCommand,
   ScanProvisionedProductsCommandInput,
-  ScanProvisionedProductsCommandOutput
+  ScanProvisionedProductsCommandOutput,
 } from "./commands/ScanProvisionedProductsCommand";
 import {
   SearchProductsAsAdminCommand,
   SearchProductsAsAdminCommandInput,
-  SearchProductsAsAdminCommandOutput
+  SearchProductsAsAdminCommandOutput,
 } from "./commands/SearchProductsAsAdminCommand";
 import {
   SearchProductsCommand,
   SearchProductsCommandInput,
-  SearchProductsCommandOutput
+  SearchProductsCommandOutput,
 } from "./commands/SearchProductsCommand";
 import {
   SearchProvisionedProductsCommand,
   SearchProvisionedProductsCommandInput,
-  SearchProvisionedProductsCommandOutput
+  SearchProvisionedProductsCommandOutput,
 } from "./commands/SearchProvisionedProductsCommand";
 import {
   TerminateProvisionedProductCommand,
   TerminateProvisionedProductCommandInput,
-  TerminateProvisionedProductCommandOutput
+  TerminateProvisionedProductCommandOutput,
 } from "./commands/TerminateProvisionedProductCommand";
 import {
   UpdateConstraintCommand,
   UpdateConstraintCommandInput,
-  UpdateConstraintCommandOutput
+  UpdateConstraintCommandOutput,
 } from "./commands/UpdateConstraintCommand";
 import {
   UpdatePortfolioCommand,
   UpdatePortfolioCommandInput,
-  UpdatePortfolioCommandOutput
+  UpdatePortfolioCommandOutput,
 } from "./commands/UpdatePortfolioCommand";
 import {
   UpdateProductCommand,
   UpdateProductCommandInput,
-  UpdateProductCommandOutput
+  UpdateProductCommandOutput,
 } from "./commands/UpdateProductCommand";
 import {
   UpdateProvisionedProductCommand,
   UpdateProvisionedProductCommandInput,
-  UpdateProvisionedProductCommandOutput
+  UpdateProvisionedProductCommandOutput,
 } from "./commands/UpdateProvisionedProductCommand";
 import {
   UpdateProvisionedProductPropertiesCommand,
   UpdateProvisionedProductPropertiesCommandInput,
-  UpdateProvisionedProductPropertiesCommandOutput
+  UpdateProvisionedProductPropertiesCommandOutput,
 } from "./commands/UpdateProvisionedProductPropertiesCommand";
 import {
   UpdateProvisioningArtifactCommand,
   UpdateProvisioningArtifactCommandInput,
-  UpdateProvisioningArtifactCommandOutput
+  UpdateProvisioningArtifactCommandOutput,
 } from "./commands/UpdateProvisioningArtifactCommand";
 import {
   UpdateServiceActionCommand,
   UpdateServiceActionCommandInput,
-  UpdateServiceActionCommandOutput
+  UpdateServiceActionCommandOutput,
 } from "./commands/UpdateServiceActionCommand";
 import {
   UpdateTagOptionCommand,
   UpdateTagOptionCommandInput,
-  UpdateTagOptionCommandOutput
+  UpdateTagOptionCommandOutput,
 } from "./commands/UpdateTagOptionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -443,17 +439,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public acceptPortfolioShare(
     args: AcceptPortfolioShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptPortfolioShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptPortfolioShareCommandOutput) => void),
     cb?: (err: any, data?: AcceptPortfolioShareCommandOutput) => void
   ): Promise<AcceptPortfolioShareCommandOutput> | void {
     const command = new AcceptPortfolioShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -478,17 +471,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public associateBudgetWithResource(
     args: AssociateBudgetWithResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateBudgetWithResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateBudgetWithResourceCommandOutput) => void),
     cb?: (err: any, data?: AssociateBudgetWithResourceCommandOutput) => void
   ): Promise<AssociateBudgetWithResourceCommandOutput> | void {
     const command = new AssociateBudgetWithResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -513,20 +503,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public associatePrincipalWithPortfolio(
     args: AssociatePrincipalWithPortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociatePrincipalWithPortfolioCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociatePrincipalWithPortfolioCommandOutput) => void),
     cb?: (err: any, data?: AssociatePrincipalWithPortfolioCommandOutput) => void
   ): Promise<AssociatePrincipalWithPortfolioCommandOutput> | void {
     const command = new AssociatePrincipalWithPortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -551,17 +535,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public associateProductWithPortfolio(
     args: AssociateProductWithPortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateProductWithPortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateProductWithPortfolioCommandOutput) => void),
     cb?: (err: any, data?: AssociateProductWithPortfolioCommandOutput) => void
   ): Promise<AssociateProductWithPortfolioCommandOutput> | void {
     const command = new AssociateProductWithPortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -577,42 +558,25 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput>;
   public associateServiceActionWithProvisioningArtifact(
     args: AssociateServiceActionWithProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateServiceActionWithProvisioningArtifactCommandOutput) => void
   ): void;
   public associateServiceActionWithProvisioningArtifact(
     args: AssociateServiceActionWithProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateServiceActionWithProvisioningArtifactCommandOutput) => void
   ): void;
   public associateServiceActionWithProvisioningArtifact(
     args: AssociateServiceActionWithProvisioningArtifactCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateServiceActionWithProvisioningArtifactCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
-  ): Promise<
-    AssociateServiceActionWithProvisioningArtifactCommandOutput
-  > | void {
-    const command = new AssociateServiceActionWithProvisioningArtifactCommand(
-      args
-    );
+      | ((err: any, data?: AssociateServiceActionWithProvisioningArtifactCommandOutput) => void),
+    cb?: (err: any, data?: AssociateServiceActionWithProvisioningArtifactCommandOutput) => void
+  ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> | void {
+    const command = new AssociateServiceActionWithProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -637,20 +601,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public associateTagOptionWithResource(
     args: AssociateTagOptionWithResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateTagOptionWithResourceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateTagOptionWithResourceCommandOutput) => void),
     cb?: (err: any, data?: AssociateTagOptionWithResourceCommandOutput) => void
   ): Promise<AssociateTagOptionWithResourceCommandOutput> | void {
     const command = new AssociateTagOptionWithResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -666,42 +624,25 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput>;
   public batchAssociateServiceActionWithProvisioningArtifact(
     args: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput) => void
   ): void;
   public batchAssociateServiceActionWithProvisioningArtifact(
     args: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput) => void
   ): void;
   public batchAssociateServiceActionWithProvisioningArtifact(
     args: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
-  ): Promise<
-    BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-  > | void {
-    const command = new BatchAssociateServiceActionWithProvisioningArtifactCommand(
-      args
-    );
+      | ((err: any, data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput) => void),
+    cb?: (err: any, data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput) => void
+  ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> | void {
+    const command = new BatchAssociateServiceActionWithProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -714,47 +655,28 @@ export class ServiceCatalog extends ServiceCatalogClient {
   public batchDisassociateServiceActionFromProvisioningArtifact(
     args: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<
-    BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-  >;
+  ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput>;
   public batchDisassociateServiceActionFromProvisioningArtifact(
     args: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
   ): void;
   public batchDisassociateServiceActionFromProvisioningArtifact(
     args: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
   ): void;
   public batchDisassociateServiceActionFromProvisioningArtifact(
     args: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
-  ): Promise<
-    BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-  > | void {
-    const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(
-      args
-    );
+      | ((err: any, data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput) => void),
+    cb?: (err: any, data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
+  ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> | void {
+    const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -768,14 +690,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
    *          <p>This operation is performed asynchronously. To track the progress of the
    *          operation, use <a>DescribeCopyProductStatus</a>.</p>
    */
-  public copyProduct(
-    args: CopyProductCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CopyProductCommandOutput>;
-  public copyProduct(
-    args: CopyProductCommandInput,
-    cb: (err: any, data?: CopyProductCommandOutput) => void
-  ): void;
+  public copyProduct(args: CopyProductCommandInput, options?: __HttpHandlerOptions): Promise<CopyProductCommandOutput>;
+  public copyProduct(args: CopyProductCommandInput, cb: (err: any, data?: CopyProductCommandOutput) => void): void;
   public copyProduct(
     args: CopyProductCommandInput,
     options: __HttpHandlerOptions,
@@ -783,17 +699,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public copyProduct(
     args: CopyProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyProductCommandOutput) => void),
     cb?: (err: any, data?: CopyProductCommandOutput) => void
   ): Promise<CopyProductCommandOutput> | void {
     const command = new CopyProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -818,17 +731,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createConstraint(
     args: CreateConstraintCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConstraintCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConstraintCommandOutput) => void),
     cb?: (err: any, data?: CreateConstraintCommandOutput) => void
   ): Promise<CreateConstraintCommandOutput> | void {
     const command = new CreateConstraintCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -853,17 +763,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createPortfolio(
     args: CreatePortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePortfolioCommandOutput) => void),
     cb?: (err: any, data?: CreatePortfolioCommandOutput) => void
   ): Promise<CreatePortfolioCommandOutput> | void {
     const command = new CreatePortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -888,17 +795,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createPortfolioShare(
     args: CreatePortfolioShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePortfolioShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePortfolioShareCommandOutput) => void),
     cb?: (err: any, data?: CreatePortfolioShareCommandOutput) => void
   ): Promise<CreatePortfolioShareCommandOutput> | void {
     const command = new CreatePortfolioShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -923,17 +827,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createProduct(
     args: CreateProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProductCommandOutput) => void),
     cb?: (err: any, data?: CreateProductCommandOutput) => void
   ): Promise<CreateProductCommandOutput> | void {
     const command = new CreateProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -964,17 +865,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createProvisionedProductPlan(
     args: CreateProvisionedProductPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProvisionedProductPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProvisionedProductPlanCommandOutput) => void),
     cb?: (err: any, data?: CreateProvisionedProductPlanCommandOutput) => void
   ): Promise<CreateProvisionedProductPlanCommandOutput> | void {
     const command = new CreateProvisionedProductPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1000,17 +898,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createProvisioningArtifact(
     args: CreateProvisioningArtifactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProvisioningArtifactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProvisioningArtifactCommandOutput) => void),
     cb?: (err: any, data?: CreateProvisioningArtifactCommandOutput) => void
   ): Promise<CreateProvisioningArtifactCommandOutput> | void {
     const command = new CreateProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1035,17 +930,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createServiceAction(
     args: CreateServiceActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServiceActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceActionCommandOutput) => void),
     cb?: (err: any, data?: CreateServiceActionCommandOutput) => void
   ): Promise<CreateServiceActionCommandOutput> | void {
     const command = new CreateServiceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1070,17 +962,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createTagOption(
     args: CreateTagOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagOptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagOptionCommandOutput) => void),
     cb?: (err: any, data?: CreateTagOptionCommandOutput) => void
   ): Promise<CreateTagOptionCommandOutput> | void {
     const command = new CreateTagOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1105,17 +994,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteConstraint(
     args: DeleteConstraintCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConstraintCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConstraintCommandOutput) => void),
     cb?: (err: any, data?: DeleteConstraintCommandOutput) => void
   ): Promise<DeleteConstraintCommandOutput> | void {
     const command = new DeleteConstraintCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1142,17 +1028,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deletePortfolio(
     args: DeletePortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePortfolioCommandOutput) => void),
     cb?: (err: any, data?: DeletePortfolioCommandOutput) => void
   ): Promise<DeletePortfolioCommandOutput> | void {
     const command = new DeletePortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1177,17 +1060,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deletePortfolioShare(
     args: DeletePortfolioShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePortfolioShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePortfolioShareCommandOutput) => void),
     cb?: (err: any, data?: DeletePortfolioShareCommandOutput) => void
   ): Promise<DeletePortfolioShareCommandOutput> | void {
     const command = new DeletePortfolioShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1213,17 +1093,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteProduct(
     args: DeleteProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProductCommandOutput) => void),
     cb?: (err: any, data?: DeleteProductCommandOutput) => void
   ): Promise<DeleteProductCommandOutput> | void {
     const command = new DeleteProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1248,17 +1125,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteProvisionedProductPlan(
     args: DeleteProvisionedProductPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProvisionedProductPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProvisionedProductPlanCommandOutput) => void),
     cb?: (err: any, data?: DeleteProvisionedProductPlanCommandOutput) => void
   ): Promise<DeleteProvisionedProductPlanCommandOutput> | void {
     const command = new DeleteProvisionedProductPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1286,17 +1160,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteProvisioningArtifact(
     args: DeleteProvisioningArtifactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProvisioningArtifactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProvisioningArtifactCommandOutput) => void),
     cb?: (err: any, data?: DeleteProvisioningArtifactCommandOutput) => void
   ): Promise<DeleteProvisioningArtifactCommandOutput> | void {
     const command = new DeleteProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1321,17 +1192,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteServiceAction(
     args: DeleteServiceActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServiceActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceActionCommandOutput) => void),
     cb?: (err: any, data?: DeleteServiceActionCommandOutput) => void
   ): Promise<DeleteServiceActionCommandOutput> | void {
     const command = new DeleteServiceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1357,17 +1225,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteTagOption(
     args: DeleteTagOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagOptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagOptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagOptionCommandOutput) => void
   ): Promise<DeleteTagOptionCommandOutput> | void {
     const command = new DeleteTagOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1392,17 +1257,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeConstraint(
     args: DescribeConstraintCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConstraintCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConstraintCommandOutput) => void),
     cb?: (err: any, data?: DescribeConstraintCommandOutput) => void
   ): Promise<DescribeConstraintCommandOutput> | void {
     const command = new DescribeConstraintCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1427,17 +1289,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeCopyProductStatus(
     args: DescribeCopyProductStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCopyProductStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCopyProductStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeCopyProductStatusCommandOutput) => void
   ): Promise<DescribeCopyProductStatusCommandOutput> | void {
     const command = new DescribeCopyProductStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1462,17 +1321,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describePortfolio(
     args: DescribePortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePortfolioCommandOutput) => void),
     cb?: (err: any, data?: DescribePortfolioCommandOutput) => void
   ): Promise<DescribePortfolioCommandOutput> | void {
     const command = new DescribePortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1497,17 +1353,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describePortfolioShareStatus(
     args: DescribePortfolioShareStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePortfolioShareStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePortfolioShareStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribePortfolioShareStatusCommandOutput) => void
   ): Promise<DescribePortfolioShareStatusCommandOutput> | void {
     const command = new DescribePortfolioShareStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1532,17 +1385,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeProduct(
     args: DescribeProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProductCommandOutput) => void),
     cb?: (err: any, data?: DescribeProductCommandOutput) => void
   ): Promise<DescribeProductCommandOutput> | void {
     const command = new DescribeProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1567,17 +1417,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeProductAsAdmin(
     args: DescribeProductAsAdminCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProductAsAdminCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProductAsAdminCommandOutput) => void),
     cb?: (err: any, data?: DescribeProductAsAdminCommandOutput) => void
   ): Promise<DescribeProductAsAdminCommandOutput> | void {
     const command = new DescribeProductAsAdminCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1602,17 +1449,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeProductView(
     args: DescribeProductViewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProductViewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProductViewCommandOutput) => void),
     cb?: (err: any, data?: DescribeProductViewCommandOutput) => void
   ): Promise<DescribeProductViewCommandOutput> | void {
     const command = new DescribeProductViewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1637,17 +1481,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeProvisionedProduct(
     args: DescribeProvisionedProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProvisionedProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProvisionedProductCommandOutput) => void),
     cb?: (err: any, data?: DescribeProvisionedProductCommandOutput) => void
   ): Promise<DescribeProvisionedProductCommandOutput> | void {
     const command = new DescribeProvisionedProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1672,20 +1513,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeProvisionedProductPlan(
     args: DescribeProvisionedProductPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeProvisionedProductPlanCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProvisionedProductPlanCommandOutput) => void),
     cb?: (err: any, data?: DescribeProvisionedProductPlanCommandOutput) => void
   ): Promise<DescribeProvisionedProductPlanCommandOutput> | void {
     const command = new DescribeProvisionedProductPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1710,17 +1545,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeProvisioningArtifact(
     args: DescribeProvisioningArtifactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProvisioningArtifactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProvisioningArtifactCommandOutput) => void),
     cb?: (err: any, data?: DescribeProvisioningArtifactCommandOutput) => void
   ): Promise<DescribeProvisioningArtifactCommandOutput> | void {
     const command = new DescribeProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1752,20 +1584,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeProvisioningParameters(
     args: DescribeProvisioningParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeProvisioningParametersCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProvisioningParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeProvisioningParametersCommandOutput) => void
   ): Promise<DescribeProvisioningParametersCommandOutput> | void {
     const command = new DescribeProvisioningParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1798,17 +1624,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeRecord(
     args: DescribeRecordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRecordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecordCommandOutput) => void),
     cb?: (err: any, data?: DescribeRecordCommandOutput) => void
   ): Promise<DescribeRecordCommandOutput> | void {
     const command = new DescribeRecordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1833,17 +1656,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeServiceAction(
     args: DescribeServiceActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServiceActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServiceActionCommandOutput) => void),
     cb?: (err: any, data?: DescribeServiceActionCommandOutput) => void
   ): Promise<DescribeServiceActionCommandOutput> | void {
     const command = new DescribeServiceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1856,38 +1676,25 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<DescribeServiceActionExecutionParametersCommandOutput>;
   public describeServiceActionExecutionParameters(
     args: DescribeServiceActionExecutionParametersCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeServiceActionExecutionParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeServiceActionExecutionParametersCommandOutput) => void
   ): void;
   public describeServiceActionExecutionParameters(
     args: DescribeServiceActionExecutionParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeServiceActionExecutionParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeServiceActionExecutionParametersCommandOutput) => void
   ): void;
   public describeServiceActionExecutionParameters(
     args: DescribeServiceActionExecutionParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeServiceActionExecutionParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeServiceActionExecutionParametersCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeServiceActionExecutionParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeServiceActionExecutionParametersCommandOutput) => void
   ): Promise<DescribeServiceActionExecutionParametersCommandOutput> | void {
     const command = new DescribeServiceActionExecutionParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1912,17 +1719,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeTagOption(
     args: DescribeTagOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagOptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagOptionCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagOptionCommandOutput) => void
   ): Promise<DescribeTagOptionCommandOutput> | void {
     const command = new DescribeTagOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1947,17 +1751,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public disableAWSOrganizationsAccess(
     args: DisableAWSOrganizationsAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableAWSOrganizationsAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableAWSOrganizationsAccessCommandOutput) => void),
     cb?: (err: any, data?: DisableAWSOrganizationsAccessCommandOutput) => void
   ): Promise<DisableAWSOrganizationsAccessCommandOutput> | void {
     const command = new DisableAWSOrganizationsAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1982,20 +1783,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public disassociateBudgetFromResource(
     args: DisassociateBudgetFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateBudgetFromResourceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateBudgetFromResourceCommandOutput) => void),
     cb?: (err: any, data?: DisassociateBudgetFromResourceCommandOutput) => void
   ): Promise<DisassociateBudgetFromResourceCommandOutput> | void {
     const command = new DisassociateBudgetFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2012,38 +1807,23 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<DisassociatePrincipalFromPortfolioCommandOutput>;
   public disassociatePrincipalFromPortfolio(
     args: DisassociatePrincipalFromPortfolioCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociatePrincipalFromPortfolioCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociatePrincipalFromPortfolioCommandOutput) => void
   ): void;
   public disassociatePrincipalFromPortfolio(
     args: DisassociatePrincipalFromPortfolioCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociatePrincipalFromPortfolioCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociatePrincipalFromPortfolioCommandOutput) => void
   ): void;
   public disassociatePrincipalFromPortfolio(
     args: DisassociatePrincipalFromPortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociatePrincipalFromPortfolioCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociatePrincipalFromPortfolioCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociatePrincipalFromPortfolioCommandOutput) => void),
+    cb?: (err: any, data?: DisassociatePrincipalFromPortfolioCommandOutput) => void
   ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> | void {
     const command = new DisassociatePrincipalFromPortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2068,23 +1848,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public disassociateProductFromPortfolio(
     args: DisassociateProductFromPortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateProductFromPortfolioCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateProductFromPortfolioCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateProductFromPortfolioCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateProductFromPortfolioCommandOutput) => void
   ): Promise<DisassociateProductFromPortfolioCommandOutput> | void {
     const command = new DisassociateProductFromPortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2100,42 +1871,25 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput>;
   public disassociateServiceActionFromProvisioningArtifact(
     args: DisassociateServiceActionFromProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
   ): void;
   public disassociateServiceActionFromProvisioningArtifact(
     args: DisassociateServiceActionFromProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
   ): void;
   public disassociateServiceActionFromProvisioningArtifact(
     args: DisassociateServiceActionFromProvisioningArtifactCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
-  ): Promise<
-    DisassociateServiceActionFromProvisioningArtifactCommandOutput
-  > | void {
-    const command = new DisassociateServiceActionFromProvisioningArtifactCommand(
-      args
-    );
+      | ((err: any, data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
+  ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> | void {
+    const command = new DisassociateServiceActionFromProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2151,38 +1905,23 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<DisassociateTagOptionFromResourceCommandOutput>;
   public disassociateTagOptionFromResource(
     args: DisassociateTagOptionFromResourceCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateTagOptionFromResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTagOptionFromResourceCommandOutput) => void
   ): void;
   public disassociateTagOptionFromResource(
     args: DisassociateTagOptionFromResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateTagOptionFromResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTagOptionFromResourceCommandOutput) => void
   ): void;
   public disassociateTagOptionFromResource(
     args: DisassociateTagOptionFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateTagOptionFromResourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateTagOptionFromResourceCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateTagOptionFromResourceCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTagOptionFromResourceCommandOutput) => void
   ): Promise<DisassociateTagOptionFromResourceCommandOutput> | void {
     const command = new DisassociateTagOptionFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2208,17 +1947,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public enableAWSOrganizationsAccess(
     args: EnableAWSOrganizationsAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableAWSOrganizationsAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAWSOrganizationsAccessCommandOutput) => void),
     cb?: (err: any, data?: EnableAWSOrganizationsAccessCommandOutput) => void
   ): Promise<EnableAWSOrganizationsAccessCommandOutput> | void {
     const command = new EnableAWSOrganizationsAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2243,17 +1979,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public executeProvisionedProductPlan(
     args: ExecuteProvisionedProductPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExecuteProvisionedProductPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteProvisionedProductPlanCommandOutput) => void),
     cb?: (err: any, data?: ExecuteProvisionedProductPlanCommandOutput) => void
   ): Promise<ExecuteProvisionedProductPlanCommandOutput> | void {
     const command = new ExecuteProvisionedProductPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2269,38 +2002,25 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<ExecuteProvisionedProductServiceActionCommandOutput>;
   public executeProvisionedProductServiceAction(
     args: ExecuteProvisionedProductServiceActionCommandInput,
-    cb: (
-      err: any,
-      data?: ExecuteProvisionedProductServiceActionCommandOutput
-    ) => void
+    cb: (err: any, data?: ExecuteProvisionedProductServiceActionCommandOutput) => void
   ): void;
   public executeProvisionedProductServiceAction(
     args: ExecuteProvisionedProductServiceActionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ExecuteProvisionedProductServiceActionCommandOutput
-    ) => void
+    cb: (err: any, data?: ExecuteProvisionedProductServiceActionCommandOutput) => void
   ): void;
   public executeProvisionedProductServiceAction(
     args: ExecuteProvisionedProductServiceActionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ExecuteProvisionedProductServiceActionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ExecuteProvisionedProductServiceActionCommandOutput
-    ) => void
+      | ((err: any, data?: ExecuteProvisionedProductServiceActionCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteProvisionedProductServiceActionCommandOutput) => void
   ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> | void {
     const command = new ExecuteProvisionedProductServiceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2325,20 +2045,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public getAWSOrganizationsAccessStatus(
     args: GetAWSOrganizationsAccessStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAWSOrganizationsAccessStatusCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAWSOrganizationsAccessStatusCommandOutput) => void),
     cb?: (err: any, data?: GetAWSOrganizationsAccessStatusCommandOutput) => void
   ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> | void {
     const command = new GetAWSOrganizationsAccessStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2363,17 +2077,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listAcceptedPortfolioShares(
     args: ListAcceptedPortfolioSharesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAcceptedPortfolioSharesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAcceptedPortfolioSharesCommandOutput) => void),
     cb?: (err: any, data?: ListAcceptedPortfolioSharesCommandOutput) => void
   ): Promise<ListAcceptedPortfolioSharesCommandOutput> | void {
     const command = new ListAcceptedPortfolioSharesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2398,17 +2109,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listBudgetsForResource(
     args: ListBudgetsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBudgetsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBudgetsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListBudgetsForResourceCommandOutput) => void
   ): Promise<ListBudgetsForResourceCommandOutput> | void {
     const command = new ListBudgetsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2433,17 +2141,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listConstraintsForPortfolio(
     args: ListConstraintsForPortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConstraintsForPortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConstraintsForPortfolioCommandOutput) => void),
     cb?: (err: any, data?: ListConstraintsForPortfolioCommandOutput) => void
   ): Promise<ListConstraintsForPortfolioCommandOutput> | void {
     const command = new ListConstraintsForPortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2470,17 +2175,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listLaunchPaths(
     args: ListLaunchPathsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLaunchPathsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLaunchPathsCommandOutput) => void),
     cb?: (err: any, data?: ListLaunchPathsCommandOutput) => void
   ): Promise<ListLaunchPathsCommandOutput> | void {
     const command = new ListLaunchPathsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2505,20 +2207,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listOrganizationPortfolioAccess(
     args: ListOrganizationPortfolioAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListOrganizationPortfolioAccessCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOrganizationPortfolioAccessCommandOutput) => void),
     cb?: (err: any, data?: ListOrganizationPortfolioAccessCommandOutput) => void
   ): Promise<ListOrganizationPortfolioAccessCommandOutput> | void {
     const command = new ListOrganizationPortfolioAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2543,17 +2239,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listPortfolioAccess(
     args: ListPortfolioAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPortfolioAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPortfolioAccessCommandOutput) => void),
     cb?: (err: any, data?: ListPortfolioAccessCommandOutput) => void
   ): Promise<ListPortfolioAccessCommandOutput> | void {
     const command = new ListPortfolioAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2578,17 +2271,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listPortfolios(
     args: ListPortfoliosCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPortfoliosCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPortfoliosCommandOutput) => void),
     cb?: (err: any, data?: ListPortfoliosCommandOutput) => void
   ): Promise<ListPortfoliosCommandOutput> | void {
     const command = new ListPortfoliosCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2613,17 +2303,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listPortfoliosForProduct(
     args: ListPortfoliosForProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPortfoliosForProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPortfoliosForProductCommandOutput) => void),
     cb?: (err: any, data?: ListPortfoliosForProductCommandOutput) => void
   ): Promise<ListPortfoliosForProductCommandOutput> | void {
     const command = new ListPortfoliosForProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2648,17 +2335,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listPrincipalsForPortfolio(
     args: ListPrincipalsForPortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPrincipalsForPortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPrincipalsForPortfolioCommandOutput) => void),
     cb?: (err: any, data?: ListPrincipalsForPortfolioCommandOutput) => void
   ): Promise<ListPrincipalsForPortfolioCommandOutput> | void {
     const command = new ListPrincipalsForPortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2683,17 +2367,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listProvisionedProductPlans(
     args: ListProvisionedProductPlansCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProvisionedProductPlansCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProvisionedProductPlansCommandOutput) => void),
     cb?: (err: any, data?: ListProvisionedProductPlansCommandOutput) => void
   ): Promise<ListProvisionedProductPlansCommandOutput> | void {
     const command = new ListProvisionedProductPlansCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2718,17 +2399,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listProvisioningArtifacts(
     args: ListProvisioningArtifactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProvisioningArtifactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProvisioningArtifactsCommandOutput) => void),
     cb?: (err: any, data?: ListProvisioningArtifactsCommandOutput) => void
   ): Promise<ListProvisioningArtifactsCommandOutput> | void {
     const command = new ListProvisioningArtifactsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2744,38 +2422,25 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput>;
   public listProvisioningArtifactsForServiceAction(
     args: ListProvisioningArtifactsForServiceActionCommandInput,
-    cb: (
-      err: any,
-      data?: ListProvisioningArtifactsForServiceActionCommandOutput
-    ) => void
+    cb: (err: any, data?: ListProvisioningArtifactsForServiceActionCommandOutput) => void
   ): void;
   public listProvisioningArtifactsForServiceAction(
     args: ListProvisioningArtifactsForServiceActionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListProvisioningArtifactsForServiceActionCommandOutput
-    ) => void
+    cb: (err: any, data?: ListProvisioningArtifactsForServiceActionCommandOutput) => void
   ): void;
   public listProvisioningArtifactsForServiceAction(
     args: ListProvisioningArtifactsForServiceActionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListProvisioningArtifactsForServiceActionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListProvisioningArtifactsForServiceActionCommandOutput
-    ) => void
+      | ((err: any, data?: ListProvisioningArtifactsForServiceActionCommandOutput) => void),
+    cb?: (err: any, data?: ListProvisioningArtifactsForServiceActionCommandOutput) => void
   ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> | void {
     const command = new ListProvisioningArtifactsForServiceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2800,17 +2465,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listRecordHistory(
     args: ListRecordHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRecordHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecordHistoryCommandOutput) => void),
     cb?: (err: any, data?: ListRecordHistoryCommandOutput) => void
   ): Promise<ListRecordHistoryCommandOutput> | void {
     const command = new ListRecordHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2835,17 +2497,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listResourcesForTagOption(
     args: ListResourcesForTagOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesForTagOptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesForTagOptionCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesForTagOptionCommandOutput) => void
   ): Promise<ListResourcesForTagOptionCommandOutput> | void {
     const command = new ListResourcesForTagOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2870,17 +2529,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listServiceActions(
     args: ListServiceActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServiceActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServiceActionsCommandOutput) => void),
     cb?: (err: any, data?: ListServiceActionsCommandOutput) => void
   ): Promise<ListServiceActionsCommandOutput> | void {
     const command = new ListServiceActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2896,38 +2552,25 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput>;
   public listServiceActionsForProvisioningArtifact(
     args: ListServiceActionsForProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: ListServiceActionsForProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: ListServiceActionsForProvisioningArtifactCommandOutput) => void
   ): void;
   public listServiceActionsForProvisioningArtifact(
     args: ListServiceActionsForProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListServiceActionsForProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: ListServiceActionsForProvisioningArtifactCommandOutput) => void
   ): void;
   public listServiceActionsForProvisioningArtifact(
     args: ListServiceActionsForProvisioningArtifactCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListServiceActionsForProvisioningArtifactCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListServiceActionsForProvisioningArtifactCommandOutput
-    ) => void
+      | ((err: any, data?: ListServiceActionsForProvisioningArtifactCommandOutput) => void),
+    cb?: (err: any, data?: ListServiceActionsForProvisioningArtifactCommandOutput) => void
   ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> | void {
     const command = new ListServiceActionsForProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2943,38 +2586,25 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<ListStackInstancesForProvisionedProductCommandOutput>;
   public listStackInstancesForProvisionedProduct(
     args: ListStackInstancesForProvisionedProductCommandInput,
-    cb: (
-      err: any,
-      data?: ListStackInstancesForProvisionedProductCommandOutput
-    ) => void
+    cb: (err: any, data?: ListStackInstancesForProvisionedProductCommandOutput) => void
   ): void;
   public listStackInstancesForProvisionedProduct(
     args: ListStackInstancesForProvisionedProductCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListStackInstancesForProvisionedProductCommandOutput
-    ) => void
+    cb: (err: any, data?: ListStackInstancesForProvisionedProductCommandOutput) => void
   ): void;
   public listStackInstancesForProvisionedProduct(
     args: ListStackInstancesForProvisionedProductCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListStackInstancesForProvisionedProductCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListStackInstancesForProvisionedProductCommandOutput
-    ) => void
+      | ((err: any, data?: ListStackInstancesForProvisionedProductCommandOutput) => void),
+    cb?: (err: any, data?: ListStackInstancesForProvisionedProductCommandOutput) => void
   ): Promise<ListStackInstancesForProvisionedProductCommandOutput> | void {
     const command = new ListStackInstancesForProvisionedProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2999,17 +2629,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listTagOptions(
     args: ListTagOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagOptionsCommandOutput) => void),
     cb?: (err: any, data?: ListTagOptionsCommandOutput) => void
   ): Promise<ListTagOptionsCommandOutput> | void {
     const command = new ListTagOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3042,17 +2669,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public provisionProduct(
     args: ProvisionProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ProvisionProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvisionProductCommandOutput) => void),
     cb?: (err: any, data?: ProvisionProductCommandOutput) => void
   ): Promise<ProvisionProductCommandOutput> | void {
     const command = new ProvisionProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3077,17 +2701,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public rejectPortfolioShare(
     args: RejectPortfolioShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectPortfolioShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectPortfolioShareCommandOutput) => void),
     cb?: (err: any, data?: RejectPortfolioShareCommandOutput) => void
   ): Promise<RejectPortfolioShareCommandOutput> | void {
     const command = new RejectPortfolioShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3113,17 +2734,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public scanProvisionedProducts(
     args: ScanProvisionedProductsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ScanProvisionedProductsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ScanProvisionedProductsCommandOutput) => void),
     cb?: (err: any, data?: ScanProvisionedProductsCommandOutput) => void
   ): Promise<ScanProvisionedProductsCommandOutput> | void {
     const command = new ScanProvisionedProductsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3148,17 +2766,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public searchProducts(
     args: SearchProductsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchProductsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchProductsCommandOutput) => void),
     cb?: (err: any, data?: SearchProductsCommandOutput) => void
   ): Promise<SearchProductsCommandOutput> | void {
     const command = new SearchProductsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3183,17 +2798,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public searchProductsAsAdmin(
     args: SearchProductsAsAdminCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchProductsAsAdminCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchProductsAsAdminCommandOutput) => void),
     cb?: (err: any, data?: SearchProductsAsAdminCommandOutput) => void
   ): Promise<SearchProductsAsAdminCommandOutput> | void {
     const command = new SearchProductsAsAdminCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3218,17 +2830,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public searchProvisionedProducts(
     args: SearchProvisionedProductsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchProvisionedProductsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchProvisionedProductsCommandOutput) => void),
     cb?: (err: any, data?: SearchProvisionedProductsCommandOutput) => void
   ): Promise<SearchProvisionedProductsCommandOutput> | void {
     const command = new SearchProvisionedProductsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3255,17 +2864,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public terminateProvisionedProduct(
     args: TerminateProvisionedProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateProvisionedProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateProvisionedProductCommandOutput) => void),
     cb?: (err: any, data?: TerminateProvisionedProductCommandOutput) => void
   ): Promise<TerminateProvisionedProductCommandOutput> | void {
     const command = new TerminateProvisionedProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3290,17 +2896,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateConstraint(
     args: UpdateConstraintCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConstraintCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConstraintCommandOutput) => void),
     cb?: (err: any, data?: UpdateConstraintCommandOutput) => void
   ): Promise<UpdateConstraintCommandOutput> | void {
     const command = new UpdateConstraintCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3326,17 +2929,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updatePortfolio(
     args: UpdatePortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePortfolioCommandOutput) => void),
     cb?: (err: any, data?: UpdatePortfolioCommandOutput) => void
   ): Promise<UpdatePortfolioCommandOutput> | void {
     const command = new UpdatePortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3361,17 +2961,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateProduct(
     args: UpdateProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProductCommandOutput) => void),
     cb?: (err: any, data?: UpdateProductCommandOutput) => void
   ): Promise<UpdateProductCommandOutput> | void {
     const command = new UpdateProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3400,17 +2997,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateProvisionedProduct(
     args: UpdateProvisionedProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProvisionedProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProvisionedProductCommandOutput) => void),
     cb?: (err: any, data?: UpdateProvisionedProductCommandOutput) => void
   ): Promise<UpdateProvisionedProductCommandOutput> | void {
     const command = new UpdateProvisionedProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3426,38 +3020,23 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<UpdateProvisionedProductPropertiesCommandOutput>;
   public updateProvisionedProductProperties(
     args: UpdateProvisionedProductPropertiesCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateProvisionedProductPropertiesCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateProvisionedProductPropertiesCommandOutput) => void
   ): void;
   public updateProvisionedProductProperties(
     args: UpdateProvisionedProductPropertiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateProvisionedProductPropertiesCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateProvisionedProductPropertiesCommandOutput) => void
   ): void;
   public updateProvisionedProductProperties(
     args: UpdateProvisionedProductPropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateProvisionedProductPropertiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateProvisionedProductPropertiesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProvisionedProductPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProvisionedProductPropertiesCommandOutput) => void
   ): Promise<UpdateProvisionedProductPropertiesCommandOutput> | void {
     const command = new UpdateProvisionedProductPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3483,17 +3062,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateProvisioningArtifact(
     args: UpdateProvisioningArtifactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProvisioningArtifactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProvisioningArtifactCommandOutput) => void),
     cb?: (err: any, data?: UpdateProvisioningArtifactCommandOutput) => void
   ): Promise<UpdateProvisioningArtifactCommandOutput> | void {
     const command = new UpdateProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3518,17 +3094,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateServiceAction(
     args: UpdateServiceActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServiceActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceActionCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceActionCommandOutput) => void
   ): Promise<UpdateServiceActionCommandOutput> | void {
     const command = new UpdateServiceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3553,17 +3126,14 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateTagOption(
     args: UpdateTagOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTagOptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTagOptionCommandOutput) => void),
     cb?: (err: any, data?: UpdateTagOptionCommandOutput) => void
   ): Promise<UpdateTagOptionCommandOutput> | void {
     const command = new UpdateTagOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

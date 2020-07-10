@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -38,10 +34,9 @@ export interface AlarmHistoryItem {
 
 export namespace AlarmHistoryItem {
   export const filterSensitiveLog = (obj: AlarmHistoryItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AlarmHistoryItem =>
-    __isa(o, "AlarmHistoryItem");
+  export const isa = (o: any): o is AlarmHistoryItem => __isa(o, "AlarmHistoryItem");
 }
 
 /**
@@ -88,10 +83,9 @@ export interface AnomalyDetector {
 
 export namespace AnomalyDetector {
   export const filterSensitiveLog = (obj: AnomalyDetector): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AnomalyDetector =>
-    __isa(o, "AnomalyDetector");
+  export const isa = (o: any): o is AnomalyDetector => __isa(o, "AnomalyDetector");
 }
 
 /**
@@ -119,19 +113,13 @@ export interface AnomalyDetectorConfiguration {
 }
 
 export namespace AnomalyDetectorConfiguration {
-  export const filterSensitiveLog = (
-    obj: AnomalyDetectorConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AnomalyDetectorConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AnomalyDetectorConfiguration =>
-    __isa(o, "AnomalyDetectorConfiguration");
+  export const isa = (o: any): o is AnomalyDetectorConfiguration => __isa(o, "AnomalyDetectorConfiguration");
 }
 
-export type AnomalyDetectorStateValue =
-  | "PENDING_TRAINING"
-  | "TRAINED"
-  | "TRAINED_INSUFFICIENT_DATA";
+export type AnomalyDetectorStateValue = "PENDING_TRAINING" | "TRAINED" | "TRAINED_INSUFFICIENT_DATA";
 
 export type ComparisonOperator =
   | "GreaterThanOrEqualToThreshold"
@@ -145,22 +133,17 @@ export type ComparisonOperator =
 /**
  * <p>More than one process tried to modify a resource at the same time.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -192,18 +175,15 @@ export interface DashboardEntry {
 
 export namespace DashboardEntry {
   export const filterSensitiveLog = (obj: DashboardEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DashboardEntry =>
-    __isa(o, "DashboardEntry");
+  export const isa = (o: any): o is DashboardEntry => __isa(o, "DashboardEntry");
 }
 
 /**
  * <p>Some part of the dashboard data is invalid.</p>
  */
-export interface DashboardInvalidInputError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DashboardInvalidInputError extends __SmithyException, $MetadataBearer {
   name: "DashboardInvalidInputError";
   $fault: "client";
   dashboardValidationMessages?: DashboardValidationMessage[];
@@ -212,18 +192,15 @@ export interface DashboardInvalidInputError
 
 export namespace DashboardInvalidInputError {
   export const filterSensitiveLog = (obj: DashboardInvalidInputError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DashboardInvalidInputError =>
-    __isa(o, "DashboardInvalidInputError");
+  export const isa = (o: any): o is DashboardInvalidInputError => __isa(o, "DashboardInvalidInputError");
 }
 
 /**
  * <p>The specified dashboard does not exist.</p>
  */
-export interface DashboardNotFoundError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DashboardNotFoundError extends __SmithyException, $MetadataBearer {
   name: "DashboardNotFoundError";
   $fault: "client";
   message?: string;
@@ -231,10 +208,9 @@ export interface DashboardNotFoundError
 
 export namespace DashboardNotFoundError {
   export const filterSensitiveLog = (obj: DashboardNotFoundError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DashboardNotFoundError =>
-    __isa(o, "DashboardNotFoundError");
+  export const isa = (o: any): o is DashboardNotFoundError => __isa(o, "DashboardNotFoundError");
 }
 
 /**
@@ -255,10 +231,9 @@ export interface DashboardValidationMessage {
 
 export namespace DashboardValidationMessage {
   export const filterSensitiveLog = (obj: DashboardValidationMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DashboardValidationMessage =>
-    __isa(o, "DashboardValidationMessage");
+  export const isa = (o: any): o is DashboardValidationMessage => __isa(o, "DashboardValidationMessage");
 }
 
 /**
@@ -310,7 +285,7 @@ export interface Datapoint {
 
 export namespace Datapoint {
   export const filterSensitiveLog = (obj: Datapoint): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Datapoint => __isa(o, "Datapoint");
 }
@@ -325,10 +300,9 @@ export interface DeleteAlarmsInput {
 
 export namespace DeleteAlarmsInput {
   export const filterSensitiveLog = (obj: DeleteAlarmsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAlarmsInput =>
-    __isa(o, "DeleteAlarmsInput");
+  export const isa = (o: any): o is DeleteAlarmsInput => __isa(o, "DeleteAlarmsInput");
 }
 
 export interface DeleteAnomalyDetectorInput {
@@ -356,10 +330,9 @@ export interface DeleteAnomalyDetectorInput {
 
 export namespace DeleteAnomalyDetectorInput {
   export const filterSensitiveLog = (obj: DeleteAnomalyDetectorInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAnomalyDetectorInput =>
-    __isa(o, "DeleteAnomalyDetectorInput");
+  export const isa = (o: any): o is DeleteAnomalyDetectorInput => __isa(o, "DeleteAnomalyDetectorInput");
 }
 
 export interface DeleteAnomalyDetectorOutput {
@@ -367,13 +340,10 @@ export interface DeleteAnomalyDetectorOutput {
 }
 
 export namespace DeleteAnomalyDetectorOutput {
-  export const filterSensitiveLog = (
-    obj: DeleteAnomalyDetectorOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteAnomalyDetectorOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAnomalyDetectorOutput =>
-    __isa(o, "DeleteAnomalyDetectorOutput");
+  export const isa = (o: any): o is DeleteAnomalyDetectorOutput => __isa(o, "DeleteAnomalyDetectorOutput");
 }
 
 export interface DeleteDashboardsInput {
@@ -386,10 +356,9 @@ export interface DeleteDashboardsInput {
 
 export namespace DeleteDashboardsInput {
   export const filterSensitiveLog = (obj: DeleteDashboardsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDashboardsInput =>
-    __isa(o, "DeleteDashboardsInput");
+  export const isa = (o: any): o is DeleteDashboardsInput => __isa(o, "DeleteDashboardsInput");
 }
 
 export interface DeleteDashboardsOutput {
@@ -398,10 +367,9 @@ export interface DeleteDashboardsOutput {
 
 export namespace DeleteDashboardsOutput {
   export const filterSensitiveLog = (obj: DeleteDashboardsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDashboardsOutput =>
-    __isa(o, "DeleteDashboardsOutput");
+  export const isa = (o: any): o is DeleteDashboardsOutput => __isa(o, "DeleteDashboardsOutput");
 }
 
 export interface DeleteInsightRulesInput {
@@ -414,10 +382,9 @@ export interface DeleteInsightRulesInput {
 
 export namespace DeleteInsightRulesInput {
   export const filterSensitiveLog = (obj: DeleteInsightRulesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteInsightRulesInput =>
-    __isa(o, "DeleteInsightRulesInput");
+  export const isa = (o: any): o is DeleteInsightRulesInput => __isa(o, "DeleteInsightRulesInput");
 }
 
 export interface DeleteInsightRulesOutput {
@@ -430,10 +397,9 @@ export interface DeleteInsightRulesOutput {
 
 export namespace DeleteInsightRulesOutput {
   export const filterSensitiveLog = (obj: DeleteInsightRulesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteInsightRulesOutput =>
-    __isa(o, "DeleteInsightRulesOutput");
+  export const isa = (o: any): o is DeleteInsightRulesOutput => __isa(o, "DeleteInsightRulesOutput");
 }
 
 export interface DescribeAlarmHistoryInput {
@@ -472,10 +438,9 @@ export interface DescribeAlarmHistoryInput {
 
 export namespace DescribeAlarmHistoryInput {
   export const filterSensitiveLog = (obj: DescribeAlarmHistoryInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmHistoryInput =>
-    __isa(o, "DescribeAlarmHistoryInput");
+  export const isa = (o: any): o is DescribeAlarmHistoryInput => __isa(o, "DescribeAlarmHistoryInput");
 }
 
 export interface DescribeAlarmHistoryOutput {
@@ -493,10 +458,9 @@ export interface DescribeAlarmHistoryOutput {
 
 export namespace DescribeAlarmHistoryOutput {
   export const filterSensitiveLog = (obj: DescribeAlarmHistoryOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmHistoryOutput =>
-    __isa(o, "DescribeAlarmHistoryOutput");
+  export const isa = (o: any): o is DescribeAlarmHistoryOutput => __isa(o, "DescribeAlarmHistoryOutput");
 }
 
 export interface DescribeAlarmsForMetricInput {
@@ -541,13 +505,10 @@ export interface DescribeAlarmsForMetricInput {
 }
 
 export namespace DescribeAlarmsForMetricInput {
-  export const filterSensitiveLog = (
-    obj: DescribeAlarmsForMetricInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAlarmsForMetricInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmsForMetricInput =>
-    __isa(o, "DescribeAlarmsForMetricInput");
+  export const isa = (o: any): o is DescribeAlarmsForMetricInput => __isa(o, "DescribeAlarmsForMetricInput");
 }
 
 export interface DescribeAlarmsForMetricOutput {
@@ -559,13 +520,10 @@ export interface DescribeAlarmsForMetricOutput {
 }
 
 export namespace DescribeAlarmsForMetricOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeAlarmsForMetricOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAlarmsForMetricOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmsForMetricOutput =>
-    __isa(o, "DescribeAlarmsForMetricOutput");
+  export const isa = (o: any): o is DescribeAlarmsForMetricOutput => __isa(o, "DescribeAlarmsForMetricOutput");
 }
 
 export interface DescribeAlarmsInput {
@@ -605,10 +563,9 @@ export interface DescribeAlarmsInput {
 
 export namespace DescribeAlarmsInput {
   export const filterSensitiveLog = (obj: DescribeAlarmsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmsInput =>
-    __isa(o, "DescribeAlarmsInput");
+  export const isa = (o: any): o is DescribeAlarmsInput => __isa(o, "DescribeAlarmsInput");
 }
 
 export interface DescribeAlarmsOutput {
@@ -626,10 +583,9 @@ export interface DescribeAlarmsOutput {
 
 export namespace DescribeAlarmsOutput {
   export const filterSensitiveLog = (obj: DescribeAlarmsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmsOutput =>
-    __isa(o, "DescribeAlarmsOutput");
+  export const isa = (o: any): o is DescribeAlarmsOutput => __isa(o, "DescribeAlarmsOutput");
 }
 
 export interface DescribeAnomalyDetectorsInput {
@@ -669,13 +625,10 @@ export interface DescribeAnomalyDetectorsInput {
 }
 
 export namespace DescribeAnomalyDetectorsInput {
-  export const filterSensitiveLog = (
-    obj: DescribeAnomalyDetectorsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAnomalyDetectorsInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAnomalyDetectorsInput =>
-    __isa(o, "DescribeAnomalyDetectorsInput");
+  export const isa = (o: any): o is DescribeAnomalyDetectorsInput => __isa(o, "DescribeAnomalyDetectorsInput");
 }
 
 export interface DescribeAnomalyDetectorsOutput {
@@ -693,13 +646,10 @@ export interface DescribeAnomalyDetectorsOutput {
 }
 
 export namespace DescribeAnomalyDetectorsOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeAnomalyDetectorsOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAnomalyDetectorsOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAnomalyDetectorsOutput =>
-    __isa(o, "DescribeAnomalyDetectorsOutput");
+  export const isa = (o: any): o is DescribeAnomalyDetectorsOutput => __isa(o, "DescribeAnomalyDetectorsOutput");
 }
 
 export interface DescribeInsightRulesInput {
@@ -717,10 +667,9 @@ export interface DescribeInsightRulesInput {
 
 export namespace DescribeInsightRulesInput {
   export const filterSensitiveLog = (obj: DescribeInsightRulesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInsightRulesInput =>
-    __isa(o, "DescribeInsightRulesInput");
+  export const isa = (o: any): o is DescribeInsightRulesInput => __isa(o, "DescribeInsightRulesInput");
 }
 
 export interface DescribeInsightRulesOutput {
@@ -738,10 +687,9 @@ export interface DescribeInsightRulesOutput {
 
 export namespace DescribeInsightRulesOutput {
   export const filterSensitiveLog = (obj: DescribeInsightRulesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInsightRulesOutput =>
-    __isa(o, "DescribeInsightRulesOutput");
+  export const isa = (o: any): o is DescribeInsightRulesOutput => __isa(o, "DescribeInsightRulesOutput");
 }
 
 /**
@@ -762,7 +710,7 @@ export interface Dimension {
 
 export namespace Dimension {
   export const filterSensitiveLog = (obj: Dimension): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Dimension => __isa(o, "Dimension");
 }
@@ -785,10 +733,9 @@ export interface DimensionFilter {
 
 export namespace DimensionFilter {
   export const filterSensitiveLog = (obj: DimensionFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DimensionFilter =>
-    __isa(o, "DimensionFilter");
+  export const isa = (o: any): o is DimensionFilter => __isa(o, "DimensionFilter");
 }
 
 export interface DisableAlarmActionsInput {
@@ -801,10 +748,9 @@ export interface DisableAlarmActionsInput {
 
 export namespace DisableAlarmActionsInput {
   export const filterSensitiveLog = (obj: DisableAlarmActionsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisableAlarmActionsInput =>
-    __isa(o, "DisableAlarmActionsInput");
+  export const isa = (o: any): o is DisableAlarmActionsInput => __isa(o, "DisableAlarmActionsInput");
 }
 
 export interface DisableInsightRulesInput {
@@ -817,10 +763,9 @@ export interface DisableInsightRulesInput {
 
 export namespace DisableInsightRulesInput {
   export const filterSensitiveLog = (obj: DisableInsightRulesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisableInsightRulesInput =>
-    __isa(o, "DisableInsightRulesInput");
+  export const isa = (o: any): o is DisableInsightRulesInput => __isa(o, "DisableInsightRulesInput");
 }
 
 export interface DisableInsightRulesOutput {
@@ -833,10 +778,9 @@ export interface DisableInsightRulesOutput {
 
 export namespace DisableInsightRulesOutput {
   export const filterSensitiveLog = (obj: DisableInsightRulesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisableInsightRulesOutput =>
-    __isa(o, "DisableInsightRulesOutput");
+  export const isa = (o: any): o is DisableInsightRulesOutput => __isa(o, "DisableInsightRulesOutput");
 }
 
 export interface EnableAlarmActionsInput {
@@ -849,10 +793,9 @@ export interface EnableAlarmActionsInput {
 
 export namespace EnableAlarmActionsInput {
   export const filterSensitiveLog = (obj: EnableAlarmActionsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableAlarmActionsInput =>
-    __isa(o, "EnableAlarmActionsInput");
+  export const isa = (o: any): o is EnableAlarmActionsInput => __isa(o, "EnableAlarmActionsInput");
 }
 
 export interface EnableInsightRulesInput {
@@ -865,10 +808,9 @@ export interface EnableInsightRulesInput {
 
 export namespace EnableInsightRulesInput {
   export const filterSensitiveLog = (obj: EnableInsightRulesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableInsightRulesInput =>
-    __isa(o, "EnableInsightRulesInput");
+  export const isa = (o: any): o is EnableInsightRulesInput => __isa(o, "EnableInsightRulesInput");
 }
 
 export interface EnableInsightRulesOutput {
@@ -881,10 +823,9 @@ export interface EnableInsightRulesOutput {
 
 export namespace EnableInsightRulesOutput {
   export const filterSensitiveLog = (obj: EnableInsightRulesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableInsightRulesOutput =>
-    __isa(o, "EnableInsightRulesOutput");
+  export const isa = (o: any): o is EnableInsightRulesOutput => __isa(o, "EnableInsightRulesOutput");
 }
 
 export interface GetDashboardInput {
@@ -897,10 +838,9 @@ export interface GetDashboardInput {
 
 export namespace GetDashboardInput {
   export const filterSensitiveLog = (obj: GetDashboardInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDashboardInput =>
-    __isa(o, "GetDashboardInput");
+  export const isa = (o: any): o is GetDashboardInput => __isa(o, "GetDashboardInput");
 }
 
 export interface GetDashboardOutput {
@@ -925,10 +865,9 @@ export interface GetDashboardOutput {
 
 export namespace GetDashboardOutput {
   export const filterSensitiveLog = (obj: GetDashboardOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDashboardOutput =>
-    __isa(o, "GetDashboardOutput");
+  export const isa = (o: any): o is GetDashboardOutput => __isa(o, "GetDashboardOutput");
 }
 
 export interface GetInsightRuleReportInput {
@@ -1010,10 +949,9 @@ export interface GetInsightRuleReportInput {
 
 export namespace GetInsightRuleReportInput {
   export const filterSensitiveLog = (obj: GetInsightRuleReportInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetInsightRuleReportInput =>
-    __isa(o, "GetInsightRuleReportInput");
+  export const isa = (o: any): o is GetInsightRuleReportInput => __isa(o, "GetInsightRuleReportInput");
 }
 
 export interface GetInsightRuleReportOutput {
@@ -1053,10 +991,9 @@ export interface GetInsightRuleReportOutput {
 
 export namespace GetInsightRuleReportOutput {
   export const filterSensitiveLog = (obj: GetInsightRuleReportOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetInsightRuleReportOutput =>
-    __isa(o, "GetInsightRuleReportOutput");
+  export const isa = (o: any): o is GetInsightRuleReportOutput => __isa(o, "GetInsightRuleReportOutput");
 }
 
 export interface GetMetricDataInput {
@@ -1133,10 +1070,9 @@ export interface GetMetricDataInput {
 
 export namespace GetMetricDataInput {
   export const filterSensitiveLog = (obj: GetMetricDataInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMetricDataInput =>
-    __isa(o, "GetMetricDataInput");
+  export const isa = (o: any): o is GetMetricDataInput => __isa(o, "GetMetricDataInput");
 }
 
 export interface GetMetricDataOutput {
@@ -1165,10 +1101,9 @@ export interface GetMetricDataOutput {
 
 export namespace GetMetricDataOutput {
   export const filterSensitiveLog = (obj: GetMetricDataOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMetricDataOutput =>
-    __isa(o, "GetMetricDataOutput");
+  export const isa = (o: any): o is GetMetricDataOutput => __isa(o, "GetMetricDataOutput");
 }
 
 export interface GetMetricStatisticsInput {
@@ -1276,10 +1211,9 @@ export interface GetMetricStatisticsInput {
 
 export namespace GetMetricStatisticsInput {
   export const filterSensitiveLog = (obj: GetMetricStatisticsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMetricStatisticsInput =>
-    __isa(o, "GetMetricStatisticsInput");
+  export const isa = (o: any): o is GetMetricStatisticsInput => __isa(o, "GetMetricStatisticsInput");
 }
 
 export interface GetMetricStatisticsOutput {
@@ -1297,10 +1231,9 @@ export interface GetMetricStatisticsOutput {
 
 export namespace GetMetricStatisticsOutput {
   export const filterSensitiveLog = (obj: GetMetricStatisticsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMetricStatisticsOutput =>
-    __isa(o, "GetMetricStatisticsOutput");
+  export const isa = (o: any): o is GetMetricStatisticsOutput => __isa(o, "GetMetricStatisticsOutput");
 }
 
 export interface GetMetricWidgetImageInput {
@@ -1365,10 +1298,9 @@ export interface GetMetricWidgetImageInput {
 
 export namespace GetMetricWidgetImageInput {
   export const filterSensitiveLog = (obj: GetMetricWidgetImageInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMetricWidgetImageInput =>
-    __isa(o, "GetMetricWidgetImageInput");
+  export const isa = (o: any): o is GetMetricWidgetImageInput => __isa(o, "GetMetricWidgetImageInput");
 }
 
 export interface GetMetricWidgetImageOutput {
@@ -1381,10 +1313,9 @@ export interface GetMetricWidgetImageOutput {
 
 export namespace GetMetricWidgetImageOutput {
   export const filterSensitiveLog = (obj: GetMetricWidgetImageOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMetricWidgetImageOutput =>
-    __isa(o, "GetMetricWidgetImageOutput");
+  export const isa = (o: any): o is GetMetricWidgetImageOutput => __isa(o, "GetMetricWidgetImageOutput");
 }
 
 export type HistoryItemType = "Action" | "ConfigurationUpdate" | "StateUpdate";
@@ -1422,7 +1353,7 @@ export interface InsightRule {
 
 export namespace InsightRule {
   export const filterSensitiveLog = (obj: InsightRule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InsightRule => __isa(o, "InsightRule");
 }
@@ -1453,10 +1384,9 @@ export interface InsightRuleContributor {
 
 export namespace InsightRuleContributor {
   export const filterSensitiveLog = (obj: InsightRuleContributor): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InsightRuleContributor =>
-    __isa(o, "InsightRuleContributor");
+  export const isa = (o: any): o is InsightRuleContributor => __isa(o, "InsightRuleContributor");
 }
 
 /**
@@ -1477,13 +1407,10 @@ export interface InsightRuleContributorDatapoint {
 }
 
 export namespace InsightRuleContributorDatapoint {
-  export const filterSensitiveLog = (
-    obj: InsightRuleContributorDatapoint
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InsightRuleContributorDatapoint): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InsightRuleContributorDatapoint =>
-    __isa(o, "InsightRuleContributorDatapoint");
+  export const isa = (o: any): o is InsightRuleContributorDatapoint => __isa(o, "InsightRuleContributorDatapoint");
 }
 
 /**
@@ -1544,18 +1471,15 @@ export interface InsightRuleMetricDatapoint {
 
 export namespace InsightRuleMetricDatapoint {
   export const filterSensitiveLog = (obj: InsightRuleMetricDatapoint): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InsightRuleMetricDatapoint =>
-    __isa(o, "InsightRuleMetricDatapoint");
+  export const isa = (o: any): o is InsightRuleMetricDatapoint => __isa(o, "InsightRuleMetricDatapoint");
 }
 
 /**
  * <p>Request processing has failed due to some unknown error, exception, or failure.</p>
  */
-export interface InternalServiceFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceFault extends __SmithyException, $MetadataBearer {
   name: "InternalServiceFault";
   $fault: "server";
   /**
@@ -1566,10 +1490,9 @@ export interface InternalServiceFault
 
 export namespace InternalServiceFault {
   export const filterSensitiveLog = (obj: InternalServiceFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceFault =>
-    __isa(o, "InternalServiceFault");
+  export const isa = (o: any): o is InternalServiceFault => __isa(o, "InternalServiceFault");
 }
 
 /**
@@ -1586,10 +1509,9 @@ export interface InvalidFormatFault extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidFormatFault {
   export const filterSensitiveLog = (obj: InvalidFormatFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidFormatFault =>
-    __isa(o, "InvalidFormatFault");
+  export const isa = (o: any): o is InvalidFormatFault => __isa(o, "InvalidFormatFault");
 }
 
 /**
@@ -1606,18 +1528,15 @@ export interface InvalidNextToken extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidNextToken {
   export const filterSensitiveLog = (obj: InvalidNextToken): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextToken =>
-    __isa(o, "InvalidNextToken");
+  export const isa = (o: any): o is InvalidNextToken => __isa(o, "InvalidNextToken");
 }
 
 /**
  * <p>Parameters were used together that cannot be used together.</p>
  */
-export interface InvalidParameterCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterCombinationException";
   $fault: "client";
   /**
@@ -1627,10 +1546,8 @@ export interface InvalidParameterCombinationException
 }
 
 export namespace InvalidParameterCombinationException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterCombinationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidParameterCombinationException =>
     __isa(o, "InvalidParameterCombinationException");
@@ -1639,9 +1556,7 @@ export namespace InvalidParameterCombinationException {
 /**
  * <p>The value of an input parameter is bad or out-of-range.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -1651,21 +1566,16 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p>The operation exceeded one or more limits.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1673,10 +1583,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -1693,10 +1602,9 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
 
 export namespace LimitExceededFault {
   export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededFault =>
-    __isa(o, "LimitExceededFault");
+  export const isa = (o: any): o is LimitExceededFault => __isa(o, "LimitExceededFault");
 }
 
 export interface ListDashboardsInput {
@@ -1718,10 +1626,9 @@ export interface ListDashboardsInput {
 
 export namespace ListDashboardsInput {
   export const filterSensitiveLog = (obj: ListDashboardsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDashboardsInput =>
-    __isa(o, "ListDashboardsInput");
+  export const isa = (o: any): o is ListDashboardsInput => __isa(o, "ListDashboardsInput");
 }
 
 export interface ListDashboardsOutput {
@@ -1739,10 +1646,9 @@ export interface ListDashboardsOutput {
 
 export namespace ListDashboardsOutput {
   export const filterSensitiveLog = (obj: ListDashboardsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDashboardsOutput =>
-    __isa(o, "ListDashboardsOutput");
+  export const isa = (o: any): o is ListDashboardsOutput => __isa(o, "ListDashboardsOutput");
 }
 
 export interface ListMetricsInput {
@@ -1771,10 +1677,9 @@ export interface ListMetricsInput {
 
 export namespace ListMetricsInput {
   export const filterSensitiveLog = (obj: ListMetricsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListMetricsInput =>
-    __isa(o, "ListMetricsInput");
+  export const isa = (o: any): o is ListMetricsInput => __isa(o, "ListMetricsInput");
 }
 
 export interface ListMetricsOutput {
@@ -1792,10 +1697,9 @@ export interface ListMetricsOutput {
 
 export namespace ListMetricsOutput {
   export const filterSensitiveLog = (obj: ListMetricsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListMetricsOutput =>
-    __isa(o, "ListMetricsOutput");
+  export const isa = (o: any): o is ListMetricsOutput => __isa(o, "ListMetricsOutput");
 }
 
 export interface ListTagsForResourceInput {
@@ -1809,10 +1713,9 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput =>
-    __isa(o, "ListTagsForResourceInput");
+  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -1825,10 +1728,9 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput =>
-    __isa(o, "ListTagsForResourceOutput");
+  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -1849,7 +1751,7 @@ export interface MessageData {
 
 export namespace MessageData {
   export const filterSensitiveLog = (obj: MessageData): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MessageData => __isa(o, "MessageData");
 }
@@ -1877,7 +1779,7 @@ export interface Metric {
 
 export namespace Metric {
   export const filterSensitiveLog = (obj: Metric): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Metric => __isa(o, "Metric");
 }
@@ -2043,7 +1945,7 @@ export interface MetricAlarm {
 
 export namespace MetricAlarm {
   export const filterSensitiveLog = (obj: MetricAlarm): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MetricAlarm => __isa(o, "MetricAlarm");
 }
@@ -2135,10 +2037,9 @@ export interface MetricDataQuery {
 
 export namespace MetricDataQuery {
   export const filterSensitiveLog = (obj: MetricDataQuery): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MetricDataQuery =>
-    __isa(o, "MetricDataQuery");
+  export const isa = (o: any): o is MetricDataQuery => __isa(o, "MetricDataQuery");
 }
 
 /**
@@ -2189,10 +2090,9 @@ export interface MetricDataResult {
 
 export namespace MetricDataResult {
   export const filterSensitiveLog = (obj: MetricDataResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MetricDataResult =>
-    __isa(o, "MetricDataResult");
+  export const isa = (o: any): o is MetricDataResult => __isa(o, "MetricDataResult");
 }
 
 /**
@@ -2270,7 +2170,7 @@ export interface MetricDatum {
 
 export namespace MetricDatum {
   export const filterSensitiveLog = (obj: MetricDatum): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MetricDatum => __isa(o, "MetricDatum");
 }
@@ -2322,7 +2222,7 @@ export interface MetricStat {
 
 export namespace MetricStat {
   export const filterSensitiveLog = (obj: MetricStat): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MetricStat => __isa(o, "MetricStat");
 }
@@ -2330,9 +2230,7 @@ export namespace MetricStat {
 /**
  * <p>An input parameter that is required is missing.</p>
  */
-export interface MissingRequiredParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingRequiredParameterException extends __SmithyException, $MetadataBearer {
   name: "MissingRequiredParameterException";
   $fault: "client";
   /**
@@ -2342,13 +2240,10 @@ export interface MissingRequiredParameterException
 }
 
 export namespace MissingRequiredParameterException {
-  export const filterSensitiveLog = (
-    obj: MissingRequiredParameterException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MissingRequiredParameterException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MissingRequiredParameterException =>
-    __isa(o, "MissingRequiredParameterException");
+  export const isa = (o: any): o is MissingRequiredParameterException => __isa(o, "MissingRequiredParameterException");
 }
 
 /**
@@ -2380,10 +2275,9 @@ export interface PartialFailure {
 
 export namespace PartialFailure {
   export const filterSensitiveLog = (obj: PartialFailure): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PartialFailure =>
-    __isa(o, "PartialFailure");
+  export const isa = (o: any): o is PartialFailure => __isa(o, "PartialFailure");
 }
 
 export interface PutAnomalyDetectorInput {
@@ -2422,10 +2316,9 @@ export interface PutAnomalyDetectorInput {
 
 export namespace PutAnomalyDetectorInput {
   export const filterSensitiveLog = (obj: PutAnomalyDetectorInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutAnomalyDetectorInput =>
-    __isa(o, "PutAnomalyDetectorInput");
+  export const isa = (o: any): o is PutAnomalyDetectorInput => __isa(o, "PutAnomalyDetectorInput");
 }
 
 export interface PutAnomalyDetectorOutput {
@@ -2434,10 +2327,9 @@ export interface PutAnomalyDetectorOutput {
 
 export namespace PutAnomalyDetectorOutput {
   export const filterSensitiveLog = (obj: PutAnomalyDetectorOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutAnomalyDetectorOutput =>
-    __isa(o, "PutAnomalyDetectorOutput");
+  export const isa = (o: any): o is PutAnomalyDetectorOutput => __isa(o, "PutAnomalyDetectorOutput");
 }
 
 export interface PutDashboardInput {
@@ -2460,10 +2352,9 @@ export interface PutDashboardInput {
 
 export namespace PutDashboardInput {
   export const filterSensitiveLog = (obj: PutDashboardInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutDashboardInput =>
-    __isa(o, "PutDashboardInput");
+  export const isa = (o: any): o is PutDashboardInput => __isa(o, "PutDashboardInput");
 }
 
 export interface PutDashboardOutput {
@@ -2479,10 +2370,9 @@ export interface PutDashboardOutput {
 
 export namespace PutDashboardOutput {
   export const filterSensitiveLog = (obj: PutDashboardOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutDashboardOutput =>
-    __isa(o, "PutDashboardOutput");
+  export const isa = (o: any): o is PutDashboardOutput => __isa(o, "PutDashboardOutput");
 }
 
 export interface PutInsightRuleInput {
@@ -2507,10 +2397,9 @@ export interface PutInsightRuleInput {
 
 export namespace PutInsightRuleInput {
   export const filterSensitiveLog = (obj: PutInsightRuleInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutInsightRuleInput =>
-    __isa(o, "PutInsightRuleInput");
+  export const isa = (o: any): o is PutInsightRuleInput => __isa(o, "PutInsightRuleInput");
 }
 
 export interface PutInsightRuleOutput {
@@ -2519,10 +2408,9 @@ export interface PutInsightRuleOutput {
 
 export namespace PutInsightRuleOutput {
   export const filterSensitiveLog = (obj: PutInsightRuleOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutInsightRuleOutput =>
-    __isa(o, "PutInsightRuleOutput");
+  export const isa = (o: any): o is PutInsightRuleOutput => __isa(o, "PutInsightRuleOutput");
 }
 
 export interface PutMetricAlarmInput {
@@ -2772,10 +2660,9 @@ export interface PutMetricAlarmInput {
 
 export namespace PutMetricAlarmInput {
   export const filterSensitiveLog = (obj: PutMetricAlarmInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutMetricAlarmInput =>
-    __isa(o, "PutMetricAlarmInput");
+  export const isa = (o: any): o is PutMetricAlarmInput => __isa(o, "PutMetricAlarmInput");
 }
 
 export interface PutMetricDataInput {
@@ -2796,10 +2683,9 @@ export interface PutMetricDataInput {
 
 export namespace PutMetricDataInput {
   export const filterSensitiveLog = (obj: PutMetricDataInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutMetricDataInput =>
-    __isa(o, "PutMetricDataInput");
+  export const isa = (o: any): o is PutMetricDataInput => __isa(o, "PutMetricDataInput");
 }
 
 /**
@@ -2823,7 +2709,7 @@ export interface Range {
 
 export namespace Range {
   export const filterSensitiveLog = (obj: Range): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Range => __isa(o, "Range");
 }
@@ -2842,18 +2728,15 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 
 export namespace ResourceNotFound {
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFound =>
-    __isa(o, "ResourceNotFound");
+  export const isa = (o: any): o is ResourceNotFound => __isa(o, "ResourceNotFound");
 }
 
 /**
  * <p>The named resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2863,15 +2746,14 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ScanBy {
   TIMESTAMP_ASCENDING = "TimestampAscending",
-  TIMESTAMP_DESCENDING = "TimestampDescending"
+  TIMESTAMP_DESCENDING = "TimestampDescending",
 }
 
 export interface SetAlarmStateInput {
@@ -2900,10 +2782,9 @@ export interface SetAlarmStateInput {
 
 export namespace SetAlarmStateInput {
   export const filterSensitiveLog = (obj: SetAlarmStateInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetAlarmStateInput =>
-    __isa(o, "SetAlarmStateInput");
+  export const isa = (o: any): o is SetAlarmStateInput => __isa(o, "SetAlarmStateInput");
 }
 
 export type StandardUnit =
@@ -2937,12 +2818,7 @@ export type StandardUnit =
 
 export type StateValue = "ALARM" | "INSUFFICIENT_DATA" | "OK";
 
-export type Statistic =
-  | "Average"
-  | "Maximum"
-  | "Minimum"
-  | "SampleCount"
-  | "Sum";
+export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum";
 
 /**
  * <p>Represents a set of statistics that describes a specific metric. </p>
@@ -2972,7 +2848,7 @@ export interface StatisticSet {
 
 export namespace StatisticSet {
   export const filterSensitiveLog = (obj: StatisticSet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StatisticSet => __isa(o, "StatisticSet");
 }
@@ -2980,7 +2856,7 @@ export namespace StatisticSet {
 export enum StatusCode {
   COMPLETE = "Complete",
   INTERNAL_ERROR = "InternalError",
-  PARTIAL_DATA = "PartialData"
+  PARTIAL_DATA = "PartialData",
 }
 
 /**
@@ -3002,7 +2878,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -3025,10 +2901,9 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceOutput {
@@ -3037,10 +2912,9 @@ export interface TagResourceOutput {
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput =>
-    __isa(o, "TagResourceOutput");
+  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 export interface UntagResourceInput {
@@ -3059,10 +2933,9 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceOutput {
@@ -3071,8 +2944,7 @@ export interface UntagResourceOutput {
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput =>
-    __isa(o, "UntagResourceOutput");
+  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }

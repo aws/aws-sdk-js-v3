@@ -2,123 +2,111 @@ import { Route53DomainsClient } from "./Route53DomainsClient";
 import {
   CheckDomainAvailabilityCommand,
   CheckDomainAvailabilityCommandInput,
-  CheckDomainAvailabilityCommandOutput
+  CheckDomainAvailabilityCommandOutput,
 } from "./commands/CheckDomainAvailabilityCommand";
 import {
   CheckDomainTransferabilityCommand,
   CheckDomainTransferabilityCommandInput,
-  CheckDomainTransferabilityCommandOutput
+  CheckDomainTransferabilityCommandOutput,
 } from "./commands/CheckDomainTransferabilityCommand";
 import {
   DeleteTagsForDomainCommand,
   DeleteTagsForDomainCommandInput,
-  DeleteTagsForDomainCommandOutput
+  DeleteTagsForDomainCommandOutput,
 } from "./commands/DeleteTagsForDomainCommand";
 import {
   DisableDomainAutoRenewCommand,
   DisableDomainAutoRenewCommandInput,
-  DisableDomainAutoRenewCommandOutput
+  DisableDomainAutoRenewCommandOutput,
 } from "./commands/DisableDomainAutoRenewCommand";
 import {
   DisableDomainTransferLockCommand,
   DisableDomainTransferLockCommandInput,
-  DisableDomainTransferLockCommandOutput
+  DisableDomainTransferLockCommandOutput,
 } from "./commands/DisableDomainTransferLockCommand";
 import {
   EnableDomainAutoRenewCommand,
   EnableDomainAutoRenewCommandInput,
-  EnableDomainAutoRenewCommandOutput
+  EnableDomainAutoRenewCommandOutput,
 } from "./commands/EnableDomainAutoRenewCommand";
 import {
   EnableDomainTransferLockCommand,
   EnableDomainTransferLockCommandInput,
-  EnableDomainTransferLockCommandOutput
+  EnableDomainTransferLockCommandOutput,
 } from "./commands/EnableDomainTransferLockCommand";
 import {
   GetContactReachabilityStatusCommand,
   GetContactReachabilityStatusCommandInput,
-  GetContactReachabilityStatusCommandOutput
+  GetContactReachabilityStatusCommandOutput,
 } from "./commands/GetContactReachabilityStatusCommand";
 import {
   GetDomainDetailCommand,
   GetDomainDetailCommandInput,
-  GetDomainDetailCommandOutput
+  GetDomainDetailCommandOutput,
 } from "./commands/GetDomainDetailCommand";
 import {
   GetDomainSuggestionsCommand,
   GetDomainSuggestionsCommandInput,
-  GetDomainSuggestionsCommandOutput
+  GetDomainSuggestionsCommandOutput,
 } from "./commands/GetDomainSuggestionsCommand";
 import {
   GetOperationDetailCommand,
   GetOperationDetailCommandInput,
-  GetOperationDetailCommandOutput
+  GetOperationDetailCommandOutput,
 } from "./commands/GetOperationDetailCommand";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListOperationsCommand,
   ListOperationsCommandInput,
-  ListOperationsCommandOutput
+  ListOperationsCommandOutput,
 } from "./commands/ListOperationsCommand";
 import {
   ListTagsForDomainCommand,
   ListTagsForDomainCommandInput,
-  ListTagsForDomainCommandOutput
+  ListTagsForDomainCommandOutput,
 } from "./commands/ListTagsForDomainCommand";
 import {
   RegisterDomainCommand,
   RegisterDomainCommandInput,
-  RegisterDomainCommandOutput
+  RegisterDomainCommandOutput,
 } from "./commands/RegisterDomainCommand";
-import {
-  RenewDomainCommand,
-  RenewDomainCommandInput,
-  RenewDomainCommandOutput
-} from "./commands/RenewDomainCommand";
+import { RenewDomainCommand, RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand";
 import {
   ResendContactReachabilityEmailCommand,
   ResendContactReachabilityEmailCommandInput,
-  ResendContactReachabilityEmailCommandOutput
+  ResendContactReachabilityEmailCommandOutput,
 } from "./commands/ResendContactReachabilityEmailCommand";
 import {
   RetrieveDomainAuthCodeCommand,
   RetrieveDomainAuthCodeCommandInput,
-  RetrieveDomainAuthCodeCommandOutput
+  RetrieveDomainAuthCodeCommandOutput,
 } from "./commands/RetrieveDomainAuthCodeCommand";
 import {
   TransferDomainCommand,
   TransferDomainCommandInput,
-  TransferDomainCommandOutput
+  TransferDomainCommandOutput,
 } from "./commands/TransferDomainCommand";
 import {
   UpdateDomainContactCommand,
   UpdateDomainContactCommandInput,
-  UpdateDomainContactCommandOutput
+  UpdateDomainContactCommandOutput,
 } from "./commands/UpdateDomainContactCommand";
 import {
   UpdateDomainContactPrivacyCommand,
   UpdateDomainContactPrivacyCommandInput,
-  UpdateDomainContactPrivacyCommandOutput
+  UpdateDomainContactPrivacyCommandOutput,
 } from "./commands/UpdateDomainContactPrivacyCommand";
 import {
   UpdateDomainNameserversCommand,
   UpdateDomainNameserversCommandInput,
-  UpdateDomainNameserversCommandOutput
+  UpdateDomainNameserversCommandOutput,
 } from "./commands/UpdateDomainNameserversCommand";
 import {
   UpdateTagsForDomainCommand,
   UpdateTagsForDomainCommandInput,
-  UpdateTagsForDomainCommandOutput
+  UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand";
-import {
-  ViewBillingCommand,
-  ViewBillingCommandInput,
-  ViewBillingCommandOutput
-} from "./commands/ViewBillingCommand";
+import { ViewBillingCommand, ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -143,17 +131,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public checkDomainAvailability(
     args: CheckDomainAvailabilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CheckDomainAvailabilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckDomainAvailabilityCommandOutput) => void),
     cb?: (err: any, data?: CheckDomainAvailabilityCommandOutput) => void
   ): Promise<CheckDomainAvailabilityCommandOutput> | void {
     const command = new CheckDomainAvailabilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -178,17 +163,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public checkDomainTransferability(
     args: CheckDomainTransferabilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CheckDomainTransferabilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckDomainTransferabilityCommandOutput) => void),
     cb?: (err: any, data?: CheckDomainTransferabilityCommandOutput) => void
   ): Promise<CheckDomainTransferabilityCommandOutput> | void {
     const command = new CheckDomainTransferabilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -214,17 +196,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public deleteTagsForDomain(
     args: DeleteTagsForDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsForDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsForDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsForDomainCommandOutput) => void
   ): Promise<DeleteTagsForDomainCommandOutput> | void {
     const command = new DeleteTagsForDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -249,17 +228,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public disableDomainAutoRenew(
     args: DisableDomainAutoRenewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableDomainAutoRenewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableDomainAutoRenewCommandOutput) => void),
     cb?: (err: any, data?: DisableDomainAutoRenewCommandOutput) => void
   ): Promise<DisableDomainAutoRenewCommandOutput> | void {
     const command = new DisableDomainAutoRenewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -289,17 +265,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public disableDomainTransferLock(
     args: DisableDomainTransferLockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableDomainTransferLockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableDomainTransferLockCommandOutput) => void),
     cb?: (err: any, data?: DisableDomainTransferLockCommandOutput) => void
   ): Promise<DisableDomainTransferLockCommandOutput> | void {
     const command = new DisableDomainTransferLockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -328,17 +301,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public enableDomainAutoRenew(
     args: EnableDomainAutoRenewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableDomainAutoRenewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableDomainAutoRenewCommandOutput) => void),
     cb?: (err: any, data?: EnableDomainAutoRenewCommandOutput) => void
   ): Promise<EnableDomainAutoRenewCommandOutput> | void {
     const command = new EnableDomainAutoRenewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -365,17 +335,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public enableDomainTransferLock(
     args: EnableDomainTransferLockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableDomainTransferLockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableDomainTransferLockCommandOutput) => void),
     cb?: (err: any, data?: EnableDomainTransferLockCommandOutput) => void
   ): Promise<EnableDomainTransferLockCommandOutput> | void {
     const command = new EnableDomainTransferLockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -402,17 +369,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getContactReachabilityStatus(
     args: GetContactReachabilityStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetContactReachabilityStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContactReachabilityStatusCommandOutput) => void),
     cb?: (err: any, data?: GetContactReachabilityStatusCommandOutput) => void
   ): Promise<GetContactReachabilityStatusCommandOutput> | void {
     const command = new GetContactReachabilityStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -438,17 +402,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getDomainDetail(
     args: GetDomainDetailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainDetailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainDetailCommandOutput) => void),
     cb?: (err: any, data?: GetDomainDetailCommandOutput) => void
   ): Promise<GetDomainDetailCommandOutput> | void {
     const command = new GetDomainDetailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -474,17 +435,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getDomainSuggestions(
     args: GetDomainSuggestionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainSuggestionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainSuggestionsCommandOutput) => void),
     cb?: (err: any, data?: GetDomainSuggestionsCommandOutput) => void
   ): Promise<GetDomainSuggestionsCommandOutput> | void {
     const command = new GetDomainSuggestionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -509,17 +467,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getOperationDetail(
     args: GetOperationDetailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationDetailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationDetailCommandOutput) => void),
     cb?: (err: any, data?: GetOperationDetailCommandOutput) => void
   ): Promise<GetOperationDetailCommandOutput> | void {
     const command = new GetOperationDetailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -529,14 +484,8 @@ export class Route53Domains extends Route53DomainsClient {
   /**
    * <p>This operation returns all the domain names registered with Amazon Route 53 for the current AWS account.</p>
    */
-  public listDomains(
-    args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDomainsCommandOutput>;
-  public listDomains(
-    args: ListDomainsCommandInput,
-    cb: (err: any, data?: ListDomainsCommandOutput) => void
-  ): void;
+  public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
+  public listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
   public listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -544,17 +493,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -579,17 +525,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public listOperations(
     args: ListOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOperationsCommandOutput) => void),
     cb?: (err: any, data?: ListOperationsCommandOutput) => void
   ): Promise<ListOperationsCommandOutput> | void {
     const command = new ListOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -615,17 +558,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public listTagsForDomain(
     args: ListTagsForDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForDomainCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForDomainCommandOutput) => void
   ): Promise<ListTagsForDomainCommandOutput> | void {
     const command = new ListTagsForDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -675,17 +615,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public registerDomain(
     args: RegisterDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDomainCommandOutput) => void),
     cb?: (err: any, data?: RegisterDomainCommandOutput) => void
   ): Promise<RegisterDomainCommandOutput> | void {
     const command = new RegisterDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -699,14 +636,8 @@ export class Route53Domains extends Route53DomainsClient {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html">Renewing Registration for a Domain</a>
    * 			in the Amazon Route 53 Developer Guide.</p>
    */
-  public renewDomain(
-    args: RenewDomainCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RenewDomainCommandOutput>;
-  public renewDomain(
-    args: RenewDomainCommandInput,
-    cb: (err: any, data?: RenewDomainCommandOutput) => void
-  ): void;
+  public renewDomain(args: RenewDomainCommandInput, options?: __HttpHandlerOptions): Promise<RenewDomainCommandOutput>;
+  public renewDomain(args: RenewDomainCommandInput, cb: (err: any, data?: RenewDomainCommandOutput) => void): void;
   public renewDomain(
     args: RenewDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -714,17 +645,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public renewDomain(
     args: RenewDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RenewDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenewDomainCommandOutput) => void),
     cb?: (err: any, data?: RenewDomainCommandOutput) => void
   ): Promise<RenewDomainCommandOutput> | void {
     const command = new RenewDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -750,20 +678,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public resendContactReachabilityEmail(
     args: ResendContactReachabilityEmailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ResendContactReachabilityEmailCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResendContactReachabilityEmailCommandOutput) => void),
     cb?: (err: any, data?: ResendContactReachabilityEmailCommandOutput) => void
   ): Promise<ResendContactReachabilityEmailCommandOutput> | void {
     const command = new ResendContactReachabilityEmailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -788,17 +710,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public retrieveDomainAuthCode(
     args: RetrieveDomainAuthCodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetrieveDomainAuthCodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetrieveDomainAuthCodeCommandOutput) => void),
     cb?: (err: any, data?: RetrieveDomainAuthCodeCommandOutput) => void
   ): Promise<RetrieveDomainAuthCodeCommandOutput> | void {
     const command = new RetrieveDomainAuthCodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -839,17 +758,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public transferDomain(
     args: TransferDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TransferDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransferDomainCommandOutput) => void),
     cb?: (err: any, data?: TransferDomainCommandOutput) => void
   ): Promise<TransferDomainCommandOutput> | void {
     const command = new TransferDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -877,17 +793,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public updateDomainContact(
     args: UpdateDomainContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainContactCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainContactCommandOutput) => void
   ): Promise<UpdateDomainContactCommandOutput> | void {
     const command = new UpdateDomainContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -917,17 +830,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public updateDomainContactPrivacy(
     args: UpdateDomainContactPrivacyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainContactPrivacyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainContactPrivacyCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainContactPrivacyCommandOutput) => void
   ): Promise<UpdateDomainContactPrivacyCommandOutput> | void {
     const command = new UpdateDomainContactPrivacyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -955,17 +865,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public updateDomainNameservers(
     args: UpdateDomainNameserversCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainNameserversCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainNameserversCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainNameserversCommandOutput) => void
   ): Promise<UpdateDomainNameserversCommandOutput> | void {
     const command = new UpdateDomainNameserversCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -991,17 +898,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public updateTagsForDomain(
     args: UpdateTagsForDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTagsForDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTagsForDomainCommandOutput) => void),
     cb?: (err: any, data?: UpdateTagsForDomainCommandOutput) => void
   ): Promise<UpdateTagsForDomainCommandOutput> | void {
     const command = new UpdateTagsForDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1011,14 +915,8 @@ export class Route53Domains extends Route53DomainsClient {
   /**
    * <p>Returns all the domain-related billing records for the current AWS account for a specified period</p>
    */
-  public viewBilling(
-    args: ViewBillingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ViewBillingCommandOutput>;
-  public viewBilling(
-    args: ViewBillingCommandInput,
-    cb: (err: any, data?: ViewBillingCommandOutput) => void
-  ): void;
+  public viewBilling(args: ViewBillingCommandInput, options?: __HttpHandlerOptions): Promise<ViewBillingCommandOutput>;
+  public viewBilling(args: ViewBillingCommandInput, cb: (err: any, data?: ViewBillingCommandOutput) => void): void;
   public viewBilling(
     args: ViewBillingCommandInput,
     options: __HttpHandlerOptions,
@@ -1026,17 +924,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public viewBilling(
     args: ViewBillingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ViewBillingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ViewBillingCommandOutput) => void),
     cb?: (err: any, data?: ViewBillingCommandOutput) => void
   ): Promise<ViewBillingCommandOutput> | void {
     const command = new ViewBillingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

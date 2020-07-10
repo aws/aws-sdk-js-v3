@@ -1,18 +1,11 @@
-import {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestXmlProtocolClient";
+import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 import { HttpPayloadTraitsInputOutput } from "../models/index";
 import {
   deserializeAws_restXmlHttpPayloadTraitsCommand,
-  serializeAws_restXmlHttpPayloadTraitsCommand
+  serializeAws_restXmlHttpPayloadTraitsCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type HttpPayloadTraitsCommandInput = HttpPayloadTraitsInputOutput;
-export type HttpPayloadTraitsCommandOutput = HttpPayloadTraitsInputOutput &
-  __MetadataBearer;
+export type HttpPayloadTraitsCommandOutput = HttpPayloadTraitsInputOutput & __MetadataBearer;
 
 export class HttpPayloadTraitsCommand extends $Command<
   HttpPayloadTraitsCommandInput,
@@ -47,14 +39,12 @@ export class HttpPayloadTraitsCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class HttpPayloadTraitsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: HttpPayloadTraitsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: HttpPayloadTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlHttpPayloadTraitsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<HttpPayloadTraitsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadTraitsCommandOutput> {
     return deserializeAws_restXmlHttpPayloadTraitsCommand(output, context);
   }
 

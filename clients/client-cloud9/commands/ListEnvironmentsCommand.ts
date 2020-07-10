@@ -1,21 +1,11 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
-import {
-  ListEnvironmentsRequest,
-  ListEnvironmentsResult
-} from "../models/index";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { ListEnvironmentsRequest, ListEnvironmentsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListEnvironmentsCommand,
-  serializeAws_json1_1ListEnvironmentsCommand
+  serializeAws_json1_1ListEnvironmentsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListEnvironmentsCommandInput = ListEnvironmentsRequest;
-export type ListEnvironmentsCommandOutput = ListEnvironmentsResult &
-  __MetadataBearer;
+export type ListEnvironmentsCommandOutput = ListEnvironmentsResult & __MetadataBearer;
 
 export class ListEnvironmentsCommand extends $Command<
   ListEnvironmentsCommandInput,
@@ -50,14 +39,12 @@ export class ListEnvironmentsCommand extends $Command<
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListEnvironmentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEnvironmentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEnvironmentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEnvironmentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
     return deserializeAws_json1_1ListEnvironmentsCommand(output, context);
   }
 

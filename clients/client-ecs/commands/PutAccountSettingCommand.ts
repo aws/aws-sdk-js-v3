@@ -1,21 +1,11 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  PutAccountSettingRequest,
-  PutAccountSettingResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { PutAccountSettingRequest, PutAccountSettingResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutAccountSettingCommand,
-  serializeAws_json1_1PutAccountSettingCommand
+  serializeAws_json1_1PutAccountSettingCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutAccountSettingCommandInput = PutAccountSettingRequest;
-export type PutAccountSettingCommandOutput = PutAccountSettingResponse &
-  __MetadataBearer;
+export type PutAccountSettingCommandOutput = PutAccountSettingResponse & __MetadataBearer;
 
 export class PutAccountSettingCommand extends $Command<
   PutAccountSettingCommandInput,
@@ -50,14 +39,12 @@ export class PutAccountSettingCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutAccountSettingCommandInput, PutAccountSettingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class PutAccountSettingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutAccountSettingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutAccountSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAccountSettingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutAccountSettingCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountSettingCommandOutput> {
     return deserializeAws_json1_1PutAccountSettingCommand(output, context);
   }
 

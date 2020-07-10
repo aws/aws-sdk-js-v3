@@ -20,22 +20,16 @@ export interface RetryResolvedConfig {
   retryStrategy: RetryStrategy;
 }
 
-export const resolveRetryConfig = <T>(
-  input: T & PreviouslyResolved & RetryInputConfig
-): T & RetryResolvedConfig => {
-  const maxAttempts =
-    normalizeMaxAttempts(input.maxAttempts) ??
-    input.maxAttemptsDefaultProvider(input as any);
+export const resolveRetryConfig = <T>(input: T & PreviouslyResolved & RetryInputConfig): T & RetryResolvedConfig => {
+  const maxAttempts = normalizeMaxAttempts(input.maxAttempts) ?? input.maxAttemptsDefaultProvider(input as any);
   return {
     ...input,
     maxAttempts,
-    retryStrategy: input.retryStrategy || new StandardRetryStrategy(maxAttempts)
+    retryStrategy: input.retryStrategy || new StandardRetryStrategy(maxAttempts),
   };
 };
 
-const normalizeMaxAttempts = (
-  maxAttempts?: number
-): Provider<string> | undefined => {
+const normalizeMaxAttempts = (maxAttempts?: number): Provider<string> | undefined => {
   if (maxAttempts) {
     const promisified = Promise.resolve(maxAttempts.toString());
     return () => promisified;

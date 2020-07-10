@@ -1,9 +1,5 @@
 import { KinesisVideoMediaClient } from "./KinesisVideoMediaClient";
-import {
-  GetMediaCommand,
-  GetMediaCommandInput,
-  GetMediaCommandOutput
-} from "./commands/GetMediaCommand";
+import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -58,14 +54,8 @@ export class KinesisVideoMedia extends KinesisVideoMediaClient {
    *         bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>. </p>
    *          </note>
    */
-  public getMedia(
-    args: GetMediaCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMediaCommandOutput>;
-  public getMedia(
-    args: GetMediaCommandInput,
-    cb: (err: any, data?: GetMediaCommandOutput) => void
-  ): void;
+  public getMedia(args: GetMediaCommandInput, options?: __HttpHandlerOptions): Promise<GetMediaCommandOutput>;
+  public getMedia(args: GetMediaCommandInput, cb: (err: any, data?: GetMediaCommandOutput) => void): void;
   public getMedia(
     args: GetMediaCommandInput,
     options: __HttpHandlerOptions,
@@ -73,17 +63,14 @@ export class KinesisVideoMedia extends KinesisVideoMediaClient {
   ): void;
   public getMedia(
     args: GetMediaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMediaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMediaCommandOutput) => void),
     cb?: (err: any, data?: GetMediaCommandOutput) => void
   ): Promise<GetMediaCommandOutput> | void {
     const command = new GetMediaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient";
-import {
-  DescribeGlobalTableInput,
-  DescribeGlobalTableOutput
-} from "../models/index";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { DescribeGlobalTableInput, DescribeGlobalTableOutput } from "../models/index";
 import {
   deserializeAws_json1_0DescribeGlobalTableCommand,
-  serializeAws_json1_0DescribeGlobalTableCommand
+  serializeAws_json1_0DescribeGlobalTableCommand,
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeGlobalTableCommandInput = DescribeGlobalTableInput;
-export type DescribeGlobalTableCommandOutput = DescribeGlobalTableOutput &
-  __MetadataBearer;
+export type DescribeGlobalTableCommandOutput = DescribeGlobalTableOutput & __MetadataBearer;
 
 export class DescribeGlobalTableCommand extends $Command<
   DescribeGlobalTableCommandInput,
@@ -49,18 +38,13 @@ export class DescribeGlobalTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGlobalTableCommandInput,
-    DescribeGlobalTableCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGlobalTableCommandInput, DescribeGlobalTableCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeGlobalTableCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeGlobalTableCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeGlobalTableCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeGlobalTableCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalTableCommandOutput> {
     return deserializeAws_json1_0DescribeGlobalTableCommand(output, context);
   }
 

@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  RebootReplicationInstanceMessage,
-  RebootReplicationInstanceResponse
-} from "../models/index";
+import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/index";
 import {
   deserializeAws_json1_1RebootReplicationInstanceCommand,
-  serializeAws_json1_1RebootReplicationInstanceCommand
+  serializeAws_json1_1RebootReplicationInstanceCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RebootReplicationInstanceCommandInput = RebootReplicationInstanceMessage;
-export type RebootReplicationInstanceCommandOutput = RebootReplicationInstanceResponse &
-  __MetadataBearer;
+export type RebootReplicationInstanceCommandOutput = RebootReplicationInstanceResponse & __MetadataBearer;
 
 export class RebootReplicationInstanceCommand extends $Command<
   RebootReplicationInstanceCommandInput,
@@ -49,18 +42,13 @@ export class RebootReplicationInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RebootReplicationInstanceCommandInput,
-    RebootReplicationInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RebootReplicationInstanceCommandInput, RebootReplicationInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +58,7 @@ export class RebootReplicationInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RebootReplicationInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RebootReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RebootReplicationInstanceCommand(input, context);
   }
 
@@ -81,10 +66,7 @@ export class RebootReplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RebootReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1RebootReplicationInstanceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RebootReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

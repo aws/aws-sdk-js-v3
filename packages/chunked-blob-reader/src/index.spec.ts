@@ -10,7 +10,7 @@ describe("blobReader", () => {
 
     let totalBytes = 0;
 
-    await blobReader(blob, chunk => {
+    await blobReader(blob, (chunk) => {
       totalBytes += chunk.byteLength;
     });
 
@@ -27,7 +27,7 @@ describe("blobReader", () => {
 
     await blobReader(
       blob,
-      chunk => {
+      (chunk) => {
         chunkSizes.push(chunk.byteLength);
       },
       12 // chunk size in bytes

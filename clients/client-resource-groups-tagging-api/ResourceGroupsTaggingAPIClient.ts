@@ -1,35 +1,20 @@
 import {
   DescribeReportCreationCommandInput,
-  DescribeReportCreationCommandOutput
+  DescribeReportCreationCommandOutput,
 } from "./commands/DescribeReportCreationCommand";
 import {
   GetComplianceSummaryCommandInput,
-  GetComplianceSummaryCommandOutput
+  GetComplianceSummaryCommandOutput,
 } from "./commands/GetComplianceSummaryCommand";
-import {
-  GetResourcesCommandInput,
-  GetResourcesCommandOutput
-} from "./commands/GetResourcesCommand";
-import {
-  GetTagKeysCommandInput,
-  GetTagKeysCommandOutput
-} from "./commands/GetTagKeysCommand";
-import {
-  GetTagValuesCommandInput,
-  GetTagValuesCommandOutput
-} from "./commands/GetTagValuesCommand";
+import { GetResourcesCommandInput, GetResourcesCommandOutput } from "./commands/GetResourcesCommand";
+import { GetTagKeysCommandInput, GetTagKeysCommandOutput } from "./commands/GetTagKeysCommand";
+import { GetTagValuesCommandInput, GetTagValuesCommandOutput } from "./commands/GetTagValuesCommand";
 import {
   StartReportCreationCommandInput,
-  StartReportCreationCommandOutput
+  StartReportCreationCommandOutput,
 } from "./commands/StartReportCreationCommand";
-import {
-  TagResourcesCommandInput,
-  TagResourcesCommandOutput
-} from "./commands/TagResourcesCommand";
-import {
-  UntagResourcesCommandInput,
-  UntagResourcesCommandOutput
-} from "./commands/UntagResourcesCommand";
+import { TagResourcesCommandInput, TagResourcesCommandOutput } from "./commands/TagResourcesCommand";
+import { UntagResourcesCommandInput, UntagResourcesCommandOutput } from "./commands/UntagResourcesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -37,38 +22,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -79,7 +59,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -102,8 +82,7 @@ export type ServiceOutputTypes =
   | TagResourcesCommandOutput
   | UntagResourcesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -192,9 +171,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ResourceGroupsTaggingAPIClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ResourceGroupsTaggingAPIClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -203,9 +180,7 @@ export type ResourceGroupsTaggingAPIClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ResourceGroupsTaggingAPIClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ResourceGroupsTaggingAPIClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -559,7 +534,7 @@ export class ResourceGroupsTaggingAPIClient extends __Client<
   constructor(configuration: ResourceGroupsTaggingAPIClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

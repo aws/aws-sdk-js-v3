@@ -8,7 +8,7 @@ export const blobHasher: StreamHasher<Blob> = async function blobHasher(
 ): Promise<Uint8Array> {
   const hash = new hashCtor();
 
-  await blobReader(blob, chunk => {
+  await blobReader(blob, (chunk) => {
     hash.update(chunk);
   });
 

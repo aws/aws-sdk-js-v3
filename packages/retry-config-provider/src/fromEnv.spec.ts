@@ -7,9 +7,7 @@ describe("fromEnv", () => {
   const mockEnvVarValue = "mockEnvVarValue";
 
   const getProviderError = (envVarName: string) =>
-    new ProviderError(
-      `No value defined for the ${envVarName} environment variable`
-    );
+    new ProviderError(`No value defined for the ${envVarName} environment variable`);
 
   beforeEach(() => {
     delete process.env[envVarName];
@@ -25,8 +23,6 @@ describe("fromEnv", () => {
   });
 
   it(`throws when '${envVarName}' env var is not set`, () => {
-    return expect(fromEnv(envVarName)()).rejects.toMatchObject(
-      getProviderError(envVarName)
-    );
+    return expect(fromEnv(envVarName)()).rejects.toMatchObject(getProviderError(envVarName));
   });
 });

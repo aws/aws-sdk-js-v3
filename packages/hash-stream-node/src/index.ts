@@ -15,7 +15,7 @@ export const fileStreamHasher: StreamHasher<Readable> = function fileStreamHashe
 
     const fileStreamTee = createReadStream(fileStream.path, {
       start: (fileStream as any).start,
-      end: (fileStream as any).end
+      end: (fileStream as any).end,
     });
 
     const hash = new hashCtor();

@@ -1,94 +1,73 @@
 import {
   AcceptResourceShareInvitationCommandInput,
-  AcceptResourceShareInvitationCommandOutput
+  AcceptResourceShareInvitationCommandOutput,
 } from "./commands/AcceptResourceShareInvitationCommand";
 import {
   AssociateResourceShareCommandInput,
-  AssociateResourceShareCommandOutput
+  AssociateResourceShareCommandOutput,
 } from "./commands/AssociateResourceShareCommand";
 import {
   AssociateResourceSharePermissionCommandInput,
-  AssociateResourceSharePermissionCommandOutput
+  AssociateResourceSharePermissionCommandOutput,
 } from "./commands/AssociateResourceSharePermissionCommand";
 import {
   CreateResourceShareCommandInput,
-  CreateResourceShareCommandOutput
+  CreateResourceShareCommandOutput,
 } from "./commands/CreateResourceShareCommand";
 import {
   DeleteResourceShareCommandInput,
-  DeleteResourceShareCommandOutput
+  DeleteResourceShareCommandOutput,
 } from "./commands/DeleteResourceShareCommand";
 import {
   DisassociateResourceShareCommandInput,
-  DisassociateResourceShareCommandOutput
+  DisassociateResourceShareCommandOutput,
 } from "./commands/DisassociateResourceShareCommand";
 import {
   DisassociateResourceSharePermissionCommandInput,
-  DisassociateResourceSharePermissionCommandOutput
+  DisassociateResourceSharePermissionCommandOutput,
 } from "./commands/DisassociateResourceSharePermissionCommand";
 import {
   EnableSharingWithAwsOrganizationCommandInput,
-  EnableSharingWithAwsOrganizationCommandOutput
+  EnableSharingWithAwsOrganizationCommandOutput,
 } from "./commands/EnableSharingWithAwsOrganizationCommand";
-import {
-  GetPermissionCommandInput,
-  GetPermissionCommandOutput
-} from "./commands/GetPermissionCommand";
+import { GetPermissionCommandInput, GetPermissionCommandOutput } from "./commands/GetPermissionCommand";
 import {
   GetResourcePoliciesCommandInput,
-  GetResourcePoliciesCommandOutput
+  GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
 import {
   GetResourceShareAssociationsCommandInput,
-  GetResourceShareAssociationsCommandOutput
+  GetResourceShareAssociationsCommandOutput,
 } from "./commands/GetResourceShareAssociationsCommand";
 import {
   GetResourceShareInvitationsCommandInput,
-  GetResourceShareInvitationsCommandOutput
+  GetResourceShareInvitationsCommandOutput,
 } from "./commands/GetResourceShareInvitationsCommand";
-import {
-  GetResourceSharesCommandInput,
-  GetResourceSharesCommandOutput
-} from "./commands/GetResourceSharesCommand";
+import { GetResourceSharesCommandInput, GetResourceSharesCommandOutput } from "./commands/GetResourceSharesCommand";
 import {
   ListPendingInvitationResourcesCommandInput,
-  ListPendingInvitationResourcesCommandOutput
+  ListPendingInvitationResourcesCommandOutput,
 } from "./commands/ListPendingInvitationResourcesCommand";
-import {
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput
-} from "./commands/ListPermissionsCommand";
-import {
-  ListPrincipalsCommandInput,
-  ListPrincipalsCommandOutput
-} from "./commands/ListPrincipalsCommand";
+import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "./commands/ListPrincipalsCommand";
 import {
   ListResourceSharePermissionsCommandInput,
-  ListResourceSharePermissionsCommandOutput
+  ListResourceSharePermissionsCommandOutput,
 } from "./commands/ListResourceSharePermissionsCommand";
-import {
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput
-} from "./commands/ListResourcesCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommandInput,
-  PromoteResourceShareCreatedFromPolicyCommandOutput
+  PromoteResourceShareCreatedFromPolicyCommandOutput,
 } from "./commands/PromoteResourceShareCreatedFromPolicyCommand";
 import {
   RejectResourceShareInvitationCommandInput,
-  RejectResourceShareInvitationCommandOutput
+  RejectResourceShareInvitationCommandOutput,
 } from "./commands/RejectResourceShareInvitationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateResourceShareCommandInput,
-  UpdateResourceShareCommandOutput
+  UpdateResourceShareCommandOutput,
 } from "./commands/UpdateResourceShareCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -97,38 +76,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -139,7 +113,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -192,8 +166,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateResourceShareCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -282,9 +255,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RAMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -293,9 +264,7 @@ export type RAMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RAMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -323,7 +292,7 @@ export class RAMClient extends __Client<
   constructor(configuration: RAMClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

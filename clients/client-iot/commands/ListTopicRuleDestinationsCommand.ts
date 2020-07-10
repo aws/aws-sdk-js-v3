@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListTopicRuleDestinationsRequest,
-  ListTopicRuleDestinationsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListTopicRuleDestinationsRequest, ListTopicRuleDestinationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListTopicRuleDestinationsCommand,
-  serializeAws_restJson1ListTopicRuleDestinationsCommand
+  serializeAws_restJson1ListTopicRuleDestinationsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListTopicRuleDestinationsCommandInput = ListTopicRuleDestinationsRequest;
-export type ListTopicRuleDestinationsCommandOutput = ListTopicRuleDestinationsResponse &
-  __MetadataBearer;
+export type ListTopicRuleDestinationsCommandOutput = ListTopicRuleDestinationsResponse & __MetadataBearer;
 
 export class ListTopicRuleDestinationsCommand extends $Command<
   ListTopicRuleDestinationsCommandInput,
@@ -49,18 +38,13 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTopicRuleDestinationsCommandInput,
-    ListTopicRuleDestinationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTopicRuleDestinationsCommandInput, ListTopicRuleDestinationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTopicRuleDestinationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTopicRuleDestinationsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListTopicRuleDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListTopicRuleDestinationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTopicRuleDestinationsCommandOutput> {
-    return deserializeAws_restJson1ListTopicRuleDestinationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListTopicRuleDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

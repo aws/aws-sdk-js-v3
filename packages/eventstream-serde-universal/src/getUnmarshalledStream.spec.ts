@@ -1,12 +1,7 @@
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";
-import {
-  recordEventMessage,
-  statsEventMessage,
-  endEventMessage,
-  exception
-} from "./fixtures/event.fixture";
+import { recordEventMessage, statsEventMessage, endEventMessage, exception } from "./fixtures/event.fixture";
 import { Message } from "@aws-sdk/types";
 
 describe("getUnmarshalledStream", () => {
@@ -16,39 +11,39 @@ describe("getUnmarshalledStream", () => {
         headers: {
           ":content-type": {
             type: "string",
-            value: "application/octet-stream"
+            value: "application/octet-stream",
           },
           ":event-type": { type: "string", value: "Records" },
-          ":message-type": { type: "string", value: "event" }
+          ":message-type": { type: "string", value: "event" },
         },
         body: new Uint8Array(
           Buffer.from(
             `1,Foo,When life gives you foo...\n2,Bar,make Bar!\n3,Fizz,Sometimes paired with...\n4,Buzz,the infamous Buzz!\n`
           )
-        )
+        ),
       },
       {
         headers: {
           ":content-type": {
             type: "string",
-            value: "text/xml"
+            value: "text/xml",
           },
           ":event-type": { type: "string", value: "Stats" },
-          ":message-type": { type: "string", value: "event" }
+          ":message-type": { type: "string", value: "event" },
         },
         body: new Uint8Array(
           Buffer.from(
             '<Stats xmlns=""><BytesScanned>126</BytesScanned><BytesProcessed>126</BytesProcessed><BytesReturned>107</BytesReturned></Stats>'
           )
-        )
+        ),
       },
       {
         headers: {
           ":event-type": { type: "string", value: "End" },
-          ":message-type": { type: "string", value: "event" }
+          ":message-type": { type: "string", value: "event" },
         },
-        body: new Uint8Array()
-      }
+        body: new Uint8Array(),
+      },
     ];
 
     const source = async function* () {
@@ -58,8 +53,8 @@ describe("getUnmarshalledStream", () => {
     };
     const unmarshallerStream = getUnmarshalledStream(source(), {
       eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
-      deserializer: message => Promise.resolve(message),
-      toUtf8
+      deserializer: (message) => Promise.resolve(message),
+      toUtf8,
     });
     const messages: Array<Message> = [];
     for await (const message of unmarshallerStream) {
@@ -74,14 +69,14 @@ describe("getUnmarshalledStream", () => {
     const source = {
       [Symbol.asyncIterator]: async function* () {
         yield exception;
-      }
+      },
     };
     const deserStream = getUnmarshalledStream(source, {
       eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
-      deserializer: message => {
+      deserializer: (message) => {
         throw new Error("error event");
       },
-      toUtf8
+      toUtf8,
     });
     let error: Error | undefined = undefined;
     try {
@@ -100,15 +95,15 @@ describe("getUnmarshalledStream", () => {
     const source = {
       [Symbol.asyncIterator]: async function* () {
         yield exception;
-      }
+      },
     };
     const deserStream = getUnmarshalledStream(source, {
       eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
-      deserializer: message =>
+      deserializer: (message) =>
         Promise.resolve({
-          $unknown: message
+          $unknown: message,
         }),
-      toUtf8
+      toUtf8,
     });
     let error: Error | undefined = undefined;
     try {
@@ -120,9 +115,7 @@ describe("getUnmarshalledStream", () => {
     }
     expect(error).toBeDefined();
     expect(error?.name).toEqual("Exception");
-    expect(error?.message).toEqual(
-      "This is a modeled exception event that would be thrown in deserializer."
-    );
+    expect(error?.message).toEqual("This is a modeled exception event that would be thrown in deserializer.");
   });
 
   it("omit the unknown event type", async () => {
@@ -131,11 +124,11 @@ describe("getUnmarshalledStream", () => {
     };
     const unmarshallerStream = getUnmarshalledStream(source(), {
       eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
-      deserializer: message =>
+      deserializer: (message) =>
         Promise.resolve({
-          $unknown: message
+          $unknown: message,
         } as any), //deserializer that parse anything into unknown event
-      toUtf8
+      toUtf8,
     });
     const messages: Array<Message> = [];
     for await (const message of unmarshallerStream) {

@@ -2,62 +2,58 @@ import { FirehoseClient } from "./FirehoseClient";
 import {
   CreateDeliveryStreamCommand,
   CreateDeliveryStreamCommandInput,
-  CreateDeliveryStreamCommandOutput
+  CreateDeliveryStreamCommandOutput,
 } from "./commands/CreateDeliveryStreamCommand";
 import {
   DeleteDeliveryStreamCommand,
   DeleteDeliveryStreamCommandInput,
-  DeleteDeliveryStreamCommandOutput
+  DeleteDeliveryStreamCommandOutput,
 } from "./commands/DeleteDeliveryStreamCommand";
 import {
   DescribeDeliveryStreamCommand,
   DescribeDeliveryStreamCommandInput,
-  DescribeDeliveryStreamCommandOutput
+  DescribeDeliveryStreamCommandOutput,
 } from "./commands/DescribeDeliveryStreamCommand";
 import {
   ListDeliveryStreamsCommand,
   ListDeliveryStreamsCommandInput,
-  ListDeliveryStreamsCommandOutput
+  ListDeliveryStreamsCommandOutput,
 } from "./commands/ListDeliveryStreamsCommand";
 import {
   ListTagsForDeliveryStreamCommand,
   ListTagsForDeliveryStreamCommandInput,
-  ListTagsForDeliveryStreamCommandOutput
+  ListTagsForDeliveryStreamCommandOutput,
 } from "./commands/ListTagsForDeliveryStreamCommand";
 import {
   PutRecordBatchCommand,
   PutRecordBatchCommandInput,
-  PutRecordBatchCommandOutput
+  PutRecordBatchCommandOutput,
 } from "./commands/PutRecordBatchCommand";
-import {
-  PutRecordCommand,
-  PutRecordCommandInput,
-  PutRecordCommandOutput
-} from "./commands/PutRecordCommand";
+import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
 import {
   StartDeliveryStreamEncryptionCommand,
   StartDeliveryStreamEncryptionCommandInput,
-  StartDeliveryStreamEncryptionCommandOutput
+  StartDeliveryStreamEncryptionCommandOutput,
 } from "./commands/StartDeliveryStreamEncryptionCommand";
 import {
   StopDeliveryStreamEncryptionCommand,
   StopDeliveryStreamEncryptionCommandInput,
-  StopDeliveryStreamEncryptionCommandOutput
+  StopDeliveryStreamEncryptionCommandOutput,
 } from "./commands/StopDeliveryStreamEncryptionCommand";
 import {
   TagDeliveryStreamCommand,
   TagDeliveryStreamCommandInput,
-  TagDeliveryStreamCommandOutput
+  TagDeliveryStreamCommandOutput,
 } from "./commands/TagDeliveryStreamCommand";
 import {
   UntagDeliveryStreamCommand,
   UntagDeliveryStreamCommandInput,
-  UntagDeliveryStreamCommandOutput
+  UntagDeliveryStreamCommandOutput,
 } from "./commands/UntagDeliveryStreamCommand";
 import {
   UpdateDestinationCommand,
   UpdateDestinationCommandInput,
-  UpdateDestinationCommandOutput
+  UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -154,17 +150,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public createDeliveryStream(
     args: CreateDeliveryStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeliveryStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeliveryStreamCommandOutput) => void),
     cb?: (err: any, data?: CreateDeliveryStreamCommandOutput) => void
   ): Promise<CreateDeliveryStreamCommandOutput> | void {
     const command = new CreateDeliveryStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -198,17 +191,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public deleteDeliveryStream(
     args: DeleteDeliveryStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeliveryStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeliveryStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeliveryStreamCommandOutput) => void
   ): Promise<DeleteDeliveryStreamCommandOutput> | void {
     const command = new DeleteDeliveryStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -239,17 +229,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public describeDeliveryStream(
     args: DescribeDeliveryStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeliveryStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeliveryStreamCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeliveryStreamCommandOutput) => void
   ): Promise<DescribeDeliveryStreamCommandOutput> | void {
     const command = new DescribeDeliveryStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -281,17 +268,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public listDeliveryStreams(
     args: ListDeliveryStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeliveryStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeliveryStreamsCommandOutput) => void),
     cb?: (err: any, data?: ListDeliveryStreamsCommandOutput) => void
   ): Promise<ListDeliveryStreamsCommandOutput> | void {
     const command = new ListDeliveryStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -317,17 +301,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public listTagsForDeliveryStream(
     args: ListTagsForDeliveryStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForDeliveryStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForDeliveryStreamCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForDeliveryStreamCommandOutput) => void
   ): Promise<ListTagsForDeliveryStreamCommandOutput> | void {
     const command = new ListTagsForDeliveryStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -370,14 +351,8 @@ export class Firehose extends FirehoseClient {
    *             Instead, concatenate the raw data, then perform base64 encoding.</p>
    *          </important>
    */
-  public putRecord(
-    args: PutRecordCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutRecordCommandOutput>;
-  public putRecord(
-    args: PutRecordCommandInput,
-    cb: (err: any, data?: PutRecordCommandOutput) => void
-  ): void;
+  public putRecord(args: PutRecordCommandInput, options?: __HttpHandlerOptions): Promise<PutRecordCommandOutput>;
+  public putRecord(args: PutRecordCommandInput, cb: (err: any, data?: PutRecordCommandOutput) => void): void;
   public putRecord(
     args: PutRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -385,17 +360,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public putRecord(
     args: PutRecordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRecordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordCommandOutput) => void),
     cb?: (err: any, data?: PutRecordCommandOutput) => void
   ): Promise<PutRecordCommandOutput> | void {
     const command = new PutRecordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -475,17 +447,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public putRecordBatch(
     args: PutRecordBatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRecordBatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordBatchCommandOutput) => void),
     cb?: (err: any, data?: PutRecordBatchCommandOutput) => void
   ): Promise<PutRecordBatchCommandOutput> | void {
     const command = new PutRecordBatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -542,17 +511,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public startDeliveryStreamEncryption(
     args: StartDeliveryStreamEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDeliveryStreamEncryptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDeliveryStreamEncryptionCommandOutput) => void),
     cb?: (err: any, data?: StartDeliveryStreamEncryptionCommandOutput) => void
   ): Promise<StartDeliveryStreamEncryptionCommandOutput> | void {
     const command = new StartDeliveryStreamEncryptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -598,17 +564,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public stopDeliveryStreamEncryption(
     args: StopDeliveryStreamEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDeliveryStreamEncryptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDeliveryStreamEncryptionCommandOutput) => void),
     cb?: (err: any, data?: StopDeliveryStreamEncryptionCommandOutput) => void
   ): Promise<StopDeliveryStreamEncryptionCommandOutput> | void {
     const command = new StopDeliveryStreamEncryptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -641,17 +604,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public tagDeliveryStream(
     args: TagDeliveryStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagDeliveryStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagDeliveryStreamCommandOutput) => void),
     cb?: (err: any, data?: TagDeliveryStreamCommandOutput) => void
   ): Promise<TagDeliveryStreamCommandOutput> | void {
     const command = new TagDeliveryStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -679,17 +639,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public untagDeliveryStream(
     args: UntagDeliveryStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagDeliveryStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagDeliveryStreamCommandOutput) => void),
     cb?: (err: any, data?: UntagDeliveryStreamCommandOutput) => void
   ): Promise<UntagDeliveryStreamCommandOutput> | void {
     const command = new UntagDeliveryStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -737,17 +694,14 @@ export class Firehose extends FirehoseClient {
   ): void;
   public updateDestination(
     args: UpdateDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDestinationCommandOutput) => void),
     cb?: (err: any, data?: UpdateDestinationCommandOutput) => void
   ): Promise<UpdateDestinationCommandOutput> | void {
     const command = new UpdateDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

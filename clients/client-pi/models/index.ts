@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -23,7 +19,7 @@ export interface DataPoint {
 
 export namespace DataPoint {
   export const filterSensitiveLog = (obj: DataPoint): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
 }
@@ -163,13 +159,10 @@ export interface DescribeDimensionKeysRequest {
 }
 
 export namespace DescribeDimensionKeysRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDimensionKeysRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDimensionKeysRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDimensionKeysRequest =>
-    __isa(o, "DescribeDimensionKeysRequest");
+  export const isa = (o: any): o is DescribeDimensionKeysRequest => __isa(o, "DescribeDimensionKeysRequest");
 }
 
 export interface DescribeDimensionKeysResponse {
@@ -207,13 +200,10 @@ export interface DescribeDimensionKeysResponse {
 }
 
 export namespace DescribeDimensionKeysResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeDimensionKeysResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDimensionKeysResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDimensionKeysResponse =>
-    __isa(o, "DescribeDimensionKeysResponse");
+  export const isa = (o: any): o is DescribeDimensionKeysResponse => __isa(o, "DescribeDimensionKeysResponse");
 }
 
 /**
@@ -322,10 +312,9 @@ export interface DimensionGroup {
 
 export namespace DimensionGroup {
   export const filterSensitiveLog = (obj: DimensionGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DimensionGroup =>
-    __isa(o, "DimensionGroup");
+  export const isa = (o: any): o is DimensionGroup => __isa(o, "DimensionGroup");
 }
 
 /**
@@ -352,10 +341,9 @@ export interface DimensionKeyDescription {
 
 export namespace DimensionKeyDescription {
   export const filterSensitiveLog = (obj: DimensionKeyDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DimensionKeyDescription =>
-    __isa(o, "DimensionKeyDescription");
+  export const isa = (o: any): o is DimensionKeyDescription => __isa(o, "DimensionKeyDescription");
 }
 
 export interface GetResourceMetricsRequest {
@@ -450,10 +438,9 @@ export interface GetResourceMetricsRequest {
 
 export namespace GetResourceMetricsRequest {
   export const filterSensitiveLog = (obj: GetResourceMetricsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourceMetricsRequest =>
-    __isa(o, "GetResourceMetricsRequest");
+  export const isa = (o: any): o is GetResourceMetricsRequest => __isa(o, "GetResourceMetricsRequest");
 }
 
 export interface GetResourceMetricsResponse {
@@ -497,18 +484,15 @@ export interface GetResourceMetricsResponse {
 
 export namespace GetResourceMetricsResponse {
   export const filterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourceMetricsResponse =>
-    __isa(o, "GetResourceMetricsResponse");
+  export const isa = (o: any): o is GetResourceMetricsResponse => __isa(o, "GetResourceMetricsResponse");
 }
 
 /**
  * <p>The request failed due to an unknown error.</p>
  */
-export interface InternalServiceError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceError extends __SmithyException, $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
   Message?: string;
@@ -516,18 +500,15 @@ export interface InternalServiceError
 
 export namespace InternalServiceError {
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceError =>
-    __isa(o, "InternalServiceError");
+  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
  * <p>One of the arguments provided is invalid for this request.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -535,10 +516,9 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -560,10 +540,9 @@ export interface MetricKeyDataPoints {
 
 export namespace MetricKeyDataPoints {
   export const filterSensitiveLog = (obj: MetricKeyDataPoints): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MetricKeyDataPoints =>
-    __isa(o, "MetricKeyDataPoints");
+  export const isa = (o: any): o is MetricKeyDataPoints => __isa(o, "MetricKeyDataPoints");
 }
 
 /**
@@ -617,7 +596,7 @@ export interface MetricQuery {
 
 export namespace MetricQuery {
   export const filterSensitiveLog = (obj: MetricQuery): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MetricQuery => __isa(o, "MetricQuery");
 }
@@ -625,9 +604,7 @@ export namespace MetricQuery {
 /**
  * <p>The user is not authorized to perform this request.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -635,10 +612,9 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -656,10 +632,9 @@ export interface ResponsePartitionKey {
 
 export namespace ResponsePartitionKey {
   export const filterSensitiveLog = (obj: ResponsePartitionKey): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResponsePartitionKey =>
-    __isa(o, "ResponsePartitionKey");
+  export const isa = (o: any): o is ResponsePartitionKey => __isa(o, "ResponsePartitionKey");
 }
 
 /**
@@ -694,12 +669,11 @@ export interface ResponseResourceMetricKey {
 
 export namespace ResponseResourceMetricKey {
   export const filterSensitiveLog = (obj: ResponseResourceMetricKey): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResponseResourceMetricKey =>
-    __isa(o, "ResponseResourceMetricKey");
+  export const isa = (o: any): o is ResponseResourceMetricKey => __isa(o, "ResponseResourceMetricKey");
 }
 
 export enum ServiceType {
-  RDS = "RDS"
+  RDS = "RDS",
 }

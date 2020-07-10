@@ -1,21 +1,11 @@
-import {
-  MediaStoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaStoreClient";
-import {
-  PutLifecyclePolicyInput,
-  PutLifecyclePolicyOutput
-} from "../models/index";
+import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { PutLifecyclePolicyInput, PutLifecyclePolicyOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutLifecyclePolicyCommand,
-  serializeAws_json1_1PutLifecyclePolicyCommand
+  serializeAws_json1_1PutLifecyclePolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutLifecyclePolicyCommandInput = PutLifecyclePolicyInput;
-export type PutLifecyclePolicyCommandOutput = PutLifecyclePolicyOutput &
-  __MetadataBearer;
+export type PutLifecyclePolicyCommandOutput = PutLifecyclePolicyOutput & __MetadataBearer;
 
 export class PutLifecyclePolicyCommand extends $Command<
   PutLifecyclePolicyCommandInput,
@@ -50,14 +39,12 @@ export class PutLifecyclePolicyCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class PutLifecyclePolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutLifecyclePolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutLifecyclePolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutLifecyclePolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLifecyclePolicyCommandOutput> {
     return deserializeAws_json1_1PutLifecyclePolicyCommand(output, context);
   }
 

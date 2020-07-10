@@ -1,18 +1,11 @@
-import {
-  EC2ProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2ProtocolClient";
+import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { SimpleScalarXmlPropertiesOutput } from "../models/index";
 import {
   deserializeAws_ec2SimpleScalarXmlPropertiesCommand,
-  serializeAws_ec2SimpleScalarXmlPropertiesCommand
+  serializeAws_ec2SimpleScalarXmlPropertiesCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SimpleScalarXmlPropertiesCommandInput = {};
-export type SimpleScalarXmlPropertiesCommandOutput = SimpleScalarXmlPropertiesOutput &
-  __MetadataBearer;
+export type SimpleScalarXmlPropertiesCommandOutput = SimpleScalarXmlPropertiesOutput & __MetadataBearer;
 
 export class SimpleScalarXmlPropertiesCommand extends $Command<
   SimpleScalarXmlPropertiesCommandInput,
@@ -46,18 +38,13 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SimpleScalarXmlPropertiesCommandInput,
-    SimpleScalarXmlPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SimpleScalarXmlPropertiesCommandInput, SimpleScalarXmlPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,10 +54,7 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SimpleScalarXmlPropertiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SimpleScalarXmlPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2SimpleScalarXmlPropertiesCommand(input, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeReservedDBInstancesOfferingsMessage,
-  ReservedDBInstancesOfferingMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeReservedDBInstancesOfferingsMessage, ReservedDBInstancesOfferingMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand,
-  serializeAws_queryDescribeReservedDBInstancesOfferingsCommand
+  serializeAws_queryDescribeReservedDBInstancesOfferingsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeReservedDBInstancesOfferingsCommandInput = DescribeReservedDBInstancesOfferingsMessage;
-export type DescribeReservedDBInstancesOfferingsCommandOutput = ReservedDBInstancesOfferingMessage &
-  __MetadataBearer;
+export type DescribeReservedDBInstancesOfferingsCommandOutput = ReservedDBInstancesOfferingMessage & __MetadataBearer;
 
 export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
   DescribeReservedDBInstancesOfferingsCommandInput,
@@ -39,9 +28,7 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeReservedDBInstancesOfferingsCommandInput
-  ) {
+  constructor(readonly input: DescribeReservedDBInstancesOfferingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +38,13 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReservedDBInstancesOfferingsCommandInput,
-    DescribeReservedDBInstancesOfferingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReservedDBInstancesOfferingsCommandInput, DescribeReservedDBInstancesOfferingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +58,14 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     input: DescribeReservedDBInstancesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedDBInstancesOfferingsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeReservedDBInstancesOfferingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> {
-    return deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -45,7 +41,7 @@ export interface Connection {
 
 export namespace Connection {
   export const filterSensitiveLog = (obj: Connection): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
@@ -53,7 +49,7 @@ export namespace Connection {
 export enum ConnectionStatus {
   AVAILABLE = "AVAILABLE",
   ERROR = "ERROR",
-  PENDING = "PENDING"
+  PENDING = "PENDING",
 }
 
 export interface CreateConnectionInput {
@@ -73,10 +69,9 @@ export interface CreateConnectionInput {
 
 export namespace CreateConnectionInput {
   export const filterSensitiveLog = (obj: CreateConnectionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateConnectionInput =>
-    __isa(o, "CreateConnectionInput");
+  export const isa = (o: any): o is CreateConnectionInput => __isa(o, "CreateConnectionInput");
 }
 
 export interface CreateConnectionOutput {
@@ -93,10 +88,9 @@ export interface CreateConnectionOutput {
 
 export namespace CreateConnectionOutput {
   export const filterSensitiveLog = (obj: CreateConnectionOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateConnectionOutput =>
-    __isa(o, "CreateConnectionOutput");
+  export const isa = (o: any): o is CreateConnectionOutput => __isa(o, "CreateConnectionOutput");
 }
 
 export interface DeleteConnectionInput {
@@ -112,10 +106,9 @@ export interface DeleteConnectionInput {
 
 export namespace DeleteConnectionInput {
   export const filterSensitiveLog = (obj: DeleteConnectionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionInput =>
-    __isa(o, "DeleteConnectionInput");
+  export const isa = (o: any): o is DeleteConnectionInput => __isa(o, "DeleteConnectionInput");
 }
 
 export interface DeleteConnectionOutput {
@@ -124,10 +117,9 @@ export interface DeleteConnectionOutput {
 
 export namespace DeleteConnectionOutput {
   export const filterSensitiveLog = (obj: DeleteConnectionOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionOutput =>
-    __isa(o, "DeleteConnectionOutput");
+  export const isa = (o: any): o is DeleteConnectionOutput => __isa(o, "DeleteConnectionOutput");
 }
 
 export interface GetConnectionInput {
@@ -140,10 +132,9 @@ export interface GetConnectionInput {
 
 export namespace GetConnectionInput {
   export const filterSensitiveLog = (obj: GetConnectionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConnectionInput =>
-    __isa(o, "GetConnectionInput");
+  export const isa = (o: any): o is GetConnectionInput => __isa(o, "GetConnectionInput");
 }
 
 export interface GetConnectionOutput {
@@ -156,18 +147,15 @@ export interface GetConnectionOutput {
 
 export namespace GetConnectionOutput {
   export const filterSensitiveLog = (obj: GetConnectionOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConnectionOutput =>
-    __isa(o, "GetConnectionOutput");
+  export const isa = (o: any): o is GetConnectionOutput => __isa(o, "GetConnectionOutput");
 }
 
 /**
  * <p>Exceeded the maximum limit for connections.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -175,10 +163,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListConnectionsInput {
@@ -204,10 +191,9 @@ export interface ListConnectionsInput {
 
 export namespace ListConnectionsInput {
   export const filterSensitiveLog = (obj: ListConnectionsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListConnectionsInput =>
-    __isa(o, "ListConnectionsInput");
+  export const isa = (o: any): o is ListConnectionsInput => __isa(o, "ListConnectionsInput");
 }
 
 export interface ListConnectionsOutput {
@@ -228,22 +214,19 @@ export interface ListConnectionsOutput {
 
 export namespace ListConnectionsOutput {
   export const filterSensitiveLog = (obj: ListConnectionsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListConnectionsOutput =>
-    __isa(o, "ListConnectionsOutput");
+  export const isa = (o: any): o is ListConnectionsOutput => __isa(o, "ListConnectionsOutput");
 }
 
 export enum ProviderType {
-  BITBUCKET = "Bitbucket"
+  BITBUCKET = "Bitbucket",
 }
 
 /**
  * <p>Resource not found. Verify the connection resource ARN and try again.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -251,8 +234,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }

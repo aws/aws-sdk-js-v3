@@ -10,14 +10,14 @@ describe("accountIdDefaultMiddleware", () => {
   it("adds default accountId if not set on input", async () => {
     const handler = accountIdDefaultMiddleware()(next, {} as any);
     await handler({
-      input: {}
+      input: {},
     });
 
     expect(next.mock.calls.length).toBe(1);
     expect(next).toHaveBeenCalledWith({
       input: {
-        accountId: "-"
-      }
+        accountId: "-",
+      },
     });
   });
 
@@ -25,15 +25,15 @@ describe("accountIdDefaultMiddleware", () => {
     const handler = accountIdDefaultMiddleware()(next, {} as any);
     await handler({
       input: {
-        accountId: "1234"
-      }
+        accountId: "1234",
+      },
     });
 
     expect(next.mock.calls.length).toBe(1);
     expect(next).toHaveBeenCalledWith({
       input: {
-        accountId: "1234"
-      }
+        accountId: "1234",
+      },
     });
   });
 });

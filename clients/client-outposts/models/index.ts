@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have permission to perform this operation.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -18,10 +12,9 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface CreateOutpostInput {
@@ -54,10 +47,9 @@ export interface CreateOutpostInput {
 
 export namespace CreateOutpostInput {
   export const filterSensitiveLog = (obj: CreateOutpostInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateOutpostInput =>
-    __isa(o, "CreateOutpostInput");
+  export const isa = (o: any): o is CreateOutpostInput => __isa(o, "CreateOutpostInput");
 }
 
 export interface CreateOutpostOutput {
@@ -70,10 +62,9 @@ export interface CreateOutpostOutput {
 
 export namespace CreateOutpostOutput {
   export const filterSensitiveLog = (obj: CreateOutpostOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateOutpostOutput =>
-    __isa(o, "CreateOutpostOutput");
+  export const isa = (o: any): o is CreateOutpostOutput => __isa(o, "CreateOutpostOutput");
 }
 
 export interface GetOutpostInput {
@@ -86,10 +77,9 @@ export interface GetOutpostInput {
 
 export namespace GetOutpostInput {
   export const filterSensitiveLog = (obj: GetOutpostInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInput =>
-    __isa(o, "GetOutpostInput");
+  export const isa = (o: any): o is GetOutpostInput => __isa(o, "GetOutpostInput");
 }
 
 export interface GetOutpostInstanceTypesInput {
@@ -111,13 +101,10 @@ export interface GetOutpostInstanceTypesInput {
 }
 
 export namespace GetOutpostInstanceTypesInput {
-  export const filterSensitiveLog = (
-    obj: GetOutpostInstanceTypesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInstanceTypesInput =>
-    __isa(o, "GetOutpostInstanceTypesInput");
+  export const isa = (o: any): o is GetOutpostInstanceTypesInput => __isa(o, "GetOutpostInstanceTypesInput");
 }
 
 export interface GetOutpostInstanceTypesOutput {
@@ -144,13 +131,10 @@ export interface GetOutpostInstanceTypesOutput {
 }
 
 export namespace GetOutpostInstanceTypesOutput {
-  export const filterSensitiveLog = (
-    obj: GetOutpostInstanceTypesOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInstanceTypesOutput =>
-    __isa(o, "GetOutpostInstanceTypesOutput");
+  export const isa = (o: any): o is GetOutpostInstanceTypesOutput => __isa(o, "GetOutpostInstanceTypesOutput");
 }
 
 export interface GetOutpostOutput {
@@ -163,10 +147,9 @@ export interface GetOutpostOutput {
 
 export namespace GetOutpostOutput {
   export const filterSensitiveLog = (obj: GetOutpostOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetOutpostOutput =>
-    __isa(o, "GetOutpostOutput");
+  export const isa = (o: any): o is GetOutpostOutput => __isa(o, "GetOutpostOutput");
 }
 
 /**
@@ -182,18 +165,15 @@ export interface InstanceTypeItem {
 
 export namespace InstanceTypeItem {
   export const filterSensitiveLog = (obj: InstanceTypeItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeItem =>
-    __isa(o, "InstanceTypeItem");
+  export const isa = (o: any): o is InstanceTypeItem => __isa(o, "InstanceTypeItem");
 }
 
 /**
  * <p>An internal error has occurred.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -201,10 +181,9 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListOutpostsInput {
@@ -222,10 +201,9 @@ export interface ListOutpostsInput {
 
 export namespace ListOutpostsInput {
   export const filterSensitiveLog = (obj: ListOutpostsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListOutpostsInput =>
-    __isa(o, "ListOutpostsInput");
+  export const isa = (o: any): o is ListOutpostsInput => __isa(o, "ListOutpostsInput");
 }
 
 export interface ListOutpostsOutput {
@@ -243,10 +221,9 @@ export interface ListOutpostsOutput {
 
 export namespace ListOutpostsOutput {
   export const filterSensitiveLog = (obj: ListOutpostsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListOutpostsOutput =>
-    __isa(o, "ListOutpostsOutput");
+  export const isa = (o: any): o is ListOutpostsOutput => __isa(o, "ListOutpostsOutput");
 }
 
 export interface ListSitesInput {
@@ -264,10 +241,9 @@ export interface ListSitesInput {
 
 export namespace ListSitesInput {
   export const filterSensitiveLog = (obj: ListSitesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSitesInput =>
-    __isa(o, "ListSitesInput");
+  export const isa = (o: any): o is ListSitesInput => __isa(o, "ListSitesInput");
 }
 
 export interface ListSitesOutput {
@@ -285,10 +261,9 @@ export interface ListSitesOutput {
 
 export namespace ListSitesOutput {
   export const filterSensitiveLog = (obj: ListSitesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSitesOutput =>
-    __isa(o, "ListSitesOutput");
+  export const isa = (o: any): o is ListSitesOutput => __isa(o, "ListSitesOutput");
 }
 
 /**
@@ -302,10 +277,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -361,7 +335,7 @@ export interface Outpost {
 
 export namespace Outpost {
   export const filterSensitiveLog = (obj: Outpost): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Outpost => __isa(o, "Outpost");
 }
@@ -369,22 +343,17 @@ export namespace Outpost {
 /**
  * <p>You have exceeded a service quota.</p>
  */
-export interface ServiceQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (
-    obj: ServiceQuotaExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException =>
-    __isa(o, "ServiceQuotaExceededException");
+  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -415,7 +384,7 @@ export interface Site {
 
 export namespace Site {
   export const filterSensitiveLog = (obj: Site): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Site => __isa(o, "Site");
 }
@@ -423,9 +392,7 @@ export namespace Site {
 /**
  * <p>A parameter is not valid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
@@ -433,8 +400,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

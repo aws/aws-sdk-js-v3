@@ -1,21 +1,11 @@
-import {
-  DataExchangeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataExchangeClient";
-import {
-  ListDataSetRevisionsRequest,
-  ListDataSetRevisionsResponse
-} from "../models/index";
+import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
+import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListDataSetRevisionsCommand,
-  serializeAws_restJson1ListDataSetRevisionsCommand
+  serializeAws_restJson1ListDataSetRevisionsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListDataSetRevisionsCommandInput = ListDataSetRevisionsRequest;
-export type ListDataSetRevisionsCommandOutput = ListDataSetRevisionsResponse &
-  __MetadataBearer;
+export type ListDataSetRevisionsCommandOutput = ListDataSetRevisionsResponse & __MetadataBearer;
 
 export class ListDataSetRevisionsCommand extends $Command<
   ListDataSetRevisionsCommandInput,
@@ -49,18 +38,13 @@ export class ListDataSetRevisionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDataSetRevisionsCommandInput,
-    ListDataSetRevisionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDataSetRevisionsCommandInput, ListDataSetRevisionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListDataSetRevisionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDataSetRevisionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDataSetRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDataSetRevisionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDataSetRevisionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetRevisionsCommandOutput> {
     return deserializeAws_restJson1ListDataSetRevisionsCommand(output, context);
   }
 

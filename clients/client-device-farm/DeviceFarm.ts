@@ -2,387 +2,311 @@ import { DeviceFarmClient } from "./DeviceFarmClient";
 import {
   CreateDevicePoolCommand,
   CreateDevicePoolCommandInput,
-  CreateDevicePoolCommandOutput
+  CreateDevicePoolCommandOutput,
 } from "./commands/CreateDevicePoolCommand";
 import {
   CreateInstanceProfileCommand,
   CreateInstanceProfileCommandInput,
-  CreateInstanceProfileCommandOutput
+  CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand";
 import {
   CreateNetworkProfileCommand,
   CreateNetworkProfileCommandInput,
-  CreateNetworkProfileCommandOutput
+  CreateNetworkProfileCommandOutput,
 } from "./commands/CreateNetworkProfileCommand";
 import {
   CreateProjectCommand,
   CreateProjectCommandInput,
-  CreateProjectCommandOutput
+  CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
 import {
   CreateRemoteAccessSessionCommand,
   CreateRemoteAccessSessionCommandInput,
-  CreateRemoteAccessSessionCommandOutput
+  CreateRemoteAccessSessionCommandOutput,
 } from "./commands/CreateRemoteAccessSessionCommand";
 import {
   CreateTestGridProjectCommand,
   CreateTestGridProjectCommandInput,
-  CreateTestGridProjectCommandOutput
+  CreateTestGridProjectCommandOutput,
 } from "./commands/CreateTestGridProjectCommand";
 import {
   CreateTestGridUrlCommand,
   CreateTestGridUrlCommandInput,
-  CreateTestGridUrlCommandOutput
+  CreateTestGridUrlCommandOutput,
 } from "./commands/CreateTestGridUrlCommand";
 import {
   CreateUploadCommand,
   CreateUploadCommandInput,
-  CreateUploadCommandOutput
+  CreateUploadCommandOutput,
 } from "./commands/CreateUploadCommand";
 import {
   CreateVPCEConfigurationCommand,
   CreateVPCEConfigurationCommandInput,
-  CreateVPCEConfigurationCommandOutput
+  CreateVPCEConfigurationCommandOutput,
 } from "./commands/CreateVPCEConfigurationCommand";
 import {
   DeleteDevicePoolCommand,
   DeleteDevicePoolCommandInput,
-  DeleteDevicePoolCommandOutput
+  DeleteDevicePoolCommandOutput,
 } from "./commands/DeleteDevicePoolCommand";
 import {
   DeleteInstanceProfileCommand,
   DeleteInstanceProfileCommandInput,
-  DeleteInstanceProfileCommandOutput
+  DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand";
 import {
   DeleteNetworkProfileCommand,
   DeleteNetworkProfileCommandInput,
-  DeleteNetworkProfileCommandOutput
+  DeleteNetworkProfileCommandOutput,
 } from "./commands/DeleteNetworkProfileCommand";
 import {
   DeleteProjectCommand,
   DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
+  DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
   DeleteRemoteAccessSessionCommand,
   DeleteRemoteAccessSessionCommandInput,
-  DeleteRemoteAccessSessionCommandOutput
+  DeleteRemoteAccessSessionCommandOutput,
 } from "./commands/DeleteRemoteAccessSessionCommand";
-import {
-  DeleteRunCommand,
-  DeleteRunCommandInput,
-  DeleteRunCommandOutput
-} from "./commands/DeleteRunCommand";
+import { DeleteRunCommand, DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import {
   DeleteTestGridProjectCommand,
   DeleteTestGridProjectCommandInput,
-  DeleteTestGridProjectCommandOutput
+  DeleteTestGridProjectCommandOutput,
 } from "./commands/DeleteTestGridProjectCommand";
 import {
   DeleteUploadCommand,
   DeleteUploadCommandInput,
-  DeleteUploadCommandOutput
+  DeleteUploadCommandOutput,
 } from "./commands/DeleteUploadCommand";
 import {
   DeleteVPCEConfigurationCommand,
   DeleteVPCEConfigurationCommandInput,
-  DeleteVPCEConfigurationCommandOutput
+  DeleteVPCEConfigurationCommandOutput,
 } from "./commands/DeleteVPCEConfigurationCommand";
 import {
   GetAccountSettingsCommand,
   GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput
+  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
-import {
-  GetDeviceCommand,
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand";
+import { GetDeviceCommand, GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
 import {
   GetDeviceInstanceCommand,
   GetDeviceInstanceCommandInput,
-  GetDeviceInstanceCommandOutput
+  GetDeviceInstanceCommandOutput,
 } from "./commands/GetDeviceInstanceCommand";
 import {
   GetDevicePoolCommand,
   GetDevicePoolCommandInput,
-  GetDevicePoolCommandOutput
+  GetDevicePoolCommandOutput,
 } from "./commands/GetDevicePoolCommand";
 import {
   GetDevicePoolCompatibilityCommand,
   GetDevicePoolCompatibilityCommandInput,
-  GetDevicePoolCompatibilityCommandOutput
+  GetDevicePoolCompatibilityCommandOutput,
 } from "./commands/GetDevicePoolCompatibilityCommand";
 import {
   GetInstanceProfileCommand,
   GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput
+  GetInstanceProfileCommandOutput,
 } from "./commands/GetInstanceProfileCommand";
-import {
-  GetJobCommand,
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
+import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
   GetNetworkProfileCommand,
   GetNetworkProfileCommandInput,
-  GetNetworkProfileCommandOutput
+  GetNetworkProfileCommandOutput,
 } from "./commands/GetNetworkProfileCommand";
 import {
   GetOfferingStatusCommand,
   GetOfferingStatusCommandInput,
-  GetOfferingStatusCommandOutput
+  GetOfferingStatusCommandOutput,
 } from "./commands/GetOfferingStatusCommand";
-import {
-  GetProjectCommand,
-  GetProjectCommandInput,
-  GetProjectCommandOutput
-} from "./commands/GetProjectCommand";
+import { GetProjectCommand, GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import {
   GetRemoteAccessSessionCommand,
   GetRemoteAccessSessionCommandInput,
-  GetRemoteAccessSessionCommandOutput
+  GetRemoteAccessSessionCommandOutput,
 } from "./commands/GetRemoteAccessSessionCommand";
-import {
-  GetRunCommand,
-  GetRunCommandInput,
-  GetRunCommandOutput
-} from "./commands/GetRunCommand";
-import {
-  GetSuiteCommand,
-  GetSuiteCommandInput,
-  GetSuiteCommandOutput
-} from "./commands/GetSuiteCommand";
-import {
-  GetTestCommand,
-  GetTestCommandInput,
-  GetTestCommandOutput
-} from "./commands/GetTestCommand";
+import { GetRunCommand, GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
+import { GetSuiteCommand, GetSuiteCommandInput, GetSuiteCommandOutput } from "./commands/GetSuiteCommand";
+import { GetTestCommand, GetTestCommandInput, GetTestCommandOutput } from "./commands/GetTestCommand";
 import {
   GetTestGridProjectCommand,
   GetTestGridProjectCommandInput,
-  GetTestGridProjectCommandOutput
+  GetTestGridProjectCommandOutput,
 } from "./commands/GetTestGridProjectCommand";
 import {
   GetTestGridSessionCommand,
   GetTestGridSessionCommandInput,
-  GetTestGridSessionCommandOutput
+  GetTestGridSessionCommandOutput,
 } from "./commands/GetTestGridSessionCommand";
-import {
-  GetUploadCommand,
-  GetUploadCommandInput,
-  GetUploadCommandOutput
-} from "./commands/GetUploadCommand";
+import { GetUploadCommand, GetUploadCommandInput, GetUploadCommandOutput } from "./commands/GetUploadCommand";
 import {
   GetVPCEConfigurationCommand,
   GetVPCEConfigurationCommandInput,
-  GetVPCEConfigurationCommandOutput
+  GetVPCEConfigurationCommandOutput,
 } from "./commands/GetVPCEConfigurationCommand";
 import {
   InstallToRemoteAccessSessionCommand,
   InstallToRemoteAccessSessionCommandInput,
-  InstallToRemoteAccessSessionCommandOutput
+  InstallToRemoteAccessSessionCommandOutput,
 } from "./commands/InstallToRemoteAccessSessionCommand";
 import {
   ListArtifactsCommand,
   ListArtifactsCommandInput,
-  ListArtifactsCommandOutput
+  ListArtifactsCommandOutput,
 } from "./commands/ListArtifactsCommand";
 import {
   ListDeviceInstancesCommand,
   ListDeviceInstancesCommandInput,
-  ListDeviceInstancesCommandOutput
+  ListDeviceInstancesCommandOutput,
 } from "./commands/ListDeviceInstancesCommand";
 import {
   ListDevicePoolsCommand,
   ListDevicePoolsCommandInput,
-  ListDevicePoolsCommandOutput
+  ListDevicePoolsCommandOutput,
 } from "./commands/ListDevicePoolsCommand";
-import {
-  ListDevicesCommand,
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
+import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
   ListInstanceProfilesCommand,
   ListInstanceProfilesCommandInput,
-  ListInstanceProfilesCommandOutput
+  ListInstanceProfilesCommandOutput,
 } from "./commands/ListInstanceProfilesCommand";
-import {
-  ListJobsCommand,
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListNetworkProfilesCommand,
   ListNetworkProfilesCommandInput,
-  ListNetworkProfilesCommandOutput
+  ListNetworkProfilesCommandOutput,
 } from "./commands/ListNetworkProfilesCommand";
 import {
   ListOfferingPromotionsCommand,
   ListOfferingPromotionsCommandInput,
-  ListOfferingPromotionsCommandOutput
+  ListOfferingPromotionsCommandOutput,
 } from "./commands/ListOfferingPromotionsCommand";
 import {
   ListOfferingTransactionsCommand,
   ListOfferingTransactionsCommandInput,
-  ListOfferingTransactionsCommandOutput
+  ListOfferingTransactionsCommandOutput,
 } from "./commands/ListOfferingTransactionsCommand";
 import {
   ListOfferingsCommand,
   ListOfferingsCommandInput,
-  ListOfferingsCommandOutput
+  ListOfferingsCommandOutput,
 } from "./commands/ListOfferingsCommand";
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
-  ListProjectsCommandOutput
+  ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
 import {
   ListRemoteAccessSessionsCommand,
   ListRemoteAccessSessionsCommandInput,
-  ListRemoteAccessSessionsCommandOutput
+  ListRemoteAccessSessionsCommandOutput,
 } from "./commands/ListRemoteAccessSessionsCommand";
-import {
-  ListRunsCommand,
-  ListRunsCommandInput,
-  ListRunsCommandOutput
-} from "./commands/ListRunsCommand";
-import {
-  ListSamplesCommand,
-  ListSamplesCommandInput,
-  ListSamplesCommandOutput
-} from "./commands/ListSamplesCommand";
-import {
-  ListSuitesCommand,
-  ListSuitesCommandInput,
-  ListSuitesCommandOutput
-} from "./commands/ListSuitesCommand";
+import { ListRunsCommand, ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
+import { ListSamplesCommand, ListSamplesCommandInput, ListSamplesCommandOutput } from "./commands/ListSamplesCommand";
+import { ListSuitesCommand, ListSuitesCommandInput, ListSuitesCommandOutput } from "./commands/ListSuitesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTestGridProjectsCommand,
   ListTestGridProjectsCommandInput,
-  ListTestGridProjectsCommandOutput
+  ListTestGridProjectsCommandOutput,
 } from "./commands/ListTestGridProjectsCommand";
 import {
   ListTestGridSessionActionsCommand,
   ListTestGridSessionActionsCommandInput,
-  ListTestGridSessionActionsCommandOutput
+  ListTestGridSessionActionsCommandOutput,
 } from "./commands/ListTestGridSessionActionsCommand";
 import {
   ListTestGridSessionArtifactsCommand,
   ListTestGridSessionArtifactsCommandInput,
-  ListTestGridSessionArtifactsCommandOutput
+  ListTestGridSessionArtifactsCommandOutput,
 } from "./commands/ListTestGridSessionArtifactsCommand";
 import {
   ListTestGridSessionsCommand,
   ListTestGridSessionsCommandInput,
-  ListTestGridSessionsCommandOutput
+  ListTestGridSessionsCommandOutput,
 } from "./commands/ListTestGridSessionsCommand";
-import {
-  ListTestsCommand,
-  ListTestsCommandInput,
-  ListTestsCommandOutput
-} from "./commands/ListTestsCommand";
+import { ListTestsCommand, ListTestsCommandInput, ListTestsCommandOutput } from "./commands/ListTestsCommand";
 import {
   ListUniqueProblemsCommand,
   ListUniqueProblemsCommandInput,
-  ListUniqueProblemsCommandOutput
+  ListUniqueProblemsCommandOutput,
 } from "./commands/ListUniqueProblemsCommand";
-import {
-  ListUploadsCommand,
-  ListUploadsCommandInput,
-  ListUploadsCommandOutput
-} from "./commands/ListUploadsCommand";
+import { ListUploadsCommand, ListUploadsCommandInput, ListUploadsCommandOutput } from "./commands/ListUploadsCommand";
 import {
   ListVPCEConfigurationsCommand,
   ListVPCEConfigurationsCommandInput,
-  ListVPCEConfigurationsCommandOutput
+  ListVPCEConfigurationsCommandOutput,
 } from "./commands/ListVPCEConfigurationsCommand";
 import {
   PurchaseOfferingCommand,
   PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput
+  PurchaseOfferingCommandOutput,
 } from "./commands/PurchaseOfferingCommand";
 import {
   RenewOfferingCommand,
   RenewOfferingCommandInput,
-  RenewOfferingCommandOutput
+  RenewOfferingCommandOutput,
 } from "./commands/RenewOfferingCommand";
-import {
-  ScheduleRunCommand,
-  ScheduleRunCommandInput,
-  ScheduleRunCommandOutput
-} from "./commands/ScheduleRunCommand";
-import {
-  StopJobCommand,
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "./commands/StopJobCommand";
+import { ScheduleRunCommand, ScheduleRunCommandInput, ScheduleRunCommandOutput } from "./commands/ScheduleRunCommand";
+import { StopJobCommand, StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
 import {
   StopRemoteAccessSessionCommand,
   StopRemoteAccessSessionCommandInput,
-  StopRemoteAccessSessionCommandOutput
+  StopRemoteAccessSessionCommandOutput,
 } from "./commands/StopRemoteAccessSessionCommand";
-import {
-  StopRunCommand,
-  StopRunCommandInput,
-  StopRunCommandOutput
-} from "./commands/StopRunCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StopRunCommand, StopRunCommandInput, StopRunCommandOutput } from "./commands/StopRunCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateDeviceInstanceCommand,
   UpdateDeviceInstanceCommandInput,
-  UpdateDeviceInstanceCommandOutput
+  UpdateDeviceInstanceCommandOutput,
 } from "./commands/UpdateDeviceInstanceCommand";
 import {
   UpdateDevicePoolCommand,
   UpdateDevicePoolCommandInput,
-  UpdateDevicePoolCommandOutput
+  UpdateDevicePoolCommandOutput,
 } from "./commands/UpdateDevicePoolCommand";
 import {
   UpdateInstanceProfileCommand,
   UpdateInstanceProfileCommandInput,
-  UpdateInstanceProfileCommandOutput
+  UpdateInstanceProfileCommandOutput,
 } from "./commands/UpdateInstanceProfileCommand";
 import {
   UpdateNetworkProfileCommand,
   UpdateNetworkProfileCommandInput,
-  UpdateNetworkProfileCommandOutput
+  UpdateNetworkProfileCommandOutput,
 } from "./commands/UpdateNetworkProfileCommand";
 import {
   UpdateProjectCommand,
   UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
+  UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
 import {
   UpdateTestGridProjectCommand,
   UpdateTestGridProjectCommandInput,
-  UpdateTestGridProjectCommandOutput
+  UpdateTestGridProjectCommandOutput,
 } from "./commands/UpdateTestGridProjectCommand";
 import {
   UpdateUploadCommand,
   UpdateUploadCommandInput,
-  UpdateUploadCommandOutput
+  UpdateUploadCommandOutput,
 } from "./commands/UpdateUploadCommand";
 import {
   UpdateVPCEConfigurationCommand,
   UpdateVPCEConfigurationCommandInput,
-  UpdateVPCEConfigurationCommandOutput
+  UpdateVPCEConfigurationCommandOutput,
 } from "./commands/UpdateVPCEConfigurationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -422,17 +346,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createDevicePool(
     args: CreateDevicePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDevicePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDevicePoolCommandOutput) => void),
     cb?: (err: any, data?: CreateDevicePoolCommandOutput) => void
   ): Promise<CreateDevicePoolCommandOutput> | void {
     const command = new CreateDevicePoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -458,17 +379,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateInstanceProfileCommandOutput) => void
   ): Promise<CreateInstanceProfileCommandOutput> | void {
     const command = new CreateInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -493,17 +411,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createNetworkProfile(
     args: CreateNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNetworkProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateNetworkProfileCommandOutput) => void
   ): Promise<CreateNetworkProfileCommandOutput> | void {
     const command = new CreateNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -528,17 +443,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -563,17 +475,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createRemoteAccessSession(
     args: CreateRemoteAccessSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRemoteAccessSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRemoteAccessSessionCommandOutput) => void),
     cb?: (err: any, data?: CreateRemoteAccessSessionCommandOutput) => void
   ): Promise<CreateRemoteAccessSessionCommandOutput> | void {
     const command = new CreateRemoteAccessSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -599,17 +508,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createTestGridProject(
     args: CreateTestGridProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTestGridProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTestGridProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateTestGridProjectCommandOutput) => void
   ): Promise<CreateTestGridProjectCommandOutput> | void {
     const command = new CreateTestGridProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -635,17 +541,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createTestGridUrl(
     args: CreateTestGridUrlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTestGridUrlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTestGridUrlCommandOutput) => void),
     cb?: (err: any, data?: CreateTestGridUrlCommandOutput) => void
   ): Promise<CreateTestGridUrlCommandOutput> | void {
     const command = new CreateTestGridUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -659,10 +562,7 @@ export class DeviceFarm extends DeviceFarmClient {
     args: CreateUploadCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateUploadCommandOutput>;
-  public createUpload(
-    args: CreateUploadCommandInput,
-    cb: (err: any, data?: CreateUploadCommandOutput) => void
-  ): void;
+  public createUpload(args: CreateUploadCommandInput, cb: (err: any, data?: CreateUploadCommandOutput) => void): void;
   public createUpload(
     args: CreateUploadCommandInput,
     options: __HttpHandlerOptions,
@@ -670,17 +570,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createUpload(
     args: CreateUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUploadCommandOutput) => void),
     cb?: (err: any, data?: CreateUploadCommandOutput) => void
   ): Promise<CreateUploadCommandOutput> | void {
     const command = new CreateUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -706,17 +603,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createVPCEConfiguration(
     args: CreateVPCEConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVPCEConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVPCEConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateVPCEConfigurationCommandOutput) => void
   ): Promise<CreateVPCEConfigurationCommandOutput> | void {
     const command = new CreateVPCEConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -742,17 +636,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteDevicePool(
     args: DeleteDevicePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDevicePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDevicePoolCommandOutput) => void),
     cb?: (err: any, data?: DeleteDevicePoolCommandOutput) => void
   ): Promise<DeleteDevicePoolCommandOutput> | void {
     const command = new DeleteDevicePoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -777,17 +668,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteInstanceProfileCommandOutput) => void
   ): Promise<DeleteInstanceProfileCommandOutput> | void {
     const command = new DeleteInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -812,17 +700,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteNetworkProfile(
     args: DeleteNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNetworkProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteNetworkProfileCommandOutput) => void
   ): Promise<DeleteNetworkProfileCommandOutput> | void {
     const command = new DeleteNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -848,17 +733,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -883,17 +765,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteRemoteAccessSession(
     args: DeleteRemoteAccessSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRemoteAccessSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRemoteAccessSessionCommandOutput) => void),
     cb?: (err: any, data?: DeleteRemoteAccessSessionCommandOutput) => void
   ): Promise<DeleteRemoteAccessSessionCommandOutput> | void {
     const command = new DeleteRemoteAccessSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -904,14 +783,8 @@ export class DeviceFarm extends DeviceFarmClient {
    * <p>Deletes the run, given the run ARN.</p>
    *         <p> Deleting this resource does not stop an in-progress run.</p>
    */
-  public deleteRun(
-    args: DeleteRunCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRunCommandOutput>;
-  public deleteRun(
-    args: DeleteRunCommandInput,
-    cb: (err: any, data?: DeleteRunCommandOutput) => void
-  ): void;
+  public deleteRun(args: DeleteRunCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRunCommandOutput>;
+  public deleteRun(args: DeleteRunCommandInput, cb: (err: any, data?: DeleteRunCommandOutput) => void): void;
   public deleteRun(
     args: DeleteRunCommandInput,
     options: __HttpHandlerOptions,
@@ -919,17 +792,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteRun(
     args: DeleteRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRunCommandOutput) => void),
     cb?: (err: any, data?: DeleteRunCommandOutput) => void
   ): Promise<DeleteRunCommandOutput> | void {
     const command = new DeleteRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -960,17 +830,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteTestGridProject(
     args: DeleteTestGridProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTestGridProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTestGridProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteTestGridProjectCommandOutput) => void
   ): Promise<DeleteTestGridProjectCommandOutput> | void {
     const command = new DeleteTestGridProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -984,10 +851,7 @@ export class DeviceFarm extends DeviceFarmClient {
     args: DeleteUploadCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteUploadCommandOutput>;
-  public deleteUpload(
-    args: DeleteUploadCommandInput,
-    cb: (err: any, data?: DeleteUploadCommandOutput) => void
-  ): void;
+  public deleteUpload(args: DeleteUploadCommandInput, cb: (err: any, data?: DeleteUploadCommandOutput) => void): void;
   public deleteUpload(
     args: DeleteUploadCommandInput,
     options: __HttpHandlerOptions,
@@ -995,17 +859,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteUpload(
     args: DeleteUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUploadCommandOutput) => void),
     cb?: (err: any, data?: DeleteUploadCommandOutput) => void
   ): Promise<DeleteUploadCommandOutput> | void {
     const command = new DeleteUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1030,17 +891,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteVPCEConfiguration(
     args: DeleteVPCEConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVPCEConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVPCEConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteVPCEConfigurationCommandOutput) => void
   ): Promise<DeleteVPCEConfigurationCommandOutput> | void {
     const command = new DeleteVPCEConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1066,17 +924,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountSettingsCommandOutput) => void),
     cb?: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): Promise<GetAccountSettingsCommandOutput> | void {
     const command = new GetAccountSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1086,14 +941,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about a unique device type.</p>
    */
-  public getDevice(
-    args: GetDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeviceCommandOutput>;
-  public getDevice(
-    args: GetDeviceCommandInput,
-    cb: (err: any, data?: GetDeviceCommandOutput) => void
-  ): void;
+  public getDevice(args: GetDeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetDeviceCommandOutput>;
+  public getDevice(args: GetDeviceCommandInput, cb: (err: any, data?: GetDeviceCommandOutput) => void): void;
   public getDevice(
     args: GetDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -1101,17 +950,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getDevice(
     args: GetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceCommandOutput) => void
   ): Promise<GetDeviceCommandOutput> | void {
     const command = new GetDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1136,17 +982,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getDeviceInstance(
     args: GetDeviceInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceInstanceCommandOutput) => void
   ): Promise<GetDeviceInstanceCommandOutput> | void {
     const command = new GetDeviceInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1171,17 +1014,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getDevicePool(
     args: GetDevicePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevicePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevicePoolCommandOutput) => void),
     cb?: (err: any, data?: GetDevicePoolCommandOutput) => void
   ): Promise<GetDevicePoolCommandOutput> | void {
     const command = new GetDevicePoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1206,17 +1046,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getDevicePoolCompatibility(
     args: GetDevicePoolCompatibilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevicePoolCompatibilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevicePoolCompatibilityCommandOutput) => void),
     cb?: (err: any, data?: GetDevicePoolCompatibilityCommandOutput) => void
   ): Promise<GetDevicePoolCompatibilityCommandOutput> | void {
     const command = new GetDevicePoolCompatibilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1241,17 +1078,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getInstanceProfile(
     args: GetInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceProfileCommandOutput) => void
   ): Promise<GetInstanceProfileCommandOutput> | void {
     const command = new GetInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1261,14 +1095,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about a job.</p>
    */
-  public getJob(
-    args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
+  public getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
+  public getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
   public getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1276,17 +1104,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1311,17 +1136,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getNetworkProfile(
     args: GetNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNetworkProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkProfileCommandOutput) => void),
     cb?: (err: any, data?: GetNetworkProfileCommandOutput) => void
   ): Promise<GetNetworkProfileCommandOutput> | void {
     const command = new GetNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1349,17 +1171,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getOfferingStatus(
     args: GetOfferingStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOfferingStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOfferingStatusCommandOutput) => void),
     cb?: (err: any, data?: GetOfferingStatusCommandOutput) => void
   ): Promise<GetOfferingStatusCommandOutput> | void {
     const command = new GetOfferingStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1369,14 +1188,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about a project.</p>
    */
-  public getProject(
-    args: GetProjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetProjectCommandOutput>;
-  public getProject(
-    args: GetProjectCommandInput,
-    cb: (err: any, data?: GetProjectCommandOutput) => void
-  ): void;
+  public getProject(args: GetProjectCommandInput, options?: __HttpHandlerOptions): Promise<GetProjectCommandOutput>;
+  public getProject(args: GetProjectCommandInput, cb: (err: any, data?: GetProjectCommandOutput) => void): void;
   public getProject(
     args: GetProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -1384,17 +1197,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getProject(
     args: GetProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProjectCommandOutput) => void),
     cb?: (err: any, data?: GetProjectCommandOutput) => void
   ): Promise<GetProjectCommandOutput> | void {
     const command = new GetProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1419,17 +1229,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getRemoteAccessSession(
     args: GetRemoteAccessSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRemoteAccessSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRemoteAccessSessionCommandOutput) => void),
     cb?: (err: any, data?: GetRemoteAccessSessionCommandOutput) => void
   ): Promise<GetRemoteAccessSessionCommandOutput> | void {
     const command = new GetRemoteAccessSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1439,14 +1246,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about a run.</p>
    */
-  public getRun(
-    args: GetRunCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRunCommandOutput>;
-  public getRun(
-    args: GetRunCommandInput,
-    cb: (err: any, data?: GetRunCommandOutput) => void
-  ): void;
+  public getRun(args: GetRunCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCommandOutput>;
+  public getRun(args: GetRunCommandInput, cb: (err: any, data?: GetRunCommandOutput) => void): void;
   public getRun(
     args: GetRunCommandInput,
     options: __HttpHandlerOptions,
@@ -1454,17 +1255,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getRun(
     args: GetRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRunCommandOutput) => void),
     cb?: (err: any, data?: GetRunCommandOutput) => void
   ): Promise<GetRunCommandOutput> | void {
     const command = new GetRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1474,14 +1272,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about a suite.</p>
    */
-  public getSuite(
-    args: GetSuiteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSuiteCommandOutput>;
-  public getSuite(
-    args: GetSuiteCommandInput,
-    cb: (err: any, data?: GetSuiteCommandOutput) => void
-  ): void;
+  public getSuite(args: GetSuiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSuiteCommandOutput>;
+  public getSuite(args: GetSuiteCommandInput, cb: (err: any, data?: GetSuiteCommandOutput) => void): void;
   public getSuite(
     args: GetSuiteCommandInput,
     options: __HttpHandlerOptions,
@@ -1489,17 +1281,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getSuite(
     args: GetSuiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSuiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSuiteCommandOutput) => void),
     cb?: (err: any, data?: GetSuiteCommandOutput) => void
   ): Promise<GetSuiteCommandOutput> | void {
     const command = new GetSuiteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1509,14 +1298,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about a test.</p>
    */
-  public getTest(
-    args: GetTestCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTestCommandOutput>;
-  public getTest(
-    args: GetTestCommandInput,
-    cb: (err: any, data?: GetTestCommandOutput) => void
-  ): void;
+  public getTest(args: GetTestCommandInput, options?: __HttpHandlerOptions): Promise<GetTestCommandOutput>;
+  public getTest(args: GetTestCommandInput, cb: (err: any, data?: GetTestCommandOutput) => void): void;
   public getTest(
     args: GetTestCommandInput,
     options: __HttpHandlerOptions,
@@ -1524,17 +1307,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getTest(
     args: GetTestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTestCommandOutput) => void),
     cb?: (err: any, data?: GetTestCommandOutput) => void
   ): Promise<GetTestCommandOutput> | void {
     const command = new GetTestCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1559,17 +1339,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getTestGridProject(
     args: GetTestGridProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTestGridProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTestGridProjectCommandOutput) => void),
     cb?: (err: any, data?: GetTestGridProjectCommandOutput) => void
   ): Promise<GetTestGridProjectCommandOutput> | void {
     const command = new GetTestGridProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1603,17 +1380,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getTestGridSession(
     args: GetTestGridSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTestGridSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTestGridSessionCommandOutput) => void),
     cb?: (err: any, data?: GetTestGridSessionCommandOutput) => void
   ): Promise<GetTestGridSessionCommandOutput> | void {
     const command = new GetTestGridSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1623,14 +1397,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about an upload.</p>
    */
-  public getUpload(
-    args: GetUploadCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetUploadCommandOutput>;
-  public getUpload(
-    args: GetUploadCommandInput,
-    cb: (err: any, data?: GetUploadCommandOutput) => void
-  ): void;
+  public getUpload(args: GetUploadCommandInput, options?: __HttpHandlerOptions): Promise<GetUploadCommandOutput>;
+  public getUpload(args: GetUploadCommandInput, cb: (err: any, data?: GetUploadCommandOutput) => void): void;
   public getUpload(
     args: GetUploadCommandInput,
     options: __HttpHandlerOptions,
@@ -1638,17 +1406,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getUpload(
     args: GetUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUploadCommandOutput) => void),
     cb?: (err: any, data?: GetUploadCommandOutput) => void
   ): Promise<GetUploadCommandOutput> | void {
     const command = new GetUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1674,17 +1439,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getVPCEConfiguration(
     args: GetVPCEConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVPCEConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVPCEConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetVPCEConfigurationCommandOutput) => void
   ): Promise<GetVPCEConfigurationCommandOutput> | void {
     const command = new GetVPCEConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1711,17 +1473,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public installToRemoteAccessSession(
     args: InstallToRemoteAccessSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InstallToRemoteAccessSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InstallToRemoteAccessSessionCommandOutput) => void),
     cb?: (err: any, data?: InstallToRemoteAccessSessionCommandOutput) => void
   ): Promise<InstallToRemoteAccessSessionCommandOutput> | void {
     const command = new InstallToRemoteAccessSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1746,17 +1505,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listArtifacts(
     args: ListArtifactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListArtifactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListArtifactsCommandOutput) => void),
     cb?: (err: any, data?: ListArtifactsCommandOutput) => void
   ): Promise<ListArtifactsCommandOutput> | void {
     const command = new ListArtifactsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1782,17 +1538,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listDeviceInstances(
     args: ListDeviceInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeviceInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeviceInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListDeviceInstancesCommandOutput) => void
   ): Promise<ListDeviceInstancesCommandOutput> | void {
     const command = new ListDeviceInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1817,17 +1570,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listDevicePools(
     args: ListDevicePoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicePoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicePoolsCommandOutput) => void),
     cb?: (err: any, data?: ListDevicePoolsCommandOutput) => void
   ): Promise<ListDevicePoolsCommandOutput> | void {
     const command = new ListDevicePoolsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1837,14 +1587,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about unique device types.</p>
    */
-  public listDevices(
-    args: ListDevicesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDevicesCommandOutput>;
-  public listDevices(
-    args: ListDevicesCommandInput,
-    cb: (err: any, data?: ListDevicesCommandOutput) => void
-  ): void;
+  public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
+  public listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   public listDevices(
     args: ListDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -1852,17 +1596,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listDevices(
     args: ListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
     cb?: (err: any, data?: ListDevicesCommandOutput) => void
   ): Promise<ListDevicesCommandOutput> | void {
     const command = new ListDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1887,17 +1628,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInstanceProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstanceProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListInstanceProfilesCommandOutput) => void
   ): Promise<ListInstanceProfilesCommandOutput> | void {
     const command = new ListInstanceProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1907,14 +1645,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about jobs for a given test run.</p>
    */
-  public listJobs(
-    args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobsCommandOutput>;
-  public listJobs(
-    args: ListJobsCommandInput,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
-  ): void;
+  public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
+  public listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   public listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1922,17 +1654,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1957,17 +1686,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listNetworkProfiles(
     args: ListNetworkProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNetworkProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNetworkProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListNetworkProfilesCommandOutput) => void
   ): Promise<ListNetworkProfilesCommandOutput> | void {
     const command = new ListNetworkProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1994,17 +1720,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listOfferingPromotions(
     args: ListOfferingPromotionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOfferingPromotionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOfferingPromotionsCommandOutput) => void),
     cb?: (err: any, data?: ListOfferingPromotionsCommandOutput) => void
   ): Promise<ListOfferingPromotionsCommandOutput> | void {
     const command = new ListOfferingPromotionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2032,17 +1755,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listOfferings(
     args: ListOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOfferingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOfferingsCommandOutput) => void),
     cb?: (err: any, data?: ListOfferingsCommandOutput) => void
   ): Promise<ListOfferingsCommandOutput> | void {
     const command = new ListOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2070,17 +1790,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listOfferingTransactions(
     args: ListOfferingTransactionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOfferingTransactionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOfferingTransactionsCommandOutput) => void),
     cb?: (err: any, data?: ListOfferingTransactionsCommandOutput) => void
   ): Promise<ListOfferingTransactionsCommandOutput> | void {
     const command = new ListOfferingTransactionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2094,10 +1811,7 @@ export class DeviceFarm extends DeviceFarmClient {
     args: ListProjectsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListProjectsCommandOutput>;
-  public listProjects(
-    args: ListProjectsCommandInput,
-    cb: (err: any, data?: ListProjectsCommandOutput) => void
-  ): void;
+  public listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   public listProjects(
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -2105,17 +1819,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2140,17 +1851,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listRemoteAccessSessions(
     args: ListRemoteAccessSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRemoteAccessSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRemoteAccessSessionsCommandOutput) => void),
     cb?: (err: any, data?: ListRemoteAccessSessionsCommandOutput) => void
   ): Promise<ListRemoteAccessSessionsCommandOutput> | void {
     const command = new ListRemoteAccessSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2160,14 +1868,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about runs, given an AWS Device Farm project ARN.</p>
    */
-  public listRuns(
-    args: ListRunsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRunsCommandOutput>;
-  public listRuns(
-    args: ListRunsCommandInput,
-    cb: (err: any, data?: ListRunsCommandOutput) => void
-  ): void;
+  public listRuns(args: ListRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunsCommandOutput>;
+  public listRuns(args: ListRunsCommandInput, cb: (err: any, data?: ListRunsCommandOutput) => void): void;
   public listRuns(
     args: ListRunsCommandInput,
     options: __HttpHandlerOptions,
@@ -2175,17 +1877,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listRuns(
     args: ListRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRunsCommandOutput) => void),
     cb?: (err: any, data?: ListRunsCommandOutput) => void
   ): Promise<ListRunsCommandOutput> | void {
     const command = new ListRunsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2195,14 +1894,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
    */
-  public listSamples(
-    args: ListSamplesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSamplesCommandOutput>;
-  public listSamples(
-    args: ListSamplesCommandInput,
-    cb: (err: any, data?: ListSamplesCommandOutput) => void
-  ): void;
+  public listSamples(args: ListSamplesCommandInput, options?: __HttpHandlerOptions): Promise<ListSamplesCommandOutput>;
+  public listSamples(args: ListSamplesCommandInput, cb: (err: any, data?: ListSamplesCommandOutput) => void): void;
   public listSamples(
     args: ListSamplesCommandInput,
     options: __HttpHandlerOptions,
@@ -2210,17 +1903,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listSamples(
     args: ListSamplesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSamplesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSamplesCommandOutput) => void),
     cb?: (err: any, data?: ListSamplesCommandOutput) => void
   ): Promise<ListSamplesCommandOutput> | void {
     const command = new ListSamplesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2230,14 +1920,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about test suites for a given job.</p>
    */
-  public listSuites(
-    args: ListSuitesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSuitesCommandOutput>;
-  public listSuites(
-    args: ListSuitesCommandInput,
-    cb: (err: any, data?: ListSuitesCommandOutput) => void
-  ): void;
+  public listSuites(args: ListSuitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSuitesCommandOutput>;
+  public listSuites(args: ListSuitesCommandInput, cb: (err: any, data?: ListSuitesCommandOutput) => void): void;
   public listSuites(
     args: ListSuitesCommandInput,
     options: __HttpHandlerOptions,
@@ -2245,17 +1929,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listSuites(
     args: ListSuitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSuitesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSuitesCommandOutput) => void),
     cb?: (err: any, data?: ListSuitesCommandOutput) => void
   ): Promise<ListSuitesCommandOutput> | void {
     const command = new ListSuitesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2280,17 +1961,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2315,17 +1993,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listTestGridProjects(
     args: ListTestGridProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTestGridProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTestGridProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListTestGridProjectsCommandOutput) => void
   ): Promise<ListTestGridProjectsCommandOutput> | void {
     const command = new ListTestGridProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2350,17 +2025,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listTestGridSessionActions(
     args: ListTestGridSessionActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTestGridSessionActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTestGridSessionActionsCommandOutput) => void),
     cb?: (err: any, data?: ListTestGridSessionActionsCommandOutput) => void
   ): Promise<ListTestGridSessionActionsCommandOutput> | void {
     const command = new ListTestGridSessionActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2385,17 +2057,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listTestGridSessionArtifacts(
     args: ListTestGridSessionArtifactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTestGridSessionArtifactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTestGridSessionArtifactsCommandOutput) => void),
     cb?: (err: any, data?: ListTestGridSessionArtifactsCommandOutput) => void
   ): Promise<ListTestGridSessionArtifactsCommandOutput> | void {
     const command = new ListTestGridSessionArtifactsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2420,17 +2089,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listTestGridSessions(
     args: ListTestGridSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTestGridSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTestGridSessionsCommandOutput) => void),
     cb?: (err: any, data?: ListTestGridSessionsCommandOutput) => void
   ): Promise<ListTestGridSessionsCommandOutput> | void {
     const command = new ListTestGridSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2440,14 +2106,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about tests in a given test suite.</p>
    */
-  public listTests(
-    args: ListTestsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTestsCommandOutput>;
-  public listTests(
-    args: ListTestsCommandInput,
-    cb: (err: any, data?: ListTestsCommandOutput) => void
-  ): void;
+  public listTests(args: ListTestsCommandInput, options?: __HttpHandlerOptions): Promise<ListTestsCommandOutput>;
+  public listTests(args: ListTestsCommandInput, cb: (err: any, data?: ListTestsCommandOutput) => void): void;
   public listTests(
     args: ListTestsCommandInput,
     options: __HttpHandlerOptions,
@@ -2455,17 +2115,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listTests(
     args: ListTestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTestsCommandOutput) => void),
     cb?: (err: any, data?: ListTestsCommandOutput) => void
   ): Promise<ListTestsCommandOutput> | void {
     const command = new ListTestsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2494,17 +2151,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listUniqueProblems(
     args: ListUniqueProblemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUniqueProblemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUniqueProblemsCommandOutput) => void),
     cb?: (err: any, data?: ListUniqueProblemsCommandOutput) => void
   ): Promise<ListUniqueProblemsCommandOutput> | void {
     const command = new ListUniqueProblemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2514,14 +2168,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>
    */
-  public listUploads(
-    args: ListUploadsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUploadsCommandOutput>;
-  public listUploads(
-    args: ListUploadsCommandInput,
-    cb: (err: any, data?: ListUploadsCommandOutput) => void
-  ): void;
+  public listUploads(args: ListUploadsCommandInput, options?: __HttpHandlerOptions): Promise<ListUploadsCommandOutput>;
+  public listUploads(args: ListUploadsCommandInput, cb: (err: any, data?: ListUploadsCommandOutput) => void): void;
   public listUploads(
     args: ListUploadsCommandInput,
     options: __HttpHandlerOptions,
@@ -2529,17 +2177,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listUploads(
     args: ListUploadsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUploadsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUploadsCommandOutput) => void),
     cb?: (err: any, data?: ListUploadsCommandOutput) => void
   ): Promise<ListUploadsCommandOutput> | void {
     const command = new ListUploadsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2565,17 +2210,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listVPCEConfigurations(
     args: ListVPCEConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVPCEConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVPCEConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListVPCEConfigurationsCommandOutput) => void
   ): Promise<ListVPCEConfigurationsCommandOutput> | void {
     const command = new ListVPCEConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2603,17 +2245,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
     cb?: (err: any, data?: PurchaseOfferingCommandOutput) => void
   ): Promise<PurchaseOfferingCommandOutput> | void {
     const command = new PurchaseOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2640,17 +2279,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public renewOffering(
     args: RenewOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RenewOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenewOfferingCommandOutput) => void),
     cb?: (err: any, data?: RenewOfferingCommandOutput) => void
   ): Promise<RenewOfferingCommandOutput> | void {
     const command = new RenewOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2660,14 +2296,8 @@ export class DeviceFarm extends DeviceFarmClient {
   /**
    * <p>Schedules a run.</p>
    */
-  public scheduleRun(
-    args: ScheduleRunCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ScheduleRunCommandOutput>;
-  public scheduleRun(
-    args: ScheduleRunCommandInput,
-    cb: (err: any, data?: ScheduleRunCommandOutput) => void
-  ): void;
+  public scheduleRun(args: ScheduleRunCommandInput, options?: __HttpHandlerOptions): Promise<ScheduleRunCommandOutput>;
+  public scheduleRun(args: ScheduleRunCommandInput, cb: (err: any, data?: ScheduleRunCommandOutput) => void): void;
   public scheduleRun(
     args: ScheduleRunCommandInput,
     options: __HttpHandlerOptions,
@@ -2675,17 +2305,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public scheduleRun(
     args: ScheduleRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ScheduleRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ScheduleRunCommandOutput) => void),
     cb?: (err: any, data?: ScheduleRunCommandOutput) => void
   ): Promise<ScheduleRunCommandOutput> | void {
     const command = new ScheduleRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2698,14 +2325,8 @@ export class DeviceFarm extends DeviceFarmClient {
    *             setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown,
    *             and any tests that were in progress or already completed.</p>
    */
-  public stopJob(
-    args: StopJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopJobCommandOutput>;
-  public stopJob(
-    args: StopJobCommandInput,
-    cb: (err: any, data?: StopJobCommandOutput) => void
-  ): void;
+  public stopJob(args: StopJobCommandInput, options?: __HttpHandlerOptions): Promise<StopJobCommandOutput>;
+  public stopJob(args: StopJobCommandInput, cb: (err: any, data?: StopJobCommandOutput) => void): void;
   public stopJob(
     args: StopJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2713,17 +2334,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public stopJob(
     args: StopJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopJobCommandOutput) => void),
     cb?: (err: any, data?: StopJobCommandOutput) => void
   ): Promise<StopJobCommandOutput> | void {
     const command = new StopJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2748,17 +2366,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public stopRemoteAccessSession(
     args: StopRemoteAccessSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopRemoteAccessSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopRemoteAccessSessionCommandOutput) => void),
     cb?: (err: any, data?: StopRemoteAccessSessionCommandOutput) => void
   ): Promise<StopRemoteAccessSessionCommandOutput> | void {
     const command = new StopRemoteAccessSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2771,14 +2386,8 @@ export class DeviceFarm extends DeviceFarmClient {
    *             executing, setup suite and teardown suite tests run to completion on those devices. You are billed for
    *             setup, teardown, and any tests that were in progress or already completed.</p>
    */
-  public stopRun(
-    args: StopRunCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopRunCommandOutput>;
-  public stopRun(
-    args: StopRunCommandInput,
-    cb: (err: any, data?: StopRunCommandOutput) => void
-  ): void;
+  public stopRun(args: StopRunCommandInput, options?: __HttpHandlerOptions): Promise<StopRunCommandOutput>;
+  public stopRun(args: StopRunCommandInput, cb: (err: any, data?: StopRunCommandOutput) => void): void;
   public stopRun(
     args: StopRunCommandInput,
     options: __HttpHandlerOptions,
@@ -2786,17 +2395,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public stopRun(
     args: StopRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopRunCommandOutput) => void),
     cb?: (err: any, data?: StopRunCommandOutput) => void
   ): Promise<StopRunCommandOutput> | void {
     const command = new StopRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2808,14 +2414,8 @@ export class DeviceFarm extends DeviceFarmClient {
    *             on a resource are not specified in the request parameters, they are not changed. When a resource is deleted,
    *             the tags associated with that resource are also deleted.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2823,17 +2423,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2858,17 +2455,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2893,17 +2487,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateDeviceInstance(
     args: UpdateDeviceInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceInstanceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeviceInstanceCommandOutput) => void
   ): Promise<UpdateDeviceInstanceCommandOutput> | void {
     const command = new UpdateDeviceInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2930,17 +2521,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateDevicePool(
     args: UpdateDevicePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDevicePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDevicePoolCommandOutput) => void),
     cb?: (err: any, data?: UpdateDevicePoolCommandOutput) => void
   ): Promise<UpdateDevicePoolCommandOutput> | void {
     const command = new UpdateDevicePoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2965,17 +2553,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateInstanceProfile(
     args: UpdateInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateInstanceProfileCommandOutput) => void
   ): Promise<UpdateInstanceProfileCommandOutput> | void {
     const command = new UpdateInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3000,17 +2585,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateNetworkProfile(
     args: UpdateNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateNetworkProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNetworkProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateNetworkProfileCommandOutput) => void
   ): Promise<UpdateNetworkProfileCommandOutput> | void {
     const command = new UpdateNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3036,17 +2618,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3071,17 +2650,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateTestGridProject(
     args: UpdateTestGridProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTestGridProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTestGridProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateTestGridProjectCommandOutput) => void
   ): Promise<UpdateTestGridProjectCommandOutput> | void {
     const command = new UpdateTestGridProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3095,10 +2671,7 @@ export class DeviceFarm extends DeviceFarmClient {
     args: UpdateUploadCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateUploadCommandOutput>;
-  public updateUpload(
-    args: UpdateUploadCommandInput,
-    cb: (err: any, data?: UpdateUploadCommandOutput) => void
-  ): void;
+  public updateUpload(args: UpdateUploadCommandInput, cb: (err: any, data?: UpdateUploadCommandOutput) => void): void;
   public updateUpload(
     args: UpdateUploadCommandInput,
     options: __HttpHandlerOptions,
@@ -3106,17 +2679,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateUpload(
     args: UpdateUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUploadCommandOutput) => void),
     cb?: (err: any, data?: UpdateUploadCommandOutput) => void
   ): Promise<UpdateUploadCommandOutput> | void {
     const command = new UpdateUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3141,17 +2711,14 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateVPCEConfiguration(
     args: UpdateVPCEConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVPCEConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVPCEConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateVPCEConfigurationCommandOutput) => void
   ): Promise<UpdateVPCEConfigurationCommandOutput> | void {
     const command = new UpdateVPCEConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

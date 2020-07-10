@@ -1,18 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { FunctionConfiguration, PublishVersionRequest } from "../models/index";
 import {
   deserializeAws_restJson1PublishVersionCommand,
-  serializeAws_restJson1PublishVersionCommand
+  serializeAws_restJson1PublishVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PublishVersionCommandInput = PublishVersionRequest;
-export type PublishVersionCommandOutput = FunctionConfiguration &
-  __MetadataBearer;
+export type PublishVersionCommandOutput = FunctionConfiguration & __MetadataBearer;
 
 export class PublishVersionCommand extends $Command<
   PublishVersionCommandInput,
@@ -47,14 +39,12 @@ export class PublishVersionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PublishVersionCommandInput, PublishVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class PublishVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PublishVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PublishVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PublishVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishVersionCommandOutput> {
     return deserializeAws_restJson1PublishVersionCommand(output, context);
   }
 

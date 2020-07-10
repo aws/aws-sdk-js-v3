@@ -1,21 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient";
-import {
-  StartPipelineExecutionInput,
-  StartPipelineExecutionOutput
-} from "../models/index";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
+import { StartPipelineExecutionInput, StartPipelineExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_1StartPipelineExecutionCommand,
-  serializeAws_json1_1StartPipelineExecutionCommand
+  serializeAws_json1_1StartPipelineExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StartPipelineExecutionCommandInput = StartPipelineExecutionInput;
-export type StartPipelineExecutionCommandOutput = StartPipelineExecutionOutput &
-  __MetadataBearer;
+export type StartPipelineExecutionCommandOutput = StartPipelineExecutionOutput & __MetadataBearer;
 
 export class StartPipelineExecutionCommand extends $Command<
   StartPipelineExecutionCommandInput,
@@ -49,18 +38,13 @@ export class StartPipelineExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartPipelineExecutionCommandInput,
-    StartPipelineExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartPipelineExecutionCommandInput, StartPipelineExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class StartPipelineExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartPipelineExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartPipelineExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartPipelineExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPipelineExecutionCommandOutput> {
     return deserializeAws_json1_1StartPipelineExecutionCommand(output, context);
   }
 

@@ -2,107 +2,95 @@ import { DAXClient } from "./DAXClient";
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
-  CreateClusterCommandOutput
+  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
   CreateParameterGroupCommand,
   CreateParameterGroupCommandInput,
-  CreateParameterGroupCommandOutput
+  CreateParameterGroupCommandOutput,
 } from "./commands/CreateParameterGroupCommand";
 import {
   CreateSubnetGroupCommand,
   CreateSubnetGroupCommandInput,
-  CreateSubnetGroupCommandOutput
+  CreateSubnetGroupCommandOutput,
 } from "./commands/CreateSubnetGroupCommand";
 import {
   DecreaseReplicationFactorCommand,
   DecreaseReplicationFactorCommandInput,
-  DecreaseReplicationFactorCommandOutput
+  DecreaseReplicationFactorCommandOutput,
 } from "./commands/DecreaseReplicationFactorCommand";
 import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
+  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
   DeleteParameterGroupCommand,
   DeleteParameterGroupCommandInput,
-  DeleteParameterGroupCommandOutput
+  DeleteParameterGroupCommandOutput,
 } from "./commands/DeleteParameterGroupCommand";
 import {
   DeleteSubnetGroupCommand,
   DeleteSubnetGroupCommandInput,
-  DeleteSubnetGroupCommandOutput
+  DeleteSubnetGroupCommandOutput,
 } from "./commands/DeleteSubnetGroupCommand";
 import {
   DescribeClustersCommand,
   DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
+  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
   DescribeDefaultParametersCommand,
   DescribeDefaultParametersCommandInput,
-  DescribeDefaultParametersCommandOutput
+  DescribeDefaultParametersCommandOutput,
 } from "./commands/DescribeDefaultParametersCommand";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
+  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
   DescribeParameterGroupsCommand,
   DescribeParameterGroupsCommandInput,
-  DescribeParameterGroupsCommandOutput
+  DescribeParameterGroupsCommandOutput,
 } from "./commands/DescribeParameterGroupsCommand";
 import {
   DescribeParametersCommand,
   DescribeParametersCommandInput,
-  DescribeParametersCommandOutput
+  DescribeParametersCommandOutput,
 } from "./commands/DescribeParametersCommand";
 import {
   DescribeSubnetGroupsCommand,
   DescribeSubnetGroupsCommandInput,
-  DescribeSubnetGroupsCommandOutput
+  DescribeSubnetGroupsCommandOutput,
 } from "./commands/DescribeSubnetGroupsCommand";
 import {
   IncreaseReplicationFactorCommand,
   IncreaseReplicationFactorCommandInput,
-  IncreaseReplicationFactorCommandOutput
+  IncreaseReplicationFactorCommandOutput,
 } from "./commands/IncreaseReplicationFactorCommand";
-import {
-  ListTagsCommand,
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
-import {
-  RebootNodeCommand,
-  RebootNodeCommandInput,
-  RebootNodeCommandOutput
-} from "./commands/RebootNodeCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { RebootNodeCommand, RebootNodeCommandInput, RebootNodeCommandOutput } from "./commands/RebootNodeCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateClusterCommand,
   UpdateClusterCommandInput,
-  UpdateClusterCommandOutput
+  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
   UpdateParameterGroupCommand,
   UpdateParameterGroupCommandInput,
-  UpdateParameterGroupCommandOutput
+  UpdateParameterGroupCommandOutput,
 } from "./commands/UpdateParameterGroupCommand";
 import {
   UpdateSubnetGroupCommand,
   UpdateSubnetGroupCommandInput,
-  UpdateSubnetGroupCommandOutput
+  UpdateSubnetGroupCommandOutput,
 } from "./commands/UpdateSubnetGroupCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -133,17 +121,14 @@ export class DAX extends DAXClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -169,17 +154,14 @@ export class DAX extends DAXClient {
   ): void;
   public createParameterGroup(
     args: CreateParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateParameterGroupCommandOutput) => void
   ): Promise<CreateParameterGroupCommandOutput> | void {
     const command = new CreateParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -204,17 +186,14 @@ export class DAX extends DAXClient {
   ): void;
   public createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateSubnetGroupCommandOutput) => void
   ): Promise<CreateSubnetGroupCommandOutput> | void {
     const command = new CreateSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -242,17 +221,14 @@ export class DAX extends DAXClient {
   ): void;
   public decreaseReplicationFactor(
     args: DecreaseReplicationFactorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DecreaseReplicationFactorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DecreaseReplicationFactorCommandOutput) => void),
     cb?: (err: any, data?: DecreaseReplicationFactorCommandOutput) => void
   ): Promise<DecreaseReplicationFactorCommandOutput> | void {
     const command = new DecreaseReplicationFactorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -281,17 +257,14 @@ export class DAX extends DAXClient {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -317,17 +290,14 @@ export class DAX extends DAXClient {
   ): void;
   public deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteParameterGroupCommandOutput) => void
   ): Promise<DeleteParameterGroupCommandOutput> | void {
     const command = new DeleteParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -356,17 +326,14 @@ export class DAX extends DAXClient {
   ): void;
   public deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubnetGroupCommandOutput) => void
   ): Promise<DeleteSubnetGroupCommandOutput> | void {
     const command = new DeleteSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -403,17 +370,14 @@ export class DAX extends DAXClient {
   ): void;
   public describeClusters(
     args: DescribeClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeClustersCommandOutput) => void
   ): Promise<DescribeClustersCommandOutput> | void {
     const command = new DescribeClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -439,17 +403,14 @@ export class DAX extends DAXClient {
   ): void;
   public describeDefaultParameters(
     args: DescribeDefaultParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDefaultParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDefaultParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeDefaultParametersCommandOutput) => void
   ): Promise<DescribeDefaultParametersCommandOutput> | void {
     const command = new DescribeDefaultParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -478,17 +439,14 @@ export class DAX extends DAXClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -514,17 +472,14 @@ export class DAX extends DAXClient {
   ): void;
   public describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeParameterGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeParameterGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeParameterGroupsCommandOutput) => void
   ): Promise<DescribeParameterGroupsCommandOutput> | void {
     const command = new DescribeParameterGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -549,17 +504,14 @@ export class DAX extends DAXClient {
   ): void;
   public describeParameters(
     args: DescribeParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeParametersCommandOutput) => void
   ): Promise<DescribeParametersCommandOutput> | void {
     const command = new DescribeParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -585,17 +537,14 @@ export class DAX extends DAXClient {
   ): void;
   public describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSubnetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubnetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSubnetGroupsCommandOutput) => void
   ): Promise<DescribeSubnetGroupsCommandOutput> | void {
     const command = new DescribeSubnetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -620,17 +569,14 @@ export class DAX extends DAXClient {
   ): void;
   public increaseReplicationFactor(
     args: IncreaseReplicationFactorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IncreaseReplicationFactorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IncreaseReplicationFactorCommandOutput) => void),
     cb?: (err: any, data?: IncreaseReplicationFactorCommandOutput) => void
   ): Promise<IncreaseReplicationFactorCommandOutput> | void {
     const command = new IncreaseReplicationFactorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -641,14 +587,8 @@ export class DAX extends DAXClient {
    * <p>List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to
    *             10 times per second, per account.</p>
    */
-  public listTags(
-    args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
+  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
   public listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -656,17 +596,14 @@ export class DAX extends DAXClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -682,14 +619,8 @@ export class DAX extends DAXClient {
    *                <code>RebootNode</code> restarts the DAX engine process and does not remove the contents of the cache.  </p>
    *         </note>
    */
-  public rebootNode(
-    args: RebootNodeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RebootNodeCommandOutput>;
-  public rebootNode(
-    args: RebootNodeCommandInput,
-    cb: (err: any, data?: RebootNodeCommandOutput) => void
-  ): void;
+  public rebootNode(args: RebootNodeCommandInput, options?: __HttpHandlerOptions): Promise<RebootNodeCommandOutput>;
+  public rebootNode(args: RebootNodeCommandInput, cb: (err: any, data?: RebootNodeCommandOutput) => void): void;
   public rebootNode(
     args: RebootNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -697,17 +628,14 @@ export class DAX extends DAXClient {
   ): void;
   public rebootNode(
     args: RebootNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootNodeCommandOutput) => void),
     cb?: (err: any, data?: RebootNodeCommandOutput) => void
   ): Promise<RebootNodeCommandOutput> | void {
     const command = new RebootNodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -718,14 +646,8 @@ export class DAX extends DAXClient {
    * <p>Associates a set of tags with a DAX resource.  You can call <code>TagResource</code> up to 5 times per second, per
    *             account. </p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -733,17 +655,14 @@ export class DAX extends DAXClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -769,17 +688,14 @@ export class DAX extends DAXClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -806,17 +722,14 @@ export class DAX extends DAXClient {
   ): void;
   public updateCluster(
     args: UpdateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterCommandOutput) => void),
     cb?: (err: any, data?: UpdateClusterCommandOutput) => void
   ): Promise<UpdateClusterCommandOutput> | void {
     const command = new UpdateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -843,17 +756,14 @@ export class DAX extends DAXClient {
   ): void;
   public updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateParameterGroupCommandOutput) => void
   ): Promise<UpdateParameterGroupCommandOutput> | void {
     const command = new UpdateParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -878,17 +788,14 @@ export class DAX extends DAXClient {
   ): void;
   public updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateSubnetGroupCommandOutput) => void
   ): Promise<UpdateSubnetGroupCommandOutput> | void {
     const command = new UpdateSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

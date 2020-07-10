@@ -1,21 +1,15 @@
 import {
   EC2InstanceConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../EC2InstanceConnectClient";
-import {
-  SendSSHPublicKeyRequest,
-  SendSSHPublicKeyResponse
-} from "../models/index";
+import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/index";
 import {
   deserializeAws_json1_1SendSSHPublicKeyCommand,
-  serializeAws_json1_1SendSSHPublicKeyCommand
+  serializeAws_json1_1SendSSHPublicKeyCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SendSSHPublicKeyCommandInput = SendSSHPublicKeyRequest;
-export type SendSSHPublicKeyCommandOutput = SendSSHPublicKeyResponse &
-  __MetadataBearer;
+export type SendSSHPublicKeyCommandOutput = SendSSHPublicKeyResponse & __MetadataBearer;
 
 export class SendSSHPublicKeyCommand extends $Command<
   SendSSHPublicKeyCommandInput,
@@ -50,14 +43,12 @@ export class SendSSHPublicKeyCommand extends $Command<
     configuration: EC2InstanceConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class SendSSHPublicKeyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendSSHPublicKeyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendSSHPublicKeyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendSSHPublicKeyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendSSHPublicKeyCommandOutput> {
     return deserializeAws_json1_1SendSSHPublicKeyCommand(output, context);
   }
 

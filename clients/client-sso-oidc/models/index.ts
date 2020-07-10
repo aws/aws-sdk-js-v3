@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   error?: string;
@@ -19,18 +13,15 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
  */
-export interface AuthorizationPendingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationPendingException extends __SmithyException, $MetadataBearer {
   name: "AuthorizationPendingException";
   $fault: "client";
   error?: string;
@@ -38,13 +29,10 @@ export interface AuthorizationPendingException
 }
 
 export namespace AuthorizationPendingException {
-  export const filterSensitiveLog = (
-    obj: AuthorizationPendingException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizationPendingException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationPendingException =>
-    __isa(o, "AuthorizationPendingException");
+  export const isa = (o: any): o is AuthorizationPendingException => __isa(o, "AuthorizationPendingException");
 }
 
 export interface CreateTokenRequest {
@@ -96,10 +84,9 @@ export interface CreateTokenRequest {
 
 export namespace CreateTokenRequest {
   export const filterSensitiveLog = (obj: CreateTokenRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTokenRequest =>
-    __isa(o, "CreateTokenRequest");
+  export const isa = (o: any): o is CreateTokenRequest => __isa(o, "CreateTokenRequest");
 }
 
 export interface CreateTokenResponse {
@@ -134,18 +121,15 @@ export interface CreateTokenResponse {
 
 export namespace CreateTokenResponse {
   export const filterSensitiveLog = (obj: CreateTokenResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTokenResponse =>
-    __isa(o, "CreateTokenResponse");
+  export const isa = (o: any): o is CreateTokenResponse => __isa(o, "CreateTokenResponse");
 }
 
 /**
  * <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
  */
-export interface ExpiredTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredTokenException";
   $fault: "client";
   error?: string;
@@ -154,18 +138,15 @@ export interface ExpiredTokenException
 
 export namespace ExpiredTokenException {
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredTokenException =>
-    __isa(o, "ExpiredTokenException");
+  export const isa = (o: any): o is ExpiredTokenException => __isa(o, "ExpiredTokenException");
 }
 
 /**
  * <p>Indicates that an error from the service occurred while trying to process a request.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   error?: string;
@@ -174,10 +155,9 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -185,9 +165,7 @@ export namespace InternalServerException {
  *       invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or
  *       an expired <code>clientSecret</code>.</p>
  */
-export interface InvalidClientException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClientException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientException";
   $fault: "client";
   error?: string;
@@ -196,18 +174,15 @@ export interface InvalidClientException
 
 export namespace InvalidClientException {
   export const filterSensitiveLog = (obj: InvalidClientException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidClientException =>
-    __isa(o, "InvalidClientException");
+  export const isa = (o: any): o is InvalidClientException => __isa(o, "InvalidClientException");
 }
 
 /**
  * <p>Indicates that the client information sent in the request during registration is invalid.</p>
  */
-export interface InvalidClientMetadataException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClientMetadataException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientMetadataException";
   $fault: "client";
   error?: string;
@@ -215,21 +190,16 @@ export interface InvalidClientMetadataException
 }
 
 export namespace InvalidClientMetadataException {
-  export const filterSensitiveLog = (
-    obj: InvalidClientMetadataException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClientMetadataException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidClientMetadataException =>
-    __isa(o, "InvalidClientMetadataException");
+  export const isa = (o: any): o is InvalidClientMetadataException => __isa(o, "InvalidClientMetadataException");
 }
 
 /**
  * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <a>CreateToken</a> request with an invalid grant type.</p>
  */
-export interface InvalidGrantException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidGrantException extends __SmithyException, $MetadataBearer {
   name: "InvalidGrantException";
   $fault: "client";
   error?: string;
@@ -238,19 +208,16 @@ export interface InvalidGrantException
 
 export namespace InvalidGrantException {
   export const filterSensitiveLog = (obj: InvalidGrantException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidGrantException =>
-    __isa(o, "InvalidGrantException");
+  export const isa = (o: any): o is InvalidGrantException => __isa(o, "InvalidGrantException");
 }
 
 /**
  * <p>Indicates that something is wrong with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   error?: string;
@@ -259,18 +226,15 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>Indicates that the scope provided in the request is invalid.</p>
  */
-export interface InvalidScopeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidScopeException extends __SmithyException, $MetadataBearer {
   name: "InvalidScopeException";
   $fault: "client";
   error?: string;
@@ -279,10 +243,9 @@ export interface InvalidScopeException
 
 export namespace InvalidScopeException {
   export const filterSensitiveLog = (obj: InvalidScopeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidScopeException =>
-    __isa(o, "InvalidScopeException");
+  export const isa = (o: any): o is InvalidScopeException => __isa(o, "InvalidScopeException");
 }
 
 export interface RegisterClientRequest {
@@ -306,10 +269,9 @@ export interface RegisterClientRequest {
 
 export namespace RegisterClientRequest {
   export const filterSensitiveLog = (obj: RegisterClientRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterClientRequest =>
-    __isa(o, "RegisterClientRequest");
+  export const isa = (o: any): o is RegisterClientRequest => __isa(o, "RegisterClientRequest");
 }
 
 export interface RegisterClientResponse {
@@ -349,10 +311,9 @@ export interface RegisterClientResponse {
 
 export namespace RegisterClientResponse {
   export const filterSensitiveLog = (obj: RegisterClientResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterClientResponse =>
-    __isa(o, "RegisterClientResponse");
+  export const isa = (o: any): o is RegisterClientResponse => __isa(o, "RegisterClientResponse");
 }
 
 /**
@@ -367,10 +328,9 @@ export interface SlowDownException extends __SmithyException, $MetadataBearer {
 
 export namespace SlowDownException {
   export const filterSensitiveLog = (obj: SlowDownException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SlowDownException =>
-    __isa(o, "SlowDownException");
+  export const isa = (o: any): o is SlowDownException => __isa(o, "SlowDownException");
 }
 
 export interface StartDeviceAuthorizationRequest {
@@ -396,13 +356,10 @@ export interface StartDeviceAuthorizationRequest {
 }
 
 export namespace StartDeviceAuthorizationRequest {
-  export const filterSensitiveLog = (
-    obj: StartDeviceAuthorizationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartDeviceAuthorizationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartDeviceAuthorizationRequest =>
-    __isa(o, "StartDeviceAuthorizationRequest");
+  export const isa = (o: any): o is StartDeviceAuthorizationRequest => __isa(o, "StartDeviceAuthorizationRequest");
 }
 
 export interface StartDeviceAuthorizationResponse {
@@ -441,22 +398,17 @@ export interface StartDeviceAuthorizationResponse {
 }
 
 export namespace StartDeviceAuthorizationResponse {
-  export const filterSensitiveLog = (
-    obj: StartDeviceAuthorizationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartDeviceAuthorizationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartDeviceAuthorizationResponse =>
-    __isa(o, "StartDeviceAuthorizationResponse");
+  export const isa = (o: any): o is StartDeviceAuthorizationResponse => __isa(o, "StartDeviceAuthorizationResponse");
 }
 
 /**
  * <p>Indicates that the client is not currently authorized to make the request. This can happen
  *       when a <code>clientId</code> is not issued for a public client.</p>
  */
-export interface UnauthorizedClientException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedClientException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedClientException";
   $fault: "client";
   error?: string;
@@ -464,21 +416,16 @@ export interface UnauthorizedClientException
 }
 
 export namespace UnauthorizedClientException {
-  export const filterSensitiveLog = (
-    obj: UnauthorizedClientException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedClientException =>
-    __isa(o, "UnauthorizedClientException");
+  export const isa = (o: any): o is UnauthorizedClientException => __isa(o, "UnauthorizedClientException");
 }
 
 /**
  * <p>Indicates that the grant type in the request is not supported by the service.</p>
  */
-export interface UnsupportedGrantTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedGrantTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedGrantTypeException";
   $fault: "client";
   error?: string;
@@ -486,11 +433,8 @@ export interface UnsupportedGrantTypeException
 }
 
 export namespace UnsupportedGrantTypeException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedGrantTypeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedGrantTypeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedGrantTypeException =>
-    __isa(o, "UnsupportedGrantTypeException");
+  export const isa = (o: any): o is UnsupportedGrantTypeException => __isa(o, "UnsupportedGrantTypeException");
 }

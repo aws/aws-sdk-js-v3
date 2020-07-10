@@ -1,35 +1,23 @@
-import {
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
-} from "../commands/DeleteConnectionCommand";
-import {
-  GetConnectionCommandInput,
-  GetConnectionCommandOutput
-} from "../commands/GetConnectionCommand";
-import {
-  PostToConnectionCommandInput,
-  PostToConnectionCommandOutput
-} from "../commands/PostToConnectionCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
+import { PostToConnectionCommandInput, PostToConnectionCommandOutput } from "../commands/PostToConnectionCommand";
 import {
   ForbiddenException,
   GoneException,
   Identity,
   LimitExceededException,
-  PayloadTooLargeException
+  PayloadTooLargeException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1DeleteConnectionCommand = async (
@@ -37,20 +25,15 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
@@ -63,7 +46,7 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -72,20 +55,15 @@ export const serializeAws_restJson1GetConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
@@ -98,7 +76,7 @@ export const serializeAws_restJson1GetConnectionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -107,20 +85,15 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream"
+    "Content-Type": "application/octet-stream",
   };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
@@ -136,7 +109,7 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -145,13 +118,10 @@ export const deserializeAws_restJson1DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteConnectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteConnectionCommandError(output, context);
   }
   const contents: DeleteConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -163,7 +133,7 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
 ): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -172,34 +142,25 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
       response = {
-        ...(await deserializeAws_restJson1GoneExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -210,7 +171,7 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -231,17 +192,14 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
     __type: "GetConnectionResponse",
     ConnectedAt: undefined,
     Identity: undefined,
-    LastActiveAt: undefined
+    LastActiveAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.connectedAt !== undefined && data.connectedAt !== null) {
     contents.ConnectedAt = new Date(data.connectedAt);
   }
   if (data.identity !== undefined && data.identity !== null) {
-    contents.Identity = deserializeAws_restJson1Identity(
-      data.identity,
-      context
-    );
+    contents.Identity = deserializeAws_restJson1Identity(data.identity, context);
   }
   if (data.lastActiveAt !== undefined && data.lastActiveAt !== null) {
     contents.LastActiveAt = new Date(data.lastActiveAt);
@@ -255,7 +213,7 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
 ): Promise<GetConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -264,34 +222,25 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
       response = {
-        ...(await deserializeAws_restJson1GoneExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -302,7 +251,7 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -316,13 +265,10 @@ export const deserializeAws_restJson1PostToConnectionCommand = async (
   context: __SerdeContext
 ): Promise<PostToConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1PostToConnectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PostToConnectionCommandError(output, context);
   }
   const contents: PostToConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -334,7 +280,7 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
 ): Promise<PostToConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -343,45 +289,33 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
       response = {
-        ...(await deserializeAws_restJson1GoneExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "PayloadTooLargeException":
     case "com.amazonaws.apigatewaymanagementapi#PayloadTooLargeException":
       response = {
-        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -392,7 +326,7 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -408,7 +342,7 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   const contents: ForbiddenException = {
     name: "ForbiddenException",
     $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput)
+    $metadata: deserializeMetadata(parsedOutput),
   };
   const data: any = parsedOutput.body;
   return contents;
@@ -421,7 +355,7 @@ const deserializeAws_restJson1GoneExceptionResponse = async (
   const contents: GoneException = {
     name: "GoneException",
     $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput)
+    $metadata: deserializeMetadata(parsedOutput),
   };
   const data: any = parsedOutput.body;
   return contents;
@@ -434,7 +368,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput)
+    $metadata: deserializeMetadata(parsedOutput),
   };
   const data: any = parsedOutput.body;
   return contents;
@@ -448,7 +382,7 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
     name: "PayloadTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -457,58 +391,40 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_restJson1Identity = (
-  output: any,
-  context: __SerdeContext
-): Identity => {
+const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
     __type: "Identity",
-    SourceIp:
-      output.sourceIp !== undefined && output.sourceIp !== null
-        ? output.sourceIp
-        : undefined,
-    UserAgent:
-      output.userAgent !== undefined && output.userAgent !== null
-        ? output.userAgent
-        : undefined
+    SourceIp: output.sourceIp !== undefined && output.sourceIp !== null ? output.sourceIp : undefined,
+    UserAgent: output.userAgent !== undefined && output.userAgent !== null ? output.userAgent : undefined,
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -519,8 +435,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

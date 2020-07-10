@@ -1,151 +1,124 @@
 import {
   CountClosedWorkflowExecutionsCommandInput,
-  CountClosedWorkflowExecutionsCommandOutput
+  CountClosedWorkflowExecutionsCommandOutput,
 } from "./commands/CountClosedWorkflowExecutionsCommand";
 import {
   CountOpenWorkflowExecutionsCommandInput,
-  CountOpenWorkflowExecutionsCommandOutput
+  CountOpenWorkflowExecutionsCommandOutput,
 } from "./commands/CountOpenWorkflowExecutionsCommand";
 import {
   CountPendingActivityTasksCommandInput,
-  CountPendingActivityTasksCommandOutput
+  CountPendingActivityTasksCommandOutput,
 } from "./commands/CountPendingActivityTasksCommand";
 import {
   CountPendingDecisionTasksCommandInput,
-  CountPendingDecisionTasksCommandOutput
+  CountPendingDecisionTasksCommandOutput,
 } from "./commands/CountPendingDecisionTasksCommand";
 import {
   DeprecateActivityTypeCommandInput,
-  DeprecateActivityTypeCommandOutput
+  DeprecateActivityTypeCommandOutput,
 } from "./commands/DeprecateActivityTypeCommand";
-import {
-  DeprecateDomainCommandInput,
-  DeprecateDomainCommandOutput
-} from "./commands/DeprecateDomainCommand";
+import { DeprecateDomainCommandInput, DeprecateDomainCommandOutput } from "./commands/DeprecateDomainCommand";
 import {
   DeprecateWorkflowTypeCommandInput,
-  DeprecateWorkflowTypeCommandOutput
+  DeprecateWorkflowTypeCommandOutput,
 } from "./commands/DeprecateWorkflowTypeCommand";
 import {
   DescribeActivityTypeCommandInput,
-  DescribeActivityTypeCommandOutput
+  DescribeActivityTypeCommandOutput,
 } from "./commands/DescribeActivityTypeCommand";
-import {
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
-} from "./commands/DescribeDomainCommand";
+import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import {
   DescribeWorkflowExecutionCommandInput,
-  DescribeWorkflowExecutionCommandOutput
+  DescribeWorkflowExecutionCommandOutput,
 } from "./commands/DescribeWorkflowExecutionCommand";
 import {
   DescribeWorkflowTypeCommandInput,
-  DescribeWorkflowTypeCommandOutput
+  DescribeWorkflowTypeCommandOutput,
 } from "./commands/DescribeWorkflowTypeCommand";
 import {
   GetWorkflowExecutionHistoryCommandInput,
-  GetWorkflowExecutionHistoryCommandOutput
+  GetWorkflowExecutionHistoryCommandOutput,
 } from "./commands/GetWorkflowExecutionHistoryCommand";
-import {
-  ListActivityTypesCommandInput,
-  ListActivityTypesCommandOutput
-} from "./commands/ListActivityTypesCommand";
+import { ListActivityTypesCommandInput, ListActivityTypesCommandOutput } from "./commands/ListActivityTypesCommand";
 import {
   ListClosedWorkflowExecutionsCommandInput,
-  ListClosedWorkflowExecutionsCommandOutput
+  ListClosedWorkflowExecutionsCommandOutput,
 } from "./commands/ListClosedWorkflowExecutionsCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListOpenWorkflowExecutionsCommandInput,
-  ListOpenWorkflowExecutionsCommandOutput
+  ListOpenWorkflowExecutionsCommandOutput,
 } from "./commands/ListOpenWorkflowExecutionsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWorkflowTypesCommandInput,
-  ListWorkflowTypesCommandOutput
-} from "./commands/ListWorkflowTypesCommand";
+import { ListWorkflowTypesCommandInput, ListWorkflowTypesCommandOutput } from "./commands/ListWorkflowTypesCommand";
 import {
   PollForActivityTaskCommandInput,
-  PollForActivityTaskCommandOutput
+  PollForActivityTaskCommandOutput,
 } from "./commands/PollForActivityTaskCommand";
 import {
   PollForDecisionTaskCommandInput,
-  PollForDecisionTaskCommandOutput
+  PollForDecisionTaskCommandOutput,
 } from "./commands/PollForDecisionTaskCommand";
 import {
   RecordActivityTaskHeartbeatCommandInput,
-  RecordActivityTaskHeartbeatCommandOutput
+  RecordActivityTaskHeartbeatCommandOutput,
 } from "./commands/RecordActivityTaskHeartbeatCommand";
 import {
   RegisterActivityTypeCommandInput,
-  RegisterActivityTypeCommandOutput
+  RegisterActivityTypeCommandOutput,
 } from "./commands/RegisterActivityTypeCommand";
-import {
-  RegisterDomainCommandInput,
-  RegisterDomainCommandOutput
-} from "./commands/RegisterDomainCommand";
+import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
 import {
   RegisterWorkflowTypeCommandInput,
-  RegisterWorkflowTypeCommandOutput
+  RegisterWorkflowTypeCommandOutput,
 } from "./commands/RegisterWorkflowTypeCommand";
 import {
   RequestCancelWorkflowExecutionCommandInput,
-  RequestCancelWorkflowExecutionCommandOutput
+  RequestCancelWorkflowExecutionCommandOutput,
 } from "./commands/RequestCancelWorkflowExecutionCommand";
 import {
   RespondActivityTaskCanceledCommandInput,
-  RespondActivityTaskCanceledCommandOutput
+  RespondActivityTaskCanceledCommandOutput,
 } from "./commands/RespondActivityTaskCanceledCommand";
 import {
   RespondActivityTaskCompletedCommandInput,
-  RespondActivityTaskCompletedCommandOutput
+  RespondActivityTaskCompletedCommandOutput,
 } from "./commands/RespondActivityTaskCompletedCommand";
 import {
   RespondActivityTaskFailedCommandInput,
-  RespondActivityTaskFailedCommandOutput
+  RespondActivityTaskFailedCommandOutput,
 } from "./commands/RespondActivityTaskFailedCommand";
 import {
   RespondDecisionTaskCompletedCommandInput,
-  RespondDecisionTaskCompletedCommandOutput
+  RespondDecisionTaskCompletedCommandOutput,
 } from "./commands/RespondDecisionTaskCompletedCommand";
 import {
   SignalWorkflowExecutionCommandInput,
-  SignalWorkflowExecutionCommandOutput
+  SignalWorkflowExecutionCommandOutput,
 } from "./commands/SignalWorkflowExecutionCommand";
 import {
   StartWorkflowExecutionCommandInput,
-  StartWorkflowExecutionCommandOutput
+  StartWorkflowExecutionCommandOutput,
 } from "./commands/StartWorkflowExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateWorkflowExecutionCommandInput,
-  TerminateWorkflowExecutionCommandOutput
+  TerminateWorkflowExecutionCommandOutput,
 } from "./commands/TerminateWorkflowExecutionCommand";
 import {
   UndeprecateActivityTypeCommandInput,
-  UndeprecateActivityTypeCommandOutput
+  UndeprecateActivityTypeCommandOutput,
 } from "./commands/UndeprecateActivityTypeCommand";
-import {
-  UndeprecateDomainCommandInput,
-  UndeprecateDomainCommandOutput
-} from "./commands/UndeprecateDomainCommand";
+import { UndeprecateDomainCommandInput, UndeprecateDomainCommandOutput } from "./commands/UndeprecateDomainCommand";
 import {
   UndeprecateWorkflowTypeCommandInput,
-  UndeprecateWorkflowTypeCommandOutput
+  UndeprecateWorkflowTypeCommandOutput,
 } from "./commands/UndeprecateWorkflowTypeCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -153,38 +126,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -195,7 +163,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -276,8 +244,7 @@ export type ServiceOutputTypes =
   | UndeprecateWorkflowTypeCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -366,9 +333,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SWFClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SWFClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -377,9 +342,7 @@ export type SWFClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SWFClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SWFClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -417,7 +380,7 @@ export class SWFClient extends __Client<
   constructor(configuration: SWFClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

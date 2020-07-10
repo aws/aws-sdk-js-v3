@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -24,10 +20,9 @@ export interface AccessPoliciesStatus {
 
 export namespace AccessPoliciesStatus {
   export const filterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessPoliciesStatus =>
-    __isa(o, "AccessPoliciesStatus");
+  export const isa = (o: any): o is AccessPoliciesStatus => __isa(o, "AccessPoliciesStatus");
 }
 
 /**
@@ -85,10 +80,9 @@ export interface AdditionalLimit {
 
 export namespace AdditionalLimit {
   export const filterSensitiveLog = (obj: AdditionalLimit): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AdditionalLimit =>
-    __isa(o, "AdditionalLimit");
+  export const isa = (o: any): o is AdditionalLimit => __isa(o, "AdditionalLimit");
 }
 
 /**
@@ -109,10 +103,9 @@ export interface AddTagsRequest {
 
 export namespace AddTagsRequest {
   export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddTagsRequest =>
-    __isa(o, "AddTagsRequest");
+  export const isa = (o: any): o is AddTagsRequest => __isa(o, "AddTagsRequest");
 }
 
 /**
@@ -139,10 +132,9 @@ export interface AdvancedOptionsStatus {
 
 export namespace AdvancedOptionsStatus {
   export const filterSensitiveLog = (obj: AdvancedOptionsStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AdvancedOptionsStatus =>
-    __isa(o, "AdvancedOptionsStatus");
+  export const isa = (o: any): o is AdvancedOptionsStatus => __isa(o, "AdvancedOptionsStatus");
 }
 
 /**
@@ -159,7 +151,7 @@ export interface BaseException extends __SmithyException, $MetadataBearer {
 
 export namespace BaseException {
   export const filterSensitiveLog = (obj: BaseException): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is BaseException => __isa(o, "BaseException");
 }
@@ -176,14 +168,10 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
 }
 
 export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
-  export const filterSensitiveLog = (
-    obj: CancelElasticsearchServiceSoftwareUpdateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelElasticsearchServiceSoftwareUpdateRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CancelElasticsearchServiceSoftwareUpdateRequest =>
+  export const isa = (o: any): o is CancelElasticsearchServiceSoftwareUpdateRequest =>
     __isa(o, "CancelElasticsearchServiceSoftwareUpdateRequest");
 }
 
@@ -199,14 +187,10 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse {
 }
 
 export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
-  export const filterSensitiveLog = (
-    obj: CancelElasticsearchServiceSoftwareUpdateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelElasticsearchServiceSoftwareUpdateResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CancelElasticsearchServiceSoftwareUpdateResponse =>
+  export const isa = (o: any): o is CancelElasticsearchServiceSoftwareUpdateResponse =>
     __isa(o, "CancelElasticsearchServiceSoftwareUpdateResponse");
 }
 
@@ -238,10 +222,9 @@ export interface CognitoOptions {
 
 export namespace CognitoOptions {
   export const filterSensitiveLog = (obj: CognitoOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CognitoOptions =>
-    __isa(o, "CognitoOptions");
+  export const isa = (o: any): o is CognitoOptions => __isa(o, "CognitoOptions");
 }
 
 /**
@@ -262,10 +245,9 @@ export interface CognitoOptionsStatus {
 
 export namespace CognitoOptionsStatus {
   export const filterSensitiveLog = (obj: CognitoOptionsStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CognitoOptionsStatus =>
-    __isa(o, "CognitoOptionsStatus");
+  export const isa = (o: any): o is CognitoOptionsStatus => __isa(o, "CognitoOptionsStatus");
 }
 
 /**
@@ -297,10 +279,9 @@ export interface CompatibleVersionsMap {
 
 export namespace CompatibleVersionsMap {
   export const filterSensitiveLog = (obj: CompatibleVersionsMap): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CompatibleVersionsMap =>
-    __isa(o, "CompatibleVersionsMap");
+  export const isa = (o: any): o is CompatibleVersionsMap => __isa(o, "CompatibleVersionsMap");
 }
 
 export interface CreateElasticsearchDomainRequest {
@@ -374,13 +355,10 @@ export interface CreateElasticsearchDomainRequest {
 }
 
 export namespace CreateElasticsearchDomainRequest {
-  export const filterSensitiveLog = (
-    obj: CreateElasticsearchDomainRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateElasticsearchDomainRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateElasticsearchDomainRequest =>
-    __isa(o, "CreateElasticsearchDomainRequest");
+  export const isa = (o: any): o is CreateElasticsearchDomainRequest => __isa(o, "CreateElasticsearchDomainRequest");
 }
 
 /**
@@ -395,13 +373,10 @@ export interface CreateElasticsearchDomainResponse {
 }
 
 export namespace CreateElasticsearchDomainResponse {
-  export const filterSensitiveLog = (
-    obj: CreateElasticsearchDomainResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateElasticsearchDomainResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateElasticsearchDomainResponse =>
-    __isa(o, "CreateElasticsearchDomainResponse");
+  export const isa = (o: any): o is CreateElasticsearchDomainResponse => __isa(o, "CreateElasticsearchDomainResponse");
 }
 
 /**
@@ -416,13 +391,10 @@ export interface DeleteElasticsearchDomainRequest {
 }
 
 export namespace DeleteElasticsearchDomainRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteElasticsearchDomainRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteElasticsearchDomainRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteElasticsearchDomainRequest =>
-    __isa(o, "DeleteElasticsearchDomainRequest");
+  export const isa = (o: any): o is DeleteElasticsearchDomainRequest => __isa(o, "DeleteElasticsearchDomainRequest");
 }
 
 /**
@@ -437,21 +409,13 @@ export interface DeleteElasticsearchDomainResponse {
 }
 
 export namespace DeleteElasticsearchDomainResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteElasticsearchDomainResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteElasticsearchDomainResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteElasticsearchDomainResponse =>
-    __isa(o, "DeleteElasticsearchDomainResponse");
+  export const isa = (o: any): o is DeleteElasticsearchDomainResponse => __isa(o, "DeleteElasticsearchDomainResponse");
 }
 
-export type DeploymentStatus =
-  | "COMPLETED"
-  | "ELIGIBLE"
-  | "IN_PROGRESS"
-  | "NOT_ELIGIBLE"
-  | "PENDING_UPDATE";
+export type DeploymentStatus = "COMPLETED" | "ELIGIBLE" | "IN_PROGRESS" | "NOT_ELIGIBLE" | "PENDING_UPDATE";
 
 /**
  * <p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>
@@ -465,10 +429,8 @@ export interface DescribeElasticsearchDomainConfigRequest {
 }
 
 export namespace DescribeElasticsearchDomainConfigRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeElasticsearchDomainConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainConfigRequest =>
     __isa(o, "DescribeElasticsearchDomainConfigRequest");
@@ -486,10 +448,8 @@ export interface DescribeElasticsearchDomainConfigResponse {
 }
 
 export namespace DescribeElasticsearchDomainConfigResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeElasticsearchDomainConfigResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainConfigResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainConfigResponse =>
     __isa(o, "DescribeElasticsearchDomainConfigResponse");
@@ -507,10 +467,8 @@ export interface DescribeElasticsearchDomainRequest {
 }
 
 export namespace DescribeElasticsearchDomainRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeElasticsearchDomainRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainRequest =>
     __isa(o, "DescribeElasticsearchDomainRequest");
@@ -528,10 +486,8 @@ export interface DescribeElasticsearchDomainResponse {
 }
 
 export namespace DescribeElasticsearchDomainResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeElasticsearchDomainResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainResponse =>
     __isa(o, "DescribeElasticsearchDomainResponse");
@@ -549,10 +505,8 @@ export interface DescribeElasticsearchDomainsRequest {
 }
 
 export namespace DescribeElasticsearchDomainsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeElasticsearchDomainsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainsRequest =>
     __isa(o, "DescribeElasticsearchDomainsRequest");
@@ -570,10 +524,8 @@ export interface DescribeElasticsearchDomainsResponse {
 }
 
 export namespace DescribeElasticsearchDomainsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeElasticsearchDomainsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainsResponse =>
     __isa(o, "DescribeElasticsearchDomainsResponse");
@@ -627,14 +579,10 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeElasticsearchInstanceTypeLimitsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeElasticsearchInstanceTypeLimitsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeElasticsearchInstanceTypeLimitsRequest =>
+  export const isa = (o: any): o is DescribeElasticsearchInstanceTypeLimitsRequest =>
     __isa(o, "DescribeElasticsearchInstanceTypeLimitsRequest");
 }
 
@@ -665,14 +613,10 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse {
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeElasticsearchInstanceTypeLimitsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeElasticsearchInstanceTypeLimitsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeElasticsearchInstanceTypeLimitsResponse =>
+  export const isa = (o: any): o is DescribeElasticsearchInstanceTypeLimitsResponse =>
     __isa(o, "DescribeElasticsearchInstanceTypeLimitsResponse");
 }
 
@@ -699,14 +643,10 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedElasticsearchInstanceOfferingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstanceOfferingsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeReservedElasticsearchInstanceOfferingsRequest =>
+  export const isa = (o: any): o is DescribeReservedElasticsearchInstanceOfferingsRequest =>
     __isa(o, "DescribeReservedElasticsearchInstanceOfferingsRequest");
 }
 
@@ -727,14 +667,10 @@ export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedElasticsearchInstanceOfferingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstanceOfferingsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeReservedElasticsearchInstanceOfferingsResponse =>
+  export const isa = (o: any): o is DescribeReservedElasticsearchInstanceOfferingsResponse =>
     __isa(o, "DescribeReservedElasticsearchInstanceOfferingsResponse");
 }
 
@@ -761,14 +697,10 @@ export interface DescribeReservedElasticsearchInstancesRequest {
 }
 
 export namespace DescribeReservedElasticsearchInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedElasticsearchInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeReservedElasticsearchInstancesRequest =>
+  export const isa = (o: any): o is DescribeReservedElasticsearchInstancesRequest =>
     __isa(o, "DescribeReservedElasticsearchInstancesRequest");
 }
 
@@ -789,23 +721,17 @@ export interface DescribeReservedElasticsearchInstancesResponse {
 }
 
 export namespace DescribeReservedElasticsearchInstancesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedElasticsearchInstancesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstancesResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeReservedElasticsearchInstancesResponse =>
+  export const isa = (o: any): o is DescribeReservedElasticsearchInstancesResponse =>
     __isa(o, "DescribeReservedElasticsearchInstancesResponse");
 }
 
 /**
  * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
  */
-export interface DisabledOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DisabledOperationException extends __SmithyException, $MetadataBearer {
   name: "DisabledOperationException";
   $fault: "client";
   /**
@@ -816,10 +742,9 @@ export interface DisabledOperationException
 
 export namespace DisabledOperationException {
   export const filterSensitiveLog = (obj: DisabledOperationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisabledOperationException =>
-    __isa(o, "DisabledOperationException");
+  export const isa = (o: any): o is DisabledOperationException => __isa(o, "DisabledOperationException");
 }
 
 /**
@@ -846,10 +771,9 @@ export interface DomainEndpointOptions {
 
 export namespace DomainEndpointOptions {
   export const filterSensitiveLog = (obj: DomainEndpointOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DomainEndpointOptions =>
-    __isa(o, "DomainEndpointOptions");
+  export const isa = (o: any): o is DomainEndpointOptions => __isa(o, "DomainEndpointOptions");
 }
 
 /**
@@ -869,13 +793,10 @@ export interface DomainEndpointOptionsStatus {
 }
 
 export namespace DomainEndpointOptionsStatus {
-  export const filterSensitiveLog = (
-    obj: DomainEndpointOptionsStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DomainEndpointOptionsStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DomainEndpointOptionsStatus =>
-    __isa(o, "DomainEndpointOptionsStatus");
+  export const isa = (o: any): o is DomainEndpointOptionsStatus => __isa(o, "DomainEndpointOptionsStatus");
 }
 
 export interface DomainInfo {
@@ -888,7 +809,7 @@ export interface DomainInfo {
 
 export namespace DomainInfo {
   export const filterSensitiveLog = (obj: DomainInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DomainInfo => __isa(o, "DomainInfo");
 }
@@ -921,7 +842,7 @@ export interface EBSOptions {
 
 export namespace EBSOptions {
   export const filterSensitiveLog = (obj: EBSOptions): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EBSOptions => __isa(o, "EBSOptions");
 }
@@ -944,10 +865,9 @@ export interface EBSOptionsStatus {
 
 export namespace EBSOptionsStatus {
   export const filterSensitiveLog = (obj: EBSOptionsStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EBSOptionsStatus =>
-    __isa(o, "EBSOptionsStatus");
+  export const isa = (o: any): o is EBSOptionsStatus => __isa(o, "EBSOptionsStatus");
 }
 
 /**
@@ -1008,10 +928,9 @@ export interface ElasticsearchClusterConfig {
 
 export namespace ElasticsearchClusterConfig {
   export const filterSensitiveLog = (obj: ElasticsearchClusterConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchClusterConfig =>
-    __isa(o, "ElasticsearchClusterConfig");
+  export const isa = (o: any): o is ElasticsearchClusterConfig => __isa(o, "ElasticsearchClusterConfig");
 }
 
 /**
@@ -1031,13 +950,10 @@ export interface ElasticsearchClusterConfigStatus {
 }
 
 export namespace ElasticsearchClusterConfigStatus {
-  export const filterSensitiveLog = (
-    obj: ElasticsearchClusterConfigStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ElasticsearchClusterConfigStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchClusterConfigStatus =>
-    __isa(o, "ElasticsearchClusterConfigStatus");
+  export const isa = (o: any): o is ElasticsearchClusterConfigStatus => __isa(o, "ElasticsearchClusterConfigStatus");
 }
 
 /**
@@ -1108,10 +1024,9 @@ export interface ElasticsearchDomainConfig {
 
 export namespace ElasticsearchDomainConfig {
   export const filterSensitiveLog = (obj: ElasticsearchDomainConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchDomainConfig =>
-    __isa(o, "ElasticsearchDomainConfig");
+  export const isa = (o: any): o is ElasticsearchDomainConfig => __isa(o, "ElasticsearchDomainConfig");
 }
 
 /**
@@ -1228,10 +1143,9 @@ export interface ElasticsearchDomainStatus {
 
 export namespace ElasticsearchDomainStatus {
   export const filterSensitiveLog = (obj: ElasticsearchDomainStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchDomainStatus =>
-    __isa(o, "ElasticsearchDomainStatus");
+  export const isa = (o: any): o is ElasticsearchDomainStatus => __isa(o, "ElasticsearchDomainStatus");
 }
 
 /**
@@ -1252,10 +1166,9 @@ export interface ElasticsearchVersionStatus {
 
 export namespace ElasticsearchVersionStatus {
   export const filterSensitiveLog = (obj: ElasticsearchVersionStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchVersionStatus =>
-    __isa(o, "ElasticsearchVersionStatus");
+  export const isa = (o: any): o is ElasticsearchVersionStatus => __isa(o, "ElasticsearchVersionStatus");
 }
 
 /**
@@ -1276,10 +1189,9 @@ export interface EncryptionAtRestOptions {
 
 export namespace EncryptionAtRestOptions {
   export const filterSensitiveLog = (obj: EncryptionAtRestOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionAtRestOptions =>
-    __isa(o, "EncryptionAtRestOptions");
+  export const isa = (o: any): o is EncryptionAtRestOptions => __isa(o, "EncryptionAtRestOptions");
 }
 
 /**
@@ -1299,13 +1211,10 @@ export interface EncryptionAtRestOptionsStatus {
 }
 
 export namespace EncryptionAtRestOptionsStatus {
-  export const filterSensitiveLog = (
-    obj: EncryptionAtRestOptionsStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EncryptionAtRestOptionsStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionAtRestOptionsStatus =>
-    __isa(o, "EncryptionAtRestOptionsStatus");
+  export const isa = (o: any): o is EncryptionAtRestOptionsStatus => __isa(o, "EncryptionAtRestOptionsStatus");
 }
 
 export type ESPartitionInstanceType =
@@ -1368,9 +1277,7 @@ export type ESPartitionInstanceType =
   | "ultrawarm1.large.elasticsearch"
   | "ultrawarm1.medium.elasticsearch";
 
-export type ESWarmPartitionInstanceType =
-  | "ultrawarm1.large.elasticsearch"
-  | "ultrawarm1.medium.elasticsearch";
+export type ESWarmPartitionInstanceType = "ultrawarm1.large.elasticsearch" | "ultrawarm1.medium.elasticsearch";
 
 /**
  * <p>
@@ -1390,10 +1297,8 @@ export interface GetCompatibleElasticsearchVersionsRequest {
 }
 
 export namespace GetCompatibleElasticsearchVersionsRequest {
-  export const filterSensitiveLog = (
-    obj: GetCompatibleElasticsearchVersionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCompatibleElasticsearchVersionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetCompatibleElasticsearchVersionsRequest =>
     __isa(o, "GetCompatibleElasticsearchVersionsRequest");
@@ -1423,14 +1328,10 @@ export interface GetCompatibleElasticsearchVersionsResponse {
 }
 
 export namespace GetCompatibleElasticsearchVersionsResponse {
-  export const filterSensitiveLog = (
-    obj: GetCompatibleElasticsearchVersionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCompatibleElasticsearchVersionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetCompatibleElasticsearchVersionsResponse =>
+  export const isa = (o: any): o is GetCompatibleElasticsearchVersionsResponse =>
     __isa(o, "GetCompatibleElasticsearchVersionsResponse");
 }
 
@@ -1468,10 +1369,9 @@ export interface GetUpgradeHistoryRequest {
 
 export namespace GetUpgradeHistoryRequest {
   export const filterSensitiveLog = (obj: GetUpgradeHistoryRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUpgradeHistoryRequest =>
-    __isa(o, "GetUpgradeHistoryRequest");
+  export const isa = (o: any): o is GetUpgradeHistoryRequest => __isa(o, "GetUpgradeHistoryRequest");
 }
 
 /**
@@ -1508,10 +1408,9 @@ export interface GetUpgradeHistoryResponse {
 
 export namespace GetUpgradeHistoryResponse {
   export const filterSensitiveLog = (obj: GetUpgradeHistoryResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUpgradeHistoryResponse =>
-    __isa(o, "GetUpgradeHistoryResponse");
+  export const isa = (o: any): o is GetUpgradeHistoryResponse => __isa(o, "GetUpgradeHistoryResponse");
 }
 
 /**
@@ -1533,10 +1432,9 @@ export interface GetUpgradeStatusRequest {
 
 export namespace GetUpgradeStatusRequest {
   export const filterSensitiveLog = (obj: GetUpgradeStatusRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUpgradeStatusRequest =>
-    __isa(o, "GetUpgradeStatusRequest");
+  export const isa = (o: any): o is GetUpgradeStatusRequest => __isa(o, "GetUpgradeStatusRequest");
 }
 
 /**
@@ -1587,10 +1485,9 @@ export interface GetUpgradeStatusResponse {
 
 export namespace GetUpgradeStatusResponse {
   export const filterSensitiveLog = (obj: GetUpgradeStatusResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUpgradeStatusResponse =>
-    __isa(o, "GetUpgradeStatusResponse");
+  export const isa = (o: any): o is GetUpgradeStatusResponse => __isa(o, "GetUpgradeStatusResponse");
 }
 
 /**
@@ -1618,10 +1515,9 @@ export interface InstanceCountLimits {
 
 export namespace InstanceCountLimits {
   export const filterSensitiveLog = (obj: InstanceCountLimits): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceCountLimits =>
-    __isa(o, "InstanceCountLimits");
+  export const isa = (o: any): o is InstanceCountLimits => __isa(o, "InstanceCountLimits");
 }
 
 /**
@@ -1641,10 +1537,9 @@ export interface InstanceLimits {
 
 export namespace InstanceLimits {
   export const filterSensitiveLog = (obj: InstanceLimits): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceLimits =>
-    __isa(o, "InstanceLimits");
+  export const isa = (o: any): o is InstanceLimits => __isa(o, "InstanceLimits");
 }
 
 /**
@@ -1661,18 +1556,15 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
 
 export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
+  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
  * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
  */
-export interface InvalidTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidTypeException";
   $fault: "client";
   /**
@@ -1683,18 +1575,15 @@ export interface InvalidTypeException
 
 export namespace InvalidTypeException {
   export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTypeException =>
-    __isa(o, "InvalidTypeException");
+  export const isa = (o: any): o is InvalidTypeException => __isa(o, "InvalidTypeException");
 }
 
 /**
  * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1705,10 +1594,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -1757,7 +1645,7 @@ export interface Limits {
 
 export namespace Limits {
   export const filterSensitiveLog = (obj: Limits): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Limits => __isa(o, "Limits");
 }
@@ -1775,10 +1663,9 @@ export interface ListDomainNamesResponse {
 
 export namespace ListDomainNamesResponse {
   export const filterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDomainNamesResponse =>
-    __isa(o, "ListDomainNamesResponse");
+  export const isa = (o: any): o is ListDomainNamesResponse => __isa(o, "ListDomainNamesResponse");
 }
 
 /**
@@ -1823,10 +1710,8 @@ export interface ListElasticsearchInstanceTypesRequest {
 }
 
 export namespace ListElasticsearchInstanceTypesRequest {
-  export const filterSensitiveLog = (
-    obj: ListElasticsearchInstanceTypesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListElasticsearchInstanceTypesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListElasticsearchInstanceTypesRequest =>
     __isa(o, "ListElasticsearchInstanceTypesRequest");
@@ -1864,10 +1749,8 @@ export interface ListElasticsearchInstanceTypesResponse {
 }
 
 export namespace ListElasticsearchInstanceTypesResponse {
-  export const filterSensitiveLog = (
-    obj: ListElasticsearchInstanceTypesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListElasticsearchInstanceTypesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListElasticsearchInstanceTypesResponse =>
     __isa(o, "ListElasticsearchInstanceTypesResponse");
@@ -1918,13 +1801,10 @@ export interface ListElasticsearchVersionsRequest {
 }
 
 export namespace ListElasticsearchVersionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListElasticsearchVersionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListElasticsearchVersionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListElasticsearchVersionsRequest =>
-    __isa(o, "ListElasticsearchVersionsRequest");
+  export const isa = (o: any): o is ListElasticsearchVersionsRequest => __isa(o, "ListElasticsearchVersionsRequest");
 }
 
 /**
@@ -1954,13 +1834,10 @@ export interface ListElasticsearchVersionsResponse {
 }
 
 export namespace ListElasticsearchVersionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListElasticsearchVersionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListElasticsearchVersionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListElasticsearchVersionsResponse =>
-    __isa(o, "ListElasticsearchVersionsResponse");
+  export const isa = (o: any): o is ListElasticsearchVersionsResponse => __isa(o, "ListElasticsearchVersionsResponse");
 }
 
 /**
@@ -1976,10 +1853,9 @@ export interface ListTagsRequest {
 
 export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 /**
@@ -1995,10 +1871,9 @@ export interface ListTagsResponse {
 
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 /**
@@ -2025,10 +1900,9 @@ export interface LogPublishingOption {
 
 export namespace LogPublishingOption {
   export const filterSensitiveLog = (obj: LogPublishingOption): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LogPublishingOption =>
-    __isa(o, "LogPublishingOption");
+  export const isa = (o: any): o is LogPublishingOption => __isa(o, "LogPublishingOption");
 }
 
 /**
@@ -2049,16 +1923,12 @@ export interface LogPublishingOptionsStatus {
 
 export namespace LogPublishingOptionsStatus {
   export const filterSensitiveLog = (obj: LogPublishingOptionsStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LogPublishingOptionsStatus =>
-    __isa(o, "LogPublishingOptionsStatus");
+  export const isa = (o: any): o is LogPublishingOptionsStatus => __isa(o, "LogPublishingOptionsStatus");
 }
 
-export type LogType =
-  | "ES_APPLICATION_LOGS"
-  | "INDEX_SLOW_LOGS"
-  | "SEARCH_SLOW_LOGS";
+export type LogType = "ES_APPLICATION_LOGS" | "INDEX_SLOW_LOGS" | "SEARCH_SLOW_LOGS";
 
 /**
  * <p>Specifies the node-to-node encryption options.</p>
@@ -2072,13 +1942,10 @@ export interface NodeToNodeEncryptionOptions {
 }
 
 export namespace NodeToNodeEncryptionOptions {
-  export const filterSensitiveLog = (
-    obj: NodeToNodeEncryptionOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NodeToNodeEncryptionOptions): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NodeToNodeEncryptionOptions =>
-    __isa(o, "NodeToNodeEncryptionOptions");
+  export const isa = (o: any): o is NodeToNodeEncryptionOptions => __isa(o, "NodeToNodeEncryptionOptions");
 }
 
 /**
@@ -2098,13 +1965,10 @@ export interface NodeToNodeEncryptionOptionsStatus {
 }
 
 export namespace NodeToNodeEncryptionOptionsStatus {
-  export const filterSensitiveLog = (
-    obj: NodeToNodeEncryptionOptionsStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NodeToNodeEncryptionOptionsStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NodeToNodeEncryptionOptionsStatus =>
-    __isa(o, "NodeToNodeEncryptionOptionsStatus");
+  export const isa = (o: any): o is NodeToNodeEncryptionOptionsStatus => __isa(o, "NodeToNodeEncryptionOptionsStatus");
 }
 
 export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
@@ -2142,7 +2006,7 @@ export interface OptionStatus {
 
 export namespace OptionStatus {
   export const filterSensitiveLog = (obj: OptionStatus): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is OptionStatus => __isa(o, "OptionStatus");
 }
@@ -2169,14 +2033,10 @@ export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
 }
 
 export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
-  export const filterSensitiveLog = (
-    obj: PurchaseReservedElasticsearchInstanceOfferingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseReservedElasticsearchInstanceOfferingRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PurchaseReservedElasticsearchInstanceOfferingRequest =>
+  export const isa = (o: any): o is PurchaseReservedElasticsearchInstanceOfferingRequest =>
     __isa(o, "PurchaseReservedElasticsearchInstanceOfferingRequest");
 }
 
@@ -2197,14 +2057,10 @@ export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
 }
 
 export namespace PurchaseReservedElasticsearchInstanceOfferingResponse {
-  export const filterSensitiveLog = (
-    obj: PurchaseReservedElasticsearchInstanceOfferingResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseReservedElasticsearchInstanceOfferingResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PurchaseReservedElasticsearchInstanceOfferingResponse =>
+  export const isa = (o: any): o is PurchaseReservedElasticsearchInstanceOfferingResponse =>
     __isa(o, "PurchaseReservedElasticsearchInstanceOfferingResponse");
 }
 
@@ -2226,10 +2082,9 @@ export interface RecurringCharge {
 
 export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge =>
-    __isa(o, "RecurringCharge");
+  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 /**
@@ -2250,10 +2105,9 @@ export interface RemoveTagsRequest {
 
 export namespace RemoveTagsRequest {
   export const filterSensitiveLog = (obj: RemoveTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsRequest =>
-    __isa(o, "RemoveTagsRequest");
+  export const isa = (o: any): o is RemoveTagsRequest => __isa(o, "RemoveTagsRequest");
 }
 
 /**
@@ -2328,13 +2182,10 @@ export interface ReservedElasticsearchInstance {
 }
 
 export namespace ReservedElasticsearchInstance {
-  export const filterSensitiveLog = (
-    obj: ReservedElasticsearchInstance
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedElasticsearchInstance): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedElasticsearchInstance =>
-    __isa(o, "ReservedElasticsearchInstance");
+  export const isa = (o: any): o is ReservedElasticsearchInstance => __isa(o, "ReservedElasticsearchInstance");
 }
 
 /**
@@ -2384,26 +2235,19 @@ export interface ReservedElasticsearchInstanceOffering {
 }
 
 export namespace ReservedElasticsearchInstanceOffering {
-  export const filterSensitiveLog = (
-    obj: ReservedElasticsearchInstanceOffering
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedElasticsearchInstanceOffering): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReservedElasticsearchInstanceOffering =>
     __isa(o, "ReservedElasticsearchInstanceOffering");
 }
 
-export type ReservedElasticsearchInstancePaymentOption =
-  | "ALL_UPFRONT"
-  | "NO_UPFRONT"
-  | "PARTIAL_UPFRONT";
+export type ReservedElasticsearchInstancePaymentOption = "ALL_UPFRONT" | "NO_UPFRONT" | "PARTIAL_UPFRONT";
 
 /**
  * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -2413,21 +2257,16 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2438,10 +2277,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2487,10 +2325,9 @@ export interface ServiceSoftwareOptions {
 
 export namespace ServiceSoftwareOptions {
   export const filterSensitiveLog = (obj: ServiceSoftwareOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceSoftwareOptions =>
-    __isa(o, "ServiceSoftwareOptions");
+  export const isa = (o: any): o is ServiceSoftwareOptions => __isa(o, "ServiceSoftwareOptions");
 }
 
 /**
@@ -2506,10 +2343,9 @@ export interface SnapshotOptions {
 
 export namespace SnapshotOptions {
   export const filterSensitiveLog = (obj: SnapshotOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotOptions =>
-    __isa(o, "SnapshotOptions");
+  export const isa = (o: any): o is SnapshotOptions => __isa(o, "SnapshotOptions");
 }
 
 /**
@@ -2530,10 +2366,9 @@ export interface SnapshotOptionsStatus {
 
 export namespace SnapshotOptionsStatus {
   export const filterSensitiveLog = (obj: SnapshotOptionsStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotOptionsStatus =>
-    __isa(o, "SnapshotOptionsStatus");
+  export const isa = (o: any): o is SnapshotOptionsStatus => __isa(o, "SnapshotOptionsStatus");
 }
 
 /**
@@ -2548,14 +2383,10 @@ export interface StartElasticsearchServiceSoftwareUpdateRequest {
 }
 
 export namespace StartElasticsearchServiceSoftwareUpdateRequest {
-  export const filterSensitiveLog = (
-    obj: StartElasticsearchServiceSoftwareUpdateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartElasticsearchServiceSoftwareUpdateRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is StartElasticsearchServiceSoftwareUpdateRequest =>
+  export const isa = (o: any): o is StartElasticsearchServiceSoftwareUpdateRequest =>
     __isa(o, "StartElasticsearchServiceSoftwareUpdateRequest");
 }
 
@@ -2571,14 +2402,10 @@ export interface StartElasticsearchServiceSoftwareUpdateResponse {
 }
 
 export namespace StartElasticsearchServiceSoftwareUpdateResponse {
-  export const filterSensitiveLog = (
-    obj: StartElasticsearchServiceSoftwareUpdateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartElasticsearchServiceSoftwareUpdateResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is StartElasticsearchServiceSoftwareUpdateResponse =>
+  export const isa = (o: any): o is StartElasticsearchServiceSoftwareUpdateResponse =>
     __isa(o, "StartElasticsearchServiceSoftwareUpdateResponse");
 }
 
@@ -2626,7 +2453,7 @@ export interface StorageType {
 
 export namespace StorageType {
   export const filterSensitiveLog = (obj: StorageType): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StorageType => __isa(o, "StorageType");
 }
@@ -2673,10 +2500,9 @@ export interface StorageTypeLimit {
 
 export namespace StorageTypeLimit {
   export const filterSensitiveLog = (obj: StorageTypeLimit): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StorageTypeLimit =>
-    __isa(o, "StorageTypeLimit");
+  export const isa = (o: any): o is StorageTypeLimit => __isa(o, "StorageTypeLimit");
 }
 
 /**
@@ -2698,14 +2524,14 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export enum TLSSecurityPolicy {
   POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
+  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
 }
 
 /**
@@ -2766,10 +2592,8 @@ export interface UpdateElasticsearchDomainConfigRequest {
 }
 
 export namespace UpdateElasticsearchDomainConfigRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateElasticsearchDomainConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateElasticsearchDomainConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateElasticsearchDomainConfigRequest =>
     __isa(o, "UpdateElasticsearchDomainConfigRequest");
@@ -2787,10 +2611,8 @@ export interface UpdateElasticsearchDomainConfigResponse {
 }
 
 export namespace UpdateElasticsearchDomainConfigResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateElasticsearchDomainConfigResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateElasticsearchDomainConfigResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateElasticsearchDomainConfigResponse =>
     __isa(o, "UpdateElasticsearchDomainConfigResponse");
@@ -2827,13 +2649,10 @@ export interface UpgradeElasticsearchDomainRequest {
 }
 
 export namespace UpgradeElasticsearchDomainRequest {
-  export const filterSensitiveLog = (
-    obj: UpgradeElasticsearchDomainRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpgradeElasticsearchDomainRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpgradeElasticsearchDomainRequest =>
-    __isa(o, "UpgradeElasticsearchDomainRequest");
+  export const isa = (o: any): o is UpgradeElasticsearchDomainRequest => __isa(o, "UpgradeElasticsearchDomainRequest");
 }
 
 /**
@@ -2867,10 +2686,8 @@ export interface UpgradeElasticsearchDomainResponse {
 }
 
 export namespace UpgradeElasticsearchDomainResponse {
-  export const filterSensitiveLog = (
-    obj: UpgradeElasticsearchDomainResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpgradeElasticsearchDomainResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpgradeElasticsearchDomainResponse =>
     __isa(o, "UpgradeElasticsearchDomainResponse");
@@ -2918,17 +2735,12 @@ export interface UpgradeHistory {
 
 export namespace UpgradeHistory {
   export const filterSensitiveLog = (obj: UpgradeHistory): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpgradeHistory =>
-    __isa(o, "UpgradeHistory");
+  export const isa = (o: any): o is UpgradeHistory => __isa(o, "UpgradeHistory");
 }
 
-export type UpgradeStatus =
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "SUCCEEDED_WITH_ISSUES";
+export type UpgradeStatus = "FAILED" | "IN_PROGRESS" | "SUCCEEDED" | "SUCCEEDED_WITH_ISSUES";
 
 export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
 
@@ -2975,18 +2787,15 @@ export interface UpgradeStepItem {
 
 export namespace UpgradeStepItem {
   export const filterSensitiveLog = (obj: UpgradeStepItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpgradeStepItem =>
-    __isa(o, "UpgradeStepItem");
+  export const isa = (o: any): o is UpgradeStepItem => __isa(o, "UpgradeStepItem");
 }
 
 /**
  * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -2997,10 +2806,9 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 export type VolumeType = "gp2" | "io1" | "standard";
@@ -3033,10 +2841,9 @@ export interface VPCDerivedInfo {
 
 export namespace VPCDerivedInfo {
   export const filterSensitiveLog = (obj: VPCDerivedInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VPCDerivedInfo =>
-    __isa(o, "VPCDerivedInfo");
+  export const isa = (o: any): o is VPCDerivedInfo => __isa(o, "VPCDerivedInfo");
 }
 
 /**
@@ -3057,10 +2864,9 @@ export interface VPCDerivedInfoStatus {
 
 export namespace VPCDerivedInfoStatus {
   export const filterSensitiveLog = (obj: VPCDerivedInfoStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VPCDerivedInfoStatus =>
-    __isa(o, "VPCDerivedInfoStatus");
+  export const isa = (o: any): o is VPCDerivedInfoStatus => __isa(o, "VPCDerivedInfoStatus");
 }
 
 /**
@@ -3081,7 +2887,7 @@ export interface VPCOptions {
 
 export namespace VPCOptions {
   export const filterSensitiveLog = (obj: VPCOptions): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VPCOptions => __isa(o, "VPCOptions");
 }
@@ -3099,8 +2905,7 @@ export interface ZoneAwarenessConfig {
 
 export namespace ZoneAwarenessConfig {
   export const filterSensitiveLog = (obj: ZoneAwarenessConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ZoneAwarenessConfig =>
-    __isa(o, "ZoneAwarenessConfig");
+  export const isa = (o: any): o is ZoneAwarenessConfig => __isa(o, "ZoneAwarenessConfig");
 }

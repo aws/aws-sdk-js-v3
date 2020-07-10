@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  DescribeUserPoolRequest,
-  DescribeUserPoolResponse
-} from "../models/index";
+import { DescribeUserPoolRequest, DescribeUserPoolResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeUserPoolCommand,
-  serializeAws_json1_1DescribeUserPoolCommand
+  serializeAws_json1_1DescribeUserPoolCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeUserPoolCommandInput = DescribeUserPoolRequest;
-export type DescribeUserPoolCommandOutput = DescribeUserPoolResponse &
-  __MetadataBearer;
+export type DescribeUserPoolCommandOutput = DescribeUserPoolResponse & __MetadataBearer;
 
 export class DescribeUserPoolCommand extends $Command<
   DescribeUserPoolCommandInput,
@@ -50,14 +43,12 @@ export class DescribeUserPoolCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeUserPoolCommandInput, DescribeUserPoolCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class DescribeUserPoolCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeUserPoolCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeUserPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserPoolCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeUserPoolCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserPoolCommandOutput> {
     return deserializeAws_json1_1DescribeUserPoolCommand(output, context);
   }
 

@@ -1,18 +1,15 @@
 import {
   ElasticLoadBalancingv2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingv2Client";
 import { RegisterTargetsInput, RegisterTargetsOutput } from "../models/index";
 import {
   deserializeAws_queryRegisterTargetsCommand,
-  serializeAws_queryRegisterTargetsCommand
+  serializeAws_queryRegisterTargetsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RegisterTargetsCommandInput = RegisterTargetsInput;
-export type RegisterTargetsCommandOutput = RegisterTargetsOutput &
-  __MetadataBearer;
+export type RegisterTargetsCommandOutput = RegisterTargetsOutput & __MetadataBearer;
 
 export class RegisterTargetsCommand extends $Command<
   RegisterTargetsCommandInput,
@@ -47,14 +43,12 @@ export class RegisterTargetsCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterTargetsCommandInput, RegisterTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +58,11 @@ export class RegisterTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RegisterTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RegisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRegisterTargetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterTargetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTargetsCommandOutput> {
     return deserializeAws_queryRegisterTargetsCommand(output, context);
   }
 

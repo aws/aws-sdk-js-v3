@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminCreateUserRequest,
-  AdminCreateUserResponse
-} from "../models/index";
+import { AdminCreateUserRequest, AdminCreateUserResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminCreateUserCommand,
-  serializeAws_json1_1AdminCreateUserCommand
+  serializeAws_json1_1AdminCreateUserCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AdminCreateUserCommandInput = AdminCreateUserRequest;
-export type AdminCreateUserCommandOutput = AdminCreateUserResponse &
-  __MetadataBearer;
+export type AdminCreateUserCommandOutput = AdminCreateUserResponse & __MetadataBearer;
 
 export class AdminCreateUserCommand extends $Command<
   AdminCreateUserCommandInput,
@@ -50,14 +43,12 @@ export class AdminCreateUserCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminCreateUserCommandInput, AdminCreateUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class AdminCreateUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AdminCreateUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AdminCreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminCreateUserCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AdminCreateUserCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminCreateUserCommandOutput> {
     return deserializeAws_json1_1AdminCreateUserCommand(output, context);
   }
 

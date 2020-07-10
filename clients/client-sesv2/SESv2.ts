@@ -2,247 +2,235 @@ import { SESv2Client } from "./SESv2Client";
 import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput
+  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
 import {
   CreateConfigurationSetEventDestinationCommand,
   CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput
+  CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
 import {
   CreateDedicatedIpPoolCommand,
   CreateDedicatedIpPoolCommandInput,
-  CreateDedicatedIpPoolCommandOutput
+  CreateDedicatedIpPoolCommandOutput,
 } from "./commands/CreateDedicatedIpPoolCommand";
 import {
   CreateDeliverabilityTestReportCommand,
   CreateDeliverabilityTestReportCommandInput,
-  CreateDeliverabilityTestReportCommandOutput
+  CreateDeliverabilityTestReportCommandOutput,
 } from "./commands/CreateDeliverabilityTestReportCommand";
 import {
   CreateEmailIdentityCommand,
   CreateEmailIdentityCommandInput,
-  CreateEmailIdentityCommandOutput
+  CreateEmailIdentityCommandOutput,
 } from "./commands/CreateEmailIdentityCommand";
 import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput
+  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
 import {
   DeleteConfigurationSetEventDestinationCommand,
   DeleteConfigurationSetEventDestinationCommandInput,
-  DeleteConfigurationSetEventDestinationCommandOutput
+  DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
 import {
   DeleteDedicatedIpPoolCommand,
   DeleteDedicatedIpPoolCommandInput,
-  DeleteDedicatedIpPoolCommandOutput
+  DeleteDedicatedIpPoolCommandOutput,
 } from "./commands/DeleteDedicatedIpPoolCommand";
 import {
   DeleteEmailIdentityCommand,
   DeleteEmailIdentityCommandInput,
-  DeleteEmailIdentityCommandOutput
+  DeleteEmailIdentityCommandOutput,
 } from "./commands/DeleteEmailIdentityCommand";
 import {
   DeleteSuppressedDestinationCommand,
   DeleteSuppressedDestinationCommandInput,
-  DeleteSuppressedDestinationCommandOutput
+  DeleteSuppressedDestinationCommandOutput,
 } from "./commands/DeleteSuppressedDestinationCommand";
-import {
-  GetAccountCommand,
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "./commands/GetAccountCommand";
+import { GetAccountCommand, GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import {
   GetBlacklistReportsCommand,
   GetBlacklistReportsCommandInput,
-  GetBlacklistReportsCommandOutput
+  GetBlacklistReportsCommandOutput,
 } from "./commands/GetBlacklistReportsCommand";
 import {
   GetConfigurationSetCommand,
   GetConfigurationSetCommandInput,
-  GetConfigurationSetCommandOutput
+  GetConfigurationSetCommandOutput,
 } from "./commands/GetConfigurationSetCommand";
 import {
   GetConfigurationSetEventDestinationsCommand,
   GetConfigurationSetEventDestinationsCommandInput,
-  GetConfigurationSetEventDestinationsCommandOutput
+  GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
 import {
   GetDedicatedIpCommand,
   GetDedicatedIpCommandInput,
-  GetDedicatedIpCommandOutput
+  GetDedicatedIpCommandOutput,
 } from "./commands/GetDedicatedIpCommand";
 import {
   GetDedicatedIpsCommand,
   GetDedicatedIpsCommandInput,
-  GetDedicatedIpsCommandOutput
+  GetDedicatedIpsCommandOutput,
 } from "./commands/GetDedicatedIpsCommand";
 import {
   GetDeliverabilityDashboardOptionsCommand,
   GetDeliverabilityDashboardOptionsCommandInput,
-  GetDeliverabilityDashboardOptionsCommandOutput
+  GetDeliverabilityDashboardOptionsCommandOutput,
 } from "./commands/GetDeliverabilityDashboardOptionsCommand";
 import {
   GetDeliverabilityTestReportCommand,
   GetDeliverabilityTestReportCommandInput,
-  GetDeliverabilityTestReportCommandOutput
+  GetDeliverabilityTestReportCommandOutput,
 } from "./commands/GetDeliverabilityTestReportCommand";
 import {
   GetDomainDeliverabilityCampaignCommand,
   GetDomainDeliverabilityCampaignCommandInput,
-  GetDomainDeliverabilityCampaignCommandOutput
+  GetDomainDeliverabilityCampaignCommandOutput,
 } from "./commands/GetDomainDeliverabilityCampaignCommand";
 import {
   GetDomainStatisticsReportCommand,
   GetDomainStatisticsReportCommandInput,
-  GetDomainStatisticsReportCommandOutput
+  GetDomainStatisticsReportCommandOutput,
 } from "./commands/GetDomainStatisticsReportCommand";
 import {
   GetEmailIdentityCommand,
   GetEmailIdentityCommandInput,
-  GetEmailIdentityCommandOutput
+  GetEmailIdentityCommandOutput,
 } from "./commands/GetEmailIdentityCommand";
 import {
   GetSuppressedDestinationCommand,
   GetSuppressedDestinationCommandInput,
-  GetSuppressedDestinationCommandOutput
+  GetSuppressedDestinationCommandOutput,
 } from "./commands/GetSuppressedDestinationCommand";
 import {
   ListConfigurationSetsCommand,
   ListConfigurationSetsCommandInput,
-  ListConfigurationSetsCommandOutput
+  ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
 import {
   ListDedicatedIpPoolsCommand,
   ListDedicatedIpPoolsCommandInput,
-  ListDedicatedIpPoolsCommandOutput
+  ListDedicatedIpPoolsCommandOutput,
 } from "./commands/ListDedicatedIpPoolsCommand";
 import {
   ListDeliverabilityTestReportsCommand,
   ListDeliverabilityTestReportsCommandInput,
-  ListDeliverabilityTestReportsCommandOutput
+  ListDeliverabilityTestReportsCommandOutput,
 } from "./commands/ListDeliverabilityTestReportsCommand";
 import {
   ListDomainDeliverabilityCampaignsCommand,
   ListDomainDeliverabilityCampaignsCommandInput,
-  ListDomainDeliverabilityCampaignsCommandOutput
+  ListDomainDeliverabilityCampaignsCommandOutput,
 } from "./commands/ListDomainDeliverabilityCampaignsCommand";
 import {
   ListEmailIdentitiesCommand,
   ListEmailIdentitiesCommandInput,
-  ListEmailIdentitiesCommandOutput
+  ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand";
 import {
   ListSuppressedDestinationsCommand,
   ListSuppressedDestinationsCommandInput,
-  ListSuppressedDestinationsCommandOutput
+  ListSuppressedDestinationsCommandOutput,
 } from "./commands/ListSuppressedDestinationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutAccountDedicatedIpWarmupAttributesCommand,
   PutAccountDedicatedIpWarmupAttributesCommandInput,
-  PutAccountDedicatedIpWarmupAttributesCommandOutput
+  PutAccountDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand";
 import {
   PutAccountSendingAttributesCommand,
   PutAccountSendingAttributesCommandInput,
-  PutAccountSendingAttributesCommandOutput
+  PutAccountSendingAttributesCommandOutput,
 } from "./commands/PutAccountSendingAttributesCommand";
 import {
   PutAccountSuppressionAttributesCommand,
   PutAccountSuppressionAttributesCommandInput,
-  PutAccountSuppressionAttributesCommandOutput
+  PutAccountSuppressionAttributesCommandOutput,
 } from "./commands/PutAccountSuppressionAttributesCommand";
 import {
   PutConfigurationSetDeliveryOptionsCommand,
   PutConfigurationSetDeliveryOptionsCommandInput,
-  PutConfigurationSetDeliveryOptionsCommandOutput
+  PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand";
 import {
   PutConfigurationSetReputationOptionsCommand,
   PutConfigurationSetReputationOptionsCommandInput,
-  PutConfigurationSetReputationOptionsCommandOutput
+  PutConfigurationSetReputationOptionsCommandOutput,
 } from "./commands/PutConfigurationSetReputationOptionsCommand";
 import {
   PutConfigurationSetSendingOptionsCommand,
   PutConfigurationSetSendingOptionsCommandInput,
-  PutConfigurationSetSendingOptionsCommandOutput
+  PutConfigurationSetSendingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSendingOptionsCommand";
 import {
   PutConfigurationSetSuppressionOptionsCommand,
   PutConfigurationSetSuppressionOptionsCommandInput,
-  PutConfigurationSetSuppressionOptionsCommandOutput
+  PutConfigurationSetSuppressionOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSuppressionOptionsCommand";
 import {
   PutConfigurationSetTrackingOptionsCommand,
   PutConfigurationSetTrackingOptionsCommandInput,
-  PutConfigurationSetTrackingOptionsCommandOutput
+  PutConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetTrackingOptionsCommand";
 import {
   PutDedicatedIpInPoolCommand,
   PutDedicatedIpInPoolCommandInput,
-  PutDedicatedIpInPoolCommandOutput
+  PutDedicatedIpInPoolCommandOutput,
 } from "./commands/PutDedicatedIpInPoolCommand";
 import {
   PutDedicatedIpWarmupAttributesCommand,
   PutDedicatedIpWarmupAttributesCommandInput,
-  PutDedicatedIpWarmupAttributesCommandOutput
+  PutDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutDedicatedIpWarmupAttributesCommand";
 import {
   PutDeliverabilityDashboardOptionCommand,
   PutDeliverabilityDashboardOptionCommandInput,
-  PutDeliverabilityDashboardOptionCommandOutput
+  PutDeliverabilityDashboardOptionCommandOutput,
 } from "./commands/PutDeliverabilityDashboardOptionCommand";
 import {
   PutEmailIdentityDkimAttributesCommand,
   PutEmailIdentityDkimAttributesCommandInput,
-  PutEmailIdentityDkimAttributesCommandOutput
+  PutEmailIdentityDkimAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimAttributesCommand";
 import {
   PutEmailIdentityDkimSigningAttributesCommand,
   PutEmailIdentityDkimSigningAttributesCommandInput,
-  PutEmailIdentityDkimSigningAttributesCommandOutput
+  PutEmailIdentityDkimSigningAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimSigningAttributesCommand";
 import {
   PutEmailIdentityFeedbackAttributesCommand,
   PutEmailIdentityFeedbackAttributesCommandInput,
-  PutEmailIdentityFeedbackAttributesCommandOutput
+  PutEmailIdentityFeedbackAttributesCommandOutput,
 } from "./commands/PutEmailIdentityFeedbackAttributesCommand";
 import {
   PutEmailIdentityMailFromAttributesCommand,
   PutEmailIdentityMailFromAttributesCommandInput,
-  PutEmailIdentityMailFromAttributesCommandOutput
+  PutEmailIdentityMailFromAttributesCommandOutput,
 } from "./commands/PutEmailIdentityMailFromAttributesCommand";
 import {
   PutSuppressedDestinationCommand,
   PutSuppressedDestinationCommandInput,
-  PutSuppressedDestinationCommandOutput
+  PutSuppressedDestinationCommandOutput,
 } from "./commands/PutSuppressedDestinationCommand";
-import {
-  SendEmailCommand,
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "./commands/SendEmailCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { SendEmailCommand, SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateConfigurationSetEventDestinationCommand,
   UpdateConfigurationSetEventDestinationCommandInput,
-  UpdateConfigurationSetEventDestinationCommandOutput
+  UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -291,17 +279,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConfigurationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigurationSetCommandOutput) => void),
     cb?: (err: any, data?: CreateConfigurationSetCommandOutput) => void
   ): Promise<CreateConfigurationSetCommandOutput> | void {
     const command = new CreateConfigurationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -323,38 +308,25 @@ export class SESv2 extends SESv2Client {
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new CreateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -382,17 +354,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public createDedicatedIpPool(
     args: CreateDedicatedIpPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDedicatedIpPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDedicatedIpPoolCommandOutput) => void),
     cb?: (err: any, data?: CreateDedicatedIpPoolCommandOutput) => void
   ): Promise<CreateDedicatedIpPoolCommandOutput> | void {
     const command = new CreateDedicatedIpPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -423,20 +392,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public createDeliverabilityTestReport(
     args: CreateDeliverabilityTestReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateDeliverabilityTestReportCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeliverabilityTestReportCommandOutput) => void),
     cb?: (err: any, data?: CreateDeliverabilityTestReportCommandOutput) => void
   ): Promise<CreateDeliverabilityTestReportCommandOutput> | void {
     const command = new CreateDeliverabilityTestReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -480,17 +443,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public createEmailIdentity(
     args: CreateEmailIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEmailIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEmailIdentityCommandOutput) => void),
     cb?: (err: any, data?: CreateEmailIdentityCommandOutput) => void
   ): Promise<CreateEmailIdentityCommandOutput> | void {
     const command = new CreateEmailIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -520,17 +480,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigurationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigurationSetCommandOutput) => void
   ): Promise<DeleteConfigurationSetCommandOutput> | void {
     const command = new DeleteConfigurationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -552,38 +509,25 @@ export class SESv2 extends SESv2Client {
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> | void {
     const command = new DeleteConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -608,17 +552,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public deleteDedicatedIpPool(
     args: DeleteDedicatedIpPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDedicatedIpPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDedicatedIpPoolCommandOutput) => void),
     cb?: (err: any, data?: DeleteDedicatedIpPoolCommandOutput) => void
   ): Promise<DeleteDedicatedIpPoolCommandOutput> | void {
     const command = new DeleteDedicatedIpPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -644,17 +585,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public deleteEmailIdentity(
     args: DeleteEmailIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEmailIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailIdentityCommandOutput) => void),
     cb?: (err: any, data?: DeleteEmailIdentityCommandOutput) => void
   ): Promise<DeleteEmailIdentityCommandOutput> | void {
     const command = new DeleteEmailIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -679,17 +617,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public deleteSuppressedDestination(
     args: DeleteSuppressedDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSuppressedDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSuppressedDestinationCommandOutput) => void),
     cb?: (err: any, data?: DeleteSuppressedDestinationCommandOutput) => void
   ): Promise<DeleteSuppressedDestinationCommandOutput> | void {
     const command = new DeleteSuppressedDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -700,14 +635,8 @@ export class SESv2 extends SESv2Client {
    * <p>Obtain information about the email-sending status and capabilities of your Amazon SES
    *             account in the current AWS Region.</p>
    */
-  public getAccount(
-    args: GetAccountCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAccountCommandOutput>;
-  public getAccount(
-    args: GetAccountCommandInput,
-    cb: (err: any, data?: GetAccountCommandOutput) => void
-  ): void;
+  public getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
+  public getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
   public getAccount(
     args: GetAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -715,17 +644,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getAccount(
     args: GetAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountCommandOutput) => void),
     cb?: (err: any, data?: GetAccountCommandOutput) => void
   ): Promise<GetAccountCommandOutput> | void {
     const command = new GetAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -750,17 +676,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getBlacklistReports(
     args: GetBlacklistReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlacklistReportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlacklistReportsCommandOutput) => void),
     cb?: (err: any, data?: GetBlacklistReportsCommandOutput) => void
   ): Promise<GetBlacklistReportsCommandOutput> | void {
     const command = new GetBlacklistReportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -792,17 +715,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getConfigurationSet(
     args: GetConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConfigurationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationSetCommandOutput) => void),
     cb?: (err: any, data?: GetConfigurationSetCommandOutput) => void
   ): Promise<GetConfigurationSetCommandOutput> | void {
     const command = new GetConfigurationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -825,38 +745,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput>;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConfigurationSetEventDestinationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void),
+    cb?: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> | void {
     const command = new GetConfigurationSetEventDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -883,17 +788,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDedicatedIp(
     args: GetDedicatedIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDedicatedIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDedicatedIpCommandOutput) => void),
     cb?: (err: any, data?: GetDedicatedIpCommandOutput) => void
   ): Promise<GetDedicatedIpCommandOutput> | void {
     const command = new GetDedicatedIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -919,17 +821,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDedicatedIpsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDedicatedIpsCommandOutput) => void),
     cb?: (err: any, data?: GetDedicatedIpsCommandOutput) => void
   ): Promise<GetDedicatedIpsCommandOutput> | void {
     const command = new GetDedicatedIpsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -952,38 +851,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<GetDeliverabilityDashboardOptionsCommandOutput>;
   public getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: GetDeliverabilityDashboardOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void
   ): void;
   public getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetDeliverabilityDashboardOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void
   ): void;
   public getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetDeliverabilityDashboardOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetDeliverabilityDashboardOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void),
+    cb?: (err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void
   ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> | void {
     const command = new GetDeliverabilityDashboardOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1008,17 +892,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDeliverabilityTestReport(
     args: GetDeliverabilityTestReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeliverabilityTestReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeliverabilityTestReportCommandOutput) => void),
     cb?: (err: any, data?: GetDeliverabilityTestReportCommandOutput) => void
   ): Promise<GetDeliverabilityTestReportCommandOutput> | void {
     const command = new GetDeliverabilityTestReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1045,20 +926,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDomainDeliverabilityCampaign(
     args: GetDomainDeliverabilityCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetDomainDeliverabilityCampaignCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainDeliverabilityCampaignCommandOutput) => void),
     cb?: (err: any, data?: GetDomainDeliverabilityCampaignCommandOutput) => void
   ): Promise<GetDomainDeliverabilityCampaignCommandOutput> | void {
     const command = new GetDomainDeliverabilityCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1084,17 +959,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDomainStatisticsReport(
     args: GetDomainStatisticsReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainStatisticsReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainStatisticsReportCommandOutput) => void),
     cb?: (err: any, data?: GetDomainStatisticsReportCommandOutput) => void
   ): Promise<GetDomainStatisticsReportCommandOutput> | void {
     const command = new GetDomainStatisticsReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1120,17 +992,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getEmailIdentity(
     args: GetEmailIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEmailIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailIdentityCommandOutput) => void),
     cb?: (err: any, data?: GetEmailIdentityCommandOutput) => void
   ): Promise<GetEmailIdentityCommandOutput> | void {
     const command = new GetEmailIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1156,17 +1025,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getSuppressedDestination(
     args: GetSuppressedDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSuppressedDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSuppressedDestinationCommandOutput) => void),
     cb?: (err: any, data?: GetSuppressedDestinationCommandOutput) => void
   ): Promise<GetSuppressedDestinationCommandOutput> | void {
     const command = new GetSuppressedDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1197,17 +1063,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConfigurationSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigurationSetsCommandOutput) => void),
     cb?: (err: any, data?: ListConfigurationSetsCommandOutput) => void
   ): Promise<ListConfigurationSetsCommandOutput> | void {
     const command = new ListConfigurationSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1233,17 +1096,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listDedicatedIpPools(
     args: ListDedicatedIpPoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDedicatedIpPoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDedicatedIpPoolsCommandOutput) => void),
     cb?: (err: any, data?: ListDedicatedIpPoolsCommandOutput) => void
   ): Promise<ListDedicatedIpPoolsCommandOutput> | void {
     const command = new ListDedicatedIpPoolsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1270,17 +1130,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listDeliverabilityTestReports(
     args: ListDeliverabilityTestReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeliverabilityTestReportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeliverabilityTestReportsCommandOutput) => void),
     cb?: (err: any, data?: ListDeliverabilityTestReportsCommandOutput) => void
   ): Promise<ListDeliverabilityTestReportsCommandOutput> | void {
     const command = new ListDeliverabilityTestReportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1298,38 +1155,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<ListDomainDeliverabilityCampaignsCommandOutput>;
   public listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
-    cb: (
-      err: any,
-      data?: ListDomainDeliverabilityCampaignsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void
   ): void;
   public listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListDomainDeliverabilityCampaignsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void
   ): void;
   public listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDomainDeliverabilityCampaignsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListDomainDeliverabilityCampaignsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void),
+    cb?: (err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void
   ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> | void {
     const command = new ListDomainDeliverabilityCampaignsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1357,17 +1199,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listEmailIdentities(
     args: ListEmailIdentitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEmailIdentitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEmailIdentitiesCommandOutput) => void),
     cb?: (err: any, data?: ListEmailIdentitiesCommandOutput) => void
   ): Promise<ListEmailIdentitiesCommandOutput> | void {
     const command = new ListEmailIdentitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1393,17 +1232,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listSuppressedDestinations(
     args: ListSuppressedDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSuppressedDestinationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSuppressedDestinationsCommandOutput) => void),
     cb?: (err: any, data?: ListSuppressedDestinationsCommandOutput) => void
   ): Promise<ListSuppressedDestinationsCommandOutput> | void {
     const command = new ListSuppressedDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1433,17 +1269,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1459,38 +1292,25 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput>;
   public putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: PutAccountDedicatedIpWarmupAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
   ): void;
   public putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutAccountDedicatedIpWarmupAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
   ): void;
   public putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutAccountDedicatedIpWarmupAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutAccountDedicatedIpWarmupAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> | void {
     const command = new PutAccountDedicatedIpWarmupAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1515,17 +1335,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putAccountSendingAttributes(
     args: PutAccountSendingAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAccountSendingAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountSendingAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutAccountSendingAttributesCommandOutput) => void
   ): Promise<PutAccountSendingAttributesCommandOutput> | void {
     const command = new PutAccountSendingAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1550,20 +1367,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putAccountSuppressionAttributes(
     args: PutAccountSuppressionAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutAccountSuppressionAttributesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountSuppressionAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutAccountSuppressionAttributesCommandOutput) => void
   ): Promise<PutAccountSuppressionAttributesCommandOutput> | void {
     const command = new PutAccountSuppressionAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1580,38 +1391,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput>;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetDeliveryOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> | void {
     const command = new PutConfigurationSetDeliveryOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1628,38 +1424,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput>;
   public putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetReputationOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetReputationOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetReputationOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetReputationOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput> | void {
     const command = new PutConfigurationSetReputationOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1676,38 +1457,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput>;
   public putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetSendingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetSendingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetSendingOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetSendingOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput> | void {
     const command = new PutConfigurationSetSendingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1723,38 +1489,25 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput>;
   public putConfigurationSetSuppressionOptions(
     args: PutConfigurationSetSuppressionOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetSuppressionOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetSuppressionOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetSuppressionOptions(
     args: PutConfigurationSetSuppressionOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetSuppressionOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetSuppressionOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetSuppressionOptions(
     args: PutConfigurationSetSuppressionOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetSuppressionOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetSuppressionOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: PutConfigurationSetSuppressionOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetSuppressionOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> | void {
     const command = new PutConfigurationSetSuppressionOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1771,38 +1524,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput>;
   public putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetTrackingOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> | void {
     const command = new PutConfigurationSetTrackingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1836,17 +1574,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putDedicatedIpInPool(
     args: PutDedicatedIpInPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDedicatedIpInPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDedicatedIpInPoolCommandOutput) => void),
     cb?: (err: any, data?: PutDedicatedIpInPoolCommandOutput) => void
   ): Promise<PutDedicatedIpInPoolCommandOutput> | void {
     const command = new PutDedicatedIpInPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1871,20 +1606,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putDedicatedIpWarmupAttributes(
     args: PutDedicatedIpWarmupAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutDedicatedIpWarmupAttributesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDedicatedIpWarmupAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutDedicatedIpWarmupAttributesCommandOutput) => void
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> | void {
     const command = new PutDedicatedIpWarmupAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1915,23 +1644,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putDeliverabilityDashboardOption(
     args: PutDeliverabilityDashboardOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutDeliverabilityDashboardOptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutDeliverabilityDashboardOptionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDeliverabilityDashboardOptionCommandOutput) => void),
+    cb?: (err: any, data?: PutDeliverabilityDashboardOptionCommandOutput) => void
   ): Promise<PutDeliverabilityDashboardOptionCommandOutput> | void {
     const command = new PutDeliverabilityDashboardOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1956,20 +1676,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putEmailIdentityDkimAttributes(
     args: PutEmailIdentityDkimAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutEmailIdentityDkimAttributesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEmailIdentityDkimAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutEmailIdentityDkimAttributesCommandOutput) => void
   ): Promise<PutEmailIdentityDkimAttributesCommandOutput> | void {
     const command = new PutEmailIdentityDkimAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2004,38 +1718,25 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput>;
   public putEmailIdentityDkimSigningAttributes(
     args: PutEmailIdentityDkimSigningAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityDkimSigningAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityDkimSigningAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityDkimSigningAttributes(
     args: PutEmailIdentityDkimSigningAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityDkimSigningAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityDkimSigningAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityDkimSigningAttributes(
     args: PutEmailIdentityDkimSigningAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutEmailIdentityDkimSigningAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutEmailIdentityDkimSigningAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: PutEmailIdentityDkimSigningAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutEmailIdentityDkimSigningAttributesCommandOutput) => void
   ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> | void {
     const command = new PutEmailIdentityDkimSigningAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2060,38 +1761,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput>;
   public putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityFeedbackAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityFeedbackAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutEmailIdentityFeedbackAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutEmailIdentityFeedbackAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void
   ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> | void {
     const command = new PutEmailIdentityFeedbackAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2108,38 +1794,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutEmailIdentityMailFromAttributesCommandOutput>;
   public putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityMailFromAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityMailFromAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutEmailIdentityMailFromAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutEmailIdentityMailFromAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void
   ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> | void {
     const command = new PutEmailIdentityMailFromAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2164,17 +1835,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putSuppressedDestination(
     args: PutSuppressedDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSuppressedDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSuppressedDestinationCommandOutput) => void),
     cb?: (err: any, data?: PutSuppressedDestinationCommandOutput) => void
   ): Promise<PutSuppressedDestinationCommandOutput> | void {
     const command = new PutSuppressedDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2201,14 +1869,8 @@ export class SESv2 extends SESv2Client {
    *             </li>
    *          </ul>
    */
-  public sendEmail(
-    args: SendEmailCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendEmailCommandOutput>;
-  public sendEmail(
-    args: SendEmailCommandInput,
-    cb: (err: any, data?: SendEmailCommandOutput) => void
-  ): void;
+  public sendEmail(args: SendEmailCommandInput, options?: __HttpHandlerOptions): Promise<SendEmailCommandOutput>;
+  public sendEmail(args: SendEmailCommandInput, cb: (err: any, data?: SendEmailCommandOutput) => void): void;
   public sendEmail(
     args: SendEmailCommandInput,
     options: __HttpHandlerOptions,
@@ -2216,17 +1878,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public sendEmail(
     args: SendEmailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendEmailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendEmailCommandOutput) => void),
     cb?: (err: any, data?: SendEmailCommandOutput) => void
   ): Promise<SendEmailCommandOutput> | void {
     const command = new SendEmailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2244,14 +1903,8 @@ export class SESv2 extends SESv2Client {
    *             general label that acts as a category for more specific tag values. A tag value acts as
    *             a descriptor within a tag key.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2259,17 +1912,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2294,17 +1944,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2326,38 +1973,25 @@ export class SESv2 extends SESv2Client {
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new UpdateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

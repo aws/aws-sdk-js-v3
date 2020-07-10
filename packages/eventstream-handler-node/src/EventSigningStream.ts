@@ -19,7 +19,7 @@ export class EventSigningStream extends Transform {
     super({
       readableObjectMode: true,
       writableObjectMode: true,
-      ...options
+      ...options,
     });
     this.priorSignature = options.priorSignature;
     this.eventSigner = options.eventSigner;
@@ -34,24 +34,20 @@ export class EventSigningStream extends Transform {
     });
   }
 
-  async _transform(
-    chunk: Uint8Array,
-    encoding: string,
-    callback: TransformCallback
-  ): Promise<void> {
+  async _transform(chunk: Uint8Array, encoding: string, callback: TransformCallback): Promise<void> {
     try {
       const now = new Date();
       const dateHeader: MessageHeaders = {
-        ":date": { type: "timestamp", value: now }
+        ":date": { type: "timestamp", value: now },
       };
       let signature = await this.eventSigner.sign(
         {
           payload: chunk,
-          headers: this.eventMarshaller.formatHeaders(dateHeader)
+          headers: this.eventMarshaller.formatHeaders(dateHeader),
         },
         {
           priorSignature: this.priorSignature,
-          signingDate: now
+          signingDate: now,
         }
       );
       this.priorSignature = signature;
@@ -60,10 +56,10 @@ export class EventSigningStream extends Transform {
           ...dateHeader,
           ":chunk-signature": {
             type: "binary",
-            value: getSignatureBinary(signature)
-          }
+            value: getSignatureBinary(signature),
+          },
         },
-        body: chunk
+        body: chunk,
       });
       this.push(serializedSigned);
       return callback();
@@ -75,9 +71,5 @@ export class EventSigningStream extends Transform {
 
 function getSignatureBinary(signature: string): Uint8Array {
   const buf = Buffer.from(signature, "hex");
-  return new Uint8Array(
-    buf.buffer,
-    buf.byteOffset,
-    buf.byteLength / Uint8Array.BYTES_PER_ELEMENT
-  );
+  return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength / Uint8Array.BYTES_PER_ELEMENT);
 }

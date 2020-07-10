@@ -1,10 +1,5 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import {
-  Encoder,
-  Decoder,
-  Message,
-  EventStreamMarshaller as IEventStreamMarshaller
-} from "@aws-sdk/types";
+import { Encoder, Decoder, Message, EventStreamMarshaller as IEventStreamMarshaller } from "@aws-sdk/types";
 import { getChunkedStream } from "./getChunkedStream";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";
 
@@ -31,15 +26,12 @@ export class EventStreamMarshaller {
     const unmarshalledStream = getUnmarshalledStream(chunkedStream, {
       eventMarshaller: this.eventMarshaller,
       deserializer,
-      toUtf8: this.utfEncoder
+      toUtf8: this.utfEncoder,
     });
     return unmarshalledStream;
   }
 
-  serialize<T>(
-    input: AsyncIterable<T>,
-    serializer: (event: T) => Message
-  ): AsyncIterable<Uint8Array> {
+  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): AsyncIterable<Uint8Array> {
     const self = this;
     const serializedIterator = async function* () {
       for await (const chunk of input) {
@@ -50,7 +42,7 @@ export class EventStreamMarshaller {
       yield new Uint8Array(0);
     };
     return {
-      [Symbol.asyncIterator]: serializedIterator
+      [Symbol.asyncIterator]: serializedIterator,
     };
   }
 }

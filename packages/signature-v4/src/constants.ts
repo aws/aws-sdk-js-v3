@@ -30,7 +30,7 @@ export const ALWAYS_UNSIGNABLE_HEADERS = {
   "transfer-encoding": true,
   upgrade: true,
   "user-agent": true,
-  "x-amzn-trace-id": true
+  "x-amzn-trace-id": true,
 };
 
 export const PROXY_HEADER_PATTERN = /^proxy-/;

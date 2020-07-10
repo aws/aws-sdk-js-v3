@@ -1,21 +1,11 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient";
-import {
-  AcceptHandshakeRequest,
-  AcceptHandshakeResponse
-} from "../models/index";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
+import { AcceptHandshakeRequest, AcceptHandshakeResponse } from "../models/index";
 import {
   deserializeAws_json1_1AcceptHandshakeCommand,
-  serializeAws_json1_1AcceptHandshakeCommand
+  serializeAws_json1_1AcceptHandshakeCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AcceptHandshakeCommandInput = AcceptHandshakeRequest;
-export type AcceptHandshakeCommandOutput = AcceptHandshakeResponse &
-  __MetadataBearer;
+export type AcceptHandshakeCommandOutput = AcceptHandshakeResponse & __MetadataBearer;
 
 export class AcceptHandshakeCommand extends $Command<
   AcceptHandshakeCommandInput,
@@ -50,14 +39,12 @@ export class AcceptHandshakeCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class AcceptHandshakeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AcceptHandshakeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AcceptHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptHandshakeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AcceptHandshakeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptHandshakeCommandOutput> {
     return deserializeAws_json1_1AcceptHandshakeCommand(output, context);
   }
 

@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingv2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingv2Client";
-import {
-  RemoveListenerCertificatesInput,
-  RemoveListenerCertificatesOutput
-} from "../models/index";
+import { RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput } from "../models/index";
 import {
   deserializeAws_queryRemoveListenerCertificatesCommand,
-  serializeAws_queryRemoveListenerCertificatesCommand
+  serializeAws_queryRemoveListenerCertificatesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RemoveListenerCertificatesCommandInput = RemoveListenerCertificatesInput;
-export type RemoveListenerCertificatesCommandOutput = RemoveListenerCertificatesOutput &
-  __MetadataBearer;
+export type RemoveListenerCertificatesCommandOutput = RemoveListenerCertificatesOutput & __MetadataBearer;
 
 export class RemoveListenerCertificatesCommand extends $Command<
   RemoveListenerCertificatesCommandInput,
@@ -49,18 +42,13 @@ export class RemoveListenerCertificatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveListenerCertificatesCommandInput,
-    RemoveListenerCertificatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveListenerCertificatesCommandInput, RemoveListenerCertificatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +58,7 @@ export class RemoveListenerCertificatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveListenerCertificatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RemoveListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRemoveListenerCertificatesCommand(input, context);
   }
 
@@ -81,10 +66,7 @@ export class RemoveListenerCertificatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveListenerCertificatesCommandOutput> {
-    return deserializeAws_queryRemoveListenerCertificatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRemoveListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

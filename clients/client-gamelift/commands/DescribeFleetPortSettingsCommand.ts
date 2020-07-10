@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient";
-import {
-  DescribeFleetPortSettingsInput,
-  DescribeFleetPortSettingsOutput
-} from "../models/index";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeFleetPortSettingsInput, DescribeFleetPortSettingsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFleetPortSettingsCommand,
-  serializeAws_json1_1DescribeFleetPortSettingsCommand
+  serializeAws_json1_1DescribeFleetPortSettingsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeFleetPortSettingsCommandInput = DescribeFleetPortSettingsInput;
-export type DescribeFleetPortSettingsCommandOutput = DescribeFleetPortSettingsOutput &
-  __MetadataBearer;
+export type DescribeFleetPortSettingsCommandOutput = DescribeFleetPortSettingsOutput & __MetadataBearer;
 
 export class DescribeFleetPortSettingsCommand extends $Command<
   DescribeFleetPortSettingsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFleetPortSettingsCommandInput,
-    DescribeFleetPortSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFleetPortSettingsCommandInput, DescribeFleetPortSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFleetPortSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeFleetPortSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetPortSettingsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetPortSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetPortSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetPortSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

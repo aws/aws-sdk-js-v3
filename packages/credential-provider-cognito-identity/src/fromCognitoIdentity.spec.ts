@@ -10,9 +10,9 @@ describe("fromCognitoIdentity", () => {
       AccessKeyId: "foo",
       SecretKey: "bar",
       SessionToken: "baz",
-      Expiration: expiration
+      Expiration: expiration,
     },
-    IdentityId: identityId
+    IdentityId: identityId,
   });
   const mockClient: any = { send };
 
@@ -25,19 +25,19 @@ describe("fromCognitoIdentity", () => {
       await fromCognitoIdentity({
         client: mockClient,
         identityId,
-        customRoleArn: "myArn"
+        customRoleArn: "myArn",
       })()
     ).toEqual({
       accessKeyId: "foo",
       secretAccessKey: "bar",
       sessionToken: "baz",
-      expiration
+      expiration,
     });
 
     expect(send.mock.calls[0][0]).toEqual(
       new GetCredentialsForIdentityCommand({
         IdentityId: identityId,
-        CustomRoleArn: "myArn"
+        CustomRoleArn: "myArn",
       })
     );
   });
@@ -49,8 +49,8 @@ describe("fromCognitoIdentity", () => {
       customRoleArn: "myArn",
       logins: {
         myDomain: "token",
-        "www.amazon.com": () => Promise.resolve("expiring nonce")
-      }
+        "www.amazon.com": () => Promise.resolve("expiring nonce"),
+      },
     })();
 
     expect(send.mock.calls[0][0]).toEqual(
@@ -59,8 +59,8 @@ describe("fromCognitoIdentity", () => {
         CustomRoleArn: "myArn",
         Logins: {
           myDomain: "token",
-          "www.amazon.com": "expiring nonce"
-        }
+          "www.amazon.com": "expiring nonce",
+        },
       })
     );
   });
@@ -72,18 +72,16 @@ describe("fromCognitoIdentity", () => {
       fromCognitoIdentity({
         client: mockClient,
         identityId,
-        customRoleArn: "myArn"
+        customRoleArn: "myArn",
       })()
-    ).rejects.toMatchObject(
-      new ProviderError("Response from Amazon Cognito contained no credentials")
-    );
+    ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no credentials"));
   });
 
   it("should convert a GetCredentialsForIdentity response without an access key ID to a provider error", async () => {
     send.mockImplementationOnce(() =>
       Promise.resolve({
         Credentials: { SecretKey: "bar" },
-        IdentityId: identityId
+        IdentityId: identityId,
       })
     );
 
@@ -91,20 +89,16 @@ describe("fromCognitoIdentity", () => {
       fromCognitoIdentity({
         client: mockClient,
         identityId,
-        customRoleArn: "myArn"
+        customRoleArn: "myArn",
       })()
-    ).rejects.toMatchObject(
-      new ProviderError(
-        "Response from Amazon Cognito contained no access key ID"
-      )
-    );
+    ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no access key ID"));
   });
 
   it("should convert a GetCredentialsForIdentity response without a secret key to a provider error", async () => {
     send.mockImplementationOnce(() =>
       Promise.resolve({
         Credentials: { AccessKeyId: "foo" },
-        IdentityId: identityId
+        IdentityId: identityId,
       })
     );
 
@@ -112,10 +106,8 @@ describe("fromCognitoIdentity", () => {
       fromCognitoIdentity({
         client: mockClient,
         identityId,
-        customRoleArn: "myArn"
+        customRoleArn: "myArn",
       })()
-    ).rejects.toMatchObject(
-      new ProviderError("Response from Amazon Cognito contained no secret key")
-    );
+    ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no secret key"));
   });
 });

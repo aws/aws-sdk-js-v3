@@ -1,21 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient";
-import {
-  DeletePullRequestApprovalRuleInput,
-  DeletePullRequestApprovalRuleOutput
-} from "../models/index";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { DeletePullRequestApprovalRuleInput, DeletePullRequestApprovalRuleOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeletePullRequestApprovalRuleCommand,
-  serializeAws_json1_1DeletePullRequestApprovalRuleCommand
+  serializeAws_json1_1DeletePullRequestApprovalRuleCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeletePullRequestApprovalRuleCommandInput = DeletePullRequestApprovalRuleInput;
-export type DeletePullRequestApprovalRuleCommandOutput = DeletePullRequestApprovalRuleOutput &
-  __MetadataBearer;
+export type DeletePullRequestApprovalRuleCommandOutput = DeletePullRequestApprovalRuleOutput & __MetadataBearer;
 
 export class DeletePullRequestApprovalRuleCommand extends $Command<
   DeletePullRequestApprovalRuleCommandInput,
@@ -49,18 +38,13 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePullRequestApprovalRuleCommandInput,
-    DeletePullRequestApprovalRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePullRequestApprovalRuleCommandInput, DeletePullRequestApprovalRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeletePullRequestApprovalRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePullRequestApprovalRuleCommand(
-      input,
-      context
-    );
+  private serialize(input: DeletePullRequestApprovalRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeletePullRequestApprovalRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePullRequestApprovalRuleCommandOutput> {
-    return deserializeAws_json1_1DeletePullRequestApprovalRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeletePullRequestApprovalRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

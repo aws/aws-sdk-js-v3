@@ -1,135 +1,69 @@
 import {
   AssociateDelegateToResourceCommandInput,
-  AssociateDelegateToResourceCommandOutput
+  AssociateDelegateToResourceCommandOutput,
 } from "./commands/AssociateDelegateToResourceCommand";
 import {
   AssociateMemberToGroupCommandInput,
-  AssociateMemberToGroupCommandOutput
+  AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
-import {
-  CreateResourceCommandInput,
-  CreateResourceCommandOutput
-} from "./commands/CreateResourceCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
-import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import { CreateResourceCommandInput, CreateResourceCommandOutput } from "./commands/CreateResourceCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteMailboxPermissionsCommandInput,
-  DeleteMailboxPermissionsCommandOutput
+  DeleteMailboxPermissionsCommandOutput,
 } from "./commands/DeleteMailboxPermissionsCommand";
-import {
-  DeleteResourceCommandInput,
-  DeleteResourceCommandOutput
-} from "./commands/DeleteResourceCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "./commands/DeleteResourceCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeregisterFromWorkMailCommandInput,
-  DeregisterFromWorkMailCommandOutput
+  DeregisterFromWorkMailCommandOutput,
 } from "./commands/DeregisterFromWorkMailCommand";
-import {
-  DescribeGroupCommandInput,
-  DescribeGroupCommandOutput
-} from "./commands/DescribeGroupCommand";
+import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
 import {
   DescribeOrganizationCommandInput,
-  DescribeOrganizationCommandOutput
+  DescribeOrganizationCommandOutput,
 } from "./commands/DescribeOrganizationCommand";
-import {
-  DescribeResourceCommandInput,
-  DescribeResourceCommandOutput
-} from "./commands/DescribeResourceCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "./commands/DescribeUserCommand";
+import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
   DisassociateDelegateFromResourceCommandInput,
-  DisassociateDelegateFromResourceCommandOutput
+  DisassociateDelegateFromResourceCommandOutput,
 } from "./commands/DisassociateDelegateFromResourceCommand";
 import {
   DisassociateMemberFromGroupCommandInput,
-  DisassociateMemberFromGroupCommandOutput
+  DisassociateMemberFromGroupCommandOutput,
 } from "./commands/DisassociateMemberFromGroupCommand";
-import {
-  GetMailboxDetailsCommandInput,
-  GetMailboxDetailsCommandOutput
-} from "./commands/GetMailboxDetailsCommand";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand";
-import {
-  ListGroupMembersCommandInput,
-  ListGroupMembersCommandOutput
-} from "./commands/ListGroupMembersCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "./commands/GetMailboxDetailsCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListMailboxPermissionsCommandInput,
-  ListMailboxPermissionsCommandOutput
+  ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand";
-import {
-  ListOrganizationsCommandInput,
-  ListOrganizationsCommandOutput
-} from "./commands/ListOrganizationsCommand";
+import { ListOrganizationsCommandInput, ListOrganizationsCommandOutput } from "./commands/ListOrganizationsCommand";
 import {
   ListResourceDelegatesCommandInput,
-  ListResourceDelegatesCommandOutput
+  ListResourceDelegatesCommandOutput,
 } from "./commands/ListResourceDelegatesCommand";
-import {
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput
-} from "./commands/ListResourcesCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   PutMailboxPermissionsCommandInput,
-  PutMailboxPermissionsCommandOutput
+  PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand";
-import {
-  RegisterToWorkMailCommandInput,
-  RegisterToWorkMailCommandOutput
-} from "./commands/RegisterToWorkMailCommand";
-import {
-  ResetPasswordCommandInput,
-  ResetPasswordCommandOutput
-} from "./commands/ResetPasswordCommand";
-import {
-  UpdateMailboxQuotaCommandInput,
-  UpdateMailboxQuotaCommandOutput
-} from "./commands/UpdateMailboxQuotaCommand";
+import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "./commands/RegisterToWorkMailCommand";
+import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand";
+import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "./commands/UpdateMailboxQuotaCommand";
 import {
   UpdatePrimaryEmailAddressCommandInput,
-  UpdatePrimaryEmailAddressCommandOutput
+  UpdatePrimaryEmailAddressCommandOutput,
 } from "./commands/UpdatePrimaryEmailAddressCommand";
-import {
-  UpdateResourceCommandInput,
-  UpdateResourceCommandOutput
-} from "./commands/UpdateResourceCommand";
+import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -137,38 +71,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -179,7 +108,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -252,8 +181,7 @@ export type ServiceOutputTypes =
   | UpdatePrimaryEmailAddressCommandOutput
   | UpdateResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -342,9 +270,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WorkMailClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WorkMailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -353,9 +279,7 @@ export type WorkMailClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WorkMailClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WorkMailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -412,7 +336,7 @@ export class WorkMailClient extends __Client<
   constructor(configuration: WorkMailClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

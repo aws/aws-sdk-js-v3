@@ -1,21 +1,11 @@
-import {
-  DataSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataSyncClient";
-import {
-  CreateLocationSmbRequest,
-  CreateLocationSmbResponse
-} from "../models/index";
+import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
+import { CreateLocationSmbRequest, CreateLocationSmbResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateLocationSmbCommand,
-  serializeAws_json1_1CreateLocationSmbCommand
+  serializeAws_json1_1CreateLocationSmbCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateLocationSmbCommandInput = CreateLocationSmbRequest;
-export type CreateLocationSmbCommandOutput = CreateLocationSmbResponse &
-  __MetadataBearer;
+export type CreateLocationSmbCommandOutput = CreateLocationSmbResponse & __MetadataBearer;
 
 export class CreateLocationSmbCommand extends $Command<
   CreateLocationSmbCommandInput,
@@ -50,14 +39,12 @@ export class CreateLocationSmbCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateLocationSmbCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLocationSmbCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationSmbCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLocationSmbCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationSmbCommandOutput> {
     return deserializeAws_json1_1CreateLocationSmbCommand(output, context);
   }
 

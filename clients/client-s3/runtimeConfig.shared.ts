@@ -5,5 +5,5 @@ export const ClientSharedValues = {
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
   signingEscapePath: false,
-  signingName: "s3"
+  signingName: "s3",
 };

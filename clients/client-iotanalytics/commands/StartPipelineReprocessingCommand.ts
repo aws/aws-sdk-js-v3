@@ -1,21 +1,11 @@
-import {
-  IoTAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTAnalyticsClient";
-import {
-  StartPipelineReprocessingRequest,
-  StartPipelineReprocessingResponse
-} from "../models/index";
+import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
+import { StartPipelineReprocessingRequest, StartPipelineReprocessingResponse } from "../models/index";
 import {
   deserializeAws_restJson1StartPipelineReprocessingCommand,
-  serializeAws_restJson1StartPipelineReprocessingCommand
+  serializeAws_restJson1StartPipelineReprocessingCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StartPipelineReprocessingCommandInput = StartPipelineReprocessingRequest;
-export type StartPipelineReprocessingCommandOutput = StartPipelineReprocessingResponse &
-  __MetadataBearer;
+export type StartPipelineReprocessingCommandOutput = StartPipelineReprocessingResponse & __MetadataBearer;
 
 export class StartPipelineReprocessingCommand extends $Command<
   StartPipelineReprocessingCommandInput,
@@ -49,18 +38,13 @@ export class StartPipelineReprocessingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartPipelineReprocessingCommandInput,
-    StartPipelineReprocessingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartPipelineReprocessingCommandInput, StartPipelineReprocessingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class StartPipelineReprocessingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartPipelineReprocessingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartPipelineReprocessingCommand(
-      input,
-      context
-    );
+  private serialize(input: StartPipelineReprocessingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StartPipelineReprocessingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartPipelineReprocessingCommandOutput> {
-    return deserializeAws_restJson1StartPipelineReprocessingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StartPipelineReprocessingCommand(output, context);
   }
 
   // Start section: command_body_extra

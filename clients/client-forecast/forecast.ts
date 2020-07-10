@@ -1,132 +1,132 @@
 import {
   CreateDatasetCommand,
   CreateDatasetCommandInput,
-  CreateDatasetCommandOutput
+  CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
   CreateDatasetGroupCommand,
   CreateDatasetGroupCommandInput,
-  CreateDatasetGroupCommandOutput
+  CreateDatasetGroupCommandOutput,
 } from "./commands/CreateDatasetGroupCommand";
 import {
   CreateDatasetImportJobCommand,
   CreateDatasetImportJobCommandInput,
-  CreateDatasetImportJobCommandOutput
+  CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand";
 import {
   CreateForecastCommand,
   CreateForecastCommandInput,
-  CreateForecastCommandOutput
+  CreateForecastCommandOutput,
 } from "./commands/CreateForecastCommand";
 import {
   CreateForecastExportJobCommand,
   CreateForecastExportJobCommandInput,
-  CreateForecastExportJobCommandOutput
+  CreateForecastExportJobCommandOutput,
 } from "./commands/CreateForecastExportJobCommand";
 import {
   CreatePredictorCommand,
   CreatePredictorCommandInput,
-  CreatePredictorCommandOutput
+  CreatePredictorCommandOutput,
 } from "./commands/CreatePredictorCommand";
 import {
   DeleteDatasetCommand,
   DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
+  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
 import {
   DeleteDatasetGroupCommand,
   DeleteDatasetGroupCommandInput,
-  DeleteDatasetGroupCommandOutput
+  DeleteDatasetGroupCommandOutput,
 } from "./commands/DeleteDatasetGroupCommand";
 import {
   DeleteDatasetImportJobCommand,
   DeleteDatasetImportJobCommandInput,
-  DeleteDatasetImportJobCommandOutput
+  DeleteDatasetImportJobCommandOutput,
 } from "./commands/DeleteDatasetImportJobCommand";
 import {
   DeleteForecastCommand,
   DeleteForecastCommandInput,
-  DeleteForecastCommandOutput
+  DeleteForecastCommandOutput,
 } from "./commands/DeleteForecastCommand";
 import {
   DeleteForecastExportJobCommand,
   DeleteForecastExportJobCommandInput,
-  DeleteForecastExportJobCommandOutput
+  DeleteForecastExportJobCommandOutput,
 } from "./commands/DeleteForecastExportJobCommand";
 import {
   DeletePredictorCommand,
   DeletePredictorCommandInput,
-  DeletePredictorCommandOutput
+  DeletePredictorCommandOutput,
 } from "./commands/DeletePredictorCommand";
 import {
   DescribeDatasetCommand,
   DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
+  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommand,
   DescribeDatasetGroupCommandInput,
-  DescribeDatasetGroupCommandOutput
+  DescribeDatasetGroupCommandOutput,
 } from "./commands/DescribeDatasetGroupCommand";
 import {
   DescribeDatasetImportJobCommand,
   DescribeDatasetImportJobCommandInput,
-  DescribeDatasetImportJobCommandOutput
+  DescribeDatasetImportJobCommandOutput,
 } from "./commands/DescribeDatasetImportJobCommand";
 import {
   DescribeForecastCommand,
   DescribeForecastCommandInput,
-  DescribeForecastCommandOutput
+  DescribeForecastCommandOutput,
 } from "./commands/DescribeForecastCommand";
 import {
   DescribeForecastExportJobCommand,
   DescribeForecastExportJobCommandInput,
-  DescribeForecastExportJobCommandOutput
+  DescribeForecastExportJobCommandOutput,
 } from "./commands/DescribeForecastExportJobCommand";
 import {
   DescribePredictorCommand,
   DescribePredictorCommandInput,
-  DescribePredictorCommandOutput
+  DescribePredictorCommandOutput,
 } from "./commands/DescribePredictorCommand";
 import {
   GetAccuracyMetricsCommand,
   GetAccuracyMetricsCommandInput,
-  GetAccuracyMetricsCommandOutput
+  GetAccuracyMetricsCommandOutput,
 } from "./commands/GetAccuracyMetricsCommand";
 import {
   ListDatasetGroupsCommand,
   ListDatasetGroupsCommandInput,
-  ListDatasetGroupsCommandOutput
+  ListDatasetGroupsCommandOutput,
 } from "./commands/ListDatasetGroupsCommand";
 import {
   ListDatasetImportJobsCommand,
   ListDatasetImportJobsCommandInput,
-  ListDatasetImportJobsCommandOutput
+  ListDatasetImportJobsCommandOutput,
 } from "./commands/ListDatasetImportJobsCommand";
 import {
   ListDatasetsCommand,
   ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
+  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
   ListForecastExportJobsCommand,
   ListForecastExportJobsCommandInput,
-  ListForecastExportJobsCommandOutput
+  ListForecastExportJobsCommandOutput,
 } from "./commands/ListForecastExportJobsCommand";
 import {
   ListForecastsCommand,
   ListForecastsCommandInput,
-  ListForecastsCommandOutput
+  ListForecastsCommandOutput,
 } from "./commands/ListForecastsCommand";
 import {
   ListPredictorsCommand,
   ListPredictorsCommandInput,
-  ListPredictorsCommandOutput
+  ListPredictorsCommandOutput,
 } from "./commands/ListPredictorsCommand";
 import {
   UpdateDatasetGroupCommand,
   UpdateDatasetGroupCommandInput,
-  UpdateDatasetGroupCommandOutput
+  UpdateDatasetGroupCommandOutput,
 } from "./commands/UpdateDatasetGroupCommand";
 import { forecastClient } from "./forecastClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
@@ -194,17 +194,14 @@ export class forecast extends forecastClient {
   ): void;
   public createDataset(
     args: CreateDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetCommandOutput) => void
   ): Promise<CreateDatasetCommandOutput> | void {
     const command = new CreateDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -238,17 +235,14 @@ export class forecast extends forecastClient {
   ): void;
   public createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatasetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetGroupCommandOutput) => void
   ): Promise<CreateDatasetGroupCommandOutput> | void {
     const command = new CreateDatasetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -291,17 +285,14 @@ export class forecast extends forecastClient {
   ): void;
   public createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatasetImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetImportJobCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetImportJobCommandOutput) => void
   ): Promise<CreateDatasetImportJobCommandOutput> | void {
     const command = new CreateDatasetImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -344,17 +335,14 @@ export class forecast extends forecastClient {
   ): void;
   public createForecast(
     args: CreateForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateForecastCommandOutput) => void),
     cb?: (err: any, data?: CreateForecastCommandOutput) => void
   ): Promise<CreateForecastCommandOutput> | void {
     const command = new CreateForecastCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -392,17 +380,14 @@ export class forecast extends forecastClient {
   ): void;
   public createForecastExportJob(
     args: CreateForecastExportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateForecastExportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateForecastExportJobCommandOutput) => void),
     cb?: (err: any, data?: CreateForecastExportJobCommandOutput) => void
   ): Promise<CreateForecastExportJobCommandOutput> | void {
     const command = new CreateForecastExportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -484,17 +469,14 @@ export class forecast extends forecastClient {
   ): void;
   public createPredictor(
     args: CreatePredictorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePredictorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePredictorCommandOutput) => void),
     cb?: (err: any, data?: CreatePredictorCommandOutput) => void
   ): Promise<CreatePredictorCommandOutput> | void {
     const command = new CreatePredictorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -527,17 +509,14 @@ export class forecast extends forecastClient {
   ): void;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -565,17 +544,14 @@ export class forecast extends forecastClient {
   ): void;
   public deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetGroupCommandOutput) => void
   ): Promise<DeleteDatasetGroupCommandOutput> | void {
     const command = new DeleteDatasetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -602,17 +578,14 @@ export class forecast extends forecastClient {
   ): void;
   public deleteDatasetImportJob(
     args: DeleteDatasetImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetImportJobCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetImportJobCommandOutput) => void
   ): Promise<DeleteDatasetImportJobCommandOutput> | void {
     const command = new DeleteDatasetImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -641,17 +614,14 @@ export class forecast extends forecastClient {
   ): void;
   public deleteForecast(
     args: DeleteForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteForecastCommandOutput) => void),
     cb?: (err: any, data?: DeleteForecastCommandOutput) => void
   ): Promise<DeleteForecastCommandOutput> | void {
     const command = new DeleteForecastCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -678,17 +648,14 @@ export class forecast extends forecastClient {
   ): void;
   public deleteForecastExportJob(
     args: DeleteForecastExportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteForecastExportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteForecastExportJobCommandOutput) => void),
     cb?: (err: any, data?: DeleteForecastExportJobCommandOutput) => void
   ): Promise<DeleteForecastExportJobCommandOutput> | void {
     const command = new DeleteForecastExportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -715,17 +682,14 @@ export class forecast extends forecastClient {
   ): void;
   public deletePredictor(
     args: DeletePredictorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePredictorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePredictorCommandOutput) => void),
     cb?: (err: any, data?: DeletePredictorCommandOutput) => void
   ): Promise<DeletePredictorCommandOutput> | void {
     const command = new DeletePredictorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -770,17 +734,14 @@ export class forecast extends forecastClient {
   ): void;
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): Promise<DescribeDatasetCommandOutput> | void {
     const command = new DescribeDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -829,17 +790,14 @@ export class forecast extends forecastClient {
   ): void;
   public describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetGroupCommandOutput) => void
   ): Promise<DescribeDatasetGroupCommandOutput> | void {
     const command = new DescribeDatasetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -898,17 +856,14 @@ export class forecast extends forecastClient {
   ): void;
   public describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetImportJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetImportJobCommandOutput) => void
   ): Promise<DescribeDatasetImportJobCommandOutput> | void {
     const command = new DescribeDatasetImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -961,17 +916,14 @@ export class forecast extends forecastClient {
   ): void;
   public describeForecast(
     args: DescribeForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeForecastCommandOutput) => void),
     cb?: (err: any, data?: DescribeForecastCommandOutput) => void
   ): Promise<DescribeForecastCommandOutput> | void {
     const command = new DescribeForecastCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1020,17 +972,14 @@ export class forecast extends forecastClient {
   ): void;
   public describeForecastExportJob(
     args: DescribeForecastExportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeForecastExportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeForecastExportJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeForecastExportJobCommandOutput) => void
   ): Promise<DescribeForecastExportJobCommandOutput> | void {
     const command = new DescribeForecastExportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1089,17 +1038,14 @@ export class forecast extends forecastClient {
   ): void;
   public describePredictor(
     args: DescribePredictorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePredictorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePredictorCommandOutput) => void),
     cb?: (err: any, data?: DescribePredictorCommandOutput) => void
   ): Promise<DescribePredictorCommandOutput> | void {
     const command = new DescribePredictorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1143,17 +1089,14 @@ export class forecast extends forecastClient {
   ): void;
   public getAccuracyMetrics(
     args: GetAccuracyMetricsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccuracyMetricsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccuracyMetricsCommandOutput) => void),
     cb?: (err: any, data?: GetAccuracyMetricsCommandOutput) => void
   ): Promise<GetAccuracyMetricsCommandOutput> | void {
     const command = new GetAccuracyMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1181,17 +1124,14 @@ export class forecast extends forecastClient {
   ): void;
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetGroupsCommandOutput) => void
   ): Promise<ListDatasetGroupsCommandOutput> | void {
     const command = new ListDatasetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1219,17 +1159,14 @@ export class forecast extends forecastClient {
   ): void;
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetImportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetImportJobsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetImportJobsCommandOutput) => void
   ): Promise<ListDatasetImportJobsCommandOutput> | void {
     const command = new ListDatasetImportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1245,10 +1182,7 @@ export class forecast extends forecastClient {
     args: ListDatasetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDatasetsCommandOutput>;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
-    cb: (err: any, data?: ListDatasetsCommandOutput) => void
-  ): void;
+  public listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1256,17 +1190,14 @@ export class forecast extends forecastClient {
   ): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1294,17 +1225,14 @@ export class forecast extends forecastClient {
   ): void;
   public listForecastExportJobs(
     args: ListForecastExportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListForecastExportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListForecastExportJobsCommandOutput) => void),
     cb?: (err: any, data?: ListForecastExportJobsCommandOutput) => void
   ): Promise<ListForecastExportJobsCommandOutput> | void {
     const command = new ListForecastExportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1333,17 +1261,14 @@ export class forecast extends forecastClient {
   ): void;
   public listForecasts(
     args: ListForecastsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListForecastsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListForecastsCommandOutput) => void),
     cb?: (err: any, data?: ListForecastsCommandOutput) => void
   ): Promise<ListForecastsCommandOutput> | void {
     const command = new ListForecastsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1372,17 +1297,14 @@ export class forecast extends forecastClient {
   ): void;
   public listPredictors(
     args: ListPredictorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPredictorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPredictorsCommandOutput) => void),
     cb?: (err: any, data?: ListPredictorsCommandOutput) => void
   ): Promise<ListPredictorsCommandOutput> | void {
     const command = new ListPredictorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1412,17 +1334,14 @@ export class forecast extends forecastClient {
   ): void;
   public updateDatasetGroup(
     args: UpdateDatasetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDatasetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDatasetGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateDatasetGroupCommandOutput) => void
   ): Promise<UpdateDatasetGroupCommandOutput> | void {
     const command = new UpdateDatasetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

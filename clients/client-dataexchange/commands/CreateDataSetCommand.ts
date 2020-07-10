@@ -1,18 +1,11 @@
-import {
-  DataExchangeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataExchangeClient";
+import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { CreateDataSetRequest, CreateDataSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateDataSetCommand,
-  serializeAws_restJson1CreateDataSetCommand
+  serializeAws_restJson1CreateDataSetCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateDataSetCommandInput = CreateDataSetRequest;
-export type CreateDataSetCommandOutput = CreateDataSetResponse &
-  __MetadataBearer;
+export type CreateDataSetCommandOutput = CreateDataSetResponse & __MetadataBearer;
 
 export class CreateDataSetCommand extends $Command<
   CreateDataSetCommandInput,
@@ -47,14 +39,12 @@ export class CreateDataSetCommand extends $Command<
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDataSetCommandInput, CreateDataSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class CreateDataSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDataSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDataSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDataSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSetCommandOutput> {
     return deserializeAws_restJson1CreateDataSetCommand(output, context);
   }
 

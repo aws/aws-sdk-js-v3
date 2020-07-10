@@ -1,114 +1,72 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateReplicationJobCommandInput,
-  CreateReplicationJobCommandOutput
+  CreateReplicationJobCommandOutput,
 } from "./commands/CreateReplicationJobCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteAppLaunchConfigurationCommandInput,
-  DeleteAppLaunchConfigurationCommandOutput
+  DeleteAppLaunchConfigurationCommandOutput,
 } from "./commands/DeleteAppLaunchConfigurationCommand";
 import {
   DeleteAppReplicationConfigurationCommandInput,
-  DeleteAppReplicationConfigurationCommandOutput
+  DeleteAppReplicationConfigurationCommandOutput,
 } from "./commands/DeleteAppReplicationConfigurationCommand";
 import {
   DeleteReplicationJobCommandInput,
-  DeleteReplicationJobCommandOutput
+  DeleteReplicationJobCommandOutput,
 } from "./commands/DeleteReplicationJobCommand";
 import {
   DeleteServerCatalogCommandInput,
-  DeleteServerCatalogCommandOutput
+  DeleteServerCatalogCommandOutput,
 } from "./commands/DeleteServerCatalogCommand";
 import {
   DisassociateConnectorCommandInput,
-  DisassociateConnectorCommandOutput
+  DisassociateConnectorCommandOutput,
 } from "./commands/DisassociateConnectorCommand";
-import {
-  GenerateChangeSetCommandInput,
-  GenerateChangeSetCommandOutput
-} from "./commands/GenerateChangeSetCommand";
-import {
-  GenerateTemplateCommandInput,
-  GenerateTemplateCommandOutput
-} from "./commands/GenerateTemplateCommand";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand";
+import { GenerateChangeSetCommandInput, GenerateChangeSetCommandOutput } from "./commands/GenerateChangeSetCommand";
+import { GenerateTemplateCommandInput, GenerateTemplateCommandOutput } from "./commands/GenerateTemplateCommand";
+import { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
 import {
   GetAppLaunchConfigurationCommandInput,
-  GetAppLaunchConfigurationCommandOutput
+  GetAppLaunchConfigurationCommandOutput,
 } from "./commands/GetAppLaunchConfigurationCommand";
 import {
   GetAppReplicationConfigurationCommandInput,
-  GetAppReplicationConfigurationCommandOutput
+  GetAppReplicationConfigurationCommandOutput,
 } from "./commands/GetAppReplicationConfigurationCommand";
-import {
-  GetConnectorsCommandInput,
-  GetConnectorsCommandOutput
-} from "./commands/GetConnectorsCommand";
-import {
-  GetReplicationJobsCommandInput,
-  GetReplicationJobsCommandOutput
-} from "./commands/GetReplicationJobsCommand";
-import {
-  GetReplicationRunsCommandInput,
-  GetReplicationRunsCommandOutput
-} from "./commands/GetReplicationRunsCommand";
-import {
-  GetServersCommandInput,
-  GetServersCommandOutput
-} from "./commands/GetServersCommand";
+import { GetConnectorsCommandInput, GetConnectorsCommandOutput } from "./commands/GetConnectorsCommand";
+import { GetReplicationJobsCommandInput, GetReplicationJobsCommandOutput } from "./commands/GetReplicationJobsCommand";
+import { GetReplicationRunsCommandInput, GetReplicationRunsCommandOutput } from "./commands/GetReplicationRunsCommand";
+import { GetServersCommandInput, GetServersCommandOutput } from "./commands/GetServersCommand";
 import {
   ImportServerCatalogCommandInput,
-  ImportServerCatalogCommandOutput
+  ImportServerCatalogCommandOutput,
 } from "./commands/ImportServerCatalogCommand";
-import {
-  LaunchAppCommandInput,
-  LaunchAppCommandOutput
-} from "./commands/LaunchAppCommand";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "./commands/ListAppsCommand";
+import { LaunchAppCommandInput, LaunchAppCommandOutput } from "./commands/LaunchAppCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
 import {
   PutAppLaunchConfigurationCommandInput,
-  PutAppLaunchConfigurationCommandOutput
+  PutAppLaunchConfigurationCommandOutput,
 } from "./commands/PutAppLaunchConfigurationCommand";
 import {
   PutAppReplicationConfigurationCommandInput,
-  PutAppReplicationConfigurationCommandOutput
+  PutAppReplicationConfigurationCommandOutput,
 } from "./commands/PutAppReplicationConfigurationCommand";
 import {
   StartAppReplicationCommandInput,
-  StartAppReplicationCommandOutput
+  StartAppReplicationCommandOutput,
 } from "./commands/StartAppReplicationCommand";
 import {
   StartOnDemandReplicationRunCommandInput,
-  StartOnDemandReplicationRunCommandOutput
+  StartOnDemandReplicationRunCommandOutput,
 } from "./commands/StartOnDemandReplicationRunCommand";
-import {
-  StopAppReplicationCommandInput,
-  StopAppReplicationCommandOutput
-} from "./commands/StopAppReplicationCommand";
-import {
-  TerminateAppCommandInput,
-  TerminateAppCommandOutput
-} from "./commands/TerminateAppCommand";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand";
+import { StopAppReplicationCommandInput, StopAppReplicationCommandOutput } from "./commands/StopAppReplicationCommand";
+import { TerminateAppCommandInput, TerminateAppCommandOutput } from "./commands/TerminateAppCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
   UpdateReplicationJobCommandInput,
-  UpdateReplicationJobCommandOutput
+  UpdateReplicationJobCommandOutput,
 } from "./commands/UpdateReplicationJobCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -117,38 +75,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -159,7 +112,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -222,8 +175,7 @@ export type ServiceOutputTypes =
   | UpdateAppCommandOutput
   | UpdateReplicationJobCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -312,9 +264,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SMSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -323,9 +273,7 @@ export type SMSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -368,7 +316,7 @@ export class SMSClient extends __Client<
   constructor(configuration: SMSClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

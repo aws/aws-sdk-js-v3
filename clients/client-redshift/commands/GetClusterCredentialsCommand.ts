@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
-import {
-  ClusterCredentials,
-  GetClusterCredentialsMessage
-} from "../models/index";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ClusterCredentials, GetClusterCredentialsMessage } from "../models/index";
 import {
   deserializeAws_queryGetClusterCredentialsCommand,
-  serializeAws_queryGetClusterCredentialsCommand
+  serializeAws_queryGetClusterCredentialsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetClusterCredentialsCommandInput = GetClusterCredentialsMessage;
-export type GetClusterCredentialsCommandOutput = ClusterCredentials &
-  __MetadataBearer;
+export type GetClusterCredentialsCommandOutput = ClusterCredentials & __MetadataBearer;
 
 export class GetClusterCredentialsCommand extends $Command<
   GetClusterCredentialsCommandInput,
@@ -49,18 +38,13 @@ export class GetClusterCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetClusterCredentialsCommandInput,
-    GetClusterCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetClusterCredentialsCommandInput, GetClusterCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetClusterCredentialsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetClusterCredentialsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetClusterCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetClusterCredentialsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetClusterCredentialsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterCredentialsCommandOutput> {
     return deserializeAws_queryGetClusterCredentialsCommand(output, context);
   }
 

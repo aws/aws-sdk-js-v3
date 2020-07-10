@@ -2,392 +2,388 @@ import { ConfigServiceClient } from "./ConfigServiceClient";
 import {
   BatchGetAggregateResourceConfigCommand,
   BatchGetAggregateResourceConfigCommandInput,
-  BatchGetAggregateResourceConfigCommandOutput
+  BatchGetAggregateResourceConfigCommandOutput,
 } from "./commands/BatchGetAggregateResourceConfigCommand";
 import {
   BatchGetResourceConfigCommand,
   BatchGetResourceConfigCommandInput,
-  BatchGetResourceConfigCommandOutput
+  BatchGetResourceConfigCommandOutput,
 } from "./commands/BatchGetResourceConfigCommand";
 import {
   DeleteAggregationAuthorizationCommand,
   DeleteAggregationAuthorizationCommandInput,
-  DeleteAggregationAuthorizationCommandOutput
+  DeleteAggregationAuthorizationCommandOutput,
 } from "./commands/DeleteAggregationAuthorizationCommand";
 import {
   DeleteConfigRuleCommand,
   DeleteConfigRuleCommandInput,
-  DeleteConfigRuleCommandOutput
+  DeleteConfigRuleCommandOutput,
 } from "./commands/DeleteConfigRuleCommand";
 import {
   DeleteConfigurationAggregatorCommand,
   DeleteConfigurationAggregatorCommandInput,
-  DeleteConfigurationAggregatorCommandOutput
+  DeleteConfigurationAggregatorCommandOutput,
 } from "./commands/DeleteConfigurationAggregatorCommand";
 import {
   DeleteConfigurationRecorderCommand,
   DeleteConfigurationRecorderCommandInput,
-  DeleteConfigurationRecorderCommandOutput
+  DeleteConfigurationRecorderCommandOutput,
 } from "./commands/DeleteConfigurationRecorderCommand";
 import {
   DeleteConformancePackCommand,
   DeleteConformancePackCommandInput,
-  DeleteConformancePackCommandOutput
+  DeleteConformancePackCommandOutput,
 } from "./commands/DeleteConformancePackCommand";
 import {
   DeleteDeliveryChannelCommand,
   DeleteDeliveryChannelCommandInput,
-  DeleteDeliveryChannelCommandOutput
+  DeleteDeliveryChannelCommandOutput,
 } from "./commands/DeleteDeliveryChannelCommand";
 import {
   DeleteEvaluationResultsCommand,
   DeleteEvaluationResultsCommandInput,
-  DeleteEvaluationResultsCommandOutput
+  DeleteEvaluationResultsCommandOutput,
 } from "./commands/DeleteEvaluationResultsCommand";
 import {
   DeleteOrganizationConfigRuleCommand,
   DeleteOrganizationConfigRuleCommandInput,
-  DeleteOrganizationConfigRuleCommandOutput
+  DeleteOrganizationConfigRuleCommandOutput,
 } from "./commands/DeleteOrganizationConfigRuleCommand";
 import {
   DeleteOrganizationConformancePackCommand,
   DeleteOrganizationConformancePackCommandInput,
-  DeleteOrganizationConformancePackCommandOutput
+  DeleteOrganizationConformancePackCommandOutput,
 } from "./commands/DeleteOrganizationConformancePackCommand";
 import {
   DeletePendingAggregationRequestCommand,
   DeletePendingAggregationRequestCommandInput,
-  DeletePendingAggregationRequestCommandOutput
+  DeletePendingAggregationRequestCommandOutput,
 } from "./commands/DeletePendingAggregationRequestCommand";
 import {
   DeleteRemediationConfigurationCommand,
   DeleteRemediationConfigurationCommandInput,
-  DeleteRemediationConfigurationCommandOutput
+  DeleteRemediationConfigurationCommandOutput,
 } from "./commands/DeleteRemediationConfigurationCommand";
 import {
   DeleteRemediationExceptionsCommand,
   DeleteRemediationExceptionsCommandInput,
-  DeleteRemediationExceptionsCommandOutput
+  DeleteRemediationExceptionsCommandOutput,
 } from "./commands/DeleteRemediationExceptionsCommand";
 import {
   DeleteResourceConfigCommand,
   DeleteResourceConfigCommandInput,
-  DeleteResourceConfigCommandOutput
+  DeleteResourceConfigCommandOutput,
 } from "./commands/DeleteResourceConfigCommand";
 import {
   DeleteRetentionConfigurationCommand,
   DeleteRetentionConfigurationCommandInput,
-  DeleteRetentionConfigurationCommandOutput
+  DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand";
 import {
   DeliverConfigSnapshotCommand,
   DeliverConfigSnapshotCommandInput,
-  DeliverConfigSnapshotCommandOutput
+  DeliverConfigSnapshotCommandOutput,
 } from "./commands/DeliverConfigSnapshotCommand";
 import {
   DescribeAggregateComplianceByConfigRulesCommand,
   DescribeAggregateComplianceByConfigRulesCommandInput,
-  DescribeAggregateComplianceByConfigRulesCommandOutput
+  DescribeAggregateComplianceByConfigRulesCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConfigRulesCommand";
 import {
   DescribeAggregationAuthorizationsCommand,
   DescribeAggregationAuthorizationsCommandInput,
-  DescribeAggregationAuthorizationsCommandOutput
+  DescribeAggregationAuthorizationsCommandOutput,
 } from "./commands/DescribeAggregationAuthorizationsCommand";
 import {
   DescribeComplianceByConfigRuleCommand,
   DescribeComplianceByConfigRuleCommandInput,
-  DescribeComplianceByConfigRuleCommandOutput
+  DescribeComplianceByConfigRuleCommandOutput,
 } from "./commands/DescribeComplianceByConfigRuleCommand";
 import {
   DescribeComplianceByResourceCommand,
   DescribeComplianceByResourceCommandInput,
-  DescribeComplianceByResourceCommandOutput
+  DescribeComplianceByResourceCommandOutput,
 } from "./commands/DescribeComplianceByResourceCommand";
 import {
   DescribeConfigRuleEvaluationStatusCommand,
   DescribeConfigRuleEvaluationStatusCommandInput,
-  DescribeConfigRuleEvaluationStatusCommandOutput
+  DescribeConfigRuleEvaluationStatusCommandOutput,
 } from "./commands/DescribeConfigRuleEvaluationStatusCommand";
 import {
   DescribeConfigRulesCommand,
   DescribeConfigRulesCommandInput,
-  DescribeConfigRulesCommandOutput
+  DescribeConfigRulesCommandOutput,
 } from "./commands/DescribeConfigRulesCommand";
 import {
   DescribeConfigurationAggregatorSourcesStatusCommand,
   DescribeConfigurationAggregatorSourcesStatusCommandInput,
-  DescribeConfigurationAggregatorSourcesStatusCommandOutput
+  DescribeConfigurationAggregatorSourcesStatusCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorSourcesStatusCommand";
 import {
   DescribeConfigurationAggregatorsCommand,
   DescribeConfigurationAggregatorsCommandInput,
-  DescribeConfigurationAggregatorsCommandOutput
+  DescribeConfigurationAggregatorsCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorsCommand";
 import {
   DescribeConfigurationRecorderStatusCommand,
   DescribeConfigurationRecorderStatusCommandInput,
-  DescribeConfigurationRecorderStatusCommandOutput
+  DescribeConfigurationRecorderStatusCommandOutput,
 } from "./commands/DescribeConfigurationRecorderStatusCommand";
 import {
   DescribeConfigurationRecordersCommand,
   DescribeConfigurationRecordersCommandInput,
-  DescribeConfigurationRecordersCommandOutput
+  DescribeConfigurationRecordersCommandOutput,
 } from "./commands/DescribeConfigurationRecordersCommand";
 import {
   DescribeConformancePackComplianceCommand,
   DescribeConformancePackComplianceCommandInput,
-  DescribeConformancePackComplianceCommandOutput
+  DescribeConformancePackComplianceCommandOutput,
 } from "./commands/DescribeConformancePackComplianceCommand";
 import {
   DescribeConformancePackStatusCommand,
   DescribeConformancePackStatusCommandInput,
-  DescribeConformancePackStatusCommandOutput
+  DescribeConformancePackStatusCommandOutput,
 } from "./commands/DescribeConformancePackStatusCommand";
 import {
   DescribeConformancePacksCommand,
   DescribeConformancePacksCommandInput,
-  DescribeConformancePacksCommandOutput
+  DescribeConformancePacksCommandOutput,
 } from "./commands/DescribeConformancePacksCommand";
 import {
   DescribeDeliveryChannelStatusCommand,
   DescribeDeliveryChannelStatusCommandInput,
-  DescribeDeliveryChannelStatusCommandOutput
+  DescribeDeliveryChannelStatusCommandOutput,
 } from "./commands/DescribeDeliveryChannelStatusCommand";
 import {
   DescribeDeliveryChannelsCommand,
   DescribeDeliveryChannelsCommandInput,
-  DescribeDeliveryChannelsCommandOutput
+  DescribeDeliveryChannelsCommandOutput,
 } from "./commands/DescribeDeliveryChannelsCommand";
 import {
   DescribeOrganizationConfigRuleStatusesCommand,
   DescribeOrganizationConfigRuleStatusesCommandInput,
-  DescribeOrganizationConfigRuleStatusesCommandOutput
+  DescribeOrganizationConfigRuleStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRuleStatusesCommand";
 import {
   DescribeOrganizationConfigRulesCommand,
   DescribeOrganizationConfigRulesCommandInput,
-  DescribeOrganizationConfigRulesCommandOutput
+  DescribeOrganizationConfigRulesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRulesCommand";
 import {
   DescribeOrganizationConformancePackStatusesCommand,
   DescribeOrganizationConformancePackStatusesCommandInput,
-  DescribeOrganizationConformancePackStatusesCommandOutput
+  DescribeOrganizationConformancePackStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConformancePackStatusesCommand";
 import {
   DescribeOrganizationConformancePacksCommand,
   DescribeOrganizationConformancePacksCommandInput,
-  DescribeOrganizationConformancePacksCommandOutput
+  DescribeOrganizationConformancePacksCommandOutput,
 } from "./commands/DescribeOrganizationConformancePacksCommand";
 import {
   DescribePendingAggregationRequestsCommand,
   DescribePendingAggregationRequestsCommandInput,
-  DescribePendingAggregationRequestsCommandOutput
+  DescribePendingAggregationRequestsCommandOutput,
 } from "./commands/DescribePendingAggregationRequestsCommand";
 import {
   DescribeRemediationConfigurationsCommand,
   DescribeRemediationConfigurationsCommandInput,
-  DescribeRemediationConfigurationsCommandOutput
+  DescribeRemediationConfigurationsCommandOutput,
 } from "./commands/DescribeRemediationConfigurationsCommand";
 import {
   DescribeRemediationExceptionsCommand,
   DescribeRemediationExceptionsCommandInput,
-  DescribeRemediationExceptionsCommandOutput
+  DescribeRemediationExceptionsCommandOutput,
 } from "./commands/DescribeRemediationExceptionsCommand";
 import {
   DescribeRemediationExecutionStatusCommand,
   DescribeRemediationExecutionStatusCommandInput,
-  DescribeRemediationExecutionStatusCommandOutput
+  DescribeRemediationExecutionStatusCommandOutput,
 } from "./commands/DescribeRemediationExecutionStatusCommand";
 import {
   DescribeRetentionConfigurationsCommand,
   DescribeRetentionConfigurationsCommandInput,
-  DescribeRetentionConfigurationsCommandOutput
+  DescribeRetentionConfigurationsCommandOutput,
 } from "./commands/DescribeRetentionConfigurationsCommand";
 import {
   GetAggregateComplianceDetailsByConfigRuleCommand,
   GetAggregateComplianceDetailsByConfigRuleCommandInput,
-  GetAggregateComplianceDetailsByConfigRuleCommandOutput
+  GetAggregateComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetAggregateComplianceDetailsByConfigRuleCommand";
 import {
   GetAggregateConfigRuleComplianceSummaryCommand,
   GetAggregateConfigRuleComplianceSummaryCommandInput,
-  GetAggregateConfigRuleComplianceSummaryCommandOutput
+  GetAggregateConfigRuleComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConfigRuleComplianceSummaryCommand";
 import {
   GetAggregateDiscoveredResourceCountsCommand,
   GetAggregateDiscoveredResourceCountsCommandInput,
-  GetAggregateDiscoveredResourceCountsCommandOutput
+  GetAggregateDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetAggregateDiscoveredResourceCountsCommand";
 import {
   GetAggregateResourceConfigCommand,
   GetAggregateResourceConfigCommandInput,
-  GetAggregateResourceConfigCommandOutput
+  GetAggregateResourceConfigCommandOutput,
 } from "./commands/GetAggregateResourceConfigCommand";
 import {
   GetComplianceDetailsByConfigRuleCommand,
   GetComplianceDetailsByConfigRuleCommandInput,
-  GetComplianceDetailsByConfigRuleCommandOutput
+  GetComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetComplianceDetailsByConfigRuleCommand";
 import {
   GetComplianceDetailsByResourceCommand,
   GetComplianceDetailsByResourceCommandInput,
-  GetComplianceDetailsByResourceCommandOutput
+  GetComplianceDetailsByResourceCommandOutput,
 } from "./commands/GetComplianceDetailsByResourceCommand";
 import {
   GetComplianceSummaryByConfigRuleCommand,
   GetComplianceSummaryByConfigRuleCommandInput,
-  GetComplianceSummaryByConfigRuleCommandOutput
+  GetComplianceSummaryByConfigRuleCommandOutput,
 } from "./commands/GetComplianceSummaryByConfigRuleCommand";
 import {
   GetComplianceSummaryByResourceTypeCommand,
   GetComplianceSummaryByResourceTypeCommandInput,
-  GetComplianceSummaryByResourceTypeCommandOutput
+  GetComplianceSummaryByResourceTypeCommandOutput,
 } from "./commands/GetComplianceSummaryByResourceTypeCommand";
 import {
   GetConformancePackComplianceDetailsCommand,
   GetConformancePackComplianceDetailsCommandInput,
-  GetConformancePackComplianceDetailsCommandOutput
+  GetConformancePackComplianceDetailsCommandOutput,
 } from "./commands/GetConformancePackComplianceDetailsCommand";
 import {
   GetConformancePackComplianceSummaryCommand,
   GetConformancePackComplianceSummaryCommandInput,
-  GetConformancePackComplianceSummaryCommandOutput
+  GetConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetConformancePackComplianceSummaryCommand";
 import {
   GetDiscoveredResourceCountsCommand,
   GetDiscoveredResourceCountsCommandInput,
-  GetDiscoveredResourceCountsCommandOutput
+  GetDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetDiscoveredResourceCountsCommand";
 import {
   GetOrganizationConfigRuleDetailedStatusCommand,
   GetOrganizationConfigRuleDetailedStatusCommandInput,
-  GetOrganizationConfigRuleDetailedStatusCommandOutput
+  GetOrganizationConfigRuleDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConfigRuleDetailedStatusCommand";
 import {
   GetOrganizationConformancePackDetailedStatusCommand,
   GetOrganizationConformancePackDetailedStatusCommandInput,
-  GetOrganizationConformancePackDetailedStatusCommandOutput
+  GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConformancePackDetailedStatusCommand";
 import {
   GetResourceConfigHistoryCommand,
   GetResourceConfigHistoryCommandInput,
-  GetResourceConfigHistoryCommandOutput
+  GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
 import {
   ListAggregateDiscoveredResourcesCommand,
   ListAggregateDiscoveredResourcesCommandInput,
-  ListAggregateDiscoveredResourcesCommandOutput
+  ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand";
 import {
   ListDiscoveredResourcesCommand,
   ListDiscoveredResourcesCommandInput,
-  ListDiscoveredResourcesCommandOutput
+  ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutAggregationAuthorizationCommand,
   PutAggregationAuthorizationCommandInput,
-  PutAggregationAuthorizationCommandOutput
+  PutAggregationAuthorizationCommandOutput,
 } from "./commands/PutAggregationAuthorizationCommand";
 import {
   PutConfigRuleCommand,
   PutConfigRuleCommandInput,
-  PutConfigRuleCommandOutput
+  PutConfigRuleCommandOutput,
 } from "./commands/PutConfigRuleCommand";
 import {
   PutConfigurationAggregatorCommand,
   PutConfigurationAggregatorCommandInput,
-  PutConfigurationAggregatorCommandOutput
+  PutConfigurationAggregatorCommandOutput,
 } from "./commands/PutConfigurationAggregatorCommand";
 import {
   PutConfigurationRecorderCommand,
   PutConfigurationRecorderCommandInput,
-  PutConfigurationRecorderCommandOutput
+  PutConfigurationRecorderCommandOutput,
 } from "./commands/PutConfigurationRecorderCommand";
 import {
   PutConformancePackCommand,
   PutConformancePackCommandInput,
-  PutConformancePackCommandOutput
+  PutConformancePackCommandOutput,
 } from "./commands/PutConformancePackCommand";
 import {
   PutDeliveryChannelCommand,
   PutDeliveryChannelCommandInput,
-  PutDeliveryChannelCommandOutput
+  PutDeliveryChannelCommandOutput,
 } from "./commands/PutDeliveryChannelCommand";
 import {
   PutEvaluationsCommand,
   PutEvaluationsCommandInput,
-  PutEvaluationsCommandOutput
+  PutEvaluationsCommandOutput,
 } from "./commands/PutEvaluationsCommand";
 import {
   PutOrganizationConfigRuleCommand,
   PutOrganizationConfigRuleCommandInput,
-  PutOrganizationConfigRuleCommandOutput
+  PutOrganizationConfigRuleCommandOutput,
 } from "./commands/PutOrganizationConfigRuleCommand";
 import {
   PutOrganizationConformancePackCommand,
   PutOrganizationConformancePackCommandInput,
-  PutOrganizationConformancePackCommandOutput
+  PutOrganizationConformancePackCommandOutput,
 } from "./commands/PutOrganizationConformancePackCommand";
 import {
   PutRemediationConfigurationsCommand,
   PutRemediationConfigurationsCommandInput,
-  PutRemediationConfigurationsCommandOutput
+  PutRemediationConfigurationsCommandOutput,
 } from "./commands/PutRemediationConfigurationsCommand";
 import {
   PutRemediationExceptionsCommand,
   PutRemediationExceptionsCommandInput,
-  PutRemediationExceptionsCommandOutput
+  PutRemediationExceptionsCommandOutput,
 } from "./commands/PutRemediationExceptionsCommand";
 import {
   PutResourceConfigCommand,
   PutResourceConfigCommandInput,
-  PutResourceConfigCommandOutput
+  PutResourceConfigCommandOutput,
 } from "./commands/PutResourceConfigCommand";
 import {
   PutRetentionConfigurationCommand,
   PutRetentionConfigurationCommandInput,
-  PutRetentionConfigurationCommandOutput
+  PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
 import {
   SelectResourceConfigCommand,
   SelectResourceConfigCommandInput,
-  SelectResourceConfigCommandOutput
+  SelectResourceConfigCommandOutput,
 } from "./commands/SelectResourceConfigCommand";
 import {
   StartConfigRulesEvaluationCommand,
   StartConfigRulesEvaluationCommandInput,
-  StartConfigRulesEvaluationCommandOutput
+  StartConfigRulesEvaluationCommandOutput,
 } from "./commands/StartConfigRulesEvaluationCommand";
 import {
   StartConfigurationRecorderCommand,
   StartConfigurationRecorderCommandInput,
-  StartConfigurationRecorderCommandOutput
+  StartConfigurationRecorderCommandOutput,
 } from "./commands/StartConfigurationRecorderCommand";
 import {
   StartRemediationExecutionCommand,
   StartRemediationExecutionCommandInput,
-  StartRemediationExecutionCommandOutput
+  StartRemediationExecutionCommandOutput,
 } from "./commands/StartRemediationExecutionCommand";
 import {
   StopConfigurationRecorderCommand,
   StopConfigurationRecorderCommandInput,
-  StopConfigurationRecorderCommandOutput
+  StopConfigurationRecorderCommandOutput,
 } from "./commands/StopConfigurationRecorderCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -448,20 +444,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public batchGetAggregateResourceConfig(
     args: BatchGetAggregateResourceConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: BatchGetAggregateResourceConfigCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetAggregateResourceConfigCommandOutput) => void),
     cb?: (err: any, data?: BatchGetAggregateResourceConfigCommandOutput) => void
   ): Promise<BatchGetAggregateResourceConfigCommandOutput> | void {
     const command = new BatchGetAggregateResourceConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -504,17 +494,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public batchGetResourceConfig(
     args: BatchGetResourceConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetResourceConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetResourceConfigCommandOutput) => void),
     cb?: (err: any, data?: BatchGetResourceConfigCommandOutput) => void
   ): Promise<BatchGetResourceConfigCommandOutput> | void {
     const command = new BatchGetResourceConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -540,20 +527,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteAggregationAuthorization(
     args: DeleteAggregationAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteAggregationAuthorizationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAggregationAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: DeleteAggregationAuthorizationCommandOutput) => void
   ): Promise<DeleteAggregationAuthorizationCommandOutput> | void {
     const command = new DeleteAggregationAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -586,17 +567,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteConfigRule(
     args: DeleteConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigRuleCommandOutput) => void
   ): Promise<DeleteConfigRuleCommandOutput> | void {
     const command = new DeleteConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -622,17 +600,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteConfigurationAggregator(
     args: DeleteConfigurationAggregatorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigurationAggregatorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationAggregatorCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigurationAggregatorCommandOutput) => void
   ): Promise<DeleteConfigurationAggregatorCommandOutput> | void {
     const command = new DeleteConfigurationAggregatorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -666,17 +641,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteConfigurationRecorder(
     args: DeleteConfigurationRecorderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigurationRecorderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationRecorderCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigurationRecorderCommandOutput) => void
   ): Promise<DeleteConfigurationRecorderCommandOutput> | void {
     const command = new DeleteConfigurationRecorderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -702,17 +674,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteConformancePack(
     args: DeleteConformancePackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConformancePackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConformancePackCommandOutput) => void),
     cb?: (err: any, data?: DeleteConformancePackCommandOutput) => void
   ): Promise<DeleteConformancePackCommandOutput> | void {
     const command = new DeleteConformancePackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -739,17 +708,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteDeliveryChannel(
     args: DeleteDeliveryChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeliveryChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeliveryChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeliveryChannelCommandOutput) => void
   ): Promise<DeleteDeliveryChannelCommandOutput> | void {
     const command = new DeleteDeliveryChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -777,17 +743,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteEvaluationResults(
     args: DeleteEvaluationResultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEvaluationResultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEvaluationResultsCommandOutput) => void),
     cb?: (err: any, data?: DeleteEvaluationResultsCommandOutput) => void
   ): Promise<DeleteEvaluationResultsCommandOutput> | void {
     const command = new DeleteEvaluationResultsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -814,17 +777,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteOrganizationConfigRule(
     args: DeleteOrganizationConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteOrganizationConfigRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOrganizationConfigRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteOrganizationConfigRuleCommandOutput) => void
   ): Promise<DeleteOrganizationConfigRuleCommandOutput> | void {
     const command = new DeleteOrganizationConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -843,38 +803,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DeleteOrganizationConformancePackCommandOutput>;
   public deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteOrganizationConformancePackCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void
   ): void;
   public deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteOrganizationConformancePackCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void
   ): void;
   public deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteOrganizationConformancePackCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteOrganizationConformancePackCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void
   ): Promise<DeleteOrganizationConformancePackCommandOutput> | void {
     const command = new DeleteOrganizationConformancePackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -900,20 +845,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deletePendingAggregationRequest(
     args: DeletePendingAggregationRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeletePendingAggregationRequestCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePendingAggregationRequestCommandOutput) => void),
     cb?: (err: any, data?: DeletePendingAggregationRequestCommandOutput) => void
   ): Promise<DeletePendingAggregationRequestCommandOutput> | void {
     const command = new DeletePendingAggregationRequestCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -938,20 +877,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteRemediationConfiguration(
     args: DeleteRemediationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteRemediationConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRemediationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteRemediationConfigurationCommandOutput) => void
   ): Promise<DeleteRemediationConfigurationCommandOutput> | void {
     const command = new DeleteRemediationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -976,17 +909,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteRemediationExceptions(
     args: DeleteRemediationExceptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRemediationExceptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRemediationExceptionsCommandOutput) => void),
     cb?: (err: any, data?: DeleteRemediationExceptionsCommandOutput) => void
   ): Promise<DeleteRemediationExceptionsCommandOutput> | void {
     const command = new DeleteRemediationExceptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1012,17 +942,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteResourceConfig(
     args: DeleteResourceConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourceConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourceConfigCommandOutput) => void
   ): Promise<DeleteResourceConfigCommandOutput> | void {
     const command = new DeleteResourceConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1047,17 +974,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteRetentionConfiguration(
     args: DeleteRetentionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRetentionConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRetentionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteRetentionConfigurationCommandOutput) => void
   ): Promise<DeleteRetentionConfigurationCommandOutput> | void {
     const command = new DeleteRetentionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1098,17 +1022,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deliverConfigSnapshot(
     args: DeliverConfigSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeliverConfigSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeliverConfigSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeliverConfigSnapshotCommandOutput) => void
   ): Promise<DeliverConfigSnapshotCommandOutput> | void {
     const command = new DeliverConfigSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1131,38 +1052,25 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput>;
   public describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAggregateComplianceByConfigRulesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void
   ): void;
   public describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAggregateComplianceByConfigRulesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void
   ): void;
   public describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAggregateComplianceByConfigRulesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAggregateComplianceByConfigRulesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> | void {
     const command = new DescribeAggregateComplianceByConfigRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1179,38 +1087,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeAggregationAuthorizationsCommandOutput>;
   public describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAggregationAuthorizationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void
   ): void;
   public describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAggregationAuthorizationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void
   ): void;
   public describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAggregationAuthorizationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAggregationAuthorizationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void
   ): Promise<DescribeAggregationAuthorizationsCommandOutput> | void {
     const command = new DescribeAggregationAuthorizationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1267,20 +1160,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeComplianceByConfigRule(
     args: DescribeComplianceByConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeComplianceByConfigRuleCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeComplianceByConfigRuleCommandOutput) => void),
     cb?: (err: any, data?: DescribeComplianceByConfigRuleCommandOutput) => void
   ): Promise<DescribeComplianceByConfigRuleCommandOutput> | void {
     const command = new DescribeComplianceByConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1338,17 +1225,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeComplianceByResource(
     args: DescribeComplianceByResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeComplianceByResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeComplianceByResourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeComplianceByResourceCommandOutput) => void
   ): Promise<DescribeComplianceByResourceCommandOutput> | void {
     const command = new DescribeComplianceByResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1367,38 +1251,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput>;
   public describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConfigRuleEvaluationStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void
   ): void;
   public describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConfigRuleEvaluationStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void
   ): void;
   public describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigRuleEvaluationStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigRuleEvaluationStatusCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void
   ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> | void {
     const command = new DescribeConfigRuleEvaluationStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1423,17 +1292,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeConfigRules(
     args: DescribeConfigRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConfigRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigRulesCommandOutput) => void),
     cb?: (err: any, data?: DescribeConfigRulesCommandOutput) => void
   ): Promise<DescribeConfigRulesCommandOutput> | void {
     const command = new DescribeConfigRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1461,23 +1327,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeConfigurationAggregators(
     args: DescribeConfigurationAggregatorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationAggregatorsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigurationAggregatorsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void
   ): Promise<DescribeConfigurationAggregatorsCommandOutput> | void {
     const command = new DescribeConfigurationAggregatorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1494,40 +1351,25 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput>;
   public describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void
   ): void;
   public describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void
   ): void;
   public describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void
   ): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> | void {
-    const command = new DescribeConfigurationAggregatorSourcesStatusCommand(
-      args
-    );
+    const command = new DescribeConfigurationAggregatorSourcesStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1559,20 +1401,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeConfigurationRecorders(
     args: DescribeConfigurationRecordersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationRecordersCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigurationRecordersCommandOutput) => void),
     cb?: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
   ): Promise<DescribeConfigurationRecordersCommandOutput> | void {
     const command = new DescribeConfigurationRecordersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1595,38 +1431,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeConfigurationRecorderStatusCommandOutput>;
   public describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConfigurationRecorderStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void
   ): void;
   public describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConfigurationRecorderStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void
   ): void;
   public describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationRecorderStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigurationRecorderStatusCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void
   ): Promise<DescribeConfigurationRecorderStatusCommandOutput> | void {
     const command = new DescribeConfigurationRecorderStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1645,38 +1466,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeConformancePackComplianceCommandOutput>;
   public describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConformancePackComplianceCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConformancePackComplianceCommandOutput) => void
   ): void;
   public describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConformancePackComplianceCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConformancePackComplianceCommandOutput) => void
   ): void;
   public describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConformancePackComplianceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConformancePackComplianceCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConformancePackComplianceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConformancePackComplianceCommandOutput) => void
   ): Promise<DescribeConformancePackComplianceCommandOutput> | void {
     const command = new DescribeConformancePackComplianceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1701,17 +1507,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeConformancePacks(
     args: DescribeConformancePacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConformancePacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConformancePacksCommandOutput) => void),
     cb?: (err: any, data?: DescribeConformancePacksCommandOutput) => void
   ): Promise<DescribeConformancePacksCommandOutput> | void {
     const command = new DescribeConformancePacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1739,17 +1542,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeConformancePackStatus(
     args: DescribeConformancePackStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConformancePackStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConformancePackStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeConformancePackStatusCommandOutput) => void
   ): Promise<DescribeConformancePackStatusCommandOutput> | void {
     const command = new DescribeConformancePackStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1780,17 +1580,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeDeliveryChannels(
     args: DescribeDeliveryChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeliveryChannelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeliveryChannelsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeliveryChannelsCommandOutput) => void
   ): Promise<DescribeDeliveryChannelsCommandOutput> | void {
     const command = new DescribeDeliveryChannelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1822,17 +1619,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeDeliveryChannelStatus(
     args: DescribeDeliveryChannelStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeliveryChannelStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeliveryChannelStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeliveryChannelStatusCommandOutput) => void
   ): Promise<DescribeDeliveryChannelStatusCommandOutput> | void {
     const command = new DescribeDeliveryChannelStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1863,20 +1657,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeOrganizationConfigRules(
     args: DescribeOrganizationConfigRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConfigRulesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void),
     cb?: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
   ): Promise<DescribeOrganizationConfigRulesCommandOutput> | void {
     const command = new DescribeOrganizationConfigRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1899,38 +1687,25 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput>;
   public describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConfigRuleStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void
   ): void;
   public describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConfigRuleStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void
   ): void;
   public describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConfigRuleStatusesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrganizationConfigRuleStatusesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void
   ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> | void {
     const command = new DescribeOrganizationConfigRuleStatusesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1952,38 +1727,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeOrganizationConformancePacksCommandOutput>;
   public describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void
   ): void;
   public describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void
   ): void;
   public describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConformancePacksCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void
   ): Promise<DescribeOrganizationConformancePacksCommandOutput> | void {
     const command = new DescribeOrganizationConformancePacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2007,40 +1767,25 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput>;
   public describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePackStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void
   ): void;
   public describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePackStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void
   ): void;
   public describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConformancePackStatusesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrganizationConformancePackStatusesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void
   ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> | void {
-    const command = new DescribeOrganizationConformancePackStatusesCommand(
-      args
-    );
+    const command = new DescribeOrganizationConformancePackStatusesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2056,38 +1801,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribePendingAggregationRequestsCommandOutput>;
   public describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribePendingAggregationRequestsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void
   ): void;
   public describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribePendingAggregationRequestsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void
   ): void;
   public describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePendingAggregationRequestsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribePendingAggregationRequestsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void),
+    cb?: (err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void
   ): Promise<DescribePendingAggregationRequestsCommandOutput> | void {
     const command = new DescribePendingAggregationRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2103,38 +1833,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeRemediationConfigurationsCommandOutput>;
   public describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeRemediationConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void
   ): void;
   public describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeRemediationConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void
   ): void;
   public describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeRemediationConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeRemediationConfigurationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void
   ): Promise<DescribeRemediationConfigurationsCommandOutput> | void {
     const command = new DescribeRemediationConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2164,17 +1879,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeRemediationExceptions(
     args: DescribeRemediationExceptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRemediationExceptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRemediationExceptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeRemediationExceptionsCommandOutput) => void
   ): Promise<DescribeRemediationExceptionsCommandOutput> | void {
     const command = new DescribeRemediationExceptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2191,38 +1903,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeRemediationExecutionStatusCommandOutput>;
   public describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeRemediationExecutionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void
   ): void;
   public describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeRemediationExecutionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void
   ): void;
   public describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeRemediationExecutionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeRemediationExecutionStatusCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void
   ): Promise<DescribeRemediationExecutionStatusCommandOutput> | void {
     const command = new DescribeRemediationExecutionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2254,20 +1951,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public describeRetentionConfigurations(
     args: DescribeRetentionConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeRetentionConfigurationsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRetentionConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeRetentionConfigurationsCommandOutput) => void
   ): Promise<DescribeRetentionConfigurationsCommandOutput> | void {
     const command = new DescribeRetentionConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2291,38 +1982,25 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput>;
   public getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
-    cb: (
-      err: any,
-      data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void
   ): void;
   public getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void
   ): void;
   public getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput
-    ) => void
+      | ((err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void),
+    cb?: (err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> | void {
     const command = new GetAggregateComplianceDetailsByConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2344,38 +2022,25 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput>;
   public getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
-    cb: (
-      err: any,
-      data?: GetAggregateConfigRuleComplianceSummaryCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void
   ): void;
   public getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAggregateConfigRuleComplianceSummaryCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void
   ): void;
   public getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAggregateConfigRuleComplianceSummaryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAggregateConfigRuleComplianceSummaryCommandOutput
-    ) => void
+      | ((err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> | void {
     const command = new GetAggregateConfigRuleComplianceSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2393,38 +2058,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput>;
   public getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
-    cb: (
-      err: any,
-      data?: GetAggregateDiscoveredResourceCountsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void
   ): void;
   public getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAggregateDiscoveredResourceCountsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void
   ): void;
   public getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAggregateDiscoveredResourceCountsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAggregateDiscoveredResourceCountsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void),
+    cb?: (err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void
   ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> | void {
     const command = new GetAggregateDiscoveredResourceCountsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2449,17 +2099,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public getAggregateResourceConfig(
     args: GetAggregateResourceConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAggregateResourceConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAggregateResourceConfigCommandOutput) => void),
     cb?: (err: any, data?: GetAggregateResourceConfigCommandOutput) => void
   ): Promise<GetAggregateResourceConfigCommandOutput> | void {
     const command = new GetAggregateResourceConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2487,23 +2134,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public getComplianceDetailsByConfigRule(
     args: GetComplianceDetailsByConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetComplianceDetailsByConfigRuleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetComplianceDetailsByConfigRuleCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComplianceDetailsByConfigRuleCommandOutput) => void),
+    cb?: (err: any, data?: GetComplianceDetailsByConfigRuleCommandOutput) => void
   ): Promise<GetComplianceDetailsByConfigRuleCommandOutput> | void {
     const command = new GetComplianceDetailsByConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2531,20 +2169,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public getComplianceDetailsByResource(
     args: GetComplianceDetailsByResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetComplianceDetailsByResourceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComplianceDetailsByResourceCommandOutput) => void),
     cb?: (err: any, data?: GetComplianceDetailsByResourceCommandOutput) => void
   ): Promise<GetComplianceDetailsByResourceCommandOutput> | void {
     const command = new GetComplianceDetailsByResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2570,23 +2202,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public getComplianceSummaryByConfigRule(
     args: GetComplianceSummaryByConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetComplianceSummaryByConfigRuleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetComplianceSummaryByConfigRuleCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComplianceSummaryByConfigRuleCommandOutput) => void),
+    cb?: (err: any, data?: GetComplianceSummaryByConfigRuleCommandOutput) => void
   ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> | void {
     const command = new GetComplianceSummaryByConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2605,38 +2228,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetComplianceSummaryByResourceTypeCommandOutput>;
   public getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
-    cb: (
-      err: any,
-      data?: GetComplianceSummaryByResourceTypeCommandOutput
-    ) => void
+    cb: (err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void
   ): void;
   public getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetComplianceSummaryByResourceTypeCommandOutput
-    ) => void
+    cb: (err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void
   ): void;
   public getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetComplianceSummaryByResourceTypeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetComplianceSummaryByResourceTypeCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void),
+    cb?: (err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void
   ): Promise<GetComplianceSummaryByResourceTypeCommandOutput> | void {
     const command = new GetComplianceSummaryByResourceTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2652,38 +2260,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetConformancePackComplianceDetailsCommandOutput>;
   public getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
-    cb: (
-      err: any,
-      data?: GetConformancePackComplianceDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void
   ): void;
   public getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConformancePackComplianceDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void
   ): void;
   public getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConformancePackComplianceDetailsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConformancePackComplianceDetailsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void
   ): Promise<GetConformancePackComplianceDetailsCommandOutput> | void {
     const command = new GetConformancePackComplianceDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2699,38 +2292,23 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetConformancePackComplianceSummaryCommandOutput>;
   public getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
-    cb: (
-      err: any,
-      data?: GetConformancePackComplianceSummaryCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void
   ): void;
   public getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConformancePackComplianceSummaryCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void
   ): void;
   public getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConformancePackComplianceSummaryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConformancePackComplianceSummaryCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void
   ): Promise<GetConformancePackComplianceSummaryCommandOutput> | void {
     const command = new GetConformancePackComplianceSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2818,17 +2396,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public getDiscoveredResourceCounts(
     args: GetDiscoveredResourceCountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiscoveredResourceCountsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDiscoveredResourceCountsCommandOutput) => void),
     cb?: (err: any, data?: GetDiscoveredResourceCountsCommandOutput) => void
   ): Promise<GetDiscoveredResourceCountsCommandOutput> | void {
     const command = new GetDiscoveredResourceCountsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2847,38 +2422,25 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput>;
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
-    cb: (
-      err: any,
-      data?: GetOrganizationConfigRuleDetailedStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void
   ): void;
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetOrganizationConfigRuleDetailedStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void
   ): void;
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetOrganizationConfigRuleDetailedStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetOrganizationConfigRuleDetailedStatusCommandOutput
-    ) => void
+      | ((err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void
   ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> | void {
     const command = new GetOrganizationConfigRuleDetailedStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2895,40 +2457,25 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput>;
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
-    cb: (
-      err: any,
-      data?: GetOrganizationConformancePackDetailedStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void
   ): void;
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetOrganizationConformancePackDetailedStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void
   ): void;
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetOrganizationConformancePackDetailedStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetOrganizationConformancePackDetailedStatusCommandOutput
-    ) => void
+      | ((err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> | void {
-    const command = new GetOrganizationConformancePackDetailedStatusCommand(
-      args
-    );
+    const command = new GetOrganizationConformancePackDetailedStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2972,17 +2519,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public getResourceConfigHistory(
     args: GetResourceConfigHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceConfigHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceConfigHistoryCommandOutput) => void),
     cb?: (err: any, data?: GetResourceConfigHistoryCommandOutput) => void
   ): Promise<GetResourceConfigHistoryCommandOutput> | void {
     const command = new GetResourceConfigHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3010,23 +2554,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public listAggregateDiscoveredResources(
     args: ListAggregateDiscoveredResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAggregateDiscoveredResourcesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAggregateDiscoveredResourcesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAggregateDiscoveredResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListAggregateDiscoveredResourcesCommandOutput) => void
   ): Promise<ListAggregateDiscoveredResourcesCommandOutput> | void {
     const command = new ListAggregateDiscoveredResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3067,17 +2602,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDiscoveredResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDiscoveredResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
   ): Promise<ListDiscoveredResourcesCommandOutput> | void {
     const command = new ListDiscoveredResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3102,17 +2634,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3138,17 +2667,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putAggregationAuthorization(
     args: PutAggregationAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAggregationAuthorizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAggregationAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: PutAggregationAuthorizationCommandOutput) => void
   ): Promise<PutAggregationAuthorizationCommandOutput> | void {
     const command = new PutAggregationAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3208,17 +2734,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putConfigRule(
     args: PutConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutConfigRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigRuleCommandOutput) => void),
     cb?: (err: any, data?: PutConfigRuleCommandOutput) => void
   ): Promise<PutConfigRuleCommandOutput> | void {
     const command = new PutConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3254,17 +2777,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putConfigurationAggregator(
     args: PutConfigurationAggregatorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutConfigurationAggregatorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationAggregatorCommandOutput) => void),
     cb?: (err: any, data?: PutConfigurationAggregatorCommandOutput) => void
   ): Promise<PutConfigurationAggregatorCommandOutput> | void {
     const command = new PutConfigurationAggregatorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3302,17 +2822,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putConfigurationRecorder(
     args: PutConfigurationRecorderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutConfigurationRecorderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationRecorderCommandOutput) => void),
     cb?: (err: any, data?: PutConfigurationRecorderCommandOutput) => void
   ): Promise<PutConfigurationRecorderCommandOutput> | void {
     const command = new PutConfigurationRecorderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3343,17 +2860,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putConformancePack(
     args: PutConformancePackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutConformancePackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConformancePackCommandOutput) => void),
     cb?: (err: any, data?: PutConformancePackCommandOutput) => void
   ): Promise<PutConformancePackCommandOutput> | void {
     const command = new PutConformancePackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3394,17 +2908,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putDeliveryChannel(
     args: PutDeliveryChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDeliveryChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDeliveryChannelCommandOutput) => void),
     cb?: (err: any, data?: PutDeliveryChannelCommandOutput) => void
   ): Promise<PutDeliveryChannelCommandOutput> | void {
     const command = new PutDeliveryChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3431,17 +2942,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putEvaluations(
     args: PutEvaluationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEvaluationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEvaluationsCommandOutput) => void),
     cb?: (err: any, data?: PutEvaluationsCommandOutput) => void
   ): Promise<PutEvaluationsCommandOutput> | void {
     const command = new PutEvaluationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3477,17 +2985,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putOrganizationConfigRule(
     args: PutOrganizationConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutOrganizationConfigRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutOrganizationConfigRuleCommandOutput) => void),
     cb?: (err: any, data?: PutOrganizationConfigRuleCommandOutput) => void
   ): Promise<PutOrganizationConfigRuleCommandOutput> | void {
     const command = new PutOrganizationConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3524,20 +3029,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putOrganizationConformancePack(
     args: PutOrganizationConformancePackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutOrganizationConformancePackCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutOrganizationConformancePackCommandOutput) => void),
     cb?: (err: any, data?: PutOrganizationConformancePackCommandOutput) => void
   ): Promise<PutOrganizationConformancePackCommandOutput> | void {
     const command = new PutOrganizationConformancePackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3563,17 +3062,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putRemediationConfigurations(
     args: PutRemediationConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRemediationConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRemediationConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: PutRemediationConfigurationsCommandOutput) => void
   ): Promise<PutRemediationConfigurationsCommandOutput> | void {
     const command = new PutRemediationConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3599,17 +3095,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putRemediationExceptions(
     args: PutRemediationExceptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRemediationExceptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRemediationExceptionsCommandOutput) => void),
     cb?: (err: any, data?: PutRemediationExceptionsCommandOutput) => void
   ): Promise<PutRemediationExceptionsCommandOutput> | void {
     const command = new PutRemediationExceptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3642,17 +3135,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putResourceConfig(
     args: PutResourceConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutResourceConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourceConfigCommandOutput) => void),
     cb?: (err: any, data?: PutResourceConfigCommandOutput) => void
   ): Promise<PutResourceConfigCommandOutput> | void {
     const command = new PutResourceConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3687,17 +3177,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putRetentionConfiguration(
     args: PutRetentionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRetentionConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRetentionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutRetentionConfigurationCommandOutput) => void
   ): Promise<PutRetentionConfigurationCommandOutput> | void {
     const command = new PutRetentionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3726,17 +3213,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public selectResourceConfig(
     args: SelectResourceConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SelectResourceConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SelectResourceConfigCommandOutput) => void),
     cb?: (err: any, data?: SelectResourceConfigCommandOutput) => void
   ): Promise<SelectResourceConfigCommandOutput> | void {
     const command = new SelectResourceConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3808,17 +3292,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public startConfigRulesEvaluation(
     args: StartConfigRulesEvaluationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartConfigRulesEvaluationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartConfigRulesEvaluationCommandOutput) => void),
     cb?: (err: any, data?: StartConfigRulesEvaluationCommandOutput) => void
   ): Promise<StartConfigRulesEvaluationCommandOutput> | void {
     const command = new StartConfigRulesEvaluationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3846,17 +3327,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public startConfigurationRecorder(
     args: StartConfigurationRecorderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartConfigurationRecorderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartConfigurationRecorderCommandOutput) => void),
     cb?: (err: any, data?: StartConfigurationRecorderCommandOutput) => void
   ): Promise<StartConfigurationRecorderCommandOutput> | void {
     const command = new StartConfigurationRecorderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3882,17 +3360,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public startRemediationExecution(
     args: StartRemediationExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartRemediationExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRemediationExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartRemediationExecutionCommandOutput) => void
   ): Promise<StartRemediationExecutionCommandOutput> | void {
     const command = new StartRemediationExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3917,17 +3392,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public stopConfigurationRecorder(
     args: StopConfigurationRecorderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopConfigurationRecorderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopConfigurationRecorderCommandOutput) => void),
     cb?: (err: any, data?: StopConfigurationRecorderCommandOutput) => void
   ): Promise<StopConfigurationRecorderCommandOutput> | void {
     const command = new StopConfigurationRecorderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3938,14 +3410,8 @@ export class ConfigService extends ConfigServiceClient {
    * <p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed.
    * 			When a resource is deleted, the tags associated with that resource are deleted as well.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3953,17 +3419,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3988,17 +3451,14 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

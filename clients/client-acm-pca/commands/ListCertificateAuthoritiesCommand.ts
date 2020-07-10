@@ -1,21 +1,11 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
-import {
-  ListCertificateAuthoritiesRequest,
-  ListCertificateAuthoritiesResponse
-} from "../models/index";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
+import { ListCertificateAuthoritiesRequest, ListCertificateAuthoritiesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListCertificateAuthoritiesCommand,
-  serializeAws_json1_1ListCertificateAuthoritiesCommand
+  serializeAws_json1_1ListCertificateAuthoritiesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListCertificateAuthoritiesCommandInput = ListCertificateAuthoritiesRequest;
-export type ListCertificateAuthoritiesCommandOutput = ListCertificateAuthoritiesResponse &
-  __MetadataBearer;
+export type ListCertificateAuthoritiesCommandOutput = ListCertificateAuthoritiesResponse & __MetadataBearer;
 
 export class ListCertificateAuthoritiesCommand extends $Command<
   ListCertificateAuthoritiesCommandInput,
@@ -49,18 +38,13 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCertificateAuthoritiesCommandInput,
-    ListCertificateAuthoritiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCertificateAuthoritiesCommandInput, ListCertificateAuthoritiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListCertificateAuthoritiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCertificateAuthoritiesCommand(
-      input,
-      context
-    );
+  private serialize(input: ListCertificateAuthoritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListCertificateAuthoritiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_json1_1ListCertificateAuthoritiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

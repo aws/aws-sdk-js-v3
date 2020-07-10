@@ -6,7 +6,7 @@ describe("addChecksumHeadersMiddleware", () => {
     .fn()
     .mockReturnValue([
       "733cf513448ce6b20ad1bc5e50eb27c06aefae0c320713a5dd99f4e51bc1ca60",
-      "733cf513448ce6b20ad1bc5e50eb27c06aefae0c320713a5dd99f4e51bc1ca60"
+      "733cf513448ce6b20ad1bc5e50eb27c06aefae0c320713a5dd99f4e51bc1ca60",
     ]);
   const sha256 = jest.fn();
   const utf8Decoder = jest.fn();
@@ -17,14 +17,14 @@ describe("addChecksumHeadersMiddleware", () => {
     protocol: "https:",
     path: "/",
     headers: {},
-    hostname: "foo.us-east-1.amazonaws.com"
+    hostname: "foo.us-east-1.amazonaws.com",
   };
 
   const config = {
     apiVersion: "1970-01-01",
     bodyChecksumGenerator,
     sha256,
-    utf8Decoder
+    utf8Decoder,
   };
 
   beforeEach(() => {
@@ -36,8 +36,8 @@ describe("addChecksumHeadersMiddleware", () => {
     await handler({
       input: {},
       request: new HttpRequest({
-        ...minimalRequest
-      })
+        ...minimalRequest,
+      }),
     });
 
     expect(next.mock.calls.length).toBe(1);
@@ -57,10 +57,10 @@ describe("addChecksumHeadersMiddleware", () => {
       request: new HttpRequest({
         ...minimalRequest,
         headers: {
-          "x-amz-sha256-tree-hash": "foo"
+          "x-amz-sha256-tree-hash": "foo",
         },
-        body: body
-      })
+        body: body,
+      }),
     });
 
     expect(next.mock.calls.length).toBe(1);
@@ -82,10 +82,10 @@ describe("addChecksumHeadersMiddleware", () => {
       request: new HttpRequest({
         ...minimalRequest,
         headers: {
-          "x-amz-content-sha256": "foo"
+          "x-amz-content-sha256": "foo",
         },
-        body: body
-      })
+        body: body,
+      }),
     });
 
     expect(next.mock.calls.length).toBe(1);

@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  CreateLoadBalancerTlsCertificateRequest,
-  CreateLoadBalancerTlsCertificateResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { CreateLoadBalancerTlsCertificateRequest, CreateLoadBalancerTlsCertificateResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand,
-  serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand
+  serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateLoadBalancerTlsCertificateCommandInput = CreateLoadBalancerTlsCertificateRequest;
-export type CreateLoadBalancerTlsCertificateCommandOutput = CreateLoadBalancerTlsCertificateResult &
-  __MetadataBearer;
+export type CreateLoadBalancerTlsCertificateCommandOutput = CreateLoadBalancerTlsCertificateResult & __MetadataBearer;
 
 export class CreateLoadBalancerTlsCertificateCommand extends $Command<
   CreateLoadBalancerTlsCertificateCommandInput,
@@ -49,18 +38,13 @@ export class CreateLoadBalancerTlsCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateLoadBalancerTlsCertificateCommandInput,
-    CreateLoadBalancerTlsCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateLoadBalancerTlsCertificateCommandInput, CreateLoadBalancerTlsCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class CreateLoadBalancerTlsCertificateCommand extends $Command<
     input: CreateLoadBalancerTlsCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoadBalancerTlsCertificateCommandOutput> {
-    return deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

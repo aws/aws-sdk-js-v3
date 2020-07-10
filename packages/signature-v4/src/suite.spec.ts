@@ -1,11 +1,5 @@
 import { SignatureV4 } from "./SignatureV4";
-import {
-  credentials,
-  region,
-  requests,
-  service,
-  signingDate
-} from "./suite.fixture";
+import { credentials, region, requests, service, signingDate } from "./suite.fixture";
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
@@ -20,13 +14,13 @@ describe("AWS Signature Version 4 Test Suite", () => {
     region,
     service,
     sha256: Sha256,
-    applyChecksum: false
+    applyChecksum: false,
   });
 
   for (const { name, request, authorization } of requests) {
     it(`should calculate the correct signature for ${name}`, async () => {
       const signed = await signer.sign(new HttpRequest(request), {
-        signingDate
+        signingDate,
       });
       expect(signed.headers["authorization"]).toEqual(authorization);
     });

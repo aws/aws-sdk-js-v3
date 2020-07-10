@@ -1,21 +1,11 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
-import {
-  BatchGetNamedQueryInput,
-  BatchGetNamedQueryOutput
-} from "../models/index";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
+import { BatchGetNamedQueryInput, BatchGetNamedQueryOutput } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetNamedQueryCommand,
-  serializeAws_json1_1BatchGetNamedQueryCommand
+  serializeAws_json1_1BatchGetNamedQueryCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type BatchGetNamedQueryCommandInput = BatchGetNamedQueryInput;
-export type BatchGetNamedQueryCommandOutput = BatchGetNamedQueryOutput &
-  __MetadataBearer;
+export type BatchGetNamedQueryCommandOutput = BatchGetNamedQueryOutput & __MetadataBearer;
 
 export class BatchGetNamedQueryCommand extends $Command<
   BatchGetNamedQueryCommandInput,
@@ -50,14 +39,12 @@ export class BatchGetNamedQueryCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetNamedQueryCommandInput, BatchGetNamedQueryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class BatchGetNamedQueryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchGetNamedQueryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchGetNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetNamedQueryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchGetNamedQueryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetNamedQueryCommandOutput> {
     return deserializeAws_json1_1BatchGetNamedQueryCommand(output, context);
   }
 

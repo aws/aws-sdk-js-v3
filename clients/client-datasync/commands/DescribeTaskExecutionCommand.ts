@@ -1,21 +1,11 @@
-import {
-  DataSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataSyncClient";
-import {
-  DescribeTaskExecutionRequest,
-  DescribeTaskExecutionResponse
-} from "../models/index";
+import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
+import { DescribeTaskExecutionRequest, DescribeTaskExecutionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTaskExecutionCommand,
-  serializeAws_json1_1DescribeTaskExecutionCommand
+  serializeAws_json1_1DescribeTaskExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeTaskExecutionCommandInput = DescribeTaskExecutionRequest;
-export type DescribeTaskExecutionCommandOutput = DescribeTaskExecutionResponse &
-  __MetadataBearer;
+export type DescribeTaskExecutionCommandOutput = DescribeTaskExecutionResponse & __MetadataBearer;
 
 export class DescribeTaskExecutionCommand extends $Command<
   DescribeTaskExecutionCommandInput,
@@ -49,18 +38,13 @@ export class DescribeTaskExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTaskExecutionCommandInput,
-    DescribeTaskExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTaskExecutionCommandInput, DescribeTaskExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeTaskExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTaskExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTaskExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTaskExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskExecutionCommandOutput> {
     return deserializeAws_json1_1DescribeTaskExecutionCommand(output, context);
   }
 

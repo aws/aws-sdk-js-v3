@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
-import {
-  ModifyClusterDbRevisionMessage,
-  ModifyClusterDbRevisionResult
-} from "../models/index";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult } from "../models/index";
 import {
   deserializeAws_queryModifyClusterDbRevisionCommand,
-  serializeAws_queryModifyClusterDbRevisionCommand
+  serializeAws_queryModifyClusterDbRevisionCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ModifyClusterDbRevisionCommandInput = ModifyClusterDbRevisionMessage;
-export type ModifyClusterDbRevisionCommandOutput = ModifyClusterDbRevisionResult &
-  __MetadataBearer;
+export type ModifyClusterDbRevisionCommandOutput = ModifyClusterDbRevisionResult & __MetadataBearer;
 
 export class ModifyClusterDbRevisionCommand extends $Command<
   ModifyClusterDbRevisionCommandInput,
@@ -49,18 +38,13 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClusterDbRevisionCommandInput,
-    ModifyClusterDbRevisionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClusterDbRevisionCommandInput, ModifyClusterDbRevisionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyClusterDbRevisionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyClusterDbRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterDbRevisionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyClusterDbRevisionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterDbRevisionCommandOutput> {
     return deserializeAws_queryModifyClusterDbRevisionCommand(output, context);
   }
 

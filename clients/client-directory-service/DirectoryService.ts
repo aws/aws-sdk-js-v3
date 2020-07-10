@@ -2,288 +2,252 @@ import { DirectoryServiceClient } from "./DirectoryServiceClient";
 import {
   AcceptSharedDirectoryCommand,
   AcceptSharedDirectoryCommandInput,
-  AcceptSharedDirectoryCommandOutput
+  AcceptSharedDirectoryCommandOutput,
 } from "./commands/AcceptSharedDirectoryCommand";
-import {
-  AddIpRoutesCommand,
-  AddIpRoutesCommandInput,
-  AddIpRoutesCommandOutput
-} from "./commands/AddIpRoutesCommand";
+import { AddIpRoutesCommand, AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
+  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
   CancelSchemaExtensionCommand,
   CancelSchemaExtensionCommandInput,
-  CancelSchemaExtensionCommandOutput
+  CancelSchemaExtensionCommandOutput,
 } from "./commands/CancelSchemaExtensionCommand";
 import {
   ConnectDirectoryCommand,
   ConnectDirectoryCommandInput,
-  ConnectDirectoryCommandOutput
+  ConnectDirectoryCommandOutput,
 } from "./commands/ConnectDirectoryCommand";
-import {
-  CreateAliasCommand,
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
+import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
   CreateComputerCommand,
   CreateComputerCommandInput,
-  CreateComputerCommandOutput
+  CreateComputerCommandOutput,
 } from "./commands/CreateComputerCommand";
 import {
   CreateConditionalForwarderCommand,
   CreateConditionalForwarderCommandInput,
-  CreateConditionalForwarderCommandOutput
+  CreateConditionalForwarderCommandOutput,
 } from "./commands/CreateConditionalForwarderCommand";
 import {
   CreateDirectoryCommand,
   CreateDirectoryCommandInput,
-  CreateDirectoryCommandOutput
+  CreateDirectoryCommandOutput,
 } from "./commands/CreateDirectoryCommand";
 import {
   CreateLogSubscriptionCommand,
   CreateLogSubscriptionCommandInput,
-  CreateLogSubscriptionCommandOutput
+  CreateLogSubscriptionCommandOutput,
 } from "./commands/CreateLogSubscriptionCommand";
 import {
   CreateMicrosoftADCommand,
   CreateMicrosoftADCommandInput,
-  CreateMicrosoftADCommandOutput
+  CreateMicrosoftADCommandOutput,
 } from "./commands/CreateMicrosoftADCommand";
 import {
   CreateSnapshotCommand,
   CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
+  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
-import {
-  CreateTrustCommand,
-  CreateTrustCommandInput,
-  CreateTrustCommandOutput
-} from "./commands/CreateTrustCommand";
+import { CreateTrustCommand, CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand";
 import {
   DeleteConditionalForwarderCommand,
   DeleteConditionalForwarderCommandInput,
-  DeleteConditionalForwarderCommandOutput
+  DeleteConditionalForwarderCommandOutput,
 } from "./commands/DeleteConditionalForwarderCommand";
 import {
   DeleteDirectoryCommand,
   DeleteDirectoryCommandInput,
-  DeleteDirectoryCommandOutput
+  DeleteDirectoryCommandOutput,
 } from "./commands/DeleteDirectoryCommand";
 import {
   DeleteLogSubscriptionCommand,
   DeleteLogSubscriptionCommandInput,
-  DeleteLogSubscriptionCommandOutput
+  DeleteLogSubscriptionCommandOutput,
 } from "./commands/DeleteLogSubscriptionCommand";
 import {
   DeleteSnapshotCommand,
   DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
+  DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
-import {
-  DeleteTrustCommand,
-  DeleteTrustCommandInput,
-  DeleteTrustCommandOutput
-} from "./commands/DeleteTrustCommand";
+import { DeleteTrustCommand, DeleteTrustCommandInput, DeleteTrustCommandOutput } from "./commands/DeleteTrustCommand";
 import {
   DeregisterCertificateCommand,
   DeregisterCertificateCommandInput,
-  DeregisterCertificateCommandOutput
+  DeregisterCertificateCommandOutput,
 } from "./commands/DeregisterCertificateCommand";
 import {
   DeregisterEventTopicCommand,
   DeregisterEventTopicCommandInput,
-  DeregisterEventTopicCommandOutput
+  DeregisterEventTopicCommandOutput,
 } from "./commands/DeregisterEventTopicCommand";
 import {
   DescribeCertificateCommand,
   DescribeCertificateCommandInput,
-  DescribeCertificateCommandOutput
+  DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
 import {
   DescribeConditionalForwardersCommand,
   DescribeConditionalForwardersCommandInput,
-  DescribeConditionalForwardersCommandOutput
+  DescribeConditionalForwardersCommandOutput,
 } from "./commands/DescribeConditionalForwardersCommand";
 import {
   DescribeDirectoriesCommand,
   DescribeDirectoriesCommandInput,
-  DescribeDirectoriesCommandOutput
+  DescribeDirectoriesCommandOutput,
 } from "./commands/DescribeDirectoriesCommand";
 import {
   DescribeDomainControllersCommand,
   DescribeDomainControllersCommandInput,
-  DescribeDomainControllersCommandOutput
+  DescribeDomainControllersCommandOutput,
 } from "./commands/DescribeDomainControllersCommand";
 import {
   DescribeEventTopicsCommand,
   DescribeEventTopicsCommandInput,
-  DescribeEventTopicsCommandOutput
+  DescribeEventTopicsCommandOutput,
 } from "./commands/DescribeEventTopicsCommand";
 import {
   DescribeLDAPSSettingsCommand,
   DescribeLDAPSSettingsCommandInput,
-  DescribeLDAPSSettingsCommandOutput
+  DescribeLDAPSSettingsCommandOutput,
 } from "./commands/DescribeLDAPSSettingsCommand";
 import {
   DescribeSharedDirectoriesCommand,
   DescribeSharedDirectoriesCommandInput,
-  DescribeSharedDirectoriesCommandOutput
+  DescribeSharedDirectoriesCommandOutput,
 } from "./commands/DescribeSharedDirectoriesCommand";
 import {
   DescribeSnapshotsCommand,
   DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
+  DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeTrustsCommand,
   DescribeTrustsCommandInput,
-  DescribeTrustsCommandOutput
+  DescribeTrustsCommandOutput,
 } from "./commands/DescribeTrustsCommand";
 import {
   DisableLDAPSCommand,
   DisableLDAPSCommandInput,
-  DisableLDAPSCommandOutput
+  DisableLDAPSCommandOutput,
 } from "./commands/DisableLDAPSCommand";
 import {
   DisableRadiusCommand,
   DisableRadiusCommandInput,
-  DisableRadiusCommandOutput
+  DisableRadiusCommandOutput,
 } from "./commands/DisableRadiusCommand";
-import {
-  DisableSsoCommand,
-  DisableSsoCommandInput,
-  DisableSsoCommandOutput
-} from "./commands/DisableSsoCommand";
-import {
-  EnableLDAPSCommand,
-  EnableLDAPSCommandInput,
-  EnableLDAPSCommandOutput
-} from "./commands/EnableLDAPSCommand";
+import { DisableSsoCommand, DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
+import { EnableLDAPSCommand, EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
 import {
   EnableRadiusCommand,
   EnableRadiusCommandInput,
-  EnableRadiusCommandOutput
+  EnableRadiusCommandOutput,
 } from "./commands/EnableRadiusCommand";
-import {
-  EnableSsoCommand,
-  EnableSsoCommandInput,
-  EnableSsoCommandOutput
-} from "./commands/EnableSsoCommand";
+import { EnableSsoCommand, EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
 import {
   GetDirectoryLimitsCommand,
   GetDirectoryLimitsCommandInput,
-  GetDirectoryLimitsCommandOutput
+  GetDirectoryLimitsCommandOutput,
 } from "./commands/GetDirectoryLimitsCommand";
 import {
   GetSnapshotLimitsCommand,
   GetSnapshotLimitsCommandInput,
-  GetSnapshotLimitsCommandOutput
+  GetSnapshotLimitsCommandOutput,
 } from "./commands/GetSnapshotLimitsCommand";
 import {
   ListCertificatesCommand,
   ListCertificatesCommandInput,
-  ListCertificatesCommandOutput
+  ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
 import {
   ListIpRoutesCommand,
   ListIpRoutesCommandInput,
-  ListIpRoutesCommandOutput
+  ListIpRoutesCommandOutput,
 } from "./commands/ListIpRoutesCommand";
 import {
   ListLogSubscriptionsCommand,
   ListLogSubscriptionsCommandInput,
-  ListLogSubscriptionsCommandOutput
+  ListLogSubscriptionsCommandOutput,
 } from "./commands/ListLogSubscriptionsCommand";
 import {
   ListSchemaExtensionsCommand,
   ListSchemaExtensionsCommandInput,
-  ListSchemaExtensionsCommandOutput
+  ListSchemaExtensionsCommandOutput,
 } from "./commands/ListSchemaExtensionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   RegisterCertificateCommand,
   RegisterCertificateCommandInput,
-  RegisterCertificateCommandOutput
+  RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand";
 import {
   RegisterEventTopicCommand,
   RegisterEventTopicCommandInput,
-  RegisterEventTopicCommandOutput
+  RegisterEventTopicCommandOutput,
 } from "./commands/RegisterEventTopicCommand";
 import {
   RejectSharedDirectoryCommand,
   RejectSharedDirectoryCommandInput,
-  RejectSharedDirectoryCommandOutput
+  RejectSharedDirectoryCommandOutput,
 } from "./commands/RejectSharedDirectoryCommand";
 import {
   RemoveIpRoutesCommand,
   RemoveIpRoutesCommandInput,
-  RemoveIpRoutesCommandOutput
+  RemoveIpRoutesCommandOutput,
 } from "./commands/RemoveIpRoutesCommand";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
   ResetUserPasswordCommand,
   ResetUserPasswordCommandInput,
-  ResetUserPasswordCommandOutput
+  ResetUserPasswordCommandOutput,
 } from "./commands/ResetUserPasswordCommand";
 import {
   RestoreFromSnapshotCommand,
   RestoreFromSnapshotCommandInput,
-  RestoreFromSnapshotCommandOutput
+  RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand";
 import {
   ShareDirectoryCommand,
   ShareDirectoryCommandInput,
-  ShareDirectoryCommandOutput
+  ShareDirectoryCommandOutput,
 } from "./commands/ShareDirectoryCommand";
 import {
   StartSchemaExtensionCommand,
   StartSchemaExtensionCommandInput,
-  StartSchemaExtensionCommandOutput
+  StartSchemaExtensionCommandOutput,
 } from "./commands/StartSchemaExtensionCommand";
 import {
   UnshareDirectoryCommand,
   UnshareDirectoryCommandInput,
-  UnshareDirectoryCommandOutput
+  UnshareDirectoryCommandOutput,
 } from "./commands/UnshareDirectoryCommand";
 import {
   UpdateConditionalForwarderCommand,
   UpdateConditionalForwarderCommandInput,
-  UpdateConditionalForwarderCommandOutput
+  UpdateConditionalForwarderCommandOutput,
 } from "./commands/UpdateConditionalForwarderCommand";
 import {
   UpdateNumberOfDomainControllersCommand,
   UpdateNumberOfDomainControllersCommandInput,
-  UpdateNumberOfDomainControllersCommandOutput
+  UpdateNumberOfDomainControllersCommandOutput,
 } from "./commands/UpdateNumberOfDomainControllersCommand";
 import {
   UpdateRadiusCommand,
   UpdateRadiusCommandInput,
-  UpdateRadiusCommandOutput
+  UpdateRadiusCommandOutput,
 } from "./commands/UpdateRadiusCommand";
-import {
-  UpdateTrustCommand,
-  UpdateTrustCommandInput,
-  UpdateTrustCommandOutput
-} from "./commands/UpdateTrustCommand";
-import {
-  VerifyTrustCommand,
-  VerifyTrustCommandInput,
-  VerifyTrustCommandOutput
-} from "./commands/VerifyTrustCommand";
+import { UpdateTrustCommand, UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
+import { VerifyTrustCommand, VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -313,17 +277,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public acceptSharedDirectory(
     args: AcceptSharedDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptSharedDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptSharedDirectoryCommandOutput) => void),
     cb?: (err: any, data?: AcceptSharedDirectoryCommandOutput) => void
   ): Promise<AcceptSharedDirectoryCommandOutput> | void {
     const command = new AcceptSharedDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -334,14 +295,8 @@ export class DirectoryService extends DirectoryServiceClient {
    * <p>If the DNS server for your on-premises domain uses a publicly addressable IP address, you must add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic that uses public IP ranges from your Microsoft AD on AWS to a peer VPC. </p>
    *          <p>Before you call <i>AddIpRoutes</i>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <i>AddIpRoutes</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
    */
-  public addIpRoutes(
-    args: AddIpRoutesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddIpRoutesCommandOutput>;
-  public addIpRoutes(
-    args: AddIpRoutesCommandInput,
-    cb: (err: any, data?: AddIpRoutesCommandOutput) => void
-  ): void;
+  public addIpRoutes(args: AddIpRoutesCommandInput, options?: __HttpHandlerOptions): Promise<AddIpRoutesCommandOutput>;
+  public addIpRoutes(args: AddIpRoutesCommandInput, cb: (err: any, data?: AddIpRoutesCommandOutput) => void): void;
   public addIpRoutes(
     args: AddIpRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -349,17 +304,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public addIpRoutes(
     args: AddIpRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddIpRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddIpRoutesCommandOutput) => void),
     cb?: (err: any, data?: AddIpRoutesCommandOutput) => void
   ): Promise<AddIpRoutesCommandOutput> | void {
     const command = new AddIpRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -384,17 +336,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -419,17 +368,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public cancelSchemaExtension(
     args: CancelSchemaExtensionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelSchemaExtensionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelSchemaExtensionCommandOutput) => void),
     cb?: (err: any, data?: CancelSchemaExtensionCommandOutput) => void
   ): Promise<CancelSchemaExtensionCommandOutput> | void {
     const command = new CancelSchemaExtensionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -455,17 +401,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public connectDirectory(
     args: ConnectDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConnectDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConnectDirectoryCommandOutput) => void),
     cb?: (err: any, data?: ConnectDirectoryCommandOutput) => void
   ): Promise<ConnectDirectoryCommandOutput> | void {
     const command = new ConnectDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -480,14 +423,8 @@ export class DirectoryService extends DirectoryServiceClient {
    *             <p>After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.</p>
    *          </important>
    */
-  public createAlias(
-    args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAliasCommandOutput>;
-  public createAlias(
-    args: CreateAliasCommandInput,
-    cb: (err: any, data?: CreateAliasCommandOutput) => void
-  ): void;
+  public createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
+  public createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
   public createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -495,17 +432,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -530,17 +464,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createComputer(
     args: CreateComputerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateComputerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComputerCommandOutput) => void),
     cb?: (err: any, data?: CreateComputerCommandOutput) => void
   ): Promise<CreateComputerCommandOutput> | void {
     const command = new CreateComputerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -565,17 +496,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createConditionalForwarder(
     args: CreateConditionalForwarderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConditionalForwarderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConditionalForwarderCommandOutput) => void),
     cb?: (err: any, data?: CreateConditionalForwarderCommandOutput) => void
   ): Promise<CreateConditionalForwarderCommandOutput> | void {
     const command = new CreateConditionalForwarderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -601,17 +529,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createDirectory(
     args: CreateDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDirectoryCommandOutput) => void),
     cb?: (err: any, data?: CreateDirectoryCommandOutput) => void
   ): Promise<CreateDirectoryCommandOutput> | void {
     const command = new CreateDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -637,17 +562,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createLogSubscription(
     args: CreateLogSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLogSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLogSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateLogSubscriptionCommandOutput) => void
   ): Promise<CreateLogSubscriptionCommandOutput> | void {
     const command = new CreateLogSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -673,17 +595,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createMicrosoftAD(
     args: CreateMicrosoftADCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMicrosoftADCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMicrosoftADCommandOutput) => void),
     cb?: (err: any, data?: CreateMicrosoftADCommandOutput) => void
   ): Promise<CreateMicrosoftADCommandOutput> | void {
     const command = new CreateMicrosoftADCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -711,17 +630,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -732,14 +648,8 @@ export class DirectoryService extends DirectoryServiceClient {
    * <p>AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.</p>
    *          <p>This action initiates the creation of the AWS side of a trust relationship between an AWS Managed Microsoft AD directory and an external domain. You can create either a forest trust or an external trust.</p>
    */
-  public createTrust(
-    args: CreateTrustCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTrustCommandOutput>;
-  public createTrust(
-    args: CreateTrustCommandInput,
-    cb: (err: any, data?: CreateTrustCommandOutput) => void
-  ): void;
+  public createTrust(args: CreateTrustCommandInput, options?: __HttpHandlerOptions): Promise<CreateTrustCommandOutput>;
+  public createTrust(args: CreateTrustCommandInput, cb: (err: any, data?: CreateTrustCommandOutput) => void): void;
   public createTrust(
     args: CreateTrustCommandInput,
     options: __HttpHandlerOptions,
@@ -747,17 +657,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createTrust(
     args: CreateTrustCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrustCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrustCommandOutput) => void),
     cb?: (err: any, data?: CreateTrustCommandOutput) => void
   ): Promise<CreateTrustCommandOutput> | void {
     const command = new CreateTrustCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -782,17 +689,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deleteConditionalForwarder(
     args: DeleteConditionalForwarderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConditionalForwarderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConditionalForwarderCommandOutput) => void),
     cb?: (err: any, data?: DeleteConditionalForwarderCommandOutput) => void
   ): Promise<DeleteConditionalForwarderCommandOutput> | void {
     const command = new DeleteConditionalForwarderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -818,17 +722,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deleteDirectory(
     args: DeleteDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDirectoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteDirectoryCommandOutput) => void
   ): Promise<DeleteDirectoryCommandOutput> | void {
     const command = new DeleteDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -853,17 +754,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deleteLogSubscription(
     args: DeleteLogSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLogSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLogSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteLogSubscriptionCommandOutput) => void
   ): Promise<DeleteLogSubscriptionCommandOutput> | void {
     const command = new DeleteLogSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -888,17 +786,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): Promise<DeleteSnapshotCommandOutput> | void {
     const command = new DeleteSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -908,14 +803,8 @@ export class DirectoryService extends DirectoryServiceClient {
   /**
    * <p>Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
    */
-  public deleteTrust(
-    args: DeleteTrustCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTrustCommandOutput>;
-  public deleteTrust(
-    args: DeleteTrustCommandInput,
-    cb: (err: any, data?: DeleteTrustCommandOutput) => void
-  ): void;
+  public deleteTrust(args: DeleteTrustCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTrustCommandOutput>;
+  public deleteTrust(args: DeleteTrustCommandInput, cb: (err: any, data?: DeleteTrustCommandOutput) => void): void;
   public deleteTrust(
     args: DeleteTrustCommandInput,
     options: __HttpHandlerOptions,
@@ -923,17 +812,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deleteTrust(
     args: DeleteTrustCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrustCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrustCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrustCommandOutput) => void
   ): Promise<DeleteTrustCommandOutput> | void {
     const command = new DeleteTrustCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -959,17 +845,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deregisterCertificate(
     args: DeregisterCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterCertificateCommandOutput) => void),
     cb?: (err: any, data?: DeregisterCertificateCommandOutput) => void
   ): Promise<DeregisterCertificateCommandOutput> | void {
     const command = new DeregisterCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -994,17 +877,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deregisterEventTopic(
     args: DeregisterEventTopicCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterEventTopicCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterEventTopicCommandOutput) => void),
     cb?: (err: any, data?: DeregisterEventTopicCommandOutput) => void
   ): Promise<DeregisterEventTopicCommandOutput> | void {
     const command = new DeregisterEventTopicCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1029,17 +909,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeCertificate(
     args: DescribeCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCertificateCommandOutput) => void),
     cb?: (err: any, data?: DescribeCertificateCommandOutput) => void
   ): Promise<DescribeCertificateCommandOutput> | void {
     const command = new DescribeCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1065,17 +942,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeConditionalForwarders(
     args: DescribeConditionalForwardersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConditionalForwardersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConditionalForwardersCommandOutput) => void),
     cb?: (err: any, data?: DescribeConditionalForwardersCommandOutput) => void
   ): Promise<DescribeConditionalForwardersCommandOutput> | void {
     const command = new DescribeConditionalForwardersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1109,17 +983,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeDirectories(
     args: DescribeDirectoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDirectoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDirectoriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeDirectoriesCommandOutput) => void
   ): Promise<DescribeDirectoriesCommandOutput> | void {
     const command = new DescribeDirectoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1144,17 +1015,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeDomainControllers(
     args: DescribeDomainControllersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainControllersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainControllersCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainControllersCommandOutput) => void
   ): Promise<DescribeDomainControllersCommandOutput> | void {
     const command = new DescribeDomainControllersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1180,17 +1048,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeEventTopics(
     args: DescribeEventTopicsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventTopicsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventTopicsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventTopicsCommandOutput) => void
   ): Promise<DescribeEventTopicsCommandOutput> | void {
     const command = new DescribeEventTopicsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1215,17 +1080,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeLDAPSSettings(
     args: DescribeLDAPSSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLDAPSSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLDAPSSettingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLDAPSSettingsCommandOutput) => void
   ): Promise<DescribeLDAPSSettingsCommandOutput> | void {
     const command = new DescribeLDAPSSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1250,17 +1112,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeSharedDirectories(
     args: DescribeSharedDirectoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSharedDirectoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSharedDirectoriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeSharedDirectoriesCommandOutput) => void
   ): Promise<DescribeSharedDirectoriesCommandOutput> | void {
     const command = new DescribeSharedDirectoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1291,17 +1150,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeSnapshots(
     args: DescribeSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSnapshotsCommandOutput) => void
   ): Promise<DescribeSnapshotsCommandOutput> | void {
     const command = new DescribeSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1327,17 +1183,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeTrusts(
     args: DescribeTrustsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrustsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrustsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrustsCommandOutput) => void
   ): Promise<DescribeTrustsCommandOutput> | void {
     const command = new DescribeTrustsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1351,10 +1204,7 @@ export class DirectoryService extends DirectoryServiceClient {
     args: DisableLDAPSCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisableLDAPSCommandOutput>;
-  public disableLDAPS(
-    args: DisableLDAPSCommandInput,
-    cb: (err: any, data?: DisableLDAPSCommandOutput) => void
-  ): void;
+  public disableLDAPS(args: DisableLDAPSCommandInput, cb: (err: any, data?: DisableLDAPSCommandOutput) => void): void;
   public disableLDAPS(
     args: DisableLDAPSCommandInput,
     options: __HttpHandlerOptions,
@@ -1362,17 +1212,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public disableLDAPS(
     args: DisableLDAPSCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableLDAPSCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableLDAPSCommandOutput) => void),
     cb?: (err: any, data?: DisableLDAPSCommandOutput) => void
   ): Promise<DisableLDAPSCommandOutput> | void {
     const command = new DisableLDAPSCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1397,17 +1244,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public disableRadius(
     args: DisableRadiusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableRadiusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableRadiusCommandOutput) => void),
     cb?: (err: any, data?: DisableRadiusCommandOutput) => void
   ): Promise<DisableRadiusCommandOutput> | void {
     const command = new DisableRadiusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1417,14 +1261,8 @@ export class DirectoryService extends DirectoryServiceClient {
   /**
    * <p>Disables single-sign on for a directory.</p>
    */
-  public disableSso(
-    args: DisableSsoCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisableSsoCommandOutput>;
-  public disableSso(
-    args: DisableSsoCommandInput,
-    cb: (err: any, data?: DisableSsoCommandOutput) => void
-  ): void;
+  public disableSso(args: DisableSsoCommandInput, options?: __HttpHandlerOptions): Promise<DisableSsoCommandOutput>;
+  public disableSso(args: DisableSsoCommandInput, cb: (err: any, data?: DisableSsoCommandOutput) => void): void;
   public disableSso(
     args: DisableSsoCommandInput,
     options: __HttpHandlerOptions,
@@ -1432,17 +1270,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public disableSso(
     args: DisableSsoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableSsoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableSsoCommandOutput) => void),
     cb?: (err: any, data?: DisableSsoCommandOutput) => void
   ): Promise<DisableSsoCommandOutput> | void {
     const command = new DisableSsoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1452,14 +1287,8 @@ export class DirectoryService extends DirectoryServiceClient {
   /**
    * <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>
    */
-  public enableLDAPS(
-    args: EnableLDAPSCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableLDAPSCommandOutput>;
-  public enableLDAPS(
-    args: EnableLDAPSCommandInput,
-    cb: (err: any, data?: EnableLDAPSCommandOutput) => void
-  ): void;
+  public enableLDAPS(args: EnableLDAPSCommandInput, options?: __HttpHandlerOptions): Promise<EnableLDAPSCommandOutput>;
+  public enableLDAPS(args: EnableLDAPSCommandInput, cb: (err: any, data?: EnableLDAPSCommandOutput) => void): void;
   public enableLDAPS(
     args: EnableLDAPSCommandInput,
     options: __HttpHandlerOptions,
@@ -1467,17 +1296,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public enableLDAPS(
     args: EnableLDAPSCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableLDAPSCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableLDAPSCommandOutput) => void),
     cb?: (err: any, data?: EnableLDAPSCommandOutput) => void
   ): Promise<EnableLDAPSCommandOutput> | void {
     const command = new EnableLDAPSCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1491,10 +1317,7 @@ export class DirectoryService extends DirectoryServiceClient {
     args: EnableRadiusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EnableRadiusCommandOutput>;
-  public enableRadius(
-    args: EnableRadiusCommandInput,
-    cb: (err: any, data?: EnableRadiusCommandOutput) => void
-  ): void;
+  public enableRadius(args: EnableRadiusCommandInput, cb: (err: any, data?: EnableRadiusCommandOutput) => void): void;
   public enableRadius(
     args: EnableRadiusCommandInput,
     options: __HttpHandlerOptions,
@@ -1502,17 +1325,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public enableRadius(
     args: EnableRadiusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableRadiusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableRadiusCommandOutput) => void),
     cb?: (err: any, data?: EnableRadiusCommandOutput) => void
   ): Promise<EnableRadiusCommandOutput> | void {
     const command = new EnableRadiusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1522,14 +1342,8 @@ export class DirectoryService extends DirectoryServiceClient {
   /**
    * <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately.</p>
    */
-  public enableSso(
-    args: EnableSsoCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableSsoCommandOutput>;
-  public enableSso(
-    args: EnableSsoCommandInput,
-    cb: (err: any, data?: EnableSsoCommandOutput) => void
-  ): void;
+  public enableSso(args: EnableSsoCommandInput, options?: __HttpHandlerOptions): Promise<EnableSsoCommandOutput>;
+  public enableSso(args: EnableSsoCommandInput, cb: (err: any, data?: EnableSsoCommandOutput) => void): void;
   public enableSso(
     args: EnableSsoCommandInput,
     options: __HttpHandlerOptions,
@@ -1537,17 +1351,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public enableSso(
     args: EnableSsoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableSsoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableSsoCommandOutput) => void),
     cb?: (err: any, data?: EnableSsoCommandOutput) => void
   ): Promise<EnableSsoCommandOutput> | void {
     const command = new EnableSsoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1572,17 +1383,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public getDirectoryLimits(
     args: GetDirectoryLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDirectoryLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDirectoryLimitsCommandOutput) => void),
     cb?: (err: any, data?: GetDirectoryLimitsCommandOutput) => void
   ): Promise<GetDirectoryLimitsCommandOutput> | void {
     const command = new GetDirectoryLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1607,17 +1415,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public getSnapshotLimits(
     args: GetSnapshotLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSnapshotLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSnapshotLimitsCommandOutput) => void),
     cb?: (err: any, data?: GetSnapshotLimitsCommandOutput) => void
   ): Promise<GetSnapshotLimitsCommandOutput> | void {
     const command = new GetSnapshotLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1642,17 +1447,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public listCertificates(
     args: ListCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCertificatesCommandOutput) => void),
     cb?: (err: any, data?: ListCertificatesCommandOutput) => void
   ): Promise<ListCertificatesCommandOutput> | void {
     const command = new ListCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1666,10 +1468,7 @@ export class DirectoryService extends DirectoryServiceClient {
     args: ListIpRoutesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListIpRoutesCommandOutput>;
-  public listIpRoutes(
-    args: ListIpRoutesCommandInput,
-    cb: (err: any, data?: ListIpRoutesCommandOutput) => void
-  ): void;
+  public listIpRoutes(args: ListIpRoutesCommandInput, cb: (err: any, data?: ListIpRoutesCommandOutput) => void): void;
   public listIpRoutes(
     args: ListIpRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -1677,17 +1476,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public listIpRoutes(
     args: ListIpRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIpRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIpRoutesCommandOutput) => void),
     cb?: (err: any, data?: ListIpRoutesCommandOutput) => void
   ): Promise<ListIpRoutesCommandOutput> | void {
     const command = new ListIpRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1712,17 +1508,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public listLogSubscriptions(
     args: ListLogSubscriptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLogSubscriptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLogSubscriptionsCommandOutput) => void),
     cb?: (err: any, data?: ListLogSubscriptionsCommandOutput) => void
   ): Promise<ListLogSubscriptionsCommandOutput> | void {
     const command = new ListLogSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1747,17 +1540,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public listSchemaExtensions(
     args: ListSchemaExtensionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSchemaExtensionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSchemaExtensionsCommandOutput) => void),
     cb?: (err: any, data?: ListSchemaExtensionsCommandOutput) => void
   ): Promise<ListSchemaExtensionsCommandOutput> | void {
     const command = new ListSchemaExtensionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1782,17 +1572,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1817,17 +1604,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public registerCertificate(
     args: RegisterCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterCertificateCommandOutput) => void),
     cb?: (err: any, data?: RegisterCertificateCommandOutput) => void
   ): Promise<RegisterCertificateCommandOutput> | void {
     const command = new RegisterCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1852,17 +1636,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public registerEventTopic(
     args: RegisterEventTopicCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterEventTopicCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterEventTopicCommandOutput) => void),
     cb?: (err: any, data?: RegisterEventTopicCommandOutput) => void
   ): Promise<RegisterEventTopicCommandOutput> | void {
     const command = new RegisterEventTopicCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1887,17 +1668,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public rejectSharedDirectory(
     args: RejectSharedDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectSharedDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectSharedDirectoryCommandOutput) => void),
     cb?: (err: any, data?: RejectSharedDirectoryCommandOutput) => void
   ): Promise<RejectSharedDirectoryCommandOutput> | void {
     const command = new RejectSharedDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1922,17 +1700,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public removeIpRoutes(
     args: RemoveIpRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveIpRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveIpRoutesCommandOutput) => void),
     cb?: (err: any, data?: RemoveIpRoutesCommandOutput) => void
   ): Promise<RemoveIpRoutesCommandOutput> | void {
     const command = new RemoveIpRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1957,17 +1732,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2008,17 +1780,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public resetUserPassword(
     args: ResetUserPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetUserPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetUserPasswordCommandOutput) => void),
     cb?: (err: any, data?: ResetUserPasswordCommandOutput) => void
   ): Promise<ResetUserPasswordCommandOutput> | void {
     const command = new ResetUserPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2048,17 +1817,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public restoreFromSnapshot(
     args: RestoreFromSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreFromSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreFromSnapshotCommandOutput) => void),
     cb?: (err: any, data?: RestoreFromSnapshotCommandOutput) => void
   ): Promise<RestoreFromSnapshotCommandOutput> | void {
     const command = new RestoreFromSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2095,17 +1861,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public shareDirectory(
     args: ShareDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ShareDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ShareDirectoryCommandOutput) => void),
     cb?: (err: any, data?: ShareDirectoryCommandOutput) => void
   ): Promise<ShareDirectoryCommandOutput> | void {
     const command = new ShareDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2130,17 +1893,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public startSchemaExtension(
     args: StartSchemaExtensionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSchemaExtensionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSchemaExtensionCommandOutput) => void),
     cb?: (err: any, data?: StartSchemaExtensionCommandOutput) => void
   ): Promise<StartSchemaExtensionCommandOutput> | void {
     const command = new StartSchemaExtensionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2165,17 +1925,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public unshareDirectory(
     args: UnshareDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnshareDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnshareDirectoryCommandOutput) => void),
     cb?: (err: any, data?: UnshareDirectoryCommandOutput) => void
   ): Promise<UnshareDirectoryCommandOutput> | void {
     const command = new UnshareDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2200,17 +1957,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public updateConditionalForwarder(
     args: UpdateConditionalForwarderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConditionalForwarderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConditionalForwarderCommandOutput) => void),
     cb?: (err: any, data?: UpdateConditionalForwarderCommandOutput) => void
   ): Promise<UpdateConditionalForwarderCommandOutput> | void {
     const command = new UpdateConditionalForwarderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2235,20 +1989,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public updateNumberOfDomainControllers(
     args: UpdateNumberOfDomainControllersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateNumberOfDomainControllersCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNumberOfDomainControllersCommandOutput) => void),
     cb?: (err: any, data?: UpdateNumberOfDomainControllersCommandOutput) => void
   ): Promise<UpdateNumberOfDomainControllersCommandOutput> | void {
     const command = new UpdateNumberOfDomainControllersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2262,10 +2010,7 @@ export class DirectoryService extends DirectoryServiceClient {
     args: UpdateRadiusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRadiusCommandOutput>;
-  public updateRadius(
-    args: UpdateRadiusCommandInput,
-    cb: (err: any, data?: UpdateRadiusCommandOutput) => void
-  ): void;
+  public updateRadius(args: UpdateRadiusCommandInput, cb: (err: any, data?: UpdateRadiusCommandOutput) => void): void;
   public updateRadius(
     args: UpdateRadiusCommandInput,
     options: __HttpHandlerOptions,
@@ -2273,17 +2018,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public updateRadius(
     args: UpdateRadiusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRadiusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRadiusCommandOutput) => void),
     cb?: (err: any, data?: UpdateRadiusCommandOutput) => void
   ): Promise<UpdateRadiusCommandOutput> | void {
     const command = new UpdateRadiusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2293,14 +2035,8 @@ export class DirectoryService extends DirectoryServiceClient {
   /**
    * <p>Updates the trust that has been set up between your AWS Managed Microsoft AD directory and an on-premises Active Directory.</p>
    */
-  public updateTrust(
-    args: UpdateTrustCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTrustCommandOutput>;
-  public updateTrust(
-    args: UpdateTrustCommandInput,
-    cb: (err: any, data?: UpdateTrustCommandOutput) => void
-  ): void;
+  public updateTrust(args: UpdateTrustCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTrustCommandOutput>;
+  public updateTrust(args: UpdateTrustCommandInput, cb: (err: any, data?: UpdateTrustCommandOutput) => void): void;
   public updateTrust(
     args: UpdateTrustCommandInput,
     options: __HttpHandlerOptions,
@@ -2308,17 +2044,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public updateTrust(
     args: UpdateTrustCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrustCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrustCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrustCommandOutput) => void
   ): Promise<UpdateTrustCommandOutput> | void {
     const command = new UpdateTrustCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2329,14 +2062,8 @@ export class DirectoryService extends DirectoryServiceClient {
    * <p>AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.</p>
    *          <p>This action verifies a trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
    */
-  public verifyTrust(
-    args: VerifyTrustCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<VerifyTrustCommandOutput>;
-  public verifyTrust(
-    args: VerifyTrustCommandInput,
-    cb: (err: any, data?: VerifyTrustCommandOutput) => void
-  ): void;
+  public verifyTrust(args: VerifyTrustCommandInput, options?: __HttpHandlerOptions): Promise<VerifyTrustCommandOutput>;
+  public verifyTrust(args: VerifyTrustCommandInput, cb: (err: any, data?: VerifyTrustCommandOutput) => void): void;
   public verifyTrust(
     args: VerifyTrustCommandInput,
     options: __HttpHandlerOptions,
@@ -2344,17 +2071,14 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public verifyTrust(
     args: VerifyTrustCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: VerifyTrustCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyTrustCommandOutput) => void),
     cb?: (err: any, data?: VerifyTrustCommandOutput) => void
   ): Promise<VerifyTrustCommandOutput> | void {
     const command = new VerifyTrustCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

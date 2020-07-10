@@ -1,22 +1,14 @@
 import { getChunkedStream } from "./getChunkedStream";
-import {
-  recordEventMessage,
-  statsEventMessage,
-  endEventMessage
-} from "./fixtures/event.fixture";
+import { recordEventMessage, statsEventMessage, endEventMessage } from "./fixtures/event.fixture";
 import { MockEventMessageSource } from "./fixtures/MockEventMessageSource.fixture";
 
 describe("getChunkedStream", () => {
   it("splits payloads into individual messages", async () => {
     const messages = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
-      emitSize: 100
+      emitSize: 100,
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -27,15 +19,10 @@ describe("getChunkedStream", () => {
 
   it("splits payloads in correct order", async () => {
     const messages: Array<any> = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      recordEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, recordEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
-      emitSize: 100
+      emitSize: 100,
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -43,24 +30,18 @@ describe("getChunkedStream", () => {
     }
     expect(messages.length).toBe(4);
     for (let i = 0; i < mockMessages.length; i++) {
-      expect(Buffer.from(messages[i]).toString("base64")).toEqual(
-        mockMessages[i].toString("base64")
-      );
+      expect(Buffer.from(messages[i]).toString("base64")).toEqual(mockMessages[i].toString("base64"));
     }
   });
 
   it("splits payloads when received all at once", async () => {
     const messages = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
       emitSize: mockMessages.reduce((prev, cur) => {
         return prev + cur.length;
-      }, 0)
+      }, 0),
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -71,14 +52,10 @@ describe("getChunkedStream", () => {
 
   it("splits payloads when total event message length spans multiple chunks", async () => {
     const messages = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
-      emitSize: 1
+      emitSize: 1,
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -89,14 +66,10 @@ describe("getChunkedStream", () => {
 
   it("splits payloads when total event message length spans 2 chunks", async () => {
     const messages = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
-      emitSize: recordEventMessage.length + 2
+      emitSize: recordEventMessage.length + 2,
     });
     const chunkerStream = getChunkedStream(mockStream);
     for await (const msg of chunkerStream) {
@@ -106,14 +79,10 @@ describe("getChunkedStream", () => {
   });
 
   it("sends an error if an event message is truncated", async () => {
-    const responseMessage = Buffer.concat([
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ]);
+    const responseMessage = Buffer.concat([recordEventMessage, statsEventMessage, endEventMessage]);
     const mockStream = new MockEventMessageSource({
       messages: [responseMessage.slice(0, responseMessage.length - 4)],
-      emitSize: 10
+      emitSize: 10,
     });
 
     const chunkerStream = getChunkedStream(mockStream);

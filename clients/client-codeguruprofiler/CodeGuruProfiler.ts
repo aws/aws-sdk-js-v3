@@ -2,67 +2,59 @@ import { CodeGuruProfilerClient } from "./CodeGuruProfilerClient";
 import {
   ConfigureAgentCommand,
   ConfigureAgentCommandInput,
-  ConfigureAgentCommandOutput
+  ConfigureAgentCommandOutput,
 } from "./commands/ConfigureAgentCommand";
 import {
   CreateProfilingGroupCommand,
   CreateProfilingGroupCommandInput,
-  CreateProfilingGroupCommandOutput
+  CreateProfilingGroupCommandOutput,
 } from "./commands/CreateProfilingGroupCommand";
 import {
   DeleteProfilingGroupCommand,
   DeleteProfilingGroupCommandInput,
-  DeleteProfilingGroupCommandOutput
+  DeleteProfilingGroupCommandOutput,
 } from "./commands/DeleteProfilingGroupCommand";
 import {
   DescribeProfilingGroupCommand,
   DescribeProfilingGroupCommandInput,
-  DescribeProfilingGroupCommandOutput
+  DescribeProfilingGroupCommandOutput,
 } from "./commands/DescribeProfilingGroupCommand";
-import {
-  GetPolicyCommand,
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
-import {
-  GetProfileCommand,
-  GetProfileCommandInput,
-  GetProfileCommandOutput
-} from "./commands/GetProfileCommand";
+import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { GetProfileCommand, GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
 import {
   ListProfileTimesCommand,
   ListProfileTimesCommandInput,
-  ListProfileTimesCommandOutput
+  ListProfileTimesCommandOutput,
 } from "./commands/ListProfileTimesCommand";
 import {
   ListProfilingGroupsCommand,
   ListProfilingGroupsCommandInput,
-  ListProfilingGroupsCommandOutput
+  ListProfilingGroupsCommandOutput,
 } from "./commands/ListProfilingGroupsCommand";
 import {
   PostAgentProfileCommand,
   PostAgentProfileCommandInput,
-  PostAgentProfileCommandOutput
+  PostAgentProfileCommandOutput,
 } from "./commands/PostAgentProfileCommand";
 import {
   PutPermissionCommand,
   PutPermissionCommandInput,
-  PutPermissionCommandOutput
+  PutPermissionCommandOutput,
 } from "./commands/PutPermissionCommand";
 import {
   RemovePermissionCommand,
   RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
+  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
 import {
   RetrieveTimeSeriesCommand,
   RetrieveTimeSeriesCommandInput,
-  RetrieveTimeSeriesCommandOutput
+  RetrieveTimeSeriesCommandOutput,
 } from "./commands/RetrieveTimeSeriesCommand";
 import {
   UpdateProfilingGroupCommand,
   UpdateProfilingGroupCommandInput,
-  UpdateProfilingGroupCommandOutput
+  UpdateProfilingGroupCommandOutput,
 } from "./commands/UpdateProfilingGroupCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -88,17 +80,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public configureAgent(
     args: ConfigureAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfigureAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfigureAgentCommandOutput) => void),
     cb?: (err: any, data?: ConfigureAgentCommandOutput) => void
   ): Promise<ConfigureAgentCommandOutput> | void {
     const command = new ConfigureAgentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -123,17 +112,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public createProfilingGroup(
     args: CreateProfilingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProfilingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProfilingGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateProfilingGroupCommandOutput) => void
   ): Promise<CreateProfilingGroupCommandOutput> | void {
     const command = new CreateProfilingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -158,17 +144,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public deleteProfilingGroup(
     args: DeleteProfilingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProfilingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProfilingGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteProfilingGroupCommandOutput) => void
   ): Promise<DeleteProfilingGroupCommandOutput> | void {
     const command = new DeleteProfilingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -193,17 +176,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public describeProfilingGroup(
     args: DescribeProfilingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProfilingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProfilingGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeProfilingGroupCommandOutput) => void
   ): Promise<DescribeProfilingGroupCommandOutput> | void {
     const command = new DescribeProfilingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -228,17 +208,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public listProfilingGroups(
     args: ListProfilingGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProfilingGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProfilingGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListProfilingGroupsCommandOutput) => void
   ): Promise<ListProfilingGroupsCommandOutput> | void {
     const command = new ListProfilingGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -263,17 +240,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public updateProfilingGroup(
     args: UpdateProfilingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProfilingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProfilingGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateProfilingGroupCommandOutput) => void
   ): Promise<UpdateProfilingGroupCommandOutput> | void {
     const command = new UpdateProfilingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -283,14 +257,8 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   /**
    * <p>Gets the profiling group policy.</p>
    */
-  public getPolicy(
-    args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPolicyCommandOutput>;
-  public getPolicy(
-    args: GetPolicyCommandInput,
-    cb: (err: any, data?: GetPolicyCommandOutput) => void
-  ): void;
+  public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
+  public getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
   public getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -298,17 +266,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public getPolicy(
     args: GetPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyCommandOutput) => void
   ): Promise<GetPolicyCommandOutput> | void {
     const command = new GetPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -334,17 +299,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public putPermission(
     args: PutPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPermissionCommandOutput) => void),
     cb?: (err: any, data?: PutPermissionCommandOutput) => void
   ): Promise<PutPermissionCommandOutput> | void {
     const command = new PutPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -369,17 +331,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -399,14 +358,8 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
    *         <code>startTime</code>, <code>period</code>, and <code>endTime</code>.
    *       </p>
    */
-  public getProfile(
-    args: GetProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetProfileCommandOutput>;
-  public getProfile(
-    args: GetProfileCommandInput,
-    cb: (err: any, data?: GetProfileCommandOutput) => void
-  ): void;
+  public getProfile(args: GetProfileCommandInput, options?: __HttpHandlerOptions): Promise<GetProfileCommandOutput>;
+  public getProfile(args: GetProfileCommandInput, cb: (err: any, data?: GetProfileCommandOutput) => void): void;
   public getProfile(
     args: GetProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -414,17 +367,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public getProfile(
     args: GetProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProfileCommandOutput) => void),
     cb?: (err: any, data?: GetProfileCommandOutput) => void
   ): Promise<GetProfileCommandOutput> | void {
     const command = new GetProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -450,17 +400,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public listProfileTimes(
     args: ListProfileTimesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProfileTimesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProfileTimesCommandOutput) => void),
     cb?: (err: any, data?: ListProfileTimesCommandOutput) => void
   ): Promise<ListProfileTimesCommandOutput> | void {
     const command = new ListProfileTimesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -485,17 +432,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public postAgentProfile(
     args: PostAgentProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostAgentProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostAgentProfileCommandOutput) => void),
     cb?: (err: any, data?: PostAgentProfileCommandOutput) => void
   ): Promise<PostAgentProfileCommandOutput> | void {
     const command = new PostAgentProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -517,17 +461,14 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public retrieveTimeSeries(
     args: RetrieveTimeSeriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetrieveTimeSeriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetrieveTimeSeriesCommandOutput) => void),
     cb?: (err: any, data?: RetrieveTimeSeriesCommandOutput) => void
   ): Promise<RetrieveTimeSeriesCommandOutput> | void {
     const command = new RetrieveTimeSeriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

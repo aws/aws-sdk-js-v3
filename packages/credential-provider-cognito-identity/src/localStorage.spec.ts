@@ -32,7 +32,7 @@ describe("localStorage", () => {
     (self.indexedDB as any) = {
       open() {
         return {};
-      }
+      },
     };
 
     expect(localStorage()).toBeInstanceOf(IndexedDbStorage);

@@ -6,7 +6,7 @@ const httpRequestOptions = {
   protocol: "https:",
   path: "/",
   headers: {},
-  hostname: "foo.us-east-1.amazonaws.com"
+  hostname: "foo.us-east-1.amazonaws.com",
 };
 
 describe("getCanonicalQuery", () => {
@@ -19,7 +19,7 @@ describe("getCanonicalQuery", () => {
       getCanonicalQuery(
         new HttpRequest({
           ...httpRequestOptions,
-          query: { fizz: "buzz", foo: "bar" }
+          query: { fizz: "buzz", foo: "bar" },
         })
       )
     ).toBe("fizz=buzz&foo=bar");
@@ -30,7 +30,7 @@ describe("getCanonicalQuery", () => {
       getCanonicalQuery(
         new HttpRequest({
           ...httpRequestOptions,
-          query: { foo: "bar", baz: "quux", fizz: "buzz" }
+          query: { foo: "bar", baz: "quux", fizz: "buzz" },
         })
       )
     ).toBe("baz=quux&fizz=buzz&foo=bar");
@@ -41,7 +41,7 @@ describe("getCanonicalQuery", () => {
       getCanonicalQuery(
         new HttpRequest({
           ...httpRequestOptions,
-          query: { "🐎": "🦄", "💩": "☃️" }
+          query: { "🐎": "🦄", "💩": "☃️" },
         })
       )
     ).toBe("%F0%9F%90%8E=%F0%9F%A6%84&%F0%9F%92%A9=%E2%98%83%EF%B8%8F");
@@ -55,8 +55,8 @@ describe("getCanonicalQuery", () => {
           query: {
             "x-amz-signature": "foo",
             "X-Amz-Signature": "bar",
-            fizz: "buzz"
-          }
+            fizz: "buzz",
+          },
         })
       )
     ).toBe("fizz=buzz");
@@ -67,7 +67,7 @@ describe("getCanonicalQuery", () => {
       getCanonicalQuery(
         new HttpRequest({
           ...httpRequestOptions,
-          query: { foo: ["bar", "baz"] }
+          query: { foo: ["bar", "baz"] },
         })
       )
     ).toBe("foo=bar&foo=baz");
@@ -78,7 +78,7 @@ describe("getCanonicalQuery", () => {
       getCanonicalQuery(
         new HttpRequest({
           ...httpRequestOptions,
-          query: { snap: ["pop", "crackle"] }
+          query: { snap: ["pop", "crackle"] },
         })
       )
     ).toBe("snap=crackle&snap=pop");
@@ -89,7 +89,7 @@ describe("getCanonicalQuery", () => {
       getCanonicalQuery(
         new HttpRequest({
           ...httpRequestOptions,
-          query: { "🐎": ["💩", "🦄"] }
+          query: { "🐎": ["💩", "🦄"] },
         })
       )
     ).toBe("%F0%9F%90%8E=%F0%9F%92%A9&%F0%9F%90%8E=%F0%9F%A6%84");
@@ -100,7 +100,7 @@ describe("getCanonicalQuery", () => {
       getCanonicalQuery(
         new HttpRequest({
           ...httpRequestOptions,
-          query: { foo: "bar", baz: new Uint8Array(0) as any }
+          query: { foo: "bar", baz: new Uint8Array(0) as any },
         })
       )
     ).toBe("foo=bar");

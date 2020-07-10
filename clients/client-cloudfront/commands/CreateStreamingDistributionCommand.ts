@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
-import {
-  CreateStreamingDistributionRequest,
-  CreateStreamingDistributionResult
-} from "../models/index";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { CreateStreamingDistributionRequest, CreateStreamingDistributionResult } from "../models/index";
 import {
   deserializeAws_restXmlCreateStreamingDistributionCommand,
-  serializeAws_restXmlCreateStreamingDistributionCommand
+  serializeAws_restXmlCreateStreamingDistributionCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateStreamingDistributionCommandInput = CreateStreamingDistributionRequest;
-export type CreateStreamingDistributionCommandOutput = CreateStreamingDistributionResult &
-  __MetadataBearer;
+export type CreateStreamingDistributionCommandOutput = CreateStreamingDistributionResult & __MetadataBearer;
 
 export class CreateStreamingDistributionCommand extends $Command<
   CreateStreamingDistributionCommandInput,
@@ -49,18 +38,13 @@ export class CreateStreamingDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateStreamingDistributionCommandInput,
-    CreateStreamingDistributionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateStreamingDistributionCommandInput, CreateStreamingDistributionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class CreateStreamingDistributionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateStreamingDistributionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateStreamingDistributionCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlCreateStreamingDistributionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlCreateStreamingDistributionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCreateStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

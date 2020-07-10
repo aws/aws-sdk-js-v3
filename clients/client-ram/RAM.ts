@@ -2,117 +2,113 @@ import { RAMClient } from "./RAMClient";
 import {
   AcceptResourceShareInvitationCommand,
   AcceptResourceShareInvitationCommandInput,
-  AcceptResourceShareInvitationCommandOutput
+  AcceptResourceShareInvitationCommandOutput,
 } from "./commands/AcceptResourceShareInvitationCommand";
 import {
   AssociateResourceShareCommand,
   AssociateResourceShareCommandInput,
-  AssociateResourceShareCommandOutput
+  AssociateResourceShareCommandOutput,
 } from "./commands/AssociateResourceShareCommand";
 import {
   AssociateResourceSharePermissionCommand,
   AssociateResourceSharePermissionCommandInput,
-  AssociateResourceSharePermissionCommandOutput
+  AssociateResourceSharePermissionCommandOutput,
 } from "./commands/AssociateResourceSharePermissionCommand";
 import {
   CreateResourceShareCommand,
   CreateResourceShareCommandInput,
-  CreateResourceShareCommandOutput
+  CreateResourceShareCommandOutput,
 } from "./commands/CreateResourceShareCommand";
 import {
   DeleteResourceShareCommand,
   DeleteResourceShareCommandInput,
-  DeleteResourceShareCommandOutput
+  DeleteResourceShareCommandOutput,
 } from "./commands/DeleteResourceShareCommand";
 import {
   DisassociateResourceShareCommand,
   DisassociateResourceShareCommandInput,
-  DisassociateResourceShareCommandOutput
+  DisassociateResourceShareCommandOutput,
 } from "./commands/DisassociateResourceShareCommand";
 import {
   DisassociateResourceSharePermissionCommand,
   DisassociateResourceSharePermissionCommandInput,
-  DisassociateResourceSharePermissionCommandOutput
+  DisassociateResourceSharePermissionCommandOutput,
 } from "./commands/DisassociateResourceSharePermissionCommand";
 import {
   EnableSharingWithAwsOrganizationCommand,
   EnableSharingWithAwsOrganizationCommandInput,
-  EnableSharingWithAwsOrganizationCommandOutput
+  EnableSharingWithAwsOrganizationCommandOutput,
 } from "./commands/EnableSharingWithAwsOrganizationCommand";
 import {
   GetPermissionCommand,
   GetPermissionCommandInput,
-  GetPermissionCommandOutput
+  GetPermissionCommandOutput,
 } from "./commands/GetPermissionCommand";
 import {
   GetResourcePoliciesCommand,
   GetResourcePoliciesCommandInput,
-  GetResourcePoliciesCommandOutput
+  GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
 import {
   GetResourceShareAssociationsCommand,
   GetResourceShareAssociationsCommandInput,
-  GetResourceShareAssociationsCommandOutput
+  GetResourceShareAssociationsCommandOutput,
 } from "./commands/GetResourceShareAssociationsCommand";
 import {
   GetResourceShareInvitationsCommand,
   GetResourceShareInvitationsCommandInput,
-  GetResourceShareInvitationsCommandOutput
+  GetResourceShareInvitationsCommandOutput,
 } from "./commands/GetResourceShareInvitationsCommand";
 import {
   GetResourceSharesCommand,
   GetResourceSharesCommandInput,
-  GetResourceSharesCommandOutput
+  GetResourceSharesCommandOutput,
 } from "./commands/GetResourceSharesCommand";
 import {
   ListPendingInvitationResourcesCommand,
   ListPendingInvitationResourcesCommandInput,
-  ListPendingInvitationResourcesCommandOutput
+  ListPendingInvitationResourcesCommandOutput,
 } from "./commands/ListPendingInvitationResourcesCommand";
 import {
   ListPermissionsCommand,
   ListPermissionsCommandInput,
-  ListPermissionsCommandOutput
+  ListPermissionsCommandOutput,
 } from "./commands/ListPermissionsCommand";
 import {
   ListPrincipalsCommand,
   ListPrincipalsCommandInput,
-  ListPrincipalsCommandOutput
+  ListPrincipalsCommandOutput,
 } from "./commands/ListPrincipalsCommand";
 import {
   ListResourceSharePermissionsCommand,
   ListResourceSharePermissionsCommandInput,
-  ListResourceSharePermissionsCommandOutput
+  ListResourceSharePermissionsCommandOutput,
 } from "./commands/ListResourceSharePermissionsCommand";
 import {
   ListResourcesCommand,
   ListResourcesCommandInput,
-  ListResourcesCommandOutput
+  ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommand,
   PromoteResourceShareCreatedFromPolicyCommandInput,
-  PromoteResourceShareCreatedFromPolicyCommandOutput
+  PromoteResourceShareCreatedFromPolicyCommandOutput,
 } from "./commands/PromoteResourceShareCreatedFromPolicyCommand";
 import {
   RejectResourceShareInvitationCommand,
   RejectResourceShareInvitationCommandInput,
-  RejectResourceShareInvitationCommandOutput
+  RejectResourceShareInvitationCommandOutput,
 } from "./commands/RejectResourceShareInvitationCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateResourceShareCommand,
   UpdateResourceShareCommandInput,
-  UpdateResourceShareCommandOutput
+  UpdateResourceShareCommandOutput,
 } from "./commands/UpdateResourceShareCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -143,17 +139,14 @@ export class RAM extends RAMClient {
   ): void;
   public acceptResourceShareInvitation(
     args: AcceptResourceShareInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptResourceShareInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptResourceShareInvitationCommandOutput) => void),
     cb?: (err: any, data?: AcceptResourceShareInvitationCommandOutput) => void
   ): Promise<AcceptResourceShareInvitationCommandOutput> | void {
     const command = new AcceptResourceShareInvitationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -178,17 +171,14 @@ export class RAM extends RAMClient {
   ): void;
   public associateResourceShare(
     args: AssociateResourceShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateResourceShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateResourceShareCommandOutput) => void),
     cb?: (err: any, data?: AssociateResourceShareCommandOutput) => void
   ): Promise<AssociateResourceShareCommandOutput> | void {
     const command = new AssociateResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -213,23 +203,14 @@ export class RAM extends RAMClient {
   ): void;
   public associateResourceSharePermission(
     args: AssociateResourceSharePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateResourceSharePermissionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateResourceSharePermissionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateResourceSharePermissionCommandOutput) => void),
+    cb?: (err: any, data?: AssociateResourceSharePermissionCommandOutput) => void
   ): Promise<AssociateResourceSharePermissionCommandOutput> | void {
     const command = new AssociateResourceSharePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -254,17 +235,14 @@ export class RAM extends RAMClient {
   ): void;
   public createResourceShare(
     args: CreateResourceShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceShareCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceShareCommandOutput) => void
   ): Promise<CreateResourceShareCommandOutput> | void {
     const command = new CreateResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -289,17 +267,14 @@ export class RAM extends RAMClient {
   ): void;
   public deleteResourceShare(
     args: DeleteResourceShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourceShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceShareCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourceShareCommandOutput) => void
   ): Promise<DeleteResourceShareCommandOutput> | void {
     const command = new DeleteResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -324,17 +299,14 @@ export class RAM extends RAMClient {
   ): void;
   public disassociateResourceShare(
     args: DisassociateResourceShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateResourceShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateResourceShareCommandOutput) => void),
     cb?: (err: any, data?: DisassociateResourceShareCommandOutput) => void
   ): Promise<DisassociateResourceShareCommandOutput> | void {
     const command = new DisassociateResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -350,38 +322,23 @@ export class RAM extends RAMClient {
   ): Promise<DisassociateResourceSharePermissionCommandOutput>;
   public disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateResourceSharePermissionCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void
   ): void;
   public disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateResourceSharePermissionCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void
   ): void;
   public disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateResourceSharePermissionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateResourceSharePermissionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void
   ): Promise<DisassociateResourceSharePermissionCommandOutput> | void {
     const command = new DisassociateResourceSharePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -407,23 +364,14 @@ export class RAM extends RAMClient {
   ): void;
   public enableSharingWithAwsOrganization(
     args: EnableSharingWithAwsOrganizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableSharingWithAwsOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EnableSharingWithAwsOrganizationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void
   ): Promise<EnableSharingWithAwsOrganizationCommandOutput> | void {
     const command = new EnableSharingWithAwsOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -448,17 +396,14 @@ export class RAM extends RAMClient {
   ): void;
   public getPermission(
     args: GetPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPermissionCommandOutput) => void),
     cb?: (err: any, data?: GetPermissionCommandOutput) => void
   ): Promise<GetPermissionCommandOutput> | void {
     const command = new GetPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -483,17 +428,14 @@ export class RAM extends RAMClient {
   ): void;
   public getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcePoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePoliciesCommandOutput) => void),
     cb?: (err: any, data?: GetResourcePoliciesCommandOutput) => void
   ): Promise<GetResourcePoliciesCommandOutput> | void {
     const command = new GetResourcePoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -518,17 +460,14 @@ export class RAM extends RAMClient {
   ): void;
   public getResourceShareAssociations(
     args: GetResourceShareAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceShareAssociationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceShareAssociationsCommandOutput) => void),
     cb?: (err: any, data?: GetResourceShareAssociationsCommandOutput) => void
   ): Promise<GetResourceShareAssociationsCommandOutput> | void {
     const command = new GetResourceShareAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -553,17 +492,14 @@ export class RAM extends RAMClient {
   ): void;
   public getResourceShareInvitations(
     args: GetResourceShareInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceShareInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceShareInvitationsCommandOutput) => void),
     cb?: (err: any, data?: GetResourceShareInvitationsCommandOutput) => void
   ): Promise<GetResourceShareInvitationsCommandOutput> | void {
     const command = new GetResourceShareInvitationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -588,17 +524,14 @@ export class RAM extends RAMClient {
   ): void;
   public getResourceShares(
     args: GetResourceSharesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceSharesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceSharesCommandOutput) => void),
     cb?: (err: any, data?: GetResourceSharesCommandOutput) => void
   ): Promise<GetResourceSharesCommandOutput> | void {
     const command = new GetResourceSharesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -623,20 +556,14 @@ export class RAM extends RAMClient {
   ): void;
   public listPendingInvitationResources(
     args: ListPendingInvitationResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListPendingInvitationResourcesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPendingInvitationResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListPendingInvitationResourcesCommandOutput) => void
   ): Promise<ListPendingInvitationResourcesCommandOutput> | void {
     const command = new ListPendingInvitationResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -661,17 +588,14 @@ export class RAM extends RAMClient {
   ): void;
   public listPermissions(
     args: ListPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPermissionsCommandOutput) => void),
     cb?: (err: any, data?: ListPermissionsCommandOutput) => void
   ): Promise<ListPermissionsCommandOutput> | void {
     const command = new ListPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -697,17 +621,14 @@ export class RAM extends RAMClient {
   ): void;
   public listPrincipals(
     args: ListPrincipalsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPrincipalsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPrincipalsCommandOutput) => void),
     cb?: (err: any, data?: ListPrincipalsCommandOutput) => void
   ): Promise<ListPrincipalsCommandOutput> | void {
     const command = new ListPrincipalsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -732,17 +653,14 @@ export class RAM extends RAMClient {
   ): void;
   public listResources(
     args: ListResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesCommandOutput) => void
   ): Promise<ListResourcesCommandOutput> | void {
     const command = new ListResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -767,17 +685,14 @@ export class RAM extends RAMClient {
   ): void;
   public listResourceSharePermissions(
     args: ListResourceSharePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceSharePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceSharePermissionsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
   ): Promise<ListResourceSharePermissionsCommandOutput> | void {
     const command = new ListResourceSharePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -805,38 +720,25 @@ export class RAM extends RAMClient {
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput>;
   public promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
-    cb: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void
   ): void;
   public promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void
   ): void;
   public promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
+      | ((err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> | void {
     const command = new PromoteResourceShareCreatedFromPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -861,17 +763,14 @@ export class RAM extends RAMClient {
   ): void;
   public rejectResourceShareInvitation(
     args: RejectResourceShareInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectResourceShareInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectResourceShareInvitationCommandOutput) => void),
     cb?: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
   ): Promise<RejectResourceShareInvitationCommandOutput> | void {
     const command = new RejectResourceShareInvitationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -881,14 +780,8 @@ export class RAM extends RAMClient {
   /**
    * <p>Adds the specified tags to the specified resource share that you own.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -896,17 +789,14 @@ export class RAM extends RAMClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -931,17 +821,14 @@ export class RAM extends RAMClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -966,17 +853,14 @@ export class RAM extends RAMClient {
   ): void;
   public updateResourceShare(
     args: UpdateResourceShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceShareCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceShareCommandOutput) => void
   ): Promise<UpdateResourceShareCommandOutput> | void {
     const command = new UpdateResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

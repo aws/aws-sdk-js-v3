@@ -1,226 +1,172 @@
 import {
   AssociateVPCWithHostedZoneCommandInput,
-  AssociateVPCWithHostedZoneCommandOutput
+  AssociateVPCWithHostedZoneCommandOutput,
 } from "./commands/AssociateVPCWithHostedZoneCommand";
 import {
   ChangeResourceRecordSetsCommandInput,
-  ChangeResourceRecordSetsCommandOutput
+  ChangeResourceRecordSetsCommandOutput,
 } from "./commands/ChangeResourceRecordSetsCommand";
 import {
   ChangeTagsForResourceCommandInput,
-  ChangeTagsForResourceCommandOutput
+  ChangeTagsForResourceCommandOutput,
 } from "./commands/ChangeTagsForResourceCommand";
-import {
-  CreateHealthCheckCommandInput,
-  CreateHealthCheckCommandOutput
-} from "./commands/CreateHealthCheckCommand";
-import {
-  CreateHostedZoneCommandInput,
-  CreateHostedZoneCommandOutput
-} from "./commands/CreateHostedZoneCommand";
+import { CreateHealthCheckCommandInput, CreateHealthCheckCommandOutput } from "./commands/CreateHealthCheckCommand";
+import { CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput } from "./commands/CreateHostedZoneCommand";
 import {
   CreateQueryLoggingConfigCommandInput,
-  CreateQueryLoggingConfigCommandOutput
+  CreateQueryLoggingConfigCommandOutput,
 } from "./commands/CreateQueryLoggingConfigCommand";
 import {
   CreateReusableDelegationSetCommandInput,
-  CreateReusableDelegationSetCommandOutput
+  CreateReusableDelegationSetCommandOutput,
 } from "./commands/CreateReusableDelegationSetCommand";
 import {
   CreateTrafficPolicyCommandInput,
-  CreateTrafficPolicyCommandOutput
+  CreateTrafficPolicyCommandOutput,
 } from "./commands/CreateTrafficPolicyCommand";
 import {
   CreateTrafficPolicyInstanceCommandInput,
-  CreateTrafficPolicyInstanceCommandOutput
+  CreateTrafficPolicyInstanceCommandOutput,
 } from "./commands/CreateTrafficPolicyInstanceCommand";
 import {
   CreateTrafficPolicyVersionCommandInput,
-  CreateTrafficPolicyVersionCommandOutput
+  CreateTrafficPolicyVersionCommandOutput,
 } from "./commands/CreateTrafficPolicyVersionCommand";
 import {
   CreateVPCAssociationAuthorizationCommandInput,
-  CreateVPCAssociationAuthorizationCommandOutput
+  CreateVPCAssociationAuthorizationCommandOutput,
 } from "./commands/CreateVPCAssociationAuthorizationCommand";
-import {
-  DeleteHealthCheckCommandInput,
-  DeleteHealthCheckCommandOutput
-} from "./commands/DeleteHealthCheckCommand";
-import {
-  DeleteHostedZoneCommandInput,
-  DeleteHostedZoneCommandOutput
-} from "./commands/DeleteHostedZoneCommand";
+import { DeleteHealthCheckCommandInput, DeleteHealthCheckCommandOutput } from "./commands/DeleteHealthCheckCommand";
+import { DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput } from "./commands/DeleteHostedZoneCommand";
 import {
   DeleteQueryLoggingConfigCommandInput,
-  DeleteQueryLoggingConfigCommandOutput
+  DeleteQueryLoggingConfigCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigCommand";
 import {
   DeleteReusableDelegationSetCommandInput,
-  DeleteReusableDelegationSetCommandOutput
+  DeleteReusableDelegationSetCommandOutput,
 } from "./commands/DeleteReusableDelegationSetCommand";
 import {
   DeleteTrafficPolicyCommandInput,
-  DeleteTrafficPolicyCommandOutput
+  DeleteTrafficPolicyCommandOutput,
 } from "./commands/DeleteTrafficPolicyCommand";
 import {
   DeleteTrafficPolicyInstanceCommandInput,
-  DeleteTrafficPolicyInstanceCommandOutput
+  DeleteTrafficPolicyInstanceCommandOutput,
 } from "./commands/DeleteTrafficPolicyInstanceCommand";
 import {
   DeleteVPCAssociationAuthorizationCommandInput,
-  DeleteVPCAssociationAuthorizationCommandOutput
+  DeleteVPCAssociationAuthorizationCommandOutput,
 } from "./commands/DeleteVPCAssociationAuthorizationCommand";
 import {
   DisassociateVPCFromHostedZoneCommandInput,
-  DisassociateVPCFromHostedZoneCommandOutput
+  DisassociateVPCFromHostedZoneCommandOutput,
 } from "./commands/DisassociateVPCFromHostedZoneCommand";
-import {
-  GetAccountLimitCommandInput,
-  GetAccountLimitCommandOutput
-} from "./commands/GetAccountLimitCommand";
-import {
-  GetChangeCommandInput,
-  GetChangeCommandOutput
-} from "./commands/GetChangeCommand";
-import {
-  GetCheckerIpRangesCommandInput,
-  GetCheckerIpRangesCommandOutput
-} from "./commands/GetCheckerIpRangesCommand";
-import {
-  GetGeoLocationCommandInput,
-  GetGeoLocationCommandOutput
-} from "./commands/GetGeoLocationCommand";
-import {
-  GetHealthCheckCommandInput,
-  GetHealthCheckCommandOutput
-} from "./commands/GetHealthCheckCommand";
+import { GetAccountLimitCommandInput, GetAccountLimitCommandOutput } from "./commands/GetAccountLimitCommand";
+import { GetChangeCommandInput, GetChangeCommandOutput } from "./commands/GetChangeCommand";
+import { GetCheckerIpRangesCommandInput, GetCheckerIpRangesCommandOutput } from "./commands/GetCheckerIpRangesCommand";
+import { GetGeoLocationCommandInput, GetGeoLocationCommandOutput } from "./commands/GetGeoLocationCommand";
+import { GetHealthCheckCommandInput, GetHealthCheckCommandOutput } from "./commands/GetHealthCheckCommand";
 import {
   GetHealthCheckCountCommandInput,
-  GetHealthCheckCountCommandOutput
+  GetHealthCheckCountCommandOutput,
 } from "./commands/GetHealthCheckCountCommand";
 import {
   GetHealthCheckLastFailureReasonCommandInput,
-  GetHealthCheckLastFailureReasonCommandOutput
+  GetHealthCheckLastFailureReasonCommandOutput,
 } from "./commands/GetHealthCheckLastFailureReasonCommand";
 import {
   GetHealthCheckStatusCommandInput,
-  GetHealthCheckStatusCommandOutput
+  GetHealthCheckStatusCommandOutput,
 } from "./commands/GetHealthCheckStatusCommand";
-import {
-  GetHostedZoneCommandInput,
-  GetHostedZoneCommandOutput
-} from "./commands/GetHostedZoneCommand";
-import {
-  GetHostedZoneCountCommandInput,
-  GetHostedZoneCountCommandOutput
-} from "./commands/GetHostedZoneCountCommand";
-import {
-  GetHostedZoneLimitCommandInput,
-  GetHostedZoneLimitCommandOutput
-} from "./commands/GetHostedZoneLimitCommand";
+import { GetHostedZoneCommandInput, GetHostedZoneCommandOutput } from "./commands/GetHostedZoneCommand";
+import { GetHostedZoneCountCommandInput, GetHostedZoneCountCommandOutput } from "./commands/GetHostedZoneCountCommand";
+import { GetHostedZoneLimitCommandInput, GetHostedZoneLimitCommandOutput } from "./commands/GetHostedZoneLimitCommand";
 import {
   GetQueryLoggingConfigCommandInput,
-  GetQueryLoggingConfigCommandOutput
+  GetQueryLoggingConfigCommandOutput,
 } from "./commands/GetQueryLoggingConfigCommand";
 import {
   GetReusableDelegationSetCommandInput,
-  GetReusableDelegationSetCommandOutput
+  GetReusableDelegationSetCommandOutput,
 } from "./commands/GetReusableDelegationSetCommand";
 import {
   GetReusableDelegationSetLimitCommandInput,
-  GetReusableDelegationSetLimitCommandOutput
+  GetReusableDelegationSetLimitCommandOutput,
 } from "./commands/GetReusableDelegationSetLimitCommand";
-import {
-  GetTrafficPolicyCommandInput,
-  GetTrafficPolicyCommandOutput
-} from "./commands/GetTrafficPolicyCommand";
+import { GetTrafficPolicyCommandInput, GetTrafficPolicyCommandOutput } from "./commands/GetTrafficPolicyCommand";
 import {
   GetTrafficPolicyInstanceCommandInput,
-  GetTrafficPolicyInstanceCommandOutput
+  GetTrafficPolicyInstanceCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCommand";
 import {
   GetTrafficPolicyInstanceCountCommandInput,
-  GetTrafficPolicyInstanceCountCommandOutput
+  GetTrafficPolicyInstanceCountCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCountCommand";
-import {
-  ListGeoLocationsCommandInput,
-  ListGeoLocationsCommandOutput
-} from "./commands/ListGeoLocationsCommand";
-import {
-  ListHealthChecksCommandInput,
-  ListHealthChecksCommandOutput
-} from "./commands/ListHealthChecksCommand";
+import { ListGeoLocationsCommandInput, ListGeoLocationsCommandOutput } from "./commands/ListGeoLocationsCommand";
+import { ListHealthChecksCommandInput, ListHealthChecksCommandOutput } from "./commands/ListHealthChecksCommand";
 import {
   ListHostedZonesByNameCommandInput,
-  ListHostedZonesByNameCommandOutput
+  ListHostedZonesByNameCommandOutput,
 } from "./commands/ListHostedZonesByNameCommand";
-import {
-  ListHostedZonesCommandInput,
-  ListHostedZonesCommandOutput
-} from "./commands/ListHostedZonesCommand";
+import { ListHostedZonesCommandInput, ListHostedZonesCommandOutput } from "./commands/ListHostedZonesCommand";
 import {
   ListQueryLoggingConfigsCommandInput,
-  ListQueryLoggingConfigsCommandOutput
+  ListQueryLoggingConfigsCommandOutput,
 } from "./commands/ListQueryLoggingConfigsCommand";
 import {
   ListResourceRecordSetsCommandInput,
-  ListResourceRecordSetsCommandOutput
+  ListResourceRecordSetsCommandOutput,
 } from "./commands/ListResourceRecordSetsCommand";
 import {
   ListReusableDelegationSetsCommandInput,
-  ListReusableDelegationSetsCommandOutput
+  ListReusableDelegationSetsCommandOutput,
 } from "./commands/ListReusableDelegationSetsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTagsForResourcesCommandInput,
-  ListTagsForResourcesCommandOutput
+  ListTagsForResourcesCommandOutput,
 } from "./commands/ListTagsForResourcesCommand";
 import {
   ListTrafficPoliciesCommandInput,
-  ListTrafficPoliciesCommandOutput
+  ListTrafficPoliciesCommandOutput,
 } from "./commands/ListTrafficPoliciesCommand";
 import {
   ListTrafficPolicyInstancesByHostedZoneCommandInput,
-  ListTrafficPolicyInstancesByHostedZoneCommandOutput
+  ListTrafficPolicyInstancesByHostedZoneCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByHostedZoneCommand";
 import {
   ListTrafficPolicyInstancesByPolicyCommandInput,
-  ListTrafficPolicyInstancesByPolicyCommandOutput
+  ListTrafficPolicyInstancesByPolicyCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByPolicyCommand";
 import {
   ListTrafficPolicyInstancesCommandInput,
-  ListTrafficPolicyInstancesCommandOutput
+  ListTrafficPolicyInstancesCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesCommand";
 import {
   ListTrafficPolicyVersionsCommandInput,
-  ListTrafficPolicyVersionsCommandOutput
+  ListTrafficPolicyVersionsCommandOutput,
 } from "./commands/ListTrafficPolicyVersionsCommand";
 import {
   ListVPCAssociationAuthorizationsCommandInput,
-  ListVPCAssociationAuthorizationsCommandOutput
+  ListVPCAssociationAuthorizationsCommandOutput,
 } from "./commands/ListVPCAssociationAuthorizationsCommand";
-import {
-  TestDNSAnswerCommandInput,
-  TestDNSAnswerCommandOutput
-} from "./commands/TestDNSAnswerCommand";
-import {
-  UpdateHealthCheckCommandInput,
-  UpdateHealthCheckCommandOutput
-} from "./commands/UpdateHealthCheckCommand";
+import { TestDNSAnswerCommandInput, TestDNSAnswerCommandOutput } from "./commands/TestDNSAnswerCommand";
+import { UpdateHealthCheckCommandInput, UpdateHealthCheckCommandOutput } from "./commands/UpdateHealthCheckCommand";
 import {
   UpdateHostedZoneCommentCommandInput,
-  UpdateHostedZoneCommentCommandOutput
+  UpdateHostedZoneCommentCommandOutput,
 } from "./commands/UpdateHostedZoneCommentCommand";
 import {
   UpdateTrafficPolicyCommentCommandInput,
-  UpdateTrafficPolicyCommentCommandOutput
+  UpdateTrafficPolicyCommentCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommentCommand";
 import {
   UpdateTrafficPolicyInstanceCommandInput,
-  UpdateTrafficPolicyInstanceCommandOutput
+  UpdateTrafficPolicyInstanceCommandOutput,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -229,38 +175,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -271,7 +212,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -390,8 +331,7 @@ export type ServiceOutputTypes =
   | UpdateTrafficPolicyCommentCommandOutput
   | UpdateTrafficPolicyInstanceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -480,9 +420,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Route53ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Route53ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -491,9 +429,7 @@ export type Route53ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Route53ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Route53ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -516,7 +452,7 @@ export class Route53Client extends __Client<
   constructor(configuration: Route53ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

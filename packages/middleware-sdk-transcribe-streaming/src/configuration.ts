@@ -26,10 +26,8 @@ export const resolveWebSocketConfig = <T>(
           if (validateSigner(signerObj)) {
             return new SignatureV4({ signer: signerObj });
           }
-          throw new Error(
-            "Expected SignatureV4 signer, please check the client constructor."
-          );
-        }
+          throw new Error("Expected SignatureV4 signer, please check the client constructor.");
+        },
       };
 
 const validateSigner = (signer: any): signer is BaseSignatureV4 =>

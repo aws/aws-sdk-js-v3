@@ -5,7 +5,7 @@ import {
   InitializeHandlerOutput,
   InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 
 export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
@@ -16,9 +16,7 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
   ): Promise<InitializeHandlerOutput<Output>> => {
     const { input } = args;
     if (typeof input.Bucket === "string" && input.Bucket.indexOf("/") >= 0) {
-      const err = new Error(
-        `Bucket name shouldn't contain '/', received '${input.Bucket}'`
-      );
+      const err = new Error(`Bucket name shouldn't contain '/', received '${input.Bucket}'`);
       err.name = "InvalidBucketName";
       throw err;
     }
@@ -29,16 +27,11 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
 export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BUCKET_NAME"],
-  name: "validateBucketNameMiddleware"
+  name: "validateBucketNameMiddleware",
 };
 
-export const getValidateBucketNamePlugin = (
-  unused: any
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      validateBucketNameMiddleware(),
-      validateBucketNameMiddlewareOptions
-    );
-  }
+export const getValidateBucketNamePlugin = (unused: any): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(validateBucketNameMiddleware(), validateBucketNameMiddlewareOptions);
+  },
 });

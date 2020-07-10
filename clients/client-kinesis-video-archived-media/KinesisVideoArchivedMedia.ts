@@ -2,22 +2,22 @@ import { KinesisVideoArchivedMediaClient } from "./KinesisVideoArchivedMediaClie
 import {
   GetDASHStreamingSessionURLCommand,
   GetDASHStreamingSessionURLCommandInput,
-  GetDASHStreamingSessionURLCommandOutput
+  GetDASHStreamingSessionURLCommandOutput,
 } from "./commands/GetDASHStreamingSessionURLCommand";
 import {
   GetHLSStreamingSessionURLCommand,
   GetHLSStreamingSessionURLCommandInput,
-  GetHLSStreamingSessionURLCommandOutput
+  GetHLSStreamingSessionURLCommandOutput,
 } from "./commands/GetHLSStreamingSessionURLCommand";
 import {
   GetMediaForFragmentListCommand,
   GetMediaForFragmentListCommandInput,
-  GetMediaForFragmentListCommandOutput
+  GetMediaForFragmentListCommandOutput,
 } from "./commands/GetMediaForFragmentListCommand";
 import {
   ListFragmentsCommand,
   ListFragmentsCommandInput,
-  ListFragmentsCommandOutput
+  ListFragmentsCommandOutput,
 } from "./commands/ListFragmentsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -213,17 +213,14 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   ): void;
   public getDASHStreamingSessionURL(
     args: GetDASHStreamingSessionURLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDASHStreamingSessionURLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDASHStreamingSessionURLCommandOutput) => void),
     cb?: (err: any, data?: GetDASHStreamingSessionURLCommandOutput) => void
   ): Promise<GetDASHStreamingSessionURLCommandOutput> | void {
     const command = new GetDASHStreamingSessionURLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -449,17 +446,14 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   ): void;
   public getHLSStreamingSessionURL(
     args: GetHLSStreamingSessionURLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHLSStreamingSessionURLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHLSStreamingSessionURLCommandOutput) => void),
     cb?: (err: any, data?: GetHLSStreamingSessionURLCommandOutput) => void
   ): Promise<GetHLSStreamingSessionURLCommandOutput> | void {
     const command = new GetHLSStreamingSessionURLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -532,17 +526,14 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   ): void;
   public getMediaForFragmentList(
     args: GetMediaForFragmentListCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMediaForFragmentListCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMediaForFragmentListCommandOutput) => void),
     cb?: (err: any, data?: GetMediaForFragmentListCommandOutput) => void
   ): Promise<GetMediaForFragmentListCommandOutput> | void {
     const command = new GetMediaForFragmentListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -603,17 +594,14 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   ): void;
   public listFragments(
     args: ListFragmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFragmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFragmentsCommandOutput) => void),
     cb?: (err: any, data?: ListFragmentsCommandOutput) => void
   ): Promise<ListFragmentsCommandOutput> | void {
     const command = new ListFragmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

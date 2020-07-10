@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  DisassociateDRTRoleRequest,
-  DisassociateDRTRoleResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { DisassociateDRTRoleRequest, DisassociateDRTRoleResponse } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateDRTRoleCommand,
-  serializeAws_json1_1DisassociateDRTRoleCommand
+  serializeAws_json1_1DisassociateDRTRoleCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DisassociateDRTRoleCommandInput = DisassociateDRTRoleRequest;
-export type DisassociateDRTRoleCommandOutput = DisassociateDRTRoleResponse &
-  __MetadataBearer;
+export type DisassociateDRTRoleCommandOutput = DisassociateDRTRoleResponse & __MetadataBearer;
 
 export class DisassociateDRTRoleCommand extends $Command<
   DisassociateDRTRoleCommandInput,
@@ -49,18 +38,13 @@ export class DisassociateDRTRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateDRTRoleCommandInput,
-    DisassociateDRTRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateDRTRoleCommandInput, DisassociateDRTRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DisassociateDRTRoleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateDRTRoleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateDRTRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateDRTRoleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateDRTRoleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDRTRoleCommandOutput> {
     return deserializeAws_json1_1DisassociateDRTRoleCommand(output, context);
   }
 

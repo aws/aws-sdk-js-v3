@@ -3,10 +3,7 @@ import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
-import {
-  WebSocketHandler,
-  eventStreamPayloadHandler
-} from "@aws-sdk/middleware-sdk-transcribe-streaming";
+import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
@@ -32,5 +29,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   streamCollector,
   urlParser: parseUrl,
   utf8Decoder: fromUtf8,
-  utf8Encoder: toUtf8
+  utf8Encoder: toUtf8,
 };

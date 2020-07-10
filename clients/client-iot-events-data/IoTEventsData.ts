@@ -2,22 +2,22 @@ import { IoTEventsDataClient } from "./IoTEventsDataClient";
 import {
   BatchPutMessageCommand,
   BatchPutMessageCommandInput,
-  BatchPutMessageCommandOutput
+  BatchPutMessageCommandOutput,
 } from "./commands/BatchPutMessageCommand";
 import {
   BatchUpdateDetectorCommand,
   BatchUpdateDetectorCommandInput,
-  BatchUpdateDetectorCommandOutput
+  BatchUpdateDetectorCommandOutput,
 } from "./commands/BatchUpdateDetectorCommand";
 import {
   DescribeDetectorCommand,
   DescribeDetectorCommandInput,
-  DescribeDetectorCommandOutput
+  DescribeDetectorCommandOutput,
 } from "./commands/DescribeDetectorCommand";
 import {
   ListDetectorsCommand,
   ListDetectorsCommandInput,
-  ListDetectorsCommandOutput
+  ListDetectorsCommandOutput,
 } from "./commands/ListDetectorsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -49,17 +49,14 @@ export class IoTEventsData extends IoTEventsDataClient {
   ): void;
   public batchPutMessage(
     args: BatchPutMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchPutMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutMessageCommandOutput) => void),
     cb?: (err: any, data?: BatchPutMessageCommandOutput) => void
   ): Promise<BatchPutMessageCommandOutput> | void {
     const command = new BatchPutMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -85,17 +82,14 @@ export class IoTEventsData extends IoTEventsDataClient {
   ): void;
   public batchUpdateDetector(
     args: BatchUpdateDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchUpdateDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdateDetectorCommandOutput) => void),
     cb?: (err: any, data?: BatchUpdateDetectorCommandOutput) => void
   ): Promise<BatchUpdateDetectorCommandOutput> | void {
     const command = new BatchUpdateDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -120,17 +114,14 @@ export class IoTEventsData extends IoTEventsDataClient {
   ): void;
   public describeDetector(
     args: DescribeDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDetectorCommandOutput) => void),
     cb?: (err: any, data?: DescribeDetectorCommandOutput) => void
   ): Promise<DescribeDetectorCommandOutput> | void {
     const command = new DescribeDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -155,17 +146,14 @@ export class IoTEventsData extends IoTEventsDataClient {
   ): void;
   public listDetectors(
     args: ListDetectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDetectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDetectorsCommandOutput) => void),
     cb?: (err: any, data?: ListDetectorsCommandOutput) => void
   ): Promise<ListDetectorsCommandOutput> | void {
     const command = new ListDetectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

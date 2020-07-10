@@ -2,132 +2,132 @@ import { CloudSearchClient } from "./CloudSearchClient";
 import {
   BuildSuggestersCommand,
   BuildSuggestersCommandInput,
-  BuildSuggestersCommandOutput
+  BuildSuggestersCommandOutput,
 } from "./commands/BuildSuggestersCommand";
 import {
   CreateDomainCommand,
   CreateDomainCommandInput,
-  CreateDomainCommandOutput
+  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
   DefineAnalysisSchemeCommand,
   DefineAnalysisSchemeCommandInput,
-  DefineAnalysisSchemeCommandOutput
+  DefineAnalysisSchemeCommandOutput,
 } from "./commands/DefineAnalysisSchemeCommand";
 import {
   DefineExpressionCommand,
   DefineExpressionCommandInput,
-  DefineExpressionCommandOutput
+  DefineExpressionCommandOutput,
 } from "./commands/DefineExpressionCommand";
 import {
   DefineIndexFieldCommand,
   DefineIndexFieldCommandInput,
-  DefineIndexFieldCommandOutput
+  DefineIndexFieldCommandOutput,
 } from "./commands/DefineIndexFieldCommand";
 import {
   DefineSuggesterCommand,
   DefineSuggesterCommandInput,
-  DefineSuggesterCommandOutput
+  DefineSuggesterCommandOutput,
 } from "./commands/DefineSuggesterCommand";
 import {
   DeleteAnalysisSchemeCommand,
   DeleteAnalysisSchemeCommandInput,
-  DeleteAnalysisSchemeCommandOutput
+  DeleteAnalysisSchemeCommandOutput,
 } from "./commands/DeleteAnalysisSchemeCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
-  DeleteDomainCommandOutput
+  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
   DeleteExpressionCommand,
   DeleteExpressionCommandInput,
-  DeleteExpressionCommandOutput
+  DeleteExpressionCommandOutput,
 } from "./commands/DeleteExpressionCommand";
 import {
   DeleteIndexFieldCommand,
   DeleteIndexFieldCommandInput,
-  DeleteIndexFieldCommandOutput
+  DeleteIndexFieldCommandOutput,
 } from "./commands/DeleteIndexFieldCommand";
 import {
   DeleteSuggesterCommand,
   DeleteSuggesterCommandInput,
-  DeleteSuggesterCommandOutput
+  DeleteSuggesterCommandOutput,
 } from "./commands/DeleteSuggesterCommand";
 import {
   DescribeAnalysisSchemesCommand,
   DescribeAnalysisSchemesCommandInput,
-  DescribeAnalysisSchemesCommandOutput
+  DescribeAnalysisSchemesCommandOutput,
 } from "./commands/DescribeAnalysisSchemesCommand";
 import {
   DescribeAvailabilityOptionsCommand,
   DescribeAvailabilityOptionsCommandInput,
-  DescribeAvailabilityOptionsCommandOutput
+  DescribeAvailabilityOptionsCommandOutput,
 } from "./commands/DescribeAvailabilityOptionsCommand";
 import {
   DescribeDomainEndpointOptionsCommand,
   DescribeDomainEndpointOptionsCommandInput,
-  DescribeDomainEndpointOptionsCommandOutput
+  DescribeDomainEndpointOptionsCommandOutput,
 } from "./commands/DescribeDomainEndpointOptionsCommand";
 import {
   DescribeDomainsCommand,
   DescribeDomainsCommandInput,
-  DescribeDomainsCommandOutput
+  DescribeDomainsCommandOutput,
 } from "./commands/DescribeDomainsCommand";
 import {
   DescribeExpressionsCommand,
   DescribeExpressionsCommandInput,
-  DescribeExpressionsCommandOutput
+  DescribeExpressionsCommandOutput,
 } from "./commands/DescribeExpressionsCommand";
 import {
   DescribeIndexFieldsCommand,
   DescribeIndexFieldsCommandInput,
-  DescribeIndexFieldsCommandOutput
+  DescribeIndexFieldsCommandOutput,
 } from "./commands/DescribeIndexFieldsCommand";
 import {
   DescribeScalingParametersCommand,
   DescribeScalingParametersCommandInput,
-  DescribeScalingParametersCommandOutput
+  DescribeScalingParametersCommandOutput,
 } from "./commands/DescribeScalingParametersCommand";
 import {
   DescribeServiceAccessPoliciesCommand,
   DescribeServiceAccessPoliciesCommandInput,
-  DescribeServiceAccessPoliciesCommandOutput
+  DescribeServiceAccessPoliciesCommandOutput,
 } from "./commands/DescribeServiceAccessPoliciesCommand";
 import {
   DescribeSuggestersCommand,
   DescribeSuggestersCommandInput,
-  DescribeSuggestersCommandOutput
+  DescribeSuggestersCommandOutput,
 } from "./commands/DescribeSuggestersCommand";
 import {
   IndexDocumentsCommand,
   IndexDocumentsCommandInput,
-  IndexDocumentsCommandOutput
+  IndexDocumentsCommandOutput,
 } from "./commands/IndexDocumentsCommand";
 import {
   ListDomainNamesCommand,
   ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput
+  ListDomainNamesCommandOutput,
 } from "./commands/ListDomainNamesCommand";
 import {
   UpdateAvailabilityOptionsCommand,
   UpdateAvailabilityOptionsCommandInput,
-  UpdateAvailabilityOptionsCommandOutput
+  UpdateAvailabilityOptionsCommandOutput,
 } from "./commands/UpdateAvailabilityOptionsCommand";
 import {
   UpdateDomainEndpointOptionsCommand,
   UpdateDomainEndpointOptionsCommandInput,
-  UpdateDomainEndpointOptionsCommandOutput
+  UpdateDomainEndpointOptionsCommandOutput,
 } from "./commands/UpdateDomainEndpointOptionsCommand";
 import {
   UpdateScalingParametersCommand,
   UpdateScalingParametersCommandInput,
-  UpdateScalingParametersCommandOutput
+  UpdateScalingParametersCommandOutput,
 } from "./commands/UpdateScalingParametersCommand";
 import {
   UpdateServiceAccessPoliciesCommand,
   UpdateServiceAccessPoliciesCommandInput,
-  UpdateServiceAccessPoliciesCommandOutput
+  UpdateServiceAccessPoliciesCommandOutput,
 } from "./commands/UpdateServiceAccessPoliciesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -159,17 +159,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public buildSuggesters(
     args: BuildSuggestersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BuildSuggestersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BuildSuggestersCommandOutput) => void),
     cb?: (err: any, data?: BuildSuggestersCommandOutput) => void
   ): Promise<BuildSuggestersCommandOutput> | void {
     const command = new BuildSuggestersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -184,10 +181,7 @@ export class CloudSearch extends CloudSearchClient {
     args: CreateDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDomainCommandOutput>;
-  public createDomain(
-    args: CreateDomainCommandInput,
-    cb: (err: any, data?: CreateDomainCommandOutput) => void
-  ): void;
+  public createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
   public createDomain(
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -195,17 +189,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public createDomain(
     args: CreateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -230,17 +221,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public defineAnalysisScheme(
     args: DefineAnalysisSchemeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DefineAnalysisSchemeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DefineAnalysisSchemeCommandOutput) => void),
     cb?: (err: any, data?: DefineAnalysisSchemeCommandOutput) => void
   ): Promise<DefineAnalysisSchemeCommandOutput> | void {
     const command = new DefineAnalysisSchemeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -265,17 +253,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public defineExpression(
     args: DefineExpressionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DefineExpressionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DefineExpressionCommandOutput) => void),
     cb?: (err: any, data?: DefineExpressionCommandOutput) => void
   ): Promise<DefineExpressionCommandOutput> | void {
     const command = new DefineExpressionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -300,17 +285,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public defineIndexField(
     args: DefineIndexFieldCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DefineIndexFieldCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DefineIndexFieldCommandOutput) => void),
     cb?: (err: any, data?: DefineIndexFieldCommandOutput) => void
   ): Promise<DefineIndexFieldCommandOutput> | void {
     const command = new DefineIndexFieldCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -335,17 +317,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public defineSuggester(
     args: DefineSuggesterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DefineSuggesterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DefineSuggesterCommandOutput) => void),
     cb?: (err: any, data?: DefineSuggesterCommandOutput) => void
   ): Promise<DefineSuggesterCommandOutput> | void {
     const command = new DefineSuggesterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -370,17 +349,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteAnalysisScheme(
     args: DeleteAnalysisSchemeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAnalysisSchemeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnalysisSchemeCommandOutput) => void),
     cb?: (err: any, data?: DeleteAnalysisSchemeCommandOutput) => void
   ): Promise<DeleteAnalysisSchemeCommandOutput> | void {
     const command = new DeleteAnalysisSchemeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -395,10 +371,7 @@ export class CloudSearch extends CloudSearchClient {
     args: DeleteDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDomainCommandOutput>;
-  public deleteDomain(
-    args: DeleteDomainCommandInput,
-    cb: (err: any, data?: DeleteDomainCommandOutput) => void
-  ): void;
+  public deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
   public deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -406,17 +379,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteDomain(
     args: DeleteDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainCommandOutput) => void
   ): Promise<DeleteDomainCommandOutput> | void {
     const command = new DeleteDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -441,17 +411,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteExpression(
     args: DeleteExpressionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteExpressionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExpressionCommandOutput) => void),
     cb?: (err: any, data?: DeleteExpressionCommandOutput) => void
   ): Promise<DeleteExpressionCommandOutput> | void {
     const command = new DeleteExpressionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -476,17 +443,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteIndexField(
     args: DeleteIndexFieldCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIndexFieldCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIndexFieldCommandOutput) => void),
     cb?: (err: any, data?: DeleteIndexFieldCommandOutput) => void
   ): Promise<DeleteIndexFieldCommandOutput> | void {
     const command = new DeleteIndexFieldCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -511,17 +475,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteSuggester(
     args: DeleteSuggesterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSuggesterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSuggesterCommandOutput) => void),
     cb?: (err: any, data?: DeleteSuggesterCommandOutput) => void
   ): Promise<DeleteSuggesterCommandOutput> | void {
     const command = new DeleteSuggesterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -546,17 +507,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeAnalysisSchemes(
     args: DescribeAnalysisSchemesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAnalysisSchemesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAnalysisSchemesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAnalysisSchemesCommandOutput) => void
   ): Promise<DescribeAnalysisSchemesCommandOutput> | void {
     const command = new DescribeAnalysisSchemesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -581,17 +539,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeAvailabilityOptions(
     args: DescribeAvailabilityOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAvailabilityOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAvailabilityOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAvailabilityOptionsCommandOutput) => void
   ): Promise<DescribeAvailabilityOptionsCommandOutput> | void {
     const command = new DescribeAvailabilityOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -616,17 +571,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeDomainEndpointOptions(
     args: DescribeDomainEndpointOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainEndpointOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainEndpointOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainEndpointOptionsCommandOutput) => void
   ): Promise<DescribeDomainEndpointOptionsCommandOutput> | void {
     const command = new DescribeDomainEndpointOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -653,17 +605,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeDomains(
     args: DescribeDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainsCommandOutput) => void
   ): Promise<DescribeDomainsCommandOutput> | void {
     const command = new DescribeDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -688,17 +637,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeExpressions(
     args: DescribeExpressionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeExpressionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExpressionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeExpressionsCommandOutput) => void
   ): Promise<DescribeExpressionsCommandOutput> | void {
     const command = new DescribeExpressionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -725,17 +671,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeIndexFields(
     args: DescribeIndexFieldsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIndexFieldsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIndexFieldsCommandOutput) => void),
     cb?: (err: any, data?: DescribeIndexFieldsCommandOutput) => void
   ): Promise<DescribeIndexFieldsCommandOutput> | void {
     const command = new DescribeIndexFieldsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -760,17 +703,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeScalingParameters(
     args: DescribeScalingParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingParametersCommandOutput) => void
   ): Promise<DescribeScalingParametersCommandOutput> | void {
     const command = new DescribeScalingParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -796,17 +736,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeServiceAccessPolicies(
     args: DescribeServiceAccessPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServiceAccessPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServiceAccessPoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribeServiceAccessPoliciesCommandOutput) => void
   ): Promise<DescribeServiceAccessPoliciesCommandOutput> | void {
     const command = new DescribeServiceAccessPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -831,17 +768,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeSuggesters(
     args: DescribeSuggestersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSuggestersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSuggestersCommandOutput) => void),
     cb?: (err: any, data?: DescribeSuggestersCommandOutput) => void
   ): Promise<DescribeSuggestersCommandOutput> | void {
     const command = new DescribeSuggestersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -866,17 +800,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public indexDocuments(
     args: IndexDocumentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IndexDocumentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IndexDocumentsCommandOutput) => void),
     cb?: (err: any, data?: IndexDocumentsCommandOutput) => void
   ): Promise<IndexDocumentsCommandOutput> | void {
     const command = new IndexDocumentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -901,17 +832,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public listDomainNames(
     args: ListDomainNamesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainNamesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainNamesCommandOutput) => void),
     cb?: (err: any, data?: ListDomainNamesCommandOutput) => void
   ): Promise<ListDomainNamesCommandOutput> | void {
     const command = new ListDomainNamesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -936,17 +864,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public updateAvailabilityOptions(
     args: UpdateAvailabilityOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAvailabilityOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAvailabilityOptionsCommandOutput) => void),
     cb?: (err: any, data?: UpdateAvailabilityOptionsCommandOutput) => void
   ): Promise<UpdateAvailabilityOptionsCommandOutput> | void {
     const command = new UpdateAvailabilityOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -971,17 +896,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public updateDomainEndpointOptions(
     args: UpdateDomainEndpointOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainEndpointOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainEndpointOptionsCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainEndpointOptionsCommandOutput) => void
   ): Promise<UpdateDomainEndpointOptionsCommandOutput> | void {
     const command = new UpdateDomainEndpointOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1006,17 +928,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public updateScalingParameters(
     args: UpdateScalingParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateScalingParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateScalingParametersCommandOutput) => void),
     cb?: (err: any, data?: UpdateScalingParametersCommandOutput) => void
   ): Promise<UpdateScalingParametersCommandOutput> | void {
     const command = new UpdateScalingParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1043,17 +962,14 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public updateServiceAccessPolicies(
     args: UpdateServiceAccessPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServiceAccessPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceAccessPoliciesCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceAccessPoliciesCommandOutput) => void
   ): Promise<UpdateServiceAccessPoliciesCommandOutput> | void {
     const command = new UpdateServiceAccessPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

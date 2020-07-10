@@ -1,8 +1,4 @@
-import {
-  bucketEndpointMiddleware,
-  getBucketEndpointPlugin,
-  resolveBucketEndpointConfig
-} from "./index";
+import { bucketEndpointMiddleware, getBucketEndpointPlugin, resolveBucketEndpointConfig } from "./index";
 
 describe("middleware-bucket-endpoint package exports", () => {
   it("bucketEndpointMiddleware", () => {

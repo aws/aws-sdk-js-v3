@@ -1,18 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DetectStackDriftInput, DetectStackDriftOutput } from "../models/index";
 import {
   deserializeAws_queryDetectStackDriftCommand,
-  serializeAws_queryDetectStackDriftCommand
+  serializeAws_queryDetectStackDriftCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DetectStackDriftCommandInput = DetectStackDriftInput;
-export type DetectStackDriftCommandOutput = DetectStackDriftOutput &
-  __MetadataBearer;
+export type DetectStackDriftCommandOutput = DetectStackDriftOutput & __MetadataBearer;
 
 export class DetectStackDriftCommand extends $Command<
   DetectStackDriftCommandInput,
@@ -47,14 +39,12 @@ export class DetectStackDriftCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectStackDriftCommandInput, DetectStackDriftCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DetectStackDriftCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetectStackDriftCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetectStackDriftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetectStackDriftCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetectStackDriftCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectStackDriftCommandOutput> {
     return deserializeAws_queryDetectStackDriftCommand(output, context);
   }
 

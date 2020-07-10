@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  ConfigureHealthCheckInput,
-  ConfigureHealthCheckOutput
-} from "../models/index";
+import { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/index";
 import {
   deserializeAws_queryConfigureHealthCheckCommand,
-  serializeAws_queryConfigureHealthCheckCommand
+  serializeAws_queryConfigureHealthCheckCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ConfigureHealthCheckCommandInput = ConfigureHealthCheckInput;
-export type ConfigureHealthCheckCommandOutput = ConfigureHealthCheckOutput &
-  __MetadataBearer;
+export type ConfigureHealthCheckCommandOutput = ConfigureHealthCheckOutput & __MetadataBearer;
 
 export class ConfigureHealthCheckCommand extends $Command<
   ConfigureHealthCheckCommandInput,
@@ -49,18 +42,13 @@ export class ConfigureHealthCheckCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ConfigureHealthCheckCommandInput,
-    ConfigureHealthCheckCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ConfigureHealthCheckCommandInput, ConfigureHealthCheckCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +58,11 @@ export class ConfigureHealthCheckCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ConfigureHealthCheckCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ConfigureHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryConfigureHealthCheckCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ConfigureHealthCheckCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureHealthCheckCommandOutput> {
     return deserializeAws_queryConfigureHealthCheckCommand(output, context);
   }
 

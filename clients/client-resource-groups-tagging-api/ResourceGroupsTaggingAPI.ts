@@ -2,42 +2,38 @@ import { ResourceGroupsTaggingAPIClient } from "./ResourceGroupsTaggingAPIClient
 import {
   DescribeReportCreationCommand,
   DescribeReportCreationCommandInput,
-  DescribeReportCreationCommandOutput
+  DescribeReportCreationCommandOutput,
 } from "./commands/DescribeReportCreationCommand";
 import {
   GetComplianceSummaryCommand,
   GetComplianceSummaryCommandInput,
-  GetComplianceSummaryCommandOutput
+  GetComplianceSummaryCommandOutput,
 } from "./commands/GetComplianceSummaryCommand";
 import {
   GetResourcesCommand,
   GetResourcesCommandInput,
-  GetResourcesCommandOutput
+  GetResourcesCommandOutput,
 } from "./commands/GetResourcesCommand";
-import {
-  GetTagKeysCommand,
-  GetTagKeysCommandInput,
-  GetTagKeysCommandOutput
-} from "./commands/GetTagKeysCommand";
+import { GetTagKeysCommand, GetTagKeysCommandInput, GetTagKeysCommandOutput } from "./commands/GetTagKeysCommand";
 import {
   GetTagValuesCommand,
   GetTagValuesCommandInput,
-  GetTagValuesCommandOutput
+  GetTagValuesCommandOutput,
 } from "./commands/GetTagValuesCommand";
 import {
   StartReportCreationCommand,
   StartReportCreationCommandInput,
-  StartReportCreationCommandOutput
+  StartReportCreationCommandOutput,
 } from "./commands/StartReportCreationCommand";
 import {
   TagResourcesCommand,
   TagResourcesCommandInput,
-  TagResourcesCommandOutput
+  TagResourcesCommandOutput,
 } from "./commands/TagResourcesCommand";
 import {
   UntagResourcesCommand,
   UntagResourcesCommandInput,
-  UntagResourcesCommandOutput
+  UntagResourcesCommandOutput,
 } from "./commands/UntagResourcesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -395,17 +391,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public describeReportCreation(
     args: DescribeReportCreationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReportCreationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReportCreationCommandOutput) => void),
     cb?: (err: any, data?: DescribeReportCreationCommandOutput) => void
   ): Promise<DescribeReportCreationCommandOutput> | void {
     const command = new DescribeReportCreationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -435,17 +428,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getComplianceSummary(
     args: GetComplianceSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetComplianceSummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComplianceSummaryCommandOutput) => void),
     cb?: (err: any, data?: GetComplianceSummaryCommandOutput) => void
   ): Promise<GetComplianceSummaryCommandOutput> | void {
     const command = new GetComplianceSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -483,10 +473,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
     args: GetResourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetResourcesCommandOutput>;
-  public getResources(
-    args: GetResourcesCommandInput,
-    cb: (err: any, data?: GetResourcesCommandOutput) => void
-  ): void;
+  public getResources(args: GetResourcesCommandInput, cb: (err: any, data?: GetResourcesCommandOutput) => void): void;
   public getResources(
     args: GetResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -494,17 +481,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getResources(
     args: GetResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcesCommandOutput) => void),
     cb?: (err: any, data?: GetResourcesCommandOutput) => void
   ): Promise<GetResourcesCommandOutput> | void {
     const command = new GetResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -514,14 +498,8 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   /**
    * <p>Returns all tag keys in the specified Region for the AWS account.</p>
    */
-  public getTagKeys(
-    args: GetTagKeysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTagKeysCommandOutput>;
-  public getTagKeys(
-    args: GetTagKeysCommandInput,
-    cb: (err: any, data?: GetTagKeysCommandOutput) => void
-  ): void;
+  public getTagKeys(args: GetTagKeysCommandInput, options?: __HttpHandlerOptions): Promise<GetTagKeysCommandOutput>;
+  public getTagKeys(args: GetTagKeysCommandInput, cb: (err: any, data?: GetTagKeysCommandOutput) => void): void;
   public getTagKeys(
     args: GetTagKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -529,17 +507,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getTagKeys(
     args: GetTagKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagKeysCommandOutput) => void),
     cb?: (err: any, data?: GetTagKeysCommandOutput) => void
   ): Promise<GetTagKeysCommandOutput> | void {
     const command = new GetTagKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -554,10 +529,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
     args: GetTagValuesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTagValuesCommandOutput>;
-  public getTagValues(
-    args: GetTagValuesCommandInput,
-    cb: (err: any, data?: GetTagValuesCommandOutput) => void
-  ): void;
+  public getTagValues(args: GetTagValuesCommandInput, cb: (err: any, data?: GetTagValuesCommandOutput) => void): void;
   public getTagValues(
     args: GetTagValuesCommandInput,
     options: __HttpHandlerOptions,
@@ -565,17 +537,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getTagValues(
     args: GetTagValuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagValuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagValuesCommandOutput) => void),
     cb?: (err: any, data?: GetTagValuesCommandOutput) => void
   ): Promise<GetTagValuesCommandOutput> | void {
     const command = new GetTagValuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -607,17 +576,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public startReportCreation(
     args: StartReportCreationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartReportCreationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReportCreationCommandOutput) => void),
     cb?: (err: any, data?: StartReportCreationCommandOutput) => void
   ): Promise<StartReportCreationCommandOutput> | void {
     const command = new StartReportCreationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -652,10 +618,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
     args: TagResourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TagResourcesCommandOutput>;
-  public tagResources(
-    args: TagResourcesCommandInput,
-    cb: (err: any, data?: TagResourcesCommandOutput) => void
-  ): void;
+  public tagResources(args: TagResourcesCommandInput, cb: (err: any, data?: TagResourcesCommandOutput) => void): void;
   public tagResources(
     args: TagResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -663,17 +626,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public tagResources(
     args: TagResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourcesCommandOutput) => void),
     cb?: (err: any, data?: TagResourcesCommandOutput) => void
   ): Promise<TagResourcesCommandOutput> | void {
     const command = new TagResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -712,17 +672,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public untagResources(
     args: UntagResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourcesCommandOutput) => void),
     cb?: (err: any, data?: UntagResourcesCommandOutput) => void
   ): Promise<UntagResourcesCommandOutput> | void {
     const command = new UntagResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,11 @@
-import {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53ResolverClient";
-import {
-  PutResolverRulePolicyRequest,
-  PutResolverRulePolicyResponse
-} from "../models/index";
+import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { PutResolverRulePolicyRequest, PutResolverRulePolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutResolverRulePolicyCommand,
-  serializeAws_json1_1PutResolverRulePolicyCommand
+  serializeAws_json1_1PutResolverRulePolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutResolverRulePolicyCommandInput = PutResolverRulePolicyRequest;
-export type PutResolverRulePolicyCommandOutput = PutResolverRulePolicyResponse &
-  __MetadataBearer;
+export type PutResolverRulePolicyCommandOutput = PutResolverRulePolicyResponse & __MetadataBearer;
 
 export class PutResolverRulePolicyCommand extends $Command<
   PutResolverRulePolicyCommandInput,
@@ -49,18 +38,13 @@ export class PutResolverRulePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutResolverRulePolicyCommandInput,
-    PutResolverRulePolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutResolverRulePolicyCommandInput, PutResolverRulePolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class PutResolverRulePolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutResolverRulePolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutResolverRulePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutResolverRulePolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutResolverRulePolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResolverRulePolicyCommandOutput> {
     return deserializeAws_json1_1PutResolverRulePolicyCommand(output, context);
   }
 

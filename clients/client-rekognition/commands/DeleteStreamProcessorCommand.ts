@@ -1,21 +1,11 @@
-import {
-  RekognitionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RekognitionClient";
-import {
-  DeleteStreamProcessorRequest,
-  DeleteStreamProcessorResponse
-} from "../models/index";
+import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteStreamProcessorCommand,
-  serializeAws_json1_1DeleteStreamProcessorCommand
+  serializeAws_json1_1DeleteStreamProcessorCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteStreamProcessorCommandInput = DeleteStreamProcessorRequest;
-export type DeleteStreamProcessorCommandOutput = DeleteStreamProcessorResponse &
-  __MetadataBearer;
+export type DeleteStreamProcessorCommandOutput = DeleteStreamProcessorResponse & __MetadataBearer;
 
 export class DeleteStreamProcessorCommand extends $Command<
   DeleteStreamProcessorCommandInput,
@@ -49,18 +38,13 @@ export class DeleteStreamProcessorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteStreamProcessorCommandInput,
-    DeleteStreamProcessorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteStreamProcessorCommandInput, DeleteStreamProcessorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DeleteStreamProcessorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteStreamProcessorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteStreamProcessorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteStreamProcessorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamProcessorCommandOutput> {
     return deserializeAws_json1_1DeleteStreamProcessorCommand(output, context);
   }
 

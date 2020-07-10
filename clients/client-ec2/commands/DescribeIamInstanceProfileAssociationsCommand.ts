@@ -1,21 +1,14 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeIamInstanceProfileAssociationsRequest,
-  DescribeIamInstanceProfileAssociationsResult
+  DescribeIamInstanceProfileAssociationsResult,
 } from "../models/index";
 import {
   deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand,
-  serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand
+  serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeIamInstanceProfileAssociationsCommandInput = DescribeIamInstanceProfileAssociationsRequest;
@@ -39,9 +32,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeIamInstanceProfileAssociationsCommandInput
-  ) {
+  constructor(readonly input: DescribeIamInstanceProfileAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,13 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeIamInstanceProfileAssociationsCommandInput,
-    DescribeIamInstanceProfileAssociationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeIamInstanceProfileAssociationsCommandInput, DescribeIamInstanceProfileAssociationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +62,14 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     input: DescribeIamInstanceProfileAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

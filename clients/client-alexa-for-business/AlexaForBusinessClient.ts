@@ -1,375 +1,213 @@
-import {
-  ApproveSkillCommandInput,
-  ApproveSkillCommandOutput
-} from "./commands/ApproveSkillCommand";
+import { ApproveSkillCommandInput, ApproveSkillCommandOutput } from "./commands/ApproveSkillCommand";
 import {
   AssociateContactWithAddressBookCommandInput,
-  AssociateContactWithAddressBookCommandOutput
+  AssociateContactWithAddressBookCommandOutput,
 } from "./commands/AssociateContactWithAddressBookCommand";
 import {
   AssociateDeviceWithNetworkProfileCommandInput,
-  AssociateDeviceWithNetworkProfileCommandOutput
+  AssociateDeviceWithNetworkProfileCommandOutput,
 } from "./commands/AssociateDeviceWithNetworkProfileCommand";
 import {
   AssociateDeviceWithRoomCommandInput,
-  AssociateDeviceWithRoomCommandOutput
+  AssociateDeviceWithRoomCommandOutput,
 } from "./commands/AssociateDeviceWithRoomCommand";
 import {
   AssociateSkillGroupWithRoomCommandInput,
-  AssociateSkillGroupWithRoomCommandOutput
+  AssociateSkillGroupWithRoomCommandOutput,
 } from "./commands/AssociateSkillGroupWithRoomCommand";
 import {
   AssociateSkillWithSkillGroupCommandInput,
-  AssociateSkillWithSkillGroupCommandOutput
+  AssociateSkillWithSkillGroupCommandOutput,
 } from "./commands/AssociateSkillWithSkillGroupCommand";
 import {
   AssociateSkillWithUsersCommandInput,
-  AssociateSkillWithUsersCommandOutput
+  AssociateSkillWithUsersCommandOutput,
 } from "./commands/AssociateSkillWithUsersCommand";
-import {
-  CreateAddressBookCommandInput,
-  CreateAddressBookCommandOutput
-} from "./commands/CreateAddressBookCommand";
+import { CreateAddressBookCommandInput, CreateAddressBookCommandOutput } from "./commands/CreateAddressBookCommand";
 import {
   CreateBusinessReportScheduleCommandInput,
-  CreateBusinessReportScheduleCommandOutput
+  CreateBusinessReportScheduleCommandOutput,
 } from "./commands/CreateBusinessReportScheduleCommand";
 import {
   CreateConferenceProviderCommandInput,
-  CreateConferenceProviderCommandOutput
+  CreateConferenceProviderCommandOutput,
 } from "./commands/CreateConferenceProviderCommand";
-import {
-  CreateContactCommandInput,
-  CreateContactCommandOutput
-} from "./commands/CreateContactCommand";
-import {
-  CreateGatewayGroupCommandInput,
-  CreateGatewayGroupCommandOutput
-} from "./commands/CreateGatewayGroupCommand";
+import { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
+import { CreateGatewayGroupCommandInput, CreateGatewayGroupCommandOutput } from "./commands/CreateGatewayGroupCommand";
 import {
   CreateNetworkProfileCommandInput,
-  CreateNetworkProfileCommandOutput
+  CreateNetworkProfileCommandOutput,
 } from "./commands/CreateNetworkProfileCommand";
-import {
-  CreateProfileCommandInput,
-  CreateProfileCommandOutput
-} from "./commands/CreateProfileCommand";
-import {
-  CreateRoomCommandInput,
-  CreateRoomCommandOutput
-} from "./commands/CreateRoomCommand";
-import {
-  CreateSkillGroupCommandInput,
-  CreateSkillGroupCommandOutput
-} from "./commands/CreateSkillGroupCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
-import {
-  DeleteAddressBookCommandInput,
-  DeleteAddressBookCommandOutput
-} from "./commands/DeleteAddressBookCommand";
+import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import { CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
+import { CreateSkillGroupCommandInput, CreateSkillGroupCommandOutput } from "./commands/CreateSkillGroupCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteAddressBookCommandInput, DeleteAddressBookCommandOutput } from "./commands/DeleteAddressBookCommand";
 import {
   DeleteBusinessReportScheduleCommandInput,
-  DeleteBusinessReportScheduleCommandOutput
+  DeleteBusinessReportScheduleCommandOutput,
 } from "./commands/DeleteBusinessReportScheduleCommand";
 import {
   DeleteConferenceProviderCommandInput,
-  DeleteConferenceProviderCommandOutput
+  DeleteConferenceProviderCommandOutput,
 } from "./commands/DeleteConferenceProviderCommand";
-import {
-  DeleteContactCommandInput,
-  DeleteContactCommandOutput
-} from "./commands/DeleteContactCommand";
-import {
-  DeleteDeviceCommandInput,
-  DeleteDeviceCommandOutput
-} from "./commands/DeleteDeviceCommand";
+import { DeleteContactCommandInput, DeleteContactCommandOutput } from "./commands/DeleteContactCommand";
+import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand";
 import {
   DeleteDeviceUsageDataCommandInput,
-  DeleteDeviceUsageDataCommandOutput
+  DeleteDeviceUsageDataCommandOutput,
 } from "./commands/DeleteDeviceUsageDataCommand";
-import {
-  DeleteGatewayGroupCommandInput,
-  DeleteGatewayGroupCommandOutput
-} from "./commands/DeleteGatewayGroupCommand";
+import { DeleteGatewayGroupCommandInput, DeleteGatewayGroupCommandOutput } from "./commands/DeleteGatewayGroupCommand";
 import {
   DeleteNetworkProfileCommandInput,
-  DeleteNetworkProfileCommandOutput
+  DeleteNetworkProfileCommandOutput,
 } from "./commands/DeleteNetworkProfileCommand";
-import {
-  DeleteProfileCommandInput,
-  DeleteProfileCommandOutput
-} from "./commands/DeleteProfileCommand";
-import {
-  DeleteRoomCommandInput,
-  DeleteRoomCommandOutput
-} from "./commands/DeleteRoomCommand";
+import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
+import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand";
 import {
   DeleteRoomSkillParameterCommandInput,
-  DeleteRoomSkillParameterCommandOutput
+  DeleteRoomSkillParameterCommandOutput,
 } from "./commands/DeleteRoomSkillParameterCommand";
 import {
   DeleteSkillAuthorizationCommandInput,
-  DeleteSkillAuthorizationCommandOutput
+  DeleteSkillAuthorizationCommandOutput,
 } from "./commands/DeleteSkillAuthorizationCommand";
-import {
-  DeleteSkillGroupCommandInput,
-  DeleteSkillGroupCommandOutput
-} from "./commands/DeleteSkillGroupCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteSkillGroupCommandInput, DeleteSkillGroupCommandOutput } from "./commands/DeleteSkillGroupCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DisassociateContactFromAddressBookCommandInput,
-  DisassociateContactFromAddressBookCommandOutput
+  DisassociateContactFromAddressBookCommandOutput,
 } from "./commands/DisassociateContactFromAddressBookCommand";
 import {
   DisassociateDeviceFromRoomCommandInput,
-  DisassociateDeviceFromRoomCommandOutput
+  DisassociateDeviceFromRoomCommandOutput,
 } from "./commands/DisassociateDeviceFromRoomCommand";
 import {
   DisassociateSkillFromSkillGroupCommandInput,
-  DisassociateSkillFromSkillGroupCommandOutput
+  DisassociateSkillFromSkillGroupCommandOutput,
 } from "./commands/DisassociateSkillFromSkillGroupCommand";
 import {
   DisassociateSkillFromUsersCommandInput,
-  DisassociateSkillFromUsersCommandOutput
+  DisassociateSkillFromUsersCommandOutput,
 } from "./commands/DisassociateSkillFromUsersCommand";
 import {
   DisassociateSkillGroupFromRoomCommandInput,
-  DisassociateSkillGroupFromRoomCommandOutput
+  DisassociateSkillGroupFromRoomCommandOutput,
 } from "./commands/DisassociateSkillGroupFromRoomCommand";
 import {
   ForgetSmartHomeAppliancesCommandInput,
-  ForgetSmartHomeAppliancesCommandOutput
+  ForgetSmartHomeAppliancesCommandOutput,
 } from "./commands/ForgetSmartHomeAppliancesCommand";
-import {
-  GetAddressBookCommandInput,
-  GetAddressBookCommandOutput
-} from "./commands/GetAddressBookCommand";
+import { GetAddressBookCommandInput, GetAddressBookCommandOutput } from "./commands/GetAddressBookCommand";
 import {
   GetConferencePreferenceCommandInput,
-  GetConferencePreferenceCommandOutput
+  GetConferencePreferenceCommandOutput,
 } from "./commands/GetConferencePreferenceCommand";
 import {
   GetConferenceProviderCommandInput,
-  GetConferenceProviderCommandOutput
+  GetConferenceProviderCommandOutput,
 } from "./commands/GetConferenceProviderCommand";
-import {
-  GetContactCommandInput,
-  GetContactCommandOutput
-} from "./commands/GetContactCommand";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand";
-import {
-  GetGatewayCommandInput,
-  GetGatewayCommandOutput
-} from "./commands/GetGatewayCommand";
-import {
-  GetGatewayGroupCommandInput,
-  GetGatewayGroupCommandOutput
-} from "./commands/GetGatewayGroupCommand";
+import { GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
+import { GetGatewayGroupCommandInput, GetGatewayGroupCommandOutput } from "./commands/GetGatewayGroupCommand";
 import {
   GetInvitationConfigurationCommandInput,
-  GetInvitationConfigurationCommandOutput
+  GetInvitationConfigurationCommandOutput,
 } from "./commands/GetInvitationConfigurationCommand";
-import {
-  GetNetworkProfileCommandInput,
-  GetNetworkProfileCommandOutput
-} from "./commands/GetNetworkProfileCommand";
-import {
-  GetProfileCommandInput,
-  GetProfileCommandOutput
-} from "./commands/GetProfileCommand";
-import {
-  GetRoomCommandInput,
-  GetRoomCommandOutput
-} from "./commands/GetRoomCommand";
+import { GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput } from "./commands/GetNetworkProfileCommand";
+import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import { GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
 import {
   GetRoomSkillParameterCommandInput,
-  GetRoomSkillParameterCommandOutput
+  GetRoomSkillParameterCommandOutput,
 } from "./commands/GetRoomSkillParameterCommand";
-import {
-  GetSkillGroupCommandInput,
-  GetSkillGroupCommandOutput
-} from "./commands/GetSkillGroupCommand";
+import { GetSkillGroupCommandInput, GetSkillGroupCommandOutput } from "./commands/GetSkillGroupCommand";
 import {
   ListBusinessReportSchedulesCommandInput,
-  ListBusinessReportSchedulesCommandOutput
+  ListBusinessReportSchedulesCommandOutput,
 } from "./commands/ListBusinessReportSchedulesCommand";
 import {
   ListConferenceProvidersCommandInput,
-  ListConferenceProvidersCommandOutput
+  ListConferenceProvidersCommandOutput,
 } from "./commands/ListConferenceProvidersCommand";
-import {
-  ListDeviceEventsCommandInput,
-  ListDeviceEventsCommandOutput
-} from "./commands/ListDeviceEventsCommand";
-import {
-  ListGatewayGroupsCommandInput,
-  ListGatewayGroupsCommandOutput
-} from "./commands/ListGatewayGroupsCommand";
-import {
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput
-} from "./commands/ListGatewaysCommand";
-import {
-  ListSkillsCommandInput,
-  ListSkillsCommandOutput
-} from "./commands/ListSkillsCommand";
+import { ListDeviceEventsCommandInput, ListDeviceEventsCommandOutput } from "./commands/ListDeviceEventsCommand";
+import { ListGatewayGroupsCommandInput, ListGatewayGroupsCommandOutput } from "./commands/ListGatewayGroupsCommand";
+import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
+import { ListSkillsCommandInput, ListSkillsCommandOutput } from "./commands/ListSkillsCommand";
 import {
   ListSkillsStoreCategoriesCommandInput,
-  ListSkillsStoreCategoriesCommandOutput
+  ListSkillsStoreCategoriesCommandOutput,
 } from "./commands/ListSkillsStoreCategoriesCommand";
 import {
   ListSkillsStoreSkillsByCategoryCommandInput,
-  ListSkillsStoreSkillsByCategoryCommandOutput
+  ListSkillsStoreSkillsByCategoryCommandOutput,
 } from "./commands/ListSkillsStoreSkillsByCategoryCommand";
 import {
   ListSmartHomeAppliancesCommandInput,
-  ListSmartHomeAppliancesCommandOutput
+  ListSmartHomeAppliancesCommandOutput,
 } from "./commands/ListSmartHomeAppliancesCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PutConferencePreferenceCommandInput,
-  PutConferencePreferenceCommandOutput
+  PutConferencePreferenceCommandOutput,
 } from "./commands/PutConferencePreferenceCommand";
 import {
   PutInvitationConfigurationCommandInput,
-  PutInvitationConfigurationCommandOutput
+  PutInvitationConfigurationCommandOutput,
 } from "./commands/PutInvitationConfigurationCommand";
 import {
   PutRoomSkillParameterCommandInput,
-  PutRoomSkillParameterCommandOutput
+  PutRoomSkillParameterCommandOutput,
 } from "./commands/PutRoomSkillParameterCommand";
 import {
   PutSkillAuthorizationCommandInput,
-  PutSkillAuthorizationCommandOutput
+  PutSkillAuthorizationCommandOutput,
 } from "./commands/PutSkillAuthorizationCommand";
-import {
-  RegisterAVSDeviceCommandInput,
-  RegisterAVSDeviceCommandOutput
-} from "./commands/RegisterAVSDeviceCommand";
-import {
-  RejectSkillCommandInput,
-  RejectSkillCommandOutput
-} from "./commands/RejectSkillCommand";
-import {
-  ResolveRoomCommandInput,
-  ResolveRoomCommandOutput
-} from "./commands/ResolveRoomCommand";
-import {
-  RevokeInvitationCommandInput,
-  RevokeInvitationCommandOutput
-} from "./commands/RevokeInvitationCommand";
-import {
-  SearchAddressBooksCommandInput,
-  SearchAddressBooksCommandOutput
-} from "./commands/SearchAddressBooksCommand";
-import {
-  SearchContactsCommandInput,
-  SearchContactsCommandOutput
-} from "./commands/SearchContactsCommand";
-import {
-  SearchDevicesCommandInput,
-  SearchDevicesCommandOutput
-} from "./commands/SearchDevicesCommand";
+import { RegisterAVSDeviceCommandInput, RegisterAVSDeviceCommandOutput } from "./commands/RegisterAVSDeviceCommand";
+import { RejectSkillCommandInput, RejectSkillCommandOutput } from "./commands/RejectSkillCommand";
+import { ResolveRoomCommandInput, ResolveRoomCommandOutput } from "./commands/ResolveRoomCommand";
+import { RevokeInvitationCommandInput, RevokeInvitationCommandOutput } from "./commands/RevokeInvitationCommand";
+import { SearchAddressBooksCommandInput, SearchAddressBooksCommandOutput } from "./commands/SearchAddressBooksCommand";
+import { SearchContactsCommandInput, SearchContactsCommandOutput } from "./commands/SearchContactsCommand";
+import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "./commands/SearchDevicesCommand";
 import {
   SearchNetworkProfilesCommandInput,
-  SearchNetworkProfilesCommandOutput
+  SearchNetworkProfilesCommandOutput,
 } from "./commands/SearchNetworkProfilesCommand";
-import {
-  SearchProfilesCommandInput,
-  SearchProfilesCommandOutput
-} from "./commands/SearchProfilesCommand";
-import {
-  SearchRoomsCommandInput,
-  SearchRoomsCommandOutput
-} from "./commands/SearchRoomsCommand";
-import {
-  SearchSkillGroupsCommandInput,
-  SearchSkillGroupsCommandOutput
-} from "./commands/SearchSkillGroupsCommand";
-import {
-  SearchUsersCommandInput,
-  SearchUsersCommandOutput
-} from "./commands/SearchUsersCommand";
-import {
-  SendAnnouncementCommandInput,
-  SendAnnouncementCommandOutput
-} from "./commands/SendAnnouncementCommand";
-import {
-  SendInvitationCommandInput,
-  SendInvitationCommandOutput
-} from "./commands/SendInvitationCommand";
-import {
-  StartDeviceSyncCommandInput,
-  StartDeviceSyncCommandOutput
-} from "./commands/StartDeviceSyncCommand";
+import { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand";
+import { SearchRoomsCommandInput, SearchRoomsCommandOutput } from "./commands/SearchRoomsCommand";
+import { SearchSkillGroupsCommandInput, SearchSkillGroupsCommandOutput } from "./commands/SearchSkillGroupsCommand";
+import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
+import { SendAnnouncementCommandInput, SendAnnouncementCommandOutput } from "./commands/SendAnnouncementCommand";
+import { SendInvitationCommandInput, SendInvitationCommandOutput } from "./commands/SendInvitationCommand";
+import { StartDeviceSyncCommandInput, StartDeviceSyncCommandOutput } from "./commands/StartDeviceSyncCommand";
 import {
   StartSmartHomeApplianceDiscoveryCommandInput,
-  StartSmartHomeApplianceDiscoveryCommandOutput
+  StartSmartHomeApplianceDiscoveryCommandOutput,
 } from "./commands/StartSmartHomeApplianceDiscoveryCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateAddressBookCommandInput,
-  UpdateAddressBookCommandOutput
-} from "./commands/UpdateAddressBookCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAddressBookCommandInput, UpdateAddressBookCommandOutput } from "./commands/UpdateAddressBookCommand";
 import {
   UpdateBusinessReportScheduleCommandInput,
-  UpdateBusinessReportScheduleCommandOutput
+  UpdateBusinessReportScheduleCommandOutput,
 } from "./commands/UpdateBusinessReportScheduleCommand";
 import {
   UpdateConferenceProviderCommandInput,
-  UpdateConferenceProviderCommandOutput
+  UpdateConferenceProviderCommandOutput,
 } from "./commands/UpdateConferenceProviderCommand";
-import {
-  UpdateContactCommandInput,
-  UpdateContactCommandOutput
-} from "./commands/UpdateContactCommand";
-import {
-  UpdateDeviceCommandInput,
-  UpdateDeviceCommandOutput
-} from "./commands/UpdateDeviceCommand";
-import {
-  UpdateGatewayCommandInput,
-  UpdateGatewayCommandOutput
-} from "./commands/UpdateGatewayCommand";
-import {
-  UpdateGatewayGroupCommandInput,
-  UpdateGatewayGroupCommandOutput
-} from "./commands/UpdateGatewayGroupCommand";
+import { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand";
+import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "./commands/UpdateDeviceCommand";
+import { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
+import { UpdateGatewayGroupCommandInput, UpdateGatewayGroupCommandOutput } from "./commands/UpdateGatewayGroupCommand";
 import {
   UpdateNetworkProfileCommandInput,
-  UpdateNetworkProfileCommandOutput
+  UpdateNetworkProfileCommandOutput,
 } from "./commands/UpdateNetworkProfileCommand";
-import {
-  UpdateProfileCommandInput,
-  UpdateProfileCommandOutput
-} from "./commands/UpdateProfileCommand";
-import {
-  UpdateRoomCommandInput,
-  UpdateRoomCommandOutput
-} from "./commands/UpdateRoomCommand";
-import {
-  UpdateSkillGroupCommandInput,
-  UpdateSkillGroupCommandOutput
-} from "./commands/UpdateSkillGroupCommand";
+import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
+import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
+import { UpdateSkillGroupCommandInput, UpdateSkillGroupCommandOutput } from "./commands/UpdateSkillGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -377,38 +215,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -419,7 +252,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -612,8 +445,7 @@ export type ServiceOutputTypes =
   | UpdateRoomCommandOutput
   | UpdateSkillGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -702,9 +534,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AlexaForBusinessClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AlexaForBusinessClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -713,9 +543,7 @@ export type AlexaForBusinessClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AlexaForBusinessClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AlexaForBusinessClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -745,7 +573,7 @@ export class AlexaForBusinessClient extends __Client<
   constructor(configuration: AlexaForBusinessClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

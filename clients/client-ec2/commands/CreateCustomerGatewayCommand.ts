@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateCustomerGatewayRequest,
-  CreateCustomerGatewayResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateCustomerGatewayRequest, CreateCustomerGatewayResult } from "../models/index";
 import {
   deserializeAws_ec2CreateCustomerGatewayCommand,
-  serializeAws_ec2CreateCustomerGatewayCommand
+  serializeAws_ec2CreateCustomerGatewayCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateCustomerGatewayCommandInput = CreateCustomerGatewayRequest;
-export type CreateCustomerGatewayCommandOutput = CreateCustomerGatewayResult &
-  __MetadataBearer;
+export type CreateCustomerGatewayCommandOutput = CreateCustomerGatewayResult & __MetadataBearer;
 
 export class CreateCustomerGatewayCommand extends $Command<
   CreateCustomerGatewayCommandInput,
@@ -49,18 +38,13 @@ export class CreateCustomerGatewayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCustomerGatewayCommandInput,
-    CreateCustomerGatewayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCustomerGatewayCommandInput, CreateCustomerGatewayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateCustomerGatewayCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCustomerGatewayCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateCustomerGatewayCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateCustomerGatewayCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomerGatewayCommandOutput> {
     return deserializeAws_ec2CreateCustomerGatewayCommand(output, context);
   }
 

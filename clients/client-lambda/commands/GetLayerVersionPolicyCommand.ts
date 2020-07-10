@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetLayerVersionPolicyRequest,
-  GetLayerVersionPolicyResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetLayerVersionPolicyRequest, GetLayerVersionPolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetLayerVersionPolicyCommand,
-  serializeAws_restJson1GetLayerVersionPolicyCommand
+  serializeAws_restJson1GetLayerVersionPolicyCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetLayerVersionPolicyCommandInput = GetLayerVersionPolicyRequest;
-export type GetLayerVersionPolicyCommandOutput = GetLayerVersionPolicyResponse &
-  __MetadataBearer;
+export type GetLayerVersionPolicyCommandOutput = GetLayerVersionPolicyResponse & __MetadataBearer;
 
 export class GetLayerVersionPolicyCommand extends $Command<
   GetLayerVersionPolicyCommandInput,
@@ -49,18 +38,13 @@ export class GetLayerVersionPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLayerVersionPolicyCommandInput,
-    GetLayerVersionPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLayerVersionPolicyCommandInput, GetLayerVersionPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class GetLayerVersionPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLayerVersionPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLayerVersionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLayerVersionPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLayerVersionPolicyCommandOutput> {
-    return deserializeAws_restJson1GetLayerVersionPolicyCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionPolicyCommandOutput> {
+    return deserializeAws_restJson1GetLayerVersionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

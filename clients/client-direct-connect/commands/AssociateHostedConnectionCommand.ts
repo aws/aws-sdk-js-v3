@@ -1,18 +1,11 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { AssociateHostedConnectionRequest, Connection } from "../models/index";
 import {
   deserializeAws_json1_1AssociateHostedConnectionCommand,
-  serializeAws_json1_1AssociateHostedConnectionCommand
+  serializeAws_json1_1AssociateHostedConnectionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AssociateHostedConnectionCommandInput = AssociateHostedConnectionRequest;
-export type AssociateHostedConnectionCommandOutput = Connection &
-  __MetadataBearer;
+export type AssociateHostedConnectionCommandOutput = Connection & __MetadataBearer;
 
 export class AssociateHostedConnectionCommand extends $Command<
   AssociateHostedConnectionCommandInput,
@@ -46,18 +38,13 @@ export class AssociateHostedConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateHostedConnectionCommandInput,
-    AssociateHostedConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateHostedConnectionCommandInput, AssociateHostedConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,10 +54,7 @@ export class AssociateHostedConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateHostedConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateHostedConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateHostedConnectionCommand(input, context);
   }
 
@@ -78,10 +62,7 @@ export class AssociateHostedConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateHostedConnectionCommandOutput> {
-    return deserializeAws_json1_1AssociateHostedConnectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateHostedConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

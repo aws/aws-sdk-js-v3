@@ -26,14 +26,10 @@ export interface AcceptReservedInstancesExchangeQuoteRequest {
 }
 
 export namespace AcceptReservedInstancesExchangeQuoteRequest {
-  export const filterSensitiveLog = (
-    obj: AcceptReservedInstancesExchangeQuoteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptReservedInstancesExchangeQuoteRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AcceptReservedInstancesExchangeQuoteRequest =>
+  export const isa = (o: any): o is AcceptReservedInstancesExchangeQuoteRequest =>
     __isa(o, "AcceptReservedInstancesExchangeQuoteRequest");
 }
 
@@ -49,14 +45,10 @@ export interface AcceptReservedInstancesExchangeQuoteResult {
 }
 
 export namespace AcceptReservedInstancesExchangeQuoteResult {
-  export const filterSensitiveLog = (
-    obj: AcceptReservedInstancesExchangeQuoteResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptReservedInstancesExchangeQuoteResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AcceptReservedInstancesExchangeQuoteResult =>
+  export const isa = (o: any): o is AcceptReservedInstancesExchangeQuoteResult =>
     __isa(o, "AcceptReservedInstancesExchangeQuoteResult");
 }
 
@@ -76,14 +68,10 @@ export interface AcceptTransitGatewayPeeringAttachmentRequest {
 }
 
 export namespace AcceptTransitGatewayPeeringAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: AcceptTransitGatewayPeeringAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptTransitGatewayPeeringAttachmentRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AcceptTransitGatewayPeeringAttachmentRequest =>
+  export const isa = (o: any): o is AcceptTransitGatewayPeeringAttachmentRequest =>
     __isa(o, "AcceptTransitGatewayPeeringAttachmentRequest");
 }
 
@@ -96,14 +84,10 @@ export interface AcceptTransitGatewayPeeringAttachmentResult {
 }
 
 export namespace AcceptTransitGatewayPeeringAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: AcceptTransitGatewayPeeringAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptTransitGatewayPeeringAttachmentResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AcceptTransitGatewayPeeringAttachmentResult =>
+  export const isa = (o: any): o is AcceptTransitGatewayPeeringAttachmentResult =>
     __isa(o, "AcceptTransitGatewayPeeringAttachmentResult");
 }
 
@@ -123,10 +107,8 @@ export interface AcceptTransitGatewayVpcAttachmentRequest {
 }
 
 export namespace AcceptTransitGatewayVpcAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: AcceptTransitGatewayVpcAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptTransitGatewayVpcAttachmentRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptTransitGatewayVpcAttachmentRequest =>
     __isa(o, "AcceptTransitGatewayVpcAttachmentRequest");
@@ -141,10 +123,8 @@ export interface AcceptTransitGatewayVpcAttachmentResult {
 }
 
 export namespace AcceptTransitGatewayVpcAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: AcceptTransitGatewayVpcAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptTransitGatewayVpcAttachmentResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptTransitGatewayVpcAttachmentResult =>
     __isa(o, "AcceptTransitGatewayVpcAttachmentResult");
@@ -171,10 +151,8 @@ export interface AcceptVpcEndpointConnectionsRequest {
 }
 
 export namespace AcceptVpcEndpointConnectionsRequest {
-  export const filterSensitiveLog = (
-    obj: AcceptVpcEndpointConnectionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptVpcEndpointConnectionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptVpcEndpointConnectionsRequest =>
     __isa(o, "AcceptVpcEndpointConnectionsRequest");
@@ -190,10 +168,8 @@ export interface AcceptVpcEndpointConnectionsResult {
 }
 
 export namespace AcceptVpcEndpointConnectionsResult {
-  export const filterSensitiveLog = (
-    obj: AcceptVpcEndpointConnectionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptVpcEndpointConnectionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptVpcEndpointConnectionsResult =>
     __isa(o, "AcceptVpcEndpointConnectionsResult");
@@ -216,13 +192,10 @@ export interface AcceptVpcPeeringConnectionRequest {
 }
 
 export namespace AcceptVpcPeeringConnectionRequest {
-  export const filterSensitiveLog = (
-    obj: AcceptVpcPeeringConnectionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptVpcPeeringConnectionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AcceptVpcPeeringConnectionRequest =>
-    __isa(o, "AcceptVpcPeeringConnectionRequest");
+  export const isa = (o: any): o is AcceptVpcPeeringConnectionRequest => __isa(o, "AcceptVpcPeeringConnectionRequest");
 }
 
 export interface AcceptVpcPeeringConnectionResult {
@@ -234,13 +207,10 @@ export interface AcceptVpcPeeringConnectionResult {
 }
 
 export namespace AcceptVpcPeeringConnectionResult {
-  export const filterSensitiveLog = (
-    obj: AcceptVpcPeeringConnectionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptVpcPeeringConnectionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AcceptVpcPeeringConnectionResult =>
-    __isa(o, "AcceptVpcPeeringConnectionResult");
+  export const isa = (o: any): o is AcceptVpcPeeringConnectionResult => __isa(o, "AcceptVpcPeeringConnectionResult");
 }
 
 /**
@@ -261,10 +231,9 @@ export interface AccountAttribute {
 
 export namespace AccountAttribute {
   export const filterSensitiveLog = (obj: AccountAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccountAttribute =>
-    __isa(o, "AccountAttribute");
+  export const isa = (o: any): o is AccountAttribute => __isa(o, "AccountAttribute");
 }
 
 export type AccountAttributeName = "default-vpc" | "supported-platforms";
@@ -282,10 +251,9 @@ export interface AccountAttributeValue {
 
 export namespace AccountAttributeValue {
   export const filterSensitiveLog = (obj: AccountAttributeValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccountAttributeValue =>
-    __isa(o, "AccountAttributeValue");
+  export const isa = (o: any): o is AccountAttributeValue => __isa(o, "AccountAttributeValue");
 }
 
 /**
@@ -318,17 +286,16 @@ export interface ActiveInstance {
 
 export namespace ActiveInstance {
   export const filterSensitiveLog = (obj: ActiveInstance): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActiveInstance =>
-    __isa(o, "ActiveInstance");
+  export const isa = (o: any): o is ActiveInstance => __isa(o, "ActiveInstance");
 }
 
 export enum ActivityStatus {
   ERROR = "error",
   FULFILLED = "fulfilled",
   PENDING_FULFILLMENT = "pending_fulfillment",
-  PENDING_TERMINATION = "pending_termination"
+  PENDING_TERMINATION = "pending_termination",
 }
 
 /**
@@ -405,7 +372,7 @@ export interface Address {
 
 export namespace Address {
   export const filterSensitiveLog = (obj: Address): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Address => __isa(o, "Address");
 }
@@ -428,10 +395,9 @@ export interface AdvertiseByoipCidrRequest {
 
 export namespace AdvertiseByoipCidrRequest {
   export const filterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AdvertiseByoipCidrRequest =>
-    __isa(o, "AdvertiseByoipCidrRequest");
+  export const isa = (o: any): o is AdvertiseByoipCidrRequest => __isa(o, "AdvertiseByoipCidrRequest");
 }
 
 export interface AdvertiseByoipCidrResult {
@@ -444,10 +410,9 @@ export interface AdvertiseByoipCidrResult {
 
 export namespace AdvertiseByoipCidrResult {
   export const filterSensitiveLog = (obj: AdvertiseByoipCidrResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AdvertiseByoipCidrResult =>
-    __isa(o, "AdvertiseByoipCidrResult");
+  export const isa = (o: any): o is AdvertiseByoipCidrResult => __isa(o, "AdvertiseByoipCidrResult");
 }
 
 export type Affinity = "default" | "host";
@@ -498,10 +463,9 @@ export interface AllocateAddressRequest {
 
 export namespace AllocateAddressRequest {
   export const filterSensitiveLog = (obj: AllocateAddressRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AllocateAddressRequest =>
-    __isa(o, "AllocateAddressRequest");
+  export const isa = (o: any): o is AllocateAddressRequest => __isa(o, "AllocateAddressRequest");
 }
 
 export interface AllocateAddressResult {
@@ -545,10 +509,9 @@ export interface AllocateAddressResult {
 
 export namespace AllocateAddressResult {
   export const filterSensitiveLog = (obj: AllocateAddressResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AllocateAddressResult =>
-    __isa(o, "AllocateAddressResult");
+  export const isa = (o: any): o is AllocateAddressResult => __isa(o, "AllocateAddressResult");
 }
 
 export interface AllocateHostsRequest {
@@ -623,10 +586,9 @@ export interface AllocateHostsRequest {
 
 export namespace AllocateHostsRequest {
   export const filterSensitiveLog = (obj: AllocateHostsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AllocateHostsRequest =>
-    __isa(o, "AllocateHostsRequest");
+  export const isa = (o: any): o is AllocateHostsRequest => __isa(o, "AllocateHostsRequest");
 }
 
 /**
@@ -643,10 +605,9 @@ export interface AllocateHostsResult {
 
 export namespace AllocateHostsResult {
   export const filterSensitiveLog = (obj: AllocateHostsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AllocateHostsResult =>
-    __isa(o, "AllocateHostsResult");
+  export const isa = (o: any): o is AllocateHostsResult => __isa(o, "AllocateHostsResult");
 }
 
 export type AllocationState =
@@ -660,7 +621,7 @@ export type AllocationState =
 export enum AllocationStrategy {
   CAPACITY_OPTIMIZED = "capacityOptimized",
   DIVERSIFIED = "diversified",
-  LOWEST_PRICE = "lowestPrice"
+  LOWEST_PRICE = "lowestPrice",
 }
 
 /**
@@ -681,10 +642,9 @@ export interface AllowedPrincipal {
 
 export namespace AllowedPrincipal {
   export const filterSensitiveLog = (obj: AllowedPrincipal): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AllowedPrincipal =>
-    __isa(o, "AllowedPrincipal");
+  export const isa = (o: any): o is AllowedPrincipal => __isa(o, "AllowedPrincipal");
 }
 
 export type AllowsMultipleInstanceTypes = "off" | "on";
@@ -714,14 +674,10 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
 }
 
 export namespace ApplySecurityGroupsToClientVpnTargetNetworkRequest {
-  export const filterSensitiveLog = (
-    obj: ApplySecurityGroupsToClientVpnTargetNetworkRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApplySecurityGroupsToClientVpnTargetNetworkRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ApplySecurityGroupsToClientVpnTargetNetworkRequest =>
+  export const isa = (o: any): o is ApplySecurityGroupsToClientVpnTargetNetworkRequest =>
     __isa(o, "ApplySecurityGroupsToClientVpnTargetNetworkRequest");
 }
 
@@ -734,14 +690,10 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
 }
 
 export namespace ApplySecurityGroupsToClientVpnTargetNetworkResult {
-  export const filterSensitiveLog = (
-    obj: ApplySecurityGroupsToClientVpnTargetNetworkResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApplySecurityGroupsToClientVpnTargetNetworkResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ApplySecurityGroupsToClientVpnTargetNetworkResult =>
+  export const isa = (o: any): o is ApplySecurityGroupsToClientVpnTargetNetworkResult =>
     __isa(o, "ApplySecurityGroupsToClientVpnTargetNetworkResult");
 }
 
@@ -762,10 +714,9 @@ export interface AssignedPrivateIpAddress {
 
 export namespace AssignedPrivateIpAddress {
   export const filterSensitiveLog = (obj: AssignedPrivateIpAddress): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssignedPrivateIpAddress =>
-    __isa(o, "AssignedPrivateIpAddress");
+  export const isa = (o: any): o is AssignedPrivateIpAddress => __isa(o, "AssignedPrivateIpAddress");
 }
 
 export interface AssignIpv6AddressesRequest {
@@ -790,10 +741,9 @@ export interface AssignIpv6AddressesRequest {
 
 export namespace AssignIpv6AddressesRequest {
   export const filterSensitiveLog = (obj: AssignIpv6AddressesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssignIpv6AddressesRequest =>
-    __isa(o, "AssignIpv6AddressesRequest");
+  export const isa = (o: any): o is AssignIpv6AddressesRequest => __isa(o, "AssignIpv6AddressesRequest");
 }
 
 export interface AssignIpv6AddressesResult {
@@ -811,10 +761,9 @@ export interface AssignIpv6AddressesResult {
 
 export namespace AssignIpv6AddressesResult {
   export const filterSensitiveLog = (obj: AssignIpv6AddressesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssignIpv6AddressesResult =>
-    __isa(o, "AssignIpv6AddressesResult");
+  export const isa = (o: any): o is AssignIpv6AddressesResult => __isa(o, "AssignIpv6AddressesResult");
 }
 
 /**
@@ -845,13 +794,10 @@ export interface AssignPrivateIpAddressesRequest {
 }
 
 export namespace AssignPrivateIpAddressesRequest {
-  export const filterSensitiveLog = (
-    obj: AssignPrivateIpAddressesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssignPrivateIpAddressesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssignPrivateIpAddressesRequest =>
-    __isa(o, "AssignPrivateIpAddressesRequest");
+  export const isa = (o: any): o is AssignPrivateIpAddressesRequest => __isa(o, "AssignPrivateIpAddressesRequest");
 }
 
 export interface AssignPrivateIpAddressesResult {
@@ -868,13 +814,10 @@ export interface AssignPrivateIpAddressesResult {
 }
 
 export namespace AssignPrivateIpAddressesResult {
-  export const filterSensitiveLog = (
-    obj: AssignPrivateIpAddressesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssignPrivateIpAddressesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssignPrivateIpAddressesResult =>
-    __isa(o, "AssignPrivateIpAddressesResult");
+  export const isa = (o: any): o is AssignPrivateIpAddressesResult => __isa(o, "AssignPrivateIpAddressesResult");
 }
 
 export interface AssociateAddressRequest {
@@ -920,10 +863,9 @@ export interface AssociateAddressRequest {
 
 export namespace AssociateAddressRequest {
   export const filterSensitiveLog = (obj: AssociateAddressRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateAddressRequest =>
-    __isa(o, "AssociateAddressRequest");
+  export const isa = (o: any): o is AssociateAddressRequest => __isa(o, "AssociateAddressRequest");
 }
 
 export interface AssociateAddressResult {
@@ -936,10 +878,9 @@ export interface AssociateAddressResult {
 
 export namespace AssociateAddressResult {
   export const filterSensitiveLog = (obj: AssociateAddressResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateAddressResult =>
-    __isa(o, "AssociateAddressResult");
+  export const isa = (o: any): o is AssociateAddressResult => __isa(o, "AssociateAddressResult");
 }
 
 export interface AssociateClientVpnTargetNetworkRequest {
@@ -966,10 +907,8 @@ export interface AssociateClientVpnTargetNetworkRequest {
 }
 
 export namespace AssociateClientVpnTargetNetworkRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateClientVpnTargetNetworkRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateClientVpnTargetNetworkRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateClientVpnTargetNetworkRequest =>
     __isa(o, "AssociateClientVpnTargetNetworkRequest");
@@ -989,10 +928,8 @@ export interface AssociateClientVpnTargetNetworkResult {
 }
 
 export namespace AssociateClientVpnTargetNetworkResult {
-  export const filterSensitiveLog = (
-    obj: AssociateClientVpnTargetNetworkResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateClientVpnTargetNetworkResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateClientVpnTargetNetworkResult =>
     __isa(o, "AssociateClientVpnTargetNetworkResult");
@@ -1020,13 +957,10 @@ export interface AssociateDhcpOptionsRequest {
 }
 
 export namespace AssociateDhcpOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateDhcpOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateDhcpOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateDhcpOptionsRequest =>
-    __isa(o, "AssociateDhcpOptionsRequest");
+  export const isa = (o: any): o is AssociateDhcpOptionsRequest => __isa(o, "AssociateDhcpOptionsRequest");
 }
 
 export type AssociatedNetworkType = "vpc";
@@ -1049,10 +983,9 @@ export interface AssociatedTargetNetwork {
 
 export namespace AssociatedTargetNetwork {
   export const filterSensitiveLog = (obj: AssociatedTargetNetwork): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociatedTargetNetwork =>
-    __isa(o, "AssociatedTargetNetwork");
+  export const isa = (o: any): o is AssociatedTargetNetwork => __isa(o, "AssociatedTargetNetwork");
 }
 
 export interface AssociateIamInstanceProfileRequest {
@@ -1069,10 +1002,8 @@ export interface AssociateIamInstanceProfileRequest {
 }
 
 export namespace AssociateIamInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateIamInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateIamInstanceProfileRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateIamInstanceProfileRequest =>
     __isa(o, "AssociateIamInstanceProfileRequest");
@@ -1087,13 +1018,10 @@ export interface AssociateIamInstanceProfileResult {
 }
 
 export namespace AssociateIamInstanceProfileResult {
-  export const filterSensitiveLog = (
-    obj: AssociateIamInstanceProfileResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateIamInstanceProfileResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateIamInstanceProfileResult =>
-    __isa(o, "AssociateIamInstanceProfileResult");
+  export const isa = (o: any): o is AssociateIamInstanceProfileResult => __isa(o, "AssociateIamInstanceProfileResult");
 }
 
 export interface AssociateRouteTableRequest {
@@ -1123,10 +1051,9 @@ export interface AssociateRouteTableRequest {
 
 export namespace AssociateRouteTableRequest {
   export const filterSensitiveLog = (obj: AssociateRouteTableRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateRouteTableRequest =>
-    __isa(o, "AssociateRouteTableRequest");
+  export const isa = (o: any): o is AssociateRouteTableRequest => __isa(o, "AssociateRouteTableRequest");
 }
 
 export interface AssociateRouteTableResult {
@@ -1145,10 +1072,9 @@ export interface AssociateRouteTableResult {
 
 export namespace AssociateRouteTableResult {
   export const filterSensitiveLog = (obj: AssociateRouteTableResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateRouteTableResult =>
-    __isa(o, "AssociateRouteTableResult");
+  export const isa = (o: any): o is AssociateRouteTableResult => __isa(o, "AssociateRouteTableResult");
 }
 
 export interface AssociateSubnetCidrBlockRequest {
@@ -1166,13 +1092,10 @@ export interface AssociateSubnetCidrBlockRequest {
 }
 
 export namespace AssociateSubnetCidrBlockRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateSubnetCidrBlockRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateSubnetCidrBlockRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateSubnetCidrBlockRequest =>
-    __isa(o, "AssociateSubnetCidrBlockRequest");
+  export const isa = (o: any): o is AssociateSubnetCidrBlockRequest => __isa(o, "AssociateSubnetCidrBlockRequest");
 }
 
 export interface AssociateSubnetCidrBlockResult {
@@ -1189,13 +1112,10 @@ export interface AssociateSubnetCidrBlockResult {
 }
 
 export namespace AssociateSubnetCidrBlockResult {
-  export const filterSensitiveLog = (
-    obj: AssociateSubnetCidrBlockResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateSubnetCidrBlockResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateSubnetCidrBlockResult =>
-    __isa(o, "AssociateSubnetCidrBlockResult");
+  export const isa = (o: any): o is AssociateSubnetCidrBlockResult => __isa(o, "AssociateSubnetCidrBlockResult");
 }
 
 export interface AssociateTransitGatewayMulticastDomainRequest {
@@ -1224,14 +1144,10 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
 }
 
 export namespace AssociateTransitGatewayMulticastDomainRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateTransitGatewayMulticastDomainRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateTransitGatewayMulticastDomainRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AssociateTransitGatewayMulticastDomainRequest =>
+  export const isa = (o: any): o is AssociateTransitGatewayMulticastDomainRequest =>
     __isa(o, "AssociateTransitGatewayMulticastDomainRequest");
 }
 
@@ -1244,14 +1160,10 @@ export interface AssociateTransitGatewayMulticastDomainResult {
 }
 
 export namespace AssociateTransitGatewayMulticastDomainResult {
-  export const filterSensitiveLog = (
-    obj: AssociateTransitGatewayMulticastDomainResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateTransitGatewayMulticastDomainResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AssociateTransitGatewayMulticastDomainResult =>
+  export const isa = (o: any): o is AssociateTransitGatewayMulticastDomainResult =>
     __isa(o, "AssociateTransitGatewayMulticastDomainResult");
 }
 
@@ -1276,10 +1188,8 @@ export interface AssociateTransitGatewayRouteTableRequest {
 }
 
 export namespace AssociateTransitGatewayRouteTableRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateTransitGatewayRouteTableRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateTransitGatewayRouteTableRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateTransitGatewayRouteTableRequest =>
     __isa(o, "AssociateTransitGatewayRouteTableRequest");
@@ -1294,10 +1204,8 @@ export interface AssociateTransitGatewayRouteTableResult {
 }
 
 export namespace AssociateTransitGatewayRouteTableResult {
-  export const filterSensitiveLog = (
-    obj: AssociateTransitGatewayRouteTableResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateTransitGatewayRouteTableResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateTransitGatewayRouteTableResult =>
     __isa(o, "AssociateTransitGatewayRouteTableResult");
@@ -1340,13 +1248,10 @@ export interface AssociateVpcCidrBlockRequest {
 }
 
 export namespace AssociateVpcCidrBlockRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateVpcCidrBlockRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateVpcCidrBlockRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateVpcCidrBlockRequest =>
-    __isa(o, "AssociateVpcCidrBlockRequest");
+  export const isa = (o: any): o is AssociateVpcCidrBlockRequest => __isa(o, "AssociateVpcCidrBlockRequest");
 }
 
 export interface AssociateVpcCidrBlockResult {
@@ -1368,13 +1273,10 @@ export interface AssociateVpcCidrBlockResult {
 }
 
 export namespace AssociateVpcCidrBlockResult {
-  export const filterSensitiveLog = (
-    obj: AssociateVpcCidrBlockResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateVpcCidrBlockResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateVpcCidrBlockResult =>
-    __isa(o, "AssociateVpcCidrBlockResult");
+  export const isa = (o: any): o is AssociateVpcCidrBlockResult => __isa(o, "AssociateVpcCidrBlockResult");
 }
 
 /**
@@ -1395,10 +1297,9 @@ export interface AssociationStatus {
 
 export namespace AssociationStatus {
   export const filterSensitiveLog = (obj: AssociationStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociationStatus =>
-    __isa(o, "AssociationStatus");
+  export const isa = (o: any): o is AssociationStatus => __isa(o, "AssociationStatus");
 }
 
 export type AssociationStatusCode =
@@ -1434,13 +1335,10 @@ export interface AttachClassicLinkVpcRequest {
 }
 
 export namespace AttachClassicLinkVpcRequest {
-  export const filterSensitiveLog = (
-    obj: AttachClassicLinkVpcRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AttachClassicLinkVpcRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AttachClassicLinkVpcRequest =>
-    __isa(o, "AttachClassicLinkVpcRequest");
+  export const isa = (o: any): o is AttachClassicLinkVpcRequest => __isa(o, "AttachClassicLinkVpcRequest");
 }
 
 export interface AttachClassicLinkVpcResult {
@@ -1453,10 +1351,9 @@ export interface AttachClassicLinkVpcResult {
 
 export namespace AttachClassicLinkVpcResult {
   export const filterSensitiveLog = (obj: AttachClassicLinkVpcResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttachClassicLinkVpcResult =>
-    __isa(o, "AttachClassicLinkVpcResult");
+  export const isa = (o: any): o is AttachClassicLinkVpcResult => __isa(o, "AttachClassicLinkVpcResult");
 }
 
 export interface AttachInternetGatewayRequest {
@@ -1480,20 +1377,13 @@ export interface AttachInternetGatewayRequest {
 }
 
 export namespace AttachInternetGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: AttachInternetGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AttachInternetGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AttachInternetGatewayRequest =>
-    __isa(o, "AttachInternetGatewayRequest");
+  export const isa = (o: any): o is AttachInternetGatewayRequest => __isa(o, "AttachInternetGatewayRequest");
 }
 
-export type AttachmentStatus =
-  | "attached"
-  | "attaching"
-  | "detached"
-  | "detaching";
+export type AttachmentStatus = "attached" | "attaching" | "detached" | "detaching";
 
 /**
  * <p>Contains the parameters for AttachNetworkInterface.</p>
@@ -1524,13 +1414,10 @@ export interface AttachNetworkInterfaceRequest {
 }
 
 export namespace AttachNetworkInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: AttachNetworkInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AttachNetworkInterfaceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AttachNetworkInterfaceRequest =>
-    __isa(o, "AttachNetworkInterfaceRequest");
+  export const isa = (o: any): o is AttachNetworkInterfaceRequest => __isa(o, "AttachNetworkInterfaceRequest");
 }
 
 /**
@@ -1545,13 +1432,10 @@ export interface AttachNetworkInterfaceResult {
 }
 
 export namespace AttachNetworkInterfaceResult {
-  export const filterSensitiveLog = (
-    obj: AttachNetworkInterfaceResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AttachNetworkInterfaceResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AttachNetworkInterfaceResult =>
-    __isa(o, "AttachNetworkInterfaceResult");
+  export const isa = (o: any): o is AttachNetworkInterfaceResult => __isa(o, "AttachNetworkInterfaceResult");
 }
 
 export interface AttachVolumeRequest {
@@ -1582,10 +1466,9 @@ export interface AttachVolumeRequest {
 
 export namespace AttachVolumeRequest {
   export const filterSensitiveLog = (obj: AttachVolumeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttachVolumeRequest =>
-    __isa(o, "AttachVolumeRequest");
+  export const isa = (o: any): o is AttachVolumeRequest => __isa(o, "AttachVolumeRequest");
 }
 
 /**
@@ -1613,10 +1496,9 @@ export interface AttachVpnGatewayRequest {
 
 export namespace AttachVpnGatewayRequest {
   export const filterSensitiveLog = (obj: AttachVpnGatewayRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttachVpnGatewayRequest =>
-    __isa(o, "AttachVpnGatewayRequest");
+  export const isa = (o: any): o is AttachVpnGatewayRequest => __isa(o, "AttachVpnGatewayRequest");
 }
 
 /**
@@ -1632,10 +1514,9 @@ export interface AttachVpnGatewayResult {
 
 export namespace AttachVpnGatewayResult {
   export const filterSensitiveLog = (obj: AttachVpnGatewayResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttachVpnGatewayResult =>
-    __isa(o, "AttachVpnGatewayResult");
+  export const isa = (o: any): o is AttachVpnGatewayResult => __isa(o, "AttachVpnGatewayResult");
 }
 
 /**
@@ -1651,10 +1532,9 @@ export interface AttributeBooleanValue {
 
 export namespace AttributeBooleanValue {
   export const filterSensitiveLog = (obj: AttributeBooleanValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttributeBooleanValue =>
-    __isa(o, "AttributeBooleanValue");
+  export const isa = (o: any): o is AttributeBooleanValue => __isa(o, "AttributeBooleanValue");
 }
 
 /**
@@ -1670,10 +1550,9 @@ export interface AttributeValue {
 
 export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttributeValue =>
-    __isa(o, "AttributeValue");
+  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 /**
@@ -1714,10 +1593,9 @@ export interface AuthorizationRule {
 
 export namespace AuthorizationRule {
   export const filterSensitiveLog = (obj: AuthorizationRule): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationRule =>
-    __isa(o, "AuthorizationRule");
+  export const isa = (o: any): o is AuthorizationRule => __isa(o, "AuthorizationRule");
 }
 
 export interface AuthorizeClientVpnIngressRequest {
@@ -1760,13 +1638,10 @@ export interface AuthorizeClientVpnIngressRequest {
 }
 
 export namespace AuthorizeClientVpnIngressRequest {
-  export const filterSensitiveLog = (
-    obj: AuthorizeClientVpnIngressRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizeClientVpnIngressRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizeClientVpnIngressRequest =>
-    __isa(o, "AuthorizeClientVpnIngressRequest");
+  export const isa = (o: any): o is AuthorizeClientVpnIngressRequest => __isa(o, "AuthorizeClientVpnIngressRequest");
 }
 
 export interface AuthorizeClientVpnIngressResult {
@@ -1778,13 +1653,10 @@ export interface AuthorizeClientVpnIngressResult {
 }
 
 export namespace AuthorizeClientVpnIngressResult {
-  export const filterSensitiveLog = (
-    obj: AuthorizeClientVpnIngressResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizeClientVpnIngressResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizeClientVpnIngressResult =>
-    __isa(o, "AuthorizeClientVpnIngressResult");
+  export const isa = (o: any): o is AuthorizeClientVpnIngressResult => __isa(o, "AuthorizeClientVpnIngressResult");
 }
 
 export interface AuthorizeSecurityGroupEgressRequest {
@@ -1842,10 +1714,8 @@ export interface AuthorizeSecurityGroupEgressRequest {
 }
 
 export namespace AuthorizeSecurityGroupEgressRequest {
-  export const filterSensitiveLog = (
-    obj: AuthorizeSecurityGroupEgressRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizeSecurityGroupEgressRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AuthorizeSecurityGroupEgressRequest =>
     __isa(o, "AuthorizeSecurityGroupEgressRequest");
@@ -1931,10 +1801,8 @@ export interface AuthorizeSecurityGroupIngressRequest {
 }
 
 export namespace AuthorizeSecurityGroupIngressRequest {
-  export const filterSensitiveLog = (
-    obj: AuthorizeSecurityGroupIngressRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizeSecurityGroupIngressRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AuthorizeSecurityGroupIngressRequest =>
     __isa(o, "AuthorizeSecurityGroupIngressRequest");
@@ -1996,10 +1864,9 @@ export interface AvailabilityZone {
 
 export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone =>
-    __isa(o, "AvailabilityZone");
+  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
@@ -2015,22 +1882,14 @@ export interface AvailabilityZoneMessage {
 
 export namespace AvailabilityZoneMessage {
   export const filterSensitiveLog = (obj: AvailabilityZoneMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZoneMessage =>
-    __isa(o, "AvailabilityZoneMessage");
+  export const isa = (o: any): o is AvailabilityZoneMessage => __isa(o, "AvailabilityZoneMessage");
 }
 
-export type AvailabilityZoneOptInStatus =
-  | "not-opted-in"
-  | "opt-in-not-required"
-  | "opted-in";
+export type AvailabilityZoneOptInStatus = "not-opted-in" | "opt-in-not-required" | "opted-in";
 
-export type AvailabilityZoneState =
-  | "available"
-  | "impaired"
-  | "information"
-  | "unavailable";
+export type AvailabilityZoneState = "available" | "impaired" | "information" | "unavailable";
 
 /**
  * <p>The capacity information for instances that can be launched onto the Dedicated Host. </p>
@@ -2053,10 +1912,9 @@ export interface AvailableCapacity {
 
 export namespace AvailableCapacity {
   export const filterSensitiveLog = (obj: AvailableCapacity): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AvailableCapacity =>
-    __isa(o, "AvailableCapacity");
+  export const isa = (o: any): o is AvailableCapacity => __isa(o, "AvailableCapacity");
 }
 
 export enum BatchState {
@@ -2066,7 +1924,7 @@ export enum BatchState {
   CANCELLED_TERMINATING_INSTANCES = "cancelled_terminating",
   FAILED = "failed",
   MODIFYING = "modifying",
-  SUBMITTED = "submitted"
+  SUBMITTED = "submitted",
 }
 
 export interface BlobAttributeValue {
@@ -2076,10 +1934,9 @@ export interface BlobAttributeValue {
 
 export namespace BlobAttributeValue {
   export const filterSensitiveLog = (obj: BlobAttributeValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BlobAttributeValue =>
-    __isa(o, "BlobAttributeValue");
+  export const isa = (o: any): o is BlobAttributeValue => __isa(o, "BlobAttributeValue");
 }
 
 /**
@@ -2121,10 +1978,9 @@ export interface BlockDeviceMapping {
 
 export namespace BlockDeviceMapping {
   export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BlockDeviceMapping =>
-    __isa(o, "BlockDeviceMapping");
+  export const isa = (o: any): o is BlockDeviceMapping => __isa(o, "BlockDeviceMapping");
 }
 
 /**
@@ -2155,10 +2011,9 @@ export interface BundleInstanceRequest {
 
 export namespace BundleInstanceRequest {
   export const filterSensitiveLog = (obj: BundleInstanceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BundleInstanceRequest =>
-    __isa(o, "BundleInstanceRequest");
+  export const isa = (o: any): o is BundleInstanceRequest => __isa(o, "BundleInstanceRequest");
 }
 
 /**
@@ -2174,10 +2029,9 @@ export interface BundleInstanceResult {
 
 export namespace BundleInstanceResult {
   export const filterSensitiveLog = (obj: BundleInstanceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BundleInstanceResult =>
-    __isa(o, "BundleInstanceResult");
+  export const isa = (o: any): o is BundleInstanceResult => __isa(o, "BundleInstanceResult");
 }
 
 /**
@@ -2228,7 +2082,7 @@ export interface BundleTask {
 
 export namespace BundleTask {
   export const filterSensitiveLog = (obj: BundleTask): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is BundleTask => __isa(o, "BundleTask");
 }
@@ -2251,10 +2105,9 @@ export interface BundleTaskError {
 
 export namespace BundleTaskError {
   export const filterSensitiveLog = (obj: BundleTaskError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BundleTaskError =>
-    __isa(o, "BundleTaskError");
+  export const isa = (o: any): o is BundleTaskError => __isa(o, "BundleTaskError");
 }
 
 export type BundleTaskState =
@@ -2295,7 +2148,7 @@ export interface ByoipCidr {
 
 export namespace ByoipCidr {
   export const filterSensitiveLog = (obj: ByoipCidr): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ByoipCidr => __isa(o, "ByoipCidr");
 }
@@ -2314,7 +2167,7 @@ export enum CancelBatchErrorCode {
   FLEET_REQUEST_ID_DOES_NOT_EXIST = "fleetRequestIdDoesNotExist",
   FLEET_REQUEST_ID_MALFORMED = "fleetRequestIdMalformed",
   FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE = "fleetRequestNotInCancellableState",
-  UNEXPECTED_ERROR = "unexpectedError"
+  UNEXPECTED_ERROR = "unexpectedError",
 }
 
 /**
@@ -2337,10 +2190,9 @@ export interface CancelBundleTaskRequest {
 
 export namespace CancelBundleTaskRequest {
   export const filterSensitiveLog = (obj: CancelBundleTaskRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelBundleTaskRequest =>
-    __isa(o, "CancelBundleTaskRequest");
+  export const isa = (o: any): o is CancelBundleTaskRequest => __isa(o, "CancelBundleTaskRequest");
 }
 
 /**
@@ -2356,10 +2208,9 @@ export interface CancelBundleTaskResult {
 
 export namespace CancelBundleTaskResult {
   export const filterSensitiveLog = (obj: CancelBundleTaskResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelBundleTaskResult =>
-    __isa(o, "CancelBundleTaskResult");
+  export const isa = (o: any): o is CancelBundleTaskResult => __isa(o, "CancelBundleTaskResult");
 }
 
 export interface CancelCapacityReservationRequest {
@@ -2376,13 +2227,10 @@ export interface CancelCapacityReservationRequest {
 }
 
 export namespace CancelCapacityReservationRequest {
-  export const filterSensitiveLog = (
-    obj: CancelCapacityReservationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelCapacityReservationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelCapacityReservationRequest =>
-    __isa(o, "CancelCapacityReservationRequest");
+  export const isa = (o: any): o is CancelCapacityReservationRequest => __isa(o, "CancelCapacityReservationRequest");
 }
 
 export interface CancelCapacityReservationResult {
@@ -2394,13 +2242,10 @@ export interface CancelCapacityReservationResult {
 }
 
 export namespace CancelCapacityReservationResult {
-  export const filterSensitiveLog = (
-    obj: CancelCapacityReservationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelCapacityReservationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelCapacityReservationResult =>
-    __isa(o, "CancelCapacityReservationResult");
+  export const isa = (o: any): o is CancelCapacityReservationResult => __isa(o, "CancelCapacityReservationResult");
 }
 
 export interface CancelConversionRequest {
@@ -2425,10 +2270,9 @@ export interface CancelConversionRequest {
 
 export namespace CancelConversionRequest {
   export const filterSensitiveLog = (obj: CancelConversionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelConversionRequest =>
-    __isa(o, "CancelConversionRequest");
+  export const isa = (o: any): o is CancelConversionRequest => __isa(o, "CancelConversionRequest");
 }
 
 export interface CancelExportTaskRequest {
@@ -2441,10 +2285,9 @@ export interface CancelExportTaskRequest {
 
 export namespace CancelExportTaskRequest {
   export const filterSensitiveLog = (obj: CancelExportTaskRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelExportTaskRequest =>
-    __isa(o, "CancelExportTaskRequest");
+  export const isa = (o: any): o is CancelExportTaskRequest => __isa(o, "CancelExportTaskRequest");
 }
 
 export interface CancelImportTaskRequest {
@@ -2469,10 +2312,9 @@ export interface CancelImportTaskRequest {
 
 export namespace CancelImportTaskRequest {
   export const filterSensitiveLog = (obj: CancelImportTaskRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelImportTaskRequest =>
-    __isa(o, "CancelImportTaskRequest");
+  export const isa = (o: any): o is CancelImportTaskRequest => __isa(o, "CancelImportTaskRequest");
 }
 
 export interface CancelImportTaskResult {
@@ -2495,10 +2337,9 @@ export interface CancelImportTaskResult {
 
 export namespace CancelImportTaskResult {
   export const filterSensitiveLog = (obj: CancelImportTaskResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelImportTaskResult =>
-    __isa(o, "CancelImportTaskResult");
+  export const isa = (o: any): o is CancelImportTaskResult => __isa(o, "CancelImportTaskResult");
 }
 
 /**
@@ -2518,13 +2359,10 @@ export interface CancelledSpotInstanceRequest {
 }
 
 export namespace CancelledSpotInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: CancelledSpotInstanceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelledSpotInstanceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelledSpotInstanceRequest =>
-    __isa(o, "CancelledSpotInstanceRequest");
+  export const isa = (o: any): o is CancelledSpotInstanceRequest => __isa(o, "CancelledSpotInstanceRequest");
 }
 
 /**
@@ -2539,10 +2377,8 @@ export interface CancelReservedInstancesListingRequest {
 }
 
 export namespace CancelReservedInstancesListingRequest {
-  export const filterSensitiveLog = (
-    obj: CancelReservedInstancesListingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelReservedInstancesListingRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CancelReservedInstancesListingRequest =>
     __isa(o, "CancelReservedInstancesListingRequest");
@@ -2560,10 +2396,8 @@ export interface CancelReservedInstancesListingResult {
 }
 
 export namespace CancelReservedInstancesListingResult {
-  export const filterSensitiveLog = (
-    obj: CancelReservedInstancesListingResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelReservedInstancesListingResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CancelReservedInstancesListingResult =>
     __isa(o, "CancelReservedInstancesListingResult");
@@ -2586,13 +2420,10 @@ export interface CancelSpotFleetRequestsError {
 }
 
 export namespace CancelSpotFleetRequestsError {
-  export const filterSensitiveLog = (
-    obj: CancelSpotFleetRequestsError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelSpotFleetRequestsError): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsError =>
-    __isa(o, "CancelSpotFleetRequestsError");
+  export const isa = (o: any): o is CancelSpotFleetRequestsError => __isa(o, "CancelSpotFleetRequestsError");
 }
 
 /**
@@ -2612,13 +2443,10 @@ export interface CancelSpotFleetRequestsErrorItem {
 }
 
 export namespace CancelSpotFleetRequestsErrorItem {
-  export const filterSensitiveLog = (
-    obj: CancelSpotFleetRequestsErrorItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelSpotFleetRequestsErrorItem): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsErrorItem =>
-    __isa(o, "CancelSpotFleetRequestsErrorItem");
+  export const isa = (o: any): o is CancelSpotFleetRequestsErrorItem => __isa(o, "CancelSpotFleetRequestsErrorItem");
 }
 
 /**
@@ -2645,13 +2473,10 @@ export interface CancelSpotFleetRequestsRequest {
 }
 
 export namespace CancelSpotFleetRequestsRequest {
-  export const filterSensitiveLog = (
-    obj: CancelSpotFleetRequestsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelSpotFleetRequestsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsRequest =>
-    __isa(o, "CancelSpotFleetRequestsRequest");
+  export const isa = (o: any): o is CancelSpotFleetRequestsRequest => __isa(o, "CancelSpotFleetRequestsRequest");
 }
 
 /**
@@ -2671,13 +2496,10 @@ export interface CancelSpotFleetRequestsResponse {
 }
 
 export namespace CancelSpotFleetRequestsResponse {
-  export const filterSensitiveLog = (
-    obj: CancelSpotFleetRequestsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelSpotFleetRequestsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsResponse =>
-    __isa(o, "CancelSpotFleetRequestsResponse");
+  export const isa = (o: any): o is CancelSpotFleetRequestsResponse => __isa(o, "CancelSpotFleetRequestsResponse");
 }
 
 /**
@@ -2702,10 +2524,8 @@ export interface CancelSpotFleetRequestsSuccessItem {
 }
 
 export namespace CancelSpotFleetRequestsSuccessItem {
-  export const filterSensitiveLog = (
-    obj: CancelSpotFleetRequestsSuccessItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelSpotFleetRequestsSuccessItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CancelSpotFleetRequestsSuccessItem =>
     __isa(o, "CancelSpotFleetRequestsSuccessItem");
@@ -2730,13 +2550,10 @@ export interface CancelSpotInstanceRequestsRequest {
 }
 
 export namespace CancelSpotInstanceRequestsRequest {
-  export const filterSensitiveLog = (
-    obj: CancelSpotInstanceRequestsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelSpotInstanceRequestsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelSpotInstanceRequestsRequest =>
-    __isa(o, "CancelSpotInstanceRequestsRequest");
+  export const isa = (o: any): o is CancelSpotInstanceRequestsRequest => __isa(o, "CancelSpotInstanceRequestsRequest");
 }
 
 /**
@@ -2751,21 +2568,13 @@ export interface CancelSpotInstanceRequestsResult {
 }
 
 export namespace CancelSpotInstanceRequestsResult {
-  export const filterSensitiveLog = (
-    obj: CancelSpotInstanceRequestsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelSpotInstanceRequestsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelSpotInstanceRequestsResult =>
-    __isa(o, "CancelSpotInstanceRequestsResult");
+  export const isa = (o: any): o is CancelSpotInstanceRequestsResult => __isa(o, "CancelSpotInstanceRequestsResult");
 }
 
-export type CancelSpotInstanceRequestState =
-  | "active"
-  | "cancelled"
-  | "closed"
-  | "completed"
-  | "open";
+export type CancelSpotInstanceRequestState = "active" | "cancelled" | "closed" | "completed" | "open";
 
 /**
  * <p>Describes a Capacity Reservation.</p>
@@ -2934,10 +2743,9 @@ export interface CapacityReservation {
 
 export namespace CapacityReservation {
   export const filterSensitiveLog = (obj: CapacityReservation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CapacityReservation =>
-    __isa(o, "CapacityReservation");
+  export const isa = (o: any): o is CapacityReservation => __isa(o, "CapacityReservation");
 }
 
 export enum CapacityReservationInstancePlatform {
@@ -2951,7 +2759,7 @@ export enum CapacityReservationInstancePlatform {
   WINDOWS_WITH_SQL_SERVER = "Windows with SQL Server",
   WINDOWS_WITH_SQL_SERVER_ENTERPRISE = "Windows with SQL Server Enterprise",
   WINDOWS_WITH_SQL_SERVER_STANDARD = "Windows with SQL Server Standard",
-  WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web"
+  WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web",
 }
 
 /**
@@ -2985,10 +2793,9 @@ export interface CapacityReservationOptions {
 
 export namespace CapacityReservationOptions {
   export const filterSensitiveLog = (obj: CapacityReservationOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationOptions =>
-    __isa(o, "CapacityReservationOptions");
+  export const isa = (o: any): o is CapacityReservationOptions => __isa(o, "CapacityReservationOptions");
 }
 
 /**
@@ -3020,13 +2827,10 @@ export interface CapacityReservationOptionsRequest {
 }
 
 export namespace CapacityReservationOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: CapacityReservationOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CapacityReservationOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationOptionsRequest =>
-    __isa(o, "CapacityReservationOptionsRequest");
+  export const isa = (o: any): o is CapacityReservationOptionsRequest => __isa(o, "CapacityReservationOptionsRequest");
 }
 
 export type CapacityReservationPreference = "none" | "open";
@@ -3067,13 +2871,10 @@ export interface CapacityReservationSpecification {
 }
 
 export namespace CapacityReservationSpecification {
-  export const filterSensitiveLog = (
-    obj: CapacityReservationSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CapacityReservationSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationSpecification =>
-    __isa(o, "CapacityReservationSpecification");
+  export const isa = (o: any): o is CapacityReservationSpecification => __isa(o, "CapacityReservationSpecification");
 }
 
 /**
@@ -3110,21 +2911,14 @@ export interface CapacityReservationSpecificationResponse {
 }
 
 export namespace CapacityReservationSpecificationResponse {
-  export const filterSensitiveLog = (
-    obj: CapacityReservationSpecificationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CapacityReservationSpecificationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CapacityReservationSpecificationResponse =>
     __isa(o, "CapacityReservationSpecificationResponse");
 }
 
-export type CapacityReservationState =
-  | "active"
-  | "cancelled"
-  | "expired"
-  | "failed"
-  | "pending";
+export type CapacityReservationState = "active" | "cancelled" | "expired" | "failed" | "pending";
 
 /**
  * <p>Describes a target Capacity Reservation.</p>
@@ -3139,10 +2933,9 @@ export interface CapacityReservationTarget {
 
 export namespace CapacityReservationTarget {
   export const filterSensitiveLog = (obj: CapacityReservationTarget): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationTarget =>
-    __isa(o, "CapacityReservationTarget");
+  export const isa = (o: any): o is CapacityReservationTarget => __isa(o, "CapacityReservationTarget");
 }
 
 /**
@@ -3157,13 +2950,10 @@ export interface CapacityReservationTargetResponse {
 }
 
 export namespace CapacityReservationTargetResponse {
-  export const filterSensitiveLog = (
-    obj: CapacityReservationTargetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CapacityReservationTargetResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationTargetResponse =>
-    __isa(o, "CapacityReservationTargetResponse");
+  export const isa = (o: any): o is CapacityReservationTargetResponse => __isa(o, "CapacityReservationTargetResponse");
 }
 
 export type CapacityReservationTenancy = "dedicated" | "default";
@@ -3181,10 +2971,9 @@ export interface CertificateAuthentication {
 
 export namespace CertificateAuthentication {
   export const filterSensitiveLog = (obj: CertificateAuthentication): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateAuthentication =>
-    __isa(o, "CertificateAuthentication");
+  export const isa = (o: any): o is CertificateAuthentication => __isa(o, "CertificateAuthentication");
 }
 
 /**
@@ -3200,13 +2989,10 @@ export interface CertificateAuthenticationRequest {
 }
 
 export namespace CertificateAuthenticationRequest {
-  export const filterSensitiveLog = (
-    obj: CertificateAuthenticationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CertificateAuthenticationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateAuthenticationRequest =>
-    __isa(o, "CertificateAuthenticationRequest");
+  export const isa = (o: any): o is CertificateAuthenticationRequest => __isa(o, "CertificateAuthenticationRequest");
 }
 
 /**
@@ -3228,10 +3014,9 @@ export interface CidrAuthorizationContext {
 
 export namespace CidrAuthorizationContext {
   export const filterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CidrAuthorizationContext =>
-    __isa(o, "CidrAuthorizationContext");
+  export const isa = (o: any): o is CidrAuthorizationContext => __isa(o, "CidrAuthorizationContext");
 }
 
 /**
@@ -3247,7 +3032,7 @@ export interface CidrBlock {
 
 export namespace CidrBlock {
   export const filterSensitiveLog = (obj: CidrBlock): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CidrBlock => __isa(o, "CidrBlock");
 }
@@ -3270,10 +3055,9 @@ export interface ClassicLinkDnsSupport {
 
 export namespace ClassicLinkDnsSupport {
   export const filterSensitiveLog = (obj: ClassicLinkDnsSupport): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClassicLinkDnsSupport =>
-    __isa(o, "ClassicLinkDnsSupport");
+  export const isa = (o: any): o is ClassicLinkDnsSupport => __isa(o, "ClassicLinkDnsSupport");
 }
 
 /**
@@ -3304,10 +3088,9 @@ export interface ClassicLinkInstance {
 
 export namespace ClassicLinkInstance {
   export const filterSensitiveLog = (obj: ClassicLinkInstance): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClassicLinkInstance =>
-    __isa(o, "ClassicLinkInstance");
+  export const isa = (o: any): o is ClassicLinkInstance => __isa(o, "ClassicLinkInstance");
 }
 
 /**
@@ -3323,10 +3106,9 @@ export interface ClassicLoadBalancer {
 
 export namespace ClassicLoadBalancer {
   export const filterSensitiveLog = (obj: ClassicLoadBalancer): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClassicLoadBalancer =>
-    __isa(o, "ClassicLoadBalancer");
+  export const isa = (o: any): o is ClassicLoadBalancer => __isa(o, "ClassicLoadBalancer");
 }
 
 /**
@@ -3343,10 +3125,9 @@ export interface ClassicLoadBalancersConfig {
 
 export namespace ClassicLoadBalancersConfig {
   export const filterSensitiveLog = (obj: ClassicLoadBalancersConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClassicLoadBalancersConfig =>
-    __isa(o, "ClassicLoadBalancersConfig");
+  export const isa = (o: any): o is ClassicLoadBalancersConfig => __isa(o, "ClassicLoadBalancersConfig");
 }
 
 /**
@@ -3366,10 +3147,8 @@ export interface ClientCertificateRevocationListStatus {
 }
 
 export namespace ClientCertificateRevocationListStatus {
-  export const filterSensitiveLog = (
-    obj: ClientCertificateRevocationListStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClientCertificateRevocationListStatus): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClientCertificateRevocationListStatus =>
     __isa(o, "ClientCertificateRevocationListStatus");
@@ -3405,7 +3184,7 @@ export interface ClientData {
 
 export namespace ClientData {
   export const filterSensitiveLog = (obj: ClientData): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ClientData => __isa(o, "ClientData");
 }
@@ -3435,10 +3214,9 @@ export interface ClientVpnAuthentication {
 
 export namespace ClientVpnAuthentication {
   export const filterSensitiveLog = (obj: ClientVpnAuthentication): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnAuthentication =>
-    __isa(o, "ClientVpnAuthentication");
+  export const isa = (o: any): o is ClientVpnAuthentication => __isa(o, "ClientVpnAuthentication");
 }
 
 /**
@@ -3466,18 +3244,13 @@ export interface ClientVpnAuthenticationRequest {
 }
 
 export namespace ClientVpnAuthenticationRequest {
-  export const filterSensitiveLog = (
-    obj: ClientVpnAuthenticationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClientVpnAuthenticationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnAuthenticationRequest =>
-    __isa(o, "ClientVpnAuthenticationRequest");
+  export const isa = (o: any): o is ClientVpnAuthenticationRequest => __isa(o, "ClientVpnAuthenticationRequest");
 }
 
-export type ClientVpnAuthenticationType =
-  | "certificate-authentication"
-  | "directory-service-authentication";
+export type ClientVpnAuthenticationType = "certificate-authentication" | "directory-service-authentication";
 
 /**
  * <p>Describes the state of an authorization rule.</p>
@@ -3496,20 +3269,13 @@ export interface ClientVpnAuthorizationRuleStatus {
 }
 
 export namespace ClientVpnAuthorizationRuleStatus {
-  export const filterSensitiveLog = (
-    obj: ClientVpnAuthorizationRuleStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClientVpnAuthorizationRuleStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnAuthorizationRuleStatus =>
-    __isa(o, "ClientVpnAuthorizationRuleStatus");
+  export const isa = (o: any): o is ClientVpnAuthorizationRuleStatus => __isa(o, "ClientVpnAuthorizationRuleStatus");
 }
 
-export type ClientVpnAuthorizationRuleStatusCode =
-  | "active"
-  | "authorizing"
-  | "failed"
-  | "revoking";
+export type ClientVpnAuthorizationRuleStatusCode = "active" | "authorizing" | "failed" | "revoking";
 
 /**
  * <p>Describes a client connection.</p>
@@ -3586,10 +3352,9 @@ export interface ClientVpnConnection {
 
 export namespace ClientVpnConnection {
   export const filterSensitiveLog = (obj: ClientVpnConnection): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnConnection =>
-    __isa(o, "ClientVpnConnection");
+  export const isa = (o: any): o is ClientVpnConnection => __isa(o, "ClientVpnConnection");
 }
 
 /**
@@ -3610,17 +3375,12 @@ export interface ClientVpnConnectionStatus {
 
 export namespace ClientVpnConnectionStatus {
   export const filterSensitiveLog = (obj: ClientVpnConnectionStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnConnectionStatus =>
-    __isa(o, "ClientVpnConnectionStatus");
+  export const isa = (o: any): o is ClientVpnConnectionStatus => __isa(o, "ClientVpnConnectionStatus");
 }
 
-export type ClientVpnConnectionStatusCode =
-  | "active"
-  | "failed-to-terminate"
-  | "terminated"
-  | "terminating";
+export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "terminated" | "terminating";
 
 /**
  * <p>Describes a Client VPN endpoint.</p>
@@ -3717,10 +3477,9 @@ export interface ClientVpnEndpoint {
 
 export namespace ClientVpnEndpoint {
   export const filterSensitiveLog = (obj: ClientVpnEndpoint): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnEndpoint =>
-    __isa(o, "ClientVpnEndpoint");
+  export const isa = (o: any): o is ClientVpnEndpoint => __isa(o, "ClientVpnEndpoint");
 }
 
 /**
@@ -3763,17 +3522,12 @@ export interface ClientVpnEndpointStatus {
 
 export namespace ClientVpnEndpointStatus {
   export const filterSensitiveLog = (obj: ClientVpnEndpointStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnEndpointStatus =>
-    __isa(o, "ClientVpnEndpointStatus");
+  export const isa = (o: any): o is ClientVpnEndpointStatus => __isa(o, "ClientVpnEndpointStatus");
 }
 
-export type ClientVpnEndpointStatusCode =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "pending-associate";
+export type ClientVpnEndpointStatusCode = "available" | "deleted" | "deleting" | "pending-associate";
 
 /**
  * <p>Information about a Client VPN endpoint route.</p>
@@ -3821,10 +3575,9 @@ export interface ClientVpnRoute {
 
 export namespace ClientVpnRoute {
   export const filterSensitiveLog = (obj: ClientVpnRoute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnRoute =>
-    __isa(o, "ClientVpnRoute");
+  export const isa = (o: any): o is ClientVpnRoute => __isa(o, "ClientVpnRoute");
 }
 
 /**
@@ -3845,17 +3598,12 @@ export interface ClientVpnRouteStatus {
 
 export namespace ClientVpnRouteStatus {
   export const filterSensitiveLog = (obj: ClientVpnRouteStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientVpnRouteStatus =>
-    __isa(o, "ClientVpnRouteStatus");
+  export const isa = (o: any): o is ClientVpnRouteStatus => __isa(o, "ClientVpnRouteStatus");
 }
 
-export type ClientVpnRouteStatusCode =
-  | "active"
-  | "creating"
-  | "deleting"
-  | "failed";
+export type ClientVpnRouteStatusCode = "active" | "creating" | "deleting" | "failed";
 
 /**
  * <p>Describes address usage for a customer-owned address pool.</p>
@@ -3885,10 +3633,9 @@ export interface CoipAddressUsage {
 
 export namespace CoipAddressUsage {
   export const filterSensitiveLog = (obj: CoipAddressUsage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CoipAddressUsage =>
-    __isa(o, "CoipAddressUsage");
+  export const isa = (o: any): o is CoipAddressUsage => __isa(o, "CoipAddressUsage");
 }
 
 /**
@@ -3919,7 +3666,7 @@ export interface CoipPool {
 
 export namespace CoipPool {
   export const filterSensitiveLog = (obj: CoipPool): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CoipPool => __isa(o, "CoipPool");
 }
@@ -3945,13 +3692,10 @@ export interface ConfirmProductInstanceRequest {
 }
 
 export namespace ConfirmProductInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: ConfirmProductInstanceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmProductInstanceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConfirmProductInstanceRequest =>
-    __isa(o, "ConfirmProductInstanceRequest");
+  export const isa = (o: any): o is ConfirmProductInstanceRequest => __isa(o, "ConfirmProductInstanceRequest");
 }
 
 export interface ConfirmProductInstanceResult {
@@ -3970,13 +3714,10 @@ export interface ConfirmProductInstanceResult {
 }
 
 export namespace ConfirmProductInstanceResult {
-  export const filterSensitiveLog = (
-    obj: ConfirmProductInstanceResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmProductInstanceResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConfirmProductInstanceResult =>
-    __isa(o, "ConfirmProductInstanceResult");
+  export const isa = (o: any): o is ConfirmProductInstanceResult => __isa(o, "ConfirmProductInstanceResult");
 }
 
 /**
@@ -4002,10 +3743,9 @@ export interface ConnectionLogOptions {
 
 export namespace ConnectionLogOptions {
   export const filterSensitiveLog = (obj: ConnectionLogOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConnectionLogOptions =>
-    __isa(o, "ConnectionLogOptions");
+  export const isa = (o: any): o is ConnectionLogOptions => __isa(o, "ConnectionLogOptions");
 }
 
 /**
@@ -4030,13 +3770,10 @@ export interface ConnectionLogResponseOptions {
 }
 
 export namespace ConnectionLogResponseOptions {
-  export const filterSensitiveLog = (
-    obj: ConnectionLogResponseOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConnectionLogResponseOptions): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConnectionLogResponseOptions =>
-    __isa(o, "ConnectionLogResponseOptions");
+  export const isa = (o: any): o is ConnectionLogResponseOptions => __isa(o, "ConnectionLogResponseOptions");
 }
 
 /**
@@ -4084,19 +3821,18 @@ export interface ConnectionNotification {
 
 export namespace ConnectionNotification {
   export const filterSensitiveLog = (obj: ConnectionNotification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConnectionNotification =>
-    __isa(o, "ConnectionNotification");
+  export const isa = (o: any): o is ConnectionNotification => __isa(o, "ConnectionNotification");
 }
 
 export enum ConnectionNotificationState {
   Disabled = "Disabled",
-  Enabled = "Enabled"
+  Enabled = "Enabled",
 }
 
 export enum ConnectionNotificationType {
-  Topic = "Topic"
+  Topic = "Topic",
 }
 
 export type ContainerFormat = "ova";
@@ -4145,17 +3881,12 @@ export interface ConversionTask {
 
 export namespace ConversionTask {
   export const filterSensitiveLog = (obj: ConversionTask): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConversionTask =>
-    __isa(o, "ConversionTask");
+  export const isa = (o: any): o is ConversionTask => __isa(o, "ConversionTask");
 }
 
-export type ConversionTaskState =
-  | "active"
-  | "cancelled"
-  | "cancelling"
-  | "completed";
+export type ConversionTaskState = "active" | "cancelled" | "cancelling" | "completed";
 
 export interface CopyFpgaImageRequest {
   __type?: "CopyFpgaImageRequest";
@@ -4195,10 +3926,9 @@ export interface CopyFpgaImageRequest {
 
 export namespace CopyFpgaImageRequest {
   export const filterSensitiveLog = (obj: CopyFpgaImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyFpgaImageRequest =>
-    __isa(o, "CopyFpgaImageRequest");
+  export const isa = (o: any): o is CopyFpgaImageRequest => __isa(o, "CopyFpgaImageRequest");
 }
 
 export interface CopyFpgaImageResult {
@@ -4211,10 +3941,9 @@ export interface CopyFpgaImageResult {
 
 export namespace CopyFpgaImageResult {
   export const filterSensitiveLog = (obj: CopyFpgaImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyFpgaImageResult =>
-    __isa(o, "CopyFpgaImageResult");
+  export const isa = (o: any): o is CopyFpgaImageResult => __isa(o, "CopyFpgaImageResult");
 }
 
 /**
@@ -4300,10 +4029,9 @@ export interface CopyImageRequest {
 
 export namespace CopyImageRequest {
   export const filterSensitiveLog = (obj: CopyImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyImageRequest =>
-    __isa(o, "CopyImageRequest");
+  export const isa = (o: any): o is CopyImageRequest => __isa(o, "CopyImageRequest");
 }
 
 /**
@@ -4319,10 +4047,9 @@ export interface CopyImageResult {
 
 export namespace CopyImageResult {
   export const filterSensitiveLog = (obj: CopyImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyImageResult =>
-    __isa(o, "CopyImageResult");
+  export const isa = (o: any): o is CopyImageResult => __isa(o, "CopyImageResult");
 }
 
 export interface CopySnapshotRequest {
@@ -4419,10 +4146,9 @@ export interface CopySnapshotRequest {
 
 export namespace CopySnapshotRequest {
   export const filterSensitiveLog = (obj: CopySnapshotRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopySnapshotRequest =>
-    __isa(o, "CopySnapshotRequest");
+  export const isa = (o: any): o is CopySnapshotRequest => __isa(o, "CopySnapshotRequest");
 }
 
 export interface CopySnapshotResult {
@@ -4440,10 +4166,9 @@ export interface CopySnapshotResult {
 
 export namespace CopySnapshotResult {
   export const filterSensitiveLog = (obj: CopySnapshotResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopySnapshotResult =>
-    __isa(o, "CopySnapshotResult");
+  export const isa = (o: any): o is CopySnapshotResult => __isa(o, "CopySnapshotResult");
 }
 
 export type CopyTagsFromSource = "volume";
@@ -4466,7 +4191,7 @@ export interface CpuOptions {
 
 export namespace CpuOptions {
   export const filterSensitiveLog = (obj: CpuOptions): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CpuOptions => __isa(o, "CpuOptions");
 }
@@ -4492,10 +4217,9 @@ export interface CpuOptionsRequest {
 
 export namespace CpuOptionsRequest {
   export const filterSensitiveLog = (obj: CpuOptionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CpuOptionsRequest =>
-    __isa(o, "CpuOptionsRequest");
+  export const isa = (o: any): o is CpuOptionsRequest => __isa(o, "CpuOptionsRequest");
 }
 
 export interface CreateCapacityReservationRequest {
@@ -4631,13 +4355,10 @@ export interface CreateCapacityReservationRequest {
 }
 
 export namespace CreateCapacityReservationRequest {
-  export const filterSensitiveLog = (
-    obj: CreateCapacityReservationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCapacityReservationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCapacityReservationRequest =>
-    __isa(o, "CreateCapacityReservationRequest");
+  export const isa = (o: any): o is CreateCapacityReservationRequest => __isa(o, "CreateCapacityReservationRequest");
 }
 
 export interface CreateCapacityReservationResult {
@@ -4649,13 +4370,10 @@ export interface CreateCapacityReservationResult {
 }
 
 export namespace CreateCapacityReservationResult {
-  export const filterSensitiveLog = (
-    obj: CreateCapacityReservationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCapacityReservationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCapacityReservationResult =>
-    __isa(o, "CreateCapacityReservationResult");
+  export const isa = (o: any): o is CreateCapacityReservationResult => __isa(o, "CreateCapacityReservationResult");
 }
 
 export interface CreateClientVpnEndpointRequest {
@@ -4749,13 +4467,10 @@ export interface CreateClientVpnEndpointRequest {
 }
 
 export namespace CreateClientVpnEndpointRequest {
-  export const filterSensitiveLog = (
-    obj: CreateClientVpnEndpointRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClientVpnEndpointRequest =>
-    __isa(o, "CreateClientVpnEndpointRequest");
+  export const isa = (o: any): o is CreateClientVpnEndpointRequest => __isa(o, "CreateClientVpnEndpointRequest");
 }
 
 export interface CreateClientVpnEndpointResult {
@@ -4777,13 +4492,10 @@ export interface CreateClientVpnEndpointResult {
 }
 
 export namespace CreateClientVpnEndpointResult {
-  export const filterSensitiveLog = (
-    obj: CreateClientVpnEndpointResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClientVpnEndpointResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClientVpnEndpointResult =>
-    __isa(o, "CreateClientVpnEndpointResult");
+  export const isa = (o: any): o is CreateClientVpnEndpointResult => __isa(o, "CreateClientVpnEndpointResult");
 }
 
 export interface CreateClientVpnRouteRequest {
@@ -4834,13 +4546,10 @@ export interface CreateClientVpnRouteRequest {
 }
 
 export namespace CreateClientVpnRouteRequest {
-  export const filterSensitiveLog = (
-    obj: CreateClientVpnRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClientVpnRouteRequest =>
-    __isa(o, "CreateClientVpnRouteRequest");
+  export const isa = (o: any): o is CreateClientVpnRouteRequest => __isa(o, "CreateClientVpnRouteRequest");
 }
 
 export interface CreateClientVpnRouteResult {
@@ -4853,10 +4562,9 @@ export interface CreateClientVpnRouteResult {
 
 export namespace CreateClientVpnRouteResult {
   export const filterSensitiveLog = (obj: CreateClientVpnRouteResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClientVpnRouteResult =>
-    __isa(o, "CreateClientVpnRouteResult");
+  export const isa = (o: any): o is CreateClientVpnRouteResult => __isa(o, "CreateClientVpnRouteResult");
 }
 
 /**
@@ -4900,13 +4608,10 @@ export interface CreateCustomerGatewayRequest {
 }
 
 export namespace CreateCustomerGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: CreateCustomerGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCustomerGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCustomerGatewayRequest =>
-    __isa(o, "CreateCustomerGatewayRequest");
+  export const isa = (o: any): o is CreateCustomerGatewayRequest => __isa(o, "CreateCustomerGatewayRequest");
 }
 
 /**
@@ -4921,13 +4626,10 @@ export interface CreateCustomerGatewayResult {
 }
 
 export namespace CreateCustomerGatewayResult {
-  export const filterSensitiveLog = (
-    obj: CreateCustomerGatewayResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCustomerGatewayResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCustomerGatewayResult =>
-    __isa(o, "CreateCustomerGatewayResult");
+  export const isa = (o: any): o is CreateCustomerGatewayResult => __isa(o, "CreateCustomerGatewayResult");
 }
 
 export interface CreateDefaultSubnetRequest {
@@ -4947,10 +4649,9 @@ export interface CreateDefaultSubnetRequest {
 
 export namespace CreateDefaultSubnetRequest {
   export const filterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDefaultSubnetRequest =>
-    __isa(o, "CreateDefaultSubnetRequest");
+  export const isa = (o: any): o is CreateDefaultSubnetRequest => __isa(o, "CreateDefaultSubnetRequest");
 }
 
 export interface CreateDefaultSubnetResult {
@@ -4963,10 +4664,9 @@ export interface CreateDefaultSubnetResult {
 
 export namespace CreateDefaultSubnetResult {
   export const filterSensitiveLog = (obj: CreateDefaultSubnetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDefaultSubnetResult =>
-    __isa(o, "CreateDefaultSubnetResult");
+  export const isa = (o: any): o is CreateDefaultSubnetResult => __isa(o, "CreateDefaultSubnetResult");
 }
 
 export interface CreateDefaultVpcRequest {
@@ -4981,10 +4681,9 @@ export interface CreateDefaultVpcRequest {
 
 export namespace CreateDefaultVpcRequest {
   export const filterSensitiveLog = (obj: CreateDefaultVpcRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDefaultVpcRequest =>
-    __isa(o, "CreateDefaultVpcRequest");
+  export const isa = (o: any): o is CreateDefaultVpcRequest => __isa(o, "CreateDefaultVpcRequest");
 }
 
 export interface CreateDefaultVpcResult {
@@ -4997,10 +4696,9 @@ export interface CreateDefaultVpcResult {
 
 export namespace CreateDefaultVpcResult {
   export const filterSensitiveLog = (obj: CreateDefaultVpcResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDefaultVpcResult =>
-    __isa(o, "CreateDefaultVpcResult");
+  export const isa = (o: any): o is CreateDefaultVpcResult => __isa(o, "CreateDefaultVpcResult");
 }
 
 export interface CreateDhcpOptionsRequest {
@@ -5020,10 +4718,9 @@ export interface CreateDhcpOptionsRequest {
 
 export namespace CreateDhcpOptionsRequest {
   export const filterSensitiveLog = (obj: CreateDhcpOptionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDhcpOptionsRequest =>
-    __isa(o, "CreateDhcpOptionsRequest");
+  export const isa = (o: any): o is CreateDhcpOptionsRequest => __isa(o, "CreateDhcpOptionsRequest");
 }
 
 export interface CreateDhcpOptionsResult {
@@ -5036,10 +4733,9 @@ export interface CreateDhcpOptionsResult {
 
 export namespace CreateDhcpOptionsResult {
   export const filterSensitiveLog = (obj: CreateDhcpOptionsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDhcpOptionsResult =>
-    __isa(o, "CreateDhcpOptionsResult");
+  export const isa = (o: any): o is CreateDhcpOptionsResult => __isa(o, "CreateDhcpOptionsResult");
 }
 
 export interface CreateEgressOnlyInternetGatewayRequest {
@@ -5065,10 +4761,8 @@ export interface CreateEgressOnlyInternetGatewayRequest {
 }
 
 export namespace CreateEgressOnlyInternetGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: CreateEgressOnlyInternetGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateEgressOnlyInternetGatewayRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateEgressOnlyInternetGatewayRequest =>
     __isa(o, "CreateEgressOnlyInternetGatewayRequest");
@@ -5089,10 +4783,8 @@ export interface CreateEgressOnlyInternetGatewayResult {
 }
 
 export namespace CreateEgressOnlyInternetGatewayResult {
-  export const filterSensitiveLog = (
-    obj: CreateEgressOnlyInternetGatewayResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateEgressOnlyInternetGatewayResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateEgressOnlyInternetGatewayResult =>
     __isa(o, "CreateEgressOnlyInternetGatewayResult");
@@ -5129,10 +4821,9 @@ export interface CreateFleetError {
 
 export namespace CreateFleetError {
   export const filterSensitiveLog = (obj: CreateFleetError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFleetError =>
-    __isa(o, "CreateFleetError");
+  export const isa = (o: any): o is CreateFleetError => __isa(o, "CreateFleetError");
 }
 
 /**
@@ -5170,10 +4861,9 @@ export interface CreateFleetInstance {
 
 export namespace CreateFleetInstance {
   export const filterSensitiveLog = (obj: CreateFleetInstance): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFleetInstance =>
-    __isa(o, "CreateFleetInstance");
+  export const isa = (o: any): o is CreateFleetInstance => __isa(o, "CreateFleetInstance");
 }
 
 export interface CreateFleetRequest {
@@ -5196,9 +4886,7 @@ export interface CreateFleetRequest {
    * <p>Indicates whether running instances should be terminated if the total target capacity of
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    */
-  ExcessCapacityTerminationPolicy?:
-    | FleetExcessCapacityTerminationPolicy
-    | string;
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
 
   /**
    * <p>The configuration for the EC2 Fleet.</p>
@@ -5268,10 +4956,9 @@ export interface CreateFleetRequest {
 
 export namespace CreateFleetRequest {
   export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFleetRequest =>
-    __isa(o, "CreateFleetRequest");
+  export const isa = (o: any): o is CreateFleetRequest => __isa(o, "CreateFleetRequest");
 }
 
 export interface CreateFleetResult {
@@ -5296,10 +4983,9 @@ export interface CreateFleetResult {
 
 export namespace CreateFleetResult {
   export const filterSensitiveLog = (obj: CreateFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFleetResult =>
-    __isa(o, "CreateFleetResult");
+  export const isa = (o: any): o is CreateFleetResult => __isa(o, "CreateFleetResult");
 }
 
 export interface CreateFlowLogsRequest {
@@ -5391,10 +5077,9 @@ export interface CreateFlowLogsRequest {
 
 export namespace CreateFlowLogsRequest {
   export const filterSensitiveLog = (obj: CreateFlowLogsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFlowLogsRequest =>
-    __isa(o, "CreateFlowLogsRequest");
+  export const isa = (o: any): o is CreateFlowLogsRequest => __isa(o, "CreateFlowLogsRequest");
 }
 
 export interface CreateFlowLogsResult {
@@ -5418,10 +5103,9 @@ export interface CreateFlowLogsResult {
 
 export namespace CreateFlowLogsResult {
   export const filterSensitiveLog = (obj: CreateFlowLogsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFlowLogsResult =>
-    __isa(o, "CreateFlowLogsResult");
+  export const isa = (o: any): o is CreateFlowLogsResult => __isa(o, "CreateFlowLogsResult");
 }
 
 export interface CreateFpgaImageRequest {
@@ -5467,10 +5151,9 @@ export interface CreateFpgaImageRequest {
 
 export namespace CreateFpgaImageRequest {
   export const filterSensitiveLog = (obj: CreateFpgaImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFpgaImageRequest =>
-    __isa(o, "CreateFpgaImageRequest");
+  export const isa = (o: any): o is CreateFpgaImageRequest => __isa(o, "CreateFpgaImageRequest");
 }
 
 export interface CreateFpgaImageResult {
@@ -5488,10 +5171,9 @@ export interface CreateFpgaImageResult {
 
 export namespace CreateFpgaImageResult {
   export const filterSensitiveLog = (obj: CreateFpgaImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFpgaImageResult =>
-    __isa(o, "CreateFpgaImageResult");
+  export const isa = (o: any): o is CreateFpgaImageResult => __isa(o, "CreateFpgaImageResult");
 }
 
 export interface CreateImageRequest {
@@ -5532,10 +5214,9 @@ export interface CreateImageRequest {
 
 export namespace CreateImageRequest {
   export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateImageRequest =>
-    __isa(o, "CreateImageRequest");
+  export const isa = (o: any): o is CreateImageRequest => __isa(o, "CreateImageRequest");
 }
 
 export interface CreateImageResult {
@@ -5548,10 +5229,9 @@ export interface CreateImageResult {
 
 export namespace CreateImageResult {
   export const filterSensitiveLog = (obj: CreateImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateImageResult =>
-    __isa(o, "CreateImageResult");
+  export const isa = (o: any): o is CreateImageResult => __isa(o, "CreateImageResult");
 }
 
 export interface CreateInstanceExportTaskRequest {
@@ -5578,13 +5258,10 @@ export interface CreateInstanceExportTaskRequest {
 }
 
 export namespace CreateInstanceExportTaskRequest {
-  export const filterSensitiveLog = (
-    obj: CreateInstanceExportTaskRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateInstanceExportTaskRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceExportTaskRequest =>
-    __isa(o, "CreateInstanceExportTaskRequest");
+  export const isa = (o: any): o is CreateInstanceExportTaskRequest => __isa(o, "CreateInstanceExportTaskRequest");
 }
 
 export interface CreateInstanceExportTaskResult {
@@ -5596,13 +5273,10 @@ export interface CreateInstanceExportTaskResult {
 }
 
 export namespace CreateInstanceExportTaskResult {
-  export const filterSensitiveLog = (
-    obj: CreateInstanceExportTaskResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateInstanceExportTaskResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceExportTaskResult =>
-    __isa(o, "CreateInstanceExportTaskResult");
+  export const isa = (o: any): o is CreateInstanceExportTaskResult => __isa(o, "CreateInstanceExportTaskResult");
 }
 
 export interface CreateInternetGatewayRequest {
@@ -5616,13 +5290,10 @@ export interface CreateInternetGatewayRequest {
 }
 
 export namespace CreateInternetGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: CreateInternetGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateInternetGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInternetGatewayRequest =>
-    __isa(o, "CreateInternetGatewayRequest");
+  export const isa = (o: any): o is CreateInternetGatewayRequest => __isa(o, "CreateInternetGatewayRequest");
 }
 
 export interface CreateInternetGatewayResult {
@@ -5634,13 +5305,10 @@ export interface CreateInternetGatewayResult {
 }
 
 export namespace CreateInternetGatewayResult {
-  export const filterSensitiveLog = (
-    obj: CreateInternetGatewayResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateInternetGatewayResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInternetGatewayResult =>
-    __isa(o, "CreateInternetGatewayResult");
+  export const isa = (o: any): o is CreateInternetGatewayResult => __isa(o, "CreateInternetGatewayResult");
 }
 
 export interface CreateKeyPairRequest {
@@ -5661,10 +5329,9 @@ export interface CreateKeyPairRequest {
 
 export namespace CreateKeyPairRequest {
   export const filterSensitiveLog = (obj: CreateKeyPairRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateKeyPairRequest =>
-    __isa(o, "CreateKeyPairRequest");
+  export const isa = (o: any): o is CreateKeyPairRequest => __isa(o, "CreateKeyPairRequest");
 }
 
 export interface CreateLaunchTemplateRequest {
@@ -5707,13 +5374,10 @@ export interface CreateLaunchTemplateRequest {
 }
 
 export namespace CreateLaunchTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: CreateLaunchTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateLaunchTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLaunchTemplateRequest =>
-    __isa(o, "CreateLaunchTemplateRequest");
+  export const isa = (o: any): o is CreateLaunchTemplateRequest => __isa(o, "CreateLaunchTemplateRequest");
 }
 
 export interface CreateLaunchTemplateResult {
@@ -5726,10 +5390,9 @@ export interface CreateLaunchTemplateResult {
 
 export namespace CreateLaunchTemplateResult {
   export const filterSensitiveLog = (obj: CreateLaunchTemplateResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLaunchTemplateResult =>
-    __isa(o, "CreateLaunchTemplateResult");
+  export const isa = (o: any): o is CreateLaunchTemplateResult => __isa(o, "CreateLaunchTemplateResult");
 }
 
 export interface CreateLaunchTemplateVersionRequest {
@@ -5783,10 +5446,8 @@ export interface CreateLaunchTemplateVersionRequest {
 }
 
 export namespace CreateLaunchTemplateVersionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateLaunchTemplateVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateLaunchTemplateVersionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateLaunchTemplateVersionRequest =>
     __isa(o, "CreateLaunchTemplateVersionRequest");
@@ -5801,13 +5462,10 @@ export interface CreateLaunchTemplateVersionResult {
 }
 
 export namespace CreateLaunchTemplateVersionResult {
-  export const filterSensitiveLog = (
-    obj: CreateLaunchTemplateVersionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateLaunchTemplateVersionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLaunchTemplateVersionResult =>
-    __isa(o, "CreateLaunchTemplateVersionResult");
+  export const isa = (o: any): o is CreateLaunchTemplateVersionResult => __isa(o, "CreateLaunchTemplateVersionResult");
 }
 
 export interface CreateLocalGatewayRouteRequest {
@@ -5837,13 +5495,10 @@ export interface CreateLocalGatewayRouteRequest {
 }
 
 export namespace CreateLocalGatewayRouteRequest {
-  export const filterSensitiveLog = (
-    obj: CreateLocalGatewayRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateLocalGatewayRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLocalGatewayRouteRequest =>
-    __isa(o, "CreateLocalGatewayRouteRequest");
+  export const isa = (o: any): o is CreateLocalGatewayRouteRequest => __isa(o, "CreateLocalGatewayRouteRequest");
 }
 
 export interface CreateLocalGatewayRouteResult {
@@ -5855,13 +5510,10 @@ export interface CreateLocalGatewayRouteResult {
 }
 
 export namespace CreateLocalGatewayRouteResult {
-  export const filterSensitiveLog = (
-    obj: CreateLocalGatewayRouteResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateLocalGatewayRouteResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLocalGatewayRouteResult =>
-    __isa(o, "CreateLocalGatewayRouteResult");
+  export const isa = (o: any): o is CreateLocalGatewayRouteResult => __isa(o, "CreateLocalGatewayRouteResult");
 }
 
 export interface CreateLocalGatewayRouteTableVpcAssociationRequest {
@@ -5885,14 +5537,10 @@ export interface CreateLocalGatewayRouteTableVpcAssociationRequest {
 }
 
 export namespace CreateLocalGatewayRouteTableVpcAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: CreateLocalGatewayRouteTableVpcAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateLocalGatewayRouteTableVpcAssociationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateLocalGatewayRouteTableVpcAssociationRequest =>
+  export const isa = (o: any): o is CreateLocalGatewayRouteTableVpcAssociationRequest =>
     __isa(o, "CreateLocalGatewayRouteTableVpcAssociationRequest");
 }
 
@@ -5905,14 +5553,10 @@ export interface CreateLocalGatewayRouteTableVpcAssociationResult {
 }
 
 export namespace CreateLocalGatewayRouteTableVpcAssociationResult {
-  export const filterSensitiveLog = (
-    obj: CreateLocalGatewayRouteTableVpcAssociationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateLocalGatewayRouteTableVpcAssociationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateLocalGatewayRouteTableVpcAssociationResult =>
+  export const isa = (o: any): o is CreateLocalGatewayRouteTableVpcAssociationResult =>
     __isa(o, "CreateLocalGatewayRouteTableVpcAssociationResult");
 }
 
@@ -5939,10 +5583,9 @@ export interface CreateNatGatewayRequest {
 
 export namespace CreateNatGatewayRequest {
   export const filterSensitiveLog = (obj: CreateNatGatewayRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNatGatewayRequest =>
-    __isa(o, "CreateNatGatewayRequest");
+  export const isa = (o: any): o is CreateNatGatewayRequest => __isa(o, "CreateNatGatewayRequest");
 }
 
 export interface CreateNatGatewayResult {
@@ -5960,10 +5603,9 @@ export interface CreateNatGatewayResult {
 
 export namespace CreateNatGatewayResult {
   export const filterSensitiveLog = (obj: CreateNatGatewayResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNatGatewayResult =>
-    __isa(o, "CreateNatGatewayResult");
+  export const isa = (o: any): o is CreateNatGatewayResult => __isa(o, "CreateNatGatewayResult");
 }
 
 export interface CreateNetworkAclEntryRequest {
@@ -6032,13 +5674,10 @@ export interface CreateNetworkAclEntryRequest {
 }
 
 export namespace CreateNetworkAclEntryRequest {
-  export const filterSensitiveLog = (
-    obj: CreateNetworkAclEntryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateNetworkAclEntryRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkAclEntryRequest =>
-    __isa(o, "CreateNetworkAclEntryRequest");
+  export const isa = (o: any): o is CreateNetworkAclEntryRequest => __isa(o, "CreateNetworkAclEntryRequest");
 }
 
 export interface CreateNetworkAclRequest {
@@ -6058,10 +5697,9 @@ export interface CreateNetworkAclRequest {
 
 export namespace CreateNetworkAclRequest {
   export const filterSensitiveLog = (obj: CreateNetworkAclRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkAclRequest =>
-    __isa(o, "CreateNetworkAclRequest");
+  export const isa = (o: any): o is CreateNetworkAclRequest => __isa(o, "CreateNetworkAclRequest");
 }
 
 export interface CreateNetworkAclResult {
@@ -6074,10 +5712,9 @@ export interface CreateNetworkAclResult {
 
 export namespace CreateNetworkAclResult {
   export const filterSensitiveLog = (obj: CreateNetworkAclResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkAclResult =>
-    __isa(o, "CreateNetworkAclResult");
+  export const isa = (o: any): o is CreateNetworkAclResult => __isa(o, "CreateNetworkAclResult");
 }
 
 /**
@@ -6114,10 +5751,8 @@ export interface CreateNetworkInterfacePermissionRequest {
 }
 
 export namespace CreateNetworkInterfacePermissionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateNetworkInterfacePermissionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateNetworkInterfacePermissionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateNetworkInterfacePermissionRequest =>
     __isa(o, "CreateNetworkInterfacePermissionRequest");
@@ -6135,10 +5770,8 @@ export interface CreateNetworkInterfacePermissionResult {
 }
 
 export namespace CreateNetworkInterfacePermissionResult {
-  export const filterSensitiveLog = (
-    obj: CreateNetworkInterfacePermissionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateNetworkInterfacePermissionResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateNetworkInterfacePermissionResult =>
     __isa(o, "CreateNetworkInterfacePermissionResult");
@@ -6219,13 +5852,10 @@ export interface CreateNetworkInterfaceRequest {
 }
 
 export namespace CreateNetworkInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: CreateNetworkInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateNetworkInterfaceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkInterfaceRequest =>
-    __isa(o, "CreateNetworkInterfaceRequest");
+  export const isa = (o: any): o is CreateNetworkInterfaceRequest => __isa(o, "CreateNetworkInterfaceRequest");
 }
 
 /**
@@ -6240,13 +5870,10 @@ export interface CreateNetworkInterfaceResult {
 }
 
 export namespace CreateNetworkInterfaceResult {
-  export const filterSensitiveLog = (
-    obj: CreateNetworkInterfaceResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateNetworkInterfaceResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkInterfaceResult =>
-    __isa(o, "CreateNetworkInterfaceResult");
+  export const isa = (o: any): o is CreateNetworkInterfaceResult => __isa(o, "CreateNetworkInterfaceResult");
 }
 
 export interface CreatePlacementGroupRequest {
@@ -6278,13 +5905,10 @@ export interface CreatePlacementGroupRequest {
 }
 
 export namespace CreatePlacementGroupRequest {
-  export const filterSensitiveLog = (
-    obj: CreatePlacementGroupRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePlacementGroupRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePlacementGroupRequest =>
-    __isa(o, "CreatePlacementGroupRequest");
+  export const isa = (o: any): o is CreatePlacementGroupRequest => __isa(o, "CreatePlacementGroupRequest");
 }
 
 /**
@@ -6316,10 +5940,8 @@ export interface CreateReservedInstancesListingRequest {
 }
 
 export namespace CreateReservedInstancesListingRequest {
-  export const filterSensitiveLog = (
-    obj: CreateReservedInstancesListingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateReservedInstancesListingRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateReservedInstancesListingRequest =>
     __isa(o, "CreateReservedInstancesListingRequest");
@@ -6337,10 +5959,8 @@ export interface CreateReservedInstancesListingResult {
 }
 
 export namespace CreateReservedInstancesListingResult {
-  export const filterSensitiveLog = (
-    obj: CreateReservedInstancesListingResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateReservedInstancesListingResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateReservedInstancesListingResult =>
     __isa(o, "CreateReservedInstancesListingResult");
@@ -6414,10 +6034,9 @@ export interface CreateRouteRequest {
 
 export namespace CreateRouteRequest {
   export const filterSensitiveLog = (obj: CreateRouteRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRouteRequest =>
-    __isa(o, "CreateRouteRequest");
+  export const isa = (o: any): o is CreateRouteRequest => __isa(o, "CreateRouteRequest");
 }
 
 export interface CreateRouteResult {
@@ -6430,10 +6049,9 @@ export interface CreateRouteResult {
 
 export namespace CreateRouteResult {
   export const filterSensitiveLog = (obj: CreateRouteResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRouteResult =>
-    __isa(o, "CreateRouteResult");
+  export const isa = (o: any): o is CreateRouteResult => __isa(o, "CreateRouteResult");
 }
 
 export interface CreateRouteTableRequest {
@@ -6453,10 +6071,9 @@ export interface CreateRouteTableRequest {
 
 export namespace CreateRouteTableRequest {
   export const filterSensitiveLog = (obj: CreateRouteTableRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRouteTableRequest =>
-    __isa(o, "CreateRouteTableRequest");
+  export const isa = (o: any): o is CreateRouteTableRequest => __isa(o, "CreateRouteTableRequest");
 }
 
 export interface CreateRouteTableResult {
@@ -6469,10 +6086,9 @@ export interface CreateRouteTableResult {
 
 export namespace CreateRouteTableResult {
   export const filterSensitiveLog = (obj: CreateRouteTableResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRouteTableResult =>
-    __isa(o, "CreateRouteTableResult");
+  export const isa = (o: any): o is CreateRouteTableResult => __isa(o, "CreateRouteTableResult");
 }
 
 export interface CreateSecurityGroupRequest {
@@ -6509,10 +6125,9 @@ export interface CreateSecurityGroupRequest {
 
 export namespace CreateSecurityGroupRequest {
   export const filterSensitiveLog = (obj: CreateSecurityGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityGroupRequest =>
-    __isa(o, "CreateSecurityGroupRequest");
+  export const isa = (o: any): o is CreateSecurityGroupRequest => __isa(o, "CreateSecurityGroupRequest");
 }
 
 export interface CreateSecurityGroupResult {
@@ -6525,10 +6140,9 @@ export interface CreateSecurityGroupResult {
 
 export namespace CreateSecurityGroupResult {
   export const filterSensitiveLog = (obj: CreateSecurityGroupResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityGroupResult =>
-    __isa(o, "CreateSecurityGroupResult");
+  export const isa = (o: any): o is CreateSecurityGroupResult => __isa(o, "CreateSecurityGroupResult");
 }
 
 export interface CreateSnapshotRequest {
@@ -6558,10 +6172,9 @@ export interface CreateSnapshotRequest {
 
 export namespace CreateSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotRequest =>
-    __isa(o, "CreateSnapshotRequest");
+  export const isa = (o: any): o is CreateSnapshotRequest => __isa(o, "CreateSnapshotRequest");
 }
 
 export interface CreateSnapshotsRequest {
@@ -6596,10 +6209,9 @@ export interface CreateSnapshotsRequest {
 
 export namespace CreateSnapshotsRequest {
   export const filterSensitiveLog = (obj: CreateSnapshotsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotsRequest =>
-    __isa(o, "CreateSnapshotsRequest");
+  export const isa = (o: any): o is CreateSnapshotsRequest => __isa(o, "CreateSnapshotsRequest");
 }
 
 export interface CreateSnapshotsResult {
@@ -6612,10 +6224,9 @@ export interface CreateSnapshotsResult {
 
 export namespace CreateSnapshotsResult {
   export const filterSensitiveLog = (obj: CreateSnapshotsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotsResult =>
-    __isa(o, "CreateSnapshotsResult");
+  export const isa = (o: any): o is CreateSnapshotsResult => __isa(o, "CreateSnapshotsResult");
 }
 
 /**
@@ -6642,10 +6253,8 @@ export interface CreateSpotDatafeedSubscriptionRequest {
 }
 
 export namespace CreateSpotDatafeedSubscriptionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateSpotDatafeedSubscriptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSpotDatafeedSubscriptionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateSpotDatafeedSubscriptionRequest =>
     __isa(o, "CreateSpotDatafeedSubscriptionRequest");
@@ -6663,10 +6272,8 @@ export interface CreateSpotDatafeedSubscriptionResult {
 }
 
 export namespace CreateSpotDatafeedSubscriptionResult {
-  export const filterSensitiveLog = (
-    obj: CreateSpotDatafeedSubscriptionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSpotDatafeedSubscriptionResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateSpotDatafeedSubscriptionResult =>
     __isa(o, "CreateSpotDatafeedSubscriptionResult");
@@ -6719,10 +6326,9 @@ export interface CreateSubnetRequest {
 
 export namespace CreateSubnetRequest {
   export const filterSensitiveLog = (obj: CreateSubnetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSubnetRequest =>
-    __isa(o, "CreateSubnetRequest");
+  export const isa = (o: any): o is CreateSubnetRequest => __isa(o, "CreateSubnetRequest");
 }
 
 export interface CreateSubnetResult {
@@ -6735,10 +6341,9 @@ export interface CreateSubnetResult {
 
 export namespace CreateSubnetResult {
   export const filterSensitiveLog = (obj: CreateSubnetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSubnetResult =>
-    __isa(o, "CreateSubnetResult");
+  export const isa = (o: any): o is CreateSubnetResult => __isa(o, "CreateSubnetResult");
 }
 
 export interface CreateTagsRequest {
@@ -6765,10 +6370,9 @@ export interface CreateTagsRequest {
 
 export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTagsRequest =>
-    __isa(o, "CreateTagsRequest");
+  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
 export interface CreateTrafficMirrorFilterRequest {
@@ -6797,13 +6401,10 @@ export interface CreateTrafficMirrorFilterRequest {
 }
 
 export namespace CreateTrafficMirrorFilterRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTrafficMirrorFilterRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTrafficMirrorFilterRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorFilterRequest =>
-    __isa(o, "CreateTrafficMirrorFilterRequest");
+  export const isa = (o: any): o is CreateTrafficMirrorFilterRequest => __isa(o, "CreateTrafficMirrorFilterRequest");
 }
 
 export interface CreateTrafficMirrorFilterResult {
@@ -6820,13 +6421,10 @@ export interface CreateTrafficMirrorFilterResult {
 }
 
 export namespace CreateTrafficMirrorFilterResult {
-  export const filterSensitiveLog = (
-    obj: CreateTrafficMirrorFilterResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTrafficMirrorFilterResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorFilterResult =>
-    __isa(o, "CreateTrafficMirrorFilterResult");
+  export const isa = (o: any): o is CreateTrafficMirrorFilterResult => __isa(o, "CreateTrafficMirrorFilterResult");
 }
 
 export interface CreateTrafficMirrorFilterRuleRequest {
@@ -6897,10 +6495,8 @@ export interface CreateTrafficMirrorFilterRuleRequest {
 }
 
 export namespace CreateTrafficMirrorFilterRuleRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTrafficMirrorFilterRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTrafficMirrorFilterRuleRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTrafficMirrorFilterRuleRequest =>
     __isa(o, "CreateTrafficMirrorFilterRuleRequest");
@@ -6920,10 +6516,8 @@ export interface CreateTrafficMirrorFilterRuleResult {
 }
 
 export namespace CreateTrafficMirrorFilterRuleResult {
-  export const filterSensitiveLog = (
-    obj: CreateTrafficMirrorFilterRuleResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTrafficMirrorFilterRuleResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTrafficMirrorFilterRuleResult =>
     __isa(o, "CreateTrafficMirrorFilterRuleResult");
@@ -6994,13 +6588,10 @@ export interface CreateTrafficMirrorSessionRequest {
 }
 
 export namespace CreateTrafficMirrorSessionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTrafficMirrorSessionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTrafficMirrorSessionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorSessionRequest =>
-    __isa(o, "CreateTrafficMirrorSessionRequest");
+  export const isa = (o: any): o is CreateTrafficMirrorSessionRequest => __isa(o, "CreateTrafficMirrorSessionRequest");
 }
 
 export interface CreateTrafficMirrorSessionResult {
@@ -7017,13 +6608,10 @@ export interface CreateTrafficMirrorSessionResult {
 }
 
 export namespace CreateTrafficMirrorSessionResult {
-  export const filterSensitiveLog = (
-    obj: CreateTrafficMirrorSessionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTrafficMirrorSessionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorSessionResult =>
-    __isa(o, "CreateTrafficMirrorSessionResult");
+  export const isa = (o: any): o is CreateTrafficMirrorSessionResult => __isa(o, "CreateTrafficMirrorSessionResult");
 }
 
 export interface CreateTrafficMirrorTargetRequest {
@@ -7062,13 +6650,10 @@ export interface CreateTrafficMirrorTargetRequest {
 }
 
 export namespace CreateTrafficMirrorTargetRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTrafficMirrorTargetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTrafficMirrorTargetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorTargetRequest =>
-    __isa(o, "CreateTrafficMirrorTargetRequest");
+  export const isa = (o: any): o is CreateTrafficMirrorTargetRequest => __isa(o, "CreateTrafficMirrorTargetRequest");
 }
 
 export interface CreateTrafficMirrorTargetResult {
@@ -7085,13 +6670,10 @@ export interface CreateTrafficMirrorTargetResult {
 }
 
 export namespace CreateTrafficMirrorTargetResult {
-  export const filterSensitiveLog = (
-    obj: CreateTrafficMirrorTargetResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTrafficMirrorTargetResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorTargetResult =>
-    __isa(o, "CreateTrafficMirrorTargetResult");
+  export const isa = (o: any): o is CreateTrafficMirrorTargetResult => __isa(o, "CreateTrafficMirrorTargetResult");
 }
 
 export interface CreateTransitGatewayMulticastDomainRequest {
@@ -7115,14 +6697,10 @@ export interface CreateTransitGatewayMulticastDomainRequest {
 }
 
 export namespace CreateTransitGatewayMulticastDomainRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayMulticastDomainRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayMulticastDomainRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateTransitGatewayMulticastDomainRequest =>
+  export const isa = (o: any): o is CreateTransitGatewayMulticastDomainRequest =>
     __isa(o, "CreateTransitGatewayMulticastDomainRequest");
 }
 
@@ -7135,10 +6713,8 @@ export interface CreateTransitGatewayMulticastDomainResult {
 }
 
 export namespace CreateTransitGatewayMulticastDomainResult {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayMulticastDomainResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayMulticastDomainResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTransitGatewayMulticastDomainResult =>
     __isa(o, "CreateTransitGatewayMulticastDomainResult");
@@ -7180,14 +6756,10 @@ export interface CreateTransitGatewayPeeringAttachmentRequest {
 }
 
 export namespace CreateTransitGatewayPeeringAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayPeeringAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayPeeringAttachmentRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateTransitGatewayPeeringAttachmentRequest =>
+  export const isa = (o: any): o is CreateTransitGatewayPeeringAttachmentRequest =>
     __isa(o, "CreateTransitGatewayPeeringAttachmentRequest");
 }
 
@@ -7200,14 +6772,10 @@ export interface CreateTransitGatewayPeeringAttachmentResult {
 }
 
 export namespace CreateTransitGatewayPeeringAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayPeeringAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayPeeringAttachmentResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateTransitGatewayPeeringAttachmentResult =>
+  export const isa = (o: any): o is CreateTransitGatewayPeeringAttachmentResult =>
     __isa(o, "CreateTransitGatewayPeeringAttachmentResult");
 }
 
@@ -7237,13 +6805,10 @@ export interface CreateTransitGatewayRequest {
 }
 
 export namespace CreateTransitGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayRequest =>
-    __isa(o, "CreateTransitGatewayRequest");
+  export const isa = (o: any): o is CreateTransitGatewayRequest => __isa(o, "CreateTransitGatewayRequest");
 }
 
 export interface CreateTransitGatewayResult {
@@ -7256,10 +6821,9 @@ export interface CreateTransitGatewayResult {
 
 export namespace CreateTransitGatewayResult {
   export const filterSensitiveLog = (obj: CreateTransitGatewayResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayResult =>
-    __isa(o, "CreateTransitGatewayResult");
+  export const isa = (o: any): o is CreateTransitGatewayResult => __isa(o, "CreateTransitGatewayResult");
 }
 
 export interface CreateTransitGatewayRouteRequest {
@@ -7294,13 +6858,10 @@ export interface CreateTransitGatewayRouteRequest {
 }
 
 export namespace CreateTransitGatewayRouteRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayRouteRequest =>
-    __isa(o, "CreateTransitGatewayRouteRequest");
+  export const isa = (o: any): o is CreateTransitGatewayRouteRequest => __isa(o, "CreateTransitGatewayRouteRequest");
 }
 
 export interface CreateTransitGatewayRouteResult {
@@ -7312,13 +6873,10 @@ export interface CreateTransitGatewayRouteResult {
 }
 
 export namespace CreateTransitGatewayRouteResult {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayRouteResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRouteResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayRouteResult =>
-    __isa(o, "CreateTransitGatewayRouteResult");
+  export const isa = (o: any): o is CreateTransitGatewayRouteResult => __isa(o, "CreateTransitGatewayRouteResult");
 }
 
 export interface CreateTransitGatewayRouteTableRequest {
@@ -7342,10 +6900,8 @@ export interface CreateTransitGatewayRouteTableRequest {
 }
 
 export namespace CreateTransitGatewayRouteTableRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayRouteTableRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTransitGatewayRouteTableRequest =>
     __isa(o, "CreateTransitGatewayRouteTableRequest");
@@ -7360,10 +6916,8 @@ export interface CreateTransitGatewayRouteTableResult {
 }
 
 export namespace CreateTransitGatewayRouteTableResult {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayRouteTableResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTransitGatewayRouteTableResult =>
     __isa(o, "CreateTransitGatewayRouteTableResult");
@@ -7407,10 +6961,8 @@ export interface CreateTransitGatewayVpcAttachmentRequest {
 }
 
 export namespace CreateTransitGatewayVpcAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayVpcAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayVpcAttachmentRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTransitGatewayVpcAttachmentRequest =>
     __isa(o, "CreateTransitGatewayVpcAttachmentRequest");
@@ -7433,14 +6985,10 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
 }
 
 export namespace CreateTransitGatewayVpcAttachmentRequestOptions {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayVpcAttachmentRequestOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayVpcAttachmentRequestOptions): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateTransitGatewayVpcAttachmentRequestOptions =>
+  export const isa = (o: any): o is CreateTransitGatewayVpcAttachmentRequestOptions =>
     __isa(o, "CreateTransitGatewayVpcAttachmentRequestOptions");
 }
 
@@ -7453,10 +7001,8 @@ export interface CreateTransitGatewayVpcAttachmentResult {
 }
 
 export namespace CreateTransitGatewayVpcAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: CreateTransitGatewayVpcAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitGatewayVpcAttachmentResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTransitGatewayVpcAttachmentResult =>
     __isa(o, "CreateTransitGatewayVpcAttachmentResult");
@@ -7481,10 +7027,9 @@ export interface CreateVolumePermission {
 
 export namespace CreateVolumePermission {
   export const filterSensitiveLog = (obj: CreateVolumePermission): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVolumePermission =>
-    __isa(o, "CreateVolumePermission");
+  export const isa = (o: any): o is CreateVolumePermission => __isa(o, "CreateVolumePermission");
 }
 
 /**
@@ -7504,10 +7049,8 @@ export interface CreateVolumePermissionModifications {
 }
 
 export namespace CreateVolumePermissionModifications {
-  export const filterSensitiveLog = (
-    obj: CreateVolumePermissionModifications
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVolumePermissionModifications): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateVolumePermissionModifications =>
     __isa(o, "CreateVolumePermissionModifications");
@@ -7619,10 +7162,9 @@ export interface CreateVolumeRequest {
 
 export namespace CreateVolumeRequest {
   export const filterSensitiveLog = (obj: CreateVolumeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVolumeRequest =>
-    __isa(o, "CreateVolumeRequest");
+  export const isa = (o: any): o is CreateVolumeRequest => __isa(o, "CreateVolumeRequest");
 }
 
 export interface CreateVpcEndpointConnectionNotificationRequest {
@@ -7665,14 +7207,10 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
 }
 
 export namespace CreateVpcEndpointConnectionNotificationRequest {
-  export const filterSensitiveLog = (
-    obj: CreateVpcEndpointConnectionNotificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateVpcEndpointConnectionNotificationRequest =>
+  export const isa = (o: any): o is CreateVpcEndpointConnectionNotificationRequest =>
     __isa(o, "CreateVpcEndpointConnectionNotificationRequest");
 }
 
@@ -7691,14 +7229,10 @@ export interface CreateVpcEndpointConnectionNotificationResult {
 }
 
 export namespace CreateVpcEndpointConnectionNotificationResult {
-  export const filterSensitiveLog = (
-    obj: CreateVpcEndpointConnectionNotificationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateVpcEndpointConnectionNotificationResult =>
+  export const isa = (o: any): o is CreateVpcEndpointConnectionNotificationResult =>
     __isa(o, "CreateVpcEndpointConnectionNotificationResult");
 }
 
@@ -7782,10 +7316,9 @@ export interface CreateVpcEndpointRequest {
 
 export namespace CreateVpcEndpointRequest {
   export const filterSensitiveLog = (obj: CreateVpcEndpointRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpcEndpointRequest =>
-    __isa(o, "CreateVpcEndpointRequest");
+  export const isa = (o: any): o is CreateVpcEndpointRequest => __isa(o, "CreateVpcEndpointRequest");
 }
 
 /**
@@ -7807,10 +7340,9 @@ export interface CreateVpcEndpointResult {
 
 export namespace CreateVpcEndpointResult {
   export const filterSensitiveLog = (obj: CreateVpcEndpointResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpcEndpointResult =>
-    __isa(o, "CreateVpcEndpointResult");
+  export const isa = (o: any): o is CreateVpcEndpointResult => __isa(o, "CreateVpcEndpointResult");
 }
 
 export interface CreateVpcEndpointServiceConfigurationRequest {
@@ -7848,14 +7380,10 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
 }
 
 export namespace CreateVpcEndpointServiceConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: CreateVpcEndpointServiceConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVpcEndpointServiceConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateVpcEndpointServiceConfigurationRequest =>
+  export const isa = (o: any): o is CreateVpcEndpointServiceConfigurationRequest =>
     __isa(o, "CreateVpcEndpointServiceConfigurationRequest");
 }
 
@@ -7874,14 +7402,10 @@ export interface CreateVpcEndpointServiceConfigurationResult {
 }
 
 export namespace CreateVpcEndpointServiceConfigurationResult {
-  export const filterSensitiveLog = (
-    obj: CreateVpcEndpointServiceConfigurationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVpcEndpointServiceConfigurationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateVpcEndpointServiceConfigurationResult =>
+  export const isa = (o: any): o is CreateVpcEndpointServiceConfigurationResult =>
     __isa(o, "CreateVpcEndpointServiceConfigurationResult");
 }
 
@@ -7921,13 +7445,10 @@ export interface CreateVpcPeeringConnectionRequest {
 }
 
 export namespace CreateVpcPeeringConnectionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateVpcPeeringConnectionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpcPeeringConnectionRequest =>
-    __isa(o, "CreateVpcPeeringConnectionRequest");
+  export const isa = (o: any): o is CreateVpcPeeringConnectionRequest => __isa(o, "CreateVpcPeeringConnectionRequest");
 }
 
 export interface CreateVpcPeeringConnectionResult {
@@ -7939,13 +7460,10 @@ export interface CreateVpcPeeringConnectionResult {
 }
 
 export namespace CreateVpcPeeringConnectionResult {
-  export const filterSensitiveLog = (
-    obj: CreateVpcPeeringConnectionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpcPeeringConnectionResult =>
-    __isa(o, "CreateVpcPeeringConnectionResult");
+  export const isa = (o: any): o is CreateVpcPeeringConnectionResult => __isa(o, "CreateVpcPeeringConnectionResult");
 }
 
 export interface CreateVpcRequest {
@@ -8002,10 +7520,9 @@ export interface CreateVpcRequest {
 
 export namespace CreateVpcRequest {
   export const filterSensitiveLog = (obj: CreateVpcRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpcRequest =>
-    __isa(o, "CreateVpcRequest");
+  export const isa = (o: any): o is CreateVpcRequest => __isa(o, "CreateVpcRequest");
 }
 
 export interface CreateVpcResult {
@@ -8018,10 +7535,9 @@ export interface CreateVpcResult {
 
 export namespace CreateVpcResult {
   export const filterSensitiveLog = (obj: CreateVpcResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpcResult =>
-    __isa(o, "CreateVpcResult");
+  export const isa = (o: any): o is CreateVpcResult => __isa(o, "CreateVpcResult");
 }
 
 /**
@@ -8064,10 +7580,9 @@ export interface CreateVpnConnectionRequest {
 
 export namespace CreateVpnConnectionRequest {
   export const filterSensitiveLog = (obj: CreateVpnConnectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpnConnectionRequest =>
-    __isa(o, "CreateVpnConnectionRequest");
+  export const isa = (o: any): o is CreateVpnConnectionRequest => __isa(o, "CreateVpnConnectionRequest");
 }
 
 /**
@@ -8083,10 +7598,9 @@ export interface CreateVpnConnectionResult {
 
 export namespace CreateVpnConnectionResult {
   export const filterSensitiveLog = (obj: CreateVpnConnectionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpnConnectionResult =>
-    __isa(o, "CreateVpnConnectionResult");
+  export const isa = (o: any): o is CreateVpnConnectionResult => __isa(o, "CreateVpnConnectionResult");
 }
 
 /**
@@ -8106,13 +7620,10 @@ export interface CreateVpnConnectionRouteRequest {
 }
 
 export namespace CreateVpnConnectionRouteRequest {
-  export const filterSensitiveLog = (
-    obj: CreateVpnConnectionRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVpnConnectionRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpnConnectionRouteRequest =>
-    __isa(o, "CreateVpnConnectionRouteRequest");
+  export const isa = (o: any): o is CreateVpnConnectionRouteRequest => __isa(o, "CreateVpnConnectionRouteRequest");
 }
 
 /**
@@ -8146,10 +7657,9 @@ export interface CreateVpnGatewayRequest {
 
 export namespace CreateVpnGatewayRequest {
   export const filterSensitiveLog = (obj: CreateVpnGatewayRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpnGatewayRequest =>
-    __isa(o, "CreateVpnGatewayRequest");
+  export const isa = (o: any): o is CreateVpnGatewayRequest => __isa(o, "CreateVpnGatewayRequest");
 }
 
 /**
@@ -8165,10 +7675,9 @@ export interface CreateVpnGatewayResult {
 
 export namespace CreateVpnGatewayResult {
   export const filterSensitiveLog = (obj: CreateVpnGatewayResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpnGatewayResult =>
-    __isa(o, "CreateVpnGatewayResult");
+  export const isa = (o: any): o is CreateVpnGatewayResult => __isa(o, "CreateVpnGatewayResult");
 }
 
 /**
@@ -8185,10 +7694,9 @@ export interface CreditSpecification {
 
 export namespace CreditSpecification {
   export const filterSensitiveLog = (obj: CreditSpecification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreditSpecification =>
-    __isa(o, "CreditSpecification");
+  export const isa = (o: any): o is CreditSpecification => __isa(o, "CreditSpecification");
 }
 
 /**
@@ -8205,10 +7713,9 @@ export interface CreditSpecificationRequest {
 
 export namespace CreditSpecificationRequest {
   export const filterSensitiveLog = (obj: CreditSpecificationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreditSpecificationRequest =>
-    __isa(o, "CreditSpecificationRequest");
+  export const isa = (o: any): o is CreditSpecificationRequest => __isa(o, "CreditSpecificationRequest");
 }
 
 export type CurrencyCodeValues = "USD";
@@ -8262,10 +7769,9 @@ export interface CustomerGateway {
 
 export namespace CustomerGateway {
   export const filterSensitiveLog = (obj: CustomerGateway): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CustomerGateway =>
-    __isa(o, "CustomerGateway");
+  export const isa = (o: any): o is CustomerGateway => __isa(o, "CustomerGateway");
 }
 
 export type DatafeedSubscriptionState = "Active" | "Inactive";
@@ -8276,7 +7782,7 @@ export type DefaultRouteTablePropagationValue = "disable" | "enable";
 
 export enum DefaultTargetCapacityType {
   ON_DEMAND = "on-demand",
-  SPOT = "spot"
+  SPOT = "spot",
 }
 
 export interface DeleteClientVpnEndpointRequest {
@@ -8293,13 +7799,10 @@ export interface DeleteClientVpnEndpointRequest {
 }
 
 export namespace DeleteClientVpnEndpointRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteClientVpnEndpointRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClientVpnEndpointRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClientVpnEndpointRequest =>
-    __isa(o, "DeleteClientVpnEndpointRequest");
+  export const isa = (o: any): o is DeleteClientVpnEndpointRequest => __isa(o, "DeleteClientVpnEndpointRequest");
 }
 
 export interface DeleteClientVpnEndpointResult {
@@ -8311,13 +7814,10 @@ export interface DeleteClientVpnEndpointResult {
 }
 
 export namespace DeleteClientVpnEndpointResult {
-  export const filterSensitiveLog = (
-    obj: DeleteClientVpnEndpointResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClientVpnEndpointResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClientVpnEndpointResult =>
-    __isa(o, "DeleteClientVpnEndpointResult");
+  export const isa = (o: any): o is DeleteClientVpnEndpointResult => __isa(o, "DeleteClientVpnEndpointResult");
 }
 
 export interface DeleteClientVpnRouteRequest {
@@ -8344,13 +7844,10 @@ export interface DeleteClientVpnRouteRequest {
 }
 
 export namespace DeleteClientVpnRouteRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteClientVpnRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClientVpnRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClientVpnRouteRequest =>
-    __isa(o, "DeleteClientVpnRouteRequest");
+  export const isa = (o: any): o is DeleteClientVpnRouteRequest => __isa(o, "DeleteClientVpnRouteRequest");
 }
 
 export interface DeleteClientVpnRouteResult {
@@ -8363,10 +7860,9 @@ export interface DeleteClientVpnRouteResult {
 
 export namespace DeleteClientVpnRouteResult {
   export const filterSensitiveLog = (obj: DeleteClientVpnRouteResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClientVpnRouteResult =>
-    __isa(o, "DeleteClientVpnRouteResult");
+  export const isa = (o: any): o is DeleteClientVpnRouteResult => __isa(o, "DeleteClientVpnRouteResult");
 }
 
 /**
@@ -8388,13 +7884,10 @@ export interface DeleteCustomerGatewayRequest {
 }
 
 export namespace DeleteCustomerGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteCustomerGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteCustomerGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteCustomerGatewayRequest =>
-    __isa(o, "DeleteCustomerGatewayRequest");
+  export const isa = (o: any): o is DeleteCustomerGatewayRequest => __isa(o, "DeleteCustomerGatewayRequest");
 }
 
 export interface DeleteDhcpOptionsRequest {
@@ -8414,10 +7907,9 @@ export interface DeleteDhcpOptionsRequest {
 
 export namespace DeleteDhcpOptionsRequest {
   export const filterSensitiveLog = (obj: DeleteDhcpOptionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDhcpOptionsRequest =>
-    __isa(o, "DeleteDhcpOptionsRequest");
+  export const isa = (o: any): o is DeleteDhcpOptionsRequest => __isa(o, "DeleteDhcpOptionsRequest");
 }
 
 export interface DeleteEgressOnlyInternetGatewayRequest {
@@ -8436,10 +7928,8 @@ export interface DeleteEgressOnlyInternetGatewayRequest {
 }
 
 export namespace DeleteEgressOnlyInternetGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteEgressOnlyInternetGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteEgressOnlyInternetGatewayRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteEgressOnlyInternetGatewayRequest =>
     __isa(o, "DeleteEgressOnlyInternetGatewayRequest");
@@ -8454,10 +7944,8 @@ export interface DeleteEgressOnlyInternetGatewayResult {
 }
 
 export namespace DeleteEgressOnlyInternetGatewayResult {
-  export const filterSensitiveLog = (
-    obj: DeleteEgressOnlyInternetGatewayResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteEgressOnlyInternetGatewayResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteEgressOnlyInternetGatewayResult =>
     __isa(o, "DeleteEgressOnlyInternetGatewayResult");
@@ -8481,17 +7969,16 @@ export interface DeleteFleetError {
 
 export namespace DeleteFleetError {
   export const filterSensitiveLog = (obj: DeleteFleetError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetError =>
-    __isa(o, "DeleteFleetError");
+  export const isa = (o: any): o is DeleteFleetError => __isa(o, "DeleteFleetError");
 }
 
 export enum DeleteFleetErrorCode {
   FLEET_ID_DOES_NOT_EXIST = "fleetIdDoesNotExist",
   FLEET_ID_MALFORMED = "fleetIdMalformed",
   FLEET_NOT_IN_DELETABLE_STATE = "fleetNotInDeletableState",
-  UNEXPECTED_ERROR = "unexpectedError"
+  UNEXPECTED_ERROR = "unexpectedError",
 }
 
 /**
@@ -8512,10 +7999,9 @@ export interface DeleteFleetErrorItem {
 
 export namespace DeleteFleetErrorItem {
   export const filterSensitiveLog = (obj: DeleteFleetErrorItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetErrorItem =>
-    __isa(o, "DeleteFleetErrorItem");
+  export const isa = (o: any): o is DeleteFleetErrorItem => __isa(o, "DeleteFleetErrorItem");
 }
 
 export interface DeleteFleetsRequest {
@@ -8541,10 +8027,9 @@ export interface DeleteFleetsRequest {
 
 export namespace DeleteFleetsRequest {
   export const filterSensitiveLog = (obj: DeleteFleetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetsRequest =>
-    __isa(o, "DeleteFleetsRequest");
+  export const isa = (o: any): o is DeleteFleetsRequest => __isa(o, "DeleteFleetsRequest");
 }
 
 export interface DeleteFleetsResult {
@@ -8562,10 +8047,9 @@ export interface DeleteFleetsResult {
 
 export namespace DeleteFleetsResult {
   export const filterSensitiveLog = (obj: DeleteFleetsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetsResult =>
-    __isa(o, "DeleteFleetsResult");
+  export const isa = (o: any): o is DeleteFleetsResult => __isa(o, "DeleteFleetsResult");
 }
 
 /**
@@ -8591,10 +8075,9 @@ export interface DeleteFleetSuccessItem {
 
 export namespace DeleteFleetSuccessItem {
   export const filterSensitiveLog = (obj: DeleteFleetSuccessItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetSuccessItem =>
-    __isa(o, "DeleteFleetSuccessItem");
+  export const isa = (o: any): o is DeleteFleetSuccessItem => __isa(o, "DeleteFleetSuccessItem");
 }
 
 export interface DeleteFlowLogsRequest {
@@ -8615,10 +8098,9 @@ export interface DeleteFlowLogsRequest {
 
 export namespace DeleteFlowLogsRequest {
   export const filterSensitiveLog = (obj: DeleteFlowLogsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowLogsRequest =>
-    __isa(o, "DeleteFlowLogsRequest");
+  export const isa = (o: any): o is DeleteFlowLogsRequest => __isa(o, "DeleteFlowLogsRequest");
 }
 
 export interface DeleteFlowLogsResult {
@@ -8631,10 +8113,9 @@ export interface DeleteFlowLogsResult {
 
 export namespace DeleteFlowLogsResult {
   export const filterSensitiveLog = (obj: DeleteFlowLogsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowLogsResult =>
-    __isa(o, "DeleteFlowLogsResult");
+  export const isa = (o: any): o is DeleteFlowLogsResult => __isa(o, "DeleteFlowLogsResult");
 }
 
 export interface DeleteFpgaImageRequest {
@@ -8654,10 +8135,9 @@ export interface DeleteFpgaImageRequest {
 
 export namespace DeleteFpgaImageRequest {
   export const filterSensitiveLog = (obj: DeleteFpgaImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFpgaImageRequest =>
-    __isa(o, "DeleteFpgaImageRequest");
+  export const isa = (o: any): o is DeleteFpgaImageRequest => __isa(o, "DeleteFpgaImageRequest");
 }
 
 export interface DeleteFpgaImageResult {
@@ -8670,10 +8150,9 @@ export interface DeleteFpgaImageResult {
 
 export namespace DeleteFpgaImageResult {
   export const filterSensitiveLog = (obj: DeleteFpgaImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFpgaImageResult =>
-    __isa(o, "DeleteFpgaImageResult");
+  export const isa = (o: any): o is DeleteFpgaImageResult => __isa(o, "DeleteFpgaImageResult");
 }
 
 export interface DeleteInternetGatewayRequest {
@@ -8692,13 +8171,10 @@ export interface DeleteInternetGatewayRequest {
 }
 
 export namespace DeleteInternetGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteInternetGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteInternetGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteInternetGatewayRequest =>
-    __isa(o, "DeleteInternetGatewayRequest");
+  export const isa = (o: any): o is DeleteInternetGatewayRequest => __isa(o, "DeleteInternetGatewayRequest");
 }
 
 export interface DeleteKeyPairRequest {
@@ -8718,10 +8194,9 @@ export interface DeleteKeyPairRequest {
 
 export namespace DeleteKeyPairRequest {
   export const filterSensitiveLog = (obj: DeleteKeyPairRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteKeyPairRequest =>
-    __isa(o, "DeleteKeyPairRequest");
+  export const isa = (o: any): o is DeleteKeyPairRequest => __isa(o, "DeleteKeyPairRequest");
 }
 
 export interface DeleteLaunchTemplateRequest {
@@ -8748,13 +8223,10 @@ export interface DeleteLaunchTemplateRequest {
 }
 
 export namespace DeleteLaunchTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteLaunchTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLaunchTemplateRequest =>
-    __isa(o, "DeleteLaunchTemplateRequest");
+  export const isa = (o: any): o is DeleteLaunchTemplateRequest => __isa(o, "DeleteLaunchTemplateRequest");
 }
 
 export interface DeleteLaunchTemplateResult {
@@ -8767,10 +8239,9 @@ export interface DeleteLaunchTemplateResult {
 
 export namespace DeleteLaunchTemplateResult {
   export const filterSensitiveLog = (obj: DeleteLaunchTemplateResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLaunchTemplateResult =>
-    __isa(o, "DeleteLaunchTemplateResult");
+  export const isa = (o: any): o is DeleteLaunchTemplateResult => __isa(o, "DeleteLaunchTemplateResult");
 }
 
 export interface DeleteLaunchTemplateVersionsRequest {
@@ -8802,10 +8273,8 @@ export interface DeleteLaunchTemplateVersionsRequest {
 }
 
 export namespace DeleteLaunchTemplateVersionsRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteLaunchTemplateVersionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteLaunchTemplateVersionsRequest =>
     __isa(o, "DeleteLaunchTemplateVersionsRequest");
@@ -8838,14 +8307,10 @@ export interface DeleteLaunchTemplateVersionsResponseErrorItem {
 }
 
 export namespace DeleteLaunchTemplateVersionsResponseErrorItem {
-  export const filterSensitiveLog = (
-    obj: DeleteLaunchTemplateVersionsResponseErrorItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResponseErrorItem): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteLaunchTemplateVersionsResponseErrorItem =>
+  export const isa = (o: any): o is DeleteLaunchTemplateVersionsResponseErrorItem =>
     __isa(o, "DeleteLaunchTemplateVersionsResponseErrorItem");
 }
 
@@ -8871,14 +8336,10 @@ export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
 }
 
 export namespace DeleteLaunchTemplateVersionsResponseSuccessItem {
-  export const filterSensitiveLog = (
-    obj: DeleteLaunchTemplateVersionsResponseSuccessItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResponseSuccessItem): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteLaunchTemplateVersionsResponseSuccessItem =>
+  export const isa = (o: any): o is DeleteLaunchTemplateVersionsResponseSuccessItem =>
     __isa(o, "DeleteLaunchTemplateVersionsResponseSuccessItem");
 }
 
@@ -8897,10 +8358,8 @@ export interface DeleteLaunchTemplateVersionsResult {
 }
 
 export namespace DeleteLaunchTemplateVersionsResult {
-  export const filterSensitiveLog = (
-    obj: DeleteLaunchTemplateVersionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteLaunchTemplateVersionsResult =>
     __isa(o, "DeleteLaunchTemplateVersionsResult");
@@ -8927,13 +8386,10 @@ export interface DeleteLocalGatewayRouteRequest {
 }
 
 export namespace DeleteLocalGatewayRouteRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteLocalGatewayRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLocalGatewayRouteRequest =>
-    __isa(o, "DeleteLocalGatewayRouteRequest");
+  export const isa = (o: any): o is DeleteLocalGatewayRouteRequest => __isa(o, "DeleteLocalGatewayRouteRequest");
 }
 
 export interface DeleteLocalGatewayRouteResult {
@@ -8945,13 +8401,10 @@ export interface DeleteLocalGatewayRouteResult {
 }
 
 export namespace DeleteLocalGatewayRouteResult {
-  export const filterSensitiveLog = (
-    obj: DeleteLocalGatewayRouteResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLocalGatewayRouteResult =>
-    __isa(o, "DeleteLocalGatewayRouteResult");
+  export const isa = (o: any): o is DeleteLocalGatewayRouteResult => __isa(o, "DeleteLocalGatewayRouteResult");
 }
 
 export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
@@ -8970,14 +8423,10 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
 }
 
 export namespace DeleteLocalGatewayRouteTableVpcAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteLocalGatewayRouteTableVpcAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteTableVpcAssociationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteLocalGatewayRouteTableVpcAssociationRequest =>
+  export const isa = (o: any): o is DeleteLocalGatewayRouteTableVpcAssociationRequest =>
     __isa(o, "DeleteLocalGatewayRouteTableVpcAssociationRequest");
 }
 
@@ -8990,14 +8439,10 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
 }
 
 export namespace DeleteLocalGatewayRouteTableVpcAssociationResult {
-  export const filterSensitiveLog = (
-    obj: DeleteLocalGatewayRouteTableVpcAssociationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteTableVpcAssociationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteLocalGatewayRouteTableVpcAssociationResult =>
+  export const isa = (o: any): o is DeleteLocalGatewayRouteTableVpcAssociationResult =>
     __isa(o, "DeleteLocalGatewayRouteTableVpcAssociationResult");
 }
 
@@ -9011,10 +8456,9 @@ export interface DeleteNatGatewayRequest {
 
 export namespace DeleteNatGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteNatGatewayRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNatGatewayRequest =>
-    __isa(o, "DeleteNatGatewayRequest");
+  export const isa = (o: any): o is DeleteNatGatewayRequest => __isa(o, "DeleteNatGatewayRequest");
 }
 
 export interface DeleteNatGatewayResult {
@@ -9027,10 +8471,9 @@ export interface DeleteNatGatewayResult {
 
 export namespace DeleteNatGatewayResult {
   export const filterSensitiveLog = (obj: DeleteNatGatewayResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNatGatewayResult =>
-    __isa(o, "DeleteNatGatewayResult");
+  export const isa = (o: any): o is DeleteNatGatewayResult => __isa(o, "DeleteNatGatewayResult");
 }
 
 export interface DeleteNetworkAclEntryRequest {
@@ -9059,13 +8502,10 @@ export interface DeleteNetworkAclEntryRequest {
 }
 
 export namespace DeleteNetworkAclEntryRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteNetworkAclEntryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteNetworkAclEntryRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkAclEntryRequest =>
-    __isa(o, "DeleteNetworkAclEntryRequest");
+  export const isa = (o: any): o is DeleteNetworkAclEntryRequest => __isa(o, "DeleteNetworkAclEntryRequest");
 }
 
 export interface DeleteNetworkAclRequest {
@@ -9085,10 +8525,9 @@ export interface DeleteNetworkAclRequest {
 
 export namespace DeleteNetworkAclRequest {
   export const filterSensitiveLog = (obj: DeleteNetworkAclRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkAclRequest =>
-    __isa(o, "DeleteNetworkAclRequest");
+  export const isa = (o: any): o is DeleteNetworkAclRequest => __isa(o, "DeleteNetworkAclRequest");
 }
 
 /**
@@ -9116,10 +8555,8 @@ export interface DeleteNetworkInterfacePermissionRequest {
 }
 
 export namespace DeleteNetworkInterfacePermissionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteNetworkInterfacePermissionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteNetworkInterfacePermissionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteNetworkInterfacePermissionRequest =>
     __isa(o, "DeleteNetworkInterfacePermissionRequest");
@@ -9137,10 +8574,8 @@ export interface DeleteNetworkInterfacePermissionResult {
 }
 
 export namespace DeleteNetworkInterfacePermissionResult {
-  export const filterSensitiveLog = (
-    obj: DeleteNetworkInterfacePermissionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteNetworkInterfacePermissionResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteNetworkInterfacePermissionResult =>
     __isa(o, "DeleteNetworkInterfacePermissionResult");
@@ -9165,13 +8600,10 @@ export interface DeleteNetworkInterfaceRequest {
 }
 
 export namespace DeleteNetworkInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteNetworkInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteNetworkInterfaceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkInterfaceRequest =>
-    __isa(o, "DeleteNetworkInterfaceRequest");
+  export const isa = (o: any): o is DeleteNetworkInterfaceRequest => __isa(o, "DeleteNetworkInterfaceRequest");
 }
 
 export interface DeletePlacementGroupRequest {
@@ -9190,13 +8622,10 @@ export interface DeletePlacementGroupRequest {
 }
 
 export namespace DeletePlacementGroupRequest {
-  export const filterSensitiveLog = (
-    obj: DeletePlacementGroupRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeletePlacementGroupRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePlacementGroupRequest =>
-    __isa(o, "DeletePlacementGroupRequest");
+  export const isa = (o: any): o is DeletePlacementGroupRequest => __isa(o, "DeletePlacementGroupRequest");
 }
 
 /**
@@ -9216,10 +8645,8 @@ export interface DeleteQueuedReservedInstancesError {
 }
 
 export namespace DeleteQueuedReservedInstancesError {
-  export const filterSensitiveLog = (
-    obj: DeleteQueuedReservedInstancesError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesError): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteQueuedReservedInstancesError =>
     __isa(o, "DeleteQueuedReservedInstancesError");
@@ -9228,7 +8655,7 @@ export namespace DeleteQueuedReservedInstancesError {
 export enum DeleteQueuedReservedInstancesErrorCode {
   RESERVED_INSTANCES_ID_INVALID = "reserved-instances-id-invalid",
   RESERVED_INSTANCES_NOT_IN_QUEUED_STATE = "reserved-instances-not-in-queued-state",
-  UNEXPECTED_ERROR = "unexpected-error"
+  UNEXPECTED_ERROR = "unexpected-error",
 }
 
 export interface DeleteQueuedReservedInstancesRequest {
@@ -9247,10 +8674,8 @@ export interface DeleteQueuedReservedInstancesRequest {
 }
 
 export namespace DeleteQueuedReservedInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteQueuedReservedInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteQueuedReservedInstancesRequest =>
     __isa(o, "DeleteQueuedReservedInstancesRequest");
@@ -9270,10 +8695,8 @@ export interface DeleteQueuedReservedInstancesResult {
 }
 
 export namespace DeleteQueuedReservedInstancesResult {
-  export const filterSensitiveLog = (
-    obj: DeleteQueuedReservedInstancesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteQueuedReservedInstancesResult =>
     __isa(o, "DeleteQueuedReservedInstancesResult");
@@ -9306,10 +8729,9 @@ export interface DeleteRouteRequest {
 
 export namespace DeleteRouteRequest {
   export const filterSensitiveLog = (obj: DeleteRouteRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteRequest =>
-    __isa(o, "DeleteRouteRequest");
+  export const isa = (o: any): o is DeleteRouteRequest => __isa(o, "DeleteRouteRequest");
 }
 
 export interface DeleteRouteTableRequest {
@@ -9329,10 +8751,9 @@ export interface DeleteRouteTableRequest {
 
 export namespace DeleteRouteTableRequest {
   export const filterSensitiveLog = (obj: DeleteRouteTableRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteTableRequest =>
-    __isa(o, "DeleteRouteTableRequest");
+  export const isa = (o: any): o is DeleteRouteTableRequest => __isa(o, "DeleteRouteTableRequest");
 }
 
 export interface DeleteSecurityGroupRequest {
@@ -9357,10 +8778,9 @@ export interface DeleteSecurityGroupRequest {
 
 export namespace DeleteSecurityGroupRequest {
   export const filterSensitiveLog = (obj: DeleteSecurityGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSecurityGroupRequest =>
-    __isa(o, "DeleteSecurityGroupRequest");
+  export const isa = (o: any): o is DeleteSecurityGroupRequest => __isa(o, "DeleteSecurityGroupRequest");
 }
 
 export interface DeleteSnapshotRequest {
@@ -9380,10 +8800,9 @@ export interface DeleteSnapshotRequest {
 
 export namespace DeleteSnapshotRequest {
   export const filterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotRequest =>
-    __isa(o, "DeleteSnapshotRequest");
+  export const isa = (o: any): o is DeleteSnapshotRequest => __isa(o, "DeleteSnapshotRequest");
 }
 
 /**
@@ -9400,10 +8819,8 @@ export interface DeleteSpotDatafeedSubscriptionRequest {
 }
 
 export namespace DeleteSpotDatafeedSubscriptionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteSpotDatafeedSubscriptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteSpotDatafeedSubscriptionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteSpotDatafeedSubscriptionRequest =>
     __isa(o, "DeleteSpotDatafeedSubscriptionRequest");
@@ -9426,10 +8843,9 @@ export interface DeleteSubnetRequest {
 
 export namespace DeleteSubnetRequest {
   export const filterSensitiveLog = (obj: DeleteSubnetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSubnetRequest =>
-    __isa(o, "DeleteSubnetRequest");
+  export const isa = (o: any): o is DeleteSubnetRequest => __isa(o, "DeleteSubnetRequest");
 }
 
 export interface DeleteTagsRequest {
@@ -9461,10 +8877,9 @@ export interface DeleteTagsRequest {
 
 export namespace DeleteTagsRequest {
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsRequest =>
-    __isa(o, "DeleteTagsRequest");
+  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
 export interface DeleteTrafficMirrorFilterRequest {
@@ -9483,13 +8898,10 @@ export interface DeleteTrafficMirrorFilterRequest {
 }
 
 export namespace DeleteTrafficMirrorFilterRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTrafficMirrorFilterRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorFilterRequest =>
-    __isa(o, "DeleteTrafficMirrorFilterRequest");
+  export const isa = (o: any): o is DeleteTrafficMirrorFilterRequest => __isa(o, "DeleteTrafficMirrorFilterRequest");
 }
 
 export interface DeleteTrafficMirrorFilterResult {
@@ -9501,13 +8913,10 @@ export interface DeleteTrafficMirrorFilterResult {
 }
 
 export namespace DeleteTrafficMirrorFilterResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTrafficMirrorFilterResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorFilterResult =>
-    __isa(o, "DeleteTrafficMirrorFilterResult");
+  export const isa = (o: any): o is DeleteTrafficMirrorFilterResult => __isa(o, "DeleteTrafficMirrorFilterResult");
 }
 
 export interface DeleteTrafficMirrorFilterRuleRequest {
@@ -9526,10 +8935,8 @@ export interface DeleteTrafficMirrorFilterRuleRequest {
 }
 
 export namespace DeleteTrafficMirrorFilterRuleRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTrafficMirrorFilterRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRuleRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteTrafficMirrorFilterRuleRequest =>
     __isa(o, "DeleteTrafficMirrorFilterRuleRequest");
@@ -9544,10 +8951,8 @@ export interface DeleteTrafficMirrorFilterRuleResult {
 }
 
 export namespace DeleteTrafficMirrorFilterRuleResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTrafficMirrorFilterRuleResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRuleResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteTrafficMirrorFilterRuleResult =>
     __isa(o, "DeleteTrafficMirrorFilterRuleResult");
@@ -9569,13 +8974,10 @@ export interface DeleteTrafficMirrorSessionRequest {
 }
 
 export namespace DeleteTrafficMirrorSessionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTrafficMirrorSessionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorSessionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorSessionRequest =>
-    __isa(o, "DeleteTrafficMirrorSessionRequest");
+  export const isa = (o: any): o is DeleteTrafficMirrorSessionRequest => __isa(o, "DeleteTrafficMirrorSessionRequest");
 }
 
 export interface DeleteTrafficMirrorSessionResult {
@@ -9587,13 +8989,10 @@ export interface DeleteTrafficMirrorSessionResult {
 }
 
 export namespace DeleteTrafficMirrorSessionResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTrafficMirrorSessionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorSessionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorSessionResult =>
-    __isa(o, "DeleteTrafficMirrorSessionResult");
+  export const isa = (o: any): o is DeleteTrafficMirrorSessionResult => __isa(o, "DeleteTrafficMirrorSessionResult");
 }
 
 export interface DeleteTrafficMirrorTargetRequest {
@@ -9612,13 +9011,10 @@ export interface DeleteTrafficMirrorTargetRequest {
 }
 
 export namespace DeleteTrafficMirrorTargetRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTrafficMirrorTargetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorTargetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorTargetRequest =>
-    __isa(o, "DeleteTrafficMirrorTargetRequest");
+  export const isa = (o: any): o is DeleteTrafficMirrorTargetRequest => __isa(o, "DeleteTrafficMirrorTargetRequest");
 }
 
 export interface DeleteTrafficMirrorTargetResult {
@@ -9630,13 +9026,10 @@ export interface DeleteTrafficMirrorTargetResult {
 }
 
 export namespace DeleteTrafficMirrorTargetResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTrafficMirrorTargetResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorTargetResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorTargetResult =>
-    __isa(o, "DeleteTrafficMirrorTargetResult");
+  export const isa = (o: any): o is DeleteTrafficMirrorTargetResult => __isa(o, "DeleteTrafficMirrorTargetResult");
 }
 
 export interface DeleteTransitGatewayMulticastDomainRequest {
@@ -9655,14 +9048,10 @@ export interface DeleteTransitGatewayMulticastDomainRequest {
 }
 
 export namespace DeleteTransitGatewayMulticastDomainRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayMulticastDomainRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayMulticastDomainRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteTransitGatewayMulticastDomainRequest =>
+  export const isa = (o: any): o is DeleteTransitGatewayMulticastDomainRequest =>
     __isa(o, "DeleteTransitGatewayMulticastDomainRequest");
 }
 
@@ -9675,10 +9064,8 @@ export interface DeleteTransitGatewayMulticastDomainResult {
 }
 
 export namespace DeleteTransitGatewayMulticastDomainResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayMulticastDomainResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayMulticastDomainResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteTransitGatewayMulticastDomainResult =>
     __isa(o, "DeleteTransitGatewayMulticastDomainResult");
@@ -9700,14 +9087,10 @@ export interface DeleteTransitGatewayPeeringAttachmentRequest {
 }
 
 export namespace DeleteTransitGatewayPeeringAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayPeeringAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayPeeringAttachmentRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteTransitGatewayPeeringAttachmentRequest =>
+  export const isa = (o: any): o is DeleteTransitGatewayPeeringAttachmentRequest =>
     __isa(o, "DeleteTransitGatewayPeeringAttachmentRequest");
 }
 
@@ -9720,14 +9103,10 @@ export interface DeleteTransitGatewayPeeringAttachmentResult {
 }
 
 export namespace DeleteTransitGatewayPeeringAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayPeeringAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayPeeringAttachmentResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteTransitGatewayPeeringAttachmentResult =>
+  export const isa = (o: any): o is DeleteTransitGatewayPeeringAttachmentResult =>
     __isa(o, "DeleteTransitGatewayPeeringAttachmentResult");
 }
 
@@ -9747,13 +9126,10 @@ export interface DeleteTransitGatewayRequest {
 }
 
 export namespace DeleteTransitGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayRequest =>
-    __isa(o, "DeleteTransitGatewayRequest");
+  export const isa = (o: any): o is DeleteTransitGatewayRequest => __isa(o, "DeleteTransitGatewayRequest");
 }
 
 export interface DeleteTransitGatewayResult {
@@ -9766,10 +9142,9 @@ export interface DeleteTransitGatewayResult {
 
 export namespace DeleteTransitGatewayResult {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayResult =>
-    __isa(o, "DeleteTransitGatewayResult");
+  export const isa = (o: any): o is DeleteTransitGatewayResult => __isa(o, "DeleteTransitGatewayResult");
 }
 
 export interface DeleteTransitGatewayRouteRequest {
@@ -9793,13 +9168,10 @@ export interface DeleteTransitGatewayRouteRequest {
 }
 
 export namespace DeleteTransitGatewayRouteRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayRouteRequest =>
-    __isa(o, "DeleteTransitGatewayRouteRequest");
+  export const isa = (o: any): o is DeleteTransitGatewayRouteRequest => __isa(o, "DeleteTransitGatewayRouteRequest");
 }
 
 export interface DeleteTransitGatewayRouteResult {
@@ -9811,13 +9183,10 @@ export interface DeleteTransitGatewayRouteResult {
 }
 
 export namespace DeleteTransitGatewayRouteResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayRouteResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayRouteResult =>
-    __isa(o, "DeleteTransitGatewayRouteResult");
+  export const isa = (o: any): o is DeleteTransitGatewayRouteResult => __isa(o, "DeleteTransitGatewayRouteResult");
 }
 
 export interface DeleteTransitGatewayRouteTableRequest {
@@ -9836,10 +9205,8 @@ export interface DeleteTransitGatewayRouteTableRequest {
 }
 
 export namespace DeleteTransitGatewayRouteTableRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayRouteTableRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteTableRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteTransitGatewayRouteTableRequest =>
     __isa(o, "DeleteTransitGatewayRouteTableRequest");
@@ -9854,10 +9221,8 @@ export interface DeleteTransitGatewayRouteTableResult {
 }
 
 export namespace DeleteTransitGatewayRouteTableResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayRouteTableResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteTableResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteTransitGatewayRouteTableResult =>
     __isa(o, "DeleteTransitGatewayRouteTableResult");
@@ -9879,10 +9244,8 @@ export interface DeleteTransitGatewayVpcAttachmentRequest {
 }
 
 export namespace DeleteTransitGatewayVpcAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayVpcAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayVpcAttachmentRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteTransitGatewayVpcAttachmentRequest =>
     __isa(o, "DeleteTransitGatewayVpcAttachmentRequest");
@@ -9897,10 +9260,8 @@ export interface DeleteTransitGatewayVpcAttachmentResult {
 }
 
 export namespace DeleteTransitGatewayVpcAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTransitGatewayVpcAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayVpcAttachmentResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteTransitGatewayVpcAttachmentResult =>
     __isa(o, "DeleteTransitGatewayVpcAttachmentResult");
@@ -9923,10 +9284,9 @@ export interface DeleteVolumeRequest {
 
 export namespace DeleteVolumeRequest {
   export const filterSensitiveLog = (obj: DeleteVolumeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVolumeRequest =>
-    __isa(o, "DeleteVolumeRequest");
+  export const isa = (o: any): o is DeleteVolumeRequest => __isa(o, "DeleteVolumeRequest");
 }
 
 export interface DeleteVpcEndpointConnectionNotificationsRequest {
@@ -9945,14 +9305,10 @@ export interface DeleteVpcEndpointConnectionNotificationsRequest {
 }
 
 export namespace DeleteVpcEndpointConnectionNotificationsRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteVpcEndpointConnectionNotificationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVpcEndpointConnectionNotificationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteVpcEndpointConnectionNotificationsRequest =>
+  export const isa = (o: any): o is DeleteVpcEndpointConnectionNotificationsRequest =>
     __isa(o, "DeleteVpcEndpointConnectionNotificationsRequest");
 }
 
@@ -9966,14 +9322,10 @@ export interface DeleteVpcEndpointConnectionNotificationsResult {
 }
 
 export namespace DeleteVpcEndpointConnectionNotificationsResult {
-  export const filterSensitiveLog = (
-    obj: DeleteVpcEndpointConnectionNotificationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVpcEndpointConnectionNotificationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteVpcEndpointConnectionNotificationsResult =>
+  export const isa = (o: any): o is DeleteVpcEndpointConnectionNotificationsResult =>
     __isa(o, "DeleteVpcEndpointConnectionNotificationsResult");
 }
 
@@ -9993,14 +9345,10 @@ export interface DeleteVpcEndpointServiceConfigurationsRequest {
 }
 
 export namespace DeleteVpcEndpointServiceConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteVpcEndpointServiceConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVpcEndpointServiceConfigurationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteVpcEndpointServiceConfigurationsRequest =>
+  export const isa = (o: any): o is DeleteVpcEndpointServiceConfigurationsRequest =>
     __isa(o, "DeleteVpcEndpointServiceConfigurationsRequest");
 }
 
@@ -10014,14 +9362,10 @@ export interface DeleteVpcEndpointServiceConfigurationsResult {
 }
 
 export namespace DeleteVpcEndpointServiceConfigurationsResult {
-  export const filterSensitiveLog = (
-    obj: DeleteVpcEndpointServiceConfigurationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVpcEndpointServiceConfigurationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteVpcEndpointServiceConfigurationsResult =>
+  export const isa = (o: any): o is DeleteVpcEndpointServiceConfigurationsResult =>
     __isa(o, "DeleteVpcEndpointServiceConfigurationsResult");
 }
 
@@ -10045,10 +9389,9 @@ export interface DeleteVpcEndpointsRequest {
 
 export namespace DeleteVpcEndpointsRequest {
   export const filterSensitiveLog = (obj: DeleteVpcEndpointsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcEndpointsRequest =>
-    __isa(o, "DeleteVpcEndpointsRequest");
+  export const isa = (o: any): o is DeleteVpcEndpointsRequest => __isa(o, "DeleteVpcEndpointsRequest");
 }
 
 /**
@@ -10064,10 +9407,9 @@ export interface DeleteVpcEndpointsResult {
 
 export namespace DeleteVpcEndpointsResult {
   export const filterSensitiveLog = (obj: DeleteVpcEndpointsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcEndpointsResult =>
-    __isa(o, "DeleteVpcEndpointsResult");
+  export const isa = (o: any): o is DeleteVpcEndpointsResult => __isa(o, "DeleteVpcEndpointsResult");
 }
 
 export interface DeleteVpcPeeringConnectionRequest {
@@ -10086,13 +9428,10 @@ export interface DeleteVpcPeeringConnectionRequest {
 }
 
 export namespace DeleteVpcPeeringConnectionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteVpcPeeringConnectionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVpcPeeringConnectionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcPeeringConnectionRequest =>
-    __isa(o, "DeleteVpcPeeringConnectionRequest");
+  export const isa = (o: any): o is DeleteVpcPeeringConnectionRequest => __isa(o, "DeleteVpcPeeringConnectionRequest");
 }
 
 export interface DeleteVpcPeeringConnectionResult {
@@ -10104,13 +9443,10 @@ export interface DeleteVpcPeeringConnectionResult {
 }
 
 export namespace DeleteVpcPeeringConnectionResult {
-  export const filterSensitiveLog = (
-    obj: DeleteVpcPeeringConnectionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVpcPeeringConnectionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcPeeringConnectionResult =>
-    __isa(o, "DeleteVpcPeeringConnectionResult");
+  export const isa = (o: any): o is DeleteVpcPeeringConnectionResult => __isa(o, "DeleteVpcPeeringConnectionResult");
 }
 
 export interface DeleteVpcRequest {
@@ -10130,10 +9466,9 @@ export interface DeleteVpcRequest {
 
 export namespace DeleteVpcRequest {
   export const filterSensitiveLog = (obj: DeleteVpcRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcRequest =>
-    __isa(o, "DeleteVpcRequest");
+  export const isa = (o: any): o is DeleteVpcRequest => __isa(o, "DeleteVpcRequest");
 }
 
 /**
@@ -10156,10 +9491,9 @@ export interface DeleteVpnConnectionRequest {
 
 export namespace DeleteVpnConnectionRequest {
   export const filterSensitiveLog = (obj: DeleteVpnConnectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpnConnectionRequest =>
-    __isa(o, "DeleteVpnConnectionRequest");
+  export const isa = (o: any): o is DeleteVpnConnectionRequest => __isa(o, "DeleteVpnConnectionRequest");
 }
 
 /**
@@ -10179,13 +9513,10 @@ export interface DeleteVpnConnectionRouteRequest {
 }
 
 export namespace DeleteVpnConnectionRouteRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteVpnConnectionRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVpnConnectionRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpnConnectionRouteRequest =>
-    __isa(o, "DeleteVpnConnectionRouteRequest");
+  export const isa = (o: any): o is DeleteVpnConnectionRouteRequest => __isa(o, "DeleteVpnConnectionRouteRequest");
 }
 
 /**
@@ -10208,10 +9539,9 @@ export interface DeleteVpnGatewayRequest {
 
 export namespace DeleteVpnGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteVpnGatewayRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpnGatewayRequest =>
-    __isa(o, "DeleteVpnGatewayRequest");
+  export const isa = (o: any): o is DeleteVpnGatewayRequest => __isa(o, "DeleteVpnGatewayRequest");
 }
 
 export interface DeprovisionByoipCidrRequest {
@@ -10231,13 +9561,10 @@ export interface DeprovisionByoipCidrRequest {
 }
 
 export namespace DeprovisionByoipCidrRequest {
-  export const filterSensitiveLog = (
-    obj: DeprovisionByoipCidrRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeprovisionByoipCidrRequest =>
-    __isa(o, "DeprovisionByoipCidrRequest");
+  export const isa = (o: any): o is DeprovisionByoipCidrRequest => __isa(o, "DeprovisionByoipCidrRequest");
 }
 
 export interface DeprovisionByoipCidrResult {
@@ -10250,10 +9577,9 @@ export interface DeprovisionByoipCidrResult {
 
 export namespace DeprovisionByoipCidrResult {
   export const filterSensitiveLog = (obj: DeprovisionByoipCidrResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeprovisionByoipCidrResult =>
-    __isa(o, "DeprovisionByoipCidrResult");
+  export const isa = (o: any): o is DeprovisionByoipCidrResult => __isa(o, "DeprovisionByoipCidrResult");
 }
 
 /**
@@ -10276,10 +9602,9 @@ export interface DeregisterImageRequest {
 
 export namespace DeregisterImageRequest {
   export const filterSensitiveLog = (obj: DeregisterImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeregisterImageRequest =>
-    __isa(o, "DeregisterImageRequest");
+  export const isa = (o: any): o is DeregisterImageRequest => __isa(o, "DeregisterImageRequest");
 }
 
 export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
@@ -10308,14 +9633,10 @@ export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
 }
 
 export namespace DeregisterTransitGatewayMulticastGroupMembersRequest {
-  export const filterSensitiveLog = (
-    obj: DeregisterTransitGatewayMulticastGroupMembersRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeregisterTransitGatewayMulticastGroupMembersRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeregisterTransitGatewayMulticastGroupMembersRequest =>
+  export const isa = (o: any): o is DeregisterTransitGatewayMulticastGroupMembersRequest =>
     __isa(o, "DeregisterTransitGatewayMulticastGroupMembersRequest");
 }
 
@@ -10328,14 +9649,10 @@ export interface DeregisterTransitGatewayMulticastGroupMembersResult {
 }
 
 export namespace DeregisterTransitGatewayMulticastGroupMembersResult {
-  export const filterSensitiveLog = (
-    obj: DeregisterTransitGatewayMulticastGroupMembersResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeregisterTransitGatewayMulticastGroupMembersResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeregisterTransitGatewayMulticastGroupMembersResult =>
+  export const isa = (o: any): o is DeregisterTransitGatewayMulticastGroupMembersResult =>
     __isa(o, "DeregisterTransitGatewayMulticastGroupMembersResult");
 }
 
@@ -10365,14 +9682,10 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
 }
 
 export namespace DeregisterTransitGatewayMulticastGroupSourcesRequest {
-  export const filterSensitiveLog = (
-    obj: DeregisterTransitGatewayMulticastGroupSourcesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeregisterTransitGatewayMulticastGroupSourcesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeregisterTransitGatewayMulticastGroupSourcesRequest =>
+  export const isa = (o: any): o is DeregisterTransitGatewayMulticastGroupSourcesRequest =>
     __isa(o, "DeregisterTransitGatewayMulticastGroupSourcesRequest");
 }
 
@@ -10385,14 +9698,10 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesResult {
 }
 
 export namespace DeregisterTransitGatewayMulticastGroupSourcesResult {
-  export const filterSensitiveLog = (
-    obj: DeregisterTransitGatewayMulticastGroupSourcesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeregisterTransitGatewayMulticastGroupSourcesResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeregisterTransitGatewayMulticastGroupSourcesResult =>
+  export const isa = (o: any): o is DeregisterTransitGatewayMulticastGroupSourcesResult =>
     __isa(o, "DeregisterTransitGatewayMulticastGroupSourcesResult");
 }
 
@@ -10412,13 +9721,10 @@ export interface DescribeAccountAttributesRequest {
 }
 
 export namespace DescribeAccountAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAccountAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesRequest =>
-    __isa(o, "DescribeAccountAttributesRequest");
+  export const isa = (o: any): o is DescribeAccountAttributesRequest => __isa(o, "DescribeAccountAttributesRequest");
 }
 
 export interface DescribeAccountAttributesResult {
@@ -10430,13 +9736,10 @@ export interface DescribeAccountAttributesResult {
 }
 
 export namespace DescribeAccountAttributesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeAccountAttributesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesResult =>
-    __isa(o, "DescribeAccountAttributesResult");
+  export const isa = (o: any): o is DescribeAccountAttributesResult => __isa(o, "DescribeAccountAttributesResult");
 }
 
 export interface DescribeAddressesRequest {
@@ -10515,10 +9818,9 @@ export interface DescribeAddressesRequest {
 
 export namespace DescribeAddressesRequest {
   export const filterSensitiveLog = (obj: DescribeAddressesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAddressesRequest =>
-    __isa(o, "DescribeAddressesRequest");
+  export const isa = (o: any): o is DescribeAddressesRequest => __isa(o, "DescribeAddressesRequest");
 }
 
 export interface DescribeAddressesResult {
@@ -10531,10 +9833,9 @@ export interface DescribeAddressesResult {
 
 export namespace DescribeAddressesResult {
   export const filterSensitiveLog = (obj: DescribeAddressesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAddressesResult =>
-    __isa(o, "DescribeAddressesResult");
+  export const isa = (o: any): o is DescribeAddressesResult => __isa(o, "DescribeAddressesResult");
 }
 
 export interface DescribeAggregateIdFormatRequest {
@@ -10548,13 +9849,10 @@ export interface DescribeAggregateIdFormatRequest {
 }
 
 export namespace DescribeAggregateIdFormatRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAggregateIdFormatRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAggregateIdFormatRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAggregateIdFormatRequest =>
-    __isa(o, "DescribeAggregateIdFormatRequest");
+  export const isa = (o: any): o is DescribeAggregateIdFormatRequest => __isa(o, "DescribeAggregateIdFormatRequest");
 }
 
 export interface DescribeAggregateIdFormatResult {
@@ -10573,13 +9871,10 @@ export interface DescribeAggregateIdFormatResult {
 }
 
 export namespace DescribeAggregateIdFormatResult {
-  export const filterSensitiveLog = (
-    obj: DescribeAggregateIdFormatResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAggregateIdFormatResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAggregateIdFormatResult =>
-    __isa(o, "DescribeAggregateIdFormatResult");
+  export const isa = (o: any): o is DescribeAggregateIdFormatResult => __isa(o, "DescribeAggregateIdFormatResult");
 }
 
 export interface DescribeAvailabilityZonesRequest {
@@ -10652,13 +9947,10 @@ export interface DescribeAvailabilityZonesRequest {
 }
 
 export namespace DescribeAvailabilityZonesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAvailabilityZonesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAvailabilityZonesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAvailabilityZonesRequest =>
-    __isa(o, "DescribeAvailabilityZonesRequest");
+  export const isa = (o: any): o is DescribeAvailabilityZonesRequest => __isa(o, "DescribeAvailabilityZonesRequest");
 }
 
 export interface DescribeAvailabilityZonesResult {
@@ -10670,13 +9962,10 @@ export interface DescribeAvailabilityZonesResult {
 }
 
 export namespace DescribeAvailabilityZonesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeAvailabilityZonesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAvailabilityZonesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAvailabilityZonesResult =>
-    __isa(o, "DescribeAvailabilityZonesResult");
+  export const isa = (o: any): o is DescribeAvailabilityZonesResult => __isa(o, "DescribeAvailabilityZonesResult");
 }
 
 export interface DescribeBundleTasksRequest {
@@ -10745,10 +10034,9 @@ export interface DescribeBundleTasksRequest {
 
 export namespace DescribeBundleTasksRequest {
   export const filterSensitiveLog = (obj: DescribeBundleTasksRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBundleTasksRequest =>
-    __isa(o, "DescribeBundleTasksRequest");
+  export const isa = (o: any): o is DescribeBundleTasksRequest => __isa(o, "DescribeBundleTasksRequest");
 }
 
 export interface DescribeBundleTasksResult {
@@ -10761,10 +10049,9 @@ export interface DescribeBundleTasksResult {
 
 export namespace DescribeBundleTasksResult {
   export const filterSensitiveLog = (obj: DescribeBundleTasksResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBundleTasksResult =>
-    __isa(o, "DescribeBundleTasksResult");
+  export const isa = (o: any): o is DescribeBundleTasksResult => __isa(o, "DescribeBundleTasksResult");
 }
 
 export interface DescribeByoipCidrsRequest {
@@ -10790,10 +10077,9 @@ export interface DescribeByoipCidrsRequest {
 
 export namespace DescribeByoipCidrsRequest {
   export const filterSensitiveLog = (obj: DescribeByoipCidrsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeByoipCidrsRequest =>
-    __isa(o, "DescribeByoipCidrsRequest");
+  export const isa = (o: any): o is DescribeByoipCidrsRequest => __isa(o, "DescribeByoipCidrsRequest");
 }
 
 export interface DescribeByoipCidrsResult {
@@ -10811,10 +10097,9 @@ export interface DescribeByoipCidrsResult {
 
 export namespace DescribeByoipCidrsResult {
   export const filterSensitiveLog = (obj: DescribeByoipCidrsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeByoipCidrsResult =>
-    __isa(o, "DescribeByoipCidrsResult");
+  export const isa = (o: any): o is DescribeByoipCidrsResult => __isa(o, "DescribeByoipCidrsResult");
 }
 
 export interface DescribeCapacityReservationsRequest {
@@ -10846,10 +10131,8 @@ export interface DescribeCapacityReservationsRequest {
 }
 
 export namespace DescribeCapacityReservationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeCapacityReservationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCapacityReservationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeCapacityReservationsRequest =>
     __isa(o, "DescribeCapacityReservationsRequest");
@@ -10869,10 +10152,8 @@ export interface DescribeCapacityReservationsResult {
 }
 
 export namespace DescribeCapacityReservationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeCapacityReservationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCapacityReservationsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeCapacityReservationsResult =>
     __isa(o, "DescribeCapacityReservationsResult");
@@ -10940,10 +10221,8 @@ export interface DescribeClassicLinkInstancesRequest {
 }
 
 export namespace DescribeClassicLinkInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeClassicLinkInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClassicLinkInstancesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClassicLinkInstancesRequest =>
     __isa(o, "DescribeClassicLinkInstancesRequest");
@@ -10963,10 +10242,8 @@ export interface DescribeClassicLinkInstancesResult {
 }
 
 export namespace DescribeClassicLinkInstancesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeClassicLinkInstancesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClassicLinkInstancesResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClassicLinkInstancesResult =>
     __isa(o, "DescribeClassicLinkInstancesResult");
@@ -11016,14 +10293,10 @@ export interface DescribeClientVpnAuthorizationRulesRequest {
 }
 
 export namespace DescribeClientVpnAuthorizationRulesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnAuthorizationRulesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnAuthorizationRulesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeClientVpnAuthorizationRulesRequest =>
+  export const isa = (o: any): o is DescribeClientVpnAuthorizationRulesRequest =>
     __isa(o, "DescribeClientVpnAuthorizationRulesRequest");
 }
 
@@ -11041,10 +10314,8 @@ export interface DescribeClientVpnAuthorizationRulesResult {
 }
 
 export namespace DescribeClientVpnAuthorizationRulesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnAuthorizationRulesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnAuthorizationRulesResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClientVpnAuthorizationRulesResult =>
     __isa(o, "DescribeClientVpnAuthorizationRulesResult");
@@ -11090,10 +10361,8 @@ export interface DescribeClientVpnConnectionsRequest {
 }
 
 export namespace DescribeClientVpnConnectionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnConnectionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnConnectionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClientVpnConnectionsRequest =>
     __isa(o, "DescribeClientVpnConnectionsRequest");
@@ -11113,10 +10382,8 @@ export interface DescribeClientVpnConnectionsResult {
 }
 
 export namespace DescribeClientVpnConnectionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnConnectionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnConnectionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClientVpnConnectionsResult =>
     __isa(o, "DescribeClientVpnConnectionsResult");
@@ -11162,13 +10429,10 @@ export interface DescribeClientVpnEndpointsRequest {
 }
 
 export namespace DescribeClientVpnEndpointsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnEndpointsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnEndpointsRequest =>
-    __isa(o, "DescribeClientVpnEndpointsRequest");
+  export const isa = (o: any): o is DescribeClientVpnEndpointsRequest => __isa(o, "DescribeClientVpnEndpointsRequest");
 }
 
 export interface DescribeClientVpnEndpointsResult {
@@ -11185,13 +10449,10 @@ export interface DescribeClientVpnEndpointsResult {
 }
 
 export namespace DescribeClientVpnEndpointsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnEndpointsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnEndpointsResult =>
-    __isa(o, "DescribeClientVpnEndpointsResult");
+  export const isa = (o: any): o is DescribeClientVpnEndpointsResult => __isa(o, "DescribeClientVpnEndpointsResult");
 }
 
 export interface DescribeClientVpnRoutesRequest {
@@ -11237,13 +10498,10 @@ export interface DescribeClientVpnRoutesRequest {
 }
 
 export namespace DescribeClientVpnRoutesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnRoutesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnRoutesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnRoutesRequest =>
-    __isa(o, "DescribeClientVpnRoutesRequest");
+  export const isa = (o: any): o is DescribeClientVpnRoutesRequest => __isa(o, "DescribeClientVpnRoutesRequest");
 }
 
 export interface DescribeClientVpnRoutesResult {
@@ -11260,13 +10518,10 @@ export interface DescribeClientVpnRoutesResult {
 }
 
 export namespace DescribeClientVpnRoutesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnRoutesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnRoutesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnRoutesResult =>
-    __isa(o, "DescribeClientVpnRoutesResult");
+  export const isa = (o: any): o is DescribeClientVpnRoutesResult => __isa(o, "DescribeClientVpnRoutesResult");
 }
 
 export interface DescribeClientVpnTargetNetworksRequest {
@@ -11317,10 +10572,8 @@ export interface DescribeClientVpnTargetNetworksRequest {
 }
 
 export namespace DescribeClientVpnTargetNetworksRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnTargetNetworksRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClientVpnTargetNetworksRequest =>
     __isa(o, "DescribeClientVpnTargetNetworksRequest");
@@ -11340,10 +10593,8 @@ export interface DescribeClientVpnTargetNetworksResult {
 }
 
 export namespace DescribeClientVpnTargetNetworksResult {
-  export const filterSensitiveLog = (
-    obj: DescribeClientVpnTargetNetworksResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClientVpnTargetNetworksResult =>
     __isa(o, "DescribeClientVpnTargetNetworksResult");
@@ -11396,10 +10647,9 @@ export interface DescribeCoipPoolsRequest {
 
 export namespace DescribeCoipPoolsRequest {
   export const filterSensitiveLog = (obj: DescribeCoipPoolsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCoipPoolsRequest =>
-    __isa(o, "DescribeCoipPoolsRequest");
+  export const isa = (o: any): o is DescribeCoipPoolsRequest => __isa(o, "DescribeCoipPoolsRequest");
 }
 
 export interface DescribeCoipPoolsResult {
@@ -11417,10 +10667,9 @@ export interface DescribeCoipPoolsResult {
 
 export namespace DescribeCoipPoolsResult {
   export const filterSensitiveLog = (obj: DescribeCoipPoolsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCoipPoolsResult =>
-    __isa(o, "DescribeCoipPoolsResult");
+  export const isa = (o: any): o is DescribeCoipPoolsResult => __isa(o, "DescribeCoipPoolsResult");
 }
 
 export interface DescribeConversionTasksRequest {
@@ -11439,13 +10688,10 @@ export interface DescribeConversionTasksRequest {
 }
 
 export namespace DescribeConversionTasksRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConversionTasksRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConversionTasksRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConversionTasksRequest =>
-    __isa(o, "DescribeConversionTasksRequest");
+  export const isa = (o: any): o is DescribeConversionTasksRequest => __isa(o, "DescribeConversionTasksRequest");
 }
 
 export interface DescribeConversionTasksResult {
@@ -11457,13 +10703,10 @@ export interface DescribeConversionTasksResult {
 }
 
 export namespace DescribeConversionTasksResult {
-  export const filterSensitiveLog = (
-    obj: DescribeConversionTasksResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConversionTasksResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConversionTasksResult =>
-    __isa(o, "DescribeConversionTasksResult");
+  export const isa = (o: any): o is DescribeConversionTasksResult => __isa(o, "DescribeConversionTasksResult");
 }
 
 /**
@@ -11522,13 +10765,10 @@ export interface DescribeCustomerGatewaysRequest {
 }
 
 export namespace DescribeCustomerGatewaysRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeCustomerGatewaysRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCustomerGatewaysRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCustomerGatewaysRequest =>
-    __isa(o, "DescribeCustomerGatewaysRequest");
+  export const isa = (o: any): o is DescribeCustomerGatewaysRequest => __isa(o, "DescribeCustomerGatewaysRequest");
 }
 
 /**
@@ -11543,13 +10783,10 @@ export interface DescribeCustomerGatewaysResult {
 }
 
 export namespace DescribeCustomerGatewaysResult {
-  export const filterSensitiveLog = (
-    obj: DescribeCustomerGatewaysResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCustomerGatewaysResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCustomerGatewaysResult =>
-    __isa(o, "DescribeCustomerGatewaysResult");
+  export const isa = (o: any): o is DescribeCustomerGatewaysResult => __isa(o, "DescribeCustomerGatewaysResult");
 }
 
 export interface DescribeDhcpOptionsRequest {
@@ -11613,10 +10850,9 @@ export interface DescribeDhcpOptionsRequest {
 
 export namespace DescribeDhcpOptionsRequest {
   export const filterSensitiveLog = (obj: DescribeDhcpOptionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDhcpOptionsRequest =>
-    __isa(o, "DescribeDhcpOptionsRequest");
+  export const isa = (o: any): o is DescribeDhcpOptionsRequest => __isa(o, "DescribeDhcpOptionsRequest");
 }
 
 export interface DescribeDhcpOptionsResult {
@@ -11634,10 +10870,9 @@ export interface DescribeDhcpOptionsResult {
 
 export namespace DescribeDhcpOptionsResult {
   export const filterSensitiveLog = (obj: DescribeDhcpOptionsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDhcpOptionsResult =>
-    __isa(o, "DescribeDhcpOptionsResult");
+  export const isa = (o: any): o is DescribeDhcpOptionsResult => __isa(o, "DescribeDhcpOptionsResult");
 }
 
 export interface DescribeEgressOnlyInternetGatewaysRequest {
@@ -11683,10 +10918,8 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
 }
 
 export namespace DescribeEgressOnlyInternetGatewaysRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeEgressOnlyInternetGatewaysRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEgressOnlyInternetGatewaysRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeEgressOnlyInternetGatewaysRequest =>
     __isa(o, "DescribeEgressOnlyInternetGatewaysRequest");
@@ -11706,10 +10939,8 @@ export interface DescribeEgressOnlyInternetGatewaysResult {
 }
 
 export namespace DescribeEgressOnlyInternetGatewaysResult {
-  export const filterSensitiveLog = (
-    obj: DescribeEgressOnlyInternetGatewaysResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEgressOnlyInternetGatewaysResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeEgressOnlyInternetGatewaysResult =>
     __isa(o, "DescribeEgressOnlyInternetGatewaysResult");
@@ -11776,10 +11007,9 @@ export interface DescribeElasticGpusRequest {
 
 export namespace DescribeElasticGpusRequest {
   export const filterSensitiveLog = (obj: DescribeElasticGpusRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticGpusRequest =>
-    __isa(o, "DescribeElasticGpusRequest");
+  export const isa = (o: any): o is DescribeElasticGpusRequest => __isa(o, "DescribeElasticGpusRequest");
 }
 
 export interface DescribeElasticGpusResult {
@@ -11805,10 +11035,9 @@ export interface DescribeElasticGpusResult {
 
 export namespace DescribeElasticGpusResult {
   export const filterSensitiveLog = (obj: DescribeElasticGpusResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticGpusResult =>
-    __isa(o, "DescribeElasticGpusResult");
+  export const isa = (o: any): o is DescribeElasticGpusResult => __isa(o, "DescribeElasticGpusResult");
 }
 
 export interface DescribeExportImageTasksRequest {
@@ -11843,13 +11072,10 @@ export interface DescribeExportImageTasksRequest {
 }
 
 export namespace DescribeExportImageTasksRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeExportImageTasksRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeExportImageTasksRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExportImageTasksRequest =>
-    __isa(o, "DescribeExportImageTasksRequest");
+  export const isa = (o: any): o is DescribeExportImageTasksRequest => __isa(o, "DescribeExportImageTasksRequest");
 }
 
 export interface DescribeExportImageTasksResult {
@@ -11867,13 +11093,10 @@ export interface DescribeExportImageTasksResult {
 }
 
 export namespace DescribeExportImageTasksResult {
-  export const filterSensitiveLog = (
-    obj: DescribeExportImageTasksResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeExportImageTasksResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExportImageTasksResult =>
-    __isa(o, "DescribeExportImageTasksResult");
+  export const isa = (o: any): o is DescribeExportImageTasksResult => __isa(o, "DescribeExportImageTasksResult");
 }
 
 export interface DescribeExportTasksRequest {
@@ -11891,10 +11114,9 @@ export interface DescribeExportTasksRequest {
 
 export namespace DescribeExportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksRequest =>
-    __isa(o, "DescribeExportTasksRequest");
+  export const isa = (o: any): o is DescribeExportTasksRequest => __isa(o, "DescribeExportTasksRequest");
 }
 
 export interface DescribeExportTasksResult {
@@ -11907,10 +11129,9 @@ export interface DescribeExportTasksResult {
 
 export namespace DescribeExportTasksResult {
   export const filterSensitiveLog = (obj: DescribeExportTasksResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksResult =>
-    __isa(o, "DescribeExportTasksResult");
+  export const isa = (o: any): o is DescribeExportTasksResult => __isa(o, "DescribeExportTasksResult");
 }
 
 export interface DescribeFastSnapshotRestoresRequest {
@@ -11963,10 +11184,8 @@ export interface DescribeFastSnapshotRestoresRequest {
 }
 
 export namespace DescribeFastSnapshotRestoresRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeFastSnapshotRestoresRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoresRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeFastSnapshotRestoresRequest =>
     __isa(o, "DescribeFastSnapshotRestoresRequest");
@@ -11986,10 +11205,8 @@ export interface DescribeFastSnapshotRestoresResult {
 }
 
 export namespace DescribeFastSnapshotRestoresResult {
-  export const filterSensitiveLog = (
-    obj: DescribeFastSnapshotRestoresResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoresResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeFastSnapshotRestoresResult =>
     __isa(o, "DescribeFastSnapshotRestoresResult");
@@ -12069,10 +11286,8 @@ export interface DescribeFastSnapshotRestoreSuccessItem {
 }
 
 export namespace DescribeFastSnapshotRestoreSuccessItem {
-  export const filterSensitiveLog = (
-    obj: DescribeFastSnapshotRestoreSuccessItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoreSuccessItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeFastSnapshotRestoreSuccessItem =>
     __isa(o, "DescribeFastSnapshotRestoreSuccessItem");
@@ -12109,10 +11324,9 @@ export interface DescribeFleetError {
 
 export namespace DescribeFleetError {
   export const filterSensitiveLog = (obj: DescribeFleetError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetError =>
-    __isa(o, "DescribeFleetError");
+  export const isa = (o: any): o is DescribeFleetError => __isa(o, "DescribeFleetError");
 }
 
 export interface DescribeFleetHistoryRequest {
@@ -12154,13 +11368,10 @@ export interface DescribeFleetHistoryRequest {
 }
 
 export namespace DescribeFleetHistoryRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeFleetHistoryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFleetHistoryRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetHistoryRequest =>
-    __isa(o, "DescribeFleetHistoryRequest");
+  export const isa = (o: any): o is DescribeFleetHistoryRequest => __isa(o, "DescribeFleetHistoryRequest");
 }
 
 export interface DescribeFleetHistoryResult {
@@ -12198,10 +11409,9 @@ export interface DescribeFleetHistoryResult {
 
 export namespace DescribeFleetHistoryResult {
   export const filterSensitiveLog = (obj: DescribeFleetHistoryResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetHistoryResult =>
-    __isa(o, "DescribeFleetHistoryResult");
+  export const isa = (o: any): o is DescribeFleetHistoryResult => __isa(o, "DescribeFleetHistoryResult");
 }
 
 export interface DescribeFleetInstancesRequest {
@@ -12243,13 +11453,10 @@ export interface DescribeFleetInstancesRequest {
 }
 
 export namespace DescribeFleetInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeFleetInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFleetInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetInstancesRequest =>
-    __isa(o, "DescribeFleetInstancesRequest");
+  export const isa = (o: any): o is DescribeFleetInstancesRequest => __isa(o, "DescribeFleetInstancesRequest");
 }
 
 export interface DescribeFleetInstancesResult {
@@ -12272,13 +11479,10 @@ export interface DescribeFleetInstancesResult {
 }
 
 export namespace DescribeFleetInstancesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeFleetInstancesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFleetInstancesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetInstancesResult =>
-    __isa(o, "DescribeFleetInstancesResult");
+  export const isa = (o: any): o is DescribeFleetInstancesResult => __isa(o, "DescribeFleetInstancesResult");
 }
 
 /**
@@ -12316,10 +11520,9 @@ export interface DescribeFleetsInstances {
 
 export namespace DescribeFleetsInstances {
   export const filterSensitiveLog = (obj: DescribeFleetsInstances): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsInstances =>
-    __isa(o, "DescribeFleetsInstances");
+  export const isa = (o: any): o is DescribeFleetsInstances => __isa(o, "DescribeFleetsInstances");
 }
 
 export interface DescribeFleetsRequest {
@@ -12387,10 +11590,9 @@ export interface DescribeFleetsRequest {
 
 export namespace DescribeFleetsRequest {
   export const filterSensitiveLog = (obj: DescribeFleetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsRequest =>
-    __isa(o, "DescribeFleetsRequest");
+  export const isa = (o: any): o is DescribeFleetsRequest => __isa(o, "DescribeFleetsRequest");
 }
 
 export interface DescribeFleetsResult {
@@ -12408,10 +11610,9 @@ export interface DescribeFleetsResult {
 
 export namespace DescribeFleetsResult {
   export const filterSensitiveLog = (obj: DescribeFleetsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsResult =>
-    __isa(o, "DescribeFleetsResult");
+  export const isa = (o: any): o is DescribeFleetsResult => __isa(o, "DescribeFleetsResult");
 }
 
 export interface DescribeFlowLogsRequest {
@@ -12478,10 +11679,9 @@ export interface DescribeFlowLogsRequest {
 
 export namespace DescribeFlowLogsRequest {
   export const filterSensitiveLog = (obj: DescribeFlowLogsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFlowLogsRequest =>
-    __isa(o, "DescribeFlowLogsRequest");
+  export const isa = (o: any): o is DescribeFlowLogsRequest => __isa(o, "DescribeFlowLogsRequest");
 }
 
 export interface DescribeFlowLogsResult {
@@ -12499,10 +11699,9 @@ export interface DescribeFlowLogsResult {
 
 export namespace DescribeFlowLogsResult {
   export const filterSensitiveLog = (obj: DescribeFlowLogsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFlowLogsResult =>
-    __isa(o, "DescribeFlowLogsResult");
+  export const isa = (o: any): o is DescribeFlowLogsResult => __isa(o, "DescribeFlowLogsResult");
 }
 
 export interface DescribeFpgaImageAttributeRequest {
@@ -12526,13 +11725,10 @@ export interface DescribeFpgaImageAttributeRequest {
 }
 
 export namespace DescribeFpgaImageAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeFpgaImageAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFpgaImageAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFpgaImageAttributeRequest =>
-    __isa(o, "DescribeFpgaImageAttributeRequest");
+  export const isa = (o: any): o is DescribeFpgaImageAttributeRequest => __isa(o, "DescribeFpgaImageAttributeRequest");
 }
 
 export interface DescribeFpgaImageAttributeResult {
@@ -12544,13 +11740,10 @@ export interface DescribeFpgaImageAttributeResult {
 }
 
 export namespace DescribeFpgaImageAttributeResult {
-  export const filterSensitiveLog = (
-    obj: DescribeFpgaImageAttributeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFpgaImageAttributeResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFpgaImageAttributeResult =>
-    __isa(o, "DescribeFpgaImageAttributeResult");
+  export const isa = (o: any): o is DescribeFpgaImageAttributeResult => __isa(o, "DescribeFpgaImageAttributeResult");
 }
 
 export interface DescribeFpgaImagesRequest {
@@ -12637,10 +11830,9 @@ export interface DescribeFpgaImagesRequest {
 
 export namespace DescribeFpgaImagesRequest {
   export const filterSensitiveLog = (obj: DescribeFpgaImagesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFpgaImagesRequest =>
-    __isa(o, "DescribeFpgaImagesRequest");
+  export const isa = (o: any): o is DescribeFpgaImagesRequest => __isa(o, "DescribeFpgaImagesRequest");
 }
 
 export interface DescribeFpgaImagesResult {
@@ -12658,10 +11850,9 @@ export interface DescribeFpgaImagesResult {
 
 export namespace DescribeFpgaImagesResult {
   export const filterSensitiveLog = (obj: DescribeFpgaImagesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFpgaImagesResult =>
-    __isa(o, "DescribeFpgaImagesResult");
+  export const isa = (o: any): o is DescribeFpgaImagesResult => __isa(o, "DescribeFpgaImagesResult");
 }
 
 export interface DescribeHostReservationOfferingsRequest {
@@ -12716,10 +11907,8 @@ export interface DescribeHostReservationOfferingsRequest {
 }
 
 export namespace DescribeHostReservationOfferingsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeHostReservationOfferingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHostReservationOfferingsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeHostReservationOfferingsRequest =>
     __isa(o, "DescribeHostReservationOfferingsRequest");
@@ -12739,10 +11928,8 @@ export interface DescribeHostReservationOfferingsResult {
 }
 
 export namespace DescribeHostReservationOfferingsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeHostReservationOfferingsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHostReservationOfferingsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeHostReservationOfferingsResult =>
     __isa(o, "DescribeHostReservationOfferingsResult");
@@ -12799,13 +11986,10 @@ export interface DescribeHostReservationsRequest {
 }
 
 export namespace DescribeHostReservationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeHostReservationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHostReservationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHostReservationsRequest =>
-    __isa(o, "DescribeHostReservationsRequest");
+  export const isa = (o: any): o is DescribeHostReservationsRequest => __isa(o, "DescribeHostReservationsRequest");
 }
 
 export interface DescribeHostReservationsResult {
@@ -12822,13 +12006,10 @@ export interface DescribeHostReservationsResult {
 }
 
 export namespace DescribeHostReservationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeHostReservationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHostReservationsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHostReservationsResult =>
-    __isa(o, "DescribeHostReservationsResult");
+  export const isa = (o: any): o is DescribeHostReservationsResult => __isa(o, "DescribeHostReservationsResult");
 }
 
 export interface DescribeHostsRequest {
@@ -12896,10 +12077,9 @@ export interface DescribeHostsRequest {
 
 export namespace DescribeHostsRequest {
   export const filterSensitiveLog = (obj: DescribeHostsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHostsRequest =>
-    __isa(o, "DescribeHostsRequest");
+  export const isa = (o: any): o is DescribeHostsRequest => __isa(o, "DescribeHostsRequest");
 }
 
 export interface DescribeHostsResult {
@@ -12917,10 +12097,9 @@ export interface DescribeHostsResult {
 
 export namespace DescribeHostsResult {
   export const filterSensitiveLog = (obj: DescribeHostsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHostsResult =>
-    __isa(o, "DescribeHostsResult");
+  export const isa = (o: any): o is DescribeHostsResult => __isa(o, "DescribeHostsResult");
 }
 
 export interface DescribeIamInstanceProfileAssociationsRequest {
@@ -12960,14 +12139,10 @@ export interface DescribeIamInstanceProfileAssociationsRequest {
 }
 
 export namespace DescribeIamInstanceProfileAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeIamInstanceProfileAssociationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeIamInstanceProfileAssociationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeIamInstanceProfileAssociationsRequest =>
+  export const isa = (o: any): o is DescribeIamInstanceProfileAssociationsRequest =>
     __isa(o, "DescribeIamInstanceProfileAssociationsRequest");
 }
 
@@ -12985,14 +12160,10 @@ export interface DescribeIamInstanceProfileAssociationsResult {
 }
 
 export namespace DescribeIamInstanceProfileAssociationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeIamInstanceProfileAssociationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeIamInstanceProfileAssociationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeIamInstanceProfileAssociationsResult =>
+  export const isa = (o: any): o is DescribeIamInstanceProfileAssociationsResult =>
     __isa(o, "DescribeIamInstanceProfileAssociationsResult");
 }
 
@@ -13023,13 +12194,10 @@ export interface DescribeIdentityIdFormatRequest {
 }
 
 export namespace DescribeIdentityIdFormatRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeIdentityIdFormatRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeIdentityIdFormatRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityIdFormatRequest =>
-    __isa(o, "DescribeIdentityIdFormatRequest");
+  export const isa = (o: any): o is DescribeIdentityIdFormatRequest => __isa(o, "DescribeIdentityIdFormatRequest");
 }
 
 export interface DescribeIdentityIdFormatResult {
@@ -13041,13 +12209,10 @@ export interface DescribeIdentityIdFormatResult {
 }
 
 export namespace DescribeIdentityIdFormatResult {
-  export const filterSensitiveLog = (
-    obj: DescribeIdentityIdFormatResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeIdentityIdFormatResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityIdFormatResult =>
-    __isa(o, "DescribeIdentityIdFormatResult");
+  export const isa = (o: any): o is DescribeIdentityIdFormatResult => __isa(o, "DescribeIdentityIdFormatResult");
 }
 
 export interface DescribeIdFormatRequest {
@@ -13073,10 +12238,9 @@ export interface DescribeIdFormatRequest {
 
 export namespace DescribeIdFormatRequest {
   export const filterSensitiveLog = (obj: DescribeIdFormatRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeIdFormatRequest =>
-    __isa(o, "DescribeIdFormatRequest");
+  export const isa = (o: any): o is DescribeIdFormatRequest => __isa(o, "DescribeIdFormatRequest");
 }
 
 export interface DescribeIdFormatResult {
@@ -13089,10 +12253,9 @@ export interface DescribeIdFormatResult {
 
 export namespace DescribeIdFormatResult {
   export const filterSensitiveLog = (obj: DescribeIdFormatResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeIdFormatResult =>
-    __isa(o, "DescribeIdFormatResult");
+  export const isa = (o: any): o is DescribeIdFormatResult => __isa(o, "DescribeIdFormatResult");
 }
 
 /**
@@ -13123,13 +12286,10 @@ export interface DescribeImageAttributeRequest {
 }
 
 export namespace DescribeImageAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeImageAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImageAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImageAttributeRequest =>
-    __isa(o, "DescribeImageAttributeRequest");
+  export const isa = (o: any): o is DescribeImageAttributeRequest => __isa(o, "DescribeImageAttributeRequest");
 }
 
 export interface DescribeImagesRequest {
@@ -13317,10 +12477,9 @@ export interface DescribeImagesRequest {
 
 export namespace DescribeImagesRequest {
   export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesRequest =>
-    __isa(o, "DescribeImagesRequest");
+  export const isa = (o: any): o is DescribeImagesRequest => __isa(o, "DescribeImagesRequest");
 }
 
 export interface DescribeImagesResult {
@@ -13333,10 +12492,9 @@ export interface DescribeImagesResult {
 
 export namespace DescribeImagesResult {
   export const filterSensitiveLog = (obj: DescribeImagesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesResult =>
-    __isa(o, "DescribeImagesResult");
+  export const isa = (o: any): o is DescribeImagesResult => __isa(o, "DescribeImagesResult");
 }
 
 export interface DescribeImportImageTasksRequest {
@@ -13371,13 +12529,10 @@ export interface DescribeImportImageTasksRequest {
 }
 
 export namespace DescribeImportImageTasksRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeImportImageTasksRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImportImageTasksRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImportImageTasksRequest =>
-    __isa(o, "DescribeImportImageTasksRequest");
+  export const isa = (o: any): o is DescribeImportImageTasksRequest => __isa(o, "DescribeImportImageTasksRequest");
 }
 
 export interface DescribeImportImageTasksResult {
@@ -13396,13 +12551,10 @@ export interface DescribeImportImageTasksResult {
 }
 
 export namespace DescribeImportImageTasksResult {
-  export const filterSensitiveLog = (
-    obj: DescribeImportImageTasksResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImportImageTasksResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImportImageTasksResult =>
-    __isa(o, "DescribeImportImageTasksResult");
+  export const isa = (o: any): o is DescribeImportImageTasksResult => __isa(o, "DescribeImportImageTasksResult");
 }
 
 export interface DescribeImportSnapshotTasksRequest {
@@ -13437,10 +12589,8 @@ export interface DescribeImportSnapshotTasksRequest {
 }
 
 export namespace DescribeImportSnapshotTasksRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeImportSnapshotTasksRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImportSnapshotTasksRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeImportSnapshotTasksRequest =>
     __isa(o, "DescribeImportSnapshotTasksRequest");
@@ -13462,13 +12612,10 @@ export interface DescribeImportSnapshotTasksResult {
 }
 
 export namespace DescribeImportSnapshotTasksResult {
-  export const filterSensitiveLog = (
-    obj: DescribeImportSnapshotTasksResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImportSnapshotTasksResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImportSnapshotTasksResult =>
-    __isa(o, "DescribeImportSnapshotTasksResult");
+  export const isa = (o: any): o is DescribeImportSnapshotTasksResult => __isa(o, "DescribeImportSnapshotTasksResult");
 }
 
 export interface DescribeInstanceAttributeRequest {
@@ -13493,13 +12640,10 @@ export interface DescribeInstanceAttributeRequest {
 }
 
 export namespace DescribeInstanceAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceAttributeRequest =>
-    __isa(o, "DescribeInstanceAttributeRequest");
+  export const isa = (o: any): o is DescribeInstanceAttributeRequest => __isa(o, "DescribeInstanceAttributeRequest");
 }
 
 export interface DescribeInstanceCreditSpecificationsRequest {
@@ -13544,14 +12688,10 @@ export interface DescribeInstanceCreditSpecificationsRequest {
 }
 
 export namespace DescribeInstanceCreditSpecificationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceCreditSpecificationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeInstanceCreditSpecificationsRequest =>
+  export const isa = (o: any): o is DescribeInstanceCreditSpecificationsRequest =>
     __isa(o, "DescribeInstanceCreditSpecificationsRequest");
 }
 
@@ -13570,14 +12710,10 @@ export interface DescribeInstanceCreditSpecificationsResult {
 }
 
 export namespace DescribeInstanceCreditSpecificationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceCreditSpecificationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeInstanceCreditSpecificationsResult =>
+  export const isa = (o: any): o is DescribeInstanceCreditSpecificationsResult =>
     __isa(o, "DescribeInstanceCreditSpecificationsResult");
 }
 
@@ -14067,10 +13203,9 @@ export interface DescribeInstancesRequest {
 
 export namespace DescribeInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesRequest =>
-    __isa(o, "DescribeInstancesRequest");
+  export const isa = (o: any): o is DescribeInstancesRequest => __isa(o, "DescribeInstancesRequest");
 }
 
 export interface DescribeInstancesResult {
@@ -14089,10 +13224,9 @@ export interface DescribeInstancesResult {
 
 export namespace DescribeInstancesResult {
   export const filterSensitiveLog = (obj: DescribeInstancesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesResult =>
-    __isa(o, "DescribeInstancesResult");
+  export const isa = (o: any): o is DescribeInstancesResult => __isa(o, "DescribeInstancesResult");
 }
 
 export interface DescribeInstanceStatusRequest {
@@ -14215,13 +13349,10 @@ export interface DescribeInstanceStatusRequest {
 }
 
 export namespace DescribeInstanceStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceStatusRequest =>
-    __isa(o, "DescribeInstanceStatusRequest");
+  export const isa = (o: any): o is DescribeInstanceStatusRequest => __isa(o, "DescribeInstanceStatusRequest");
 }
 
 export interface DescribeInstanceStatusResult {
@@ -14239,13 +13370,10 @@ export interface DescribeInstanceStatusResult {
 }
 
 export namespace DescribeInstanceStatusResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceStatusResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceStatusResult =>
-    __isa(o, "DescribeInstanceStatusResult");
+  export const isa = (o: any): o is DescribeInstanceStatusResult => __isa(o, "DescribeInstanceStatusResult");
 }
 
 export interface DescribeInstanceTypeOfferingsRequest {
@@ -14291,10 +13419,8 @@ export interface DescribeInstanceTypeOfferingsRequest {
 }
 
 export namespace DescribeInstanceTypeOfferingsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceTypeOfferingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeInstanceTypeOfferingsRequest =>
     __isa(o, "DescribeInstanceTypeOfferingsRequest");
@@ -14315,10 +13441,8 @@ export interface DescribeInstanceTypeOfferingsResult {
 }
 
 export namespace DescribeInstanceTypeOfferingsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceTypeOfferingsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeInstanceTypeOfferingsResult =>
     __isa(o, "DescribeInstanceTypeOfferingsResult");
@@ -14472,13 +13596,10 @@ export interface DescribeInstanceTypesRequest {
 }
 
 export namespace DescribeInstanceTypesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceTypesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceTypesRequest =>
-    __isa(o, "DescribeInstanceTypesRequest");
+  export const isa = (o: any): o is DescribeInstanceTypesRequest => __isa(o, "DescribeInstanceTypesRequest");
 }
 
 export interface DescribeInstanceTypesResult {
@@ -14497,13 +13618,10 @@ export interface DescribeInstanceTypesResult {
 }
 
 export namespace DescribeInstanceTypesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInstanceTypesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInstanceTypesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceTypesResult =>
-    __isa(o, "DescribeInstanceTypesResult");
+  export const isa = (o: any): o is DescribeInstanceTypesResult => __isa(o, "DescribeInstanceTypesResult");
 }
 
 export interface DescribeInternetGatewaysRequest {
@@ -14567,13 +13685,10 @@ export interface DescribeInternetGatewaysRequest {
 }
 
 export namespace DescribeInternetGatewaysRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInternetGatewaysRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInternetGatewaysRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInternetGatewaysRequest =>
-    __isa(o, "DescribeInternetGatewaysRequest");
+  export const isa = (o: any): o is DescribeInternetGatewaysRequest => __isa(o, "DescribeInternetGatewaysRequest");
 }
 
 export interface DescribeInternetGatewaysResult {
@@ -14590,13 +13705,10 @@ export interface DescribeInternetGatewaysResult {
 }
 
 export namespace DescribeInternetGatewaysResult {
-  export const filterSensitiveLog = (
-    obj: DescribeInternetGatewaysResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInternetGatewaysResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInternetGatewaysResult =>
-    __isa(o, "DescribeInternetGatewaysResult");
+  export const isa = (o: any): o is DescribeInternetGatewaysResult => __isa(o, "DescribeInternetGatewaysResult");
 }
 
 export interface DescribeIpv6PoolsRequest {
@@ -14643,10 +13755,9 @@ export interface DescribeIpv6PoolsRequest {
 
 export namespace DescribeIpv6PoolsRequest {
   export const filterSensitiveLog = (obj: DescribeIpv6PoolsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeIpv6PoolsRequest =>
-    __isa(o, "DescribeIpv6PoolsRequest");
+  export const isa = (o: any): o is DescribeIpv6PoolsRequest => __isa(o, "DescribeIpv6PoolsRequest");
 }
 
 export interface DescribeIpv6PoolsResult {
@@ -14664,10 +13775,9 @@ export interface DescribeIpv6PoolsResult {
 
 export namespace DescribeIpv6PoolsResult {
   export const filterSensitiveLog = (obj: DescribeIpv6PoolsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeIpv6PoolsResult =>
-    __isa(o, "DescribeIpv6PoolsResult");
+  export const isa = (o: any): o is DescribeIpv6PoolsResult => __isa(o, "DescribeIpv6PoolsResult");
 }
 
 export interface DescribeKeyPairsRequest {
@@ -14708,10 +13818,9 @@ export interface DescribeKeyPairsRequest {
 
 export namespace DescribeKeyPairsRequest {
   export const filterSensitiveLog = (obj: DescribeKeyPairsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeKeyPairsRequest =>
-    __isa(o, "DescribeKeyPairsRequest");
+  export const isa = (o: any): o is DescribeKeyPairsRequest => __isa(o, "DescribeKeyPairsRequest");
 }
 
 export interface DescribeKeyPairsResult {
@@ -14724,10 +13833,9 @@ export interface DescribeKeyPairsResult {
 
 export namespace DescribeKeyPairsResult {
   export const filterSensitiveLog = (obj: DescribeKeyPairsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeKeyPairsResult =>
-    __isa(o, "DescribeKeyPairsResult");
+  export const isa = (o: any): o is DescribeKeyPairsResult => __isa(o, "DescribeKeyPairsResult");
 }
 
 export interface DescribeLaunchTemplatesRequest {
@@ -14788,13 +13896,10 @@ export interface DescribeLaunchTemplatesRequest {
 }
 
 export namespace DescribeLaunchTemplatesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLaunchTemplatesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLaunchTemplatesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLaunchTemplatesRequest =>
-    __isa(o, "DescribeLaunchTemplatesRequest");
+  export const isa = (o: any): o is DescribeLaunchTemplatesRequest => __isa(o, "DescribeLaunchTemplatesRequest");
 }
 
 export interface DescribeLaunchTemplatesResult {
@@ -14812,13 +13917,10 @@ export interface DescribeLaunchTemplatesResult {
 }
 
 export namespace DescribeLaunchTemplatesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLaunchTemplatesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLaunchTemplatesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLaunchTemplatesResult =>
-    __isa(o, "DescribeLaunchTemplatesResult");
+  export const isa = (o: any): o is DescribeLaunchTemplatesResult => __isa(o, "DescribeLaunchTemplatesResult");
 }
 
 export interface DescribeLaunchTemplateVersionsRequest {
@@ -14914,10 +14016,8 @@ export interface DescribeLaunchTemplateVersionsRequest {
 }
 
 export namespace DescribeLaunchTemplateVersionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLaunchTemplateVersionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLaunchTemplateVersionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeLaunchTemplateVersionsRequest =>
     __isa(o, "DescribeLaunchTemplateVersionsRequest");
@@ -14938,10 +14038,8 @@ export interface DescribeLaunchTemplateVersionsResult {
 }
 
 export namespace DescribeLaunchTemplateVersionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLaunchTemplateVersionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLaunchTemplateVersionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeLaunchTemplateVersionsResult =>
     __isa(o, "DescribeLaunchTemplateVersionsResult");
@@ -14979,10 +14077,8 @@ export interface DescribeLocalGatewayRouteTablesRequest {
 }
 
 export namespace DescribeLocalGatewayRouteTablesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTablesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeLocalGatewayRouteTablesRequest =>
     __isa(o, "DescribeLocalGatewayRouteTablesRequest");
@@ -15002,10 +14098,8 @@ export interface DescribeLocalGatewayRouteTablesResult {
 }
 
 export namespace DescribeLocalGatewayRouteTablesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTablesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeLocalGatewayRouteTablesResult =>
     __isa(o, "DescribeLocalGatewayRouteTablesResult");
@@ -15046,15 +14140,10 @@ export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   export const filterSensitiveLog = (
     obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
   ): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest =>
-    __isa(
-      o,
-      "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest"
-    );
+  export const isa = (o: any): o is DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest =>
+    __isa(o, "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest");
 }
 
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
@@ -15074,15 +14163,10 @@ export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   export const filterSensitiveLog = (
     obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
   ): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult =>
-    __isa(
-      o,
-      "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult"
-    );
+  export const isa = (o: any): o is DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult =>
+    __isa(o, "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult");
 }
 
 export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
@@ -15117,14 +14201,10 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
 }
 
 export namespace DescribeLocalGatewayRouteTableVpcAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeLocalGatewayRouteTableVpcAssociationsRequest =>
+  export const isa = (o: any): o is DescribeLocalGatewayRouteTableVpcAssociationsRequest =>
     __isa(o, "DescribeLocalGatewayRouteTableVpcAssociationsRequest");
 }
 
@@ -15142,14 +14222,10 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
 }
 
 export namespace DescribeLocalGatewayRouteTableVpcAssociationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTableVpcAssociationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeLocalGatewayRouteTableVpcAssociationsResult =>
+  export const isa = (o: any): o is DescribeLocalGatewayRouteTableVpcAssociationsResult =>
     __isa(o, "DescribeLocalGatewayRouteTableVpcAssociationsResult");
 }
 
@@ -15185,13 +14261,10 @@ export interface DescribeLocalGatewaysRequest {
 }
 
 export namespace DescribeLocalGatewaysRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewaysRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewaysRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewaysRequest =>
-    __isa(o, "DescribeLocalGatewaysRequest");
+  export const isa = (o: any): o is DescribeLocalGatewaysRequest => __isa(o, "DescribeLocalGatewaysRequest");
 }
 
 export interface DescribeLocalGatewaysResult {
@@ -15208,13 +14281,10 @@ export interface DescribeLocalGatewaysResult {
 }
 
 export namespace DescribeLocalGatewaysResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewaysResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewaysResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewaysResult =>
-    __isa(o, "DescribeLocalGatewaysResult");
+  export const isa = (o: any): o is DescribeLocalGatewaysResult => __isa(o, "DescribeLocalGatewaysResult");
 }
 
 export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
@@ -15249,14 +14319,10 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
 }
 
 export namespace DescribeLocalGatewayVirtualInterfaceGroupsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeLocalGatewayVirtualInterfaceGroupsRequest =>
+  export const isa = (o: any): o is DescribeLocalGatewayVirtualInterfaceGroupsRequest =>
     __isa(o, "DescribeLocalGatewayVirtualInterfaceGroupsRequest");
 }
 
@@ -15274,14 +14340,10 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
 }
 
 export namespace DescribeLocalGatewayVirtualInterfaceGroupsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayVirtualInterfaceGroupsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeLocalGatewayVirtualInterfaceGroupsResult =>
+  export const isa = (o: any): o is DescribeLocalGatewayVirtualInterfaceGroupsResult =>
     __isa(o, "DescribeLocalGatewayVirtualInterfaceGroupsResult");
 }
 
@@ -15317,14 +14379,10 @@ export interface DescribeLocalGatewayVirtualInterfacesRequest {
 }
 
 export namespace DescribeLocalGatewayVirtualInterfacesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayVirtualInterfacesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfacesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeLocalGatewayVirtualInterfacesRequest =>
+  export const isa = (o: any): o is DescribeLocalGatewayVirtualInterfacesRequest =>
     __isa(o, "DescribeLocalGatewayVirtualInterfacesRequest");
 }
 
@@ -15342,14 +14400,10 @@ export interface DescribeLocalGatewayVirtualInterfacesResult {
 }
 
 export namespace DescribeLocalGatewayVirtualInterfacesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayVirtualInterfacesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfacesResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeLocalGatewayVirtualInterfacesResult =>
+  export const isa = (o: any): o is DescribeLocalGatewayVirtualInterfacesResult =>
     __isa(o, "DescribeLocalGatewayVirtualInterfacesResult");
 }
 
@@ -15395,13 +14449,10 @@ export interface DescribeMovingAddressesRequest {
 }
 
 export namespace DescribeMovingAddressesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeMovingAddressesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeMovingAddressesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeMovingAddressesRequest =>
-    __isa(o, "DescribeMovingAddressesRequest");
+  export const isa = (o: any): o is DescribeMovingAddressesRequest => __isa(o, "DescribeMovingAddressesRequest");
 }
 
 export interface DescribeMovingAddressesResult {
@@ -15418,13 +14469,10 @@ export interface DescribeMovingAddressesResult {
 }
 
 export namespace DescribeMovingAddressesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeMovingAddressesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeMovingAddressesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeMovingAddressesResult =>
-    __isa(o, "DescribeMovingAddressesResult");
+  export const isa = (o: any): o is DescribeMovingAddressesResult => __isa(o, "DescribeMovingAddressesResult");
 }
 
 export interface DescribeNatGatewaysRequest {
@@ -15481,10 +14529,9 @@ export interface DescribeNatGatewaysRequest {
 
 export namespace DescribeNatGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeNatGatewaysRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNatGatewaysRequest =>
-    __isa(o, "DescribeNatGatewaysRequest");
+  export const isa = (o: any): o is DescribeNatGatewaysRequest => __isa(o, "DescribeNatGatewaysRequest");
 }
 
 export interface DescribeNatGatewaysResult {
@@ -15502,10 +14549,9 @@ export interface DescribeNatGatewaysResult {
 
 export namespace DescribeNatGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeNatGatewaysResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNatGatewaysResult =>
-    __isa(o, "DescribeNatGatewaysResult");
+  export const isa = (o: any): o is DescribeNatGatewaysResult => __isa(o, "DescribeNatGatewaysResult");
 }
 
 export interface DescribeNetworkAclsRequest {
@@ -15618,10 +14664,9 @@ export interface DescribeNetworkAclsRequest {
 
 export namespace DescribeNetworkAclsRequest {
   export const filterSensitiveLog = (obj: DescribeNetworkAclsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkAclsRequest =>
-    __isa(o, "DescribeNetworkAclsRequest");
+  export const isa = (o: any): o is DescribeNetworkAclsRequest => __isa(o, "DescribeNetworkAclsRequest");
 }
 
 export interface DescribeNetworkAclsResult {
@@ -15639,10 +14684,9 @@ export interface DescribeNetworkAclsResult {
 
 export namespace DescribeNetworkAclsResult {
   export const filterSensitiveLog = (obj: DescribeNetworkAclsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkAclsResult =>
-    __isa(o, "DescribeNetworkAclsResult");
+  export const isa = (o: any): o is DescribeNetworkAclsResult => __isa(o, "DescribeNetworkAclsResult");
 }
 
 /**
@@ -15669,10 +14713,8 @@ export interface DescribeNetworkInterfaceAttributeRequest {
 }
 
 export namespace DescribeNetworkInterfaceAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeNetworkInterfaceAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeNetworkInterfaceAttributeRequest =>
     __isa(o, "DescribeNetworkInterfaceAttributeRequest");
@@ -15710,10 +14752,8 @@ export interface DescribeNetworkInterfaceAttributeResult {
 }
 
 export namespace DescribeNetworkInterfaceAttributeResult {
-  export const filterSensitiveLog = (
-    obj: DescribeNetworkInterfaceAttributeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeNetworkInterfaceAttributeResult =>
     __isa(o, "DescribeNetworkInterfaceAttributeResult");
@@ -15775,14 +14815,10 @@ export interface DescribeNetworkInterfacePermissionsRequest {
 }
 
 export namespace DescribeNetworkInterfacePermissionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeNetworkInterfacePermissionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeNetworkInterfacePermissionsRequest =>
+  export const isa = (o: any): o is DescribeNetworkInterfacePermissionsRequest =>
     __isa(o, "DescribeNetworkInterfacePermissionsRequest");
 }
 
@@ -15803,10 +14839,8 @@ export interface DescribeNetworkInterfacePermissionsResult {
 }
 
 export namespace DescribeNetworkInterfacePermissionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeNetworkInterfacePermissionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeNetworkInterfacePermissionsResult =>
     __isa(o, "DescribeNetworkInterfacePermissionsResult");
@@ -16006,13 +15040,10 @@ export interface DescribeNetworkInterfacesRequest {
 }
 
 export namespace DescribeNetworkInterfacesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeNetworkInterfacesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfacesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkInterfacesRequest =>
-    __isa(o, "DescribeNetworkInterfacesRequest");
+  export const isa = (o: any): o is DescribeNetworkInterfacesRequest => __isa(o, "DescribeNetworkInterfacesRequest");
 }
 
 /**
@@ -16032,13 +15063,10 @@ export interface DescribeNetworkInterfacesResult {
 }
 
 export namespace DescribeNetworkInterfacesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeNetworkInterfacesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfacesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkInterfacesResult =>
-    __isa(o, "DescribeNetworkInterfacesResult");
+  export const isa = (o: any): o is DescribeNetworkInterfacesResult => __isa(o, "DescribeNetworkInterfacesResult");
 }
 
 export interface DescribePlacementGroupsRequest {
@@ -16087,13 +15115,10 @@ export interface DescribePlacementGroupsRequest {
 }
 
 export namespace DescribePlacementGroupsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribePlacementGroupsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePlacementGroupsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePlacementGroupsRequest =>
-    __isa(o, "DescribePlacementGroupsRequest");
+  export const isa = (o: any): o is DescribePlacementGroupsRequest => __isa(o, "DescribePlacementGroupsRequest");
 }
 
 export interface DescribePlacementGroupsResult {
@@ -16105,13 +15130,10 @@ export interface DescribePlacementGroupsResult {
 }
 
 export namespace DescribePlacementGroupsResult {
-  export const filterSensitiveLog = (
-    obj: DescribePlacementGroupsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePlacementGroupsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePlacementGroupsResult =>
-    __isa(o, "DescribePlacementGroupsResult");
+  export const isa = (o: any): o is DescribePlacementGroupsResult => __isa(o, "DescribePlacementGroupsResult");
 }
 
 export interface DescribePrefixListsRequest {
@@ -16157,10 +15179,9 @@ export interface DescribePrefixListsRequest {
 
 export namespace DescribePrefixListsRequest {
   export const filterSensitiveLog = (obj: DescribePrefixListsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePrefixListsRequest =>
-    __isa(o, "DescribePrefixListsRequest");
+  export const isa = (o: any): o is DescribePrefixListsRequest => __isa(o, "DescribePrefixListsRequest");
 }
 
 export interface DescribePrefixListsResult {
@@ -16178,10 +15199,9 @@ export interface DescribePrefixListsResult {
 
 export namespace DescribePrefixListsResult {
   export const filterSensitiveLog = (obj: DescribePrefixListsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePrefixListsResult =>
-    __isa(o, "DescribePrefixListsResult");
+  export const isa = (o: any): o is DescribePrefixListsResult => __isa(o, "DescribePrefixListsResult");
 }
 
 export interface DescribePrincipalIdFormatRequest {
@@ -16224,13 +15244,10 @@ export interface DescribePrincipalIdFormatRequest {
 }
 
 export namespace DescribePrincipalIdFormatRequest {
-  export const filterSensitiveLog = (
-    obj: DescribePrincipalIdFormatRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePrincipalIdFormatRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePrincipalIdFormatRequest =>
-    __isa(o, "DescribePrincipalIdFormatRequest");
+  export const isa = (o: any): o is DescribePrincipalIdFormatRequest => __isa(o, "DescribePrincipalIdFormatRequest");
 }
 
 export interface DescribePrincipalIdFormatResult {
@@ -16247,13 +15264,10 @@ export interface DescribePrincipalIdFormatResult {
 }
 
 export namespace DescribePrincipalIdFormatResult {
-  export const filterSensitiveLog = (
-    obj: DescribePrincipalIdFormatResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePrincipalIdFormatResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePrincipalIdFormatResult =>
-    __isa(o, "DescribePrincipalIdFormatResult");
+  export const isa = (o: any): o is DescribePrincipalIdFormatResult => __isa(o, "DescribePrincipalIdFormatResult");
 }
 
 export interface DescribePublicIpv4PoolsRequest {
@@ -16276,13 +15290,10 @@ export interface DescribePublicIpv4PoolsRequest {
 }
 
 export namespace DescribePublicIpv4PoolsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribePublicIpv4PoolsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePublicIpv4PoolsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePublicIpv4PoolsRequest =>
-    __isa(o, "DescribePublicIpv4PoolsRequest");
+  export const isa = (o: any): o is DescribePublicIpv4PoolsRequest => __isa(o, "DescribePublicIpv4PoolsRequest");
 }
 
 export interface DescribePublicIpv4PoolsResult {
@@ -16299,13 +15310,10 @@ export interface DescribePublicIpv4PoolsResult {
 }
 
 export namespace DescribePublicIpv4PoolsResult {
-  export const filterSensitiveLog = (
-    obj: DescribePublicIpv4PoolsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePublicIpv4PoolsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePublicIpv4PoolsResult =>
-    __isa(o, "DescribePublicIpv4PoolsResult");
+  export const isa = (o: any): o is DescribePublicIpv4PoolsResult => __isa(o, "DescribePublicIpv4PoolsResult");
 }
 
 export interface DescribeRegionsRequest {
@@ -16350,10 +15358,9 @@ export interface DescribeRegionsRequest {
 
 export namespace DescribeRegionsRequest {
   export const filterSensitiveLog = (obj: DescribeRegionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRegionsRequest =>
-    __isa(o, "DescribeRegionsRequest");
+  export const isa = (o: any): o is DescribeRegionsRequest => __isa(o, "DescribeRegionsRequest");
 }
 
 export interface DescribeRegionsResult {
@@ -16366,10 +15373,9 @@ export interface DescribeRegionsResult {
 
 export namespace DescribeRegionsResult {
   export const filterSensitiveLog = (obj: DescribeRegionsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRegionsResult =>
-    __isa(o, "DescribeRegionsResult");
+  export const isa = (o: any): o is DescribeRegionsResult => __isa(o, "DescribeRegionsResult");
 }
 
 /**
@@ -16413,10 +15419,8 @@ export interface DescribeReservedInstancesListingsRequest {
 }
 
 export namespace DescribeReservedInstancesListingsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedInstancesListingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesListingsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeReservedInstancesListingsRequest =>
     __isa(o, "DescribeReservedInstancesListingsRequest");
@@ -16434,10 +15438,8 @@ export interface DescribeReservedInstancesListingsResult {
 }
 
 export namespace DescribeReservedInstancesListingsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedInstancesListingsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesListingsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeReservedInstancesListingsResult =>
     __isa(o, "DescribeReservedInstancesListingsResult");
@@ -16520,14 +15522,10 @@ export interface DescribeReservedInstancesModificationsRequest {
 }
 
 export namespace DescribeReservedInstancesModificationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedInstancesModificationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesModificationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeReservedInstancesModificationsRequest =>
+  export const isa = (o: any): o is DescribeReservedInstancesModificationsRequest =>
     __isa(o, "DescribeReservedInstancesModificationsRequest");
 }
 
@@ -16549,14 +15547,10 @@ export interface DescribeReservedInstancesModificationsResult {
 }
 
 export namespace DescribeReservedInstancesModificationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedInstancesModificationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesModificationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeReservedInstancesModificationsResult =>
+  export const isa = (o: any): o is DescribeReservedInstancesModificationsResult =>
     __isa(o, "DescribeReservedInstancesModificationsResult");
 }
 
@@ -16717,10 +15711,8 @@ export interface DescribeReservedInstancesOfferingsRequest {
 }
 
 export namespace DescribeReservedInstancesOfferingsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedInstancesOfferingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesOfferingsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeReservedInstancesOfferingsRequest =>
     __isa(o, "DescribeReservedInstancesOfferingsRequest");
@@ -16744,10 +15736,8 @@ export interface DescribeReservedInstancesOfferingsResult {
 }
 
 export namespace DescribeReservedInstancesOfferingsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedInstancesOfferingsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesOfferingsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeReservedInstancesOfferingsResult =>
     __isa(o, "DescribeReservedInstancesOfferingsResult");
@@ -16855,13 +15845,10 @@ export interface DescribeReservedInstancesRequest {
 }
 
 export namespace DescribeReservedInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesRequest =>
-    __isa(o, "DescribeReservedInstancesRequest");
+  export const isa = (o: any): o is DescribeReservedInstancesRequest => __isa(o, "DescribeReservedInstancesRequest");
 }
 
 /**
@@ -16876,13 +15863,10 @@ export interface DescribeReservedInstancesResult {
 }
 
 export namespace DescribeReservedInstancesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedInstancesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesResult =>
-    __isa(o, "DescribeReservedInstancesResult");
+  export const isa = (o: any): o is DescribeReservedInstancesResult => __isa(o, "DescribeReservedInstancesResult");
 }
 
 export interface DescribeRouteTablesRequest {
@@ -17024,10 +16008,9 @@ export interface DescribeRouteTablesRequest {
 
 export namespace DescribeRouteTablesRequest {
   export const filterSensitiveLog = (obj: DescribeRouteTablesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRouteTablesRequest =>
-    __isa(o, "DescribeRouteTablesRequest");
+  export const isa = (o: any): o is DescribeRouteTablesRequest => __isa(o, "DescribeRouteTablesRequest");
 }
 
 /**
@@ -17048,10 +16031,9 @@ export interface DescribeRouteTablesResult {
 
 export namespace DescribeRouteTablesResult {
   export const filterSensitiveLog = (obj: DescribeRouteTablesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRouteTablesResult =>
-    __isa(o, "DescribeRouteTablesResult");
+  export const isa = (o: any): o is DescribeRouteTablesResult => __isa(o, "DescribeRouteTablesResult");
 }
 
 /**
@@ -17125,14 +16107,10 @@ export interface DescribeScheduledInstanceAvailabilityRequest {
 }
 
 export namespace DescribeScheduledInstanceAvailabilityRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeScheduledInstanceAvailabilityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeScheduledInstanceAvailabilityRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeScheduledInstanceAvailabilityRequest =>
+  export const isa = (o: any): o is DescribeScheduledInstanceAvailabilityRequest =>
     __isa(o, "DescribeScheduledInstanceAvailabilityRequest");
 }
 
@@ -17153,14 +16131,10 @@ export interface DescribeScheduledInstanceAvailabilityResult {
 }
 
 export namespace DescribeScheduledInstanceAvailabilityResult {
-  export const filterSensitiveLog = (
-    obj: DescribeScheduledInstanceAvailabilityResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeScheduledInstanceAvailabilityResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeScheduledInstanceAvailabilityResult =>
+  export const isa = (o: any): o is DescribeScheduledInstanceAvailabilityResult =>
     __isa(o, "DescribeScheduledInstanceAvailabilityResult");
 }
 
@@ -17224,13 +16198,10 @@ export interface DescribeScheduledInstancesRequest {
 }
 
 export namespace DescribeScheduledInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeScheduledInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeScheduledInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledInstancesRequest =>
-    __isa(o, "DescribeScheduledInstancesRequest");
+  export const isa = (o: any): o is DescribeScheduledInstancesRequest => __isa(o, "DescribeScheduledInstancesRequest");
 }
 
 /**
@@ -17250,13 +16221,10 @@ export interface DescribeScheduledInstancesResult {
 }
 
 export namespace DescribeScheduledInstancesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeScheduledInstancesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeScheduledInstancesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledInstancesResult =>
-    __isa(o, "DescribeScheduledInstancesResult");
+  export const isa = (o: any): o is DescribeScheduledInstancesResult => __isa(o, "DescribeScheduledInstancesResult");
 }
 
 export interface DescribeSecurityGroupReferencesRequest {
@@ -17275,10 +16243,8 @@ export interface DescribeSecurityGroupReferencesRequest {
 }
 
 export namespace DescribeSecurityGroupReferencesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSecurityGroupReferencesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSecurityGroupReferencesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSecurityGroupReferencesRequest =>
     __isa(o, "DescribeSecurityGroupReferencesRequest");
@@ -17293,10 +16259,8 @@ export interface DescribeSecurityGroupReferencesResult {
 }
 
 export namespace DescribeSecurityGroupReferencesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeSecurityGroupReferencesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSecurityGroupReferencesResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSecurityGroupReferencesResult =>
     __isa(o, "DescribeSecurityGroupReferencesResult");
@@ -17469,13 +16433,10 @@ export interface DescribeSecurityGroupsRequest {
 }
 
 export namespace DescribeSecurityGroupsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSecurityGroupsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSecurityGroupsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityGroupsRequest =>
-    __isa(o, "DescribeSecurityGroupsRequest");
+  export const isa = (o: any): o is DescribeSecurityGroupsRequest => __isa(o, "DescribeSecurityGroupsRequest");
 }
 
 export interface DescribeSecurityGroupsResult {
@@ -17492,13 +16453,10 @@ export interface DescribeSecurityGroupsResult {
 }
 
 export namespace DescribeSecurityGroupsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeSecurityGroupsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSecurityGroupsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityGroupsResult =>
-    __isa(o, "DescribeSecurityGroupsResult");
+  export const isa = (o: any): o is DescribeSecurityGroupsResult => __isa(o, "DescribeSecurityGroupsResult");
 }
 
 export interface DescribeSnapshotAttributeRequest {
@@ -17522,13 +16480,10 @@ export interface DescribeSnapshotAttributeRequest {
 }
 
 export namespace DescribeSnapshotAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSnapshotAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSnapshotAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotAttributeRequest =>
-    __isa(o, "DescribeSnapshotAttributeRequest");
+  export const isa = (o: any): o is DescribeSnapshotAttributeRequest => __isa(o, "DescribeSnapshotAttributeRequest");
 }
 
 export interface DescribeSnapshotAttributeResult {
@@ -17551,13 +16506,10 @@ export interface DescribeSnapshotAttributeResult {
 }
 
 export namespace DescribeSnapshotAttributeResult {
-  export const filterSensitiveLog = (
-    obj: DescribeSnapshotAttributeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSnapshotAttributeResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotAttributeResult =>
-    __isa(o, "DescribeSnapshotAttributeResult");
+  export const isa = (o: any): o is DescribeSnapshotAttributeResult => __isa(o, "DescribeSnapshotAttributeResult");
 }
 
 export interface DescribeSnapshotsRequest {
@@ -17672,10 +16624,9 @@ export interface DescribeSnapshotsRequest {
 
 export namespace DescribeSnapshotsRequest {
   export const filterSensitiveLog = (obj: DescribeSnapshotsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotsRequest =>
-    __isa(o, "DescribeSnapshotsRequest");
+  export const isa = (o: any): o is DescribeSnapshotsRequest => __isa(o, "DescribeSnapshotsRequest");
 }
 
 export interface DescribeSnapshotsResult {
@@ -17696,10 +16647,9 @@ export interface DescribeSnapshotsResult {
 
 export namespace DescribeSnapshotsResult {
   export const filterSensitiveLog = (obj: DescribeSnapshotsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotsResult =>
-    __isa(o, "DescribeSnapshotsResult");
+  export const isa = (o: any): o is DescribeSnapshotsResult => __isa(o, "DescribeSnapshotsResult");
 }
 
 /**
@@ -17716,10 +16666,8 @@ export interface DescribeSpotDatafeedSubscriptionRequest {
 }
 
 export namespace DescribeSpotDatafeedSubscriptionRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotDatafeedSubscriptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotDatafeedSubscriptionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSpotDatafeedSubscriptionRequest =>
     __isa(o, "DescribeSpotDatafeedSubscriptionRequest");
@@ -17737,10 +16685,8 @@ export interface DescribeSpotDatafeedSubscriptionResult {
 }
 
 export namespace DescribeSpotDatafeedSubscriptionResult {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotDatafeedSubscriptionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotDatafeedSubscriptionResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSpotDatafeedSubscriptionResult =>
     __isa(o, "DescribeSpotDatafeedSubscriptionResult");
@@ -17778,13 +16724,10 @@ export interface DescribeSpotFleetInstancesRequest {
 }
 
 export namespace DescribeSpotFleetInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotFleetInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotFleetInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetInstancesRequest =>
-    __isa(o, "DescribeSpotFleetInstancesRequest");
+  export const isa = (o: any): o is DescribeSpotFleetInstancesRequest => __isa(o, "DescribeSpotFleetInstancesRequest");
 }
 
 /**
@@ -17810,10 +16753,8 @@ export interface DescribeSpotFleetInstancesResponse {
 }
 
 export namespace DescribeSpotFleetInstancesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotFleetInstancesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotFleetInstancesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSpotFleetInstancesResponse =>
     __isa(o, "DescribeSpotFleetInstancesResponse");
@@ -17861,10 +16802,8 @@ export interface DescribeSpotFleetRequestHistoryRequest {
 }
 
 export namespace DescribeSpotFleetRequestHistoryRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotFleetRequestHistoryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotFleetRequestHistoryRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSpotFleetRequestHistoryRequest =>
     __isa(o, "DescribeSpotFleetRequestHistoryRequest");
@@ -17904,10 +16843,8 @@ export interface DescribeSpotFleetRequestHistoryResponse {
 }
 
 export namespace DescribeSpotFleetRequestHistoryResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotFleetRequestHistoryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotFleetRequestHistoryResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSpotFleetRequestHistoryResponse =>
     __isa(o, "DescribeSpotFleetRequestHistoryResponse");
@@ -17945,13 +16882,10 @@ export interface DescribeSpotFleetRequestsRequest {
 }
 
 export namespace DescribeSpotFleetRequestsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotFleetRequestsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotFleetRequestsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetRequestsRequest =>
-    __isa(o, "DescribeSpotFleetRequestsRequest");
+  export const isa = (o: any): o is DescribeSpotFleetRequestsRequest => __isa(o, "DescribeSpotFleetRequestsRequest");
 }
 
 /**
@@ -17971,13 +16905,10 @@ export interface DescribeSpotFleetRequestsResponse {
 }
 
 export namespace DescribeSpotFleetRequestsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotFleetRequestsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotFleetRequestsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetRequestsResponse =>
-    __isa(o, "DescribeSpotFleetRequestsResponse");
+  export const isa = (o: any): o is DescribeSpotFleetRequestsResponse => __isa(o, "DescribeSpotFleetRequestsResponse");
 }
 
 /**
@@ -18187,10 +17118,8 @@ export interface DescribeSpotInstanceRequestsRequest {
 }
 
 export namespace DescribeSpotInstanceRequestsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotInstanceRequestsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotInstanceRequestsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSpotInstanceRequestsRequest =>
     __isa(o, "DescribeSpotInstanceRequestsRequest");
@@ -18214,10 +17143,8 @@ export interface DescribeSpotInstanceRequestsResult {
 }
 
 export namespace DescribeSpotInstanceRequestsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotInstanceRequestsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotInstanceRequestsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSpotInstanceRequestsResult =>
     __isa(o, "DescribeSpotInstanceRequestsResult");
@@ -18309,13 +17236,10 @@ export interface DescribeSpotPriceHistoryRequest {
 }
 
 export namespace DescribeSpotPriceHistoryRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotPriceHistoryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotPriceHistoryRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotPriceHistoryRequest =>
-    __isa(o, "DescribeSpotPriceHistoryRequest");
+  export const isa = (o: any): o is DescribeSpotPriceHistoryRequest => __isa(o, "DescribeSpotPriceHistoryRequest");
 }
 
 /**
@@ -18336,13 +17260,10 @@ export interface DescribeSpotPriceHistoryResult {
 }
 
 export namespace DescribeSpotPriceHistoryResult {
-  export const filterSensitiveLog = (
-    obj: DescribeSpotPriceHistoryResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSpotPriceHistoryResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotPriceHistoryResult =>
-    __isa(o, "DescribeSpotPriceHistoryResult");
+  export const isa = (o: any): o is DescribeSpotPriceHistoryResult => __isa(o, "DescribeSpotPriceHistoryResult");
 }
 
 export interface DescribeStaleSecurityGroupsRequest {
@@ -18371,10 +17292,8 @@ export interface DescribeStaleSecurityGroupsRequest {
 }
 
 export namespace DescribeStaleSecurityGroupsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeStaleSecurityGroupsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeStaleSecurityGroupsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeStaleSecurityGroupsRequest =>
     __isa(o, "DescribeStaleSecurityGroupsRequest");
@@ -18394,13 +17313,10 @@ export interface DescribeStaleSecurityGroupsResult {
 }
 
 export namespace DescribeStaleSecurityGroupsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeStaleSecurityGroupsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeStaleSecurityGroupsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStaleSecurityGroupsResult =>
-    __isa(o, "DescribeStaleSecurityGroupsResult");
+  export const isa = (o: any): o is DescribeStaleSecurityGroupsResult => __isa(o, "DescribeStaleSecurityGroupsResult");
 }
 
 export interface DescribeSubnetsRequest {
@@ -18510,10 +17426,9 @@ export interface DescribeSubnetsRequest {
 
 export namespace DescribeSubnetsRequest {
   export const filterSensitiveLog = (obj: DescribeSubnetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSubnetsRequest =>
-    __isa(o, "DescribeSubnetsRequest");
+  export const isa = (o: any): o is DescribeSubnetsRequest => __isa(o, "DescribeSubnetsRequest");
 }
 
 export interface DescribeSubnetsResult {
@@ -18531,10 +17446,9 @@ export interface DescribeSubnetsResult {
 
 export namespace DescribeSubnetsResult {
   export const filterSensitiveLog = (obj: DescribeSubnetsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSubnetsResult =>
-    __isa(o, "DescribeSubnetsResult");
+  export const isa = (o: any): o is DescribeSubnetsResult => __isa(o, "DescribeSubnetsResult");
 }
 
 export interface DescribeTagsRequest {
@@ -18600,10 +17514,9 @@ export interface DescribeTagsRequest {
 
 export namespace DescribeTagsRequest {
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsRequest =>
-    __isa(o, "DescribeTagsRequest");
+  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResult {
@@ -18622,10 +17535,9 @@ export interface DescribeTagsResult {
 
 export namespace DescribeTagsResult {
   export const filterSensitiveLog = (obj: DescribeTagsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsResult =>
-    __isa(o, "DescribeTagsResult");
+  export const isa = (o: any): o is DescribeTagsResult => __isa(o, "DescribeTagsResult");
 }
 
 export interface DescribeTrafficMirrorFiltersRequest {
@@ -18670,10 +17582,8 @@ export interface DescribeTrafficMirrorFiltersRequest {
 }
 
 export namespace DescribeTrafficMirrorFiltersRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTrafficMirrorFiltersRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorFiltersRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTrafficMirrorFiltersRequest =>
     __isa(o, "DescribeTrafficMirrorFiltersRequest");
@@ -18693,10 +17603,8 @@ export interface DescribeTrafficMirrorFiltersResult {
 }
 
 export namespace DescribeTrafficMirrorFiltersResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTrafficMirrorFiltersResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorFiltersResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTrafficMirrorFiltersResult =>
     __isa(o, "DescribeTrafficMirrorFiltersResult");
@@ -18772,10 +17680,8 @@ export interface DescribeTrafficMirrorSessionsRequest {
 }
 
 export namespace DescribeTrafficMirrorSessionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTrafficMirrorSessionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorSessionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTrafficMirrorSessionsRequest =>
     __isa(o, "DescribeTrafficMirrorSessionsRequest");
@@ -18795,10 +17701,8 @@ export interface DescribeTrafficMirrorSessionsResult {
 }
 
 export namespace DescribeTrafficMirrorSessionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTrafficMirrorSessionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorSessionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTrafficMirrorSessionsResult =>
     __isa(o, "DescribeTrafficMirrorSessionsResult");
@@ -18858,10 +17762,8 @@ export interface DescribeTrafficMirrorTargetsRequest {
 }
 
 export namespace DescribeTrafficMirrorTargetsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTrafficMirrorTargetsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorTargetsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTrafficMirrorTargetsRequest =>
     __isa(o, "DescribeTrafficMirrorTargetsRequest");
@@ -18881,10 +17783,8 @@ export interface DescribeTrafficMirrorTargetsResult {
 }
 
 export namespace DescribeTrafficMirrorTargetsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTrafficMirrorTargetsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorTargetsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTrafficMirrorTargetsResult =>
     __isa(o, "DescribeTrafficMirrorTargetsResult");
@@ -18961,10 +17861,8 @@ export interface DescribeTransitGatewayAttachmentsRequest {
 }
 
 export namespace DescribeTransitGatewayAttachmentsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayAttachmentsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayAttachmentsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTransitGatewayAttachmentsRequest =>
     __isa(o, "DescribeTransitGatewayAttachmentsRequest");
@@ -18984,10 +17882,8 @@ export interface DescribeTransitGatewayAttachmentsResult {
 }
 
 export namespace DescribeTransitGatewayAttachmentsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayAttachmentsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayAttachmentsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTransitGatewayAttachmentsResult =>
     __isa(o, "DescribeTransitGatewayAttachmentsResult");
@@ -19039,14 +17935,10 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
 }
 
 export namespace DescribeTransitGatewayMulticastDomainsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayMulticastDomainsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayMulticastDomainsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeTransitGatewayMulticastDomainsRequest =>
+  export const isa = (o: any): o is DescribeTransitGatewayMulticastDomainsRequest =>
     __isa(o, "DescribeTransitGatewayMulticastDomainsRequest");
 }
 
@@ -19064,14 +17956,10 @@ export interface DescribeTransitGatewayMulticastDomainsResult {
 }
 
 export namespace DescribeTransitGatewayMulticastDomainsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayMulticastDomainsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayMulticastDomainsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeTransitGatewayMulticastDomainsResult =>
+  export const isa = (o: any): o is DescribeTransitGatewayMulticastDomainsResult =>
     __isa(o, "DescribeTransitGatewayMulticastDomainsResult");
 }
 
@@ -19107,14 +17995,10 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
 }
 
 export namespace DescribeTransitGatewayPeeringAttachmentsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayPeeringAttachmentsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayPeeringAttachmentsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeTransitGatewayPeeringAttachmentsRequest =>
+  export const isa = (o: any): o is DescribeTransitGatewayPeeringAttachmentsRequest =>
     __isa(o, "DescribeTransitGatewayPeeringAttachmentsRequest");
 }
 
@@ -19132,14 +18016,10 @@ export interface DescribeTransitGatewayPeeringAttachmentsResult {
 }
 
 export namespace DescribeTransitGatewayPeeringAttachmentsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayPeeringAttachmentsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayPeeringAttachmentsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeTransitGatewayPeeringAttachmentsResult =>
+  export const isa = (o: any): o is DescribeTransitGatewayPeeringAttachmentsResult =>
     __isa(o, "DescribeTransitGatewayPeeringAttachmentsResult");
 }
 
@@ -19199,10 +18079,8 @@ export interface DescribeTransitGatewayRouteTablesRequest {
 }
 
 export namespace DescribeTransitGatewayRouteTablesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayRouteTablesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayRouteTablesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTransitGatewayRouteTablesRequest =>
     __isa(o, "DescribeTransitGatewayRouteTablesRequest");
@@ -19222,10 +18100,8 @@ export interface DescribeTransitGatewayRouteTablesResult {
 }
 
 export namespace DescribeTransitGatewayRouteTablesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayRouteTablesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayRouteTablesResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTransitGatewayRouteTablesResult =>
     __isa(o, "DescribeTransitGatewayRouteTablesResult");
@@ -19311,13 +18187,10 @@ export interface DescribeTransitGatewaysRequest {
 }
 
 export namespace DescribeTransitGatewaysRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewaysRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewaysRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewaysRequest =>
-    __isa(o, "DescribeTransitGatewaysRequest");
+  export const isa = (o: any): o is DescribeTransitGatewaysRequest => __isa(o, "DescribeTransitGatewaysRequest");
 }
 
 export interface DescribeTransitGatewaysResult {
@@ -19334,13 +18207,10 @@ export interface DescribeTransitGatewaysResult {
 }
 
 export namespace DescribeTransitGatewaysResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewaysResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewaysResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewaysResult =>
-    __isa(o, "DescribeTransitGatewaysResult");
+  export const isa = (o: any): o is DescribeTransitGatewaysResult => __isa(o, "DescribeTransitGatewaysResult");
 }
 
 export interface DescribeTransitGatewayVpcAttachmentsRequest {
@@ -19393,14 +18263,10 @@ export interface DescribeTransitGatewayVpcAttachmentsRequest {
 }
 
 export namespace DescribeTransitGatewayVpcAttachmentsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayVpcAttachmentsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayVpcAttachmentsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeTransitGatewayVpcAttachmentsRequest =>
+  export const isa = (o: any): o is DescribeTransitGatewayVpcAttachmentsRequest =>
     __isa(o, "DescribeTransitGatewayVpcAttachmentsRequest");
 }
 
@@ -19418,14 +18284,10 @@ export interface DescribeTransitGatewayVpcAttachmentsResult {
 }
 
 export namespace DescribeTransitGatewayVpcAttachmentsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeTransitGatewayVpcAttachmentsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayVpcAttachmentsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeTransitGatewayVpcAttachmentsResult =>
+  export const isa = (o: any): o is DescribeTransitGatewayVpcAttachmentsResult =>
     __isa(o, "DescribeTransitGatewayVpcAttachmentsResult");
 }
 
@@ -19450,13 +18312,10 @@ export interface DescribeVolumeAttributeRequest {
 }
 
 export namespace DescribeVolumeAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVolumeAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVolumeAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumeAttributeRequest =>
-    __isa(o, "DescribeVolumeAttributeRequest");
+  export const isa = (o: any): o is DescribeVolumeAttributeRequest => __isa(o, "DescribeVolumeAttributeRequest");
 }
 
 export interface DescribeVolumeAttributeResult {
@@ -19478,13 +18337,10 @@ export interface DescribeVolumeAttributeResult {
 }
 
 export namespace DescribeVolumeAttributeResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVolumeAttributeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVolumeAttributeResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumeAttributeResult =>
-    __isa(o, "DescribeVolumeAttributeResult");
+  export const isa = (o: any): o is DescribeVolumeAttributeResult => __isa(o, "DescribeVolumeAttributeResult");
 }
 
 export interface DescribeVolumesModificationsRequest {
@@ -19522,10 +18378,8 @@ export interface DescribeVolumesModificationsRequest {
 }
 
 export namespace DescribeVolumesModificationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVolumesModificationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVolumesModificationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVolumesModificationsRequest =>
     __isa(o, "DescribeVolumesModificationsRequest");
@@ -19545,10 +18399,8 @@ export interface DescribeVolumesModificationsResult {
 }
 
 export namespace DescribeVolumesModificationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVolumesModificationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVolumesModificationsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVolumesModificationsResult =>
     __isa(o, "DescribeVolumesModificationsResult");
@@ -19672,10 +18524,9 @@ export interface DescribeVolumesRequest {
 
 export namespace DescribeVolumesRequest {
   export const filterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumesRequest =>
-    __isa(o, "DescribeVolumesRequest");
+  export const isa = (o: any): o is DescribeVolumesRequest => __isa(o, "DescribeVolumesRequest");
 }
 
 export interface DescribeVolumesResult {
@@ -19696,10 +18547,9 @@ export interface DescribeVolumesResult {
 
 export namespace DescribeVolumesResult {
   export const filterSensitiveLog = (obj: DescribeVolumesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumesResult =>
-    __isa(o, "DescribeVolumesResult");
+  export const isa = (o: any): o is DescribeVolumesResult => __isa(o, "DescribeVolumesResult");
 }
 
 export interface DescribeVolumeStatusRequest {
@@ -19805,13 +18655,10 @@ export interface DescribeVolumeStatusRequest {
 }
 
 export namespace DescribeVolumeStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVolumeStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVolumeStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumeStatusRequest =>
-    __isa(o, "DescribeVolumeStatusRequest");
+  export const isa = (o: any): o is DescribeVolumeStatusRequest => __isa(o, "DescribeVolumeStatusRequest");
 }
 
 export interface DescribeVolumeStatusResult {
@@ -19830,10 +18677,9 @@ export interface DescribeVolumeStatusResult {
 
 export namespace DescribeVolumeStatusResult {
   export const filterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumeStatusResult =>
-    __isa(o, "DescribeVolumeStatusResult");
+  export const isa = (o: any): o is DescribeVolumeStatusResult => __isa(o, "DescribeVolumeStatusResult");
 }
 
 export interface DescribeVpcAttributeRequest {
@@ -19857,13 +18703,10 @@ export interface DescribeVpcAttributeRequest {
 }
 
 export namespace DescribeVpcAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcAttributeRequest =>
-    __isa(o, "DescribeVpcAttributeRequest");
+  export const isa = (o: any): o is DescribeVpcAttributeRequest => __isa(o, "DescribeVpcAttributeRequest");
 }
 
 export interface DescribeVpcAttributeResult {
@@ -19891,10 +18734,9 @@ export interface DescribeVpcAttributeResult {
 
 export namespace DescribeVpcAttributeResult {
   export const filterSensitiveLog = (obj: DescribeVpcAttributeResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcAttributeResult =>
-    __isa(o, "DescribeVpcAttributeResult");
+  export const isa = (o: any): o is DescribeVpcAttributeResult => __isa(o, "DescribeVpcAttributeResult");
 }
 
 export interface DescribeVpcClassicLinkDnsSupportRequest {
@@ -19917,10 +18759,8 @@ export interface DescribeVpcClassicLinkDnsSupportRequest {
 }
 
 export namespace DescribeVpcClassicLinkDnsSupportRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcClassicLinkDnsSupportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcClassicLinkDnsSupportRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVpcClassicLinkDnsSupportRequest =>
     __isa(o, "DescribeVpcClassicLinkDnsSupportRequest");
@@ -19940,10 +18780,8 @@ export interface DescribeVpcClassicLinkDnsSupportResult {
 }
 
 export namespace DescribeVpcClassicLinkDnsSupportResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcClassicLinkDnsSupportResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcClassicLinkDnsSupportResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVpcClassicLinkDnsSupportResult =>
     __isa(o, "DescribeVpcClassicLinkDnsSupportResult");
@@ -19986,13 +18824,10 @@ export interface DescribeVpcClassicLinkRequest {
 }
 
 export namespace DescribeVpcClassicLinkRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcClassicLinkRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcClassicLinkRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcClassicLinkRequest =>
-    __isa(o, "DescribeVpcClassicLinkRequest");
+  export const isa = (o: any): o is DescribeVpcClassicLinkRequest => __isa(o, "DescribeVpcClassicLinkRequest");
 }
 
 export interface DescribeVpcClassicLinkResult {
@@ -20004,13 +18839,10 @@ export interface DescribeVpcClassicLinkResult {
 }
 
 export namespace DescribeVpcClassicLinkResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcClassicLinkResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcClassicLinkResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcClassicLinkResult =>
-    __isa(o, "DescribeVpcClassicLinkResult");
+  export const isa = (o: any): o is DescribeVpcClassicLinkResult => __isa(o, "DescribeVpcClassicLinkResult");
 }
 
 export interface DescribeVpcEndpointConnectionNotificationsRequest {
@@ -20075,14 +18907,10 @@ export interface DescribeVpcEndpointConnectionNotificationsRequest {
 }
 
 export namespace DescribeVpcEndpointConnectionNotificationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointConnectionNotificationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionNotificationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeVpcEndpointConnectionNotificationsRequest =>
+  export const isa = (o: any): o is DescribeVpcEndpointConnectionNotificationsRequest =>
     __isa(o, "DescribeVpcEndpointConnectionNotificationsRequest");
 }
 
@@ -20101,14 +18929,10 @@ export interface DescribeVpcEndpointConnectionNotificationsResult {
 }
 
 export namespace DescribeVpcEndpointConnectionNotificationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointConnectionNotificationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionNotificationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeVpcEndpointConnectionNotificationsResult =>
+  export const isa = (o: any): o is DescribeVpcEndpointConnectionNotificationsResult =>
     __isa(o, "DescribeVpcEndpointConnectionNotificationsResult");
 }
 
@@ -20164,10 +18988,8 @@ export interface DescribeVpcEndpointConnectionsRequest {
 }
 
 export namespace DescribeVpcEndpointConnectionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointConnectionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVpcEndpointConnectionsRequest =>
     __isa(o, "DescribeVpcEndpointConnectionsRequest");
@@ -20187,10 +19009,8 @@ export interface DescribeVpcEndpointConnectionsResult {
 }
 
 export namespace DescribeVpcEndpointConnectionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointConnectionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVpcEndpointConnectionsResult =>
     __isa(o, "DescribeVpcEndpointConnectionsResult");
@@ -20255,14 +19075,10 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
 }
 
 export namespace DescribeVpcEndpointServiceConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointServiceConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointServiceConfigurationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeVpcEndpointServiceConfigurationsRequest =>
+  export const isa = (o: any): o is DescribeVpcEndpointServiceConfigurationsRequest =>
     __isa(o, "DescribeVpcEndpointServiceConfigurationsRequest");
 }
 
@@ -20280,14 +19096,10 @@ export interface DescribeVpcEndpointServiceConfigurationsResult {
 }
 
 export namespace DescribeVpcEndpointServiceConfigurationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointServiceConfigurationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointServiceConfigurationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeVpcEndpointServiceConfigurationsResult =>
+  export const isa = (o: any): o is DescribeVpcEndpointServiceConfigurationsResult =>
     __isa(o, "DescribeVpcEndpointServiceConfigurationsResult");
 }
 
@@ -20338,14 +19150,10 @@ export interface DescribeVpcEndpointServicePermissionsRequest {
 }
 
 export namespace DescribeVpcEndpointServicePermissionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointServicePermissionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointServicePermissionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeVpcEndpointServicePermissionsRequest =>
+  export const isa = (o: any): o is DescribeVpcEndpointServicePermissionsRequest =>
     __isa(o, "DescribeVpcEndpointServicePermissionsRequest");
 }
 
@@ -20363,14 +19171,10 @@ export interface DescribeVpcEndpointServicePermissionsResult {
 }
 
 export namespace DescribeVpcEndpointServicePermissionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointServicePermissionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointServicePermissionsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeVpcEndpointServicePermissionsResult =>
+  export const isa = (o: any): o is DescribeVpcEndpointServicePermissionsResult =>
     __isa(o, "DescribeVpcEndpointServicePermissionsResult");
 }
 
@@ -20423,10 +19227,8 @@ export interface DescribeVpcEndpointServicesRequest {
 }
 
 export namespace DescribeVpcEndpointServicesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointServicesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointServicesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVpcEndpointServicesRequest =>
     __isa(o, "DescribeVpcEndpointServicesRequest");
@@ -20454,13 +19256,10 @@ export interface DescribeVpcEndpointServicesResult {
 }
 
 export namespace DescribeVpcEndpointServicesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointServicesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointServicesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointServicesResult =>
-    __isa(o, "DescribeVpcEndpointServicesResult");
+  export const isa = (o: any): o is DescribeVpcEndpointServicesResult => __isa(o, "DescribeVpcEndpointServicesResult");
 }
 
 /**
@@ -20527,13 +19326,10 @@ export interface DescribeVpcEndpointsRequest {
 }
 
 export namespace DescribeVpcEndpointsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcEndpointsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointsRequest =>
-    __isa(o, "DescribeVpcEndpointsRequest");
+  export const isa = (o: any): o is DescribeVpcEndpointsRequest => __isa(o, "DescribeVpcEndpointsRequest");
 }
 
 /**
@@ -20554,10 +19350,9 @@ export interface DescribeVpcEndpointsResult {
 
 export namespace DescribeVpcEndpointsResult {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointsResult =>
-    __isa(o, "DescribeVpcEndpointsResult");
+  export const isa = (o: any): o is DescribeVpcEndpointsResult => __isa(o, "DescribeVpcEndpointsResult");
 }
 
 export interface DescribeVpcPeeringConnectionsRequest {
@@ -20654,10 +19449,8 @@ export interface DescribeVpcPeeringConnectionsRequest {
 }
 
 export namespace DescribeVpcPeeringConnectionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcPeeringConnectionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVpcPeeringConnectionsRequest =>
     __isa(o, "DescribeVpcPeeringConnectionsRequest");
@@ -20677,10 +19470,8 @@ export interface DescribeVpcPeeringConnectionsResult {
 }
 
 export namespace DescribeVpcPeeringConnectionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpcPeeringConnectionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeVpcPeeringConnectionsResult =>
     __isa(o, "DescribeVpcPeeringConnectionsResult");
@@ -20792,10 +19583,9 @@ export interface DescribeVpcsRequest {
 
 export namespace DescribeVpcsRequest {
   export const filterSensitiveLog = (obj: DescribeVpcsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcsRequest =>
-    __isa(o, "DescribeVpcsRequest");
+  export const isa = (o: any): o is DescribeVpcsRequest => __isa(o, "DescribeVpcsRequest");
 }
 
 export interface DescribeVpcsResult {
@@ -20813,10 +19603,9 @@ export interface DescribeVpcsResult {
 
 export namespace DescribeVpcsResult {
   export const filterSensitiveLog = (obj: DescribeVpcsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcsResult =>
-    __isa(o, "DescribeVpcsResult");
+  export const isa = (o: any): o is DescribeVpcsResult => __isa(o, "DescribeVpcsResult");
 }
 
 /**
@@ -20895,13 +19684,10 @@ export interface DescribeVpnConnectionsRequest {
 }
 
 export namespace DescribeVpnConnectionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVpnConnectionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpnConnectionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpnConnectionsRequest =>
-    __isa(o, "DescribeVpnConnectionsRequest");
+  export const isa = (o: any): o is DescribeVpnConnectionsRequest => __isa(o, "DescribeVpnConnectionsRequest");
 }
 
 /**
@@ -20916,13 +19702,10 @@ export interface DescribeVpnConnectionsResult {
 }
 
 export namespace DescribeVpnConnectionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeVpnConnectionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpnConnectionsResult =>
-    __isa(o, "DescribeVpnConnectionsResult");
+  export const isa = (o: any): o is DescribeVpnConnectionsResult => __isa(o, "DescribeVpnConnectionsResult");
 }
 
 /**
@@ -20990,10 +19773,9 @@ export interface DescribeVpnGatewaysRequest {
 
 export namespace DescribeVpnGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeVpnGatewaysRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpnGatewaysRequest =>
-    __isa(o, "DescribeVpnGatewaysRequest");
+  export const isa = (o: any): o is DescribeVpnGatewaysRequest => __isa(o, "DescribeVpnGatewaysRequest");
 }
 
 /**
@@ -21009,10 +19791,9 @@ export interface DescribeVpnGatewaysResult {
 
 export namespace DescribeVpnGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeVpnGatewaysResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVpnGatewaysResult =>
-    __isa(o, "DescribeVpnGatewaysResult");
+  export const isa = (o: any): o is DescribeVpnGatewaysResult => __isa(o, "DescribeVpnGatewaysResult");
 }
 
 export interface DetachClassicLinkVpcRequest {
@@ -21036,13 +19817,10 @@ export interface DetachClassicLinkVpcRequest {
 }
 
 export namespace DetachClassicLinkVpcRequest {
-  export const filterSensitiveLog = (
-    obj: DetachClassicLinkVpcRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DetachClassicLinkVpcRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DetachClassicLinkVpcRequest =>
-    __isa(o, "DetachClassicLinkVpcRequest");
+  export const isa = (o: any): o is DetachClassicLinkVpcRequest => __isa(o, "DetachClassicLinkVpcRequest");
 }
 
 export interface DetachClassicLinkVpcResult {
@@ -21055,10 +19833,9 @@ export interface DetachClassicLinkVpcResult {
 
 export namespace DetachClassicLinkVpcResult {
   export const filterSensitiveLog = (obj: DetachClassicLinkVpcResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetachClassicLinkVpcResult =>
-    __isa(o, "DetachClassicLinkVpcResult");
+  export const isa = (o: any): o is DetachClassicLinkVpcResult => __isa(o, "DetachClassicLinkVpcResult");
 }
 
 export interface DetachInternetGatewayRequest {
@@ -21082,13 +19859,10 @@ export interface DetachInternetGatewayRequest {
 }
 
 export namespace DetachInternetGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: DetachInternetGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DetachInternetGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DetachInternetGatewayRequest =>
-    __isa(o, "DetachInternetGatewayRequest");
+  export const isa = (o: any): o is DetachInternetGatewayRequest => __isa(o, "DetachInternetGatewayRequest");
 }
 
 /**
@@ -21132,13 +19906,10 @@ export interface DetachNetworkInterfaceRequest {
 }
 
 export namespace DetachNetworkInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: DetachNetworkInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DetachNetworkInterfaceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DetachNetworkInterfaceRequest =>
-    __isa(o, "DetachNetworkInterfaceRequest");
+  export const isa = (o: any): o is DetachNetworkInterfaceRequest => __isa(o, "DetachNetworkInterfaceRequest");
 }
 
 export interface DetachVolumeRequest {
@@ -21178,10 +19949,9 @@ export interface DetachVolumeRequest {
 
 export namespace DetachVolumeRequest {
   export const filterSensitiveLog = (obj: DetachVolumeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetachVolumeRequest =>
-    __isa(o, "DetachVolumeRequest");
+  export const isa = (o: any): o is DetachVolumeRequest => __isa(o, "DetachVolumeRequest");
 }
 
 /**
@@ -21209,10 +19979,9 @@ export interface DetachVpnGatewayRequest {
 
 export namespace DetachVpnGatewayRequest {
   export const filterSensitiveLog = (obj: DetachVpnGatewayRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetachVpnGatewayRequest =>
-    __isa(o, "DetachVpnGatewayRequest");
+  export const isa = (o: any): o is DetachVpnGatewayRequest => __isa(o, "DetachVpnGatewayRequest");
 }
 
 export type DeviceType = "ebs" | "instance-store";
@@ -21235,10 +20004,9 @@ export interface DhcpConfiguration {
 
 export namespace DhcpConfiguration {
   export const filterSensitiveLog = (obj: DhcpConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DhcpConfiguration =>
-    __isa(o, "DhcpConfiguration");
+  export const isa = (o: any): o is DhcpConfiguration => __isa(o, "DhcpConfiguration");
 }
 
 /**
@@ -21269,7 +20037,7 @@ export interface DhcpOptions {
 
 export namespace DhcpOptions {
   export const filterSensitiveLog = (obj: DhcpOptions): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DhcpOptions => __isa(o, "DhcpOptions");
 }
@@ -21286,13 +20054,10 @@ export interface DirectoryServiceAuthentication {
 }
 
 export namespace DirectoryServiceAuthentication {
-  export const filterSensitiveLog = (
-    obj: DirectoryServiceAuthentication
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DirectoryServiceAuthentication): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DirectoryServiceAuthentication =>
-    __isa(o, "DirectoryServiceAuthentication");
+  export const isa = (o: any): o is DirectoryServiceAuthentication => __isa(o, "DirectoryServiceAuthentication");
 }
 
 /**
@@ -21307,10 +20072,8 @@ export interface DirectoryServiceAuthenticationRequest {
 }
 
 export namespace DirectoryServiceAuthenticationRequest {
-  export const filterSensitiveLog = (
-    obj: DirectoryServiceAuthenticationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DirectoryServiceAuthenticationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DirectoryServiceAuthenticationRequest =>
     __isa(o, "DirectoryServiceAuthenticationRequest");
@@ -21327,10 +20090,8 @@ export interface DisableEbsEncryptionByDefaultRequest {
 }
 
 export namespace DisableEbsEncryptionByDefaultRequest {
-  export const filterSensitiveLog = (
-    obj: DisableEbsEncryptionByDefaultRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableEbsEncryptionByDefaultRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableEbsEncryptionByDefaultRequest =>
     __isa(o, "DisableEbsEncryptionByDefaultRequest");
@@ -21345,10 +20106,8 @@ export interface DisableEbsEncryptionByDefaultResult {
 }
 
 export namespace DisableEbsEncryptionByDefaultResult {
-  export const filterSensitiveLog = (
-    obj: DisableEbsEncryptionByDefaultResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableEbsEncryptionByDefaultResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableEbsEncryptionByDefaultResult =>
     __isa(o, "DisableEbsEncryptionByDefaultResult");
@@ -21371,10 +20130,8 @@ export interface DisableFastSnapshotRestoreErrorItem {
 }
 
 export namespace DisableFastSnapshotRestoreErrorItem {
-  export const filterSensitiveLog = (
-    obj: DisableFastSnapshotRestoreErrorItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreErrorItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableFastSnapshotRestoreErrorItem =>
     __isa(o, "DisableFastSnapshotRestoreErrorItem");
@@ -21401,10 +20158,8 @@ export interface DisableFastSnapshotRestoresRequest {
 }
 
 export namespace DisableFastSnapshotRestoresRequest {
-  export const filterSensitiveLog = (
-    obj: DisableFastSnapshotRestoresRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoresRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableFastSnapshotRestoresRequest =>
     __isa(o, "DisableFastSnapshotRestoresRequest");
@@ -21424,13 +20179,10 @@ export interface DisableFastSnapshotRestoresResult {
 }
 
 export namespace DisableFastSnapshotRestoresResult {
-  export const filterSensitiveLog = (
-    obj: DisableFastSnapshotRestoresResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoresResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisableFastSnapshotRestoresResult =>
-    __isa(o, "DisableFastSnapshotRestoresResult");
+  export const isa = (o: any): o is DisableFastSnapshotRestoresResult => __isa(o, "DisableFastSnapshotRestoresResult");
 }
 
 /**
@@ -21450,10 +20202,8 @@ export interface DisableFastSnapshotRestoreStateError {
 }
 
 export namespace DisableFastSnapshotRestoreStateError {
-  export const filterSensitiveLog = (
-    obj: DisableFastSnapshotRestoreStateError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreStateError): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableFastSnapshotRestoreStateError =>
     __isa(o, "DisableFastSnapshotRestoreStateError");
@@ -21476,10 +20226,8 @@ export interface DisableFastSnapshotRestoreStateErrorItem {
 }
 
 export namespace DisableFastSnapshotRestoreStateErrorItem {
-  export const filterSensitiveLog = (
-    obj: DisableFastSnapshotRestoreStateErrorItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreStateErrorItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableFastSnapshotRestoreStateErrorItem =>
     __isa(o, "DisableFastSnapshotRestoreStateErrorItem");
@@ -21559,10 +20307,8 @@ export interface DisableFastSnapshotRestoreSuccessItem {
 }
 
 export namespace DisableFastSnapshotRestoreSuccessItem {
-  export const filterSensitiveLog = (
-    obj: DisableFastSnapshotRestoreSuccessItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreSuccessItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableFastSnapshotRestoreSuccessItem =>
     __isa(o, "DisableFastSnapshotRestoreSuccessItem");
@@ -21589,14 +20335,10 @@ export interface DisableTransitGatewayRouteTablePropagationRequest {
 }
 
 export namespace DisableTransitGatewayRouteTablePropagationRequest {
-  export const filterSensitiveLog = (
-    obj: DisableTransitGatewayRouteTablePropagationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableTransitGatewayRouteTablePropagationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisableTransitGatewayRouteTablePropagationRequest =>
+  export const isa = (o: any): o is DisableTransitGatewayRouteTablePropagationRequest =>
     __isa(o, "DisableTransitGatewayRouteTablePropagationRequest");
 }
 
@@ -21609,14 +20351,10 @@ export interface DisableTransitGatewayRouteTablePropagationResult {
 }
 
 export namespace DisableTransitGatewayRouteTablePropagationResult {
-  export const filterSensitiveLog = (
-    obj: DisableTransitGatewayRouteTablePropagationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableTransitGatewayRouteTablePropagationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisableTransitGatewayRouteTablePropagationResult =>
+  export const isa = (o: any): o is DisableTransitGatewayRouteTablePropagationResult =>
     __isa(o, "DisableTransitGatewayRouteTablePropagationResult");
 }
 
@@ -21637,13 +20375,10 @@ export interface DisableVgwRoutePropagationRequest {
 }
 
 export namespace DisableVgwRoutePropagationRequest {
-  export const filterSensitiveLog = (
-    obj: DisableVgwRoutePropagationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableVgwRoutePropagationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisableVgwRoutePropagationRequest =>
-    __isa(o, "DisableVgwRoutePropagationRequest");
+  export const isa = (o: any): o is DisableVgwRoutePropagationRequest => __isa(o, "DisableVgwRoutePropagationRequest");
 }
 
 export interface DisableVpcClassicLinkDnsSupportRequest {
@@ -21655,10 +20390,8 @@ export interface DisableVpcClassicLinkDnsSupportRequest {
 }
 
 export namespace DisableVpcClassicLinkDnsSupportRequest {
-  export const filterSensitiveLog = (
-    obj: DisableVpcClassicLinkDnsSupportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableVpcClassicLinkDnsSupportRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableVpcClassicLinkDnsSupportRequest =>
     __isa(o, "DisableVpcClassicLinkDnsSupportRequest");
@@ -21673,10 +20406,8 @@ export interface DisableVpcClassicLinkDnsSupportResult {
 }
 
 export namespace DisableVpcClassicLinkDnsSupportResult {
-  export const filterSensitiveLog = (
-    obj: DisableVpcClassicLinkDnsSupportResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableVpcClassicLinkDnsSupportResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisableVpcClassicLinkDnsSupportResult =>
     __isa(o, "DisableVpcClassicLinkDnsSupportResult");
@@ -21698,13 +20429,10 @@ export interface DisableVpcClassicLinkRequest {
 }
 
 export namespace DisableVpcClassicLinkRequest {
-  export const filterSensitiveLog = (
-    obj: DisableVpcClassicLinkRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableVpcClassicLinkRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisableVpcClassicLinkRequest =>
-    __isa(o, "DisableVpcClassicLinkRequest");
+  export const isa = (o: any): o is DisableVpcClassicLinkRequest => __isa(o, "DisableVpcClassicLinkRequest");
 }
 
 export interface DisableVpcClassicLinkResult {
@@ -21716,13 +20444,10 @@ export interface DisableVpcClassicLinkResult {
 }
 
 export namespace DisableVpcClassicLinkResult {
-  export const filterSensitiveLog = (
-    obj: DisableVpcClassicLinkResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableVpcClassicLinkResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisableVpcClassicLinkResult =>
-    __isa(o, "DisableVpcClassicLinkResult");
+  export const isa = (o: any): o is DisableVpcClassicLinkResult => __isa(o, "DisableVpcClassicLinkResult");
 }
 
 export interface DisassociateAddressRequest {
@@ -21747,10 +20472,9 @@ export interface DisassociateAddressRequest {
 
 export namespace DisassociateAddressRequest {
   export const filterSensitiveLog = (obj: DisassociateAddressRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateAddressRequest =>
-    __isa(o, "DisassociateAddressRequest");
+  export const isa = (o: any): o is DisassociateAddressRequest => __isa(o, "DisassociateAddressRequest");
 }
 
 export interface DisassociateClientVpnTargetNetworkRequest {
@@ -21772,10 +20496,8 @@ export interface DisassociateClientVpnTargetNetworkRequest {
 }
 
 export namespace DisassociateClientVpnTargetNetworkRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateClientVpnTargetNetworkRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateClientVpnTargetNetworkRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisassociateClientVpnTargetNetworkRequest =>
     __isa(o, "DisassociateClientVpnTargetNetworkRequest");
@@ -21795,10 +20517,8 @@ export interface DisassociateClientVpnTargetNetworkResult {
 }
 
 export namespace DisassociateClientVpnTargetNetworkResult {
-  export const filterSensitiveLog = (
-    obj: DisassociateClientVpnTargetNetworkResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateClientVpnTargetNetworkResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisassociateClientVpnTargetNetworkResult =>
     __isa(o, "DisassociateClientVpnTargetNetworkResult");
@@ -21813,10 +20533,8 @@ export interface DisassociateIamInstanceProfileRequest {
 }
 
 export namespace DisassociateIamInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateIamInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateIamInstanceProfileRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisassociateIamInstanceProfileRequest =>
     __isa(o, "DisassociateIamInstanceProfileRequest");
@@ -21831,10 +20549,8 @@ export interface DisassociateIamInstanceProfileResult {
 }
 
 export namespace DisassociateIamInstanceProfileResult {
-  export const filterSensitiveLog = (
-    obj: DisassociateIamInstanceProfileResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateIamInstanceProfileResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisassociateIamInstanceProfileResult =>
     __isa(o, "DisassociateIamInstanceProfileResult");
@@ -21856,13 +20572,10 @@ export interface DisassociateRouteTableRequest {
 }
 
 export namespace DisassociateRouteTableRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateRouteTableRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateRouteTableRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateRouteTableRequest =>
-    __isa(o, "DisassociateRouteTableRequest");
+  export const isa = (o: any): o is DisassociateRouteTableRequest => __isa(o, "DisassociateRouteTableRequest");
 }
 
 export interface DisassociateSubnetCidrBlockRequest {
@@ -21874,10 +20587,8 @@ export interface DisassociateSubnetCidrBlockRequest {
 }
 
 export namespace DisassociateSubnetCidrBlockRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateSubnetCidrBlockRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateSubnetCidrBlockRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisassociateSubnetCidrBlockRequest =>
     __isa(o, "DisassociateSubnetCidrBlockRequest");
@@ -21897,13 +20608,10 @@ export interface DisassociateSubnetCidrBlockResult {
 }
 
 export namespace DisassociateSubnetCidrBlockResult {
-  export const filterSensitiveLog = (
-    obj: DisassociateSubnetCidrBlockResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateSubnetCidrBlockResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateSubnetCidrBlockResult =>
-    __isa(o, "DisassociateSubnetCidrBlockResult");
+  export const isa = (o: any): o is DisassociateSubnetCidrBlockResult => __isa(o, "DisassociateSubnetCidrBlockResult");
 }
 
 export interface DisassociateTransitGatewayMulticastDomainRequest {
@@ -21932,14 +20640,10 @@ export interface DisassociateTransitGatewayMulticastDomainRequest {
 }
 
 export namespace DisassociateTransitGatewayMulticastDomainRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateTransitGatewayMulticastDomainRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateTransitGatewayMulticastDomainRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateTransitGatewayMulticastDomainRequest =>
+  export const isa = (o: any): o is DisassociateTransitGatewayMulticastDomainRequest =>
     __isa(o, "DisassociateTransitGatewayMulticastDomainRequest");
 }
 
@@ -21952,14 +20656,10 @@ export interface DisassociateTransitGatewayMulticastDomainResult {
 }
 
 export namespace DisassociateTransitGatewayMulticastDomainResult {
-  export const filterSensitiveLog = (
-    obj: DisassociateTransitGatewayMulticastDomainResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateTransitGatewayMulticastDomainResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateTransitGatewayMulticastDomainResult =>
+  export const isa = (o: any): o is DisassociateTransitGatewayMulticastDomainResult =>
     __isa(o, "DisassociateTransitGatewayMulticastDomainResult");
 }
 
@@ -21984,14 +20684,10 @@ export interface DisassociateTransitGatewayRouteTableRequest {
 }
 
 export namespace DisassociateTransitGatewayRouteTableRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateTransitGatewayRouteTableRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateTransitGatewayRouteTableRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateTransitGatewayRouteTableRequest =>
+  export const isa = (o: any): o is DisassociateTransitGatewayRouteTableRequest =>
     __isa(o, "DisassociateTransitGatewayRouteTableRequest");
 }
 
@@ -22004,14 +20700,10 @@ export interface DisassociateTransitGatewayRouteTableResult {
 }
 
 export namespace DisassociateTransitGatewayRouteTableResult {
-  export const filterSensitiveLog = (
-    obj: DisassociateTransitGatewayRouteTableResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateTransitGatewayRouteTableResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateTransitGatewayRouteTableResult =>
+  export const isa = (o: any): o is DisassociateTransitGatewayRouteTableResult =>
     __isa(o, "DisassociateTransitGatewayRouteTableResult");
 }
 
@@ -22024,13 +20716,10 @@ export interface DisassociateVpcCidrBlockRequest {
 }
 
 export namespace DisassociateVpcCidrBlockRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateVpcCidrBlockRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateVpcCidrBlockRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateVpcCidrBlockRequest =>
-    __isa(o, "DisassociateVpcCidrBlockRequest");
+  export const isa = (o: any): o is DisassociateVpcCidrBlockRequest => __isa(o, "DisassociateVpcCidrBlockRequest");
 }
 
 export interface DisassociateVpcCidrBlockResult {
@@ -22052,13 +20741,10 @@ export interface DisassociateVpcCidrBlockResult {
 }
 
 export namespace DisassociateVpcCidrBlockResult {
-  export const filterSensitiveLog = (
-    obj: DisassociateVpcCidrBlockResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateVpcCidrBlockResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateVpcCidrBlockResult =>
-    __isa(o, "DisassociateVpcCidrBlockResult");
+  export const isa = (o: any): o is DisassociateVpcCidrBlockResult => __isa(o, "DisassociateVpcCidrBlockResult");
 }
 
 /**
@@ -22084,7 +20770,7 @@ export interface DiskImage {
 
 export namespace DiskImage {
   export const filterSensitiveLog = (obj: DiskImage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DiskImage => __isa(o, "DiskImage");
 }
@@ -22120,10 +20806,9 @@ export interface DiskImageDescription {
 
 export namespace DiskImageDescription {
   export const filterSensitiveLog = (obj: DiskImageDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DiskImageDescription =>
-    __isa(o, "DiskImageDescription");
+  export const isa = (o: any): o is DiskImageDescription => __isa(o, "DiskImageDescription");
 }
 
 /**
@@ -22153,10 +20838,9 @@ export interface DiskImageDetail {
 
 export namespace DiskImageDetail {
   export const filterSensitiveLog = (obj: DiskImageDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DiskImageDetail =>
-    __isa(o, "DiskImageDetail");
+  export const isa = (o: any): o is DiskImageDetail => __isa(o, "DiskImageDetail");
 }
 
 export type DiskImageFormat = "RAW" | "VHD" | "VMDK";
@@ -22179,10 +20863,9 @@ export interface DiskImageVolumeDescription {
 
 export namespace DiskImageVolumeDescription {
   export const filterSensitiveLog = (obj: DiskImageVolumeDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DiskImageVolumeDescription =>
-    __isa(o, "DiskImageVolumeDescription");
+  export const isa = (o: any): o is DiskImageVolumeDescription => __isa(o, "DiskImageVolumeDescription");
 }
 
 /**
@@ -22208,7 +20891,7 @@ export interface DiskInfo {
 
 export namespace DiskInfo {
   export const filterSensitiveLog = (obj: DiskInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DiskInfo => __isa(o, "DiskInfo");
 }
@@ -22233,7 +20916,7 @@ export interface DnsEntry {
 
 export namespace DnsEntry {
   export const filterSensitiveLog = (obj: DnsEntry): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DnsEntry => __isa(o, "DnsEntry");
 }
@@ -22241,7 +20924,7 @@ export namespace DnsEntry {
 export enum DnsNameState {
   Failed = "failed",
   PendingVerification = "pendingVerification",
-  Verified = "verified"
+  Verified = "verified",
 }
 
 /**
@@ -22264,13 +20947,10 @@ export interface DnsServersOptionsModifyStructure {
 }
 
 export namespace DnsServersOptionsModifyStructure {
-  export const filterSensitiveLog = (
-    obj: DnsServersOptionsModifyStructure
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DnsServersOptionsModifyStructure): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DnsServersOptionsModifyStructure =>
-    __isa(o, "DnsServersOptionsModifyStructure");
+  export const isa = (o: any): o is DnsServersOptionsModifyStructure => __isa(o, "DnsServersOptionsModifyStructure");
 }
 
 export type DnsSupportValue = "disable" | "enable";
@@ -22361,10 +21041,9 @@ export interface EbsBlockDevice {
 
 export namespace EbsBlockDevice {
   export const filterSensitiveLog = (obj: EbsBlockDevice): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EbsBlockDevice =>
-    __isa(o, "EbsBlockDevice");
+  export const isa = (o: any): o is EbsBlockDevice => __isa(o, "EbsBlockDevice");
 }
 
 export type EbsEncryptionSupport = "supported" | "unsupported";
@@ -22388,7 +21067,7 @@ export interface EbsInfo {
 
 export namespace EbsInfo {
   export const filterSensitiveLog = (obj: EbsInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EbsInfo => __isa(o, "EbsInfo");
 }
@@ -22421,10 +21100,9 @@ export interface EbsInstanceBlockDevice {
 
 export namespace EbsInstanceBlockDevice {
   export const filterSensitiveLog = (obj: EbsInstanceBlockDevice): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EbsInstanceBlockDevice =>
-    __isa(o, "EbsInstanceBlockDevice");
+  export const isa = (o: any): o is EbsInstanceBlockDevice => __isa(o, "EbsInstanceBlockDevice");
 }
 
 /**
@@ -22445,10 +21123,8 @@ export interface EbsInstanceBlockDeviceSpecification {
 }
 
 export namespace EbsInstanceBlockDeviceSpecification {
-  export const filterSensitiveLog = (
-    obj: EbsInstanceBlockDeviceSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EbsInstanceBlockDeviceSpecification): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EbsInstanceBlockDeviceSpecification =>
     __isa(o, "EbsInstanceBlockDeviceSpecification");
@@ -22479,10 +21155,9 @@ export interface EgressOnlyInternetGateway {
 
 export namespace EgressOnlyInternetGateway {
   export const filterSensitiveLog = (obj: EgressOnlyInternetGateway): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EgressOnlyInternetGateway =>
-    __isa(o, "EgressOnlyInternetGateway");
+  export const isa = (o: any): o is EgressOnlyInternetGateway => __isa(o, "EgressOnlyInternetGateway");
 }
 
 /**
@@ -22514,10 +21189,9 @@ export interface ElasticGpuAssociation {
 
 export namespace ElasticGpuAssociation {
   export const filterSensitiveLog = (obj: ElasticGpuAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticGpuAssociation =>
-    __isa(o, "ElasticGpuAssociation");
+  export const isa = (o: any): o is ElasticGpuAssociation => __isa(o, "ElasticGpuAssociation");
 }
 
 /**
@@ -22533,10 +21207,9 @@ export interface ElasticGpuHealth {
 
 export namespace ElasticGpuHealth {
   export const filterSensitiveLog = (obj: ElasticGpuHealth): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticGpuHealth =>
-    __isa(o, "ElasticGpuHealth");
+  export const isa = (o: any): o is ElasticGpuHealth => __isa(o, "ElasticGpuHealth");
 }
 
 /**
@@ -22582,7 +21255,7 @@ export interface ElasticGpus {
 
 export namespace ElasticGpus {
   export const filterSensitiveLog = (obj: ElasticGpus): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ElasticGpus => __isa(o, "ElasticGpus");
 }
@@ -22602,10 +21275,9 @@ export interface ElasticGpuSpecification {
 
 export namespace ElasticGpuSpecification {
   export const filterSensitiveLog = (obj: ElasticGpuSpecification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticGpuSpecification =>
-    __isa(o, "ElasticGpuSpecification");
+  export const isa = (o: any): o is ElasticGpuSpecification => __isa(o, "ElasticGpuSpecification");
 }
 
 /**
@@ -22620,22 +21292,19 @@ export interface ElasticGpuSpecificationResponse {
 }
 
 export namespace ElasticGpuSpecificationResponse {
-  export const filterSensitiveLog = (
-    obj: ElasticGpuSpecificationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ElasticGpuSpecificationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticGpuSpecificationResponse =>
-    __isa(o, "ElasticGpuSpecificationResponse");
+  export const isa = (o: any): o is ElasticGpuSpecificationResponse => __isa(o, "ElasticGpuSpecificationResponse");
 }
 
 export enum ElasticGpuState {
-  Attached = "ATTACHED"
+  Attached = "ATTACHED",
 }
 
 export enum ElasticGpuStatus {
   Impaired = "IMPAIRED",
-  Ok = "OK"
+  Ok = "OK",
 }
 
 /**
@@ -22662,13 +21331,10 @@ export interface ElasticInferenceAccelerator {
 }
 
 export namespace ElasticInferenceAccelerator {
-  export const filterSensitiveLog = (
-    obj: ElasticInferenceAccelerator
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticInferenceAccelerator =>
-    __isa(o, "ElasticInferenceAccelerator");
+  export const isa = (o: any): o is ElasticInferenceAccelerator => __isa(o, "ElasticInferenceAccelerator");
 }
 
 /**
@@ -22708,10 +21374,8 @@ export interface ElasticInferenceAcceleratorAssociation {
 }
 
 export namespace ElasticInferenceAcceleratorAssociation {
-  export const filterSensitiveLog = (
-    obj: ElasticInferenceAcceleratorAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ElasticInferenceAcceleratorAssociation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ElasticInferenceAcceleratorAssociation =>
     __isa(o, "ElasticInferenceAcceleratorAssociation");
@@ -22728,10 +21392,8 @@ export interface EnableEbsEncryptionByDefaultRequest {
 }
 
 export namespace EnableEbsEncryptionByDefaultRequest {
-  export const filterSensitiveLog = (
-    obj: EnableEbsEncryptionByDefaultRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableEbsEncryptionByDefaultRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableEbsEncryptionByDefaultRequest =>
     __isa(o, "EnableEbsEncryptionByDefaultRequest");
@@ -22746,10 +21408,8 @@ export interface EnableEbsEncryptionByDefaultResult {
 }
 
 export namespace EnableEbsEncryptionByDefaultResult {
-  export const filterSensitiveLog = (
-    obj: EnableEbsEncryptionByDefaultResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableEbsEncryptionByDefaultResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableEbsEncryptionByDefaultResult =>
     __isa(o, "EnableEbsEncryptionByDefaultResult");
@@ -22772,10 +21432,8 @@ export interface EnableFastSnapshotRestoreErrorItem {
 }
 
 export namespace EnableFastSnapshotRestoreErrorItem {
-  export const filterSensitiveLog = (
-    obj: EnableFastSnapshotRestoreErrorItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableFastSnapshotRestoreErrorItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableFastSnapshotRestoreErrorItem =>
     __isa(o, "EnableFastSnapshotRestoreErrorItem");
@@ -22803,13 +21461,10 @@ export interface EnableFastSnapshotRestoresRequest {
 }
 
 export namespace EnableFastSnapshotRestoresRequest {
-  export const filterSensitiveLog = (
-    obj: EnableFastSnapshotRestoresRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableFastSnapshotRestoresRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EnableFastSnapshotRestoresRequest =>
-    __isa(o, "EnableFastSnapshotRestoresRequest");
+  export const isa = (o: any): o is EnableFastSnapshotRestoresRequest => __isa(o, "EnableFastSnapshotRestoresRequest");
 }
 
 export interface EnableFastSnapshotRestoresResult {
@@ -22826,13 +21481,10 @@ export interface EnableFastSnapshotRestoresResult {
 }
 
 export namespace EnableFastSnapshotRestoresResult {
-  export const filterSensitiveLog = (
-    obj: EnableFastSnapshotRestoresResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableFastSnapshotRestoresResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EnableFastSnapshotRestoresResult =>
-    __isa(o, "EnableFastSnapshotRestoresResult");
+  export const isa = (o: any): o is EnableFastSnapshotRestoresResult => __isa(o, "EnableFastSnapshotRestoresResult");
 }
 
 /**
@@ -22852,10 +21504,8 @@ export interface EnableFastSnapshotRestoreStateError {
 }
 
 export namespace EnableFastSnapshotRestoreStateError {
-  export const filterSensitiveLog = (
-    obj: EnableFastSnapshotRestoreStateError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableFastSnapshotRestoreStateError): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableFastSnapshotRestoreStateError =>
     __isa(o, "EnableFastSnapshotRestoreStateError");
@@ -22878,10 +21528,8 @@ export interface EnableFastSnapshotRestoreStateErrorItem {
 }
 
 export namespace EnableFastSnapshotRestoreStateErrorItem {
-  export const filterSensitiveLog = (
-    obj: EnableFastSnapshotRestoreStateErrorItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableFastSnapshotRestoreStateErrorItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableFastSnapshotRestoreStateErrorItem =>
     __isa(o, "EnableFastSnapshotRestoreStateErrorItem");
@@ -22961,10 +21609,8 @@ export interface EnableFastSnapshotRestoreSuccessItem {
 }
 
 export namespace EnableFastSnapshotRestoreSuccessItem {
-  export const filterSensitiveLog = (
-    obj: EnableFastSnapshotRestoreSuccessItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableFastSnapshotRestoreSuccessItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableFastSnapshotRestoreSuccessItem =>
     __isa(o, "EnableFastSnapshotRestoreSuccessItem");
@@ -22991,14 +21637,10 @@ export interface EnableTransitGatewayRouteTablePropagationRequest {
 }
 
 export namespace EnableTransitGatewayRouteTablePropagationRequest {
-  export const filterSensitiveLog = (
-    obj: EnableTransitGatewayRouteTablePropagationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableTransitGatewayRouteTablePropagationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is EnableTransitGatewayRouteTablePropagationRequest =>
+  export const isa = (o: any): o is EnableTransitGatewayRouteTablePropagationRequest =>
     __isa(o, "EnableTransitGatewayRouteTablePropagationRequest");
 }
 
@@ -23011,14 +21653,10 @@ export interface EnableTransitGatewayRouteTablePropagationResult {
 }
 
 export namespace EnableTransitGatewayRouteTablePropagationResult {
-  export const filterSensitiveLog = (
-    obj: EnableTransitGatewayRouteTablePropagationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableTransitGatewayRouteTablePropagationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is EnableTransitGatewayRouteTablePropagationResult =>
+  export const isa = (o: any): o is EnableTransitGatewayRouteTablePropagationResult =>
     __isa(o, "EnableTransitGatewayRouteTablePropagationResult");
 }
 
@@ -23039,13 +21677,10 @@ export interface EnableVgwRoutePropagationRequest {
 }
 
 export namespace EnableVgwRoutePropagationRequest {
-  export const filterSensitiveLog = (
-    obj: EnableVgwRoutePropagationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableVgwRoutePropagationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EnableVgwRoutePropagationRequest =>
-    __isa(o, "EnableVgwRoutePropagationRequest");
+  export const isa = (o: any): o is EnableVgwRoutePropagationRequest => __isa(o, "EnableVgwRoutePropagationRequest");
 }
 
 export interface EnableVolumeIORequest {
@@ -23065,10 +21700,9 @@ export interface EnableVolumeIORequest {
 
 export namespace EnableVolumeIORequest {
   export const filterSensitiveLog = (obj: EnableVolumeIORequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableVolumeIORequest =>
-    __isa(o, "EnableVolumeIORequest");
+  export const isa = (o: any): o is EnableVolumeIORequest => __isa(o, "EnableVolumeIORequest");
 }
 
 export interface EnableVpcClassicLinkDnsSupportRequest {
@@ -23080,10 +21714,8 @@ export interface EnableVpcClassicLinkDnsSupportRequest {
 }
 
 export namespace EnableVpcClassicLinkDnsSupportRequest {
-  export const filterSensitiveLog = (
-    obj: EnableVpcClassicLinkDnsSupportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableVpcClassicLinkDnsSupportRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableVpcClassicLinkDnsSupportRequest =>
     __isa(o, "EnableVpcClassicLinkDnsSupportRequest");
@@ -23098,10 +21730,8 @@ export interface EnableVpcClassicLinkDnsSupportResult {
 }
 
 export namespace EnableVpcClassicLinkDnsSupportResult {
-  export const filterSensitiveLog = (
-    obj: EnableVpcClassicLinkDnsSupportResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableVpcClassicLinkDnsSupportResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableVpcClassicLinkDnsSupportResult =>
     __isa(o, "EnableVpcClassicLinkDnsSupportResult");
@@ -23123,13 +21753,10 @@ export interface EnableVpcClassicLinkRequest {
 }
 
 export namespace EnableVpcClassicLinkRequest {
-  export const filterSensitiveLog = (
-    obj: EnableVpcClassicLinkRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableVpcClassicLinkRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EnableVpcClassicLinkRequest =>
-    __isa(o, "EnableVpcClassicLinkRequest");
+  export const isa = (o: any): o is EnableVpcClassicLinkRequest => __isa(o, "EnableVpcClassicLinkRequest");
 }
 
 export interface EnableVpcClassicLinkResult {
@@ -23142,10 +21769,9 @@ export interface EnableVpcClassicLinkResult {
 
 export namespace EnableVpcClassicLinkResult {
   export const filterSensitiveLog = (obj: EnableVpcClassicLinkResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableVpcClassicLinkResult =>
-    __isa(o, "EnableVpcClassicLinkResult");
+  export const isa = (o: any): o is EnableVpcClassicLinkResult => __isa(o, "EnableVpcClassicLinkResult");
 }
 
 export type EnaSupport = "required" | "supported" | "unsupported";
@@ -23284,22 +21910,21 @@ export interface EventInformation {
 
 export namespace EventInformation {
   export const filterSensitiveLog = (obj: EventInformation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventInformation =>
-    __isa(o, "EventInformation");
+  export const isa = (o: any): o is EventInformation => __isa(o, "EventInformation");
 }
 
 export enum EventType {
   BATCH_CHANGE = "fleetRequestChange",
   ERROR = "error",
   INFORMATION = "information",
-  INSTANCE_CHANGE = "instanceChange"
+  INSTANCE_CHANGE = "instanceChange",
 }
 
 export enum ExcessCapacityTerminationPolicy {
   DEFAULT = "default",
-  NO_TERMINATION = "noTermination"
+  NO_TERMINATION = "noTermination",
 }
 
 export interface ExportClientVpnClientCertificateRevocationListRequest {
@@ -23316,14 +21941,10 @@ export interface ExportClientVpnClientCertificateRevocationListRequest {
 }
 
 export namespace ExportClientVpnClientCertificateRevocationListRequest {
-  export const filterSensitiveLog = (
-    obj: ExportClientVpnClientCertificateRevocationListRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportClientVpnClientCertificateRevocationListRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ExportClientVpnClientCertificateRevocationListRequest =>
+  export const isa = (o: any): o is ExportClientVpnClientCertificateRevocationListRequest =>
     __isa(o, "ExportClientVpnClientCertificateRevocationListRequest");
 }
 
@@ -23341,14 +21962,10 @@ export interface ExportClientVpnClientCertificateRevocationListResult {
 }
 
 export namespace ExportClientVpnClientCertificateRevocationListResult {
-  export const filterSensitiveLog = (
-    obj: ExportClientVpnClientCertificateRevocationListResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportClientVpnClientCertificateRevocationListResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ExportClientVpnClientCertificateRevocationListResult =>
+  export const isa = (o: any): o is ExportClientVpnClientCertificateRevocationListResult =>
     __isa(o, "ExportClientVpnClientCertificateRevocationListResult");
 }
 
@@ -23366,10 +21983,8 @@ export interface ExportClientVpnClientConfigurationRequest {
 }
 
 export namespace ExportClientVpnClientConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: ExportClientVpnClientConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportClientVpnClientConfigurationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ExportClientVpnClientConfigurationRequest =>
     __isa(o, "ExportClientVpnClientConfigurationRequest");
@@ -23384,10 +21999,8 @@ export interface ExportClientVpnClientConfigurationResult {
 }
 
 export namespace ExportClientVpnClientConfigurationResult {
-  export const filterSensitiveLog = (
-    obj: ExportClientVpnClientConfigurationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportClientVpnClientConfigurationResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ExportClientVpnClientConfigurationResult =>
     __isa(o, "ExportClientVpnClientConfigurationResult");
@@ -23439,10 +22052,9 @@ export interface ExportImageRequest {
 
 export namespace ExportImageRequest {
   export const filterSensitiveLog = (obj: ExportImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportImageRequest =>
-    __isa(o, "ExportImageRequest");
+  export const isa = (o: any): o is ExportImageRequest => __isa(o, "ExportImageRequest");
 }
 
 export interface ExportImageResult {
@@ -23496,10 +22108,9 @@ export interface ExportImageResult {
 
 export namespace ExportImageResult {
   export const filterSensitiveLog = (obj: ExportImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportImageResult =>
-    __isa(o, "ExportImageResult");
+  export const isa = (o: any): o is ExportImageResult => __isa(o, "ExportImageResult");
 }
 
 /**
@@ -23546,10 +22157,9 @@ export interface ExportImageTask {
 
 export namespace ExportImageTask {
   export const filterSensitiveLog = (obj: ExportImageTask): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportImageTask =>
-    __isa(o, "ExportImageTask");
+  export const isa = (o: any): o is ExportImageTask => __isa(o, "ExportImageTask");
 }
 
 /**
@@ -23595,7 +22205,7 @@ export interface ExportTask {
 
 export namespace ExportTask {
   export const filterSensitiveLog = (obj: ExportTask): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ExportTask => __isa(o, "ExportTask");
 }
@@ -23618,10 +22228,9 @@ export interface ExportTaskS3Location {
 
 export namespace ExportTaskS3Location {
   export const filterSensitiveLog = (obj: ExportTaskS3Location): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportTaskS3Location =>
-    __isa(o, "ExportTaskS3Location");
+  export const isa = (o: any): o is ExportTaskS3Location => __isa(o, "ExportTaskS3Location");
 }
 
 /**
@@ -23641,20 +22250,13 @@ export interface ExportTaskS3LocationRequest {
 }
 
 export namespace ExportTaskS3LocationRequest {
-  export const filterSensitiveLog = (
-    obj: ExportTaskS3LocationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportTaskS3LocationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ExportTaskS3LocationRequest =>
-    __isa(o, "ExportTaskS3LocationRequest");
+  export const isa = (o: any): o is ExportTaskS3LocationRequest => __isa(o, "ExportTaskS3LocationRequest");
 }
 
-export type ExportTaskState =
-  | "active"
-  | "cancelled"
-  | "cancelling"
-  | "completed";
+export type ExportTaskState = "active" | "cancelled" | "cancelling" | "completed";
 
 /**
  * <p>Describes the format and location for an instance export task.</p>
@@ -23686,10 +22288,9 @@ export interface ExportToS3Task {
 
 export namespace ExportToS3Task {
   export const filterSensitiveLog = (obj: ExportToS3Task): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportToS3Task =>
-    __isa(o, "ExportToS3Task");
+  export const isa = (o: any): o is ExportToS3Task => __isa(o, "ExportToS3Task");
 }
 
 /**
@@ -23722,13 +22323,10 @@ export interface ExportToS3TaskSpecification {
 }
 
 export namespace ExportToS3TaskSpecification {
-  export const filterSensitiveLog = (
-    obj: ExportToS3TaskSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportToS3TaskSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ExportToS3TaskSpecification =>
-    __isa(o, "ExportToS3TaskSpecification");
+  export const isa = (o: any): o is ExportToS3TaskSpecification => __isa(o, "ExportToS3TaskSpecification");
 }
 
 export interface ExportTransitGatewayRoutesRequest {
@@ -23796,13 +22394,10 @@ export interface ExportTransitGatewayRoutesRequest {
 }
 
 export namespace ExportTransitGatewayRoutesRequest {
-  export const filterSensitiveLog = (
-    obj: ExportTransitGatewayRoutesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportTransitGatewayRoutesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ExportTransitGatewayRoutesRequest =>
-    __isa(o, "ExportTransitGatewayRoutesRequest");
+  export const isa = (o: any): o is ExportTransitGatewayRoutesRequest => __isa(o, "ExportTransitGatewayRoutesRequest");
 }
 
 export interface ExportTransitGatewayRoutesResult {
@@ -23815,13 +22410,10 @@ export interface ExportTransitGatewayRoutesResult {
 }
 
 export namespace ExportTransitGatewayRoutesResult {
-  export const filterSensitiveLog = (
-    obj: ExportTransitGatewayRoutesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportTransitGatewayRoutesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ExportTransitGatewayRoutesResult =>
-    __isa(o, "ExportTransitGatewayRoutesResult");
+  export const isa = (o: any): o is ExportTransitGatewayRoutesResult => __isa(o, "ExportTransitGatewayRoutesResult");
 }
 
 /**
@@ -23841,21 +22433,13 @@ export interface FailedQueuedPurchaseDeletion {
 }
 
 export namespace FailedQueuedPurchaseDeletion {
-  export const filterSensitiveLog = (
-    obj: FailedQueuedPurchaseDeletion
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FailedQueuedPurchaseDeletion): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is FailedQueuedPurchaseDeletion =>
-    __isa(o, "FailedQueuedPurchaseDeletion");
+  export const isa = (o: any): o is FailedQueuedPurchaseDeletion => __isa(o, "FailedQueuedPurchaseDeletion");
 }
 
-export type FastSnapshotRestoreStateCode =
-  | "disabled"
-  | "disabling"
-  | "enabled"
-  | "enabling"
-  | "optimizing";
+export type FastSnapshotRestoreStateCode = "disabled" | "disabling" | "enabled" | "enabling" | "optimizing";
 
 /**
  * <p>A filter name and value pair that is used to return a more specific list of results from a describe operation.
@@ -23929,7 +22513,7 @@ export interface Filter {
 
 export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
@@ -23938,11 +22522,11 @@ export enum FleetActivityStatus {
   ERROR = "error",
   FULFILLED = "fulfilled",
   PENDING_FULFILLMENT = "pending_fulfillment",
-  PENDING_TERMINATION = "pending_termination"
+  PENDING_TERMINATION = "pending_termination",
 }
 
 export enum FleetCapacityReservationUsageStrategy {
-  USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first"
+  USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first",
 }
 
 /**
@@ -23982,9 +22566,7 @@ export interface FleetData {
    * <p>Indicates whether running instances should be terminated if the target capacity of the
    *          EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    */
-  ExcessCapacityTerminationPolicy?:
-    | FleetExcessCapacityTerminationPolicy
-    | string;
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
 
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -24081,7 +22663,7 @@ export interface FleetData {
 
 export namespace FleetData {
   export const filterSensitiveLog = (obj: FleetData): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FleetData => __isa(o, "FleetData");
 }
@@ -24089,12 +22671,12 @@ export namespace FleetData {
 export enum FleetEventType {
   FLEET_CHANGE = "fleet-change",
   INSTANCE_CHANGE = "instance-change",
-  SERVICE_ERROR = "service-error"
+  SERVICE_ERROR = "service-error",
 }
 
 export enum FleetExcessCapacityTerminationPolicy {
   NO_TERMINATION = "no-termination",
-  TERMINATION = "termination"
+  TERMINATION = "termination",
 }
 
 /**
@@ -24116,10 +22698,9 @@ export interface FleetLaunchTemplateConfig {
 
 export namespace FleetLaunchTemplateConfig {
   export const filterSensitiveLog = (obj: FleetLaunchTemplateConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateConfig =>
-    __isa(o, "FleetLaunchTemplateConfig");
+  export const isa = (o: any): o is FleetLaunchTemplateConfig => __isa(o, "FleetLaunchTemplateConfig");
 }
 
 /**
@@ -24141,13 +22722,10 @@ export interface FleetLaunchTemplateConfigRequest {
 }
 
 export namespace FleetLaunchTemplateConfigRequest {
-  export const filterSensitiveLog = (
-    obj: FleetLaunchTemplateConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateConfigRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateConfigRequest =>
-    __isa(o, "FleetLaunchTemplateConfigRequest");
+  export const isa = (o: any): o is FleetLaunchTemplateConfigRequest => __isa(o, "FleetLaunchTemplateConfigRequest");
 }
 
 /**
@@ -24196,13 +22774,10 @@ export interface FleetLaunchTemplateOverrides {
 }
 
 export namespace FleetLaunchTemplateOverrides {
-  export const filterSensitiveLog = (
-    obj: FleetLaunchTemplateOverrides
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateOverrides): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateOverrides =>
-    __isa(o, "FleetLaunchTemplateOverrides");
+  export const isa = (o: any): o is FleetLaunchTemplateOverrides => __isa(o, "FleetLaunchTemplateOverrides");
 }
 
 /**
@@ -24251,10 +22826,8 @@ export interface FleetLaunchTemplateOverridesRequest {
 }
 
 export namespace FleetLaunchTemplateOverridesRequest {
-  export const filterSensitiveLog = (
-    obj: FleetLaunchTemplateOverridesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateOverridesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is FleetLaunchTemplateOverridesRequest =>
     __isa(o, "FleetLaunchTemplateOverridesRequest");
@@ -24282,13 +22855,10 @@ export interface FleetLaunchTemplateSpecification {
 }
 
 export namespace FleetLaunchTemplateSpecification {
-  export const filterSensitiveLog = (
-    obj: FleetLaunchTemplateSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateSpecification =>
-    __isa(o, "FleetLaunchTemplateSpecification");
+  export const isa = (o: any): o is FleetLaunchTemplateSpecification => __isa(o, "FleetLaunchTemplateSpecification");
 }
 
 /**
@@ -24314,10 +22884,8 @@ export interface FleetLaunchTemplateSpecificationRequest {
 }
 
 export namespace FleetLaunchTemplateSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: FleetLaunchTemplateSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecificationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is FleetLaunchTemplateSpecificationRequest =>
     __isa(o, "FleetLaunchTemplateSpecificationRequest");
@@ -24325,7 +22893,7 @@ export namespace FleetLaunchTemplateSpecificationRequest {
 
 export enum FleetOnDemandAllocationStrategy {
   LOWEST_PRICE = "lowest-price",
-  PRIORITIZED = "prioritized"
+  PRIORITIZED = "prioritized",
 }
 
 export enum FleetStateCode {
@@ -24335,13 +22903,13 @@ export enum FleetStateCode {
   DELETED_TERMINATING_INSTANCES = "deleted_terminating",
   FAILED = "failed",
   MODIFYING = "modifying",
-  SUBMITTED = "submitted"
+  SUBMITTED = "submitted",
 }
 
 export enum FleetType {
   INSTANT = "instant",
   MAINTAIN = "maintain",
-  REQUEST = "request"
+  REQUEST = "request",
 }
 
 /**
@@ -24422,7 +22990,7 @@ export interface FlowLog {
 
 export namespace FlowLog {
   export const filterSensitiveLog = (obj: FlowLog): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FlowLog => __isa(o, "FlowLog");
 }
@@ -24457,10 +23025,9 @@ export interface FpgaDeviceInfo {
 
 export namespace FpgaDeviceInfo {
   export const filterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FpgaDeviceInfo =>
-    __isa(o, "FpgaDeviceInfo");
+  export const isa = (o: any): o is FpgaDeviceInfo => __isa(o, "FpgaDeviceInfo");
 }
 
 /**
@@ -24476,10 +23043,9 @@ export interface FpgaDeviceMemoryInfo {
 
 export namespace FpgaDeviceMemoryInfo {
   export const filterSensitiveLog = (obj: FpgaDeviceMemoryInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FpgaDeviceMemoryInfo =>
-    __isa(o, "FpgaDeviceMemoryInfo");
+  export const isa = (o: any): o is FpgaDeviceMemoryInfo => __isa(o, "FpgaDeviceMemoryInfo");
 }
 
 /**
@@ -24565,7 +23131,7 @@ export interface FpgaImage {
 
 export namespace FpgaImage {
   export const filterSensitiveLog = (obj: FpgaImage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FpgaImage => __isa(o, "FpgaImage");
 }
@@ -24603,17 +23169,12 @@ export interface FpgaImageAttribute {
 
 export namespace FpgaImageAttribute {
   export const filterSensitiveLog = (obj: FpgaImageAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FpgaImageAttribute =>
-    __isa(o, "FpgaImageAttribute");
+  export const isa = (o: any): o is FpgaImageAttribute => __isa(o, "FpgaImageAttribute");
 }
 
-export type FpgaImageAttributeName =
-  | "description"
-  | "loadPermission"
-  | "name"
-  | "productCodes";
+export type FpgaImageAttributeName = "description" | "loadPermission" | "name" | "productCodes";
 
 /**
  * <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
@@ -24651,17 +23212,12 @@ export interface FpgaImageState {
 
 export namespace FpgaImageState {
   export const filterSensitiveLog = (obj: FpgaImageState): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FpgaImageState =>
-    __isa(o, "FpgaImageState");
+  export const isa = (o: any): o is FpgaImageState => __isa(o, "FpgaImageState");
 }
 
-export type FpgaImageStateCode =
-  | "available"
-  | "failed"
-  | "pending"
-  | "unavailable";
+export type FpgaImageStateCode = "available" | "failed" | "pending" | "unavailable";
 
 /**
  * <p>Describes the FPGAs for the instance type.</p>
@@ -24681,7 +23237,7 @@ export interface FpgaInfo {
 
 export namespace FpgaInfo {
   export const filterSensitiveLog = (obj: FpgaInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FpgaInfo => __isa(o, "FpgaInfo");
 }
@@ -24715,13 +23271,10 @@ export interface GetAssociatedIpv6PoolCidrsRequest {
 }
 
 export namespace GetAssociatedIpv6PoolCidrsRequest {
-  export const filterSensitiveLog = (
-    obj: GetAssociatedIpv6PoolCidrsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAssociatedIpv6PoolCidrsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAssociatedIpv6PoolCidrsRequest =>
-    __isa(o, "GetAssociatedIpv6PoolCidrsRequest");
+  export const isa = (o: any): o is GetAssociatedIpv6PoolCidrsRequest => __isa(o, "GetAssociatedIpv6PoolCidrsRequest");
 }
 
 export interface GetAssociatedIpv6PoolCidrsResult {
@@ -24738,13 +23291,10 @@ export interface GetAssociatedIpv6PoolCidrsResult {
 }
 
 export namespace GetAssociatedIpv6PoolCidrsResult {
-  export const filterSensitiveLog = (
-    obj: GetAssociatedIpv6PoolCidrsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAssociatedIpv6PoolCidrsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAssociatedIpv6PoolCidrsResult =>
-    __isa(o, "GetAssociatedIpv6PoolCidrsResult");
+  export const isa = (o: any): o is GetAssociatedIpv6PoolCidrsResult => __isa(o, "GetAssociatedIpv6PoolCidrsResult");
 }
 
 export interface GetCapacityReservationUsageRequest {
@@ -24772,10 +23322,8 @@ export interface GetCapacityReservationUsageRequest {
 }
 
 export namespace GetCapacityReservationUsageRequest {
-  export const filterSensitiveLog = (
-    obj: GetCapacityReservationUsageRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCapacityReservationUsageRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetCapacityReservationUsageRequest =>
     __isa(o, "GetCapacityReservationUsageRequest");
@@ -24847,13 +23395,10 @@ export interface GetCapacityReservationUsageResult {
 }
 
 export namespace GetCapacityReservationUsageResult {
-  export const filterSensitiveLog = (
-    obj: GetCapacityReservationUsageResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCapacityReservationUsageResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetCapacityReservationUsageResult =>
-    __isa(o, "GetCapacityReservationUsageResult");
+  export const isa = (o: any): o is GetCapacityReservationUsageResult => __isa(o, "GetCapacityReservationUsageResult");
 }
 
 export interface GetCoipPoolUsageRequest {
@@ -24917,10 +23462,9 @@ export interface GetCoipPoolUsageRequest {
 
 export namespace GetCoipPoolUsageRequest {
   export const filterSensitiveLog = (obj: GetCoipPoolUsageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCoipPoolUsageRequest =>
-    __isa(o, "GetCoipPoolUsageRequest");
+  export const isa = (o: any): o is GetCoipPoolUsageRequest => __isa(o, "GetCoipPoolUsageRequest");
 }
 
 export interface GetCoipPoolUsageResult {
@@ -24943,10 +23487,9 @@ export interface GetCoipPoolUsageResult {
 
 export namespace GetCoipPoolUsageResult {
   export const filterSensitiveLog = (obj: GetCoipPoolUsageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCoipPoolUsageResult =>
-    __isa(o, "GetCoipPoolUsageResult");
+  export const isa = (o: any): o is GetCoipPoolUsageResult => __isa(o, "GetCoipPoolUsageResult");
 }
 
 export interface GetConsoleOutputRequest {
@@ -24972,10 +23515,9 @@ export interface GetConsoleOutputRequest {
 
 export namespace GetConsoleOutputRequest {
   export const filterSensitiveLog = (obj: GetConsoleOutputRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConsoleOutputRequest =>
-    __isa(o, "GetConsoleOutputRequest");
+  export const isa = (o: any): o is GetConsoleOutputRequest => __isa(o, "GetConsoleOutputRequest");
 }
 
 export interface GetConsoleOutputResult {
@@ -24999,10 +23541,9 @@ export interface GetConsoleOutputResult {
 
 export namespace GetConsoleOutputResult {
   export const filterSensitiveLog = (obj: GetConsoleOutputResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConsoleOutputResult =>
-    __isa(o, "GetConsoleOutputResult");
+  export const isa = (o: any): o is GetConsoleOutputResult => __isa(o, "GetConsoleOutputResult");
 }
 
 export interface GetConsoleScreenshotRequest {
@@ -25027,13 +23568,10 @@ export interface GetConsoleScreenshotRequest {
 }
 
 export namespace GetConsoleScreenshotRequest {
-  export const filterSensitiveLog = (
-    obj: GetConsoleScreenshotRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConsoleScreenshotRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetConsoleScreenshotRequest =>
-    __isa(o, "GetConsoleScreenshotRequest");
+  export const isa = (o: any): o is GetConsoleScreenshotRequest => __isa(o, "GetConsoleScreenshotRequest");
 }
 
 export interface GetConsoleScreenshotResult {
@@ -25051,10 +23589,9 @@ export interface GetConsoleScreenshotResult {
 
 export namespace GetConsoleScreenshotResult {
   export const filterSensitiveLog = (obj: GetConsoleScreenshotResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConsoleScreenshotResult =>
-    __isa(o, "GetConsoleScreenshotResult");
+  export const isa = (o: any): o is GetConsoleScreenshotResult => __isa(o, "GetConsoleScreenshotResult");
 }
 
 export interface GetDefaultCreditSpecificationRequest {
@@ -25073,10 +23610,8 @@ export interface GetDefaultCreditSpecificationRequest {
 }
 
 export namespace GetDefaultCreditSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: GetDefaultCreditSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDefaultCreditSpecificationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDefaultCreditSpecificationRequest =>
     __isa(o, "GetDefaultCreditSpecificationRequest");
@@ -25091,10 +23626,8 @@ export interface GetDefaultCreditSpecificationResult {
 }
 
 export namespace GetDefaultCreditSpecificationResult {
-  export const filterSensitiveLog = (
-    obj: GetDefaultCreditSpecificationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDefaultCreditSpecificationResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDefaultCreditSpecificationResult =>
     __isa(o, "GetDefaultCreditSpecificationResult");
@@ -25111,13 +23644,10 @@ export interface GetEbsDefaultKmsKeyIdRequest {
 }
 
 export namespace GetEbsDefaultKmsKeyIdRequest {
-  export const filterSensitiveLog = (
-    obj: GetEbsDefaultKmsKeyIdRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetEbsDefaultKmsKeyIdRequest =>
-    __isa(o, "GetEbsDefaultKmsKeyIdRequest");
+  export const isa = (o: any): o is GetEbsDefaultKmsKeyIdRequest => __isa(o, "GetEbsDefaultKmsKeyIdRequest");
 }
 
 export interface GetEbsDefaultKmsKeyIdResult {
@@ -25129,13 +23659,10 @@ export interface GetEbsDefaultKmsKeyIdResult {
 }
 
 export namespace GetEbsDefaultKmsKeyIdResult {
-  export const filterSensitiveLog = (
-    obj: GetEbsDefaultKmsKeyIdResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetEbsDefaultKmsKeyIdResult =>
-    __isa(o, "GetEbsDefaultKmsKeyIdResult");
+  export const isa = (o: any): o is GetEbsDefaultKmsKeyIdResult => __isa(o, "GetEbsDefaultKmsKeyIdResult");
 }
 
 export interface GetEbsEncryptionByDefaultRequest {
@@ -25149,13 +23676,10 @@ export interface GetEbsEncryptionByDefaultRequest {
 }
 
 export namespace GetEbsEncryptionByDefaultRequest {
-  export const filterSensitiveLog = (
-    obj: GetEbsEncryptionByDefaultRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetEbsEncryptionByDefaultRequest =>
-    __isa(o, "GetEbsEncryptionByDefaultRequest");
+  export const isa = (o: any): o is GetEbsEncryptionByDefaultRequest => __isa(o, "GetEbsEncryptionByDefaultRequest");
 }
 
 export interface GetEbsEncryptionByDefaultResult {
@@ -25167,13 +23691,10 @@ export interface GetEbsEncryptionByDefaultResult {
 }
 
 export namespace GetEbsEncryptionByDefaultResult {
-  export const filterSensitiveLog = (
-    obj: GetEbsEncryptionByDefaultResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetEbsEncryptionByDefaultResult =>
-    __isa(o, "GetEbsEncryptionByDefaultResult");
+  export const isa = (o: any): o is GetEbsEncryptionByDefaultResult => __isa(o, "GetEbsEncryptionByDefaultResult");
 }
 
 export interface GetHostReservationPurchasePreviewRequest {
@@ -25190,10 +23711,8 @@ export interface GetHostReservationPurchasePreviewRequest {
 }
 
 export namespace GetHostReservationPurchasePreviewRequest {
-  export const filterSensitiveLog = (
-    obj: GetHostReservationPurchasePreviewRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetHostReservationPurchasePreviewRequest =>
     __isa(o, "GetHostReservationPurchasePreviewRequest");
@@ -25226,10 +23745,8 @@ export interface GetHostReservationPurchasePreviewResult {
 }
 
 export namespace GetHostReservationPurchasePreviewResult {
-  export const filterSensitiveLog = (
-    obj: GetHostReservationPurchasePreviewResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetHostReservationPurchasePreviewResult =>
     __isa(o, "GetHostReservationPurchasePreviewResult");
@@ -25252,13 +23769,10 @@ export interface GetLaunchTemplateDataRequest {
 }
 
 export namespace GetLaunchTemplateDataRequest {
-  export const filterSensitiveLog = (
-    obj: GetLaunchTemplateDataRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLaunchTemplateDataRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLaunchTemplateDataRequest =>
-    __isa(o, "GetLaunchTemplateDataRequest");
+  export const isa = (o: any): o is GetLaunchTemplateDataRequest => __isa(o, "GetLaunchTemplateDataRequest");
 }
 
 export interface GetLaunchTemplateDataResult {
@@ -25270,13 +23784,10 @@ export interface GetLaunchTemplateDataResult {
 }
 
 export namespace GetLaunchTemplateDataResult {
-  export const filterSensitiveLog = (
-    obj: GetLaunchTemplateDataResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLaunchTemplateDataResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLaunchTemplateDataResult =>
-    __isa(o, "GetLaunchTemplateDataResult");
+  export const isa = (o: any): o is GetLaunchTemplateDataResult => __isa(o, "GetLaunchTemplateDataResult");
 }
 
 export interface GetPasswordDataRequest {
@@ -25296,10 +23807,9 @@ export interface GetPasswordDataRequest {
 
 export namespace GetPasswordDataRequest {
   export const filterSensitiveLog = (obj: GetPasswordDataRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPasswordDataRequest =>
-    __isa(o, "GetPasswordDataRequest");
+  export const isa = (o: any): o is GetPasswordDataRequest => __isa(o, "GetPasswordDataRequest");
 }
 
 export interface GetPasswordDataResult {
@@ -25323,10 +23833,9 @@ export interface GetPasswordDataResult {
 
 export namespace GetPasswordDataResult {
   export const filterSensitiveLog = (obj: GetPasswordDataResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPasswordDataResult =>
-    __isa(o, "GetPasswordDataResult");
+  export const isa = (o: any): o is GetPasswordDataResult => __isa(o, "GetPasswordDataResult");
 }
 
 /**
@@ -25354,10 +23863,8 @@ export interface GetReservedInstancesExchangeQuoteRequest {
 }
 
 export namespace GetReservedInstancesExchangeQuoteRequest {
-  export const filterSensitiveLog = (
-    obj: GetReservedInstancesExchangeQuoteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetReservedInstancesExchangeQuoteRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetReservedInstancesExchangeQuoteRequest =>
     __isa(o, "GetReservedInstancesExchangeQuoteRequest");
@@ -25415,10 +23922,8 @@ export interface GetReservedInstancesExchangeQuoteResult {
 }
 
 export namespace GetReservedInstancesExchangeQuoteResult {
-  export const filterSensitiveLog = (
-    obj: GetReservedInstancesExchangeQuoteResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetReservedInstancesExchangeQuoteResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetReservedInstancesExchangeQuoteResult =>
     __isa(o, "GetReservedInstancesExchangeQuoteResult");
@@ -25462,14 +23967,10 @@ export interface GetTransitGatewayAttachmentPropagationsRequest {
 }
 
 export namespace GetTransitGatewayAttachmentPropagationsRequest {
-  export const filterSensitiveLog = (
-    obj: GetTransitGatewayAttachmentPropagationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTransitGatewayAttachmentPropagationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetTransitGatewayAttachmentPropagationsRequest =>
+  export const isa = (o: any): o is GetTransitGatewayAttachmentPropagationsRequest =>
     __isa(o, "GetTransitGatewayAttachmentPropagationsRequest");
 }
 
@@ -25487,14 +23988,10 @@ export interface GetTransitGatewayAttachmentPropagationsResult {
 }
 
 export namespace GetTransitGatewayAttachmentPropagationsResult {
-  export const filterSensitiveLog = (
-    obj: GetTransitGatewayAttachmentPropagationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTransitGatewayAttachmentPropagationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetTransitGatewayAttachmentPropagationsResult =>
+  export const isa = (o: any): o is GetTransitGatewayAttachmentPropagationsResult =>
     __isa(o, "GetTransitGatewayAttachmentPropagationsResult");
 }
 
@@ -25556,14 +24053,10 @@ export interface GetTransitGatewayMulticastDomainAssociationsRequest {
 }
 
 export namespace GetTransitGatewayMulticastDomainAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: GetTransitGatewayMulticastDomainAssociationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTransitGatewayMulticastDomainAssociationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetTransitGatewayMulticastDomainAssociationsRequest =>
+  export const isa = (o: any): o is GetTransitGatewayMulticastDomainAssociationsRequest =>
     __isa(o, "GetTransitGatewayMulticastDomainAssociationsRequest");
 }
 
@@ -25581,14 +24074,10 @@ export interface GetTransitGatewayMulticastDomainAssociationsResult {
 }
 
 export namespace GetTransitGatewayMulticastDomainAssociationsResult {
-  export const filterSensitiveLog = (
-    obj: GetTransitGatewayMulticastDomainAssociationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTransitGatewayMulticastDomainAssociationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetTransitGatewayMulticastDomainAssociationsResult =>
+  export const isa = (o: any): o is GetTransitGatewayMulticastDomainAssociationsResult =>
     __isa(o, "GetTransitGatewayMulticastDomainAssociationsResult");
 }
 
@@ -25638,14 +24127,10 @@ export interface GetTransitGatewayRouteTableAssociationsRequest {
 }
 
 export namespace GetTransitGatewayRouteTableAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: GetTransitGatewayRouteTableAssociationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTableAssociationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetTransitGatewayRouteTableAssociationsRequest =>
+  export const isa = (o: any): o is GetTransitGatewayRouteTableAssociationsRequest =>
     __isa(o, "GetTransitGatewayRouteTableAssociationsRequest");
 }
 
@@ -25663,14 +24148,10 @@ export interface GetTransitGatewayRouteTableAssociationsResult {
 }
 
 export namespace GetTransitGatewayRouteTableAssociationsResult {
-  export const filterSensitiveLog = (
-    obj: GetTransitGatewayRouteTableAssociationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTableAssociationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetTransitGatewayRouteTableAssociationsResult =>
+  export const isa = (o: any): o is GetTransitGatewayRouteTableAssociationsResult =>
     __isa(o, "GetTransitGatewayRouteTableAssociationsResult");
 }
 
@@ -25720,14 +24201,10 @@ export interface GetTransitGatewayRouteTablePropagationsRequest {
 }
 
 export namespace GetTransitGatewayRouteTablePropagationsRequest {
-  export const filterSensitiveLog = (
-    obj: GetTransitGatewayRouteTablePropagationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTablePropagationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetTransitGatewayRouteTablePropagationsRequest =>
+  export const isa = (o: any): o is GetTransitGatewayRouteTablePropagationsRequest =>
     __isa(o, "GetTransitGatewayRouteTablePropagationsRequest");
 }
 
@@ -25745,14 +24222,10 @@ export interface GetTransitGatewayRouteTablePropagationsResult {
 }
 
 export namespace GetTransitGatewayRouteTablePropagationsResult {
-  export const filterSensitiveLog = (
-    obj: GetTransitGatewayRouteTablePropagationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTablePropagationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetTransitGatewayRouteTablePropagationsResult =>
+  export const isa = (o: any): o is GetTransitGatewayRouteTablePropagationsResult =>
     __isa(o, "GetTransitGatewayRouteTablePropagationsResult");
 }
 
@@ -25784,7 +24257,7 @@ export interface GpuDeviceInfo {
 
 export namespace GpuDeviceInfo {
   export const filterSensitiveLog = (obj: GpuDeviceInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GpuDeviceInfo => __isa(o, "GpuDeviceInfo");
 }
@@ -25802,10 +24275,9 @@ export interface GpuDeviceMemoryInfo {
 
 export namespace GpuDeviceMemoryInfo {
   export const filterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GpuDeviceMemoryInfo =>
-    __isa(o, "GpuDeviceMemoryInfo");
+  export const isa = (o: any): o is GpuDeviceMemoryInfo => __isa(o, "GpuDeviceMemoryInfo");
 }
 
 /**
@@ -25826,7 +24298,7 @@ export interface GpuInfo {
 
 export namespace GpuInfo {
   export const filterSensitiveLog = (obj: GpuInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GpuInfo => __isa(o, "GpuInfo");
 }
@@ -25849,10 +24321,9 @@ export interface GroupIdentifier {
 
 export namespace GroupIdentifier {
   export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GroupIdentifier =>
-    __isa(o, "GroupIdentifier");
+  export const isa = (o: any): o is GroupIdentifier => __isa(o, "GroupIdentifier");
 }
 
 /**
@@ -25873,10 +24344,9 @@ export interface HibernationOptions {
 
 export namespace HibernationOptions {
   export const filterSensitiveLog = (obj: HibernationOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HibernationOptions =>
-    __isa(o, "HibernationOptions");
+  export const isa = (o: any): o is HibernationOptions => __isa(o, "HibernationOptions");
 }
 
 /**
@@ -25899,10 +24369,9 @@ export interface HibernationOptionsRequest {
 
 export namespace HibernationOptionsRequest {
   export const filterSensitiveLog = (obj: HibernationOptionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HibernationOptionsRequest =>
-    __isa(o, "HibernationOptionsRequest");
+  export const isa = (o: any): o is HibernationOptionsRequest => __isa(o, "HibernationOptionsRequest");
 }
 
 /**
@@ -25946,7 +24415,7 @@ export interface HistoryRecord {
 
 export namespace HistoryRecord {
   export const filterSensitiveLog = (obj: HistoryRecord): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HistoryRecord => __isa(o, "HistoryRecord");
 }
@@ -25975,10 +24444,9 @@ export interface HistoryRecordEntry {
 
 export namespace HistoryRecordEntry {
   export const filterSensitiveLog = (obj: HistoryRecordEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HistoryRecordEntry =>
-    __isa(o, "HistoryRecordEntry");
+  export const isa = (o: any): o is HistoryRecordEntry => __isa(o, "HistoryRecordEntry");
 }
 
 /**
@@ -26081,7 +24549,7 @@ export interface Host {
 
 export namespace Host {
   export const filterSensitiveLog = (obj: Host): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Host => __isa(o, "Host");
 }
@@ -26109,7 +24577,7 @@ export interface HostInstance {
 
 export namespace HostInstance {
   export const filterSensitiveLog = (obj: HostInstance): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HostInstance => __isa(o, "HostInstance");
 }
@@ -26158,7 +24626,7 @@ export interface HostOffering {
 
 export namespace HostOffering {
   export const filterSensitiveLog = (obj: HostOffering): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HostOffering => __isa(o, "HostOffering");
 }
@@ -26198,10 +24666,9 @@ export interface HostProperties {
 
 export namespace HostProperties {
   export const filterSensitiveLog = (obj: HostProperties): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HostProperties =>
-    __isa(o, "HostProperties");
+  export const isa = (o: any): o is HostProperties => __isa(o, "HostProperties");
 }
 
 export type HostRecovery = "off" | "on";
@@ -26291,17 +24758,16 @@ export interface HostReservation {
 
 export namespace HostReservation {
   export const filterSensitiveLog = (obj: HostReservation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HostReservation =>
-    __isa(o, "HostReservation");
+  export const isa = (o: any): o is HostReservation => __isa(o, "HostReservation");
 }
 
 export type HostTenancy = "dedicated" | "host";
 
 export enum HttpTokensState {
   optional = "optional",
-  required = "required"
+  required = "required",
 }
 
 export type HypervisorType = "ovm" | "xen";
@@ -26324,10 +24790,9 @@ export interface IamInstanceProfile {
 
 export namespace IamInstanceProfile {
   export const filterSensitiveLog = (obj: IamInstanceProfile): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IamInstanceProfile =>
-    __isa(o, "IamInstanceProfile");
+  export const isa = (o: any): o is IamInstanceProfile => __isa(o, "IamInstanceProfile");
 }
 
 /**
@@ -26362,20 +24827,17 @@ export interface IamInstanceProfileAssociation {
 }
 
 export namespace IamInstanceProfileAssociation {
-  export const filterSensitiveLog = (
-    obj: IamInstanceProfileAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IamInstanceProfileAssociation): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is IamInstanceProfileAssociation =>
-    __isa(o, "IamInstanceProfileAssociation");
+  export const isa = (o: any): o is IamInstanceProfileAssociation => __isa(o, "IamInstanceProfileAssociation");
 }
 
 export enum IamInstanceProfileAssociationState {
   ASSOCIATED = "associated",
   ASSOCIATING = "associating",
   DISASSOCIATED = "disassociated",
-  DISASSOCIATING = "disassociating"
+  DISASSOCIATING = "disassociating",
 }
 
 /**
@@ -26395,13 +24857,10 @@ export interface IamInstanceProfileSpecification {
 }
 
 export namespace IamInstanceProfileSpecification {
-  export const filterSensitiveLog = (
-    obj: IamInstanceProfileSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IamInstanceProfileSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is IamInstanceProfileSpecification =>
-    __isa(o, "IamInstanceProfileSpecification");
+  export const isa = (o: any): o is IamInstanceProfileSpecification => __isa(o, "IamInstanceProfileSpecification");
 }
 
 /**
@@ -26422,7 +24881,7 @@ export interface IcmpTypeCode {
 
 export namespace IcmpTypeCode {
   export const filterSensitiveLog = (obj: IcmpTypeCode): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IcmpTypeCode => __isa(o, "IcmpTypeCode");
 }
@@ -26450,7 +24909,7 @@ export interface IdFormat {
 
 export namespace IdFormat {
   export const filterSensitiveLog = (obj: IdFormat): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IdFormat => __isa(o, "IdFormat");
 }
@@ -26468,10 +24927,9 @@ export interface IKEVersionsListValue {
 
 export namespace IKEVersionsListValue {
   export const filterSensitiveLog = (obj: IKEVersionsListValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IKEVersionsListValue =>
-    __isa(o, "IKEVersionsListValue");
+  export const isa = (o: any): o is IKEVersionsListValue => __isa(o, "IKEVersionsListValue");
 }
 
 /**
@@ -26486,13 +24944,10 @@ export interface IKEVersionsRequestListValue {
 }
 
 export namespace IKEVersionsRequestListValue {
-  export const filterSensitiveLog = (
-    obj: IKEVersionsRequestListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IKEVersionsRequestListValue): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is IKEVersionsRequestListValue =>
-    __isa(o, "IKEVersionsRequestListValue");
+  export const isa = (o: any): o is IKEVersionsRequestListValue => __isa(o, "IKEVersionsRequestListValue");
 }
 
 /**
@@ -26626,7 +25081,7 @@ export interface Image {
 
 export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Image => __isa(o, "Image");
 }
@@ -26679,10 +25134,9 @@ export interface ImageAttribute {
 
 export namespace ImageAttribute {
   export const filterSensitiveLog = (obj: ImageAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageAttribute =>
-    __isa(o, "ImageAttribute");
+  export const isa = (o: any): o is ImageAttribute => __isa(o, "ImageAttribute");
 }
 
 export type ImageAttributeName =
@@ -26735,20 +25189,12 @@ export interface ImageDiskContainer {
 
 export namespace ImageDiskContainer {
   export const filterSensitiveLog = (obj: ImageDiskContainer): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageDiskContainer =>
-    __isa(o, "ImageDiskContainer");
+  export const isa = (o: any): o is ImageDiskContainer => __isa(o, "ImageDiskContainer");
 }
 
-export type ImageState =
-  | "available"
-  | "deregistered"
-  | "error"
-  | "failed"
-  | "invalid"
-  | "pending"
-  | "transient";
+export type ImageState = "available" | "deregistered" | "error" | "failed" | "invalid" | "pending" | "transient";
 
 export type ImageTypeValues = "kernel" | "machine" | "ramdisk";
 
@@ -26772,14 +25218,10 @@ export interface ImportClientVpnClientCertificateRevocationListRequest {
 }
 
 export namespace ImportClientVpnClientCertificateRevocationListRequest {
-  export const filterSensitiveLog = (
-    obj: ImportClientVpnClientCertificateRevocationListRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportClientVpnClientCertificateRevocationListRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ImportClientVpnClientCertificateRevocationListRequest =>
+  export const isa = (o: any): o is ImportClientVpnClientCertificateRevocationListRequest =>
     __isa(o, "ImportClientVpnClientCertificateRevocationListRequest");
 }
 
@@ -26792,14 +25234,10 @@ export interface ImportClientVpnClientCertificateRevocationListResult {
 }
 
 export namespace ImportClientVpnClientCertificateRevocationListResult {
-  export const filterSensitiveLog = (
-    obj: ImportClientVpnClientCertificateRevocationListResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportClientVpnClientCertificateRevocationListResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ImportClientVpnClientCertificateRevocationListResult =>
+  export const isa = (o: any): o is ImportClientVpnClientCertificateRevocationListResult =>
     __isa(o, "ImportClientVpnClientCertificateRevocationListResult");
 }
 
@@ -26815,10 +25253,8 @@ export interface ImportImageLicenseConfigurationRequest {
 }
 
 export namespace ImportImageLicenseConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: ImportImageLicenseConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ImportImageLicenseConfigurationRequest =>
     __isa(o, "ImportImageLicenseConfigurationRequest");
@@ -26836,10 +25272,8 @@ export interface ImportImageLicenseConfigurationResponse {
 }
 
 export namespace ImportImageLicenseConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: ImportImageLicenseConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ImportImageLicenseConfigurationResponse =>
     __isa(o, "ImportImageLicenseConfigurationResponse");
@@ -26953,10 +25387,9 @@ export interface ImportImageRequest {
 
 export namespace ImportImageRequest {
   export const filterSensitiveLog = (obj: ImportImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportImageRequest =>
-    __isa(o, "ImportImageRequest");
+  export const isa = (o: any): o is ImportImageRequest => __isa(o, "ImportImageRequest");
 }
 
 export interface ImportImageResult {
@@ -27035,10 +25468,9 @@ export interface ImportImageResult {
 
 export namespace ImportImageResult {
   export const filterSensitiveLog = (obj: ImportImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportImageResult =>
-    __isa(o, "ImportImageResult");
+  export const isa = (o: any): o is ImportImageResult => __isa(o, "ImportImageResult");
 }
 
 /**
@@ -27129,10 +25561,9 @@ export interface ImportImageTask {
 
 export namespace ImportImageTask {
   export const filterSensitiveLog = (obj: ImportImageTask): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportImageTask =>
-    __isa(o, "ImportImageTask");
+  export const isa = (o: any): o is ImportImageTask => __isa(o, "ImportImageTask");
 }
 
 /**
@@ -27199,14 +25630,11 @@ export interface ImportInstanceLaunchSpecification {
 }
 
 export namespace ImportInstanceLaunchSpecification {
-  export const filterSensitiveLog = (
-    obj: ImportInstanceLaunchSpecification
-  ): any => ({
+  export const filterSensitiveLog = (obj: ImportInstanceLaunchSpecification): any => ({
     ...obj,
-    ...(obj.UserData && { UserData: SENSITIVE_STRING })
+    ...(obj.UserData && { UserData: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ImportInstanceLaunchSpecification =>
-    __isa(o, "ImportInstanceLaunchSpecification");
+  export const isa = (o: any): o is ImportInstanceLaunchSpecification => __isa(o, "ImportInstanceLaunchSpecification");
 }
 
 export interface ImportInstanceRequest {
@@ -27243,13 +25671,10 @@ export namespace ImportInstanceRequest {
   export const filterSensitiveLog = (obj: ImportInstanceRequest): any => ({
     ...obj,
     ...(obj.LaunchSpecification && {
-      LaunchSpecification: ImportInstanceLaunchSpecification.filterSensitiveLog(
-        obj.LaunchSpecification
-      )
-    })
+      LaunchSpecification: ImportInstanceLaunchSpecification.filterSensitiveLog(obj.LaunchSpecification),
+    }),
   });
-  export const isa = (o: any): o is ImportInstanceRequest =>
-    __isa(o, "ImportInstanceRequest");
+  export const isa = (o: any): o is ImportInstanceRequest => __isa(o, "ImportInstanceRequest");
 }
 
 export interface ImportInstanceResult {
@@ -27262,10 +25687,9 @@ export interface ImportInstanceResult {
 
 export namespace ImportInstanceResult {
   export const filterSensitiveLog = (obj: ImportInstanceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportInstanceResult =>
-    __isa(o, "ImportInstanceResult");
+  export const isa = (o: any): o is ImportInstanceResult => __isa(o, "ImportInstanceResult");
 }
 
 /**
@@ -27296,10 +25720,9 @@ export interface ImportInstanceTaskDetails {
 
 export namespace ImportInstanceTaskDetails {
   export const filterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportInstanceTaskDetails =>
-    __isa(o, "ImportInstanceTaskDetails");
+  export const isa = (o: any): o is ImportInstanceTaskDetails => __isa(o, "ImportInstanceTaskDetails");
 }
 
 /**
@@ -27344,13 +25767,10 @@ export interface ImportInstanceVolumeDetailItem {
 }
 
 export namespace ImportInstanceVolumeDetailItem {
-  export const filterSensitiveLog = (
-    obj: ImportInstanceVolumeDetailItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ImportInstanceVolumeDetailItem =>
-    __isa(o, "ImportInstanceVolumeDetailItem");
+  export const isa = (o: any): o is ImportInstanceVolumeDetailItem => __isa(o, "ImportInstanceVolumeDetailItem");
 }
 
 export interface ImportKeyPairRequest {
@@ -27375,10 +25795,9 @@ export interface ImportKeyPairRequest {
 
 export namespace ImportKeyPairRequest {
   export const filterSensitiveLog = (obj: ImportKeyPairRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportKeyPairRequest =>
-    __isa(o, "ImportKeyPairRequest");
+  export const isa = (o: any): o is ImportKeyPairRequest => __isa(o, "ImportKeyPairRequest");
 }
 
 export interface ImportKeyPairResult {
@@ -27396,10 +25815,9 @@ export interface ImportKeyPairResult {
 
 export namespace ImportKeyPairResult {
   export const filterSensitiveLog = (obj: ImportKeyPairResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportKeyPairResult =>
-    __isa(o, "ImportKeyPairResult");
+  export const isa = (o: any): o is ImportKeyPairResult => __isa(o, "ImportKeyPairResult");
 }
 
 export interface ImportSnapshotRequest {
@@ -27473,10 +25891,9 @@ export interface ImportSnapshotRequest {
 
 export namespace ImportSnapshotRequest {
   export const filterSensitiveLog = (obj: ImportSnapshotRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportSnapshotRequest =>
-    __isa(o, "ImportSnapshotRequest");
+  export const isa = (o: any): o is ImportSnapshotRequest => __isa(o, "ImportSnapshotRequest");
 }
 
 export interface ImportSnapshotResult {
@@ -27499,10 +25916,9 @@ export interface ImportSnapshotResult {
 
 export namespace ImportSnapshotResult {
   export const filterSensitiveLog = (obj: ImportSnapshotResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportSnapshotResult =>
-    __isa(o, "ImportSnapshotResult");
+  export const isa = (o: any): o is ImportSnapshotResult => __isa(o, "ImportSnapshotResult");
 }
 
 /**
@@ -27533,10 +25949,9 @@ export interface ImportSnapshotTask {
 
 export namespace ImportSnapshotTask {
   export const filterSensitiveLog = (obj: ImportSnapshotTask): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportSnapshotTask =>
-    __isa(o, "ImportSnapshotTask");
+  export const isa = (o: any): o is ImportSnapshotTask => __isa(o, "ImportSnapshotTask");
 }
 
 export interface ImportVolumeRequest {
@@ -27571,10 +25986,9 @@ export interface ImportVolumeRequest {
 
 export namespace ImportVolumeRequest {
   export const filterSensitiveLog = (obj: ImportVolumeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportVolumeRequest =>
-    __isa(o, "ImportVolumeRequest");
+  export const isa = (o: any): o is ImportVolumeRequest => __isa(o, "ImportVolumeRequest");
 }
 
 export interface ImportVolumeResult {
@@ -27587,10 +26001,9 @@ export interface ImportVolumeResult {
 
 export namespace ImportVolumeResult {
   export const filterSensitiveLog = (obj: ImportVolumeResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportVolumeResult =>
-    __isa(o, "ImportVolumeResult");
+  export const isa = (o: any): o is ImportVolumeResult => __isa(o, "ImportVolumeResult");
 }
 
 /**
@@ -27626,10 +26039,9 @@ export interface ImportVolumeTaskDetails {
 
 export namespace ImportVolumeTaskDetails {
   export const filterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportVolumeTaskDetails =>
-    __isa(o, "ImportVolumeTaskDetails");
+  export const isa = (o: any): o is ImportVolumeTaskDetails => __isa(o, "ImportVolumeTaskDetails");
 }
 
 /**
@@ -27645,10 +26057,9 @@ export interface InferenceAcceleratorInfo {
 
 export namespace InferenceAcceleratorInfo {
   export const filterSensitiveLog = (obj: InferenceAcceleratorInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InferenceAcceleratorInfo =>
-    __isa(o, "InferenceAcceleratorInfo");
+  export const isa = (o: any): o is InferenceAcceleratorInfo => __isa(o, "InferenceAcceleratorInfo");
 }
 
 /**
@@ -27674,10 +26085,9 @@ export interface InferenceDeviceInfo {
 
 export namespace InferenceDeviceInfo {
   export const filterSensitiveLog = (obj: InferenceDeviceInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InferenceDeviceInfo =>
-    __isa(o, "InferenceDeviceInfo");
+  export const isa = (o: any): o is InferenceDeviceInfo => __isa(o, "InferenceDeviceInfo");
 }
 
 /**
@@ -27945,7 +26355,7 @@ export interface Instance {
 
 export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
@@ -28039,10 +26449,9 @@ export interface InstanceAttribute {
 
 export namespace InstanceAttribute {
   export const filterSensitiveLog = (obj: InstanceAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceAttribute =>
-    __isa(o, "InstanceAttribute");
+  export const isa = (o: any): o is InstanceAttribute => __isa(o, "InstanceAttribute");
 }
 
 export type InstanceAttributeName =
@@ -28080,10 +26489,9 @@ export interface InstanceBlockDeviceMapping {
 
 export namespace InstanceBlockDeviceMapping {
   export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceBlockDeviceMapping =>
-    __isa(o, "InstanceBlockDeviceMapping");
+  export const isa = (o: any): o is InstanceBlockDeviceMapping => __isa(o, "InstanceBlockDeviceMapping");
 }
 
 /**
@@ -28114,10 +26522,8 @@ export interface InstanceBlockDeviceMappingSpecification {
 }
 
 export namespace InstanceBlockDeviceMappingSpecification {
-  export const filterSensitiveLog = (
-    obj: InstanceBlockDeviceMappingSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceBlockDeviceMappingSpecification): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InstanceBlockDeviceMappingSpecification =>
     __isa(o, "InstanceBlockDeviceMappingSpecification");
@@ -28149,10 +26555,9 @@ export interface InstanceCapacity {
 
 export namespace InstanceCapacity {
   export const filterSensitiveLog = (obj: InstanceCapacity): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceCapacity =>
-    __isa(o, "InstanceCapacity");
+  export const isa = (o: any): o is InstanceCapacity => __isa(o, "InstanceCapacity");
 }
 
 /**
@@ -28173,7 +26578,7 @@ export interface InstanceCount {
 
 export namespace InstanceCount {
   export const filterSensitiveLog = (obj: InstanceCount): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InstanceCount => __isa(o, "InstanceCount");
 }
@@ -28196,13 +26601,10 @@ export interface InstanceCreditSpecification {
 }
 
 export namespace InstanceCreditSpecification {
-  export const filterSensitiveLog = (
-    obj: InstanceCreditSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceCreditSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceCreditSpecification =>
-    __isa(o, "InstanceCreditSpecification");
+  export const isa = (o: any): o is InstanceCreditSpecification => __isa(o, "InstanceCreditSpecification");
 }
 
 /**
@@ -28223,10 +26625,8 @@ export interface InstanceCreditSpecificationRequest {
 }
 
 export namespace InstanceCreditSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: InstanceCreditSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceCreditSpecificationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InstanceCreditSpecificationRequest =>
     __isa(o, "InstanceCreditSpecificationRequest");
@@ -28250,10 +26650,9 @@ export interface InstanceExportDetails {
 
 export namespace InstanceExportDetails {
   export const filterSensitiveLog = (obj: InstanceExportDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceExportDetails =>
-    __isa(o, "InstanceExportDetails");
+  export const isa = (o: any): o is InstanceExportDetails => __isa(o, "InstanceExportDetails");
 }
 
 /**
@@ -28273,18 +26672,15 @@ export interface InstanceFamilyCreditSpecification {
 }
 
 export namespace InstanceFamilyCreditSpecification {
-  export const filterSensitiveLog = (
-    obj: InstanceFamilyCreditSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceFamilyCreditSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceFamilyCreditSpecification =>
-    __isa(o, "InstanceFamilyCreditSpecification");
+  export const isa = (o: any): o is InstanceFamilyCreditSpecification => __isa(o, "InstanceFamilyCreditSpecification");
 }
 
 export enum InstanceHealthStatus {
   HEALTHY_STATUS = "healthy",
-  UNHEALTHY_STATUS = "unhealthy"
+  UNHEALTHY_STATUS = "unhealthy",
 }
 
 export type InstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
@@ -28302,10 +26698,9 @@ export interface InstanceIpv6Address {
 
 export namespace InstanceIpv6Address {
   export const filterSensitiveLog = (obj: InstanceIpv6Address): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceIpv6Address =>
-    __isa(o, "InstanceIpv6Address");
+  export const isa = (o: any): o is InstanceIpv6Address => __isa(o, "InstanceIpv6Address");
 }
 
 /**
@@ -28321,15 +26716,14 @@ export interface InstanceIpv6AddressRequest {
 
 export namespace InstanceIpv6AddressRequest {
   export const filterSensitiveLog = (obj: InstanceIpv6AddressRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceIpv6AddressRequest =>
-    __isa(o, "InstanceIpv6AddressRequest");
+  export const isa = (o: any): o is InstanceIpv6AddressRequest => __isa(o, "InstanceIpv6AddressRequest");
 }
 
 export enum InstanceLifecycle {
   ON_DEMAND = "on-demand",
-  SPOT = "spot"
+  SPOT = "spot",
 }
 
 export type InstanceLifecycleType = "scheduled" | "spot";
@@ -28351,13 +26745,10 @@ export interface InstanceMarketOptionsRequest {
 }
 
 export namespace InstanceMarketOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: InstanceMarketOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceMarketOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceMarketOptionsRequest =>
-    __isa(o, "InstanceMarketOptionsRequest");
+  export const isa = (o: any): o is InstanceMarketOptionsRequest => __isa(o, "InstanceMarketOptionsRequest");
 }
 
 export type InstanceMatchCriteria = "open" | "targeted";
@@ -28404,13 +26795,10 @@ export interface InstanceMetadataOptionsRequest {
 }
 
 export namespace InstanceMetadataOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: InstanceMetadataOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceMetadataOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceMetadataOptionsRequest =>
-    __isa(o, "InstanceMetadataOptionsRequest");
+  export const isa = (o: any): o is InstanceMetadataOptionsRequest => __isa(o, "InstanceMetadataOptionsRequest");
 }
 
 /**
@@ -28464,13 +26852,10 @@ export interface InstanceMetadataOptionsResponse {
 }
 
 export namespace InstanceMetadataOptionsResponse {
-  export const filterSensitiveLog = (
-    obj: InstanceMetadataOptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceMetadataOptionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceMetadataOptionsResponse =>
-    __isa(o, "InstanceMetadataOptionsResponse");
+  export const isa = (o: any): o is InstanceMetadataOptionsResponse => __isa(o, "InstanceMetadataOptionsResponse");
 }
 
 export type InstanceMetadataOptionsState = "applied" | "pending";
@@ -28493,10 +26878,9 @@ export interface InstanceMonitoring {
 
 export namespace InstanceMonitoring {
   export const filterSensitiveLog = (obj: InstanceMonitoring): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceMonitoring =>
-    __isa(o, "InstanceMonitoring");
+  export const isa = (o: any): o is InstanceMonitoring => __isa(o, "InstanceMonitoring");
 }
 
 /**
@@ -28590,10 +26974,9 @@ export interface InstanceNetworkInterface {
 
 export namespace InstanceNetworkInterface {
   export const filterSensitiveLog = (obj: InstanceNetworkInterface): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceNetworkInterface =>
-    __isa(o, "InstanceNetworkInterface");
+  export const isa = (o: any): o is InstanceNetworkInterface => __isa(o, "InstanceNetworkInterface");
 }
 
 /**
@@ -28618,10 +27001,8 @@ export interface InstanceNetworkInterfaceAssociation {
 }
 
 export namespace InstanceNetworkInterfaceAssociation {
-  export const filterSensitiveLog = (
-    obj: InstanceNetworkInterfaceAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAssociation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InstanceNetworkInterfaceAssociation =>
     __isa(o, "InstanceNetworkInterfaceAssociation");
@@ -28659,10 +27040,8 @@ export interface InstanceNetworkInterfaceAttachment {
 }
 
 export namespace InstanceNetworkInterfaceAttachment {
-  export const filterSensitiveLog = (
-    obj: InstanceNetworkInterfaceAttachment
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAttachment): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InstanceNetworkInterfaceAttachment =>
     __isa(o, "InstanceNetworkInterfaceAttachment");
@@ -28763,10 +27142,8 @@ export interface InstanceNetworkInterfaceSpecification {
 }
 
 export namespace InstanceNetworkInterfaceSpecification {
-  export const filterSensitiveLog = (
-    obj: InstanceNetworkInterfaceSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceSpecification): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InstanceNetworkInterfaceSpecification =>
     __isa(o, "InstanceNetworkInterfaceSpecification");
@@ -28800,10 +27177,9 @@ export interface InstancePrivateIpAddress {
 
 export namespace InstancePrivateIpAddress {
   export const filterSensitiveLog = (obj: InstancePrivateIpAddress): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstancePrivateIpAddress =>
-    __isa(o, "InstancePrivateIpAddress");
+  export const isa = (o: any): o is InstancePrivateIpAddress => __isa(o, "InstancePrivateIpAddress");
 }
 
 /**
@@ -28824,10 +27200,9 @@ export interface InstanceSpecification {
 
 export namespace InstanceSpecification {
   export const filterSensitiveLog = (obj: InstanceSpecification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceSpecification =>
-    __isa(o, "InstanceSpecification");
+  export const isa = (o: any): o is InstanceSpecification => __isa(o, "InstanceSpecification");
 }
 
 /**
@@ -28889,7 +27264,7 @@ export interface InstanceState {
 
 export namespace InstanceState {
   export const filterSensitiveLog = (obj: InstanceState): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InstanceState => __isa(o, "InstanceState");
 }
@@ -28917,19 +27292,12 @@ export interface InstanceStateChange {
 
 export namespace InstanceStateChange {
   export const filterSensitiveLog = (obj: InstanceStateChange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceStateChange =>
-    __isa(o, "InstanceStateChange");
+  export const isa = (o: any): o is InstanceStateChange => __isa(o, "InstanceStateChange");
 }
 
-export type InstanceStateName =
-  | "pending"
-  | "running"
-  | "shutting-down"
-  | "stopped"
-  | "stopping"
-  | "terminated";
+export type InstanceStateName = "pending" | "running" | "shutting-down" | "stopped" | "stopping" | "terminated";
 
 /**
  * <p>Describes the status of an instance.</p>
@@ -28977,10 +27345,9 @@ export interface InstanceStatus {
 
 export namespace InstanceStatus {
   export const filterSensitiveLog = (obj: InstanceStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceStatus =>
-    __isa(o, "InstanceStatus");
+  export const isa = (o: any): o is InstanceStatus => __isa(o, "InstanceStatus");
 }
 
 /**
@@ -29007,10 +27374,9 @@ export interface InstanceStatusDetails {
 
 export namespace InstanceStatusDetails {
   export const filterSensitiveLog = (obj: InstanceStatusDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceStatusDetails =>
-    __isa(o, "InstanceStatusDetails");
+  export const isa = (o: any): o is InstanceStatusDetails => __isa(o, "InstanceStatusDetails");
 }
 
 /**
@@ -29054,10 +27420,9 @@ export interface InstanceStatusEvent {
 
 export namespace InstanceStatusEvent {
   export const filterSensitiveLog = (obj: InstanceStatusEvent): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceStatusEvent =>
-    __isa(o, "InstanceStatusEvent");
+  export const isa = (o: any): o is InstanceStatusEvent => __isa(o, "InstanceStatusEvent");
 }
 
 /**
@@ -29078,10 +27443,9 @@ export interface InstanceStatusSummary {
 
 export namespace InstanceStatusSummary {
   export const filterSensitiveLog = (obj: InstanceStatusSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceStatusSummary =>
-    __isa(o, "InstanceStatusSummary");
+  export const isa = (o: any): o is InstanceStatusSummary => __isa(o, "InstanceStatusSummary");
 }
 
 /**
@@ -29102,10 +27466,9 @@ export interface InstanceStorageInfo {
 
 export namespace InstanceStorageInfo {
   export const filterSensitiveLog = (obj: InstanceStorageInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceStorageInfo =>
-    __isa(o, "InstanceStorageInfo");
+  export const isa = (o: any): o is InstanceStorageInfo => __isa(o, "InstanceStorageInfo");
 }
 
 export type _InstanceType =
@@ -29383,7 +27746,7 @@ export type _InstanceType =
 
 export enum InstanceTypeHypervisor {
   NITRO = "nitro",
-  XEN = "xen"
+  XEN = "xen",
 }
 
 /**
@@ -29505,10 +27868,9 @@ export interface InstanceTypeInfo {
 
 export namespace InstanceTypeInfo {
   export const filterSensitiveLog = (obj: InstanceTypeInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeInfo =>
-    __isa(o, "InstanceTypeInfo");
+  export const isa = (o: any): o is InstanceTypeInfo => __isa(o, "InstanceTypeInfo");
 }
 
 /**
@@ -29536,10 +27898,9 @@ export interface InstanceTypeOffering {
 
 export namespace InstanceTypeOffering {
   export const filterSensitiveLog = (obj: InstanceTypeOffering): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeOffering =>
-    __isa(o, "InstanceTypeOffering");
+  export const isa = (o: any): o is InstanceTypeOffering => __isa(o, "InstanceTypeOffering");
 }
 
 /**
@@ -29560,7 +27921,7 @@ export interface InstanceUsage {
 
 export namespace InstanceUsage {
   export const filterSensitiveLog = (obj: InstanceUsage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InstanceUsage => __isa(o, "InstanceUsage");
 }
@@ -29595,10 +27956,9 @@ export interface InternetGateway {
 
 export namespace InternetGateway {
   export const filterSensitiveLog = (obj: InternetGateway): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternetGateway =>
-    __isa(o, "InternetGateway");
+  export const isa = (o: any): o is InternetGateway => __isa(o, "InternetGateway");
 }
 
 /**
@@ -29622,10 +27982,9 @@ export interface InternetGatewayAttachment {
 
 export namespace InternetGatewayAttachment {
   export const filterSensitiveLog = (obj: InternetGatewayAttachment): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternetGatewayAttachment =>
-    __isa(o, "InternetGatewayAttachment");
+  export const isa = (o: any): o is InternetGatewayAttachment => __isa(o, "InternetGatewayAttachment");
 }
 
 /**
@@ -29684,7 +28043,7 @@ export interface IpPermission {
 
 export namespace IpPermission {
   export const filterSensitiveLog = (obj: IpPermission): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IpPermission => __isa(o, "IpPermission");
 }
@@ -29710,7 +28069,7 @@ export interface IpRange {
 
 export namespace IpRange {
   export const filterSensitiveLog = (obj: IpRange): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IpRange => __isa(o, "IpRange");
 }
@@ -29733,10 +28092,9 @@ export interface Ipv6CidrAssociation {
 
 export namespace Ipv6CidrAssociation {
   export const filterSensitiveLog = (obj: Ipv6CidrAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is Ipv6CidrAssociation =>
-    __isa(o, "Ipv6CidrAssociation");
+  export const isa = (o: any): o is Ipv6CidrAssociation => __isa(o, "Ipv6CidrAssociation");
 }
 
 /**
@@ -29752,7 +28110,7 @@ export interface Ipv6CidrBlock {
 
 export namespace Ipv6CidrBlock {
   export const filterSensitiveLog = (obj: Ipv6CidrBlock): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Ipv6CidrBlock => __isa(o, "Ipv6CidrBlock");
 }
@@ -29785,7 +28143,7 @@ export interface Ipv6Pool {
 
 export namespace Ipv6Pool {
   export const filterSensitiveLog = (obj: Ipv6Pool): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Ipv6Pool => __isa(o, "Ipv6Pool");
 }
@@ -29811,7 +28169,7 @@ export interface Ipv6Range {
 
 export namespace Ipv6Range {
   export const filterSensitiveLog = (obj: Ipv6Range): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Ipv6Range => __isa(o, "Ipv6Range");
 }
@@ -29847,7 +28205,7 @@ export interface KeyPair {
 export namespace KeyPair {
   export const filterSensitiveLog = (obj: KeyPair): any => ({
     ...obj,
-    ...(obj.KeyMaterial && { KeyMaterial: SENSITIVE_STRING })
+    ...(obj.KeyMaterial && { KeyMaterial: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is KeyPair => __isa(o, "KeyPair");
 }
@@ -29881,7 +28239,7 @@ export interface KeyPairInfo {
 
 export namespace KeyPairInfo {
   export const filterSensitiveLog = (obj: KeyPairInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is KeyPairInfo => __isa(o, "KeyPairInfo");
 }
@@ -29904,7 +28262,7 @@ export interface LastError {
 
 export namespace LastError {
   export const filterSensitiveLog = (obj: LastError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is LastError => __isa(o, "LastError");
 }
@@ -29927,10 +28285,9 @@ export interface LaunchPermission {
 
 export namespace LaunchPermission {
   export const filterSensitiveLog = (obj: LaunchPermission): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchPermission =>
-    __isa(o, "LaunchPermission");
+  export const isa = (o: any): o is LaunchPermission => __isa(o, "LaunchPermission");
 }
 
 /**
@@ -29950,13 +28307,10 @@ export interface LaunchPermissionModifications {
 }
 
 export namespace LaunchPermissionModifications {
-  export const filterSensitiveLog = (
-    obj: LaunchPermissionModifications
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchPermissionModifications): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchPermissionModifications =>
-    __isa(o, "LaunchPermissionModifications");
+  export const isa = (o: any): o is LaunchPermissionModifications => __isa(o, "LaunchPermissionModifications");
 }
 
 /**
@@ -30045,10 +28399,9 @@ export interface LaunchSpecification {
 
 export namespace LaunchSpecification {
   export const filterSensitiveLog = (obj: LaunchSpecification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchSpecification =>
-    __isa(o, "LaunchSpecification");
+  export const isa = (o: any): o is LaunchSpecification => __isa(o, "LaunchSpecification");
 }
 
 /**
@@ -30094,10 +28447,9 @@ export interface LaunchTemplate {
 
 export namespace LaunchTemplate {
   export const filterSensitiveLog = (obj: LaunchTemplate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplate =>
-    __isa(o, "LaunchTemplate");
+  export const isa = (o: any): o is LaunchTemplate => __isa(o, "LaunchTemplate");
 }
 
 /**
@@ -30118,10 +28470,8 @@ export interface LaunchTemplateAndOverridesResponse {
 }
 
 export namespace LaunchTemplateAndOverridesResponse {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateAndOverridesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateAndOverridesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateAndOverridesResponse =>
     __isa(o, "LaunchTemplateAndOverridesResponse");
@@ -30154,13 +28504,10 @@ export interface LaunchTemplateBlockDeviceMapping {
 }
 
 export namespace LaunchTemplateBlockDeviceMapping {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateBlockDeviceMapping
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateBlockDeviceMapping): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateBlockDeviceMapping =>
-    __isa(o, "LaunchTemplateBlockDeviceMapping");
+  export const isa = (o: any): o is LaunchTemplateBlockDeviceMapping => __isa(o, "LaunchTemplateBlockDeviceMapping");
 }
 
 /**
@@ -30190,10 +28537,8 @@ export interface LaunchTemplateBlockDeviceMappingRequest {
 }
 
 export namespace LaunchTemplateBlockDeviceMappingRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateBlockDeviceMappingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateBlockDeviceMappingRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateBlockDeviceMappingRequest =>
     __isa(o, "LaunchTemplateBlockDeviceMappingRequest");
@@ -30231,14 +28576,10 @@ export interface LaunchTemplateCapacityReservationSpecificationRequest {
 }
 
 export namespace LaunchTemplateCapacityReservationSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateCapacityReservationSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateCapacityReservationSpecificationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateCapacityReservationSpecificationRequest =>
+  export const isa = (o: any): o is LaunchTemplateCapacityReservationSpecificationRequest =>
     __isa(o, "LaunchTemplateCapacityReservationSpecificationRequest");
 }
 
@@ -30271,14 +28612,10 @@ export interface LaunchTemplateCapacityReservationSpecificationResponse {
 }
 
 export namespace LaunchTemplateCapacityReservationSpecificationResponse {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateCapacityReservationSpecificationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateCapacityReservationSpecificationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateCapacityReservationSpecificationResponse =>
+  export const isa = (o: any): o is LaunchTemplateCapacityReservationSpecificationResponse =>
     __isa(o, "LaunchTemplateCapacityReservationSpecificationResponse");
 }
 
@@ -30300,10 +28637,9 @@ export interface LaunchTemplateConfig {
 
 export namespace LaunchTemplateConfig {
   export const filterSensitiveLog = (obj: LaunchTemplateConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateConfig =>
-    __isa(o, "LaunchTemplateConfig");
+  export const isa = (o: any): o is LaunchTemplateConfig => __isa(o, "LaunchTemplateConfig");
 }
 
 /**
@@ -30324,10 +28660,9 @@ export interface LaunchTemplateCpuOptions {
 
 export namespace LaunchTemplateCpuOptions {
   export const filterSensitiveLog = (obj: LaunchTemplateCpuOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateCpuOptions =>
-    __isa(o, "LaunchTemplateCpuOptions");
+  export const isa = (o: any): o is LaunchTemplateCpuOptions => __isa(o, "LaunchTemplateCpuOptions");
 }
 
 /**
@@ -30349,13 +28684,10 @@ export interface LaunchTemplateCpuOptionsRequest {
 }
 
 export namespace LaunchTemplateCpuOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateCpuOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateCpuOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateCpuOptionsRequest =>
-    __isa(o, "LaunchTemplateCpuOptionsRequest");
+  export const isa = (o: any): o is LaunchTemplateCpuOptionsRequest => __isa(o, "LaunchTemplateCpuOptionsRequest");
 }
 
 /**
@@ -30400,13 +28732,10 @@ export interface LaunchTemplateEbsBlockDevice {
 }
 
 export namespace LaunchTemplateEbsBlockDevice {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateEbsBlockDevice
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateEbsBlockDevice): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateEbsBlockDevice =>
-    __isa(o, "LaunchTemplateEbsBlockDevice");
+  export const isa = (o: any): o is LaunchTemplateEbsBlockDevice => __isa(o, "LaunchTemplateEbsBlockDevice");
 }
 
 /**
@@ -30454,10 +28783,8 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
 }
 
 export namespace LaunchTemplateEbsBlockDeviceRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateEbsBlockDeviceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateEbsBlockDeviceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateEbsBlockDeviceRequest =>
     __isa(o, "LaunchTemplateEbsBlockDeviceRequest");
@@ -30487,10 +28814,8 @@ export interface LaunchTemplateElasticInferenceAccelerator {
 }
 
 export namespace LaunchTemplateElasticInferenceAccelerator {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateElasticInferenceAccelerator
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateElasticInferenceAccelerator): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateElasticInferenceAccelerator =>
     __isa(o, "LaunchTemplateElasticInferenceAccelerator");
@@ -30520,14 +28845,10 @@ export interface LaunchTemplateElasticInferenceAcceleratorResponse {
 }
 
 export namespace LaunchTemplateElasticInferenceAcceleratorResponse {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateElasticInferenceAcceleratorResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateElasticInferenceAcceleratorResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateElasticInferenceAcceleratorResponse =>
+  export const isa = (o: any): o is LaunchTemplateElasticInferenceAcceleratorResponse =>
     __isa(o, "LaunchTemplateElasticInferenceAcceleratorResponse");
 }
 
@@ -30537,7 +28858,7 @@ export enum LaunchTemplateErrorCode {
   LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST = "launchTemplateNameDoesNotExist",
   LAUNCH_TEMPLATE_NAME_MALFORMED = "launchTemplateNameMalformed",
   LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST = "launchTemplateVersionDoesNotExist",
-  UNEXPECTED_ERROR = "unexpectedError"
+  UNEXPECTED_ERROR = "unexpectedError",
 }
 
 /**
@@ -30552,13 +28873,10 @@ export interface LaunchTemplateHibernationOptions {
 }
 
 export namespace LaunchTemplateHibernationOptions {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateHibernationOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateHibernationOptions): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateHibernationOptions =>
-    __isa(o, "LaunchTemplateHibernationOptions");
+  export const isa = (o: any): o is LaunchTemplateHibernationOptions => __isa(o, "LaunchTemplateHibernationOptions");
 }
 
 /**
@@ -30577,10 +28895,8 @@ export interface LaunchTemplateHibernationOptionsRequest {
 }
 
 export namespace LaunchTemplateHibernationOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateHibernationOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateHibernationOptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateHibernationOptionsRequest =>
     __isa(o, "LaunchTemplateHibernationOptionsRequest");
@@ -30588,7 +28904,7 @@ export namespace LaunchTemplateHibernationOptionsRequest {
 
 export enum LaunchTemplateHttpTokensState {
   optional = "optional",
-  required = "required"
+  required = "required",
 }
 
 /**
@@ -30608,14 +28924,10 @@ export interface LaunchTemplateIamInstanceProfileSpecification {
 }
 
 export namespace LaunchTemplateIamInstanceProfileSpecification {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateIamInstanceProfileSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateIamInstanceProfileSpecification): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateIamInstanceProfileSpecification =>
+  export const isa = (o: any): o is LaunchTemplateIamInstanceProfileSpecification =>
     __isa(o, "LaunchTemplateIamInstanceProfileSpecification");
 }
 
@@ -30636,14 +28948,10 @@ export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
 }
 
 export namespace LaunchTemplateIamInstanceProfileSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateIamInstanceProfileSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateIamInstanceProfileSpecificationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateIamInstanceProfileSpecificationRequest =>
+  export const isa = (o: any): o is LaunchTemplateIamInstanceProfileSpecificationRequest =>
     __isa(o, "LaunchTemplateIamInstanceProfileSpecificationRequest");
 }
 
@@ -30664,10 +28972,8 @@ export interface LaunchTemplateInstanceMarketOptions {
 }
 
 export namespace LaunchTemplateInstanceMarketOptions {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateInstanceMarketOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptions): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateInstanceMarketOptions =>
     __isa(o, "LaunchTemplateInstanceMarketOptions");
@@ -30690,20 +28996,14 @@ export interface LaunchTemplateInstanceMarketOptionsRequest {
 }
 
 export namespace LaunchTemplateInstanceMarketOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateInstanceMarketOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateInstanceMarketOptionsRequest =>
+  export const isa = (o: any): o is LaunchTemplateInstanceMarketOptionsRequest =>
     __isa(o, "LaunchTemplateInstanceMarketOptionsRequest");
 }
 
-export type LaunchTemplateInstanceMetadataEndpointState =
-  | "disabled"
-  | "enabled";
+export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
 
 /**
  * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
@@ -30745,10 +29045,8 @@ export interface LaunchTemplateInstanceMetadataOptions {
 }
 
 export namespace LaunchTemplateInstanceMetadataOptions {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateInstanceMetadataOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMetadataOptions): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateInstanceMetadataOptions =>
     __isa(o, "LaunchTemplateInstanceMetadataOptions");
@@ -30785,14 +29083,10 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
 }
 
 export namespace LaunchTemplateInstanceMetadataOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateInstanceMetadataOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMetadataOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateInstanceMetadataOptionsRequest =>
+  export const isa = (o: any): o is LaunchTemplateInstanceMetadataOptionsRequest =>
     __isa(o, "LaunchTemplateInstanceMetadataOptionsRequest");
 }
 
@@ -30870,14 +29164,10 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
 }
 
 export namespace LaunchTemplateInstanceNetworkInterfaceSpecification {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateInstanceNetworkInterfaceSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceNetworkInterfaceSpecification): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateInstanceNetworkInterfaceSpecification =>
+  export const isa = (o: any): o is LaunchTemplateInstanceNetworkInterfaceSpecification =>
     __isa(o, "LaunchTemplateInstanceNetworkInterfaceSpecification");
 }
 
@@ -30958,14 +29248,10 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
 }
 
 export namespace LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LaunchTemplateInstanceNetworkInterfaceSpecificationRequest =>
+  export const isa = (o: any): o is LaunchTemplateInstanceNetworkInterfaceSpecificationRequest =>
     __isa(o, "LaunchTemplateInstanceNetworkInterfaceSpecificationRequest");
 }
 
@@ -30981,10 +29267,8 @@ export interface LaunchTemplateLicenseConfiguration {
 }
 
 export namespace LaunchTemplateLicenseConfiguration {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateLicenseConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfiguration): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateLicenseConfiguration =>
     __isa(o, "LaunchTemplateLicenseConfiguration");
@@ -31002,10 +29286,8 @@ export interface LaunchTemplateLicenseConfigurationRequest {
 }
 
 export namespace LaunchTemplateLicenseConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateLicenseConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfigurationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateLicenseConfigurationRequest =>
     __isa(o, "LaunchTemplateLicenseConfigurationRequest");
@@ -31053,10 +29335,9 @@ export interface LaunchTemplateOverrides {
 
 export namespace LaunchTemplateOverrides {
   export const filterSensitiveLog = (obj: LaunchTemplateOverrides): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateOverrides =>
-    __isa(o, "LaunchTemplateOverrides");
+  export const isa = (o: any): o is LaunchTemplateOverrides => __isa(o, "LaunchTemplateOverrides");
 }
 
 /**
@@ -31108,10 +29389,9 @@ export interface LaunchTemplatePlacement {
 
 export namespace LaunchTemplatePlacement {
   export const filterSensitiveLog = (obj: LaunchTemplatePlacement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplatePlacement =>
-    __isa(o, "LaunchTemplatePlacement");
+  export const isa = (o: any): o is LaunchTemplatePlacement => __isa(o, "LaunchTemplatePlacement");
 }
 
 /**
@@ -31164,13 +29444,10 @@ export interface LaunchTemplatePlacementRequest {
 }
 
 export namespace LaunchTemplatePlacementRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplatePlacementRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplatePlacementRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplatePlacementRequest =>
-    __isa(o, "LaunchTemplatePlacementRequest");
+  export const isa = (o: any): o is LaunchTemplatePlacementRequest => __isa(o, "LaunchTemplatePlacementRequest");
 }
 
 /**
@@ -31187,10 +29464,9 @@ export interface LaunchTemplatesMonitoring {
 
 export namespace LaunchTemplatesMonitoring {
   export const filterSensitiveLog = (obj: LaunchTemplatesMonitoring): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplatesMonitoring =>
-    __isa(o, "LaunchTemplatesMonitoring");
+  export const isa = (o: any): o is LaunchTemplatesMonitoring => __isa(o, "LaunchTemplatesMonitoring");
 }
 
 /**
@@ -31205,13 +29481,10 @@ export interface LaunchTemplatesMonitoringRequest {
 }
 
 export namespace LaunchTemplatesMonitoringRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplatesMonitoringRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplatesMonitoringRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplatesMonitoringRequest =>
-    __isa(o, "LaunchTemplatesMonitoringRequest");
+  export const isa = (o: any): o is LaunchTemplatesMonitoringRequest => __isa(o, "LaunchTemplatesMonitoringRequest");
 }
 
 /**
@@ -31238,13 +29511,10 @@ export interface LaunchTemplateSpecification {
 }
 
 export namespace LaunchTemplateSpecification {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateSpecification =>
-    __isa(o, "LaunchTemplateSpecification");
+  export const isa = (o: any): o is LaunchTemplateSpecification => __isa(o, "LaunchTemplateSpecification");
 }
 
 /**
@@ -31279,13 +29549,10 @@ export interface LaunchTemplateSpotMarketOptions {
 }
 
 export namespace LaunchTemplateSpotMarketOptions {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateSpotMarketOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptions): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateSpotMarketOptions =>
-    __isa(o, "LaunchTemplateSpotMarketOptions");
+  export const isa = (o: any): o is LaunchTemplateSpotMarketOptions => __isa(o, "LaunchTemplateSpotMarketOptions");
 }
 
 /**
@@ -31323,10 +29590,8 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
 }
 
 export namespace LaunchTemplateSpotMarketOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateSpotMarketOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateSpotMarketOptionsRequest =>
     __isa(o, "LaunchTemplateSpotMarketOptionsRequest");
@@ -31349,13 +29614,10 @@ export interface LaunchTemplateTagSpecification {
 }
 
 export namespace LaunchTemplateTagSpecification {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateTagSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateTagSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateTagSpecification =>
-    __isa(o, "LaunchTemplateTagSpecification");
+  export const isa = (o: any): o is LaunchTemplateTagSpecification => __isa(o, "LaunchTemplateTagSpecification");
 }
 
 /**
@@ -31377,10 +29639,8 @@ export interface LaunchTemplateTagSpecificationRequest {
 }
 
 export namespace LaunchTemplateTagSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: LaunchTemplateTagSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LaunchTemplateTagSpecificationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LaunchTemplateTagSpecificationRequest =>
     __isa(o, "LaunchTemplateTagSpecificationRequest");
@@ -31434,10 +29694,9 @@ export interface LaunchTemplateVersion {
 
 export namespace LaunchTemplateVersion {
   export const filterSensitiveLog = (obj: LaunchTemplateVersion): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateVersion =>
-    __isa(o, "LaunchTemplateVersion");
+  export const isa = (o: any): o is LaunchTemplateVersion => __isa(o, "LaunchTemplateVersion");
 }
 
 /**
@@ -31453,10 +29712,9 @@ export interface LicenseConfiguration {
 
 export namespace LicenseConfiguration {
   export const filterSensitiveLog = (obj: LicenseConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LicenseConfiguration =>
-    __isa(o, "LicenseConfiguration");
+  export const isa = (o: any): o is LicenseConfiguration => __isa(o, "LicenseConfiguration");
 }
 
 /**
@@ -31471,13 +29729,10 @@ export interface LicenseConfigurationRequest {
 }
 
 export namespace LicenseConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: LicenseConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LicenseConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LicenseConfigurationRequest =>
-    __isa(o, "LicenseConfigurationRequest");
+  export const isa = (o: any): o is LicenseConfigurationRequest => __isa(o, "LicenseConfigurationRequest");
 }
 
 export type ListingState = "available" | "cancelled" | "pending" | "sold";
@@ -31502,10 +29757,9 @@ export interface LoadBalancersConfig {
 
 export namespace LoadBalancersConfig {
   export const filterSensitiveLog = (obj: LoadBalancersConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LoadBalancersConfig =>
-    __isa(o, "LoadBalancersConfig");
+  export const isa = (o: any): o is LoadBalancersConfig => __isa(o, "LoadBalancersConfig");
 }
 
 /**
@@ -31526,10 +29780,9 @@ export interface LoadPermission {
 
 export namespace LoadPermission {
   export const filterSensitiveLog = (obj: LoadPermission): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LoadPermission =>
-    __isa(o, "LoadPermission");
+  export const isa = (o: any): o is LoadPermission => __isa(o, "LoadPermission");
 }
 
 /**
@@ -31549,13 +29802,10 @@ export interface LoadPermissionModifications {
 }
 
 export namespace LoadPermissionModifications {
-  export const filterSensitiveLog = (
-    obj: LoadPermissionModifications
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LoadPermissionModifications): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LoadPermissionModifications =>
-    __isa(o, "LoadPermissionModifications");
+  export const isa = (o: any): o is LoadPermissionModifications => __isa(o, "LoadPermissionModifications");
 }
 
 /**
@@ -31576,10 +29826,9 @@ export interface LoadPermissionRequest {
 
 export namespace LoadPermissionRequest {
   export const filterSensitiveLog = (obj: LoadPermissionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LoadPermissionRequest =>
-    __isa(o, "LoadPermissionRequest");
+  export const isa = (o: any): o is LoadPermissionRequest => __isa(o, "LoadPermissionRequest");
 }
 
 /**
@@ -31615,7 +29864,7 @@ export interface LocalGateway {
 
 export namespace LocalGateway {
   export const filterSensitiveLog = (obj: LocalGateway): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is LocalGateway => __isa(o, "LocalGateway");
 }
@@ -31653,18 +29902,12 @@ export interface LocalGatewayRoute {
 
 export namespace LocalGatewayRoute {
   export const filterSensitiveLog = (obj: LocalGatewayRoute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayRoute =>
-    __isa(o, "LocalGatewayRoute");
+  export const isa = (o: any): o is LocalGatewayRoute => __isa(o, "LocalGatewayRoute");
 }
 
-export type LocalGatewayRouteState =
-  | "active"
-  | "blackhole"
-  | "deleted"
-  | "deleting"
-  | "pending";
+export type LocalGatewayRouteState = "active" | "blackhole" | "deleted" | "deleting" | "pending";
 
 /**
  * <p>Describes a local gateway route table.</p>
@@ -31699,10 +29942,9 @@ export interface LocalGatewayRouteTable {
 
 export namespace LocalGatewayRouteTable {
   export const filterSensitiveLog = (obj: LocalGatewayRouteTable): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayRouteTable =>
-    __isa(o, "LocalGatewayRouteTable");
+  export const isa = (o: any): o is LocalGatewayRouteTable => __isa(o, "LocalGatewayRouteTable");
 }
 
 /**
@@ -31742,14 +29984,10 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
 }
 
 export namespace LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
-  export const filterSensitiveLog = (
-    obj: LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LocalGatewayRouteTableVirtualInterfaceGroupAssociation): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is LocalGatewayRouteTableVirtualInterfaceGroupAssociation =>
+  export const isa = (o: any): o is LocalGatewayRouteTableVirtualInterfaceGroupAssociation =>
     __isa(o, "LocalGatewayRouteTableVirtualInterfaceGroupAssociation");
 }
 
@@ -31790,10 +30028,8 @@ export interface LocalGatewayRouteTableVpcAssociation {
 }
 
 export namespace LocalGatewayRouteTableVpcAssociation {
-  export const filterSensitiveLog = (
-    obj: LocalGatewayRouteTableVpcAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LocalGatewayRouteTableVpcAssociation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LocalGatewayRouteTableVpcAssociation =>
     __isa(o, "LocalGatewayRouteTableVpcAssociation");
@@ -31848,13 +30084,10 @@ export interface LocalGatewayVirtualInterface {
 }
 
 export namespace LocalGatewayVirtualInterface {
-  export const filterSensitiveLog = (
-    obj: LocalGatewayVirtualInterface
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LocalGatewayVirtualInterface): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayVirtualInterface =>
-    __isa(o, "LocalGatewayVirtualInterface");
+  export const isa = (o: any): o is LocalGatewayVirtualInterface => __isa(o, "LocalGatewayVirtualInterface");
 }
 
 /**
@@ -31884,19 +30117,13 @@ export interface LocalGatewayVirtualInterfaceGroup {
 }
 
 export namespace LocalGatewayVirtualInterfaceGroup {
-  export const filterSensitiveLog = (
-    obj: LocalGatewayVirtualInterfaceGroup
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LocalGatewayVirtualInterfaceGroup): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayVirtualInterfaceGroup =>
-    __isa(o, "LocalGatewayVirtualInterfaceGroup");
+  export const isa = (o: any): o is LocalGatewayVirtualInterfaceGroup => __isa(o, "LocalGatewayVirtualInterfaceGroup");
 }
 
-export type LocationType =
-  | "availability-zone"
-  | "availability-zone-id"
-  | "region";
+export type LocationType = "availability-zone" | "availability-zone-id" | "region";
 
 export type LogDestinationType = "cloud-watch-logs" | "s3";
 
@@ -31917,7 +30144,7 @@ export interface MemoryInfo {
 
 export namespace MemoryInfo {
   export const filterSensitiveLog = (obj: MemoryInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MemoryInfo => __isa(o, "MemoryInfo");
 }
@@ -31973,13 +30200,10 @@ export interface ModifyCapacityReservationRequest {
 }
 
 export namespace ModifyCapacityReservationRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyCapacityReservationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyCapacityReservationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyCapacityReservationRequest =>
-    __isa(o, "ModifyCapacityReservationRequest");
+  export const isa = (o: any): o is ModifyCapacityReservationRequest => __isa(o, "ModifyCapacityReservationRequest");
 }
 
 export interface ModifyCapacityReservationResult {
@@ -31991,13 +30215,10 @@ export interface ModifyCapacityReservationResult {
 }
 
 export namespace ModifyCapacityReservationResult {
-  export const filterSensitiveLog = (
-    obj: ModifyCapacityReservationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyCapacityReservationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyCapacityReservationResult =>
-    __isa(o, "ModifyCapacityReservationResult");
+  export const isa = (o: any): o is ModifyCapacityReservationResult => __isa(o, "ModifyCapacityReservationResult");
 }
 
 export interface ModifyClientVpnEndpointRequest {
@@ -32067,13 +30288,10 @@ export interface ModifyClientVpnEndpointRequest {
 }
 
 export namespace ModifyClientVpnEndpointRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyClientVpnEndpointRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClientVpnEndpointRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClientVpnEndpointRequest =>
-    __isa(o, "ModifyClientVpnEndpointRequest");
+  export const isa = (o: any): o is ModifyClientVpnEndpointRequest => __isa(o, "ModifyClientVpnEndpointRequest");
 }
 
 export interface ModifyClientVpnEndpointResult {
@@ -32085,13 +30303,10 @@ export interface ModifyClientVpnEndpointResult {
 }
 
 export namespace ModifyClientVpnEndpointResult {
-  export const filterSensitiveLog = (
-    obj: ModifyClientVpnEndpointResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClientVpnEndpointResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClientVpnEndpointResult =>
-    __isa(o, "ModifyClientVpnEndpointResult");
+  export const isa = (o: any): o is ModifyClientVpnEndpointResult => __isa(o, "ModifyClientVpnEndpointResult");
 }
 
 export interface ModifyDefaultCreditSpecificationRequest {
@@ -32117,10 +30332,8 @@ export interface ModifyDefaultCreditSpecificationRequest {
 }
 
 export namespace ModifyDefaultCreditSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyDefaultCreditSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyDefaultCreditSpecificationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyDefaultCreditSpecificationRequest =>
     __isa(o, "ModifyDefaultCreditSpecificationRequest");
@@ -32135,10 +30348,8 @@ export interface ModifyDefaultCreditSpecificationResult {
 }
 
 export namespace ModifyDefaultCreditSpecificationResult {
-  export const filterSensitiveLog = (
-    obj: ModifyDefaultCreditSpecificationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyDefaultCreditSpecificationResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyDefaultCreditSpecificationResult =>
     __isa(o, "ModifyDefaultCreditSpecificationResult");
@@ -32180,13 +30391,10 @@ export interface ModifyEbsDefaultKmsKeyIdRequest {
 }
 
 export namespace ModifyEbsDefaultKmsKeyIdRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyEbsDefaultKmsKeyIdRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyEbsDefaultKmsKeyIdRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyEbsDefaultKmsKeyIdRequest =>
-    __isa(o, "ModifyEbsDefaultKmsKeyIdRequest");
+  export const isa = (o: any): o is ModifyEbsDefaultKmsKeyIdRequest => __isa(o, "ModifyEbsDefaultKmsKeyIdRequest");
 }
 
 export interface ModifyEbsDefaultKmsKeyIdResult {
@@ -32198,13 +30406,10 @@ export interface ModifyEbsDefaultKmsKeyIdResult {
 }
 
 export namespace ModifyEbsDefaultKmsKeyIdResult {
-  export const filterSensitiveLog = (
-    obj: ModifyEbsDefaultKmsKeyIdResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyEbsDefaultKmsKeyIdResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyEbsDefaultKmsKeyIdResult =>
-    __isa(o, "ModifyEbsDefaultKmsKeyIdResult");
+  export const isa = (o: any): o is ModifyEbsDefaultKmsKeyIdResult => __isa(o, "ModifyEbsDefaultKmsKeyIdResult");
 }
 
 export interface ModifyFleetRequest {
@@ -32220,9 +30425,7 @@ export interface ModifyFleetRequest {
    * <p>Indicates whether running instances should be terminated if the total target capacity of
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    */
-  ExcessCapacityTerminationPolicy?:
-    | FleetExcessCapacityTerminationPolicy
-    | string;
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
 
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -32237,10 +30440,9 @@ export interface ModifyFleetRequest {
 
 export namespace ModifyFleetRequest {
   export const filterSensitiveLog = (obj: ModifyFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyFleetRequest =>
-    __isa(o, "ModifyFleetRequest");
+  export const isa = (o: any): o is ModifyFleetRequest => __isa(o, "ModifyFleetRequest");
 }
 
 export interface ModifyFleetResult {
@@ -32253,10 +30455,9 @@ export interface ModifyFleetResult {
 
 export namespace ModifyFleetResult {
   export const filterSensitiveLog = (obj: ModifyFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyFleetResult =>
-    __isa(o, "ModifyFleetResult");
+  export const isa = (o: any): o is ModifyFleetResult => __isa(o, "ModifyFleetResult");
 }
 
 export interface ModifyFpgaImageAttributeRequest {
@@ -32316,13 +30517,10 @@ export interface ModifyFpgaImageAttributeRequest {
 }
 
 export namespace ModifyFpgaImageAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyFpgaImageAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyFpgaImageAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyFpgaImageAttributeRequest =>
-    __isa(o, "ModifyFpgaImageAttributeRequest");
+  export const isa = (o: any): o is ModifyFpgaImageAttributeRequest => __isa(o, "ModifyFpgaImageAttributeRequest");
 }
 
 export interface ModifyFpgaImageAttributeResult {
@@ -32334,13 +30532,10 @@ export interface ModifyFpgaImageAttributeResult {
 }
 
 export namespace ModifyFpgaImageAttributeResult {
-  export const filterSensitiveLog = (
-    obj: ModifyFpgaImageAttributeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyFpgaImageAttributeResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyFpgaImageAttributeResult =>
-    __isa(o, "ModifyFpgaImageAttributeResult");
+  export const isa = (o: any): o is ModifyFpgaImageAttributeResult => __isa(o, "ModifyFpgaImageAttributeResult");
 }
 
 export interface ModifyHostsRequest {
@@ -32388,10 +30583,9 @@ export interface ModifyHostsRequest {
 
 export namespace ModifyHostsRequest {
   export const filterSensitiveLog = (obj: ModifyHostsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyHostsRequest =>
-    __isa(o, "ModifyHostsRequest");
+  export const isa = (o: any): o is ModifyHostsRequest => __isa(o, "ModifyHostsRequest");
 }
 
 export interface ModifyHostsResult {
@@ -32410,10 +30604,9 @@ export interface ModifyHostsResult {
 
 export namespace ModifyHostsResult {
   export const filterSensitiveLog = (obj: ModifyHostsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyHostsResult =>
-    __isa(o, "ModifyHostsResult");
+  export const isa = (o: any): o is ModifyHostsResult => __isa(o, "ModifyHostsResult");
 }
 
 export interface ModifyIdentityIdFormatRequest {
@@ -32448,13 +30641,10 @@ export interface ModifyIdentityIdFormatRequest {
 }
 
 export namespace ModifyIdentityIdFormatRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyIdentityIdFormatRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyIdentityIdFormatRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyIdentityIdFormatRequest =>
-    __isa(o, "ModifyIdentityIdFormatRequest");
+  export const isa = (o: any): o is ModifyIdentityIdFormatRequest => __isa(o, "ModifyIdentityIdFormatRequest");
 }
 
 export interface ModifyIdFormatRequest {
@@ -32483,10 +30673,9 @@ export interface ModifyIdFormatRequest {
 
 export namespace ModifyIdFormatRequest {
   export const filterSensitiveLog = (obj: ModifyIdFormatRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyIdFormatRequest =>
-    __isa(o, "ModifyIdFormatRequest");
+  export const isa = (o: any): o is ModifyIdFormatRequest => __isa(o, "ModifyIdFormatRequest");
 }
 
 /**
@@ -32553,13 +30742,10 @@ export interface ModifyImageAttributeRequest {
 }
 
 export namespace ModifyImageAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyImageAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyImageAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyImageAttributeRequest =>
-    __isa(o, "ModifyImageAttributeRequest");
+  export const isa = (o: any): o is ModifyImageAttributeRequest => __isa(o, "ModifyImageAttributeRequest");
 }
 
 export interface ModifyInstanceAttributeRequest {
@@ -32680,13 +30866,10 @@ export interface ModifyInstanceAttributeRequest {
 }
 
 export namespace ModifyInstanceAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceAttributeRequest =>
-    __isa(o, "ModifyInstanceAttributeRequest");
+  export const isa = (o: any): o is ModifyInstanceAttributeRequest => __isa(o, "ModifyInstanceAttributeRequest");
 }
 
 export interface ModifyInstanceCapacityReservationAttributesRequest {
@@ -32694,9 +30877,7 @@ export interface ModifyInstanceCapacityReservationAttributesRequest {
   /**
    * <p>Information about the Capacity Reservation targeting option.</p>
    */
-  CapacityReservationSpecification:
-    | CapacityReservationSpecification
-    | undefined;
+  CapacityReservationSpecification: CapacityReservationSpecification | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -32710,14 +30891,10 @@ export interface ModifyInstanceCapacityReservationAttributesRequest {
 }
 
 export namespace ModifyInstanceCapacityReservationAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceCapacityReservationAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceCapacityReservationAttributesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyInstanceCapacityReservationAttributesRequest =>
+  export const isa = (o: any): o is ModifyInstanceCapacityReservationAttributesRequest =>
     __isa(o, "ModifyInstanceCapacityReservationAttributesRequest");
 }
 
@@ -32730,14 +30907,10 @@ export interface ModifyInstanceCapacityReservationAttributesResult {
 }
 
 export namespace ModifyInstanceCapacityReservationAttributesResult {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceCapacityReservationAttributesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceCapacityReservationAttributesResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyInstanceCapacityReservationAttributesResult =>
+  export const isa = (o: any): o is ModifyInstanceCapacityReservationAttributesResult =>
     __isa(o, "ModifyInstanceCapacityReservationAttributesResult");
 }
 
@@ -32760,16 +30933,12 @@ export interface ModifyInstanceCreditSpecificationRequest {
   /**
    * <p>Information about the credit option for CPU usage.</p>
    */
-  InstanceCreditSpecifications:
-    | InstanceCreditSpecificationRequest[]
-    | undefined;
+  InstanceCreditSpecifications: InstanceCreditSpecificationRequest[] | undefined;
 }
 
 export namespace ModifyInstanceCreditSpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceCreditSpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceCreditSpecificationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyInstanceCreditSpecificationRequest =>
     __isa(o, "ModifyInstanceCreditSpecificationRequest");
@@ -32791,10 +30960,8 @@ export interface ModifyInstanceCreditSpecificationResult {
 }
 
 export namespace ModifyInstanceCreditSpecificationResult {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceCreditSpecificationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceCreditSpecificationResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyInstanceCreditSpecificationResult =>
     __isa(o, "ModifyInstanceCreditSpecificationResult");
@@ -32826,10 +30993,8 @@ export interface ModifyInstanceEventStartTimeRequest {
 }
 
 export namespace ModifyInstanceEventStartTimeRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceEventStartTimeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceEventStartTimeRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyInstanceEventStartTimeRequest =>
     __isa(o, "ModifyInstanceEventStartTimeRequest");
@@ -32844,10 +31009,8 @@ export interface ModifyInstanceEventStartTimeResult {
 }
 
 export namespace ModifyInstanceEventStartTimeResult {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceEventStartTimeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceEventStartTimeResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyInstanceEventStartTimeResult =>
     __isa(o, "ModifyInstanceEventStartTimeResult");
@@ -32899,10 +31062,8 @@ export interface ModifyInstanceMetadataOptionsRequest {
 }
 
 export namespace ModifyInstanceMetadataOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceMetadataOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceMetadataOptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyInstanceMetadataOptionsRequest =>
     __isa(o, "ModifyInstanceMetadataOptionsRequest");
@@ -32922,10 +31083,8 @@ export interface ModifyInstanceMetadataOptionsResult {
 }
 
 export namespace ModifyInstanceMetadataOptionsResult {
-  export const filterSensitiveLog = (
-    obj: ModifyInstanceMetadataOptionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstanceMetadataOptionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyInstanceMetadataOptionsResult =>
     __isa(o, "ModifyInstanceMetadataOptionsResult");
@@ -32975,13 +31134,10 @@ export interface ModifyInstancePlacementRequest {
 }
 
 export namespace ModifyInstancePlacementRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyInstancePlacementRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstancePlacementRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyInstancePlacementRequest =>
-    __isa(o, "ModifyInstancePlacementRequest");
+  export const isa = (o: any): o is ModifyInstancePlacementRequest => __isa(o, "ModifyInstancePlacementRequest");
 }
 
 export interface ModifyInstancePlacementResult {
@@ -32993,13 +31149,10 @@ export interface ModifyInstancePlacementResult {
 }
 
 export namespace ModifyInstancePlacementResult {
-  export const filterSensitiveLog = (
-    obj: ModifyInstancePlacementResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyInstancePlacementResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyInstancePlacementResult =>
-    __isa(o, "ModifyInstancePlacementResult");
+  export const isa = (o: any): o is ModifyInstancePlacementResult => __isa(o, "ModifyInstancePlacementResult");
 }
 
 export interface ModifyLaunchTemplateRequest {
@@ -33039,13 +31192,10 @@ export interface ModifyLaunchTemplateRequest {
 }
 
 export namespace ModifyLaunchTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyLaunchTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyLaunchTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyLaunchTemplateRequest =>
-    __isa(o, "ModifyLaunchTemplateRequest");
+  export const isa = (o: any): o is ModifyLaunchTemplateRequest => __isa(o, "ModifyLaunchTemplateRequest");
 }
 
 export interface ModifyLaunchTemplateResult {
@@ -33058,10 +31208,9 @@ export interface ModifyLaunchTemplateResult {
 
 export namespace ModifyLaunchTemplateResult {
   export const filterSensitiveLog = (obj: ModifyLaunchTemplateResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyLaunchTemplateResult =>
-    __isa(o, "ModifyLaunchTemplateResult");
+  export const isa = (o: any): o is ModifyLaunchTemplateResult => __isa(o, "ModifyLaunchTemplateResult");
 }
 
 /**
@@ -33108,10 +31257,8 @@ export interface ModifyNetworkInterfaceAttributeRequest {
 }
 
 export namespace ModifyNetworkInterfaceAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyNetworkInterfaceAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyNetworkInterfaceAttributeRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyNetworkInterfaceAttributeRequest =>
     __isa(o, "ModifyNetworkInterfaceAttributeRequest");
@@ -33140,13 +31287,10 @@ export interface ModifyReservedInstancesRequest {
 }
 
 export namespace ModifyReservedInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyReservedInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyReservedInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyReservedInstancesRequest =>
-    __isa(o, "ModifyReservedInstancesRequest");
+  export const isa = (o: any): o is ModifyReservedInstancesRequest => __isa(o, "ModifyReservedInstancesRequest");
 }
 
 /**
@@ -33161,13 +31305,10 @@ export interface ModifyReservedInstancesResult {
 }
 
 export namespace ModifyReservedInstancesResult {
-  export const filterSensitiveLog = (
-    obj: ModifyReservedInstancesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyReservedInstancesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyReservedInstancesResult =>
-    __isa(o, "ModifyReservedInstancesResult");
+  export const isa = (o: any): o is ModifyReservedInstancesResult => __isa(o, "ModifyReservedInstancesResult");
 }
 
 export interface ModifySnapshotAttributeRequest {
@@ -33211,13 +31352,10 @@ export interface ModifySnapshotAttributeRequest {
 }
 
 export namespace ModifySnapshotAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ModifySnapshotAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifySnapshotAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifySnapshotAttributeRequest =>
-    __isa(o, "ModifySnapshotAttributeRequest");
+  export const isa = (o: any): o is ModifySnapshotAttributeRequest => __isa(o, "ModifySnapshotAttributeRequest");
 }
 
 /**
@@ -33247,13 +31385,10 @@ export interface ModifySpotFleetRequestRequest {
 }
 
 export namespace ModifySpotFleetRequestRequest {
-  export const filterSensitiveLog = (
-    obj: ModifySpotFleetRequestRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifySpotFleetRequestRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifySpotFleetRequestRequest =>
-    __isa(o, "ModifySpotFleetRequestRequest");
+  export const isa = (o: any): o is ModifySpotFleetRequestRequest => __isa(o, "ModifySpotFleetRequestRequest");
 }
 
 /**
@@ -33268,13 +31403,10 @@ export interface ModifySpotFleetRequestResponse {
 }
 
 export namespace ModifySpotFleetRequestResponse {
-  export const filterSensitiveLog = (
-    obj: ModifySpotFleetRequestResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifySpotFleetRequestResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifySpotFleetRequestResponse =>
-    __isa(o, "ModifySpotFleetRequestResponse");
+  export const isa = (o: any): o is ModifySpotFleetRequestResponse => __isa(o, "ModifySpotFleetRequestResponse");
 }
 
 export interface ModifySubnetAttributeRequest {
@@ -33303,13 +31435,10 @@ export interface ModifySubnetAttributeRequest {
 }
 
 export namespace ModifySubnetAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ModifySubnetAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifySubnetAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifySubnetAttributeRequest =>
-    __isa(o, "ModifySubnetAttributeRequest");
+  export const isa = (o: any): o is ModifySubnetAttributeRequest => __isa(o, "ModifySubnetAttributeRequest");
 }
 
 export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
@@ -33338,14 +31467,10 @@ export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
 }
 
 export namespace ModifyTrafficMirrorFilterNetworkServicesRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyTrafficMirrorFilterNetworkServicesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterNetworkServicesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyTrafficMirrorFilterNetworkServicesRequest =>
+  export const isa = (o: any): o is ModifyTrafficMirrorFilterNetworkServicesRequest =>
     __isa(o, "ModifyTrafficMirrorFilterNetworkServicesRequest");
 }
 
@@ -33358,14 +31483,10 @@ export interface ModifyTrafficMirrorFilterNetworkServicesResult {
 }
 
 export namespace ModifyTrafficMirrorFilterNetworkServicesResult {
-  export const filterSensitiveLog = (
-    obj: ModifyTrafficMirrorFilterNetworkServicesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterNetworkServicesResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyTrafficMirrorFilterNetworkServicesResult =>
+  export const isa = (o: any): o is ModifyTrafficMirrorFilterNetworkServicesResult =>
     __isa(o, "ModifyTrafficMirrorFilterNetworkServicesResult");
 }
 
@@ -33437,10 +31558,8 @@ export interface ModifyTrafficMirrorFilterRuleRequest {
 }
 
 export namespace ModifyTrafficMirrorFilterRuleRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyTrafficMirrorFilterRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterRuleRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyTrafficMirrorFilterRuleRequest =>
     __isa(o, "ModifyTrafficMirrorFilterRuleRequest");
@@ -33455,10 +31574,8 @@ export interface ModifyTrafficMirrorFilterRuleResult {
 }
 
 export namespace ModifyTrafficMirrorFilterRuleResult {
-  export const filterSensitiveLog = (
-    obj: ModifyTrafficMirrorFilterRuleResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterRuleResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyTrafficMirrorFilterRuleResult =>
     __isa(o, "ModifyTrafficMirrorFilterRuleResult");
@@ -33517,13 +31634,10 @@ export interface ModifyTrafficMirrorSessionRequest {
 }
 
 export namespace ModifyTrafficMirrorSessionRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyTrafficMirrorSessionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorSessionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyTrafficMirrorSessionRequest =>
-    __isa(o, "ModifyTrafficMirrorSessionRequest");
+  export const isa = (o: any): o is ModifyTrafficMirrorSessionRequest => __isa(o, "ModifyTrafficMirrorSessionRequest");
 }
 
 export interface ModifyTrafficMirrorSessionResult {
@@ -33535,13 +31649,10 @@ export interface ModifyTrafficMirrorSessionResult {
 }
 
 export namespace ModifyTrafficMirrorSessionResult {
-  export const filterSensitiveLog = (
-    obj: ModifyTrafficMirrorSessionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorSessionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyTrafficMirrorSessionResult =>
-    __isa(o, "ModifyTrafficMirrorSessionResult");
+  export const isa = (o: any): o is ModifyTrafficMirrorSessionResult => __isa(o, "ModifyTrafficMirrorSessionResult");
 }
 
 export interface ModifyTransitGatewayVpcAttachmentRequest {
@@ -33578,10 +31689,8 @@ export interface ModifyTransitGatewayVpcAttachmentRequest {
 }
 
 export namespace ModifyTransitGatewayVpcAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyTransitGatewayVpcAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyTransitGatewayVpcAttachmentRequest =>
     __isa(o, "ModifyTransitGatewayVpcAttachmentRequest");
@@ -33604,14 +31713,10 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
 }
 
 export namespace ModifyTransitGatewayVpcAttachmentRequestOptions {
-  export const filterSensitiveLog = (
-    obj: ModifyTransitGatewayVpcAttachmentRequestOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentRequestOptions): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyTransitGatewayVpcAttachmentRequestOptions =>
+  export const isa = (o: any): o is ModifyTransitGatewayVpcAttachmentRequestOptions =>
     __isa(o, "ModifyTransitGatewayVpcAttachmentRequestOptions");
 }
 
@@ -33624,10 +31729,8 @@ export interface ModifyTransitGatewayVpcAttachmentResult {
 }
 
 export namespace ModifyTransitGatewayVpcAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: ModifyTransitGatewayVpcAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyTransitGatewayVpcAttachmentResult =>
     __isa(o, "ModifyTransitGatewayVpcAttachmentResult");
@@ -33654,13 +31757,10 @@ export interface ModifyVolumeAttributeRequest {
 }
 
 export namespace ModifyVolumeAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyVolumeAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVolumeAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVolumeAttributeRequest =>
-    __isa(o, "ModifyVolumeAttributeRequest");
+  export const isa = (o: any): o is ModifyVolumeAttributeRequest => __isa(o, "ModifyVolumeAttributeRequest");
 }
 
 export interface ModifyVolumeRequest {
@@ -33704,10 +31804,9 @@ export interface ModifyVolumeRequest {
 
 export namespace ModifyVolumeRequest {
   export const filterSensitiveLog = (obj: ModifyVolumeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVolumeRequest =>
-    __isa(o, "ModifyVolumeRequest");
+  export const isa = (o: any): o is ModifyVolumeRequest => __isa(o, "ModifyVolumeRequest");
 }
 
 export interface ModifyVolumeResult {
@@ -33720,10 +31819,9 @@ export interface ModifyVolumeResult {
 
 export namespace ModifyVolumeResult {
   export const filterSensitiveLog = (obj: ModifyVolumeResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVolumeResult =>
-    __isa(o, "ModifyVolumeResult");
+  export const isa = (o: any): o is ModifyVolumeResult => __isa(o, "ModifyVolumeResult");
 }
 
 export interface ModifyVpcAttributeRequest {
@@ -33752,10 +31850,9 @@ export interface ModifyVpcAttributeRequest {
 
 export namespace ModifyVpcAttributeRequest {
   export const filterSensitiveLog = (obj: ModifyVpcAttributeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcAttributeRequest =>
-    __isa(o, "ModifyVpcAttributeRequest");
+  export const isa = (o: any): o is ModifyVpcAttributeRequest => __isa(o, "ModifyVpcAttributeRequest");
 }
 
 export interface ModifyVpcEndpointConnectionNotificationRequest {
@@ -33785,14 +31882,10 @@ export interface ModifyVpcEndpointConnectionNotificationRequest {
 }
 
 export namespace ModifyVpcEndpointConnectionNotificationRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyVpcEndpointConnectionNotificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointConnectionNotificationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyVpcEndpointConnectionNotificationRequest =>
+  export const isa = (o: any): o is ModifyVpcEndpointConnectionNotificationRequest =>
     __isa(o, "ModifyVpcEndpointConnectionNotificationRequest");
 }
 
@@ -33805,14 +31898,10 @@ export interface ModifyVpcEndpointConnectionNotificationResult {
 }
 
 export namespace ModifyVpcEndpointConnectionNotificationResult {
-  export const filterSensitiveLog = (
-    obj: ModifyVpcEndpointConnectionNotificationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointConnectionNotificationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyVpcEndpointConnectionNotificationResult =>
+  export const isa = (o: any): o is ModifyVpcEndpointConnectionNotificationResult =>
     __isa(o, "ModifyVpcEndpointConnectionNotificationResult");
 }
 
@@ -33884,10 +31973,9 @@ export interface ModifyVpcEndpointRequest {
 
 export namespace ModifyVpcEndpointRequest {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointRequest =>
-    __isa(o, "ModifyVpcEndpointRequest");
+  export const isa = (o: any): o is ModifyVpcEndpointRequest => __isa(o, "ModifyVpcEndpointRequest");
 }
 
 export interface ModifyVpcEndpointResult {
@@ -33900,10 +31988,9 @@ export interface ModifyVpcEndpointResult {
 
 export namespace ModifyVpcEndpointResult {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointResult =>
-    __isa(o, "ModifyVpcEndpointResult");
+  export const isa = (o: any): o is ModifyVpcEndpointResult => __isa(o, "ModifyVpcEndpointResult");
 }
 
 export interface ModifyVpcEndpointServiceConfigurationRequest {
@@ -33949,14 +32036,10 @@ export interface ModifyVpcEndpointServiceConfigurationRequest {
 }
 
 export namespace ModifyVpcEndpointServiceConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyVpcEndpointServiceConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServiceConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyVpcEndpointServiceConfigurationRequest =>
+  export const isa = (o: any): o is ModifyVpcEndpointServiceConfigurationRequest =>
     __isa(o, "ModifyVpcEndpointServiceConfigurationRequest");
 }
 
@@ -33969,14 +32052,10 @@ export interface ModifyVpcEndpointServiceConfigurationResult {
 }
 
 export namespace ModifyVpcEndpointServiceConfigurationResult {
-  export const filterSensitiveLog = (
-    obj: ModifyVpcEndpointServiceConfigurationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServiceConfigurationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyVpcEndpointServiceConfigurationResult =>
+  export const isa = (o: any): o is ModifyVpcEndpointServiceConfigurationResult =>
     __isa(o, "ModifyVpcEndpointServiceConfigurationResult");
 }
 
@@ -34009,14 +32088,10 @@ export interface ModifyVpcEndpointServicePermissionsRequest {
 }
 
 export namespace ModifyVpcEndpointServicePermissionsRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyVpcEndpointServicePermissionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePermissionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ModifyVpcEndpointServicePermissionsRequest =>
+  export const isa = (o: any): o is ModifyVpcEndpointServicePermissionsRequest =>
     __isa(o, "ModifyVpcEndpointServicePermissionsRequest");
 }
 
@@ -34029,10 +32104,8 @@ export interface ModifyVpcEndpointServicePermissionsResult {
 }
 
 export namespace ModifyVpcEndpointServicePermissionsResult {
-  export const filterSensitiveLog = (
-    obj: ModifyVpcEndpointServicePermissionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePermissionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyVpcEndpointServicePermissionsResult =>
     __isa(o, "ModifyVpcEndpointServicePermissionsResult");
@@ -34064,10 +32137,8 @@ export interface ModifyVpcPeeringConnectionOptionsRequest {
 }
 
 export namespace ModifyVpcPeeringConnectionOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyVpcPeeringConnectionOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyVpcPeeringConnectionOptionsRequest =>
     __isa(o, "ModifyVpcPeeringConnectionOptionsRequest");
@@ -34087,10 +32158,8 @@ export interface ModifyVpcPeeringConnectionOptionsResult {
 }
 
 export namespace ModifyVpcPeeringConnectionOptionsResult {
-  export const filterSensitiveLog = (
-    obj: ModifyVpcPeeringConnectionOptionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyVpcPeeringConnectionOptionsResult =>
     __isa(o, "ModifyVpcPeeringConnectionOptionsResult");
@@ -34118,10 +32187,9 @@ export interface ModifyVpcTenancyRequest {
 
 export namespace ModifyVpcTenancyRequest {
   export const filterSensitiveLog = (obj: ModifyVpcTenancyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcTenancyRequest =>
-    __isa(o, "ModifyVpcTenancyRequest");
+  export const isa = (o: any): o is ModifyVpcTenancyRequest => __isa(o, "ModifyVpcTenancyRequest");
 }
 
 export interface ModifyVpcTenancyResult {
@@ -34135,10 +32203,9 @@ export interface ModifyVpcTenancyResult {
 
 export namespace ModifyVpcTenancyResult {
   export const filterSensitiveLog = (obj: ModifyVpcTenancyResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcTenancyResult =>
-    __isa(o, "ModifyVpcTenancyResult");
+  export const isa = (o: any): o is ModifyVpcTenancyResult => __isa(o, "ModifyVpcTenancyResult");
 }
 
 export interface ModifyVpnConnectionRequest {
@@ -34173,10 +32240,9 @@ export interface ModifyVpnConnectionRequest {
 
 export namespace ModifyVpnConnectionRequest {
   export const filterSensitiveLog = (obj: ModifyVpnConnectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnConnectionRequest =>
-    __isa(o, "ModifyVpnConnectionRequest");
+  export const isa = (o: any): o is ModifyVpnConnectionRequest => __isa(o, "ModifyVpnConnectionRequest");
 }
 
 export interface ModifyVpnConnectionResult {
@@ -34189,10 +32255,9 @@ export interface ModifyVpnConnectionResult {
 
 export namespace ModifyVpnConnectionResult {
   export const filterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnConnectionResult =>
-    __isa(o, "ModifyVpnConnectionResult");
+  export const isa = (o: any): o is ModifyVpnConnectionResult => __isa(o, "ModifyVpnConnectionResult");
 }
 
 export interface ModifyVpnTunnelCertificateRequest {
@@ -34216,13 +32281,10 @@ export interface ModifyVpnTunnelCertificateRequest {
 }
 
 export namespace ModifyVpnTunnelCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyVpnTunnelCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpnTunnelCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelCertificateRequest =>
-    __isa(o, "ModifyVpnTunnelCertificateRequest");
+  export const isa = (o: any): o is ModifyVpnTunnelCertificateRequest => __isa(o, "ModifyVpnTunnelCertificateRequest");
 }
 
 export interface ModifyVpnTunnelCertificateResult {
@@ -34234,13 +32296,10 @@ export interface ModifyVpnTunnelCertificateResult {
 }
 
 export namespace ModifyVpnTunnelCertificateResult {
-  export const filterSensitiveLog = (
-    obj: ModifyVpnTunnelCertificateResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpnTunnelCertificateResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelCertificateResult =>
-    __isa(o, "ModifyVpnTunnelCertificateResult");
+  export const isa = (o: any): o is ModifyVpnTunnelCertificateResult => __isa(o, "ModifyVpnTunnelCertificateResult");
 }
 
 export interface ModifyVpnTunnelOptionsRequest {
@@ -34269,13 +32328,10 @@ export interface ModifyVpnTunnelOptionsRequest {
 }
 
 export namespace ModifyVpnTunnelOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyVpnTunnelOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelOptionsRequest =>
-    __isa(o, "ModifyVpnTunnelOptionsRequest");
+  export const isa = (o: any): o is ModifyVpnTunnelOptionsRequest => __isa(o, "ModifyVpnTunnelOptionsRequest");
 }
 
 export interface ModifyVpnTunnelOptionsResult {
@@ -34287,13 +32343,10 @@ export interface ModifyVpnTunnelOptionsResult {
 }
 
 export namespace ModifyVpnTunnelOptionsResult {
-  export const filterSensitiveLog = (
-    obj: ModifyVpnTunnelOptionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelOptionsResult =>
-    __isa(o, "ModifyVpnTunnelOptionsResult");
+  export const isa = (o: any): o is ModifyVpnTunnelOptionsResult => __isa(o, "ModifyVpnTunnelOptionsResult");
 }
 
 /**
@@ -34454,10 +32507,8 @@ export interface ModifyVpnTunnelOptionsSpecification {
 }
 
 export namespace ModifyVpnTunnelOptionsSpecification {
-  export const filterSensitiveLog = (
-    obj: ModifyVpnTunnelOptionsSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsSpecification): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyVpnTunnelOptionsSpecification =>
     __isa(o, "ModifyVpnTunnelOptionsSpecification");
@@ -34477,7 +32528,7 @@ export interface Monitoring {
 
 export namespace Monitoring {
   export const filterSensitiveLog = (obj: Monitoring): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Monitoring => __isa(o, "Monitoring");
 }
@@ -34501,10 +32552,9 @@ export interface MonitorInstancesRequest {
 
 export namespace MonitorInstancesRequest {
   export const filterSensitiveLog = (obj: MonitorInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MonitorInstancesRequest =>
-    __isa(o, "MonitorInstancesRequest");
+  export const isa = (o: any): o is MonitorInstancesRequest => __isa(o, "MonitorInstancesRequest");
 }
 
 export interface MonitorInstancesResult {
@@ -34517,10 +32567,9 @@ export interface MonitorInstancesResult {
 
 export namespace MonitorInstancesResult {
   export const filterSensitiveLog = (obj: MonitorInstancesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MonitorInstancesResult =>
-    __isa(o, "MonitorInstancesResult");
+  export const isa = (o: any): o is MonitorInstancesResult => __isa(o, "MonitorInstancesResult");
 }
 
 export interface MoveAddressToVpcRequest {
@@ -34540,10 +32589,9 @@ export interface MoveAddressToVpcRequest {
 
 export namespace MoveAddressToVpcRequest {
   export const filterSensitiveLog = (obj: MoveAddressToVpcRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MoveAddressToVpcRequest =>
-    __isa(o, "MoveAddressToVpcRequest");
+  export const isa = (o: any): o is MoveAddressToVpcRequest => __isa(o, "MoveAddressToVpcRequest");
 }
 
 export interface MoveAddressToVpcResult {
@@ -34561,10 +32609,9 @@ export interface MoveAddressToVpcResult {
 
 export namespace MoveAddressToVpcResult {
   export const filterSensitiveLog = (obj: MoveAddressToVpcResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MoveAddressToVpcResult =>
-    __isa(o, "MoveAddressToVpcResult");
+  export const isa = (o: any): o is MoveAddressToVpcResult => __isa(o, "MoveAddressToVpcResult");
 }
 
 export type MoveStatus = "movingToVpc" | "restoringToClassic";
@@ -34587,10 +32634,9 @@ export interface MovingAddressStatus {
 
 export namespace MovingAddressStatus {
   export const filterSensitiveLog = (obj: MovingAddressStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MovingAddressStatus =>
-    __isa(o, "MovingAddressStatus");
+  export const isa = (o: any): o is MovingAddressStatus => __isa(o, "MovingAddressStatus");
 }
 
 export type MulticastSupportValue = "disable" | "enable";
@@ -34708,7 +32754,7 @@ export interface NatGateway {
 
 export namespace NatGateway {
   export const filterSensitiveLog = (obj: NatGateway): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is NatGateway => __isa(o, "NatGateway");
 }
@@ -34741,10 +32787,9 @@ export interface NatGatewayAddress {
 
 export namespace NatGatewayAddress {
   export const filterSensitiveLog = (obj: NatGatewayAddress): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NatGatewayAddress =>
-    __isa(o, "NatGatewayAddress");
+  export const isa = (o: any): o is NatGatewayAddress => __isa(o, "NatGatewayAddress");
 }
 
 export enum NatGatewayState {
@@ -34752,7 +32797,7 @@ export enum NatGatewayState {
   DELETED = "deleted",
   DELETING = "deleting",
   FAILED = "failed",
-  PENDING = "pending"
+  PENDING = "pending",
 }
 
 /**
@@ -34798,7 +32843,7 @@ export interface NetworkAcl {
 
 export namespace NetworkAcl {
   export const filterSensitiveLog = (obj: NetworkAcl): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is NetworkAcl => __isa(o, "NetworkAcl");
 }
@@ -34826,10 +32871,9 @@ export interface NetworkAclAssociation {
 
 export namespace NetworkAclAssociation {
   export const filterSensitiveLog = (obj: NetworkAclAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkAclAssociation =>
-    __isa(o, "NetworkAclAssociation");
+  export const isa = (o: any): o is NetworkAclAssociation => __isa(o, "NetworkAclAssociation");
 }
 
 /**
@@ -34880,10 +32924,9 @@ export interface NetworkAclEntry {
 
 export namespace NetworkAclEntry {
   export const filterSensitiveLog = (obj: NetworkAclEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkAclEntry =>
-    __isa(o, "NetworkAclEntry");
+  export const isa = (o: any): o is NetworkAclEntry => __isa(o, "NetworkAclEntry");
 }
 
 /**
@@ -34924,7 +32967,7 @@ export interface NetworkInfo {
 
 export namespace NetworkInfo {
   export const filterSensitiveLog = (obj: NetworkInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is NetworkInfo => __isa(o, "NetworkInfo");
 }
@@ -35042,10 +33085,9 @@ export interface NetworkInterface {
 
 export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterface =>
-    __isa(o, "NetworkInterface");
+  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 /**
@@ -35080,13 +33122,10 @@ export interface NetworkInterfaceAssociation {
 }
 
 export namespace NetworkInterfaceAssociation {
-  export const filterSensitiveLog = (
-    obj: NetworkInterfaceAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NetworkInterfaceAssociation): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceAssociation =>
-    __isa(o, "NetworkInterfaceAssociation");
+  export const isa = (o: any): o is NetworkInterfaceAssociation => __isa(o, "NetworkInterfaceAssociation");
 }
 
 /**
@@ -35132,10 +33171,9 @@ export interface NetworkInterfaceAttachment {
 
 export namespace NetworkInterfaceAttachment {
   export const filterSensitiveLog = (obj: NetworkInterfaceAttachment): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceAttachment =>
-    __isa(o, "NetworkInterfaceAttachment");
+  export const isa = (o: any): o is NetworkInterfaceAttachment => __isa(o, "NetworkInterfaceAttachment");
 }
 
 /**
@@ -35155,20 +33193,13 @@ export interface NetworkInterfaceAttachmentChanges {
 }
 
 export namespace NetworkInterfaceAttachmentChanges {
-  export const filterSensitiveLog = (
-    obj: NetworkInterfaceAttachmentChanges
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NetworkInterfaceAttachmentChanges): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceAttachmentChanges =>
-    __isa(o, "NetworkInterfaceAttachmentChanges");
+  export const isa = (o: any): o is NetworkInterfaceAttachmentChanges => __isa(o, "NetworkInterfaceAttachmentChanges");
 }
 
-export type NetworkInterfaceAttribute =
-  | "attachment"
-  | "description"
-  | "groupSet"
-  | "sourceDestCheck";
+export type NetworkInterfaceAttribute = "attachment" | "description" | "groupSet" | "sourceDestCheck";
 
 export type NetworkInterfaceCreationType = "efa";
 
@@ -35184,13 +33215,10 @@ export interface NetworkInterfaceIpv6Address {
 }
 
 export namespace NetworkInterfaceIpv6Address {
-  export const filterSensitiveLog = (
-    obj: NetworkInterfaceIpv6Address
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NetworkInterfaceIpv6Address): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceIpv6Address =>
-    __isa(o, "NetworkInterfaceIpv6Address");
+  export const isa = (o: any): o is NetworkInterfaceIpv6Address => __isa(o, "NetworkInterfaceIpv6Address");
 }
 
 /**
@@ -35231,10 +33259,9 @@ export interface NetworkInterfacePermission {
 
 export namespace NetworkInterfacePermission {
   export const filterSensitiveLog = (obj: NetworkInterfacePermission): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfacePermission =>
-    __isa(o, "NetworkInterfacePermission");
+  export const isa = (o: any): o is NetworkInterfacePermission => __isa(o, "NetworkInterfacePermission");
 }
 
 /**
@@ -35254,20 +33281,13 @@ export interface NetworkInterfacePermissionState {
 }
 
 export namespace NetworkInterfacePermissionState {
-  export const filterSensitiveLog = (
-    obj: NetworkInterfacePermissionState
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NetworkInterfacePermissionState): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfacePermissionState =>
-    __isa(o, "NetworkInterfacePermissionState");
+  export const isa = (o: any): o is NetworkInterfacePermissionState => __isa(o, "NetworkInterfacePermissionState");
 }
 
-export type NetworkInterfacePermissionStateCode =
-  | "granted"
-  | "pending"
-  | "revoked"
-  | "revoking";
+export type NetworkInterfacePermissionStateCode = "granted" | "pending" | "revoked" | "revoking";
 
 /**
  * <p>Describes the private IPv4 address of a network interface.</p>
@@ -35296,21 +33316,13 @@ export interface NetworkInterfacePrivateIpAddress {
 }
 
 export namespace NetworkInterfacePrivateIpAddress {
-  export const filterSensitiveLog = (
-    obj: NetworkInterfacePrivateIpAddress
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NetworkInterfacePrivateIpAddress): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfacePrivateIpAddress =>
-    __isa(o, "NetworkInterfacePrivateIpAddress");
+  export const isa = (o: any): o is NetworkInterfacePrivateIpAddress => __isa(o, "NetworkInterfacePrivateIpAddress");
 }
 
-export type NetworkInterfaceStatus =
-  | "associated"
-  | "attaching"
-  | "available"
-  | "detaching"
-  | "in-use";
+export type NetworkInterfaceStatus = "associated" | "attaching" | "available" | "detaching" | "in-use";
 
 export type NetworkInterfaceType = "efa" | "interface" | "natGateway";
 
@@ -35332,15 +33344,14 @@ export interface NewDhcpConfiguration {
 
 export namespace NewDhcpConfiguration {
   export const filterSensitiveLog = (obj: NewDhcpConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NewDhcpConfiguration =>
-    __isa(o, "NewDhcpConfiguration");
+  export const isa = (o: any): o is NewDhcpConfiguration => __isa(o, "NewDhcpConfiguration");
 }
 
 export enum OfferingClassType {
   CONVERTIBLE = "convertible",
-  STANDARD = "standard"
+  STANDARD = "standard",
 }
 
 export type OfferingTypeValues =
@@ -35353,7 +33364,7 @@ export type OfferingTypeValues =
 
 export enum OnDemandAllocationStrategy {
   LOWEST_PRICE = "lowestPrice",
-  PRIORITIZED = "prioritized"
+  PRIORITIZED = "prioritized",
 }
 
 /**
@@ -35402,10 +33413,9 @@ export interface OnDemandOptions {
 
 export namespace OnDemandOptions {
   export const filterSensitiveLog = (obj: OnDemandOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OnDemandOptions =>
-    __isa(o, "OnDemandOptions");
+  export const isa = (o: any): o is OnDemandOptions => __isa(o, "OnDemandOptions");
 }
 
 /**
@@ -35454,10 +33464,9 @@ export interface OnDemandOptionsRequest {
 
 export namespace OnDemandOptionsRequest {
   export const filterSensitiveLog = (obj: OnDemandOptionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OnDemandOptionsRequest =>
-    __isa(o, "OnDemandOptionsRequest");
+  export const isa = (o: any): o is OnDemandOptionsRequest => __isa(o, "OnDemandOptionsRequest");
 }
 
 export type OperationType = "add" | "remove";
@@ -35465,7 +33474,7 @@ export type OperationType = "add" | "remove";
 export enum PaymentOption {
   ALL_UPFRONT = "AllUpfront",
   NO_UPFRONT = "NoUpfront",
-  PARTIAL_UPFRONT = "PartialUpfront"
+  PARTIAL_UPFRONT = "PartialUpfront",
 }
 
 /**
@@ -35496,7 +33505,7 @@ export interface PciId {
 
 export namespace PciId {
   export const filterSensitiveLog = (obj: PciId): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PciId => __isa(o, "PciId");
 }
@@ -35519,10 +33528,9 @@ export interface PeeringAttachmentStatus {
 
 export namespace PeeringAttachmentStatus {
   export const filterSensitiveLog = (obj: PeeringAttachmentStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PeeringAttachmentStatus =>
-    __isa(o, "PeeringAttachmentStatus");
+  export const isa = (o: any): o is PeeringAttachmentStatus => __isa(o, "PeeringAttachmentStatus");
 }
 
 /**
@@ -35551,10 +33559,9 @@ export interface PeeringConnectionOptions {
 
 export namespace PeeringConnectionOptions {
   export const filterSensitiveLog = (obj: PeeringConnectionOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PeeringConnectionOptions =>
-    __isa(o, "PeeringConnectionOptions");
+  export const isa = (o: any): o is PeeringConnectionOptions => __isa(o, "PeeringConnectionOptions");
 }
 
 /**
@@ -35581,13 +33588,10 @@ export interface PeeringConnectionOptionsRequest {
 }
 
 export namespace PeeringConnectionOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: PeeringConnectionOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PeeringConnectionOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PeeringConnectionOptionsRequest =>
-    __isa(o, "PeeringConnectionOptionsRequest");
+  export const isa = (o: any): o is PeeringConnectionOptionsRequest => __isa(o, "PeeringConnectionOptionsRequest");
 }
 
 /**
@@ -35613,10 +33617,9 @@ export interface PeeringTgwInfo {
 
 export namespace PeeringTgwInfo {
   export const filterSensitiveLog = (obj: PeeringTgwInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PeeringTgwInfo =>
-    __isa(o, "PeeringTgwInfo");
+  export const isa = (o: any): o is PeeringTgwInfo => __isa(o, "PeeringTgwInfo");
 }
 
 export type PermissionGroup = "all";
@@ -35633,13 +33636,10 @@ export interface Phase1DHGroupNumbersListValue {
 }
 
 export namespace Phase1DHGroupNumbersListValue {
-  export const filterSensitiveLog = (
-    obj: Phase1DHGroupNumbersListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase1DHGroupNumbersListValue): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is Phase1DHGroupNumbersListValue =>
-    __isa(o, "Phase1DHGroupNumbersListValue");
+  export const isa = (o: any): o is Phase1DHGroupNumbersListValue => __isa(o, "Phase1DHGroupNumbersListValue");
 }
 
 /**
@@ -35654,10 +33654,8 @@ export interface Phase1DHGroupNumbersRequestListValue {
 }
 
 export namespace Phase1DHGroupNumbersRequestListValue {
-  export const filterSensitiveLog = (
-    obj: Phase1DHGroupNumbersRequestListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase1DHGroupNumbersRequestListValue): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is Phase1DHGroupNumbersRequestListValue =>
     __isa(o, "Phase1DHGroupNumbersRequestListValue");
@@ -35675,10 +33673,8 @@ export interface Phase1EncryptionAlgorithmsListValue {
 }
 
 export namespace Phase1EncryptionAlgorithmsListValue {
-  export const filterSensitiveLog = (
-    obj: Phase1EncryptionAlgorithmsListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsListValue): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is Phase1EncryptionAlgorithmsListValue =>
     __isa(o, "Phase1EncryptionAlgorithmsListValue");
@@ -35696,14 +33692,10 @@ export interface Phase1EncryptionAlgorithmsRequestListValue {
 }
 
 export namespace Phase1EncryptionAlgorithmsRequestListValue {
-  export const filterSensitiveLog = (
-    obj: Phase1EncryptionAlgorithmsRequestListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsRequestListValue): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is Phase1EncryptionAlgorithmsRequestListValue =>
+  export const isa = (o: any): o is Phase1EncryptionAlgorithmsRequestListValue =>
     __isa(o, "Phase1EncryptionAlgorithmsRequestListValue");
 }
 
@@ -35719,10 +33711,8 @@ export interface Phase1IntegrityAlgorithmsListValue {
 }
 
 export namespace Phase1IntegrityAlgorithmsListValue {
-  export const filterSensitiveLog = (
-    obj: Phase1IntegrityAlgorithmsListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsListValue): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is Phase1IntegrityAlgorithmsListValue =>
     __isa(o, "Phase1IntegrityAlgorithmsListValue");
@@ -35740,10 +33730,8 @@ export interface Phase1IntegrityAlgorithmsRequestListValue {
 }
 
 export namespace Phase1IntegrityAlgorithmsRequestListValue {
-  export const filterSensitiveLog = (
-    obj: Phase1IntegrityAlgorithmsRequestListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsRequestListValue): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is Phase1IntegrityAlgorithmsRequestListValue =>
     __isa(o, "Phase1IntegrityAlgorithmsRequestListValue");
@@ -35761,13 +33749,10 @@ export interface Phase2DHGroupNumbersListValue {
 }
 
 export namespace Phase2DHGroupNumbersListValue {
-  export const filterSensitiveLog = (
-    obj: Phase2DHGroupNumbersListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase2DHGroupNumbersListValue): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is Phase2DHGroupNumbersListValue =>
-    __isa(o, "Phase2DHGroupNumbersListValue");
+  export const isa = (o: any): o is Phase2DHGroupNumbersListValue => __isa(o, "Phase2DHGroupNumbersListValue");
 }
 
 /**
@@ -35782,10 +33767,8 @@ export interface Phase2DHGroupNumbersRequestListValue {
 }
 
 export namespace Phase2DHGroupNumbersRequestListValue {
-  export const filterSensitiveLog = (
-    obj: Phase2DHGroupNumbersRequestListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase2DHGroupNumbersRequestListValue): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is Phase2DHGroupNumbersRequestListValue =>
     __isa(o, "Phase2DHGroupNumbersRequestListValue");
@@ -35803,10 +33786,8 @@ export interface Phase2EncryptionAlgorithmsListValue {
 }
 
 export namespace Phase2EncryptionAlgorithmsListValue {
-  export const filterSensitiveLog = (
-    obj: Phase2EncryptionAlgorithmsListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsListValue): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is Phase2EncryptionAlgorithmsListValue =>
     __isa(o, "Phase2EncryptionAlgorithmsListValue");
@@ -35824,14 +33805,10 @@ export interface Phase2EncryptionAlgorithmsRequestListValue {
 }
 
 export namespace Phase2EncryptionAlgorithmsRequestListValue {
-  export const filterSensitiveLog = (
-    obj: Phase2EncryptionAlgorithmsRequestListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsRequestListValue): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is Phase2EncryptionAlgorithmsRequestListValue =>
+  export const isa = (o: any): o is Phase2EncryptionAlgorithmsRequestListValue =>
     __isa(o, "Phase2EncryptionAlgorithmsRequestListValue");
 }
 
@@ -35847,10 +33824,8 @@ export interface Phase2IntegrityAlgorithmsListValue {
 }
 
 export namespace Phase2IntegrityAlgorithmsListValue {
-  export const filterSensitiveLog = (
-    obj: Phase2IntegrityAlgorithmsListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsListValue): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is Phase2IntegrityAlgorithmsListValue =>
     __isa(o, "Phase2IntegrityAlgorithmsListValue");
@@ -35868,10 +33843,8 @@ export interface Phase2IntegrityAlgorithmsRequestListValue {
 }
 
 export namespace Phase2IntegrityAlgorithmsRequestListValue {
-  export const filterSensitiveLog = (
-    obj: Phase2IntegrityAlgorithmsRequestListValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsRequestListValue): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is Phase2IntegrityAlgorithmsRequestListValue =>
     __isa(o, "Phase2IntegrityAlgorithmsRequestListValue");
@@ -35934,7 +33907,7 @@ export interface Placement {
 
 export namespace Placement {
   export const filterSensitiveLog = (obj: Placement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Placement => __isa(o, "Placement");
 }
@@ -35978,10 +33951,9 @@ export interface PlacementGroup {
 
 export namespace PlacementGroup {
   export const filterSensitiveLog = (obj: PlacementGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PlacementGroup =>
-    __isa(o, "PlacementGroup");
+  export const isa = (o: any): o is PlacementGroup => __isa(o, "PlacementGroup");
 }
 
 /**
@@ -35997,17 +33969,12 @@ export interface PlacementGroupInfo {
 
 export namespace PlacementGroupInfo {
   export const filterSensitiveLog = (obj: PlacementGroupInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PlacementGroupInfo =>
-    __isa(o, "PlacementGroupInfo");
+  export const isa = (o: any): o is PlacementGroupInfo => __isa(o, "PlacementGroupInfo");
 }
 
-export type PlacementGroupState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "pending";
+export type PlacementGroupState = "available" | "deleted" | "deleting" | "pending";
 
 export type PlacementGroupStrategy = "cluster" | "partition" | "spread";
 
@@ -36024,10 +33991,9 @@ export interface PlacementResponse {
 
 export namespace PlacementResponse {
   export const filterSensitiveLog = (obj: PlacementResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PlacementResponse =>
-    __isa(o, "PlacementResponse");
+  export const isa = (o: any): o is PlacementResponse => __isa(o, "PlacementResponse");
 }
 
 export type PlacementStrategy = "cluster" | "partition" | "spread";
@@ -36047,7 +34013,7 @@ export interface PoolCidrBlock {
 
 export namespace PoolCidrBlock {
   export const filterSensitiveLog = (obj: PoolCidrBlock): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PoolCidrBlock => __isa(o, "PoolCidrBlock");
 }
@@ -36070,7 +34036,7 @@ export interface PortRange {
 
 export namespace PortRange {
   export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PortRange => __isa(o, "PortRange");
 }
@@ -36098,7 +34064,7 @@ export interface PrefixList {
 
 export namespace PrefixList {
   export const filterSensitiveLog = (obj: PrefixList): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PrefixList => __isa(o, "PrefixList");
 }
@@ -36123,7 +34089,7 @@ export interface PrefixListId {
 
 export namespace PrefixListId {
   export const filterSensitiveLog = (obj: PrefixListId): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PrefixListId => __isa(o, "PrefixListId");
 }
@@ -36158,7 +34124,7 @@ export interface PriceSchedule {
 
 export namespace PriceSchedule {
   export const filterSensitiveLog = (obj: PriceSchedule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PriceSchedule => __isa(o, "PriceSchedule");
 }
@@ -36187,10 +34153,9 @@ export interface PriceScheduleSpecification {
 
 export namespace PriceScheduleSpecification {
   export const filterSensitiveLog = (obj: PriceScheduleSpecification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PriceScheduleSpecification =>
-    __isa(o, "PriceScheduleSpecification");
+  export const isa = (o: any): o is PriceScheduleSpecification => __isa(o, "PriceScheduleSpecification");
 }
 
 /**
@@ -36211,7 +34176,7 @@ export interface PricingDetail {
 
 export namespace PricingDetail {
   export const filterSensitiveLog = (obj: PricingDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PricingDetail => __isa(o, "PricingDetail");
 }
@@ -36234,10 +34199,9 @@ export interface PrincipalIdFormat {
 
 export namespace PrincipalIdFormat {
   export const filterSensitiveLog = (obj: PrincipalIdFormat): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PrincipalIdFormat =>
-    __isa(o, "PrincipalIdFormat");
+  export const isa = (o: any): o is PrincipalIdFormat => __isa(o, "PrincipalIdFormat");
 }
 
 export enum PrincipalType {
@@ -36246,7 +34210,7 @@ export enum PrincipalType {
   OrganizationUnit = "OrganizationUnit",
   Role = "Role",
   Service = "Service",
-  User = "User"
+  User = "User",
 }
 
 /**
@@ -36282,13 +34246,10 @@ export interface PrivateDnsNameConfiguration {
 }
 
 export namespace PrivateDnsNameConfiguration {
-  export const filterSensitiveLog = (
-    obj: PrivateDnsNameConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PrivateDnsNameConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PrivateDnsNameConfiguration =>
-    __isa(o, "PrivateDnsNameConfiguration");
+  export const isa = (o: any): o is PrivateDnsNameConfiguration => __isa(o, "PrivateDnsNameConfiguration");
 }
 
 /**
@@ -36309,13 +34270,10 @@ export interface PrivateIpAddressSpecification {
 }
 
 export namespace PrivateIpAddressSpecification {
-  export const filterSensitiveLog = (
-    obj: PrivateIpAddressSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PrivateIpAddressSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PrivateIpAddressSpecification =>
-    __isa(o, "PrivateIpAddressSpecification");
+  export const isa = (o: any): o is PrivateIpAddressSpecification => __isa(o, "PrivateIpAddressSpecification");
 }
 
 /**
@@ -36336,7 +34294,7 @@ export interface ProcessorInfo {
 
 export namespace ProcessorInfo {
   export const filterSensitiveLog = (obj: ProcessorInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ProcessorInfo => __isa(o, "ProcessorInfo");
 }
@@ -36359,7 +34317,7 @@ export interface ProductCode {
 
 export namespace ProductCode {
   export const filterSensitiveLog = (obj: ProductCode): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ProductCode => __isa(o, "ProductCode");
 }
@@ -36379,10 +34337,9 @@ export interface PropagatingVgw {
 
 export namespace PropagatingVgw {
   export const filterSensitiveLog = (obj: PropagatingVgw): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PropagatingVgw =>
-    __isa(o, "PropagatingVgw");
+  export const isa = (o: any): o is PropagatingVgw => __isa(o, "PropagatingVgw");
 }
 
 export interface ProvisionByoipCidrRequest {
@@ -36422,10 +34379,9 @@ export interface ProvisionByoipCidrRequest {
 
 export namespace ProvisionByoipCidrRequest {
   export const filterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ProvisionByoipCidrRequest =>
-    __isa(o, "ProvisionByoipCidrRequest");
+  export const isa = (o: any): o is ProvisionByoipCidrRequest => __isa(o, "ProvisionByoipCidrRequest");
 }
 
 export interface ProvisionByoipCidrResult {
@@ -36438,10 +34394,9 @@ export interface ProvisionByoipCidrResult {
 
 export namespace ProvisionByoipCidrResult {
   export const filterSensitiveLog = (obj: ProvisionByoipCidrResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ProvisionByoipCidrResult =>
-    __isa(o, "ProvisionByoipCidrResult");
+  export const isa = (o: any): o is ProvisionByoipCidrResult => __isa(o, "ProvisionByoipCidrResult");
 }
 
 /**
@@ -36477,10 +34432,9 @@ export interface ProvisionedBandwidth {
 
 export namespace ProvisionedBandwidth {
   export const filterSensitiveLog = (obj: ProvisionedBandwidth): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ProvisionedBandwidth =>
-    __isa(o, "ProvisionedBandwidth");
+  export const isa = (o: any): o is ProvisionedBandwidth => __isa(o, "ProvisionedBandwidth");
 }
 
 /**
@@ -36516,10 +34470,9 @@ export interface PublicIpv4Pool {
 
 export namespace PublicIpv4Pool {
   export const filterSensitiveLog = (obj: PublicIpv4Pool): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PublicIpv4Pool =>
-    __isa(o, "PublicIpv4Pool");
+  export const isa = (o: any): o is PublicIpv4Pool => __isa(o, "PublicIpv4Pool");
 }
 
 /**
@@ -36550,10 +34503,9 @@ export interface PublicIpv4PoolRange {
 
 export namespace PublicIpv4PoolRange {
   export const filterSensitiveLog = (obj: PublicIpv4PoolRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PublicIpv4PoolRange =>
-    __isa(o, "PublicIpv4PoolRange");
+  export const isa = (o: any): o is PublicIpv4PoolRange => __isa(o, "PublicIpv4PoolRange");
 }
 
 /**
@@ -36607,7 +34559,7 @@ export interface Purchase {
 
 export namespace Purchase {
   export const filterSensitiveLog = (obj: Purchase): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Purchase => __isa(o, "Purchase");
 }
@@ -36648,13 +34600,10 @@ export interface PurchaseHostReservationRequest {
 }
 
 export namespace PurchaseHostReservationRequest {
-  export const filterSensitiveLog = (
-    obj: PurchaseHostReservationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseHostReservationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PurchaseHostReservationRequest =>
-    __isa(o, "PurchaseHostReservationRequest");
+  export const isa = (o: any): o is PurchaseHostReservationRequest => __isa(o, "PurchaseHostReservationRequest");
 }
 
 export interface PurchaseHostReservationResult {
@@ -36688,13 +34637,10 @@ export interface PurchaseHostReservationResult {
 }
 
 export namespace PurchaseHostReservationResult {
-  export const filterSensitiveLog = (
-    obj: PurchaseHostReservationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseHostReservationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PurchaseHostReservationResult =>
-    __isa(o, "PurchaseHostReservationResult");
+  export const isa = (o: any): o is PurchaseHostReservationResult => __isa(o, "PurchaseHostReservationResult");
 }
 
 /**
@@ -36715,10 +34661,9 @@ export interface PurchaseRequest {
 
 export namespace PurchaseRequest {
   export const filterSensitiveLog = (obj: PurchaseRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PurchaseRequest =>
-    __isa(o, "PurchaseRequest");
+  export const isa = (o: any): o is PurchaseRequest => __isa(o, "PurchaseRequest");
 }
 
 /**
@@ -36755,10 +34700,8 @@ export interface PurchaseReservedInstancesOfferingRequest {
 }
 
 export namespace PurchaseReservedInstancesOfferingRequest {
-  export const filterSensitiveLog = (
-    obj: PurchaseReservedInstancesOfferingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseReservedInstancesOfferingRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PurchaseReservedInstancesOfferingRequest =>
     __isa(o, "PurchaseReservedInstancesOfferingRequest");
@@ -36776,10 +34719,8 @@ export interface PurchaseReservedInstancesOfferingResult {
 }
 
 export namespace PurchaseReservedInstancesOfferingResult {
-  export const filterSensitiveLog = (
-    obj: PurchaseReservedInstancesOfferingResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseReservedInstancesOfferingResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PurchaseReservedInstancesOfferingResult =>
     __isa(o, "PurchaseReservedInstancesOfferingResult");
@@ -36810,13 +34751,10 @@ export interface PurchaseScheduledInstancesRequest {
 }
 
 export namespace PurchaseScheduledInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: PurchaseScheduledInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseScheduledInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PurchaseScheduledInstancesRequest =>
-    __isa(o, "PurchaseScheduledInstancesRequest");
+  export const isa = (o: any): o is PurchaseScheduledInstancesRequest => __isa(o, "PurchaseScheduledInstancesRequest");
 }
 
 /**
@@ -36831,13 +34769,10 @@ export interface PurchaseScheduledInstancesResult {
 }
 
 export namespace PurchaseScheduledInstancesResult {
-  export const filterSensitiveLog = (
-    obj: PurchaseScheduledInstancesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseScheduledInstancesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PurchaseScheduledInstancesResult =>
-    __isa(o, "PurchaseScheduledInstancesResult");
+  export const isa = (o: any): o is PurchaseScheduledInstancesResult => __isa(o, "PurchaseScheduledInstancesResult");
 }
 
 export interface RebootInstancesRequest {
@@ -36857,10 +34792,9 @@ export interface RebootInstancesRequest {
 
 export namespace RebootInstancesRequest {
   export const filterSensitiveLog = (obj: RebootInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RebootInstancesRequest =>
-    __isa(o, "RebootInstancesRequest");
+  export const isa = (o: any): o is RebootInstancesRequest => __isa(o, "RebootInstancesRequest");
 }
 
 /**
@@ -36881,10 +34815,9 @@ export interface RecurringCharge {
 
 export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge =>
-    __isa(o, "RecurringCharge");
+  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 export type RecurringChargeFrequency = "Hourly";
@@ -36913,7 +34846,7 @@ export interface Region {
 
 export namespace Region {
   export const filterSensitiveLog = (obj: Region): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Region => __isa(o, "Region");
 }
@@ -37005,10 +34938,9 @@ export interface RegisterImageRequest {
 
 export namespace RegisterImageRequest {
   export const filterSensitiveLog = (obj: RegisterImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterImageRequest =>
-    __isa(o, "RegisterImageRequest");
+  export const isa = (o: any): o is RegisterImageRequest => __isa(o, "RegisterImageRequest");
 }
 
 /**
@@ -37024,10 +34956,9 @@ export interface RegisterImageResult {
 
 export namespace RegisterImageResult {
   export const filterSensitiveLog = (obj: RegisterImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterImageResult =>
-    __isa(o, "RegisterImageResult");
+  export const isa = (o: any): o is RegisterImageResult => __isa(o, "RegisterImageResult");
 }
 
 export interface RegisterTransitGatewayMulticastGroupMembersRequest {
@@ -37056,14 +34987,10 @@ export interface RegisterTransitGatewayMulticastGroupMembersRequest {
 }
 
 export namespace RegisterTransitGatewayMulticastGroupMembersRequest {
-  export const filterSensitiveLog = (
-    obj: RegisterTransitGatewayMulticastGroupMembersRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RegisterTransitGatewayMulticastGroupMembersRequest =>
+  export const isa = (o: any): o is RegisterTransitGatewayMulticastGroupMembersRequest =>
     __isa(o, "RegisterTransitGatewayMulticastGroupMembersRequest");
 }
 
@@ -37076,14 +35003,10 @@ export interface RegisterTransitGatewayMulticastGroupMembersResult {
 }
 
 export namespace RegisterTransitGatewayMulticastGroupMembersResult {
-  export const filterSensitiveLog = (
-    obj: RegisterTransitGatewayMulticastGroupMembersResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RegisterTransitGatewayMulticastGroupMembersResult =>
+  export const isa = (o: any): o is RegisterTransitGatewayMulticastGroupMembersResult =>
     __isa(o, "RegisterTransitGatewayMulticastGroupMembersResult");
 }
 
@@ -37113,14 +35036,10 @@ export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
 }
 
 export namespace RegisterTransitGatewayMulticastGroupSourcesRequest {
-  export const filterSensitiveLog = (
-    obj: RegisterTransitGatewayMulticastGroupSourcesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RegisterTransitGatewayMulticastGroupSourcesRequest =>
+  export const isa = (o: any): o is RegisterTransitGatewayMulticastGroupSourcesRequest =>
     __isa(o, "RegisterTransitGatewayMulticastGroupSourcesRequest");
 }
 
@@ -37133,14 +35052,10 @@ export interface RegisterTransitGatewayMulticastGroupSourcesResult {
 }
 
 export namespace RegisterTransitGatewayMulticastGroupSourcesResult {
-  export const filterSensitiveLog = (
-    obj: RegisterTransitGatewayMulticastGroupSourcesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RegisterTransitGatewayMulticastGroupSourcesResult =>
+  export const isa = (o: any): o is RegisterTransitGatewayMulticastGroupSourcesResult =>
     __isa(o, "RegisterTransitGatewayMulticastGroupSourcesResult");
 }
 
@@ -37160,14 +35075,10 @@ export interface RejectTransitGatewayPeeringAttachmentRequest {
 }
 
 export namespace RejectTransitGatewayPeeringAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: RejectTransitGatewayPeeringAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RejectTransitGatewayPeeringAttachmentRequest =>
+  export const isa = (o: any): o is RejectTransitGatewayPeeringAttachmentRequest =>
     __isa(o, "RejectTransitGatewayPeeringAttachmentRequest");
 }
 
@@ -37180,14 +35091,10 @@ export interface RejectTransitGatewayPeeringAttachmentResult {
 }
 
 export namespace RejectTransitGatewayPeeringAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: RejectTransitGatewayPeeringAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RejectTransitGatewayPeeringAttachmentResult =>
+  export const isa = (o: any): o is RejectTransitGatewayPeeringAttachmentResult =>
     __isa(o, "RejectTransitGatewayPeeringAttachmentResult");
 }
 
@@ -37207,10 +35114,8 @@ export interface RejectTransitGatewayVpcAttachmentRequest {
 }
 
 export namespace RejectTransitGatewayVpcAttachmentRequest {
-  export const filterSensitiveLog = (
-    obj: RejectTransitGatewayVpcAttachmentRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RejectTransitGatewayVpcAttachmentRequest =>
     __isa(o, "RejectTransitGatewayVpcAttachmentRequest");
@@ -37225,10 +35130,8 @@ export interface RejectTransitGatewayVpcAttachmentResult {
 }
 
 export namespace RejectTransitGatewayVpcAttachmentResult {
-  export const filterSensitiveLog = (
-    obj: RejectTransitGatewayVpcAttachmentResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RejectTransitGatewayVpcAttachmentResult =>
     __isa(o, "RejectTransitGatewayVpcAttachmentResult");
@@ -37255,10 +35158,8 @@ export interface RejectVpcEndpointConnectionsRequest {
 }
 
 export namespace RejectVpcEndpointConnectionsRequest {
-  export const filterSensitiveLog = (
-    obj: RejectVpcEndpointConnectionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RejectVpcEndpointConnectionsRequest =>
     __isa(o, "RejectVpcEndpointConnectionsRequest");
@@ -37273,10 +35174,8 @@ export interface RejectVpcEndpointConnectionsResult {
 }
 
 export namespace RejectVpcEndpointConnectionsResult {
-  export const filterSensitiveLog = (
-    obj: RejectVpcEndpointConnectionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RejectVpcEndpointConnectionsResult =>
     __isa(o, "RejectVpcEndpointConnectionsResult");
@@ -37298,13 +35197,10 @@ export interface RejectVpcPeeringConnectionRequest {
 }
 
 export namespace RejectVpcPeeringConnectionRequest {
-  export const filterSensitiveLog = (
-    obj: RejectVpcPeeringConnectionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RejectVpcPeeringConnectionRequest =>
-    __isa(o, "RejectVpcPeeringConnectionRequest");
+  export const isa = (o: any): o is RejectVpcPeeringConnectionRequest => __isa(o, "RejectVpcPeeringConnectionRequest");
 }
 
 export interface RejectVpcPeeringConnectionResult {
@@ -37316,13 +35212,10 @@ export interface RejectVpcPeeringConnectionResult {
 }
 
 export namespace RejectVpcPeeringConnectionResult {
-  export const filterSensitiveLog = (
-    obj: RejectVpcPeeringConnectionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RejectVpcPeeringConnectionResult =>
-    __isa(o, "RejectVpcPeeringConnectionResult");
+  export const isa = (o: any): o is RejectVpcPeeringConnectionResult => __isa(o, "RejectVpcPeeringConnectionResult");
 }
 
 export interface ReleaseAddressRequest {
@@ -37356,10 +35249,9 @@ export interface ReleaseAddressRequest {
 
 export namespace ReleaseAddressRequest {
   export const filterSensitiveLog = (obj: ReleaseAddressRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReleaseAddressRequest =>
-    __isa(o, "ReleaseAddressRequest");
+  export const isa = (o: any): o is ReleaseAddressRequest => __isa(o, "ReleaseAddressRequest");
 }
 
 export interface ReleaseHostsRequest {
@@ -37372,10 +35264,9 @@ export interface ReleaseHostsRequest {
 
 export namespace ReleaseHostsRequest {
   export const filterSensitiveLog = (obj: ReleaseHostsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReleaseHostsRequest =>
-    __isa(o, "ReleaseHostsRequest");
+  export const isa = (o: any): o is ReleaseHostsRequest => __isa(o, "ReleaseHostsRequest");
 }
 
 export interface ReleaseHostsResult {
@@ -37394,10 +35285,9 @@ export interface ReleaseHostsResult {
 
 export namespace ReleaseHostsResult {
   export const filterSensitiveLog = (obj: ReleaseHostsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReleaseHostsResult =>
-    __isa(o, "ReleaseHostsResult");
+  export const isa = (o: any): o is ReleaseHostsResult => __isa(o, "ReleaseHostsResult");
 }
 
 export interface ReplaceIamInstanceProfileAssociationRequest {
@@ -37414,14 +35304,10 @@ export interface ReplaceIamInstanceProfileAssociationRequest {
 }
 
 export namespace ReplaceIamInstanceProfileAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: ReplaceIamInstanceProfileAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ReplaceIamInstanceProfileAssociationRequest =>
+  export const isa = (o: any): o is ReplaceIamInstanceProfileAssociationRequest =>
     __isa(o, "ReplaceIamInstanceProfileAssociationRequest");
 }
 
@@ -37434,14 +35320,10 @@ export interface ReplaceIamInstanceProfileAssociationResult {
 }
 
 export namespace ReplaceIamInstanceProfileAssociationResult {
-  export const filterSensitiveLog = (
-    obj: ReplaceIamInstanceProfileAssociationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ReplaceIamInstanceProfileAssociationResult =>
+  export const isa = (o: any): o is ReplaceIamInstanceProfileAssociationResult =>
     __isa(o, "ReplaceIamInstanceProfileAssociationResult");
 }
 
@@ -37466,10 +35348,8 @@ export interface ReplaceNetworkAclAssociationRequest {
 }
 
 export namespace ReplaceNetworkAclAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: ReplaceNetworkAclAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReplaceNetworkAclAssociationRequest =>
     __isa(o, "ReplaceNetworkAclAssociationRequest");
@@ -37484,10 +35364,8 @@ export interface ReplaceNetworkAclAssociationResult {
 }
 
 export namespace ReplaceNetworkAclAssociationResult {
-  export const filterSensitiveLog = (
-    obj: ReplaceNetworkAclAssociationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReplaceNetworkAclAssociationResult =>
     __isa(o, "ReplaceNetworkAclAssociationResult");
@@ -37559,13 +35437,10 @@ export interface ReplaceNetworkAclEntryRequest {
 }
 
 export namespace ReplaceNetworkAclEntryRequest {
-  export const filterSensitiveLog = (
-    obj: ReplaceNetworkAclEntryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclEntryRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReplaceNetworkAclEntryRequest =>
-    __isa(o, "ReplaceNetworkAclEntryRequest");
+  export const isa = (o: any): o is ReplaceNetworkAclEntryRequest => __isa(o, "ReplaceNetworkAclEntryRequest");
 }
 
 export interface ReplaceRouteRequest {
@@ -37642,10 +35517,9 @@ export interface ReplaceRouteRequest {
 
 export namespace ReplaceRouteRequest {
   export const filterSensitiveLog = (obj: ReplaceRouteRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReplaceRouteRequest =>
-    __isa(o, "ReplaceRouteRequest");
+  export const isa = (o: any): o is ReplaceRouteRequest => __isa(o, "ReplaceRouteRequest");
 }
 
 export interface ReplaceRouteTableAssociationRequest {
@@ -37669,10 +35543,8 @@ export interface ReplaceRouteTableAssociationRequest {
 }
 
 export namespace ReplaceRouteTableAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: ReplaceRouteTableAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReplaceRouteTableAssociationRequest =>
     __isa(o, "ReplaceRouteTableAssociationRequest");
@@ -37692,10 +35564,8 @@ export interface ReplaceRouteTableAssociationResult {
 }
 
 export namespace ReplaceRouteTableAssociationResult {
-  export const filterSensitiveLog = (
-    obj: ReplaceRouteTableAssociationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReplaceRouteTableAssociationResult =>
     __isa(o, "ReplaceRouteTableAssociationResult");
@@ -37732,13 +35602,10 @@ export interface ReplaceTransitGatewayRouteRequest {
 }
 
 export namespace ReplaceTransitGatewayRouteRequest {
-  export const filterSensitiveLog = (
-    obj: ReplaceTransitGatewayRouteRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReplaceTransitGatewayRouteRequest =>
-    __isa(o, "ReplaceTransitGatewayRouteRequest");
+  export const isa = (o: any): o is ReplaceTransitGatewayRouteRequest => __isa(o, "ReplaceTransitGatewayRouteRequest");
 }
 
 export interface ReplaceTransitGatewayRouteResult {
@@ -37750,13 +35617,10 @@ export interface ReplaceTransitGatewayRouteResult {
 }
 
 export namespace ReplaceTransitGatewayRouteResult {
-  export const filterSensitiveLog = (
-    obj: ReplaceTransitGatewayRouteResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReplaceTransitGatewayRouteResult =>
-    __isa(o, "ReplaceTransitGatewayRouteResult");
+  export const isa = (o: any): o is ReplaceTransitGatewayRouteResult => __isa(o, "ReplaceTransitGatewayRouteResult");
 }
 
 export type ReportInstanceReasonCodes =
@@ -37855,13 +35719,10 @@ export interface ReportInstanceStatusRequest {
 }
 
 export namespace ReportInstanceStatusRequest {
-  export const filterSensitiveLog = (
-    obj: ReportInstanceStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReportInstanceStatusRequest =>
-    __isa(o, "ReportInstanceStatusRequest");
+  export const isa = (o: any): o is ReportInstanceStatusRequest => __isa(o, "ReportInstanceStatusRequest");
 }
 
 export type ReportStatusType = "impaired" | "ok";
@@ -38053,10 +35914,9 @@ export interface RequestLaunchTemplateData {
 
 export namespace RequestLaunchTemplateData {
   export const filterSensitiveLog = (obj: RequestLaunchTemplateData): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestLaunchTemplateData =>
-    __isa(o, "RequestLaunchTemplateData");
+  export const isa = (o: any): o is RequestLaunchTemplateData => __isa(o, "RequestLaunchTemplateData");
 }
 
 /**
@@ -38079,10 +35939,9 @@ export interface RequestSpotFleetRequest {
 
 export namespace RequestSpotFleetRequest {
   export const filterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestSpotFleetRequest =>
-    __isa(o, "RequestSpotFleetRequest");
+  export const isa = (o: any): o is RequestSpotFleetRequest => __isa(o, "RequestSpotFleetRequest");
 }
 
 /**
@@ -38098,10 +35957,9 @@ export interface RequestSpotFleetResponse {
 
 export namespace RequestSpotFleetResponse {
   export const filterSensitiveLog = (obj: RequestSpotFleetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestSpotFleetResponse =>
-    __isa(o, "RequestSpotFleetResponse");
+  export const isa = (o: any): o is RequestSpotFleetResponse => __isa(o, "RequestSpotFleetResponse");
 }
 
 /**
@@ -38190,13 +36048,10 @@ export interface RequestSpotInstancesRequest {
 }
 
 export namespace RequestSpotInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: RequestSpotInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RequestSpotInstancesRequest =>
-    __isa(o, "RequestSpotInstancesRequest");
+  export const isa = (o: any): o is RequestSpotInstancesRequest => __isa(o, "RequestSpotInstancesRequest");
 }
 
 /**
@@ -38212,10 +36067,9 @@ export interface RequestSpotInstancesResult {
 
 export namespace RequestSpotInstancesResult {
   export const filterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestSpotInstancesResult =>
-    __isa(o, "RequestSpotInstancesResult");
+  export const isa = (o: any): o is RequestSpotInstancesResult => __isa(o, "RequestSpotInstancesResult");
 }
 
 /**
@@ -38312,13 +36166,10 @@ export interface RequestSpotLaunchSpecification {
 }
 
 export namespace RequestSpotLaunchSpecification {
-  export const filterSensitiveLog = (
-    obj: RequestSpotLaunchSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RequestSpotLaunchSpecification =>
-    __isa(o, "RequestSpotLaunchSpecification");
+  export const isa = (o: any): o is RequestSpotLaunchSpecification => __isa(o, "RequestSpotLaunchSpecification");
 }
 
 /**
@@ -38355,7 +36206,7 @@ export interface Reservation {
 
 export namespace Reservation {
   export const filterSensitiveLog = (obj: Reservation): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Reservation => __isa(o, "Reservation");
 }
@@ -38364,7 +36215,7 @@ export enum ReservationState {
   ACTIVE = "active",
   PAYMENT_FAILED = "payment-failed",
   PAYMENT_PENDING = "payment-pending",
-  RETIRED = "retired"
+  RETIRED = "retired",
 }
 
 /**
@@ -38390,10 +36241,9 @@ export interface ReservationValue {
 
 export namespace ReservationValue {
   export const filterSensitiveLog = (obj: ReservationValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservationValue =>
-    __isa(o, "ReservationValue");
+  export const isa = (o: any): o is ReservationValue => __isa(o, "ReservationValue");
 }
 
 /**
@@ -38415,10 +36265,9 @@ export interface ReservedInstanceLimitPrice {
 
 export namespace ReservedInstanceLimitPrice {
   export const filterSensitiveLog = (obj: ReservedInstanceLimitPrice): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedInstanceLimitPrice =>
-    __isa(o, "ReservedInstanceLimitPrice");
+  export const isa = (o: any): o is ReservedInstanceLimitPrice => __isa(o, "ReservedInstanceLimitPrice");
 }
 
 /**
@@ -38438,13 +36287,10 @@ export interface ReservedInstanceReservationValue {
 }
 
 export namespace ReservedInstanceReservationValue {
-  export const filterSensitiveLog = (
-    obj: ReservedInstanceReservationValue
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedInstanceReservationValue): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedInstanceReservationValue =>
-    __isa(o, "ReservedInstanceReservationValue");
+  export const isa = (o: any): o is ReservedInstanceReservationValue => __isa(o, "ReservedInstanceReservationValue");
 }
 
 /**
@@ -38546,10 +36392,9 @@ export interface ReservedInstances {
 
 export namespace ReservedInstances {
   export const filterSensitiveLog = (obj: ReservedInstances): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedInstances =>
-    __isa(o, "ReservedInstances");
+  export const isa = (o: any): o is ReservedInstances => __isa(o, "ReservedInstances");
 }
 
 /**
@@ -38587,13 +36432,10 @@ export interface ReservedInstancesConfiguration {
 }
 
 export namespace ReservedInstancesConfiguration {
-  export const filterSensitiveLog = (
-    obj: ReservedInstancesConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedInstancesConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesConfiguration =>
-    __isa(o, "ReservedInstancesConfiguration");
+  export const isa = (o: any): o is ReservedInstancesConfiguration => __isa(o, "ReservedInstancesConfiguration");
 }
 
 /**
@@ -38609,10 +36451,9 @@ export interface ReservedInstancesId {
 
 export namespace ReservedInstancesId {
   export const filterSensitiveLog = (obj: ReservedInstancesId): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesId =>
-    __isa(o, "ReservedInstancesId");
+  export const isa = (o: any): o is ReservedInstancesId => __isa(o, "ReservedInstancesId");
 }
 
 /**
@@ -38674,10 +36515,9 @@ export interface ReservedInstancesListing {
 
 export namespace ReservedInstancesListing {
   export const filterSensitiveLog = (obj: ReservedInstancesListing): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesListing =>
-    __isa(o, "ReservedInstancesListing");
+  export const isa = (o: any): o is ReservedInstancesListing => __isa(o, "ReservedInstancesListing");
 }
 
 /**
@@ -38734,13 +36574,10 @@ export interface ReservedInstancesModification {
 }
 
 export namespace ReservedInstancesModification {
-  export const filterSensitiveLog = (
-    obj: ReservedInstancesModification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedInstancesModification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesModification =>
-    __isa(o, "ReservedInstancesModification");
+  export const isa = (o: any): o is ReservedInstancesModification => __isa(o, "ReservedInstancesModification");
 }
 
 /**
@@ -38760,10 +36597,8 @@ export interface ReservedInstancesModificationResult {
 }
 
 export namespace ReservedInstancesModificationResult {
-  export const filterSensitiveLog = (
-    obj: ReservedInstancesModificationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedInstancesModificationResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReservedInstancesModificationResult =>
     __isa(o, "ReservedInstancesModificationResult");
@@ -38858,10 +36693,9 @@ export interface ReservedInstancesOffering {
 
 export namespace ReservedInstancesOffering {
   export const filterSensitiveLog = (obj: ReservedInstancesOffering): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesOffering =>
-    __isa(o, "ReservedInstancesOffering");
+  export const isa = (o: any): o is ReservedInstancesOffering => __isa(o, "ReservedInstancesOffering");
 }
 
 export type ReservedInstanceState =
@@ -38883,13 +36717,10 @@ export interface ResetEbsDefaultKmsKeyIdRequest {
 }
 
 export namespace ResetEbsDefaultKmsKeyIdRequest {
-  export const filterSensitiveLog = (
-    obj: ResetEbsDefaultKmsKeyIdRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResetEbsDefaultKmsKeyIdRequest =>
-    __isa(o, "ResetEbsDefaultKmsKeyIdRequest");
+  export const isa = (o: any): o is ResetEbsDefaultKmsKeyIdRequest => __isa(o, "ResetEbsDefaultKmsKeyIdRequest");
 }
 
 export interface ResetEbsDefaultKmsKeyIdResult {
@@ -38901,13 +36732,10 @@ export interface ResetEbsDefaultKmsKeyIdResult {
 }
 
 export namespace ResetEbsDefaultKmsKeyIdResult {
-  export const filterSensitiveLog = (
-    obj: ResetEbsDefaultKmsKeyIdResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResetEbsDefaultKmsKeyIdResult =>
-    __isa(o, "ResetEbsDefaultKmsKeyIdResult");
+  export const isa = (o: any): o is ResetEbsDefaultKmsKeyIdResult => __isa(o, "ResetEbsDefaultKmsKeyIdResult");
 }
 
 export type ResetFpgaImageAttributeName = "loadPermission";
@@ -38933,13 +36761,10 @@ export interface ResetFpgaImageAttributeRequest {
 }
 
 export namespace ResetFpgaImageAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ResetFpgaImageAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResetFpgaImageAttributeRequest =>
-    __isa(o, "ResetFpgaImageAttributeRequest");
+  export const isa = (o: any): o is ResetFpgaImageAttributeRequest => __isa(o, "ResetFpgaImageAttributeRequest");
 }
 
 export interface ResetFpgaImageAttributeResult {
@@ -38951,13 +36776,10 @@ export interface ResetFpgaImageAttributeResult {
 }
 
 export namespace ResetFpgaImageAttributeResult {
-  export const filterSensitiveLog = (
-    obj: ResetFpgaImageAttributeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResetFpgaImageAttributeResult =>
-    __isa(o, "ResetFpgaImageAttributeResult");
+  export const isa = (o: any): o is ResetFpgaImageAttributeResult => __isa(o, "ResetFpgaImageAttributeResult");
 }
 
 export type ResetImageAttributeName = "launchPermission";
@@ -38987,10 +36809,9 @@ export interface ResetImageAttributeRequest {
 
 export namespace ResetImageAttributeRequest {
   export const filterSensitiveLog = (obj: ResetImageAttributeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResetImageAttributeRequest =>
-    __isa(o, "ResetImageAttributeRequest");
+  export const isa = (o: any): o is ResetImageAttributeRequest => __isa(o, "ResetImageAttributeRequest");
 }
 
 export interface ResetInstanceAttributeRequest {
@@ -39019,13 +36840,10 @@ export interface ResetInstanceAttributeRequest {
 }
 
 export namespace ResetInstanceAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ResetInstanceAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetInstanceAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResetInstanceAttributeRequest =>
-    __isa(o, "ResetInstanceAttributeRequest");
+  export const isa = (o: any): o is ResetInstanceAttributeRequest => __isa(o, "ResetInstanceAttributeRequest");
 }
 
 /**
@@ -39052,10 +36870,8 @@ export interface ResetNetworkInterfaceAttributeRequest {
 }
 
 export namespace ResetNetworkInterfaceAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ResetNetworkInterfaceAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetNetworkInterfaceAttributeRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ResetNetworkInterfaceAttributeRequest =>
     __isa(o, "ResetNetworkInterfaceAttributeRequest");
@@ -39083,13 +36899,10 @@ export interface ResetSnapshotAttributeRequest {
 }
 
 export namespace ResetSnapshotAttributeRequest {
-  export const filterSensitiveLog = (
-    obj: ResetSnapshotAttributeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetSnapshotAttributeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResetSnapshotAttributeRequest =>
-    __isa(o, "ResetSnapshotAttributeRequest");
+  export const isa = (o: any): o is ResetSnapshotAttributeRequest => __isa(o, "ResetSnapshotAttributeRequest");
 }
 
 export type ResourceType =
@@ -39149,7 +36962,7 @@ export interface ResponseError {
 
 export namespace ResponseError {
   export const filterSensitiveLog = (obj: ResponseError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResponseError => __isa(o, "ResponseError");
 }
@@ -39300,10 +37113,9 @@ export interface ResponseLaunchTemplateData {
 
 export namespace ResponseLaunchTemplateData {
   export const filterSensitiveLog = (obj: ResponseLaunchTemplateData): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResponseLaunchTemplateData =>
-    __isa(o, "ResponseLaunchTemplateData");
+  export const isa = (o: any): o is ResponseLaunchTemplateData => __isa(o, "ResponseLaunchTemplateData");
 }
 
 export interface RestoreAddressToClassicRequest {
@@ -39322,13 +37134,10 @@ export interface RestoreAddressToClassicRequest {
 }
 
 export namespace RestoreAddressToClassicRequest {
-  export const filterSensitiveLog = (
-    obj: RestoreAddressToClassicRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreAddressToClassicRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RestoreAddressToClassicRequest =>
-    __isa(o, "RestoreAddressToClassicRequest");
+  export const isa = (o: any): o is RestoreAddressToClassicRequest => __isa(o, "RestoreAddressToClassicRequest");
 }
 
 export interface RestoreAddressToClassicResult {
@@ -39345,13 +37154,10 @@ export interface RestoreAddressToClassicResult {
 }
 
 export namespace RestoreAddressToClassicResult {
-  export const filterSensitiveLog = (
-    obj: RestoreAddressToClassicResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreAddressToClassicResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RestoreAddressToClassicResult =>
-    __isa(o, "RestoreAddressToClassicResult");
+  export const isa = (o: any): o is RestoreAddressToClassicResult => __isa(o, "RestoreAddressToClassicResult");
 }
 
 export interface RevokeClientVpnIngressRequest {
@@ -39383,13 +37189,10 @@ export interface RevokeClientVpnIngressRequest {
 }
 
 export namespace RevokeClientVpnIngressRequest {
-  export const filterSensitiveLog = (
-    obj: RevokeClientVpnIngressRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevokeClientVpnIngressRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RevokeClientVpnIngressRequest =>
-    __isa(o, "RevokeClientVpnIngressRequest");
+  export const isa = (o: any): o is RevokeClientVpnIngressRequest => __isa(o, "RevokeClientVpnIngressRequest");
 }
 
 export interface RevokeClientVpnIngressResult {
@@ -39401,13 +37204,10 @@ export interface RevokeClientVpnIngressResult {
 }
 
 export namespace RevokeClientVpnIngressResult {
-  export const filterSensitiveLog = (
-    obj: RevokeClientVpnIngressResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevokeClientVpnIngressResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RevokeClientVpnIngressResult =>
-    __isa(o, "RevokeClientVpnIngressResult");
+  export const isa = (o: any): o is RevokeClientVpnIngressResult => __isa(o, "RevokeClientVpnIngressResult");
 }
 
 export interface RevokeSecurityGroupEgressRequest {
@@ -39464,13 +37264,10 @@ export interface RevokeSecurityGroupEgressRequest {
 }
 
 export namespace RevokeSecurityGroupEgressRequest {
-  export const filterSensitiveLog = (
-    obj: RevokeSecurityGroupEgressRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupEgressRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RevokeSecurityGroupEgressRequest =>
-    __isa(o, "RevokeSecurityGroupEgressRequest");
+  export const isa = (o: any): o is RevokeSecurityGroupEgressRequest => __isa(o, "RevokeSecurityGroupEgressRequest");
 }
 
 export interface RevokeSecurityGroupIngressRequest {
@@ -39536,20 +37333,13 @@ export interface RevokeSecurityGroupIngressRequest {
 }
 
 export namespace RevokeSecurityGroupIngressRequest {
-  export const filterSensitiveLog = (
-    obj: RevokeSecurityGroupIngressRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupIngressRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RevokeSecurityGroupIngressRequest =>
-    __isa(o, "RevokeSecurityGroupIngressRequest");
+  export const isa = (o: any): o is RevokeSecurityGroupIngressRequest => __isa(o, "RevokeSecurityGroupIngressRequest");
 }
 
-export type RIProductDescription =
-  | "Linux/UNIX"
-  | "Linux/UNIX (Amazon VPC)"
-  | "Windows"
-  | "Windows (Amazon VPC)";
+export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
 
 export type RootDeviceType = "ebs" | "instance-store";
 
@@ -39647,15 +37437,12 @@ export interface Route {
 
 export namespace Route {
   export const filterSensitiveLog = (obj: Route): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Route => __isa(o, "Route");
 }
 
-export type RouteOrigin =
-  | "CreateRoute"
-  | "CreateRouteTable"
-  | "EnableVgwRoutePropagation";
+export type RouteOrigin = "CreateRoute" | "CreateRouteTable" | "EnableVgwRoutePropagation";
 
 export type RouteState = "active" | "blackhole";
 
@@ -39702,7 +37489,7 @@ export interface RouteTable {
 
 export namespace RouteTable {
   export const filterSensitiveLog = (obj: RouteTable): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RouteTable => __isa(o, "RouteTable");
 }
@@ -39745,10 +37532,9 @@ export interface RouteTableAssociation {
 
 export namespace RouteTableAssociation {
   export const filterSensitiveLog = (obj: RouteTableAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RouteTableAssociation =>
-    __isa(o, "RouteTableAssociation");
+  export const isa = (o: any): o is RouteTableAssociation => __isa(o, "RouteTableAssociation");
 }
 
 /**
@@ -39769,10 +37555,9 @@ export interface RouteTableAssociationState {
 
 export namespace RouteTableAssociationState {
   export const filterSensitiveLog = (obj: RouteTableAssociationState): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RouteTableAssociationState =>
-    __isa(o, "RouteTableAssociationState");
+  export const isa = (o: any): o is RouteTableAssociationState => __isa(o, "RouteTableAssociationState");
 }
 
 export type RouteTableAssociationStateCode =
@@ -39797,13 +37582,10 @@ export interface RunInstancesMonitoringEnabled {
 }
 
 export namespace RunInstancesMonitoringEnabled {
-  export const filterSensitiveLog = (
-    obj: RunInstancesMonitoringEnabled
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RunInstancesMonitoringEnabled): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RunInstancesMonitoringEnabled =>
-    __isa(o, "RunInstancesMonitoringEnabled");
+  export const isa = (o: any): o is RunInstancesMonitoringEnabled => __isa(o, "RunInstancesMonitoringEnabled");
 }
 
 export interface RunInstancesRequest {
@@ -40098,10 +37880,9 @@ export interface RunInstancesRequest {
 
 export namespace RunInstancesRequest {
   export const filterSensitiveLog = (obj: RunInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RunInstancesRequest =>
-    __isa(o, "RunInstancesRequest");
+  export const isa = (o: any): o is RunInstancesRequest => __isa(o, "RunInstancesRequest");
 }
 
 /**
@@ -40141,13 +37922,10 @@ export interface RunScheduledInstancesRequest {
 }
 
 export namespace RunScheduledInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: RunScheduledInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RunScheduledInstancesRequest =>
-    __isa(o, "RunScheduledInstancesRequest");
+  export const isa = (o: any): o is RunScheduledInstancesRequest => __isa(o, "RunScheduledInstancesRequest");
 }
 
 /**
@@ -40162,13 +37940,10 @@ export interface RunScheduledInstancesResult {
 }
 
 export namespace RunScheduledInstancesResult {
-  export const filterSensitiveLog = (
-    obj: RunScheduledInstancesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RunScheduledInstancesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RunScheduledInstancesResult =>
-    __isa(o, "RunScheduledInstancesResult");
+  export const isa = (o: any): o is RunScheduledInstancesResult => __isa(o, "RunScheduledInstancesResult");
 }
 
 /**
@@ -40205,7 +37980,7 @@ export interface S3Storage {
 
 export namespace S3Storage {
   export const filterSensitiveLog = (obj: S3Storage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is S3Storage => __isa(o, "S3Storage");
 }
@@ -40293,10 +38068,9 @@ export interface ScheduledInstance {
 
 export namespace ScheduledInstance {
   export const filterSensitiveLog = (obj: ScheduledInstance): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstance =>
-    __isa(o, "ScheduledInstance");
+  export const isa = (o: any): o is ScheduledInstance => __isa(o, "ScheduledInstance");
 }
 
 /**
@@ -40371,13 +38145,10 @@ export interface ScheduledInstanceAvailability {
 }
 
 export namespace ScheduledInstanceAvailability {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstanceAvailability
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstanceAvailability): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstanceAvailability =>
-    __isa(o, "ScheduledInstanceAvailability");
+  export const isa = (o: any): o is ScheduledInstanceAvailability => __isa(o, "ScheduledInstanceAvailability");
 }
 
 /**
@@ -40413,13 +38184,10 @@ export interface ScheduledInstanceRecurrence {
 }
 
 export namespace ScheduledInstanceRecurrence {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstanceRecurrence
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstanceRecurrence): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstanceRecurrence =>
-    __isa(o, "ScheduledInstanceRecurrence");
+  export const isa = (o: any): o is ScheduledInstanceRecurrence => __isa(o, "ScheduledInstanceRecurrence");
 }
 
 /**
@@ -40458,10 +38226,8 @@ export interface ScheduledInstanceRecurrenceRequest {
 }
 
 export namespace ScheduledInstanceRecurrenceRequest {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstanceRecurrenceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstanceRecurrenceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduledInstanceRecurrenceRequest =>
     __isa(o, "ScheduledInstanceRecurrenceRequest");
@@ -40499,10 +38265,8 @@ export interface ScheduledInstancesBlockDeviceMapping {
 }
 
 export namespace ScheduledInstancesBlockDeviceMapping {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstancesBlockDeviceMapping
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstancesBlockDeviceMapping): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduledInstancesBlockDeviceMapping =>
     __isa(o, "ScheduledInstancesBlockDeviceMapping");
@@ -40561,10 +38325,9 @@ export interface ScheduledInstancesEbs {
 
 export namespace ScheduledInstancesEbs {
   export const filterSensitiveLog = (obj: ScheduledInstancesEbs): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesEbs =>
-    __isa(o, "ScheduledInstancesEbs");
+  export const isa = (o: any): o is ScheduledInstancesEbs => __isa(o, "ScheduledInstancesEbs");
 }
 
 /**
@@ -40584,10 +38347,8 @@ export interface ScheduledInstancesIamInstanceProfile {
 }
 
 export namespace ScheduledInstancesIamInstanceProfile {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstancesIamInstanceProfile
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstancesIamInstanceProfile): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduledInstancesIamInstanceProfile =>
     __isa(o, "ScheduledInstancesIamInstanceProfile");
@@ -40605,13 +38366,10 @@ export interface ScheduledInstancesIpv6Address {
 }
 
 export namespace ScheduledInstancesIpv6Address {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstancesIpv6Address
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstancesIpv6Address): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesIpv6Address =>
-    __isa(o, "ScheduledInstancesIpv6Address");
+  export const isa = (o: any): o is ScheduledInstancesIpv6Address => __isa(o, "ScheduledInstancesIpv6Address");
 }
 
 /**
@@ -40695,10 +38453,8 @@ export interface ScheduledInstancesLaunchSpecification {
 }
 
 export namespace ScheduledInstancesLaunchSpecification {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstancesLaunchSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstancesLaunchSpecification): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduledInstancesLaunchSpecification =>
     __isa(o, "ScheduledInstancesLaunchSpecification");
@@ -40716,13 +38472,10 @@ export interface ScheduledInstancesMonitoring {
 }
 
 export namespace ScheduledInstancesMonitoring {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstancesMonitoring
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstancesMonitoring): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesMonitoring =>
-    __isa(o, "ScheduledInstancesMonitoring");
+  export const isa = (o: any): o is ScheduledInstancesMonitoring => __isa(o, "ScheduledInstancesMonitoring");
 }
 
 /**
@@ -40796,10 +38549,8 @@ export interface ScheduledInstancesNetworkInterface {
 }
 
 export namespace ScheduledInstancesNetworkInterface {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstancesNetworkInterface
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstancesNetworkInterface): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduledInstancesNetworkInterface =>
     __isa(o, "ScheduledInstancesNetworkInterface");
@@ -40822,13 +38573,10 @@ export interface ScheduledInstancesPlacement {
 }
 
 export namespace ScheduledInstancesPlacement {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstancesPlacement
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstancesPlacement): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesPlacement =>
-    __isa(o, "ScheduledInstancesPlacement");
+  export const isa = (o: any): o is ScheduledInstancesPlacement => __isa(o, "ScheduledInstancesPlacement");
 }
 
 /**
@@ -40848,10 +38596,8 @@ export interface ScheduledInstancesPrivateIpAddressConfig {
 }
 
 export namespace ScheduledInstancesPrivateIpAddressConfig {
-  export const filterSensitiveLog = (
-    obj: ScheduledInstancesPrivateIpAddressConfig
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledInstancesPrivateIpAddressConfig): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduledInstancesPrivateIpAddressConfig =>
     __isa(o, "ScheduledInstancesPrivateIpAddressConfig");
@@ -40859,7 +38605,7 @@ export namespace ScheduledInstancesPrivateIpAddressConfig {
 
 export enum Scope {
   AVAILABILITY_ZONE = "Availability Zone",
-  REGIONAL = "Region"
+  REGIONAL = "Region",
 }
 
 export interface SearchLocalGatewayRoutesRequest {
@@ -40894,13 +38640,10 @@ export interface SearchLocalGatewayRoutesRequest {
 }
 
 export namespace SearchLocalGatewayRoutesRequest {
-  export const filterSensitiveLog = (
-    obj: SearchLocalGatewayRoutesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchLocalGatewayRoutesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchLocalGatewayRoutesRequest =>
-    __isa(o, "SearchLocalGatewayRoutesRequest");
+  export const isa = (o: any): o is SearchLocalGatewayRoutesRequest => __isa(o, "SearchLocalGatewayRoutesRequest");
 }
 
 export interface SearchLocalGatewayRoutesResult {
@@ -40917,13 +38660,10 @@ export interface SearchLocalGatewayRoutesResult {
 }
 
 export namespace SearchLocalGatewayRoutesResult {
-  export const filterSensitiveLog = (
-    obj: SearchLocalGatewayRoutesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchLocalGatewayRoutesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchLocalGatewayRoutesResult =>
-    __isa(o, "SearchLocalGatewayRoutesResult");
+  export const isa = (o: any): o is SearchLocalGatewayRoutesResult => __isa(o, "SearchLocalGatewayRoutesResult");
 }
 
 export interface SearchTransitGatewayMulticastGroupsRequest {
@@ -41000,14 +38740,10 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
 }
 
 export namespace SearchTransitGatewayMulticastGroupsRequest {
-  export const filterSensitiveLog = (
-    obj: SearchTransitGatewayMulticastGroupsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchTransitGatewayMulticastGroupsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is SearchTransitGatewayMulticastGroupsRequest =>
+  export const isa = (o: any): o is SearchTransitGatewayMulticastGroupsRequest =>
     __isa(o, "SearchTransitGatewayMulticastGroupsRequest");
 }
 
@@ -41025,10 +38761,8 @@ export interface SearchTransitGatewayMulticastGroupsResult {
 }
 
 export namespace SearchTransitGatewayMulticastGroupsResult {
-  export const filterSensitiveLog = (
-    obj: SearchTransitGatewayMulticastGroupsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchTransitGatewayMulticastGroupsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SearchTransitGatewayMulticastGroupsResult =>
     __isa(o, "SearchTransitGatewayMulticastGroupsResult");
@@ -41099,13 +38833,10 @@ export interface SearchTransitGatewayRoutesRequest {
 }
 
 export namespace SearchTransitGatewayRoutesRequest {
-  export const filterSensitiveLog = (
-    obj: SearchTransitGatewayRoutesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchTransitGatewayRoutesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchTransitGatewayRoutesRequest =>
-    __isa(o, "SearchTransitGatewayRoutesRequest");
+  export const isa = (o: any): o is SearchTransitGatewayRoutesRequest => __isa(o, "SearchTransitGatewayRoutesRequest");
 }
 
 export interface SearchTransitGatewayRoutesResult {
@@ -41122,13 +38853,10 @@ export interface SearchTransitGatewayRoutesResult {
 }
 
 export namespace SearchTransitGatewayRoutesResult {
-  export const filterSensitiveLog = (
-    obj: SearchTransitGatewayRoutesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchTransitGatewayRoutesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchTransitGatewayRoutesResult =>
-    __isa(o, "SearchTransitGatewayRoutesResult");
+  export const isa = (o: any): o is SearchTransitGatewayRoutesResult => __isa(o, "SearchTransitGatewayRoutesResult");
 }
 
 /**
@@ -41179,7 +38907,7 @@ export interface SecurityGroup {
 
 export namespace SecurityGroup {
   export const filterSensitiveLog = (obj: SecurityGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SecurityGroup => __isa(o, "SecurityGroup");
 }
@@ -41202,10 +38930,9 @@ export interface SecurityGroupIdentifier {
 
 export namespace SecurityGroupIdentifier {
   export const filterSensitiveLog = (obj: SecurityGroupIdentifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupIdentifier =>
-    __isa(o, "SecurityGroupIdentifier");
+  export const isa = (o: any): o is SecurityGroupIdentifier => __isa(o, "SecurityGroupIdentifier");
 }
 
 /**
@@ -41231,10 +38958,9 @@ export interface SecurityGroupReference {
 
 export namespace SecurityGroupReference {
   export const filterSensitiveLog = (obj: SecurityGroupReference): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupReference =>
-    __isa(o, "SecurityGroupReference");
+  export const isa = (o: any): o is SecurityGroupReference => __isa(o, "SecurityGroupReference");
 }
 
 export interface SendDiagnosticInterruptRequest {
@@ -41253,13 +38979,10 @@ export interface SendDiagnosticInterruptRequest {
 }
 
 export namespace SendDiagnosticInterruptRequest {
-  export const filterSensitiveLog = (
-    obj: SendDiagnosticInterruptRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SendDiagnosticInterruptRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SendDiagnosticInterruptRequest =>
-    __isa(o, "SendDiagnosticInterruptRequest");
+  export const isa = (o: any): o is SendDiagnosticInterruptRequest => __isa(o, "SendDiagnosticInterruptRequest");
 }
 
 /**
@@ -41331,10 +39054,9 @@ export interface ServiceConfiguration {
 
 export namespace ServiceConfiguration {
   export const filterSensitiveLog = (obj: ServiceConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceConfiguration =>
-    __isa(o, "ServiceConfiguration");
+  export const isa = (o: any): o is ServiceConfiguration => __isa(o, "ServiceConfiguration");
 }
 
 /**
@@ -41407,7 +39129,7 @@ export interface ServiceDetail {
 
 export namespace ServiceDetail {
   export const filterSensitiveLog = (obj: ServiceDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ServiceDetail => __isa(o, "ServiceDetail");
 }
@@ -41417,12 +39139,12 @@ export enum ServiceState {
   Deleted = "Deleted",
   Deleting = "Deleting",
   Failed = "Failed",
-  Pending = "Pending"
+  Pending = "Pending",
 }
 
 export enum ServiceType {
   Gateway = "Gateway",
-  Interface = "Interface"
+  Interface = "Interface",
 }
 
 /**
@@ -41438,10 +39160,9 @@ export interface ServiceTypeDetail {
 
 export namespace ServiceTypeDetail {
   export const filterSensitiveLog = (obj: ServiceTypeDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceTypeDetail =>
-    __isa(o, "ServiceTypeDetail");
+  export const isa = (o: any): o is ServiceTypeDetail => __isa(o, "ServiceTypeDetail");
 }
 
 export type ShutdownBehavior = "stop" | "terminate";
@@ -41464,10 +39185,9 @@ export interface SlotDateTimeRangeRequest {
 
 export namespace SlotDateTimeRangeRequest {
   export const filterSensitiveLog = (obj: SlotDateTimeRangeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SlotDateTimeRangeRequest =>
-    __isa(o, "SlotDateTimeRangeRequest");
+  export const isa = (o: any): o is SlotDateTimeRangeRequest => __isa(o, "SlotDateTimeRangeRequest");
 }
 
 /**
@@ -41488,10 +39208,9 @@ export interface SlotStartTimeRangeRequest {
 
 export namespace SlotStartTimeRangeRequest {
   export const filterSensitiveLog = (obj: SlotStartTimeRangeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SlotStartTimeRangeRequest =>
-    __isa(o, "SlotStartTimeRangeRequest");
+  export const isa = (o: any): o is SlotStartTimeRangeRequest => __isa(o, "SlotStartTimeRangeRequest");
 }
 
 /**
@@ -41585,7 +39304,7 @@ export interface Snapshot {
 
 export namespace Snapshot {
   export const filterSensitiveLog = (obj: Snapshot): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
@@ -41650,10 +39369,9 @@ export interface SnapshotDetail {
 
 export namespace SnapshotDetail {
   export const filterSensitiveLog = (obj: SnapshotDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotDetail =>
-    __isa(o, "SnapshotDetail");
+  export const isa = (o: any): o is SnapshotDetail => __isa(o, "SnapshotDetail");
 }
 
 /**
@@ -41687,10 +39405,9 @@ export interface SnapshotDiskContainer {
 
 export namespace SnapshotDiskContainer {
   export const filterSensitiveLog = (obj: SnapshotDiskContainer): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotDiskContainer =>
-    __isa(o, "SnapshotDiskContainer");
+  export const isa = (o: any): o is SnapshotDiskContainer => __isa(o, "SnapshotDiskContainer");
 }
 
 /**
@@ -41753,7 +39470,7 @@ export interface SnapshotInfo {
 
 export namespace SnapshotInfo {
   export const filterSensitiveLog = (obj: SnapshotInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SnapshotInfo => __isa(o, "SnapshotInfo");
 }
@@ -41824,16 +39541,15 @@ export interface SnapshotTaskDetail {
 
 export namespace SnapshotTaskDetail {
   export const filterSensitiveLog = (obj: SnapshotTaskDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotTaskDetail =>
-    __isa(o, "SnapshotTaskDetail");
+  export const isa = (o: any): o is SnapshotTaskDetail => __isa(o, "SnapshotTaskDetail");
 }
 
 export enum SpotAllocationStrategy {
   CAPACITY_OPTIMIZED = "capacity-optimized",
   DIVERSIFIED = "diversified",
-  LOWEST_PRICE = "lowest-price"
+  LOWEST_PRICE = "lowest-price",
 }
 
 /**
@@ -41869,10 +39585,9 @@ export interface SpotDatafeedSubscription {
 
 export namespace SpotDatafeedSubscription {
   export const filterSensitiveLog = (obj: SpotDatafeedSubscription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotDatafeedSubscription =>
-    __isa(o, "SpotDatafeedSubscription");
+  export const isa = (o: any): o is SpotDatafeedSubscription => __isa(o, "SpotDatafeedSubscription");
 }
 
 /**
@@ -41985,13 +39700,10 @@ export interface SpotFleetLaunchSpecification {
 }
 
 export namespace SpotFleetLaunchSpecification {
-  export const filterSensitiveLog = (
-    obj: SpotFleetLaunchSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SpotFleetLaunchSpecification =>
-    __isa(o, "SpotFleetLaunchSpecification");
+  export const isa = (o: any): o is SpotFleetLaunchSpecification => __isa(o, "SpotFleetLaunchSpecification");
 }
 
 /**
@@ -42009,10 +39721,9 @@ export interface SpotFleetMonitoring {
 
 export namespace SpotFleetMonitoring {
   export const filterSensitiveLog = (obj: SpotFleetMonitoring): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotFleetMonitoring =>
-    __isa(o, "SpotFleetMonitoring");
+  export const isa = (o: any): o is SpotFleetMonitoring => __isa(o, "SpotFleetMonitoring");
 }
 
 /**
@@ -42053,10 +39764,9 @@ export interface SpotFleetRequestConfig {
 
 export namespace SpotFleetRequestConfig {
   export const filterSensitiveLog = (obj: SpotFleetRequestConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotFleetRequestConfig =>
-    __isa(o, "SpotFleetRequestConfig");
+  export const isa = (o: any): o is SpotFleetRequestConfig => __isa(o, "SpotFleetRequestConfig");
 }
 
 /**
@@ -42244,10 +39954,9 @@ export interface SpotFleetRequestConfigData {
 
 export namespace SpotFleetRequestConfigData {
   export const filterSensitiveLog = (obj: SpotFleetRequestConfigData): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotFleetRequestConfigData =>
-    __isa(o, "SpotFleetRequestConfigData");
+  export const isa = (o: any): o is SpotFleetRequestConfigData => __isa(o, "SpotFleetRequestConfigData");
 }
 
 /**
@@ -42268,16 +39977,12 @@ export interface SpotFleetTagSpecification {
 
 export namespace SpotFleetTagSpecification {
   export const filterSensitiveLog = (obj: SpotFleetTagSpecification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotFleetTagSpecification =>
-    __isa(o, "SpotFleetTagSpecification");
+  export const isa = (o: any): o is SpotFleetTagSpecification => __isa(o, "SpotFleetTagSpecification");
 }
 
-export type SpotInstanceInterruptionBehavior =
-  | "hibernate"
-  | "stop"
-  | "terminate";
+export type SpotInstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
 
 /**
  * <p>Describes a Spot Instance request.</p>
@@ -42388,18 +40093,12 @@ export interface SpotInstanceRequest {
 
 export namespace SpotInstanceRequest {
   export const filterSensitiveLog = (obj: SpotInstanceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotInstanceRequest =>
-    __isa(o, "SpotInstanceRequest");
+  export const isa = (o: any): o is SpotInstanceRequest => __isa(o, "SpotInstanceRequest");
 }
 
-export type SpotInstanceState =
-  | "active"
-  | "cancelled"
-  | "closed"
-  | "failed"
-  | "open";
+export type SpotInstanceState = "active" | "cancelled" | "closed" | "failed" | "open";
 
 /**
  * <p>Describes a Spot Instance state change.</p>
@@ -42419,10 +40118,9 @@ export interface SpotInstanceStateFault {
 
 export namespace SpotInstanceStateFault {
   export const filterSensitiveLog = (obj: SpotInstanceStateFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotInstanceStateFault =>
-    __isa(o, "SpotInstanceStateFault");
+  export const isa = (o: any): o is SpotInstanceStateFault => __isa(o, "SpotInstanceStateFault");
 }
 
 /**
@@ -42449,10 +40147,9 @@ export interface SpotInstanceStatus {
 
 export namespace SpotInstanceStatus {
   export const filterSensitiveLog = (obj: SpotInstanceStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotInstanceStatus =>
-    __isa(o, "SpotInstanceStatus");
+  export const isa = (o: any): o is SpotInstanceStatus => __isa(o, "SpotInstanceStatus");
 }
 
 export type SpotInstanceType = "one-time" | "persistent";
@@ -42498,10 +40195,9 @@ export interface SpotMarketOptions {
 
 export namespace SpotMarketOptions {
   export const filterSensitiveLog = (obj: SpotMarketOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotMarketOptions =>
-    __isa(o, "SpotMarketOptions");
+  export const isa = (o: any): o is SpotMarketOptions => __isa(o, "SpotMarketOptions");
 }
 
 /**
@@ -42561,7 +40257,7 @@ export interface SpotOptions {
 
 export namespace SpotOptions {
   export const filterSensitiveLog = (obj: SpotOptions): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SpotOptions => __isa(o, "SpotOptions");
 }
@@ -42623,10 +40319,9 @@ export interface SpotOptionsRequest {
 
 export namespace SpotOptionsRequest {
   export const filterSensitiveLog = (obj: SpotOptionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SpotOptionsRequest =>
-    __isa(o, "SpotOptionsRequest");
+  export const isa = (o: any): o is SpotOptionsRequest => __isa(o, "SpotOptionsRequest");
 }
 
 /**
@@ -42655,7 +40350,7 @@ export interface SpotPlacement {
 
 export namespace SpotPlacement {
   export const filterSensitiveLog = (obj: SpotPlacement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SpotPlacement => __isa(o, "SpotPlacement");
 }
@@ -42693,7 +40388,7 @@ export interface SpotPrice {
 
 export namespace SpotPrice {
   export const filterSensitiveLog = (obj: SpotPrice): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SpotPrice => __isa(o, "SpotPrice");
 }
@@ -42738,10 +40433,9 @@ export interface StaleIpPermission {
 
 export namespace StaleIpPermission {
   export const filterSensitiveLog = (obj: StaleIpPermission): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StaleIpPermission =>
-    __isa(o, "StaleIpPermission");
+  export const isa = (o: any): o is StaleIpPermission => __isa(o, "StaleIpPermission");
 }
 
 /**
@@ -42782,10 +40476,9 @@ export interface StaleSecurityGroup {
 
 export namespace StaleSecurityGroup {
   export const filterSensitiveLog = (obj: StaleSecurityGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StaleSecurityGroup =>
-    __isa(o, "StaleSecurityGroup");
+  export const isa = (o: any): o is StaleSecurityGroup => __isa(o, "StaleSecurityGroup");
 }
 
 export interface StartInstancesRequest {
@@ -42810,10 +40503,9 @@ export interface StartInstancesRequest {
 
 export namespace StartInstancesRequest {
   export const filterSensitiveLog = (obj: StartInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartInstancesRequest =>
-    __isa(o, "StartInstancesRequest");
+  export const isa = (o: any): o is StartInstancesRequest => __isa(o, "StartInstancesRequest");
 }
 
 export interface StartInstancesResult {
@@ -42826,10 +40518,9 @@ export interface StartInstancesResult {
 
 export namespace StartInstancesResult {
   export const filterSensitiveLog = (obj: StartInstancesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartInstancesResult =>
-    __isa(o, "StartInstancesResult");
+  export const isa = (o: any): o is StartInstancesResult => __isa(o, "StartInstancesResult");
 }
 
 export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
@@ -42848,14 +40539,10 @@ export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
 }
 
 export namespace StartVpcEndpointServicePrivateDnsVerificationRequest {
-  export const filterSensitiveLog = (
-    obj: StartVpcEndpointServicePrivateDnsVerificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartVpcEndpointServicePrivateDnsVerificationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is StartVpcEndpointServicePrivateDnsVerificationRequest =>
+  export const isa = (o: any): o is StartVpcEndpointServicePrivateDnsVerificationRequest =>
     __isa(o, "StartVpcEndpointServicePrivateDnsVerificationRequest");
 }
 
@@ -42868,14 +40555,10 @@ export interface StartVpcEndpointServicePrivateDnsVerificationResult {
 }
 
 export namespace StartVpcEndpointServicePrivateDnsVerificationResult {
-  export const filterSensitiveLog = (
-    obj: StartVpcEndpointServicePrivateDnsVerificationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartVpcEndpointServicePrivateDnsVerificationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is StartVpcEndpointServicePrivateDnsVerificationResult =>
+  export const isa = (o: any): o is StartVpcEndpointServicePrivateDnsVerificationResult =>
     __isa(o, "StartVpcEndpointServicePrivateDnsVerificationResult");
 }
 
@@ -42887,7 +40570,7 @@ export enum State {
   Failed = "Failed",
   Pending = "Pending",
   PendingAcceptance = "PendingAcceptance",
-  Rejected = "Rejected"
+  Rejected = "Rejected",
 }
 
 /**
@@ -42975,7 +40658,7 @@ export interface StateReason {
 
 export namespace StateReason {
   export const filterSensitiveLog = (obj: StateReason): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StateReason => __isa(o, "StateReason");
 }
@@ -42983,16 +40666,12 @@ export namespace StateReason {
 export enum Status {
   inClassic = "InClassic",
   inVpc = "InVpc",
-  moveInProgress = "MoveInProgress"
+  moveInProgress = "MoveInProgress",
 }
 
 export type StatusName = "reachability";
 
-export type StatusType =
-  | "failed"
-  | "initializing"
-  | "insufficient-data"
-  | "passed";
+export type StatusType = "failed" | "initializing" | "insufficient-data" | "passed";
 
 export interface StopInstancesRequest {
   __type?: "StopInstancesRequest";
@@ -43031,10 +40710,9 @@ export interface StopInstancesRequest {
 
 export namespace StopInstancesRequest {
   export const filterSensitiveLog = (obj: StopInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopInstancesRequest =>
-    __isa(o, "StopInstancesRequest");
+  export const isa = (o: any): o is StopInstancesRequest => __isa(o, "StopInstancesRequest");
 }
 
 export interface StopInstancesResult {
@@ -43047,10 +40725,9 @@ export interface StopInstancesResult {
 
 export namespace StopInstancesResult {
   export const filterSensitiveLog = (obj: StopInstancesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopInstancesResult =>
-    __isa(o, "StopInstancesResult");
+  export const isa = (o: any): o is StopInstancesResult => __isa(o, "StopInstancesResult");
 }
 
 /**
@@ -43066,7 +40743,7 @@ export interface Storage {
 
 export namespace Storage {
   export const filterSensitiveLog = (obj: Storage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Storage => __isa(o, "Storage");
 }
@@ -43089,10 +40766,9 @@ export interface StorageLocation {
 
 export namespace StorageLocation {
   export const filterSensitiveLog = (obj: StorageLocation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StorageLocation =>
-    __isa(o, "StorageLocation");
+  export const isa = (o: any): o is StorageLocation => __isa(o, "StorageLocation");
 }
 
 /**
@@ -43180,7 +40856,7 @@ export interface Subnet {
 
 export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
@@ -43203,10 +40879,9 @@ export interface SubnetAssociation {
 
 export namespace SubnetAssociation {
   export const filterSensitiveLog = (obj: SubnetAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubnetAssociation =>
-    __isa(o, "SubnetAssociation");
+  export const isa = (o: any): o is SubnetAssociation => __isa(o, "SubnetAssociation");
 }
 
 /**
@@ -43227,10 +40902,9 @@ export interface SubnetCidrBlockState {
 
 export namespace SubnetCidrBlockState {
   export const filterSensitiveLog = (obj: SubnetCidrBlockState): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubnetCidrBlockState =>
-    __isa(o, "SubnetCidrBlockState");
+  export const isa = (o: any): o is SubnetCidrBlockState => __isa(o, "SubnetCidrBlockState");
 }
 
 export type SubnetCidrBlockStateCode =
@@ -43263,13 +40937,10 @@ export interface SubnetIpv6CidrBlockAssociation {
 }
 
 export namespace SubnetIpv6CidrBlockAssociation {
-  export const filterSensitiveLog = (
-    obj: SubnetIpv6CidrBlockAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SubnetIpv6CidrBlockAssociation): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SubnetIpv6CidrBlockAssociation =>
-    __isa(o, "SubnetIpv6CidrBlockAssociation");
+  export const isa = (o: any): o is SubnetIpv6CidrBlockAssociation => __isa(o, "SubnetIpv6CidrBlockAssociation");
 }
 
 export type SubnetState = "available" | "pending";
@@ -43287,10 +40958,8 @@ export interface SuccessfulInstanceCreditSpecificationItem {
 }
 
 export namespace SuccessfulInstanceCreditSpecificationItem {
-  export const filterSensitiveLog = (
-    obj: SuccessfulInstanceCreditSpecificationItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SuccessfulInstanceCreditSpecificationItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SuccessfulInstanceCreditSpecificationItem =>
     __isa(o, "SuccessfulInstanceCreditSpecificationItem");
@@ -43308,21 +40977,13 @@ export interface SuccessfulQueuedPurchaseDeletion {
 }
 
 export namespace SuccessfulQueuedPurchaseDeletion {
-  export const filterSensitiveLog = (
-    obj: SuccessfulQueuedPurchaseDeletion
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SuccessfulQueuedPurchaseDeletion): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SuccessfulQueuedPurchaseDeletion =>
-    __isa(o, "SuccessfulQueuedPurchaseDeletion");
+  export const isa = (o: any): o is SuccessfulQueuedPurchaseDeletion => __isa(o, "SuccessfulQueuedPurchaseDeletion");
 }
 
-export type SummaryStatus =
-  | "impaired"
-  | "initializing"
-  | "insufficient-data"
-  | "not-applicable"
-  | "ok";
+export type SummaryStatus = "impaired" | "initializing" | "insufficient-data" | "not-applicable" | "ok";
 
 /**
  * <p>Describes a tag.</p>
@@ -43345,7 +41006,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -43378,10 +41039,9 @@ export interface TagDescription {
 
 export namespace TagDescription {
   export const filterSensitiveLog = (obj: TagDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagDescription =>
-    __isa(o, "TagDescription");
+  export const isa = (o: any): o is TagDescription => __isa(o, "TagDescription");
 }
 
 /**
@@ -43409,10 +41069,9 @@ export interface TagSpecification {
 
 export namespace TagSpecification {
   export const filterSensitiveLog = (obj: TagSpecification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagSpecification =>
-    __isa(o, "TagSpecification");
+  export const isa = (o: any): o is TagSpecification => __isa(o, "TagSpecification");
 }
 
 /**
@@ -43455,13 +41114,10 @@ export interface TargetCapacitySpecification {
 }
 
 export namespace TargetCapacitySpecification {
-  export const filterSensitiveLog = (
-    obj: TargetCapacitySpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TargetCapacitySpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TargetCapacitySpecification =>
-    __isa(o, "TargetCapacitySpecification");
+  export const isa = (o: any): o is TargetCapacitySpecification => __isa(o, "TargetCapacitySpecification");
 }
 
 /**
@@ -43503,10 +41159,8 @@ export interface TargetCapacitySpecificationRequest {
 }
 
 export namespace TargetCapacitySpecificationRequest {
-  export const filterSensitiveLog = (
-    obj: TargetCapacitySpecificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TargetCapacitySpecificationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TargetCapacitySpecificationRequest =>
     __isa(o, "TargetCapacitySpecificationRequest");
@@ -43531,10 +41185,9 @@ export interface TargetConfiguration {
 
 export namespace TargetConfiguration {
   export const filterSensitiveLog = (obj: TargetConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TargetConfiguration =>
-    __isa(o, "TargetConfiguration");
+  export const isa = (o: any): o is TargetConfiguration => __isa(o, "TargetConfiguration");
 }
 
 /**
@@ -43556,10 +41209,9 @@ export interface TargetConfigurationRequest {
 
 export namespace TargetConfigurationRequest {
   export const filterSensitiveLog = (obj: TargetConfigurationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TargetConfigurationRequest =>
-    __isa(o, "TargetConfigurationRequest");
+  export const isa = (o: any): o is TargetConfigurationRequest => __isa(o, "TargetConfigurationRequest");
 }
 
 /**
@@ -43575,7 +41227,7 @@ export interface TargetGroup {
 
 export namespace TargetGroup {
   export const filterSensitiveLog = (obj: TargetGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TargetGroup => __isa(o, "TargetGroup");
 }
@@ -43594,10 +41246,9 @@ export interface TargetGroupsConfig {
 
 export namespace TargetGroupsConfig {
   export const filterSensitiveLog = (obj: TargetGroupsConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TargetGroupsConfig =>
-    __isa(o, "TargetGroupsConfig");
+  export const isa = (o: any): o is TargetGroupsConfig => __isa(o, "TargetGroupsConfig");
 }
 
 /**
@@ -43638,7 +41289,7 @@ export interface TargetNetwork {
 
 export namespace TargetNetwork {
   export const filterSensitiveLog = (obj: TargetNetwork): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TargetNetwork => __isa(o, "TargetNetwork");
 }
@@ -43662,10 +41313,9 @@ export interface TargetReservationValue {
 
 export namespace TargetReservationValue {
   export const filterSensitiveLog = (obj: TargetReservationValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TargetReservationValue =>
-    __isa(o, "TargetReservationValue");
+  export const isa = (o: any): o is TargetReservationValue => __isa(o, "TargetReservationValue");
 }
 
 export type TelemetryStatus = "DOWN" | "UP";
@@ -43697,10 +41347,8 @@ export interface TerminateClientVpnConnectionsRequest {
 }
 
 export namespace TerminateClientVpnConnectionsRequest {
-  export const filterSensitiveLog = (
-    obj: TerminateClientVpnConnectionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TerminateClientVpnConnectionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TerminateClientVpnConnectionsRequest =>
     __isa(o, "TerminateClientVpnConnectionsRequest");
@@ -43725,10 +41373,8 @@ export interface TerminateClientVpnConnectionsResult {
 }
 
 export namespace TerminateClientVpnConnectionsResult {
-  export const filterSensitiveLog = (
-    obj: TerminateClientVpnConnectionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TerminateClientVpnConnectionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TerminateClientVpnConnectionsResult =>
     __isa(o, "TerminateClientVpnConnectionsResult");
@@ -43757,10 +41403,9 @@ export interface TerminateConnectionStatus {
 
 export namespace TerminateConnectionStatus {
   export const filterSensitiveLog = (obj: TerminateConnectionStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminateConnectionStatus =>
-    __isa(o, "TerminateConnectionStatus");
+  export const isa = (o: any): o is TerminateConnectionStatus => __isa(o, "TerminateConnectionStatus");
 }
 
 export interface TerminateInstancesRequest {
@@ -43782,10 +41427,9 @@ export interface TerminateInstancesRequest {
 
 export namespace TerminateInstancesRequest {
   export const filterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminateInstancesRequest =>
-    __isa(o, "TerminateInstancesRequest");
+  export const isa = (o: any): o is TerminateInstancesRequest => __isa(o, "TerminateInstancesRequest");
 }
 
 export interface TerminateInstancesResult {
@@ -43798,10 +41442,9 @@ export interface TerminateInstancesResult {
 
 export namespace TerminateInstancesResult {
   export const filterSensitiveLog = (obj: TerminateInstancesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminateInstancesResult =>
-    __isa(o, "TerminateInstancesResult");
+  export const isa = (o: any): o is TerminateInstancesResult => __isa(o, "TerminateInstancesResult");
 }
 
 export type TrafficDirection = "egress" | "ingress";
@@ -43844,10 +41487,9 @@ export interface TrafficMirrorFilter {
 
 export namespace TrafficMirrorFilter {
   export const filterSensitiveLog = (obj: TrafficMirrorFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorFilter =>
-    __isa(o, "TrafficMirrorFilter");
+  export const isa = (o: any): o is TrafficMirrorFilter => __isa(o, "TrafficMirrorFilter");
 }
 
 /**
@@ -43913,17 +41555,12 @@ export interface TrafficMirrorFilterRule {
 
 export namespace TrafficMirrorFilterRule {
   export const filterSensitiveLog = (obj: TrafficMirrorFilterRule): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorFilterRule =>
-    __isa(o, "TrafficMirrorFilterRule");
+  export const isa = (o: any): o is TrafficMirrorFilterRule => __isa(o, "TrafficMirrorFilterRule");
 }
 
-export type TrafficMirrorFilterRuleField =
-  | "description"
-  | "destination-port-range"
-  | "protocol"
-  | "source-port-range";
+export type TrafficMirrorFilterRuleField = "description" | "destination-port-range" | "protocol" | "source-port-range";
 
 export type TrafficMirrorNetworkService = "amazon-dns";
 
@@ -43945,10 +41582,9 @@ export interface TrafficMirrorPortRange {
 
 export namespace TrafficMirrorPortRange {
   export const filterSensitiveLog = (obj: TrafficMirrorPortRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorPortRange =>
-    __isa(o, "TrafficMirrorPortRange");
+  export const isa = (o: any): o is TrafficMirrorPortRange => __isa(o, "TrafficMirrorPortRange");
 }
 
 /**
@@ -43968,13 +41604,10 @@ export interface TrafficMirrorPortRangeRequest {
 }
 
 export namespace TrafficMirrorPortRangeRequest {
-  export const filterSensitiveLog = (
-    obj: TrafficMirrorPortRangeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TrafficMirrorPortRangeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorPortRangeRequest =>
-    __isa(o, "TrafficMirrorPortRangeRequest");
+  export const isa = (o: any): o is TrafficMirrorPortRangeRequest => __isa(o, "TrafficMirrorPortRangeRequest");
 }
 
 export type TrafficMirrorRuleAction = "accept" | "reject";
@@ -44038,16 +41671,12 @@ export interface TrafficMirrorSession {
 
 export namespace TrafficMirrorSession {
   export const filterSensitiveLog = (obj: TrafficMirrorSession): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorSession =>
-    __isa(o, "TrafficMirrorSession");
+  export const isa = (o: any): o is TrafficMirrorSession => __isa(o, "TrafficMirrorSession");
 }
 
-export type TrafficMirrorSessionField =
-  | "description"
-  | "packet-length"
-  | "virtual-network-id";
+export type TrafficMirrorSessionField = "description" | "packet-length" | "virtual-network-id";
 
 /**
  * <p>Describes a Traffic Mirror target.</p>
@@ -44092,15 +41721,12 @@ export interface TrafficMirrorTarget {
 
 export namespace TrafficMirrorTarget {
   export const filterSensitiveLog = (obj: TrafficMirrorTarget): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorTarget =>
-    __isa(o, "TrafficMirrorTarget");
+  export const isa = (o: any): o is TrafficMirrorTarget => __isa(o, "TrafficMirrorTarget");
 }
 
-export type TrafficMirrorTargetType =
-  | "network-interface"
-  | "network-load-balancer";
+export type TrafficMirrorTargetType = "network-interface" | "network-load-balancer";
 
 export type TrafficType = "ACCEPT" | "ALL" | "REJECT";
 
@@ -44152,10 +41778,9 @@ export interface TransitGateway {
 
 export namespace TransitGateway {
   export const filterSensitiveLog = (obj: TransitGateway): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGateway =>
-    __isa(o, "TransitGateway");
+  export const isa = (o: any): o is TransitGateway => __isa(o, "TransitGateway");
 }
 
 /**
@@ -44191,17 +41816,12 @@ export interface TransitGatewayAssociation {
 
 export namespace TransitGatewayAssociation {
   export const filterSensitiveLog = (obj: TransitGatewayAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayAssociation =>
-    __isa(o, "TransitGatewayAssociation");
+  export const isa = (o: any): o is TransitGatewayAssociation => __isa(o, "TransitGatewayAssociation");
 }
 
-export type TransitGatewayAssociationState =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating";
+export type TransitGatewayAssociationState = "associated" | "associating" | "disassociated" | "disassociating";
 
 /**
  * <p>Describes an attachment between a resource and a transit gateway.</p>
@@ -44261,10 +41881,9 @@ export interface TransitGatewayAttachment {
 
 export namespace TransitGatewayAttachment {
   export const filterSensitiveLog = (obj: TransitGatewayAttachment): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayAttachment =>
-    __isa(o, "TransitGatewayAttachment");
+  export const isa = (o: any): o is TransitGatewayAttachment => __isa(o, "TransitGatewayAttachment");
 }
 
 /**
@@ -44284,10 +41903,8 @@ export interface TransitGatewayAttachmentAssociation {
 }
 
 export namespace TransitGatewayAttachmentAssociation {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayAttachmentAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayAttachmentAssociation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TransitGatewayAttachmentAssociation =>
     __isa(o, "TransitGatewayAttachmentAssociation");
@@ -44310,20 +41927,14 @@ export interface TransitGatewayAttachmentPropagation {
 }
 
 export namespace TransitGatewayAttachmentPropagation {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayAttachmentPropagation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayAttachmentPropagation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TransitGatewayAttachmentPropagation =>
     __isa(o, "TransitGatewayAttachmentPropagation");
 }
 
-export type TransitGatewayAttachmentResourceType =
-  | "direct-connect-gateway"
-  | "tgw-peering"
-  | "vpc"
-  | "vpn";
+export type TransitGatewayAttachmentResourceType = "direct-connect-gateway" | "tgw-peering" | "vpc" | "vpn";
 
 export type TransitGatewayAttachmentState =
   | "available"
@@ -44367,14 +41978,10 @@ export interface TransitGatewayMulticastDeregisteredGroupMembers {
 }
 
 export namespace TransitGatewayMulticastDeregisteredGroupMembers {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayMulticastDeregisteredGroupMembers
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastDeregisteredGroupMembers): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is TransitGatewayMulticastDeregisteredGroupMembers =>
+  export const isa = (o: any): o is TransitGatewayMulticastDeregisteredGroupMembers =>
     __isa(o, "TransitGatewayMulticastDeregisteredGroupMembers");
 }
 
@@ -44400,14 +42007,10 @@ export interface TransitGatewayMulticastDeregisteredGroupSources {
 }
 
 export namespace TransitGatewayMulticastDeregisteredGroupSources {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayMulticastDeregisteredGroupSources
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastDeregisteredGroupSources): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is TransitGatewayMulticastDeregisteredGroupSources =>
+  export const isa = (o: any): o is TransitGatewayMulticastDeregisteredGroupSources =>
     __isa(o, "TransitGatewayMulticastDeregisteredGroupSources");
 }
 
@@ -44443,13 +42046,10 @@ export interface TransitGatewayMulticastDomain {
 }
 
 export namespace TransitGatewayMulticastDomain {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayMulticastDomain
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastDomain): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastDomain =>
-    __isa(o, "TransitGatewayMulticastDomain");
+  export const isa = (o: any): o is TransitGatewayMulticastDomain => __isa(o, "TransitGatewayMulticastDomain");
 }
 
 /**
@@ -44479,10 +42079,8 @@ export interface TransitGatewayMulticastDomainAssociation {
 }
 
 export namespace TransitGatewayMulticastDomainAssociation {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayMulticastDomainAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastDomainAssociation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TransitGatewayMulticastDomainAssociation =>
     __isa(o, "TransitGatewayMulticastDomainAssociation");
@@ -44520,20 +42118,14 @@ export interface TransitGatewayMulticastDomainAssociations {
 }
 
 export namespace TransitGatewayMulticastDomainAssociations {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayMulticastDomainAssociations
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastDomainAssociations): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TransitGatewayMulticastDomainAssociations =>
     __isa(o, "TransitGatewayMulticastDomainAssociations");
 }
 
-export type TransitGatewayMulticastDomainState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "pending";
+export type TransitGatewayMulticastDomainState = "available" | "deleted" | "deleting" | "pending";
 
 /**
  * <p>Describes the  transit gateway multicast group resources.</p>
@@ -44592,13 +42184,10 @@ export interface TransitGatewayMulticastGroup {
 }
 
 export namespace TransitGatewayMulticastGroup {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayMulticastGroup
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastGroup): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastGroup =>
-    __isa(o, "TransitGatewayMulticastGroup");
+  export const isa = (o: any): o is TransitGatewayMulticastGroup => __isa(o, "TransitGatewayMulticastGroup");
 }
 
 /**
@@ -44623,14 +42212,10 @@ export interface TransitGatewayMulticastRegisteredGroupMembers {
 }
 
 export namespace TransitGatewayMulticastRegisteredGroupMembers {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayMulticastRegisteredGroupMembers
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupMembers): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is TransitGatewayMulticastRegisteredGroupMembers =>
+  export const isa = (o: any): o is TransitGatewayMulticastRegisteredGroupMembers =>
     __isa(o, "TransitGatewayMulticastRegisteredGroupMembers");
 }
 
@@ -44656,14 +42241,10 @@ export interface TransitGatewayMulticastRegisteredGroupSources {
 }
 
 export namespace TransitGatewayMulticastRegisteredGroupSources {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayMulticastRegisteredGroupSources
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupSources): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is TransitGatewayMulticastRegisteredGroupSources =>
+  export const isa = (o: any): o is TransitGatewayMulticastRegisteredGroupSources =>
     __isa(o, "TransitGatewayMulticastRegisteredGroupSources");
 }
 
@@ -44721,10 +42302,9 @@ export interface TransitGatewayOptions {
 
 export namespace TransitGatewayOptions {
   export const filterSensitiveLog = (obj: TransitGatewayOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayOptions =>
-    __isa(o, "TransitGatewayOptions");
+  export const isa = (o: any): o is TransitGatewayOptions => __isa(o, "TransitGatewayOptions");
 }
 
 /**
@@ -44769,13 +42349,10 @@ export interface TransitGatewayPeeringAttachment {
 }
 
 export namespace TransitGatewayPeeringAttachment {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayPeeringAttachment
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayPeeringAttachment): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayPeeringAttachment =>
-    __isa(o, "TransitGatewayPeeringAttachment");
+  export const isa = (o: any): o is TransitGatewayPeeringAttachment => __isa(o, "TransitGatewayPeeringAttachment");
 }
 
 /**
@@ -44811,17 +42388,12 @@ export interface TransitGatewayPropagation {
 
 export namespace TransitGatewayPropagation {
   export const filterSensitiveLog = (obj: TransitGatewayPropagation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayPropagation =>
-    __isa(o, "TransitGatewayPropagation");
+  export const isa = (o: any): o is TransitGatewayPropagation => __isa(o, "TransitGatewayPropagation");
 }
 
-export type TransitGatewayPropagationState =
-  | "disabled"
-  | "disabling"
-  | "enabled"
-  | "enabling";
+export type TransitGatewayPropagationState = "disabled" | "disabling" | "enabled" | "enabling";
 
 /**
  * <p>Describes the options for a transit gateway.</p>
@@ -44866,13 +42438,10 @@ export interface TransitGatewayRequestOptions {
 }
 
 export namespace TransitGatewayRequestOptions {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayRequestOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayRequestOptions): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRequestOptions =>
-    __isa(o, "TransitGatewayRequestOptions");
+  export const isa = (o: any): o is TransitGatewayRequestOptions => __isa(o, "TransitGatewayRequestOptions");
 }
 
 /**
@@ -44903,10 +42472,9 @@ export interface TransitGatewayRoute {
 
 export namespace TransitGatewayRoute {
   export const filterSensitiveLog = (obj: TransitGatewayRoute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRoute =>
-    __isa(o, "TransitGatewayRoute");
+  export const isa = (o: any): o is TransitGatewayRoute => __isa(o, "TransitGatewayRoute");
 }
 
 /**
@@ -44931,21 +42499,13 @@ export interface TransitGatewayRouteAttachment {
 }
 
 export namespace TransitGatewayRouteAttachment {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayRouteAttachment
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayRouteAttachment): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRouteAttachment =>
-    __isa(o, "TransitGatewayRouteAttachment");
+  export const isa = (o: any): o is TransitGatewayRouteAttachment => __isa(o, "TransitGatewayRouteAttachment");
 }
 
-export type TransitGatewayRouteState =
-  | "active"
-  | "blackhole"
-  | "deleted"
-  | "deleting"
-  | "pending";
+export type TransitGatewayRouteState = "active" | "blackhole" | "deleted" | "deleting" | "pending";
 
 /**
  * <p>Describes a transit gateway route table.</p>
@@ -44990,10 +42550,9 @@ export interface TransitGatewayRouteTable {
 
 export namespace TransitGatewayRouteTable {
   export const filterSensitiveLog = (obj: TransitGatewayRouteTable): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRouteTable =>
-    __isa(o, "TransitGatewayRouteTable");
+  export const isa = (o: any): o is TransitGatewayRouteTable => __isa(o, "TransitGatewayRouteTable");
 }
 
 /**
@@ -45023,10 +42582,8 @@ export interface TransitGatewayRouteTableAssociation {
 }
 
 export namespace TransitGatewayRouteTableAssociation {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayRouteTableAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayRouteTableAssociation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TransitGatewayRouteTableAssociation =>
     __isa(o, "TransitGatewayRouteTableAssociation");
@@ -45059,29 +42616,18 @@ export interface TransitGatewayRouteTablePropagation {
 }
 
 export namespace TransitGatewayRouteTablePropagation {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayRouteTablePropagation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayRouteTablePropagation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TransitGatewayRouteTablePropagation =>
     __isa(o, "TransitGatewayRouteTablePropagation");
 }
 
-export type TransitGatewayRouteTableState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "pending";
+export type TransitGatewayRouteTableState = "available" | "deleted" | "deleting" | "pending";
 
 export type TransitGatewayRouteType = "propagated" | "static";
 
-export type TransitGatewayState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "modifying"
-  | "pending";
+export type TransitGatewayState = "available" | "deleted" | "deleting" | "modifying" | "pending";
 
 /**
  * <p>Describes a VPC attachment.</p>
@@ -45135,13 +42681,10 @@ export interface TransitGatewayVpcAttachment {
 }
 
 export namespace TransitGatewayVpcAttachment {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayVpcAttachment
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayVpcAttachment): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayVpcAttachment =>
-    __isa(o, "TransitGatewayVpcAttachment");
+  export const isa = (o: any): o is TransitGatewayVpcAttachment => __isa(o, "TransitGatewayVpcAttachment");
 }
 
 /**
@@ -45161,10 +42704,8 @@ export interface TransitGatewayVpcAttachmentOptions {
 }
 
 export namespace TransitGatewayVpcAttachmentOptions {
-  export const filterSensitiveLog = (
-    obj: TransitGatewayVpcAttachmentOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TransitGatewayVpcAttachmentOptions): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TransitGatewayVpcAttachmentOptions =>
     __isa(o, "TransitGatewayVpcAttachmentOptions");
@@ -45261,7 +42802,7 @@ export interface TunnelOption {
 
 export namespace TunnelOption {
   export const filterSensitiveLog = (obj: TunnelOption): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TunnelOption => __isa(o, "TunnelOption");
 }
@@ -45280,13 +42821,10 @@ export interface UnassignIpv6AddressesRequest {
 }
 
 export namespace UnassignIpv6AddressesRequest {
-  export const filterSensitiveLog = (
-    obj: UnassignIpv6AddressesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnassignIpv6AddressesRequest =>
-    __isa(o, "UnassignIpv6AddressesRequest");
+  export const isa = (o: any): o is UnassignIpv6AddressesRequest => __isa(o, "UnassignIpv6AddressesRequest");
 }
 
 export interface UnassignIpv6AddressesResult {
@@ -45303,13 +42841,10 @@ export interface UnassignIpv6AddressesResult {
 }
 
 export namespace UnassignIpv6AddressesResult {
-  export const filterSensitiveLog = (
-    obj: UnassignIpv6AddressesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnassignIpv6AddressesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnassignIpv6AddressesResult =>
-    __isa(o, "UnassignIpv6AddressesResult");
+  export const isa = (o: any): o is UnassignIpv6AddressesResult => __isa(o, "UnassignIpv6AddressesResult");
 }
 
 /**
@@ -45329,13 +42864,10 @@ export interface UnassignPrivateIpAddressesRequest {
 }
 
 export namespace UnassignPrivateIpAddressesRequest {
-  export const filterSensitiveLog = (
-    obj: UnassignPrivateIpAddressesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnassignPrivateIpAddressesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnassignPrivateIpAddressesRequest =>
-    __isa(o, "UnassignPrivateIpAddressesRequest");
+  export const isa = (o: any): o is UnassignPrivateIpAddressesRequest => __isa(o, "UnassignPrivateIpAddressesRequest");
 }
 
 export type UnlimitedSupportedInstanceFamily = "t2" | "t3" | "t3a";
@@ -45357,10 +42889,9 @@ export interface UnmonitorInstancesRequest {
 
 export namespace UnmonitorInstancesRequest {
   export const filterSensitiveLog = (obj: UnmonitorInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnmonitorInstancesRequest =>
-    __isa(o, "UnmonitorInstancesRequest");
+  export const isa = (o: any): o is UnmonitorInstancesRequest => __isa(o, "UnmonitorInstancesRequest");
 }
 
 export interface UnmonitorInstancesResult {
@@ -45373,17 +42904,16 @@ export interface UnmonitorInstancesResult {
 
 export namespace UnmonitorInstancesResult {
   export const filterSensitiveLog = (obj: UnmonitorInstancesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnmonitorInstancesResult =>
-    __isa(o, "UnmonitorInstancesResult");
+  export const isa = (o: any): o is UnmonitorInstancesResult => __isa(o, "UnmonitorInstancesResult");
 }
 
 export enum UnsuccessfulInstanceCreditSpecificationErrorCode {
   INCORRECT_INSTANCE_STATE = "IncorrectInstanceState",
   INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED = "InstanceCreditSpecification.NotSupported",
   INSTANCE_NOT_FOUND = "InvalidInstanceID.NotFound",
-  INVALID_INSTANCE_ID = "InvalidInstanceID.Malformed"
+  INVALID_INSTANCE_ID = "InvalidInstanceID.Malformed",
 }
 
 /**
@@ -45405,14 +42935,10 @@ export interface UnsuccessfulInstanceCreditSpecificationItem {
 }
 
 export namespace UnsuccessfulInstanceCreditSpecificationItem {
-  export const filterSensitiveLog = (
-    obj: UnsuccessfulInstanceCreditSpecificationItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsuccessfulInstanceCreditSpecificationItem): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UnsuccessfulInstanceCreditSpecificationItem =>
+  export const isa = (o: any): o is UnsuccessfulInstanceCreditSpecificationItem =>
     __isa(o, "UnsuccessfulInstanceCreditSpecificationItem");
 }
 
@@ -45434,14 +42960,10 @@ export interface UnsuccessfulInstanceCreditSpecificationItemError {
 }
 
 export namespace UnsuccessfulInstanceCreditSpecificationItemError {
-  export const filterSensitiveLog = (
-    obj: UnsuccessfulInstanceCreditSpecificationItemError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsuccessfulInstanceCreditSpecificationItemError): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UnsuccessfulInstanceCreditSpecificationItemError =>
+  export const isa = (o: any): o is UnsuccessfulInstanceCreditSpecificationItemError =>
     __isa(o, "UnsuccessfulInstanceCreditSpecificationItemError");
 }
 
@@ -45463,10 +42985,9 @@ export interface UnsuccessfulItem {
 
 export namespace UnsuccessfulItem {
   export const filterSensitiveLog = (obj: UnsuccessfulItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnsuccessfulItem =>
-    __isa(o, "UnsuccessfulItem");
+  export const isa = (o: any): o is UnsuccessfulItem => __isa(o, "UnsuccessfulItem");
 }
 
 /**
@@ -45487,10 +43008,9 @@ export interface UnsuccessfulItemError {
 
 export namespace UnsuccessfulItemError {
   export const filterSensitiveLog = (obj: UnsuccessfulItemError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnsuccessfulItemError =>
-    __isa(o, "UnsuccessfulItemError");
+  export const isa = (o: any): o is UnsuccessfulItemError => __isa(o, "UnsuccessfulItemError");
 }
 
 export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
@@ -45522,14 +43042,10 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
 }
 
 export namespace UpdateSecurityGroupRuleDescriptionsEgressRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateSecurityGroupRuleDescriptionsEgressRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsEgressRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateSecurityGroupRuleDescriptionsEgressRequest =>
+  export const isa = (o: any): o is UpdateSecurityGroupRuleDescriptionsEgressRequest =>
     __isa(o, "UpdateSecurityGroupRuleDescriptionsEgressRequest");
 }
 
@@ -45542,14 +43058,10 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
 }
 
 export namespace UpdateSecurityGroupRuleDescriptionsEgressResult {
-  export const filterSensitiveLog = (
-    obj: UpdateSecurityGroupRuleDescriptionsEgressResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsEgressResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateSecurityGroupRuleDescriptionsEgressResult =>
+  export const isa = (o: any): o is UpdateSecurityGroupRuleDescriptionsEgressResult =>
     __isa(o, "UpdateSecurityGroupRuleDescriptionsEgressResult");
 }
 
@@ -45582,14 +43094,10 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
 }
 
 export namespace UpdateSecurityGroupRuleDescriptionsIngressRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateSecurityGroupRuleDescriptionsIngressRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsIngressRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateSecurityGroupRuleDescriptionsIngressRequest =>
+  export const isa = (o: any): o is UpdateSecurityGroupRuleDescriptionsIngressRequest =>
     __isa(o, "UpdateSecurityGroupRuleDescriptionsIngressRequest");
 }
 
@@ -45602,14 +43110,10 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
 }
 
 export namespace UpdateSecurityGroupRuleDescriptionsIngressResult {
-  export const filterSensitiveLog = (
-    obj: UpdateSecurityGroupRuleDescriptionsIngressResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsIngressResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateSecurityGroupRuleDescriptionsIngressResult =>
+  export const isa = (o: any): o is UpdateSecurityGroupRuleDescriptionsIngressResult =>
     __isa(o, "UpdateSecurityGroupRuleDescriptionsIngressResult");
 }
 
@@ -45633,7 +43137,7 @@ export interface UserBucket {
 
 export namespace UserBucket {
   export const filterSensitiveLog = (obj: UserBucket): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UserBucket => __isa(o, "UserBucket");
 }
@@ -45656,10 +43160,9 @@ export interface UserBucketDetails {
 
 export namespace UserBucketDetails {
   export const filterSensitiveLog = (obj: UserBucketDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UserBucketDetails =>
-    __isa(o, "UserBucketDetails");
+  export const isa = (o: any): o is UserBucketDetails => __isa(o, "UserBucketDetails");
 }
 
 /**
@@ -45676,7 +43179,7 @@ export interface UserData {
 
 export namespace UserData {
   export const filterSensitiveLog = (obj: UserData): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UserData => __isa(o, "UserData");
 }
@@ -45736,10 +43239,9 @@ export interface UserIdGroupPair {
 
 export namespace UserIdGroupPair {
   export const filterSensitiveLog = (obj: UserIdGroupPair): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UserIdGroupPair =>
-    __isa(o, "UserIdGroupPair");
+  export const isa = (o: any): o is UserIdGroupPair => __isa(o, "UserIdGroupPair");
 }
 
 /**
@@ -45775,7 +43277,7 @@ export interface VCpuInfo {
 
 export namespace VCpuInfo {
   export const filterSensitiveLog = (obj: VCpuInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VCpuInfo => __isa(o, "VCpuInfo");
 }
@@ -45818,7 +43320,7 @@ export interface VgwTelemetry {
 
 export namespace VgwTelemetry {
   export const filterSensitiveLog = (obj: VgwTelemetry): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VgwTelemetry => __isa(o, "VgwTelemetry");
 }
@@ -45918,7 +43420,7 @@ export interface Volume {
 
 export namespace Volume {
   export const filterSensitiveLog = (obj: Volume): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Volume => __isa(o, "Volume");
 }
@@ -45961,18 +43463,12 @@ export interface VolumeAttachment {
 
 export namespace VolumeAttachment {
   export const filterSensitiveLog = (obj: VolumeAttachment): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VolumeAttachment =>
-    __isa(o, "VolumeAttachment");
+  export const isa = (o: any): o is VolumeAttachment => __isa(o, "VolumeAttachment");
 }
 
-export type VolumeAttachmentState =
-  | "attached"
-  | "attaching"
-  | "busy"
-  | "detached"
-  | "detaching";
+export type VolumeAttachmentState = "attached" | "attaching" | "busy" | "detached" | "detaching";
 
 export type VolumeAttributeName = "autoEnableIO" | "productCodes";
 
@@ -45989,7 +43485,7 @@ export interface VolumeDetail {
 
 export namespace VolumeDetail {
   export const filterSensitiveLog = (obj: VolumeDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VolumeDetail => __isa(o, "VolumeDetail");
 }
@@ -46064,25 +43560,14 @@ export interface VolumeModification {
 
 export namespace VolumeModification {
   export const filterSensitiveLog = (obj: VolumeModification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VolumeModification =>
-    __isa(o, "VolumeModification");
+  export const isa = (o: any): o is VolumeModification => __isa(o, "VolumeModification");
 }
 
-export type VolumeModificationState =
-  | "completed"
-  | "failed"
-  | "modifying"
-  | "optimizing";
+export type VolumeModificationState = "completed" | "failed" | "modifying" | "optimizing";
 
-export type VolumeState =
-  | "available"
-  | "creating"
-  | "deleted"
-  | "deleting"
-  | "error"
-  | "in-use";
+export type VolumeState = "available" | "creating" | "deleted" | "deleting" | "error" | "in-use";
 
 /**
  * <p>Describes a volume status operation code.</p>
@@ -46112,10 +43597,9 @@ export interface VolumeStatusAction {
 
 export namespace VolumeStatusAction {
   export const filterSensitiveLog = (obj: VolumeStatusAction): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusAction =>
-    __isa(o, "VolumeStatusAction");
+  export const isa = (o: any): o is VolumeStatusAction => __isa(o, "VolumeStatusAction");
 }
 
 /**
@@ -46136,10 +43620,9 @@ export interface VolumeStatusDetails {
 
 export namespace VolumeStatusDetails {
   export const filterSensitiveLog = (obj: VolumeStatusDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusDetails =>
-    __isa(o, "VolumeStatusDetails");
+  export const isa = (o: any): o is VolumeStatusDetails => __isa(o, "VolumeStatusDetails");
 }
 
 /**
@@ -46175,10 +43658,9 @@ export interface VolumeStatusEvent {
 
 export namespace VolumeStatusEvent {
   export const filterSensitiveLog = (obj: VolumeStatusEvent): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusEvent =>
-    __isa(o, "VolumeStatusEvent");
+  export const isa = (o: any): o is VolumeStatusEvent => __isa(o, "VolumeStatusEvent");
 }
 
 /**
@@ -46199,10 +43681,9 @@ export interface VolumeStatusInfo {
 
 export namespace VolumeStatusInfo {
   export const filterSensitiveLog = (obj: VolumeStatusInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusInfo =>
-    __isa(o, "VolumeStatusInfo");
+  export const isa = (o: any): o is VolumeStatusInfo => __isa(o, "VolumeStatusInfo");
 }
 
 export type VolumeStatusInfoStatus = "impaired" | "insufficient-data" | "ok";
@@ -46245,10 +43726,9 @@ export interface VolumeStatusItem {
 
 export namespace VolumeStatusItem {
   export const filterSensitiveLog = (obj: VolumeStatusItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusItem =>
-    __isa(o, "VolumeStatusItem");
+  export const isa = (o: any): o is VolumeStatusItem => __isa(o, "VolumeStatusItem");
 }
 
 export type VolumeStatusName = "io-enabled" | "io-performance";
@@ -46314,7 +43794,7 @@ export interface Vpc {
 
 export namespace Vpc {
   export const filterSensitiveLog = (obj: Vpc): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Vpc => __isa(o, "Vpc");
 }
@@ -46337,7 +43817,7 @@ export interface VpcAttachment {
 
 export namespace VpcAttachment {
   export const filterSensitiveLog = (obj: VpcAttachment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VpcAttachment => __isa(o, "VpcAttachment");
 }
@@ -46367,10 +43847,9 @@ export interface VpcCidrBlockAssociation {
 
 export namespace VpcCidrBlockAssociation {
   export const filterSensitiveLog = (obj: VpcCidrBlockAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpcCidrBlockAssociation =>
-    __isa(o, "VpcCidrBlockAssociation");
+  export const isa = (o: any): o is VpcCidrBlockAssociation => __isa(o, "VpcCidrBlockAssociation");
 }
 
 /**
@@ -46391,10 +43870,9 @@ export interface VpcCidrBlockState {
 
 export namespace VpcCidrBlockState {
   export const filterSensitiveLog = (obj: VpcCidrBlockState): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpcCidrBlockState =>
-    __isa(o, "VpcCidrBlockState");
+  export const isa = (o: any): o is VpcCidrBlockState => __isa(o, "VpcCidrBlockState");
 }
 
 export type VpcCidrBlockStateCode =
@@ -46428,10 +43906,9 @@ export interface VpcClassicLink {
 
 export namespace VpcClassicLink {
   export const filterSensitiveLog = (obj: VpcClassicLink): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpcClassicLink =>
-    __isa(o, "VpcClassicLink");
+  export const isa = (o: any): o is VpcClassicLink => __isa(o, "VpcClassicLink");
 }
 
 /**
@@ -46528,7 +44005,7 @@ export interface VpcEndpoint {
 
 export namespace VpcEndpoint {
   export const filterSensitiveLog = (obj: VpcEndpoint): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VpcEndpoint => __isa(o, "VpcEndpoint");
 }
@@ -46576,15 +44053,14 @@ export interface VpcEndpointConnection {
 
 export namespace VpcEndpointConnection {
   export const filterSensitiveLog = (obj: VpcEndpointConnection): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpcEndpointConnection =>
-    __isa(o, "VpcEndpointConnection");
+  export const isa = (o: any): o is VpcEndpointConnection => __isa(o, "VpcEndpointConnection");
 }
 
 export enum VpcEndpointType {
   Gateway = "Gateway",
-  Interface = "Interface"
+  Interface = "Interface",
 }
 
 /**
@@ -46619,13 +44095,10 @@ export interface VpcIpv6CidrBlockAssociation {
 }
 
 export namespace VpcIpv6CidrBlockAssociation {
-  export const filterSensitiveLog = (
-    obj: VpcIpv6CidrBlockAssociation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: VpcIpv6CidrBlockAssociation): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is VpcIpv6CidrBlockAssociation =>
-    __isa(o, "VpcIpv6CidrBlockAssociation");
+  export const isa = (o: any): o is VpcIpv6CidrBlockAssociation => __isa(o, "VpcIpv6CidrBlockAssociation");
 }
 
 /**
@@ -46666,10 +44139,9 @@ export interface VpcPeeringConnection {
 
 export namespace VpcPeeringConnection {
   export const filterSensitiveLog = (obj: VpcPeeringConnection): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnection =>
-    __isa(o, "VpcPeeringConnection");
+  export const isa = (o: any): o is VpcPeeringConnection => __isa(o, "VpcPeeringConnection");
 }
 
 /**
@@ -46694,10 +44166,8 @@ export interface VpcPeeringConnectionOptionsDescription {
 }
 
 export namespace VpcPeeringConnectionOptionsDescription {
-  export const filterSensitiveLog = (
-    obj: VpcPeeringConnectionOptionsDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: VpcPeeringConnectionOptionsDescription): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is VpcPeeringConnectionOptionsDescription =>
     __isa(o, "VpcPeeringConnectionOptionsDescription");
@@ -46720,13 +44190,10 @@ export interface VpcPeeringConnectionStateReason {
 }
 
 export namespace VpcPeeringConnectionStateReason {
-  export const filterSensitiveLog = (
-    obj: VpcPeeringConnectionStateReason
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: VpcPeeringConnectionStateReason): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnectionStateReason =>
-    __isa(o, "VpcPeeringConnectionStateReason");
+  export const isa = (o: any): o is VpcPeeringConnectionStateReason => __isa(o, "VpcPeeringConnectionStateReason");
 }
 
 export type VpcPeeringConnectionStateReasonCode =
@@ -46782,13 +44249,10 @@ export interface VpcPeeringConnectionVpcInfo {
 }
 
 export namespace VpcPeeringConnectionVpcInfo {
-  export const filterSensitiveLog = (
-    obj: VpcPeeringConnectionVpcInfo
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: VpcPeeringConnectionVpcInfo): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnectionVpcInfo =>
-    __isa(o, "VpcPeeringConnectionVpcInfo");
+  export const isa = (o: any): o is VpcPeeringConnectionVpcInfo => __isa(o, "VpcPeeringConnectionVpcInfo");
 }
 
 export type VpcState = "available" | "pending";
@@ -46867,7 +44331,7 @@ export interface VpnConnection {
 
 export namespace VpnConnection {
   export const filterSensitiveLog = (obj: VpnConnection): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VpnConnection => __isa(o, "VpnConnection");
 }
@@ -46895,10 +44359,9 @@ export interface VpnConnectionOptions {
 
 export namespace VpnConnectionOptions {
   export const filterSensitiveLog = (obj: VpnConnectionOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpnConnectionOptions =>
-    __isa(o, "VpnConnectionOptions");
+  export const isa = (o: any): o is VpnConnectionOptions => __isa(o, "VpnConnectionOptions");
 }
 
 /**
@@ -46929,13 +44392,10 @@ export interface VpnConnectionOptionsSpecification {
 }
 
 export namespace VpnConnectionOptionsSpecification {
-  export const filterSensitiveLog = (
-    obj: VpnConnectionOptionsSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is VpnConnectionOptionsSpecification =>
-    __isa(o, "VpnConnectionOptionsSpecification");
+  export const isa = (o: any): o is VpnConnectionOptionsSpecification => __isa(o, "VpnConnectionOptionsSpecification");
 }
 
 export type VpnEcmpSupportValue = "disable" | "enable";
@@ -46983,7 +44443,7 @@ export interface VpnGateway {
 
 export namespace VpnGateway {
   export const filterSensitiveLog = (obj: VpnGateway): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VpnGateway => __isa(o, "VpnGateway");
 }
@@ -47015,10 +44475,9 @@ export interface VpnStaticRoute {
 
 export namespace VpnStaticRoute {
   export const filterSensitiveLog = (obj: VpnStaticRoute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpnStaticRoute =>
-    __isa(o, "VpnStaticRoute");
+  export const isa = (o: any): o is VpnStaticRoute => __isa(o, "VpnStaticRoute");
 }
 
 export type VpnStaticRouteSource = "Static";
@@ -47181,13 +44640,10 @@ export interface VpnTunnelOptionsSpecification {
 }
 
 export namespace VpnTunnelOptionsSpecification {
-  export const filterSensitiveLog = (
-    obj: VpnTunnelOptionsSpecification
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is VpnTunnelOptionsSpecification =>
-    __isa(o, "VpnTunnelOptionsSpecification");
+  export const isa = (o: any): o is VpnTunnelOptionsSpecification => __isa(o, "VpnTunnelOptionsSpecification");
 }
 
 export interface WithdrawByoipCidrRequest {
@@ -47207,10 +44663,9 @@ export interface WithdrawByoipCidrRequest {
 
 export namespace WithdrawByoipCidrRequest {
   export const filterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WithdrawByoipCidrRequest =>
-    __isa(o, "WithdrawByoipCidrRequest");
+  export const isa = (o: any): o is WithdrawByoipCidrRequest => __isa(o, "WithdrawByoipCidrRequest");
 }
 
 export interface WithdrawByoipCidrResult {
@@ -47223,8 +44678,7 @@ export interface WithdrawByoipCidrResult {
 
 export namespace WithdrawByoipCidrResult {
   export const filterSensitiveLog = (obj: WithdrawByoipCidrResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WithdrawByoipCidrResult =>
-    __isa(o, "WithdrawByoipCidrResult");
+  export const isa = (o: any): o is WithdrawByoipCidrResult => __isa(o, "WithdrawByoipCidrResult");
 }

@@ -2,7 +2,7 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa
+  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
@@ -21,10 +21,9 @@ export interface AttributeValue {
 
 export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttributeValue =>
-    __isa(o, "AttributeValue");
+  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 export interface DescribeServicesRequest {
@@ -57,10 +56,9 @@ export interface DescribeServicesRequest {
 
 export namespace DescribeServicesRequest {
   export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeServicesRequest =>
-    __isa(o, "DescribeServicesRequest");
+  export const isa = (o: any): o is DescribeServicesRequest => __isa(o, "DescribeServicesRequest");
 }
 
 export interface DescribeServicesResponse {
@@ -83,18 +81,15 @@ export interface DescribeServicesResponse {
 
 export namespace DescribeServicesResponse {
   export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeServicesResponse =>
-    __isa(o, "DescribeServicesResponse");
+  export const isa = (o: any): o is DescribeServicesResponse => __isa(o, "DescribeServicesResponse");
 }
 
 /**
  * <p>The pagination token expired. Try again without a pagination token.</p>
  */
-export interface ExpiredNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
   Message?: string;
@@ -102,10 +97,9 @@ export interface ExpiredNextTokenException
 
 export namespace ExpiredNextTokenException {
   export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredNextTokenException =>
-    __isa(o, "ExpiredNextTokenException");
+  export const isa = (o: any): o is ExpiredNextTokenException => __isa(o, "ExpiredNextTokenException");
 }
 
 /**
@@ -143,13 +137,13 @@ export interface Filter {
 
 export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterType {
-  TERM_MATCH = "TERM_MATCH"
+  TERM_MATCH = "TERM_MATCH",
 }
 
 export interface GetAttributeValuesRequest {
@@ -178,10 +172,9 @@ export interface GetAttributeValuesRequest {
 
 export namespace GetAttributeValuesRequest {
   export const filterSensitiveLog = (obj: GetAttributeValuesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAttributeValuesRequest =>
-    __isa(o, "GetAttributeValuesRequest");
+  export const isa = (o: any): o is GetAttributeValuesRequest => __isa(o, "GetAttributeValuesRequest");
 }
 
 export interface GetAttributeValuesResponse {
@@ -201,10 +194,9 @@ export interface GetAttributeValuesResponse {
 
 export namespace GetAttributeValuesResponse {
   export const filterSensitiveLog = (obj: GetAttributeValuesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAttributeValuesResponse =>
-    __isa(o, "GetAttributeValuesResponse");
+  export const isa = (o: any): o is GetAttributeValuesResponse => __isa(o, "GetAttributeValuesResponse");
 }
 
 export interface GetProductsRequest {
@@ -240,10 +232,9 @@ export interface GetProductsRequest {
 
 export namespace GetProductsRequest {
   export const filterSensitiveLog = (obj: GetProductsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetProductsRequest =>
-    __isa(o, "GetProductsRequest");
+  export const isa = (o: any): o is GetProductsRequest => __isa(o, "GetProductsRequest");
 }
 
 export interface GetProductsResponse {
@@ -267,18 +258,15 @@ export interface GetProductsResponse {
 
 export namespace GetProductsResponse {
   export const filterSensitiveLog = (obj: GetProductsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetProductsResponse =>
-    __isa(o, "GetProductsResponse");
+  export const isa = (o: any): o is GetProductsResponse => __isa(o, "GetProductsResponse");
 }
 
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   Message?: string;
@@ -286,18 +274,15 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -305,18 +290,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>One or more parameters had an invalid value.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -324,10 +306,9 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -341,10 +322,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -365,7 +345,7 @@ export interface Service {
 
 export namespace Service {
   export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Service => __isa(o, "Service");
 }

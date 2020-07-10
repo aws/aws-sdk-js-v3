@@ -2,127 +2,115 @@ import { GroundStationClient } from "./GroundStationClient";
 import {
   CancelContactCommand,
   CancelContactCommandInput,
-  CancelContactCommandOutput
+  CancelContactCommandOutput,
 } from "./commands/CancelContactCommand";
 import {
   CreateConfigCommand,
   CreateConfigCommandInput,
-  CreateConfigCommandOutput
+  CreateConfigCommandOutput,
 } from "./commands/CreateConfigCommand";
 import {
   CreateDataflowEndpointGroupCommand,
   CreateDataflowEndpointGroupCommandInput,
-  CreateDataflowEndpointGroupCommandOutput
+  CreateDataflowEndpointGroupCommandOutput,
 } from "./commands/CreateDataflowEndpointGroupCommand";
 import {
   CreateMissionProfileCommand,
   CreateMissionProfileCommandInput,
-  CreateMissionProfileCommandOutput
+  CreateMissionProfileCommandOutput,
 } from "./commands/CreateMissionProfileCommand";
 import {
   DeleteConfigCommand,
   DeleteConfigCommandInput,
-  DeleteConfigCommandOutput
+  DeleteConfigCommandOutput,
 } from "./commands/DeleteConfigCommand";
 import {
   DeleteDataflowEndpointGroupCommand,
   DeleteDataflowEndpointGroupCommandInput,
-  DeleteDataflowEndpointGroupCommandOutput
+  DeleteDataflowEndpointGroupCommandOutput,
 } from "./commands/DeleteDataflowEndpointGroupCommand";
 import {
   DeleteMissionProfileCommand,
   DeleteMissionProfileCommandInput,
-  DeleteMissionProfileCommandOutput
+  DeleteMissionProfileCommandOutput,
 } from "./commands/DeleteMissionProfileCommand";
 import {
   DescribeContactCommand,
   DescribeContactCommandInput,
-  DescribeContactCommandOutput
+  DescribeContactCommandOutput,
 } from "./commands/DescribeContactCommand";
-import {
-  GetConfigCommand,
-  GetConfigCommandInput,
-  GetConfigCommandOutput
-} from "./commands/GetConfigCommand";
+import { GetConfigCommand, GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommand,
   GetDataflowEndpointGroupCommandInput,
-  GetDataflowEndpointGroupCommandOutput
+  GetDataflowEndpointGroupCommandOutput,
 } from "./commands/GetDataflowEndpointGroupCommand";
 import {
   GetMinuteUsageCommand,
   GetMinuteUsageCommandInput,
-  GetMinuteUsageCommandOutput
+  GetMinuteUsageCommandOutput,
 } from "./commands/GetMinuteUsageCommand";
 import {
   GetMissionProfileCommand,
   GetMissionProfileCommandInput,
-  GetMissionProfileCommandOutput
+  GetMissionProfileCommandOutput,
 } from "./commands/GetMissionProfileCommand";
 import {
   GetSatelliteCommand,
   GetSatelliteCommandInput,
-  GetSatelliteCommandOutput
+  GetSatelliteCommandOutput,
 } from "./commands/GetSatelliteCommand";
-import {
-  ListConfigsCommand,
-  ListConfigsCommandInput,
-  ListConfigsCommandOutput
-} from "./commands/ListConfigsCommand";
+import { ListConfigsCommand, ListConfigsCommandInput, ListConfigsCommandOutput } from "./commands/ListConfigsCommand";
 import {
   ListContactsCommand,
   ListContactsCommandInput,
-  ListContactsCommandOutput
+  ListContactsCommandOutput,
 } from "./commands/ListContactsCommand";
 import {
   ListDataflowEndpointGroupsCommand,
   ListDataflowEndpointGroupsCommandInput,
-  ListDataflowEndpointGroupsCommandOutput
+  ListDataflowEndpointGroupsCommandOutput,
 } from "./commands/ListDataflowEndpointGroupsCommand";
 import {
   ListGroundStationsCommand,
   ListGroundStationsCommandInput,
-  ListGroundStationsCommandOutput
+  ListGroundStationsCommandOutput,
 } from "./commands/ListGroundStationsCommand";
 import {
   ListMissionProfilesCommand,
   ListMissionProfilesCommandInput,
-  ListMissionProfilesCommandOutput
+  ListMissionProfilesCommandOutput,
 } from "./commands/ListMissionProfilesCommand";
 import {
   ListSatellitesCommand,
   ListSatellitesCommandInput,
-  ListSatellitesCommandOutput
+  ListSatellitesCommandOutput,
 } from "./commands/ListSatellitesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ReserveContactCommand,
   ReserveContactCommandInput,
-  ReserveContactCommandOutput
+  ReserveContactCommandOutput,
 } from "./commands/ReserveContactCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateConfigCommand,
   UpdateConfigCommandInput,
-  UpdateConfigCommandOutput
+  UpdateConfigCommandOutput,
 } from "./commands/UpdateConfigCommand";
 import {
   UpdateMissionProfileCommand,
   UpdateMissionProfileCommandInput,
-  UpdateMissionProfileCommandOutput
+  UpdateMissionProfileCommandOutput,
 } from "./commands/UpdateMissionProfileCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -151,17 +139,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public cancelContact(
     args: CancelContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelContactCommandOutput) => void),
     cb?: (err: any, data?: CancelContactCommandOutput) => void
   ): Promise<CancelContactCommandOutput> | void {
     const command = new CancelContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -176,10 +161,7 @@ export class GroundStation extends GroundStationClient {
     args: CreateConfigCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateConfigCommandOutput>;
-  public createConfig(
-    args: CreateConfigCommandInput,
-    cb: (err: any, data?: CreateConfigCommandOutput) => void
-  ): void;
+  public createConfig(args: CreateConfigCommandInput, cb: (err: any, data?: CreateConfigCommandOutput) => void): void;
   public createConfig(
     args: CreateConfigCommandInput,
     options: __HttpHandlerOptions,
@@ -187,17 +169,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public createConfig(
     args: CreateConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigCommandOutput) => void),
     cb?: (err: any, data?: CreateConfigCommandOutput) => void
   ): Promise<CreateConfigCommandOutput> | void {
     const command = new CreateConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -226,17 +205,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public createDataflowEndpointGroup(
     args: CreateDataflowEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataflowEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataflowEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDataflowEndpointGroupCommandOutput) => void
   ): Promise<CreateDataflowEndpointGroupCommandOutput> | void {
     const command = new CreateDataflowEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -264,17 +240,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public createMissionProfile(
     args: CreateMissionProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMissionProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMissionProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateMissionProfileCommandOutput) => void
   ): Promise<CreateMissionProfileCommandOutput> | void {
     const command = new CreateMissionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -288,10 +261,7 @@ export class GroundStation extends GroundStationClient {
     args: DeleteConfigCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteConfigCommandOutput>;
-  public deleteConfig(
-    args: DeleteConfigCommandInput,
-    cb: (err: any, data?: DeleteConfigCommandOutput) => void
-  ): void;
+  public deleteConfig(args: DeleteConfigCommandInput, cb: (err: any, data?: DeleteConfigCommandOutput) => void): void;
   public deleteConfig(
     args: DeleteConfigCommandInput,
     options: __HttpHandlerOptions,
@@ -299,17 +269,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public deleteConfig(
     args: DeleteConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigCommandOutput) => void
   ): Promise<DeleteConfigCommandOutput> | void {
     const command = new DeleteConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -334,17 +301,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public deleteDataflowEndpointGroup(
     args: DeleteDataflowEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataflowEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataflowEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataflowEndpointGroupCommandOutput) => void
   ): Promise<DeleteDataflowEndpointGroupCommandOutput> | void {
     const command = new DeleteDataflowEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -369,17 +333,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public deleteMissionProfile(
     args: DeleteMissionProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMissionProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMissionProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteMissionProfileCommandOutput) => void
   ): Promise<DeleteMissionProfileCommandOutput> | void {
     const command = new DeleteMissionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -404,17 +365,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public describeContact(
     args: DescribeContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContactCommandOutput) => void),
     cb?: (err: any, data?: DescribeContactCommandOutput) => void
   ): Promise<DescribeContactCommandOutput> | void {
     const command = new DescribeContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -425,14 +383,8 @@ export class GroundStation extends GroundStationClient {
    * <p>Returns <code>Config</code> information.</p>
    *          <p>Only one <code>Config</code> response can be returned.</p>
    */
-  public getConfig(
-    args: GetConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetConfigCommandOutput>;
-  public getConfig(
-    args: GetConfigCommandInput,
-    cb: (err: any, data?: GetConfigCommandOutput) => void
-  ): void;
+  public getConfig(args: GetConfigCommandInput, options?: __HttpHandlerOptions): Promise<GetConfigCommandOutput>;
+  public getConfig(args: GetConfigCommandInput, cb: (err: any, data?: GetConfigCommandOutput) => void): void;
   public getConfig(
     args: GetConfigCommandInput,
     options: __HttpHandlerOptions,
@@ -440,17 +392,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public getConfig(
     args: GetConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigCommandOutput) => void),
     cb?: (err: any, data?: GetConfigCommandOutput) => void
   ): Promise<GetConfigCommandOutput> | void {
     const command = new GetConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -475,17 +424,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public getDataflowEndpointGroup(
     args: GetDataflowEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDataflowEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataflowEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: GetDataflowEndpointGroupCommandOutput) => void
   ): Promise<GetDataflowEndpointGroupCommandOutput> | void {
     const command = new GetDataflowEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -510,17 +456,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public getMinuteUsage(
     args: GetMinuteUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMinuteUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMinuteUsageCommandOutput) => void),
     cb?: (err: any, data?: GetMinuteUsageCommandOutput) => void
   ): Promise<GetMinuteUsageCommandOutput> | void {
     const command = new GetMinuteUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -545,17 +488,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public getMissionProfile(
     args: GetMissionProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMissionProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMissionProfileCommandOutput) => void),
     cb?: (err: any, data?: GetMissionProfileCommandOutput) => void
   ): Promise<GetMissionProfileCommandOutput> | void {
     const command = new GetMissionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -569,10 +509,7 @@ export class GroundStation extends GroundStationClient {
     args: GetSatelliteCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSatelliteCommandOutput>;
-  public getSatellite(
-    args: GetSatelliteCommandInput,
-    cb: (err: any, data?: GetSatelliteCommandOutput) => void
-  ): void;
+  public getSatellite(args: GetSatelliteCommandInput, cb: (err: any, data?: GetSatelliteCommandOutput) => void): void;
   public getSatellite(
     args: GetSatelliteCommandInput,
     options: __HttpHandlerOptions,
@@ -580,17 +517,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public getSatellite(
     args: GetSatelliteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSatelliteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSatelliteCommandOutput) => void),
     cb?: (err: any, data?: GetSatelliteCommandOutput) => void
   ): Promise<GetSatelliteCommandOutput> | void {
     const command = new GetSatelliteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -600,14 +534,8 @@ export class GroundStation extends GroundStationClient {
   /**
    * <p>Returns a list of <code>Config</code> objects.</p>
    */
-  public listConfigs(
-    args: ListConfigsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListConfigsCommandOutput>;
-  public listConfigs(
-    args: ListConfigsCommandInput,
-    cb: (err: any, data?: ListConfigsCommandOutput) => void
-  ): void;
+  public listConfigs(args: ListConfigsCommandInput, options?: __HttpHandlerOptions): Promise<ListConfigsCommandOutput>;
+  public listConfigs(args: ListConfigsCommandInput, cb: (err: any, data?: ListConfigsCommandOutput) => void): void;
   public listConfigs(
     args: ListConfigsCommandInput,
     options: __HttpHandlerOptions,
@@ -615,17 +543,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listConfigs(
     args: ListConfigsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConfigsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListConfigsCommandOutput) => void
   ): Promise<ListConfigsCommandOutput> | void {
     const command = new ListConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -642,10 +567,7 @@ export class GroundStation extends GroundStationClient {
     args: ListContactsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListContactsCommandOutput>;
-  public listContacts(
-    args: ListContactsCommandInput,
-    cb: (err: any, data?: ListContactsCommandOutput) => void
-  ): void;
+  public listContacts(args: ListContactsCommandInput, cb: (err: any, data?: ListContactsCommandOutput) => void): void;
   public listContacts(
     args: ListContactsCommandInput,
     options: __HttpHandlerOptions,
@@ -653,17 +575,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listContacts(
     args: ListContactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContactsCommandOutput) => void),
     cb?: (err: any, data?: ListContactsCommandOutput) => void
   ): Promise<ListContactsCommandOutput> | void {
     const command = new ListContactsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -688,17 +607,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listDataflowEndpointGroups(
     args: ListDataflowEndpointGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataflowEndpointGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataflowEndpointGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListDataflowEndpointGroupsCommandOutput) => void
   ): Promise<ListDataflowEndpointGroupsCommandOutput> | void {
     const command = new ListDataflowEndpointGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -723,17 +639,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listGroundStations(
     args: ListGroundStationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroundStationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroundStationsCommandOutput) => void),
     cb?: (err: any, data?: ListGroundStationsCommandOutput) => void
   ): Promise<ListGroundStationsCommandOutput> | void {
     const command = new ListGroundStationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -758,17 +671,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listMissionProfiles(
     args: ListMissionProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMissionProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMissionProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListMissionProfilesCommandOutput) => void
   ): Promise<ListMissionProfilesCommandOutput> | void {
     const command = new ListMissionProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -793,17 +703,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listSatellites(
     args: ListSatellitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSatellitesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSatellitesCommandOutput) => void),
     cb?: (err: any, data?: ListSatellitesCommandOutput) => void
   ): Promise<ListSatellitesCommandOutput> | void {
     const command = new ListSatellitesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -828,17 +735,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -863,17 +767,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public reserveContact(
     args: ReserveContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReserveContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReserveContactCommandOutput) => void),
     cb?: (err: any, data?: ReserveContactCommandOutput) => void
   ): Promise<ReserveContactCommandOutput> | void {
     const command = new ReserveContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -883,14 +784,8 @@ export class GroundStation extends GroundStationClient {
   /**
    * <p>Assigns a tag to a resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -898,17 +793,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -933,17 +825,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -959,10 +848,7 @@ export class GroundStation extends GroundStationClient {
     args: UpdateConfigCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateConfigCommandOutput>;
-  public updateConfig(
-    args: UpdateConfigCommandInput,
-    cb: (err: any, data?: UpdateConfigCommandOutput) => void
-  ): void;
+  public updateConfig(args: UpdateConfigCommandInput, cb: (err: any, data?: UpdateConfigCommandOutput) => void): void;
   public updateConfig(
     args: UpdateConfigCommandInput,
     options: __HttpHandlerOptions,
@@ -970,17 +856,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public updateConfig(
     args: UpdateConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConfigCommandOutput) => void),
     cb?: (err: any, data?: UpdateConfigCommandOutput) => void
   ): Promise<UpdateConfigCommandOutput> | void {
     const command = new UpdateConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1007,17 +890,14 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public updateMissionProfile(
     args: UpdateMissionProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMissionProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMissionProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateMissionProfileCommandOutput) => void
   ): Promise<UpdateMissionProfileCommandOutput> | void {
     const command = new UpdateMissionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

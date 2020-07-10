@@ -1,21 +1,11 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  ListConfigurationRevisionsRequest,
-  ListConfigurationRevisionsResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { ListConfigurationRevisionsRequest, ListConfigurationRevisionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListConfigurationRevisionsCommand,
-  serializeAws_restJson1ListConfigurationRevisionsCommand
+  serializeAws_restJson1ListConfigurationRevisionsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListConfigurationRevisionsCommandInput = ListConfigurationRevisionsRequest;
-export type ListConfigurationRevisionsCommandOutput = ListConfigurationRevisionsResponse &
-  __MetadataBearer;
+export type ListConfigurationRevisionsCommandOutput = ListConfigurationRevisionsResponse & __MetadataBearer;
 
 export class ListConfigurationRevisionsCommand extends $Command<
   ListConfigurationRevisionsCommandInput,
@@ -49,18 +38,13 @@ export class ListConfigurationRevisionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListConfigurationRevisionsCommandInput,
-    ListConfigurationRevisionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListConfigurationRevisionsCommandInput, ListConfigurationRevisionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class ListConfigurationRevisionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListConfigurationRevisionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationRevisionsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListConfigurationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListConfigurationRevisionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfigurationRevisionsCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationRevisionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListConfigurationRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

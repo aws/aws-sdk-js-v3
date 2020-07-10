@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient";
-import {
-  CreateDocumentClassifierRequest,
-  CreateDocumentClassifierResponse
-} from "../models/index";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { CreateDocumentClassifierRequest, CreateDocumentClassifierResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDocumentClassifierCommand,
-  serializeAws_json1_1CreateDocumentClassifierCommand
+  serializeAws_json1_1CreateDocumentClassifierCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateDocumentClassifierCommandInput = CreateDocumentClassifierRequest;
-export type CreateDocumentClassifierCommandOutput = CreateDocumentClassifierResponse &
-  __MetadataBearer;
+export type CreateDocumentClassifierCommandOutput = CreateDocumentClassifierResponse & __MetadataBearer;
 
 export class CreateDocumentClassifierCommand extends $Command<
   CreateDocumentClassifierCommandInput,
@@ -49,18 +38,13 @@ export class CreateDocumentClassifierCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDocumentClassifierCommandInput,
-    CreateDocumentClassifierCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDocumentClassifierCommandInput, CreateDocumentClassifierCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class CreateDocumentClassifierCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDocumentClassifierCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDocumentClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDocumentClassifierCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1CreateDocumentClassifierCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDocumentClassifierCommandOutput> {
+    return deserializeAws_json1_1CreateDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

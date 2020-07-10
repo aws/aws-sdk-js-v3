@@ -1,18 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { PutVoiceConnectorTerminationCredentialsRequest } from "../models/index";
 import {
   deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand
+  serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutVoiceConnectorTerminationCredentialsCommandInput = PutVoiceConnectorTerminationCredentialsRequest;
@@ -35,9 +28,7 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PutVoiceConnectorTerminationCredentialsCommandInput
-  ) {
+  constructor(readonly input: PutVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,14 +42,12 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     PutVoiceConnectorTerminationCredentialsCommandInput,
     PutVoiceConnectorTerminationCredentialsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,20 +61,14 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     input: PutVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

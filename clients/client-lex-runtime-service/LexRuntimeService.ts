@@ -2,28 +2,12 @@ import { LexRuntimeServiceClient } from "./LexRuntimeServiceClient";
 import {
   DeleteSessionCommand,
   DeleteSessionCommandInput,
-  DeleteSessionCommandOutput
+  DeleteSessionCommandOutput,
 } from "./commands/DeleteSessionCommand";
-import {
-  GetSessionCommand,
-  GetSessionCommandInput,
-  GetSessionCommandOutput
-} from "./commands/GetSessionCommand";
-import {
-  PostContentCommand,
-  PostContentCommandInput,
-  PostContentCommandOutput
-} from "./commands/PostContentCommand";
-import {
-  PostTextCommand,
-  PostTextCommandInput,
-  PostTextCommandOutput
-} from "./commands/PostTextCommand";
-import {
-  PutSessionCommand,
-  PutSessionCommandInput,
-  PutSessionCommandOutput
-} from "./commands/PutSessionCommand";
+import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { PostContentCommand, PostContentCommandInput, PostContentCommandOutput } from "./commands/PostContentCommand";
+import { PostTextCommand, PostTextCommandInput, PostTextCommandOutput } from "./commands/PostTextCommand";
+import { PutSessionCommand, PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -56,17 +40,14 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public deleteSession(
     args: DeleteSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSessionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSessionCommandOutput) => void
   ): Promise<DeleteSessionCommandOutput> | void {
     const command = new DeleteSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -76,14 +57,8 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   /**
    * <p>Returns session information for a specified bot, alias, and user ID.</p>
    */
-  public getSession(
-    args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSessionCommandOutput>;
-  public getSession(
-    args: GetSessionCommandInput,
-    cb: (err: any, data?: GetSessionCommandOutput) => void
-  ): void;
+  public getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
+  public getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
   public getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -91,17 +66,14 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public getSession(
     args: GetSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSessionCommandOutput) => void),
     cb?: (err: any, data?: GetSessionCommandOutput) => void
   ): Promise<GetSessionCommandOutput> | void {
     const command = new GetSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -178,14 +150,8 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
    *          <p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>.
    *       For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
    */
-  public postContent(
-    args: PostContentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PostContentCommandOutput>;
-  public postContent(
-    args: PostContentCommandInput,
-    cb: (err: any, data?: PostContentCommandOutput) => void
-  ): void;
+  public postContent(args: PostContentCommandInput, options?: __HttpHandlerOptions): Promise<PostContentCommandOutput>;
+  public postContent(args: PostContentCommandInput, cb: (err: any, data?: PostContentCommandOutput) => void): void;
   public postContent(
     args: PostContentCommandInput,
     options: __HttpHandlerOptions,
@@ -193,17 +159,14 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public postContent(
     args: PostContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostContentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostContentCommandOutput) => void),
     cb?: (err: any, data?: PostContentCommandOutput) => void
   ): Promise<PostContentCommandOutput> | void {
     const command = new PostContentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -280,14 +243,8 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
    *          <p> In addition, Amazon Lex also returns your application-specific
    *         <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
    */
-  public postText(
-    args: PostTextCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PostTextCommandOutput>;
-  public postText(
-    args: PostTextCommandInput,
-    cb: (err: any, data?: PostTextCommandOutput) => void
-  ): void;
+  public postText(args: PostTextCommandInput, options?: __HttpHandlerOptions): Promise<PostTextCommandOutput>;
+  public postText(args: PostTextCommandInput, cb: (err: any, data?: PostTextCommandOutput) => void): void;
   public postText(
     args: PostTextCommandInput,
     options: __HttpHandlerOptions,
@@ -295,17 +252,14 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public postText(
     args: PostTextCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostTextCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostTextCommandOutput) => void),
     cb?: (err: any, data?: PostTextCommandOutput) => void
   ): Promise<PostTextCommandOutput> | void {
     const command = new PostTextCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -317,14 +271,8 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
    *       operation to enable your application to set the state of the bot.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing Sessions</a>.</p>
    */
-  public putSession(
-    args: PutSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutSessionCommandOutput>;
-  public putSession(
-    args: PutSessionCommandInput,
-    cb: (err: any, data?: PutSessionCommandOutput) => void
-  ): void;
+  public putSession(args: PutSessionCommandInput, options?: __HttpHandlerOptions): Promise<PutSessionCommandOutput>;
+  public putSession(args: PutSessionCommandInput, cb: (err: any, data?: PutSessionCommandOutput) => void): void;
   public putSession(
     args: PutSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -332,17 +280,14 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public putSession(
     args: PutSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSessionCommandOutput) => void),
     cb?: (err: any, data?: PutSessionCommandOutput) => void
   ): Promise<PutSessionCommandOutput> | void {
     const command = new PutSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

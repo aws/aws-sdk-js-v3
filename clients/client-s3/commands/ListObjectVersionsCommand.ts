@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  ListObjectVersionsOutput,
-  ListObjectVersionsRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { ListObjectVersionsOutput, ListObjectVersionsRequest } from "../models/index";
 import {
   deserializeAws_restXmlListObjectVersionsCommand,
-  serializeAws_restXmlListObjectVersionsCommand
+  serializeAws_restXmlListObjectVersionsCommand,
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListObjectVersionsCommandInput = ListObjectVersionsRequest;
-export type ListObjectVersionsCommandOutput = ListObjectVersionsOutput &
-  __MetadataBearer;
+export type ListObjectVersionsCommandOutput = ListObjectVersionsOutput & __MetadataBearer;
 
 export class ListObjectVersionsCommand extends $Command<
   ListObjectVersionsCommandInput,
@@ -51,15 +40,13 @@ export class ListObjectVersionsCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListObjectVersionsCommandInput, ListObjectVersionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,17 +56,11 @@ export class ListObjectVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListObjectVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListObjectVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListObjectVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListObjectVersionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectVersionsCommandOutput> {
     return deserializeAws_restXmlListObjectVersionsCommand(output, context);
   }
 

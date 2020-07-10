@@ -1,21 +1,11 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
-import {
-  StopQueryExecutionInput,
-  StopQueryExecutionOutput
-} from "../models/index";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
+import { StopQueryExecutionInput, StopQueryExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_1StopQueryExecutionCommand,
-  serializeAws_json1_1StopQueryExecutionCommand
+  serializeAws_json1_1StopQueryExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StopQueryExecutionCommandInput = StopQueryExecutionInput;
-export type StopQueryExecutionCommandOutput = StopQueryExecutionOutput &
-  __MetadataBearer;
+export type StopQueryExecutionCommandOutput = StopQueryExecutionOutput & __MetadataBearer;
 
 export class StopQueryExecutionCommand extends $Command<
   StopQueryExecutionCommandInput,
@@ -50,14 +39,12 @@ export class StopQueryExecutionCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class StopQueryExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopQueryExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopQueryExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopQueryExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopQueryExecutionCommandOutput> {
     return deserializeAws_json1_1StopQueryExecutionCommand(output, context);
   }
 

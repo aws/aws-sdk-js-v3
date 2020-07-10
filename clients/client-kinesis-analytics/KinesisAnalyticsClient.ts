@@ -1,83 +1,59 @@
 import {
   AddApplicationCloudWatchLoggingOptionCommandInput,
-  AddApplicationCloudWatchLoggingOptionCommandOutput
+  AddApplicationCloudWatchLoggingOptionCommandOutput,
 } from "./commands/AddApplicationCloudWatchLoggingOptionCommand";
 import {
   AddApplicationInputCommandInput,
-  AddApplicationInputCommandOutput
+  AddApplicationInputCommandOutput,
 } from "./commands/AddApplicationInputCommand";
 import {
   AddApplicationInputProcessingConfigurationCommandInput,
-  AddApplicationInputProcessingConfigurationCommandOutput
+  AddApplicationInputProcessingConfigurationCommandOutput,
 } from "./commands/AddApplicationInputProcessingConfigurationCommand";
 import {
   AddApplicationOutputCommandInput,
-  AddApplicationOutputCommandOutput
+  AddApplicationOutputCommandOutput,
 } from "./commands/AddApplicationOutputCommand";
 import {
   AddApplicationReferenceDataSourceCommandInput,
-  AddApplicationReferenceDataSourceCommandOutput
+  AddApplicationReferenceDataSourceCommandOutput,
 } from "./commands/AddApplicationReferenceDataSourceCommand";
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   DeleteApplicationCloudWatchLoggingOptionCommandInput,
-  DeleteApplicationCloudWatchLoggingOptionCommandOutput
+  DeleteApplicationCloudWatchLoggingOptionCommandOutput,
 } from "./commands/DeleteApplicationCloudWatchLoggingOptionCommand";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
   DeleteApplicationInputProcessingConfigurationCommandInput,
-  DeleteApplicationInputProcessingConfigurationCommandOutput
+  DeleteApplicationInputProcessingConfigurationCommandOutput,
 } from "./commands/DeleteApplicationInputProcessingConfigurationCommand";
 import {
   DeleteApplicationOutputCommandInput,
-  DeleteApplicationOutputCommandOutput
+  DeleteApplicationOutputCommandOutput,
 } from "./commands/DeleteApplicationOutputCommand";
 import {
   DeleteApplicationReferenceDataSourceCommandInput,
-  DeleteApplicationReferenceDataSourceCommandOutput
+  DeleteApplicationReferenceDataSourceCommandOutput,
 } from "./commands/DeleteApplicationReferenceDataSourceCommand";
 import {
   DescribeApplicationCommandInput,
-  DescribeApplicationCommandOutput
+  DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
 import {
   DiscoverInputSchemaCommandInput,
-  DiscoverInputSchemaCommandOutput
+  DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  StartApplicationCommandInput,
-  StartApplicationCommandOutput
-} from "./commands/StartApplicationCommand";
-import {
-  StopApplicationCommandInput,
-  StopApplicationCommandOutput
-} from "./commands/StopApplicationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
+import { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
+import { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -85,38 +61,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -127,7 +98,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -174,8 +145,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -264,9 +234,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KinesisAnalyticsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KinesisAnalyticsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -275,9 +243,7 @@ export type KinesisAnalyticsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KinesisAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KinesisAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -309,7 +275,7 @@ export class KinesisAnalyticsClient extends __Client<
   constructor(configuration: KinesisAnalyticsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

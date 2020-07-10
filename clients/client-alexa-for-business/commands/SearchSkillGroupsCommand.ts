@@ -1,21 +1,11 @@
-import {
-  AlexaForBusinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AlexaForBusinessClient";
-import {
-  SearchSkillGroupsRequest,
-  SearchSkillGroupsResponse
-} from "../models/index";
+import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { SearchSkillGroupsRequest, SearchSkillGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1SearchSkillGroupsCommand,
-  serializeAws_json1_1SearchSkillGroupsCommand
+  serializeAws_json1_1SearchSkillGroupsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SearchSkillGroupsCommandInput = SearchSkillGroupsRequest;
-export type SearchSkillGroupsCommandOutput = SearchSkillGroupsResponse &
-  __MetadataBearer;
+export type SearchSkillGroupsCommandOutput = SearchSkillGroupsResponse & __MetadataBearer;
 
 export class SearchSkillGroupsCommand extends $Command<
   SearchSkillGroupsCommandInput,
@@ -50,14 +39,12 @@ export class SearchSkillGroupsCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchSkillGroupsCommandInput, SearchSkillGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class SearchSkillGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SearchSkillGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SearchSkillGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchSkillGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SearchSkillGroupsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSkillGroupsCommandOutput> {
     return deserializeAws_json1_1SearchSkillGroupsCommand(output, context);
   }
 

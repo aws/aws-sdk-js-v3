@@ -18,11 +18,7 @@ export async function getPayloadHash(
 
   if (body == undefined) {
     return "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
-  } else if (
-    typeof body === "string" ||
-    ArrayBuffer.isView(body) ||
-    isArrayBuffer(body)
-  ) {
+  } else if (typeof body === "string" || ArrayBuffer.isView(body) || isArrayBuffer(body)) {
     const hashCtor = new hashConstructor();
     hashCtor.update(body);
     return toHex(await hashCtor.digest());

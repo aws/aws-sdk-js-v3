@@ -2,272 +2,264 @@ import { AutoScalingClient } from "./AutoScalingClient";
 import {
   AttachInstancesCommand,
   AttachInstancesCommandInput,
-  AttachInstancesCommandOutput
+  AttachInstancesCommandOutput,
 } from "./commands/AttachInstancesCommand";
 import {
   AttachLoadBalancerTargetGroupsCommand,
   AttachLoadBalancerTargetGroupsCommandInput,
-  AttachLoadBalancerTargetGroupsCommandOutput
+  AttachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/AttachLoadBalancerTargetGroupsCommand";
 import {
   AttachLoadBalancersCommand,
   AttachLoadBalancersCommandInput,
-  AttachLoadBalancersCommandOutput
+  AttachLoadBalancersCommandOutput,
 } from "./commands/AttachLoadBalancersCommand";
 import {
   BatchDeleteScheduledActionCommand,
   BatchDeleteScheduledActionCommandInput,
-  BatchDeleteScheduledActionCommandOutput
+  BatchDeleteScheduledActionCommandOutput,
 } from "./commands/BatchDeleteScheduledActionCommand";
 import {
   BatchPutScheduledUpdateGroupActionCommand,
   BatchPutScheduledUpdateGroupActionCommandInput,
-  BatchPutScheduledUpdateGroupActionCommandOutput
+  BatchPutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/BatchPutScheduledUpdateGroupActionCommand";
 import {
   CompleteLifecycleActionCommand,
   CompleteLifecycleActionCommandInput,
-  CompleteLifecycleActionCommandOutput
+  CompleteLifecycleActionCommandOutput,
 } from "./commands/CompleteLifecycleActionCommand";
 import {
   CreateAutoScalingGroupCommand,
   CreateAutoScalingGroupCommandInput,
-  CreateAutoScalingGroupCommandOutput
+  CreateAutoScalingGroupCommandOutput,
 } from "./commands/CreateAutoScalingGroupCommand";
 import {
   CreateLaunchConfigurationCommand,
   CreateLaunchConfigurationCommandInput,
-  CreateLaunchConfigurationCommandOutput
+  CreateLaunchConfigurationCommandOutput,
 } from "./commands/CreateLaunchConfigurationCommand";
 import {
   CreateOrUpdateTagsCommand,
   CreateOrUpdateTagsCommandInput,
-  CreateOrUpdateTagsCommandOutput
+  CreateOrUpdateTagsCommandOutput,
 } from "./commands/CreateOrUpdateTagsCommand";
 import {
   DeleteAutoScalingGroupCommand,
   DeleteAutoScalingGroupCommandInput,
-  DeleteAutoScalingGroupCommandOutput
+  DeleteAutoScalingGroupCommandOutput,
 } from "./commands/DeleteAutoScalingGroupCommand";
 import {
   DeleteLaunchConfigurationCommand,
   DeleteLaunchConfigurationCommandInput,
-  DeleteLaunchConfigurationCommandOutput
+  DeleteLaunchConfigurationCommandOutput,
 } from "./commands/DeleteLaunchConfigurationCommand";
 import {
   DeleteLifecycleHookCommand,
   DeleteLifecycleHookCommandInput,
-  DeleteLifecycleHookCommandOutput
+  DeleteLifecycleHookCommandOutput,
 } from "./commands/DeleteLifecycleHookCommand";
 import {
   DeleteNotificationConfigurationCommand,
   DeleteNotificationConfigurationCommandInput,
-  DeleteNotificationConfigurationCommandOutput
+  DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand";
 import {
   DeletePolicyCommand,
   DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
+  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
   DeleteScheduledActionCommand,
   DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput
+  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
-import {
-  DeleteTagsCommand,
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccountLimitsCommand,
   DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput
+  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
   DescribeAdjustmentTypesCommand,
   DescribeAdjustmentTypesCommandInput,
-  DescribeAdjustmentTypesCommandOutput
+  DescribeAdjustmentTypesCommandOutput,
 } from "./commands/DescribeAdjustmentTypesCommand";
 import {
   DescribeAutoScalingGroupsCommand,
   DescribeAutoScalingGroupsCommandInput,
-  DescribeAutoScalingGroupsCommandOutput
+  DescribeAutoScalingGroupsCommandOutput,
 } from "./commands/DescribeAutoScalingGroupsCommand";
 import {
   DescribeAutoScalingInstancesCommand,
   DescribeAutoScalingInstancesCommandInput,
-  DescribeAutoScalingInstancesCommandOutput
+  DescribeAutoScalingInstancesCommandOutput,
 } from "./commands/DescribeAutoScalingInstancesCommand";
 import {
   DescribeAutoScalingNotificationTypesCommand,
   DescribeAutoScalingNotificationTypesCommandInput,
-  DescribeAutoScalingNotificationTypesCommandOutput
+  DescribeAutoScalingNotificationTypesCommandOutput,
 } from "./commands/DescribeAutoScalingNotificationTypesCommand";
 import {
   DescribeLaunchConfigurationsCommand,
   DescribeLaunchConfigurationsCommandInput,
-  DescribeLaunchConfigurationsCommandOutput
+  DescribeLaunchConfigurationsCommandOutput,
 } from "./commands/DescribeLaunchConfigurationsCommand";
 import {
   DescribeLifecycleHookTypesCommand,
   DescribeLifecycleHookTypesCommandInput,
-  DescribeLifecycleHookTypesCommandOutput
+  DescribeLifecycleHookTypesCommandOutput,
 } from "./commands/DescribeLifecycleHookTypesCommand";
 import {
   DescribeLifecycleHooksCommand,
   DescribeLifecycleHooksCommandInput,
-  DescribeLifecycleHooksCommandOutput
+  DescribeLifecycleHooksCommandOutput,
 } from "./commands/DescribeLifecycleHooksCommand";
 import {
   DescribeLoadBalancerTargetGroupsCommand,
   DescribeLoadBalancerTargetGroupsCommandInput,
-  DescribeLoadBalancerTargetGroupsCommandOutput
+  DescribeLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DescribeLoadBalancerTargetGroupsCommand";
 import {
   DescribeLoadBalancersCommand,
   DescribeLoadBalancersCommandInput,
-  DescribeLoadBalancersCommandOutput
+  DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
 import {
   DescribeMetricCollectionTypesCommand,
   DescribeMetricCollectionTypesCommandInput,
-  DescribeMetricCollectionTypesCommandOutput
+  DescribeMetricCollectionTypesCommandOutput,
 } from "./commands/DescribeMetricCollectionTypesCommand";
 import {
   DescribeNotificationConfigurationsCommand,
   DescribeNotificationConfigurationsCommandInput,
-  DescribeNotificationConfigurationsCommandOutput
+  DescribeNotificationConfigurationsCommandOutput,
 } from "./commands/DescribeNotificationConfigurationsCommand";
 import {
   DescribePoliciesCommand,
   DescribePoliciesCommandInput,
-  DescribePoliciesCommandOutput
+  DescribePoliciesCommandOutput,
 } from "./commands/DescribePoliciesCommand";
 import {
   DescribeScalingActivitiesCommand,
   DescribeScalingActivitiesCommandInput,
-  DescribeScalingActivitiesCommandOutput
+  DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand";
 import {
   DescribeScalingProcessTypesCommand,
   DescribeScalingProcessTypesCommandInput,
-  DescribeScalingProcessTypesCommandOutput
+  DescribeScalingProcessTypesCommandOutput,
 } from "./commands/DescribeScalingProcessTypesCommand";
 import {
   DescribeScheduledActionsCommand,
   DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput
+  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
   DescribeTerminationPolicyTypesCommand,
   DescribeTerminationPolicyTypesCommandInput,
-  DescribeTerminationPolicyTypesCommandOutput
+  DescribeTerminationPolicyTypesCommandOutput,
 } from "./commands/DescribeTerminationPolicyTypesCommand";
 import {
   DetachInstancesCommand,
   DetachInstancesCommandInput,
-  DetachInstancesCommandOutput
+  DetachInstancesCommandOutput,
 } from "./commands/DetachInstancesCommand";
 import {
   DetachLoadBalancerTargetGroupsCommand,
   DetachLoadBalancerTargetGroupsCommandInput,
-  DetachLoadBalancerTargetGroupsCommandOutput
+  DetachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DetachLoadBalancerTargetGroupsCommand";
 import {
   DetachLoadBalancersCommand,
   DetachLoadBalancersCommandInput,
-  DetachLoadBalancersCommandOutput
+  DetachLoadBalancersCommandOutput,
 } from "./commands/DetachLoadBalancersCommand";
 import {
   DisableMetricsCollectionCommand,
   DisableMetricsCollectionCommandInput,
-  DisableMetricsCollectionCommandOutput
+  DisableMetricsCollectionCommandOutput,
 } from "./commands/DisableMetricsCollectionCommand";
 import {
   EnableMetricsCollectionCommand,
   EnableMetricsCollectionCommandInput,
-  EnableMetricsCollectionCommandOutput
+  EnableMetricsCollectionCommandOutput,
 } from "./commands/EnableMetricsCollectionCommand";
 import {
   EnterStandbyCommand,
   EnterStandbyCommandInput,
-  EnterStandbyCommandOutput
+  EnterStandbyCommandOutput,
 } from "./commands/EnterStandbyCommand";
 import {
   ExecutePolicyCommand,
   ExecutePolicyCommandInput,
-  ExecutePolicyCommandOutput
+  ExecutePolicyCommandOutput,
 } from "./commands/ExecutePolicyCommand";
-import {
-  ExitStandbyCommand,
-  ExitStandbyCommandInput,
-  ExitStandbyCommandOutput
-} from "./commands/ExitStandbyCommand";
+import { ExitStandbyCommand, ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand";
 import {
   PutLifecycleHookCommand,
   PutLifecycleHookCommandInput,
-  PutLifecycleHookCommandOutput
+  PutLifecycleHookCommandOutput,
 } from "./commands/PutLifecycleHookCommand";
 import {
   PutNotificationConfigurationCommand,
   PutNotificationConfigurationCommandInput,
-  PutNotificationConfigurationCommandOutput
+  PutNotificationConfigurationCommandOutput,
 } from "./commands/PutNotificationConfigurationCommand";
 import {
   PutScalingPolicyCommand,
   PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
+  PutScalingPolicyCommandOutput,
 } from "./commands/PutScalingPolicyCommand";
 import {
   PutScheduledUpdateGroupActionCommand,
   PutScheduledUpdateGroupActionCommandInput,
-  PutScheduledUpdateGroupActionCommandOutput
+  PutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/PutScheduledUpdateGroupActionCommand";
 import {
   RecordLifecycleActionHeartbeatCommand,
   RecordLifecycleActionHeartbeatCommandInput,
-  RecordLifecycleActionHeartbeatCommandOutput
+  RecordLifecycleActionHeartbeatCommandOutput,
 } from "./commands/RecordLifecycleActionHeartbeatCommand";
 import {
   ResumeProcessesCommand,
   ResumeProcessesCommandInput,
-  ResumeProcessesCommandOutput
+  ResumeProcessesCommandOutput,
 } from "./commands/ResumeProcessesCommand";
 import {
   SetDesiredCapacityCommand,
   SetDesiredCapacityCommandInput,
-  SetDesiredCapacityCommandOutput
+  SetDesiredCapacityCommandOutput,
 } from "./commands/SetDesiredCapacityCommand";
 import {
   SetInstanceHealthCommand,
   SetInstanceHealthCommandInput,
-  SetInstanceHealthCommandOutput
+  SetInstanceHealthCommandOutput,
 } from "./commands/SetInstanceHealthCommand";
 import {
   SetInstanceProtectionCommand,
   SetInstanceProtectionCommandInput,
-  SetInstanceProtectionCommandOutput
+  SetInstanceProtectionCommandOutput,
 } from "./commands/SetInstanceProtectionCommand";
 import {
   SuspendProcessesCommand,
   SuspendProcessesCommandInput,
-  SuspendProcessesCommandOutput
+  SuspendProcessesCommandOutput,
 } from "./commands/SuspendProcessesCommand";
 import {
   TerminateInstanceInAutoScalingGroupCommand,
   TerminateInstanceInAutoScalingGroupCommandInput,
-  TerminateInstanceInAutoScalingGroupCommandOutput
+  TerminateInstanceInAutoScalingGroupCommandOutput,
 } from "./commands/TerminateInstanceInAutoScalingGroupCommand";
 import {
   UpdateAutoScalingGroupCommand,
   UpdateAutoScalingGroupCommandInput,
-  UpdateAutoScalingGroupCommandOutput
+  UpdateAutoScalingGroupCommandOutput,
 } from "./commands/UpdateAutoScalingGroupCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -308,17 +300,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public attachInstances(
     args: AttachInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachInstancesCommandOutput) => void),
     cb?: (err: any, data?: AttachInstancesCommandOutput) => void
   ): Promise<AttachInstancesCommandOutput> | void {
     const command = new AttachInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -349,17 +338,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public attachLoadBalancers(
     args: AttachLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachLoadBalancersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachLoadBalancersCommandOutput) => void),
     cb?: (err: any, data?: AttachLoadBalancersCommandOutput) => void
   ): Promise<AttachLoadBalancersCommandOutput> | void {
     const command = new AttachLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -391,20 +377,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public attachLoadBalancerTargetGroups(
     args: AttachLoadBalancerTargetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AttachLoadBalancerTargetGroupsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachLoadBalancerTargetGroupsCommandOutput) => void),
     cb?: (err: any, data?: AttachLoadBalancerTargetGroupsCommandOutput) => void
   ): Promise<AttachLoadBalancerTargetGroupsCommandOutput> | void {
     const command = new AttachLoadBalancerTargetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -429,17 +409,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public batchDeleteScheduledAction(
     args: BatchDeleteScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteScheduledActionCommandOutput) => void
   ): Promise<BatchDeleteScheduledActionCommandOutput> | void {
     const command = new BatchDeleteScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -457,38 +434,23 @@ export class AutoScaling extends AutoScalingClient {
   ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput>;
   public batchPutScheduledUpdateGroupAction(
     args: BatchPutScheduledUpdateGroupActionCommandInput,
-    cb: (
-      err: any,
-      data?: BatchPutScheduledUpdateGroupActionCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchPutScheduledUpdateGroupActionCommandOutput) => void
   ): void;
   public batchPutScheduledUpdateGroupAction(
     args: BatchPutScheduledUpdateGroupActionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: BatchPutScheduledUpdateGroupActionCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchPutScheduledUpdateGroupActionCommandOutput) => void
   ): void;
   public batchPutScheduledUpdateGroupAction(
     args: BatchPutScheduledUpdateGroupActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: BatchPutScheduledUpdateGroupActionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: BatchPutScheduledUpdateGroupActionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutScheduledUpdateGroupActionCommandOutput) => void),
+    cb?: (err: any, data?: BatchPutScheduledUpdateGroupActionCommandOutput) => void
   ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> | void {
     const command = new BatchPutScheduledUpdateGroupActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -545,17 +507,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public completeLifecycleAction(
     args: CompleteLifecycleActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CompleteLifecycleActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompleteLifecycleActionCommandOutput) => void),
     cb?: (err: any, data?: CompleteLifecycleActionCommandOutput) => void
   ): Promise<CompleteLifecycleActionCommandOutput> | void {
     const command = new CompleteLifecycleActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -584,17 +543,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public createAutoScalingGroup(
     args: CreateAutoScalingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAutoScalingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAutoScalingGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateAutoScalingGroupCommandOutput) => void
   ): Promise<CreateAutoScalingGroupCommandOutput> | void {
     const command = new CreateAutoScalingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -625,17 +581,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public createLaunchConfiguration(
     args: CreateLaunchConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLaunchConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLaunchConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateLaunchConfigurationCommandOutput) => void
   ): Promise<CreateLaunchConfigurationCommandOutput> | void {
     const command = new CreateLaunchConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -664,17 +617,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public createOrUpdateTags(
     args: CreateOrUpdateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOrUpdateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOrUpdateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateOrUpdateTagsCommandOutput) => void
   ): Promise<CreateOrUpdateTagsCommandOutput> | void {
     const command = new CreateOrUpdateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -708,17 +658,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deleteAutoScalingGroup(
     args: DeleteAutoScalingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAutoScalingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAutoScalingGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteAutoScalingGroupCommandOutput) => void
   ): Promise<DeleteAutoScalingGroupCommandOutput> | void {
     const command = new DeleteAutoScalingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -745,17 +692,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deleteLaunchConfiguration(
     args: DeleteLaunchConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLaunchConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLaunchConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteLaunchConfigurationCommandOutput) => void
   ): Promise<DeleteLaunchConfigurationCommandOutput> | void {
     const command = new DeleteLaunchConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -783,17 +727,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deleteLifecycleHook(
     args: DeleteLifecycleHookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLifecycleHookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLifecycleHookCommandOutput) => void),
     cb?: (err: any, data?: DeleteLifecycleHookCommandOutput) => void
   ): Promise<DeleteLifecycleHookCommandOutput> | void {
     const command = new DeleteLifecycleHookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -818,20 +759,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deleteNotificationConfiguration(
     args: DeleteNotificationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteNotificationConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotificationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteNotificationConfigurationCommandOutput) => void
   ): Promise<DeleteNotificationConfigurationCommandOutput> | void {
     const command = new DeleteNotificationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -850,10 +785,7 @@ export class AutoScaling extends AutoScalingClient {
     args: DeletePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePolicyCommandOutput>;
-  public deletePolicy(
-    args: DeletePolicyCommandInput,
-    cb: (err: any, data?: DeletePolicyCommandOutput) => void
-  ): void;
+  public deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -861,17 +793,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyCommandOutput) => void
   ): Promise<DeletePolicyCommandOutput> | void {
     const command = new DeletePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -896,17 +825,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: DeleteScheduledActionCommandOutput) => void
   ): Promise<DeleteScheduledActionCommandOutput> | void {
     const command = new DeleteScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -916,14 +842,8 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * <p>Deletes the specified tags.</p>
    */
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTagsCommandOutput>;
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    cb: (err: any, data?: DeleteTagsCommandOutput) => void
-  ): void;
+  public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
+  public deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -931,17 +851,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -968,17 +885,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountLimitsCommandOutput) => void
   ): Promise<DescribeAccountLimitsCommandOutput> | void {
     const command = new DescribeAccountLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1003,17 +917,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeAdjustmentTypes(
     args: DescribeAdjustmentTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAdjustmentTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAdjustmentTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAdjustmentTypesCommandOutput) => void
   ): Promise<DescribeAdjustmentTypesCommandOutput> | void {
     const command = new DescribeAdjustmentTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1038,17 +949,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeAutoScalingGroups(
     args: DescribeAutoScalingGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAutoScalingGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutoScalingGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAutoScalingGroupsCommandOutput) => void
   ): Promise<DescribeAutoScalingGroupsCommandOutput> | void {
     const command = new DescribeAutoScalingGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1073,17 +981,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeAutoScalingInstances(
     args: DescribeAutoScalingInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAutoScalingInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutoScalingInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAutoScalingInstancesCommandOutput) => void
   ): Promise<DescribeAutoScalingInstancesCommandOutput> | void {
     const command = new DescribeAutoScalingInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1099,38 +1004,23 @@ export class AutoScaling extends AutoScalingClient {
   ): Promise<DescribeAutoScalingNotificationTypesCommandOutput>;
   public describeAutoScalingNotificationTypes(
     args: DescribeAutoScalingNotificationTypesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAutoScalingNotificationTypesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAutoScalingNotificationTypesCommandOutput) => void
   ): void;
   public describeAutoScalingNotificationTypes(
     args: DescribeAutoScalingNotificationTypesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAutoScalingNotificationTypesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAutoScalingNotificationTypesCommandOutput) => void
   ): void;
   public describeAutoScalingNotificationTypes(
     args: DescribeAutoScalingNotificationTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAutoScalingNotificationTypesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAutoScalingNotificationTypesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutoScalingNotificationTypesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAutoScalingNotificationTypesCommandOutput) => void
   ): Promise<DescribeAutoScalingNotificationTypesCommandOutput> | void {
     const command = new DescribeAutoScalingNotificationTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1155,17 +1045,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeLaunchConfigurations(
     args: DescribeLaunchConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLaunchConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLaunchConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLaunchConfigurationsCommandOutput) => void
   ): Promise<DescribeLaunchConfigurationsCommandOutput> | void {
     const command = new DescribeLaunchConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1190,17 +1077,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeLifecycleHooks(
     args: DescribeLifecycleHooksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLifecycleHooksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLifecycleHooksCommandOutput) => void),
     cb?: (err: any, data?: DescribeLifecycleHooksCommandOutput) => void
   ): Promise<DescribeLifecycleHooksCommandOutput> | void {
     const command = new DescribeLifecycleHooksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1234,17 +1118,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeLifecycleHookTypes(
     args: DescribeLifecycleHookTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLifecycleHookTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLifecycleHookTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeLifecycleHookTypesCommandOutput) => void
   ): Promise<DescribeLifecycleHookTypesCommandOutput> | void {
     const command = new DescribeLifecycleHookTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1271,17 +1152,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeLoadBalancers(
     args: DescribeLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoadBalancersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoadBalancersCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoadBalancersCommandOutput) => void
   ): Promise<DescribeLoadBalancersCommandOutput> | void {
     const command = new DescribeLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1306,23 +1184,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeLoadBalancerTargetGroups(
     args: DescribeLoadBalancerTargetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLoadBalancerTargetGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLoadBalancerTargetGroupsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoadBalancerTargetGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLoadBalancerTargetGroupsCommandOutput) => void
   ): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> | void {
     const command = new DescribeLoadBalancerTargetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1349,17 +1218,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeMetricCollectionTypes(
     args: DescribeMetricCollectionTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMetricCollectionTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMetricCollectionTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeMetricCollectionTypesCommandOutput) => void
   ): Promise<DescribeMetricCollectionTypesCommandOutput> | void {
     const command = new DescribeMetricCollectionTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1375,38 +1241,23 @@ export class AutoScaling extends AutoScalingClient {
   ): Promise<DescribeNotificationConfigurationsCommandOutput>;
   public describeNotificationConfigurations(
     args: DescribeNotificationConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNotificationConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotificationConfigurationsCommandOutput) => void
   ): void;
   public describeNotificationConfigurations(
     args: DescribeNotificationConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNotificationConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotificationConfigurationsCommandOutput) => void
   ): void;
   public describeNotificationConfigurations(
     args: DescribeNotificationConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNotificationConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNotificationConfigurationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotificationConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNotificationConfigurationsCommandOutput) => void
   ): Promise<DescribeNotificationConfigurationsCommandOutput> | void {
     const command = new DescribeNotificationConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1431,17 +1282,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describePolicies(
     args: DescribePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribePoliciesCommandOutput) => void
   ): Promise<DescribePoliciesCommandOutput> | void {
     const command = new DescribePoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1466,17 +1314,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingActivitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingActivitiesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingActivitiesCommandOutput) => void
   ): Promise<DescribeScalingActivitiesCommandOutput> | void {
     const command = new DescribeScalingActivitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1502,17 +1347,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeScalingProcessTypes(
     args: DescribeScalingProcessTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingProcessTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingProcessTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingProcessTypesCommandOutput) => void
   ): Promise<DescribeScalingProcessTypesCommandOutput> | void {
     const command = new DescribeScalingProcessTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1538,17 +1380,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScheduledActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScheduledActionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeScheduledActionsCommandOutput) => void
   ): Promise<DescribeScheduledActionsCommandOutput> | void {
     const command = new DescribeScheduledActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1568,10 +1407,7 @@ export class AutoScaling extends AutoScalingClient {
     args: DescribeTagsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTagsCommandOutput>;
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    cb: (err: any, data?: DescribeTagsCommandOutput) => void
-  ): void;
+  public describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   public describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1579,17 +1415,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1617,20 +1450,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeTerminationPolicyTypes(
     args: DescribeTerminationPolicyTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTerminationPolicyTypesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTerminationPolicyTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeTerminationPolicyTypesCommandOutput) => void
   ): Promise<DescribeTerminationPolicyTypesCommandOutput> | void {
     const command = new DescribeTerminationPolicyTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1664,17 +1491,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public detachInstances(
     args: DetachInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachInstancesCommandOutput) => void),
     cb?: (err: any, data?: DetachInstancesCommandOutput) => void
   ): Promise<DetachInstancesCommandOutput> | void {
     const command = new DetachInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1705,17 +1529,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public detachLoadBalancers(
     args: DetachLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachLoadBalancersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachLoadBalancersCommandOutput) => void),
     cb?: (err: any, data?: DetachLoadBalancersCommandOutput) => void
   ): Promise<DetachLoadBalancersCommandOutput> | void {
     const command = new DetachLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1740,20 +1561,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public detachLoadBalancerTargetGroups(
     args: DetachLoadBalancerTargetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DetachLoadBalancerTargetGroupsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void
   ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> | void {
     const command = new DetachLoadBalancerTargetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1778,17 +1593,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public disableMetricsCollection(
     args: DisableMetricsCollectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableMetricsCollectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableMetricsCollectionCommandOutput) => void),
     cb?: (err: any, data?: DisableMetricsCollectionCommandOutput) => void
   ): Promise<DisableMetricsCollectionCommandOutput> | void {
     const command = new DisableMetricsCollectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1814,17 +1626,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public enableMetricsCollection(
     args: EnableMetricsCollectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableMetricsCollectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableMetricsCollectionCommandOutput) => void),
     cb?: (err: any, data?: EnableMetricsCollectionCommandOutput) => void
   ): Promise<EnableMetricsCollectionCommandOutput> | void {
     const command = new EnableMetricsCollectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1847,10 +1656,7 @@ export class AutoScaling extends AutoScalingClient {
     args: EnterStandbyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EnterStandbyCommandOutput>;
-  public enterStandby(
-    args: EnterStandbyCommandInput,
-    cb: (err: any, data?: EnterStandbyCommandOutput) => void
-  ): void;
+  public enterStandby(args: EnterStandbyCommandInput, cb: (err: any, data?: EnterStandbyCommandOutput) => void): void;
   public enterStandby(
     args: EnterStandbyCommandInput,
     options: __HttpHandlerOptions,
@@ -1858,17 +1664,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public enterStandby(
     args: EnterStandbyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnterStandbyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnterStandbyCommandOutput) => void),
     cb?: (err: any, data?: EnterStandbyCommandOutput) => void
   ): Promise<EnterStandbyCommandOutput> | void {
     const command = new EnterStandbyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1893,17 +1696,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public executePolicy(
     args: ExecutePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExecutePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecutePolicyCommandOutput) => void),
     cb?: (err: any, data?: ExecutePolicyCommandOutput) => void
   ): Promise<ExecutePolicyCommandOutput> | void {
     const command = new ExecutePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1918,14 +1718,8 @@ export class AutoScaling extends AutoScalingClient {
    *                 Instances from Your Auto Scaling Group</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  public exitStandby(
-    args: ExitStandbyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ExitStandbyCommandOutput>;
-  public exitStandby(
-    args: ExitStandbyCommandInput,
-    cb: (err: any, data?: ExitStandbyCommandOutput) => void
-  ): void;
+  public exitStandby(args: ExitStandbyCommandInput, options?: __HttpHandlerOptions): Promise<ExitStandbyCommandOutput>;
+  public exitStandby(args: ExitStandbyCommandInput, cb: (err: any, data?: ExitStandbyCommandOutput) => void): void;
   public exitStandby(
     args: ExitStandbyCommandInput,
     options: __HttpHandlerOptions,
@@ -1933,17 +1727,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public exitStandby(
     args: ExitStandbyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExitStandbyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExitStandbyCommandOutput) => void),
     cb?: (err: any, data?: ExitStandbyCommandOutput) => void
   ): Promise<ExitStandbyCommandOutput> | void {
     const command = new ExitStandbyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2006,17 +1797,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public putLifecycleHook(
     args: PutLifecycleHookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLifecycleHookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLifecycleHookCommandOutput) => void),
     cb?: (err: any, data?: PutLifecycleHookCommandOutput) => void
   ): Promise<PutLifecycleHookCommandOutput> | void {
     const command = new PutLifecycleHookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2047,17 +1835,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public putNotificationConfiguration(
     args: PutNotificationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutNotificationConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutNotificationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutNotificationConfigurationCommandOutput) => void
   ): Promise<PutNotificationConfigurationCommandOutput> | void {
     const command = new PutNotificationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2088,17 +1873,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutScalingPolicyCommandOutput) => void
   ): Promise<PutScalingPolicyCommandOutput> | void {
     const command = new PutScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2127,17 +1909,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public putScheduledUpdateGroupAction(
     args: PutScheduledUpdateGroupActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScheduledUpdateGroupActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScheduledUpdateGroupActionCommandOutput) => void),
     cb?: (err: any, data?: PutScheduledUpdateGroupActionCommandOutput) => void
   ): Promise<PutScheduledUpdateGroupActionCommandOutput> | void {
     const command = new PutScheduledUpdateGroupActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2194,20 +1973,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public recordLifecycleActionHeartbeat(
     args: RecordLifecycleActionHeartbeatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RecordLifecycleActionHeartbeatCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RecordLifecycleActionHeartbeatCommandOutput) => void),
     cb?: (err: any, data?: RecordLifecycleActionHeartbeatCommandOutput) => void
   ): Promise<RecordLifecycleActionHeartbeatCommandOutput> | void {
     const command = new RecordLifecycleActionHeartbeatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2235,17 +2008,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public resumeProcesses(
     args: ResumeProcessesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResumeProcessesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeProcessesCommandOutput) => void),
     cb?: (err: any, data?: ResumeProcessesCommandOutput) => void
   ): Promise<ResumeProcessesCommandOutput> | void {
     const command = new ResumeProcessesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2272,17 +2042,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public setDesiredCapacity(
     args: SetDesiredCapacityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetDesiredCapacityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetDesiredCapacityCommandOutput) => void),
     cb?: (err: any, data?: SetDesiredCapacityCommandOutput) => void
   ): Promise<SetDesiredCapacityCommandOutput> | void {
     const command = new SetDesiredCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2309,17 +2076,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public setInstanceHealth(
     args: SetInstanceHealthCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetInstanceHealthCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetInstanceHealthCommandOutput) => void),
     cb?: (err: any, data?: SetInstanceHealthCommandOutput) => void
   ): Promise<SetInstanceHealthCommandOutput> | void {
     const command = new SetInstanceHealthCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2346,17 +2110,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public setInstanceProtection(
     args: SetInstanceProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetInstanceProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetInstanceProtectionCommandOutput) => void),
     cb?: (err: any, data?: SetInstanceProtectionCommandOutput) => void
   ): Promise<SetInstanceProtectionCommandOutput> | void {
     const command = new SetInstanceProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2387,17 +2148,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public suspendProcesses(
     args: SuspendProcessesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SuspendProcessesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SuspendProcessesCommandOutput) => void),
     cb?: (err: any, data?: SuspendProcessesCommandOutput) => void
   ): Promise<SuspendProcessesCommandOutput> | void {
     const command = new SuspendProcessesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2416,38 +2174,23 @@ export class AutoScaling extends AutoScalingClient {
   ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput>;
   public terminateInstanceInAutoScalingGroup(
     args: TerminateInstanceInAutoScalingGroupCommandInput,
-    cb: (
-      err: any,
-      data?: TerminateInstanceInAutoScalingGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: TerminateInstanceInAutoScalingGroupCommandOutput) => void
   ): void;
   public terminateInstanceInAutoScalingGroup(
     args: TerminateInstanceInAutoScalingGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: TerminateInstanceInAutoScalingGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: TerminateInstanceInAutoScalingGroupCommandOutput) => void
   ): void;
   public terminateInstanceInAutoScalingGroup(
     args: TerminateInstanceInAutoScalingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: TerminateInstanceInAutoScalingGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: TerminateInstanceInAutoScalingGroupCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateInstanceInAutoScalingGroupCommandOutput) => void),
+    cb?: (err: any, data?: TerminateInstanceInAutoScalingGroupCommandOutput) => void
   ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> | void {
     const command = new TerminateInstanceInAutoScalingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2509,17 +2252,14 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public updateAutoScalingGroup(
     args: UpdateAutoScalingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAutoScalingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAutoScalingGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateAutoScalingGroupCommandOutput) => void
   ): Promise<UpdateAutoScalingGroupCommandOutput> | void {
     const command = new UpdateAutoScalingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

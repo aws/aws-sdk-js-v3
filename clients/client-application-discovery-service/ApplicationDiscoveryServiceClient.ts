@@ -1,103 +1,73 @@
 import {
   AssociateConfigurationItemsToApplicationCommandInput,
-  AssociateConfigurationItemsToApplicationCommandOutput
+  AssociateConfigurationItemsToApplicationCommandOutput,
 } from "./commands/AssociateConfigurationItemsToApplicationCommand";
 import {
   BatchDeleteImportDataCommandInput,
-  BatchDeleteImportDataCommandOutput
+  BatchDeleteImportDataCommandOutput,
 } from "./commands/BatchDeleteImportDataCommand";
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
-import {
-  DeleteApplicationsCommandInput,
-  DeleteApplicationsCommandOutput
-} from "./commands/DeleteApplicationsCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
-import {
-  DescribeAgentsCommandInput,
-  DescribeAgentsCommandOutput
-} from "./commands/DescribeAgentsCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput } from "./commands/DeleteApplicationsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DescribeAgentsCommandInput, DescribeAgentsCommandOutput } from "./commands/DescribeAgentsCommand";
 import {
   DescribeConfigurationsCommandInput,
-  DescribeConfigurationsCommandOutput
+  DescribeConfigurationsCommandOutput,
 } from "./commands/DescribeConfigurationsCommand";
 import {
   DescribeContinuousExportsCommandInput,
-  DescribeContinuousExportsCommandOutput
+  DescribeContinuousExportsCommandOutput,
 } from "./commands/DescribeContinuousExportsCommand";
 import {
   DescribeExportConfigurationsCommandInput,
-  DescribeExportConfigurationsCommandOutput
+  DescribeExportConfigurationsCommandOutput,
 } from "./commands/DescribeExportConfigurationsCommand";
 import {
   DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput
+  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
   DescribeImportTasksCommandInput,
-  DescribeImportTasksCommandOutput
+  DescribeImportTasksCommandOutput,
 } from "./commands/DescribeImportTasksCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DisassociateConfigurationItemsFromApplicationCommandInput,
-  DisassociateConfigurationItemsFromApplicationCommandOutput
+  DisassociateConfigurationItemsFromApplicationCommandOutput,
 } from "./commands/DisassociateConfigurationItemsFromApplicationCommand";
 import {
   ExportConfigurationsCommandInput,
-  ExportConfigurationsCommandOutput
+  ExportConfigurationsCommandOutput,
 } from "./commands/ExportConfigurationsCommand";
 import {
   GetDiscoverySummaryCommandInput,
-  GetDiscoverySummaryCommandOutput
+  GetDiscoverySummaryCommandOutput,
 } from "./commands/GetDiscoverySummaryCommand";
-import {
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput
-} from "./commands/ListConfigurationsCommand";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
 import {
   ListServerNeighborsCommandInput,
-  ListServerNeighborsCommandOutput
+  ListServerNeighborsCommandOutput,
 } from "./commands/ListServerNeighborsCommand";
 import {
   StartContinuousExportCommandInput,
-  StartContinuousExportCommandOutput
+  StartContinuousExportCommandOutput,
 } from "./commands/StartContinuousExportCommand";
 import {
   StartDataCollectionByAgentIdsCommandInput,
-  StartDataCollectionByAgentIdsCommandOutput
+  StartDataCollectionByAgentIdsCommandOutput,
 } from "./commands/StartDataCollectionByAgentIdsCommand";
-import {
-  StartExportTaskCommandInput,
-  StartExportTaskCommandOutput
-} from "./commands/StartExportTaskCommand";
-import {
-  StartImportTaskCommandInput,
-  StartImportTaskCommandOutput
-} from "./commands/StartImportTaskCommand";
+import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
+import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
 import {
   StopContinuousExportCommandInput,
-  StopContinuousExportCommandOutput
+  StopContinuousExportCommandOutput,
 } from "./commands/StopContinuousExportCommand";
 import {
   StopDataCollectionByAgentIdsCommandInput,
-  StopDataCollectionByAgentIdsCommandOutput
+  StopDataCollectionByAgentIdsCommandOutput,
 } from "./commands/StopDataCollectionByAgentIdsCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -105,38 +75,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -147,7 +112,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -204,8 +169,7 @@ export type ServiceOutputTypes =
   | StopDataCollectionByAgentIdsCommandOutput
   | UpdateApplicationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -294,9 +258,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApplicationDiscoveryServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ApplicationDiscoveryServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -305,9 +267,7 @@ export type ApplicationDiscoveryServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ApplicationDiscoveryServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ApplicationDiscoveryServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -456,7 +416,7 @@ export class ApplicationDiscoveryServiceClient extends __Client<
   constructor(configuration: ApplicationDiscoveryServiceClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

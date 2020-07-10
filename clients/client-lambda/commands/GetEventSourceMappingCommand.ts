@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  EventSourceMappingConfiguration,
-  GetEventSourceMappingRequest
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { EventSourceMappingConfiguration, GetEventSourceMappingRequest } from "../models/index";
 import {
   deserializeAws_restJson1GetEventSourceMappingCommand,
-  serializeAws_restJson1GetEventSourceMappingCommand
+  serializeAws_restJson1GetEventSourceMappingCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetEventSourceMappingCommandInput = GetEventSourceMappingRequest;
-export type GetEventSourceMappingCommandOutput = EventSourceMappingConfiguration &
-  __MetadataBearer;
+export type GetEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
 
 export class GetEventSourceMappingCommand extends $Command<
   GetEventSourceMappingCommandInput,
@@ -49,18 +38,13 @@ export class GetEventSourceMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEventSourceMappingCommandInput,
-    GetEventSourceMappingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEventSourceMappingCommandInput, GetEventSourceMappingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class GetEventSourceMappingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetEventSourceMappingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetEventSourceMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEventSourceMappingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetEventSourceMappingCommandOutput> {
-    return deserializeAws_restJson1GetEventSourceMappingCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventSourceMappingCommandOutput> {
+    return deserializeAws_restJson1GetEventSourceMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

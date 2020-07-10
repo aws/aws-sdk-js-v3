@@ -18,6 +18,6 @@ export function resolveSsecMiddlewareConfig<T>(
   input: T & PreviouslyResolved & SsecMiddlewareInputConfig
 ): T & ResolvedSsecMiddlewareConfig {
   return {
-    ...input
+    ...input,
   };
 }

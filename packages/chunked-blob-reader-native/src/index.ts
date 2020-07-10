@@ -18,12 +18,10 @@ export function blobReader(
         resolve();
         return;
       }
-      fileReader.readAsDataURL(
-        blob.slice(totalBytesRead, Math.min(size, totalBytesRead + chunkSize))
-      );
+      fileReader.readAsDataURL(blob.slice(totalBytesRead, Math.min(size, totalBytesRead + chunkSize)));
     };
 
-    fileReader.onload = event => {
+    fileReader.onload = (event) => {
       const result = (event.target as any).result;
       // reference: https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
       // response from readAsDataURL is always prepended with "data:*/*;base64,"

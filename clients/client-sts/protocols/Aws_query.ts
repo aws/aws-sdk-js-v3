@@ -1,35 +1,17 @@
-import {
-  AssumeRoleCommandInput,
-  AssumeRoleCommandOutput
-} from "../commands/AssumeRoleCommand";
-import {
-  AssumeRoleWithSAMLCommandInput,
-  AssumeRoleWithSAMLCommandOutput
-} from "../commands/AssumeRoleWithSAMLCommand";
+import { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "../commands/AssumeRoleCommand";
+import { AssumeRoleWithSAMLCommandInput, AssumeRoleWithSAMLCommandOutput } from "../commands/AssumeRoleWithSAMLCommand";
 import {
   AssumeRoleWithWebIdentityCommandInput,
-  AssumeRoleWithWebIdentityCommandOutput
+  AssumeRoleWithWebIdentityCommandOutput,
 } from "../commands/AssumeRoleWithWebIdentityCommand";
 import {
   DecodeAuthorizationMessageCommandInput,
-  DecodeAuthorizationMessageCommandOutput
+  DecodeAuthorizationMessageCommandOutput,
 } from "../commands/DecodeAuthorizationMessageCommand";
-import {
-  GetAccessKeyInfoCommandInput,
-  GetAccessKeyInfoCommandOutput
-} from "../commands/GetAccessKeyInfoCommand";
-import {
-  GetCallerIdentityCommandInput,
-  GetCallerIdentityCommandOutput
-} from "../commands/GetCallerIdentityCommand";
-import {
-  GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput
-} from "../commands/GetFederationTokenCommand";
-import {
-  GetSessionTokenCommandInput,
-  GetSessionTokenCommandOutput
-} from "../commands/GetSessionTokenCommand";
+import { GetAccessKeyInfoCommandInput, GetAccessKeyInfoCommandOutput } from "../commands/GetAccessKeyInfoCommand";
+import { GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput } from "../commands/GetCallerIdentityCommand";
+import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "../commands/GetFederationTokenCommand";
+import { GetSessionTokenCommandInput, GetSessionTokenCommandOutput } from "../commands/GetSessionTokenCommand";
 import {
   AssumeRoleRequest,
   AssumeRoleResponse,
@@ -59,23 +41,20 @@ import {
   PackedPolicyTooLargeException,
   PolicyDescriptorType,
   RegionDisabledException,
-  Tag
+  Tag,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getValueFromTextNode as __getValueFromTextNode
+  getValueFromTextNode as __getValueFromTextNode,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
 
@@ -84,13 +63,13 @@ export const serializeAws_queryAssumeRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryAssumeRoleRequest(input, context),
     Action: "AssumeRole",
-    Version: "2011-06-15"
+    Version: "2011-06-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -100,13 +79,13 @@ export const serializeAws_queryAssumeRoleWithSAMLCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryAssumeRoleWithSAMLRequest(input, context),
     Action: "AssumeRoleWithSAML",
-    Version: "2011-06-15"
+    Version: "2011-06-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -116,13 +95,13 @@ export const serializeAws_queryAssumeRoleWithWebIdentityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryAssumeRoleWithWebIdentityRequest(input, context),
     Action: "AssumeRoleWithWebIdentity",
-    Version: "2011-06-15"
+    Version: "2011-06-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -132,13 +111,13 @@ export const serializeAws_queryDecodeAuthorizationMessageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDecodeAuthorizationMessageRequest(input, context),
     Action: "DecodeAuthorizationMessage",
-    Version: "2011-06-15"
+    Version: "2011-06-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -148,13 +127,13 @@ export const serializeAws_queryGetAccessKeyInfoCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetAccessKeyInfoRequest(input, context),
     Action: "GetAccessKeyInfo",
-    Version: "2011-06-15"
+    Version: "2011-06-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -164,13 +143,13 @@ export const serializeAws_queryGetCallerIdentityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetCallerIdentityRequest(input, context),
     Action: "GetCallerIdentity",
-    Version: "2011-06-15"
+    Version: "2011-06-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -180,13 +159,13 @@ export const serializeAws_queryGetFederationTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetFederationTokenRequest(input, context),
     Action: "GetFederationToken",
-    Version: "2011-06-15"
+    Version: "2011-06-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -196,13 +175,13 @@ export const serializeAws_queryGetSessionTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetSessionTokenRequest(input, context),
     Action: "GetSessionToken",
-    Version: "2011-06-15"
+    Version: "2011-06-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -216,14 +195,11 @@ export const deserializeAws_queryAssumeRoleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryAssumeRoleResponse(
-    data.AssumeRoleResult,
-    context
-  );
+  contents = deserializeAws_queryAssumeRoleResponse(data.AssumeRoleResult, context);
   const response: AssumeRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssumeRoleResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -234,7 +210,7 @@ const deserializeAws_queryAssumeRoleCommandError = async (
 ): Promise<AssumeRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -243,34 +219,25 @@ const deserializeAws_queryAssumeRoleCommandError = async (
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "PackedPolicyTooLargeException":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
-        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
       response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -279,10 +246,9 @@ const deserializeAws_queryAssumeRoleCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -300,14 +266,11 @@ export const deserializeAws_queryAssumeRoleWithSAMLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryAssumeRoleWithSAMLResponse(
-    data.AssumeRoleWithSAMLResult,
-    context
-  );
+  contents = deserializeAws_queryAssumeRoleWithSAMLResponse(data.AssumeRoleWithSAMLResult, context);
   const response: AssumeRoleWithSAMLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssumeRoleWithSAMLResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -318,7 +281,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
 ): Promise<AssumeRoleWithSAMLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -327,67 +290,49 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
       response = {
-        ...(await deserializeAws_queryExpiredTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IDPRejectedClaimException":
     case "com.amazonaws.sts#IDPRejectedClaimException":
       response = {
-        ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidIdentityTokenException":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
       response = {
-        ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "PackedPolicyTooLargeException":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
-        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
       response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -396,10 +341,9 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -413,21 +357,15 @@ export const deserializeAws_queryAssumeRoleWithWebIdentityCommand = async (
   context: __SerdeContext
 ): Promise<AssumeRoleWithWebIdentityCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryAssumeRoleWithWebIdentityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryAssumeRoleWithWebIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryAssumeRoleWithWebIdentityResponse(
-    data.AssumeRoleWithWebIdentityResult,
-    context
-  );
+  contents = deserializeAws_queryAssumeRoleWithWebIdentityResponse(data.AssumeRoleWithWebIdentityResult, context);
   const response: AssumeRoleWithWebIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssumeRoleWithWebIdentityResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -438,7 +376,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
 ): Promise<AssumeRoleWithWebIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -447,78 +385,57 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
       response = {
-        ...(await deserializeAws_queryExpiredTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IDPCommunicationErrorException":
     case "com.amazonaws.sts#IDPCommunicationErrorException":
       response = {
-        ...(await deserializeAws_queryIDPCommunicationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryIDPCommunicationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IDPRejectedClaimException":
     case "com.amazonaws.sts#IDPRejectedClaimException":
       response = {
-        ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidIdentityTokenException":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
       response = {
-        ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "PackedPolicyTooLargeException":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
-        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
       response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -527,10 +444,9 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -544,21 +460,15 @@ export const deserializeAws_queryDecodeAuthorizationMessageCommand = async (
   context: __SerdeContext
 ): Promise<DecodeAuthorizationMessageCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDecodeAuthorizationMessageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDecodeAuthorizationMessageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDecodeAuthorizationMessageResponse(
-    data.DecodeAuthorizationMessageResult,
-    context
-  );
+  contents = deserializeAws_queryDecodeAuthorizationMessageResponse(data.DecodeAuthorizationMessageResult, context);
   const response: DecodeAuthorizationMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DecodeAuthorizationMessageResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -569,7 +479,7 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (
 ): Promise<DecodeAuthorizationMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -578,12 +488,9 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (
     case "InvalidAuthorizationMessageException":
     case "com.amazonaws.sts#InvalidAuthorizationMessageException":
       response = {
-        ...(await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -592,10 +499,9 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -613,14 +519,11 @@ export const deserializeAws_queryGetAccessKeyInfoCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetAccessKeyInfoResponse(
-    data.GetAccessKeyInfoResult,
-    context
-  );
+  contents = deserializeAws_queryGetAccessKeyInfoResponse(data.GetAccessKeyInfoResult, context);
   const response: GetAccessKeyInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAccessKeyInfoResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -631,7 +534,7 @@ const deserializeAws_queryGetAccessKeyInfoCommandError = async (
 ): Promise<GetAccessKeyInfoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -643,10 +546,9 @@ const deserializeAws_queryGetAccessKeyInfoCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -664,14 +566,11 @@ export const deserializeAws_queryGetCallerIdentityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetCallerIdentityResponse(
-    data.GetCallerIdentityResult,
-    context
-  );
+  contents = deserializeAws_queryGetCallerIdentityResponse(data.GetCallerIdentityResult, context);
   const response: GetCallerIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCallerIdentityResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -682,7 +581,7 @@ const deserializeAws_queryGetCallerIdentityCommandError = async (
 ): Promise<GetCallerIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -694,10 +593,9 @@ const deserializeAws_queryGetCallerIdentityCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -715,14 +613,11 @@ export const deserializeAws_queryGetFederationTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetFederationTokenResponse(
-    data.GetFederationTokenResult,
-    context
-  );
+  contents = deserializeAws_queryGetFederationTokenResponse(data.GetFederationTokenResult, context);
   const response: GetFederationTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFederationTokenResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -733,7 +628,7 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
 ): Promise<GetFederationTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -742,34 +637,25 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "PackedPolicyTooLargeException":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
-        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
       response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -778,10 +664,9 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -799,14 +684,11 @@ export const deserializeAws_queryGetSessionTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetSessionTokenResponse(
-    data.GetSessionTokenResult,
-    context
-  );
+  contents = deserializeAws_queryGetSessionTokenResponse(data.GetSessionTokenResult, context);
   const response: GetSessionTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSessionTokenResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -817,7 +699,7 @@ const deserializeAws_queryGetSessionTokenCommandError = async (
 ): Promise<GetSessionTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -826,12 +708,9 @@ const deserializeAws_queryGetSessionTokenCommandError = async (
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
       response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -840,10 +719,9 @@ const deserializeAws_queryGetSessionTokenCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -857,15 +735,12 @@ const deserializeAws_queryExpiredTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ExpiredTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryExpiredTokenException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryExpiredTokenException(body.Error, context);
   const contents: ExpiredTokenException = {
     name: "ExpiredTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -875,15 +750,12 @@ const deserializeAws_queryIDPCommunicationErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IDPCommunicationErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryIDPCommunicationErrorException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryIDPCommunicationErrorException(body.Error, context);
   const contents: IDPCommunicationErrorException = {
     name: "IDPCommunicationErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -893,15 +765,12 @@ const deserializeAws_queryIDPRejectedClaimExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IDPRejectedClaimException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryIDPRejectedClaimException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryIDPRejectedClaimException(body.Error, context);
   const contents: IDPRejectedClaimException = {
     name: "IDPRejectedClaimException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -911,15 +780,12 @@ const deserializeAws_queryInvalidAuthorizationMessageExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidAuthorizationMessageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidAuthorizationMessageException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidAuthorizationMessageException(body.Error, context);
   const contents: InvalidAuthorizationMessageException = {
     name: "InvalidAuthorizationMessageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -929,15 +795,12 @@ const deserializeAws_queryInvalidIdentityTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidIdentityTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidIdentityTokenException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidIdentityTokenException(body.Error, context);
   const contents: InvalidIdentityTokenException = {
     name: "InvalidIdentityTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -947,15 +810,12 @@ const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryMalformedPolicyDocumentException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryMalformedPolicyDocumentException(body.Error, context);
   const contents: MalformedPolicyDocumentException = {
     name: "MalformedPolicyDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -965,15 +825,12 @@ const deserializeAws_queryPackedPolicyTooLargeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PackedPolicyTooLargeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryPackedPolicyTooLargeException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryPackedPolicyTooLargeException(body.Error, context);
   const contents: PackedPolicyTooLargeException = {
     name: "PackedPolicyTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -983,23 +840,17 @@ const deserializeAws_queryRegionDisabledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<RegionDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryRegionDisabledException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryRegionDisabledException(body.Error, context);
   const contents: RegionDisabledException = {
     name: "RegionDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
 
-const serializeAws_queryAssumeRoleRequest = (
-  input: AssumeRoleRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DurationSeconds !== undefined) {
     entries["DurationSeconds"] = input.DurationSeconds;
@@ -1011,10 +862,7 @@ const serializeAws_queryAssumeRoleRequest = (
     entries["Policy"] = input.Policy;
   }
   if (input.PolicyArns !== undefined) {
-    const memberEntries = serializeAws_querypolicyDescriptorListType(
-      input.PolicyArns,
-      context
-    );
+    const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -1040,10 +888,7 @@ const serializeAws_queryAssumeRoleRequest = (
     entries["TokenCode"] = input.TokenCode;
   }
   if (input.TransitiveTagKeys !== undefined) {
-    const memberEntries = serializeAws_querytagKeyListType(
-      input.TransitiveTagKeys,
-      context
-    );
+    const memberEntries = serializeAws_querytagKeyListType(input.TransitiveTagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitiveTagKeys.${key}`;
       entries[loc] = value;
@@ -1064,10 +909,7 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (
     entries["Policy"] = input.Policy;
   }
   if (input.PolicyArns !== undefined) {
-    const memberEntries = serializeAws_querypolicyDescriptorListType(
-      input.PolicyArns,
-      context
-    );
+    const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -1097,10 +939,7 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (
     entries["Policy"] = input.Policy;
   }
   if (input.PolicyArns !== undefined) {
-    const memberEntries = serializeAws_querypolicyDescriptorListType(
-      input.PolicyArns,
-      context
-    );
+    const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -1132,10 +971,7 @@ const serializeAws_queryDecodeAuthorizationMessageRequest = (
   return entries;
 };
 
-const serializeAws_queryGetAccessKeyInfoRequest = (
-  input: GetAccessKeyInfoRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryGetAccessKeyInfoRequest = (input: GetAccessKeyInfoRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AccessKeyId !== undefined) {
     entries["AccessKeyId"] = input.AccessKeyId;
@@ -1143,10 +979,7 @@ const serializeAws_queryGetAccessKeyInfoRequest = (
   return entries;
 };
 
-const serializeAws_queryGetCallerIdentityRequest = (
-  input: GetCallerIdentityRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryGetCallerIdentityRequest = (input: GetCallerIdentityRequest, context: __SerdeContext): any => {
   const entries: any = {};
   return entries;
 };
@@ -1166,10 +999,7 @@ const serializeAws_queryGetFederationTokenRequest = (
     entries["Policy"] = input.Policy;
   }
   if (input.PolicyArns !== undefined) {
-    const memberEntries = serializeAws_querypolicyDescriptorListType(
-      input.PolicyArns,
-      context
-    );
+    const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -1185,10 +1015,7 @@ const serializeAws_queryGetFederationTokenRequest = (
   return entries;
 };
 
-const serializeAws_queryGetSessionTokenRequest = (
-  input: GetSessionTokenRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryGetSessionTokenRequest = (input: GetSessionTokenRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DurationSeconds !== undefined) {
     entries["DurationSeconds"] = input.DurationSeconds;
@@ -1202,17 +1029,11 @@ const serializeAws_queryGetSessionTokenRequest = (
   return entries;
 };
 
-const serializeAws_querypolicyDescriptorListType = (
-  input: PolicyDescriptorType[],
-  context: __SerdeContext
-): any => {
+const serializeAws_querypolicyDescriptorListType = (input: PolicyDescriptorType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
-    const memberEntries = serializeAws_queryPolicyDescriptorType(
-      entry,
-      context
-    );
+    const memberEntries = serializeAws_queryPolicyDescriptorType(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -1221,10 +1042,7 @@ const serializeAws_querypolicyDescriptorListType = (
   return entries;
 };
 
-const serializeAws_queryPolicyDescriptorType = (
-  input: PolicyDescriptorType,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryPolicyDescriptorType = (input: PolicyDescriptorType, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.arn !== undefined) {
     entries["arn"] = input.arn;
@@ -1243,10 +1061,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   return entries;
 };
 
-const serializeAws_querytagKeyListType = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_querytagKeyListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -1256,10 +1071,7 @@ const serializeAws_querytagKeyListType = (
   return entries;
 };
 
-const serializeAws_querytagListType = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -1272,14 +1084,11 @@ const serializeAws_querytagListType = (
   return entries;
 };
 
-const deserializeAws_queryAssumedRoleUser = (
-  output: any,
-  context: __SerdeContext
-): AssumedRoleUser => {
+const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContext): AssumedRoleUser => {
   let contents: any = {
     __type: "AssumedRoleUser",
     Arn: undefined,
-    AssumedRoleId: undefined
+    AssumedRoleId: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
@@ -1290,27 +1099,18 @@ const deserializeAws_queryAssumedRoleUser = (
   return contents;
 };
 
-const deserializeAws_queryAssumeRoleResponse = (
-  output: any,
-  context: __SerdeContext
-): AssumeRoleResponse => {
+const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeContext): AssumeRoleResponse => {
   let contents: any = {
     __type: "AssumeRoleResponse",
     AssumedRoleUser: undefined,
     Credentials: undefined,
-    PackedPolicySize: undefined
+    PackedPolicySize: undefined,
   };
   if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(
-      output["AssumedRoleUser"],
-      context
-    );
+    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
   }
   if (output["Credentials"] !== undefined) {
-    contents.Credentials = deserializeAws_queryCredentials(
-      output["Credentials"],
-      context
-    );
+    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
@@ -1331,22 +1131,16 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
     NameQualifier: undefined,
     PackedPolicySize: undefined,
     Subject: undefined,
-    SubjectType: undefined
+    SubjectType: undefined,
   };
   if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(
-      output["AssumedRoleUser"],
-      context
-    );
+    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
   }
   if (output["Audience"] !== undefined) {
     contents.Audience = output["Audience"];
   }
   if (output["Credentials"] !== undefined) {
-    contents.Credentials = deserializeAws_queryCredentials(
-      output["Credentials"],
-      context
-    );
+    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   if (output["Issuer"] !== undefined) {
     contents.Issuer = output["Issuer"];
@@ -1377,22 +1171,16 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
     Credentials: undefined,
     PackedPolicySize: undefined,
     Provider: undefined,
-    SubjectFromWebIdentityToken: undefined
+    SubjectFromWebIdentityToken: undefined,
   };
   if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(
-      output["AssumedRoleUser"],
-      context
-    );
+    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
   }
   if (output["Audience"] !== undefined) {
     contents.Audience = output["Audience"];
   }
   if (output["Credentials"] !== undefined) {
-    contents.Credentials = deserializeAws_queryCredentials(
-      output["Credentials"],
-      context
-    );
+    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
@@ -1401,22 +1189,18 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
     contents.Provider = output["Provider"];
   }
   if (output["SubjectFromWebIdentityToken"] !== undefined) {
-    contents.SubjectFromWebIdentityToken =
-      output["SubjectFromWebIdentityToken"];
+    contents.SubjectFromWebIdentityToken = output["SubjectFromWebIdentityToken"];
   }
   return contents;
 };
 
-const deserializeAws_queryCredentials = (
-  output: any,
-  context: __SerdeContext
-): Credentials => {
+const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): Credentials => {
   let contents: any = {
     __type: "Credentials",
     AccessKeyId: undefined,
     Expiration: undefined,
     SecretAccessKey: undefined,
-    SessionToken: undefined
+    SessionToken: undefined,
   };
   if (output["AccessKeyId"] !== undefined) {
     contents.AccessKeyId = output["AccessKeyId"];
@@ -1439,7 +1223,7 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
 ): DecodeAuthorizationMessageResponse => {
   let contents: any = {
     __type: "DecodeAuthorizationMessageResponse",
-    DecodedMessage: undefined
+    DecodedMessage: undefined,
   };
   if (output["DecodedMessage"] !== undefined) {
     contents.DecodedMessage = output["DecodedMessage"];
@@ -1447,13 +1231,10 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
   return contents;
 };
 
-const deserializeAws_queryExpiredTokenException = (
-  output: any,
-  context: __SerdeContext
-): ExpiredTokenException => {
+const deserializeAws_queryExpiredTokenException = (output: any, context: __SerdeContext): ExpiredTokenException => {
   let contents: any = {
     __type: "ExpiredTokenException",
-    message: undefined
+    message: undefined,
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
@@ -1461,14 +1242,11 @@ const deserializeAws_queryExpiredTokenException = (
   return contents;
 };
 
-const deserializeAws_queryFederatedUser = (
-  output: any,
-  context: __SerdeContext
-): FederatedUser => {
+const deserializeAws_queryFederatedUser = (output: any, context: __SerdeContext): FederatedUser => {
   let contents: any = {
     __type: "FederatedUser",
     Arn: undefined,
-    FederatedUserId: undefined
+    FederatedUserId: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
@@ -1485,7 +1263,7 @@ const deserializeAws_queryGetAccessKeyInfoResponse = (
 ): GetAccessKeyInfoResponse => {
   let contents: any = {
     __type: "GetAccessKeyInfoResponse",
-    Account: undefined
+    Account: undefined,
   };
   if (output["Account"] !== undefined) {
     contents.Account = output["Account"];
@@ -1501,7 +1279,7 @@ const deserializeAws_queryGetCallerIdentityResponse = (
     __type: "GetCallerIdentityResponse",
     Account: undefined,
     Arn: undefined,
-    UserId: undefined
+    UserId: undefined,
   };
   if (output["Account"] !== undefined) {
     contents.Account = output["Account"];
@@ -1523,19 +1301,13 @@ const deserializeAws_queryGetFederationTokenResponse = (
     __type: "GetFederationTokenResponse",
     Credentials: undefined,
     FederatedUser: undefined,
-    PackedPolicySize: undefined
+    PackedPolicySize: undefined,
   };
   if (output["Credentials"] !== undefined) {
-    contents.Credentials = deserializeAws_queryCredentials(
-      output["Credentials"],
-      context
-    );
+    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   if (output["FederatedUser"] !== undefined) {
-    contents.FederatedUser = deserializeAws_queryFederatedUser(
-      output["FederatedUser"],
-      context
-    );
+    contents.FederatedUser = deserializeAws_queryFederatedUser(output["FederatedUser"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
@@ -1543,19 +1315,13 @@ const deserializeAws_queryGetFederationTokenResponse = (
   return contents;
 };
 
-const deserializeAws_queryGetSessionTokenResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSessionTokenResponse => {
+const deserializeAws_queryGetSessionTokenResponse = (output: any, context: __SerdeContext): GetSessionTokenResponse => {
   let contents: any = {
     __type: "GetSessionTokenResponse",
-    Credentials: undefined
+    Credentials: undefined,
   };
   if (output["Credentials"] !== undefined) {
-    contents.Credentials = deserializeAws_queryCredentials(
-      output["Credentials"],
-      context
-    );
+    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   return contents;
 };
@@ -1566,7 +1332,7 @@ const deserializeAws_queryIDPCommunicationErrorException = (
 ): IDPCommunicationErrorException => {
   let contents: any = {
     __type: "IDPCommunicationErrorException",
-    message: undefined
+    message: undefined,
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
@@ -1580,7 +1346,7 @@ const deserializeAws_queryIDPRejectedClaimException = (
 ): IDPRejectedClaimException => {
   let contents: any = {
     __type: "IDPRejectedClaimException",
-    message: undefined
+    message: undefined,
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
@@ -1594,7 +1360,7 @@ const deserializeAws_queryInvalidAuthorizationMessageException = (
 ): InvalidAuthorizationMessageException => {
   let contents: any = {
     __type: "InvalidAuthorizationMessageException",
-    message: undefined
+    message: undefined,
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
@@ -1608,7 +1374,7 @@ const deserializeAws_queryInvalidIdentityTokenException = (
 ): InvalidIdentityTokenException => {
   let contents: any = {
     __type: "InvalidIdentityTokenException",
-    message: undefined
+    message: undefined,
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
@@ -1622,7 +1388,7 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
 ): MalformedPolicyDocumentException => {
   let contents: any = {
     __type: "MalformedPolicyDocumentException",
-    message: undefined
+    message: undefined,
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
@@ -1636,7 +1402,7 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
 ): PackedPolicyTooLargeException => {
   let contents: any = {
     __type: "PackedPolicyTooLargeException",
-    message: undefined
+    message: undefined,
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
@@ -1644,13 +1410,10 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
   return contents;
 };
 
-const deserializeAws_queryRegionDisabledException = (
-  output: any,
-  context: __SerdeContext
-): RegionDisabledException => {
+const deserializeAws_queryRegionDisabledException = (output: any, context: __SerdeContext): RegionDisabledException => {
   let contents: any = {
     __type: "RegionDisabledException",
-    message: undefined
+    message: undefined,
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
@@ -1661,28 +1424,20 @@ const deserializeAws_queryRegionDisabledException = (
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -1698,7 +1453,7 @@ const buildHttpRpcRequest = async (
     port,
     method: "POST",
     path,
-    headers
+    headers,
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -1718,13 +1473,13 @@ const decodeEscapedXML = (str: string) =>
     .replace(/&lt;/g, "<");
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
         ignoreAttributes: false,
         parseNodeValue: false,
-        tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
+        tagValueProcessor: (val, tagName) => decodeEscapedXML(val),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
@@ -1738,16 +1493,9 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: {
-  [key: string]: string;
-}): string =>
+const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
   Object.entries(formEntries)
-    .map(
-      ([key, value]) =>
-        __extendedEncodeURIComponent(key) +
-        "=" +
-        __extendedEncodeURIComponent(value)
-    )
+    .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {

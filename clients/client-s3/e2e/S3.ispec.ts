@@ -12,21 +12,17 @@ chai.use(chaiAsPromised);
 const { expect } = chai;
 // There will be default values of defaultRegion, credentials, and isBrowser variable in browser tests.
 // Define the values for Node.js tests
-const region: string | undefined =
-  (globalThis as any).defaultRegion || undefined;
-const credentials: Credentials | undefined =
-  (globalThis as any).credentials || undefined;
+const region: string | undefined = (globalThis as any).defaultRegion || undefined;
+const credentials: Credentials | undefined = (globalThis as any).credentials || undefined;
 const isBrowser: boolean | undefined = (globalThis as any).isBrowser || false;
-const Bucket =
-  (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_BUCKET ||
-  process?.env?.AWS_SMOKE_TEST_BUCKET;
+const Bucket = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_BUCKET || process?.env?.AWS_SMOKE_TEST_BUCKET;
 
 let Key = `${Date.now()}`;
 
 describe("@aws-sdk/client-s3", () => {
   const client = new S3({
     region: region,
-    credentials
+    credentials,
   });
 
   describe("PutObject", () => {
@@ -42,7 +38,7 @@ describe("@aws-sdk/client-s3", () => {
         const result = await client.putObject({
           Bucket,
           Key,
-          Body: new Blob([buf])
+          Body: new Blob([buf]),
         });
         expect(result.$metadata.httpStatusCode).to.equal(200);
       });
@@ -51,7 +47,7 @@ describe("@aws-sdk/client-s3", () => {
         const result = await client.putObject({
           Bucket,
           Key,
-          Body: buf
+          Body: buf,
         });
         expect(result.$metadata.httpStatusCode).to.equal(200);
       });
@@ -70,12 +66,12 @@ describe("@aws-sdk/client-s3", () => {
               controller.enqueue(chunk);
               sizeLeft -= chunk.length;
             }
-          }
+          },
         });
         const result = await client.putObject({
           Bucket,
           Key,
-          Body: readableStream
+          Body: readableStream,
         });
         expect(result.$metadata.httpStatusCode).to.equal(200);
       });
@@ -97,13 +93,13 @@ describe("@aws-sdk/client-s3", () => {
             }
             this.push(chunk);
             sizeLeft -= chunk.length;
-          }
+          },
         });
         inputStream.size = length; // This is required
         const result = await client.putObject({
           Bucket,
           Key,
-          Body: inputStream
+          Body: inputStream,
         });
         expect(result.$metadata.httpStatusCode).to.equal(200);
       });
@@ -145,16 +141,14 @@ describe("@aws-sdk/client-s3", () => {
     });
     it("should succeed with valid bucket", async () => {
       const result = await client.listObjects({
-        Bucket
+        Bucket,
       });
       expect(result.$metadata.httpStatusCode).to.equal(200);
       expect(result.Contents).to.be.instanceOf(Array);
     });
 
     it("should throw with invalid bucket", () =>
-      expect(
-        client.listObjects({ Bucket: "invalid-bucket" })
-      ).to.eventually.be.rejected.and.be.an.instanceOf(Error));
+      expect(client.listObjects({ Bucket: "invalid-bucket" })).to.eventually.be.rejected.and.be.an.instanceOf(Error));
   });
 
   describe("MultipartUpload", () => {
@@ -169,12 +163,12 @@ describe("@aws-sdk/client-s3", () => {
         await client.abortMultipartUpload({
           Bucket,
           Key: multipartObjectKey,
-          UploadId
+          UploadId,
         });
       }
       await client.deleteObject({
         Bucket,
-        Key: multipartObjectKey
+        Key: multipartObjectKey,
       });
     });
 
@@ -182,7 +176,7 @@ describe("@aws-sdk/client-s3", () => {
       //create multipart upload
       const createResult = await client.createMultipartUpload({
         Bucket,
-        Key: multipartObjectKey
+        Key: multipartObjectKey,
       });
       expect(createResult.$metadata.httpStatusCode).to.equal(200);
       expect(typeof createResult.UploadId).to.equal("string");
@@ -194,7 +188,7 @@ describe("@aws-sdk/client-s3", () => {
         Key: multipartObjectKey,
         UploadId,
         PartNumber: 1,
-        Body: createBuffer("1KB")
+        Body: createBuffer("1KB"),
       });
       expect(uploadResult.$metadata.httpStatusCode).to.equal(200);
       expect(typeof uploadResult.ETag).to.equal("string");
@@ -204,7 +198,7 @@ describe("@aws-sdk/client-s3", () => {
       const listPartsResult = await client.listParts({
         Bucket,
         Key: multipartObjectKey,
-        UploadId
+        UploadId,
       });
       expect(listPartsResult.$metadata.httpStatusCode).to.equal(200);
       expect(listPartsResult.Parts?.length).to.equal(1);
@@ -215,14 +209,14 @@ describe("@aws-sdk/client-s3", () => {
         Bucket,
         Key: multipartObjectKey,
         UploadId,
-        MultipartUpload: { Parts: [{ ETag: Etag, PartNumber: 1 }] }
+        MultipartUpload: { Parts: [{ ETag: Etag, PartNumber: 1 }] },
       });
       expect(completeResult.$metadata.httpStatusCode).to.equal(200);
 
       //validate the object is uploaded
       const headResult = await client.headObject({
         Bucket,
-        Key: multipartObjectKey
+        Key: multipartObjectKey,
       });
       expect(headResult.$metadata.httpStatusCode).to.equal(200);
     });
@@ -231,7 +225,7 @@ describe("@aws-sdk/client-s3", () => {
       //create multipart upload
       const createResult = await client.createMultipartUpload({
         Bucket,
-        Key: multipartObjectKey
+        Key: multipartObjectKey,
       });
       expect(createResult.$metadata.httpStatusCode).to.equal(200);
       const toAbort = createResult.UploadId;
@@ -241,18 +235,16 @@ describe("@aws-sdk/client-s3", () => {
       const abortResult = await client.abortMultipartUpload({
         Bucket,
         Key: multipartObjectKey,
-        UploadId: toAbort
+        UploadId: toAbort,
       });
       expect(abortResult.$metadata.httpStatusCode).to.equal(204);
 
       //validate multipart upload is aborted
       const listUploadsResult = await client.listMultipartUploads({
-        Bucket
+        Bucket,
       });
       expect(listUploadsResult.$metadata.httpStatusCode).to.equal(200);
-      expect(
-        (listUploadsResult.Uploads || []).map(upload => upload.UploadId)
-      ).not.to.contain(toAbort);
+      expect((listUploadsResult.Uploads || []).map((upload) => upload.UploadId)).not.to.contain(toAbort);
     });
   });
 });

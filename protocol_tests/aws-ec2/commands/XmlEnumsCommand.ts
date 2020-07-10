@@ -1,18 +1,8 @@
-import {
-  EC2ProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2ProtocolClient";
+import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { XmlEnumsOutput } from "../models/index";
-import {
-  deserializeAws_ec2XmlEnumsCommand,
-  serializeAws_ec2XmlEnumsCommand
-} from "../protocols/Aws_ec2";
+import { deserializeAws_ec2XmlEnumsCommand, serializeAws_ec2XmlEnumsCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +11,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type XmlEnumsCommandInput = {};
@@ -46,14 +36,12 @@ export class XmlEnumsCommand extends $Command<
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlEnumsCommandInput, XmlEnumsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +51,11 @@ export class XmlEnumsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: XmlEnumsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: XmlEnumsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2XmlEnumsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<XmlEnumsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEnumsCommandOutput> {
     return deserializeAws_ec2XmlEnumsCommand(output, context);
   }
 

@@ -19,17 +19,11 @@ export class Int64 {
 
   static fromNumber(number: number): Int64 {
     if (number > 9223372036854775807 || number < -9223372036854775808) {
-      throw new Error(
-        `${number} is too large (or, if negative, too small) to represent as an Int64`
-      );
+      throw new Error(`${number} is too large (or, if negative, too small) to represent as an Int64`);
     }
 
     const bytes = new Uint8Array(8);
-    for (
-      let i = 7, remaining = Math.abs(Math.round(number));
-      i > -1 && remaining > 0;
-      i--, remaining /= 256
-    ) {
+    for (let i = 7, remaining = Math.abs(Math.round(number)); i > -1 && remaining > 0; i--, remaining /= 256) {
       bytes[i] = remaining;
     }
 

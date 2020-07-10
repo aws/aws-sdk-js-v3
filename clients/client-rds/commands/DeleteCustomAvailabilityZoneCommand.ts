@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DeleteCustomAvailabilityZoneMessage,
-  DeleteCustomAvailabilityZoneResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeleteCustomAvailabilityZoneMessage, DeleteCustomAvailabilityZoneResult } from "../models/index";
 import {
   deserializeAws_queryDeleteCustomAvailabilityZoneCommand,
-  serializeAws_queryDeleteCustomAvailabilityZoneCommand
+  serializeAws_queryDeleteCustomAvailabilityZoneCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteCustomAvailabilityZoneCommandInput = DeleteCustomAvailabilityZoneMessage;
-export type DeleteCustomAvailabilityZoneCommandOutput = DeleteCustomAvailabilityZoneResult &
-  __MetadataBearer;
+export type DeleteCustomAvailabilityZoneCommandOutput = DeleteCustomAvailabilityZoneResult & __MetadataBearer;
 
 export class DeleteCustomAvailabilityZoneCommand extends $Command<
   DeleteCustomAvailabilityZoneCommandInput,
@@ -49,18 +38,13 @@ export class DeleteCustomAvailabilityZoneCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCustomAvailabilityZoneCommandInput,
-    DeleteCustomAvailabilityZoneCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCustomAvailabilityZoneCommandInput, DeleteCustomAvailabilityZoneCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DeleteCustomAvailabilityZoneCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteCustomAvailabilityZoneCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteCustomAvailabilityZoneCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteCustomAvailabilityZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDeleteCustomAvailabilityZoneCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomAvailabilityZoneCommandOutput> {
-    return deserializeAws_queryDeleteCustomAvailabilityZoneCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteCustomAvailabilityZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

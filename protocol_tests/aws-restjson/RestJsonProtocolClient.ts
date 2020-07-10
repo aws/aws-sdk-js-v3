@@ -1,114 +1,81 @@
 import {
   AllQueryStringTypesCommandInput,
-  AllQueryStringTypesCommandOutput
+  AllQueryStringTypesCommandOutput,
 } from "./commands/AllQueryStringTypesCommand";
 import {
   ConstantAndVariableQueryStringCommandInput,
-  ConstantAndVariableQueryStringCommandOutput
+  ConstantAndVariableQueryStringCommandOutput,
 } from "./commands/ConstantAndVariableQueryStringCommand";
 import {
   ConstantQueryStringCommandInput,
-  ConstantQueryStringCommandOutput
+  ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
-  EmptyInputAndEmptyOutputCommandOutput
+  EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
-import {
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput
-} from "./commands/GreetingWithErrorsCommand";
-import {
-  HttpPayloadTraitsCommandInput,
-  HttpPayloadTraitsCommandOutput
-} from "./commands/HttpPayloadTraitsCommand";
+import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
+import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
-  HttpPayloadTraitsWithMediaTypeCommandOutput
+  HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
   HttpPayloadWithStructureCommandInput,
-  HttpPayloadWithStructureCommandOutput
+  HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
-import {
-  HttpPrefixHeadersCommandInput,
-  HttpPrefixHeadersCommandOutput
-} from "./commands/HttpPrefixHeadersCommand";
+import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "./commands/HttpPrefixHeadersCommand";
 import {
   HttpRequestWithGreedyLabelInPathCommandInput,
-  HttpRequestWithGreedyLabelInPathCommandOutput
+  HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "./commands/HttpRequestWithGreedyLabelInPathCommand";
 import {
   HttpRequestWithLabelsAndTimestampFormatCommandInput,
-  HttpRequestWithLabelsAndTimestampFormatCommandOutput
+  HttpRequestWithLabelsAndTimestampFormatCommandOutput,
 } from "./commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import {
   HttpRequestWithLabelsCommandInput,
-  HttpRequestWithLabelsCommandOutput
+  HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
-  IgnoreQueryParamsInResponseCommandOutput
+  IgnoreQueryParamsInResponseCommandOutput,
 } from "./commands/IgnoreQueryParamsInResponseCommand";
 import {
   InputAndOutputWithHeadersCommandInput,
-  InputAndOutputWithHeadersCommandOutput
+  InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
-import {
-  JsonBlobsCommandInput,
-  JsonBlobsCommandOutput
-} from "./commands/JsonBlobsCommand";
-import {
-  JsonEnumsCommandInput,
-  JsonEnumsCommandOutput
-} from "./commands/JsonEnumsCommand";
-import {
-  JsonListsCommandInput,
-  JsonListsCommandOutput
-} from "./commands/JsonListsCommand";
-import {
-  JsonMapsCommandInput,
-  JsonMapsCommandOutput
-} from "./commands/JsonMapsCommand";
-import {
-  JsonTimestampsCommandInput,
-  JsonTimestampsCommandOutput
-} from "./commands/JsonTimestampsCommand";
-import {
-  NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput
-} from "./commands/NoInputAndNoOutputCommand";
-import {
-  NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput
-} from "./commands/NoInputAndOutputCommand";
+import { JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
+import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
+import { JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
+import { JsonTimestampsCommandInput, JsonTimestampsCommandOutput } from "./commands/JsonTimestampsCommand";
+import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
+import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
   NullAndEmptyHeadersClientCommandInput,
-  NullAndEmptyHeadersClientCommandOutput
+  NullAndEmptyHeadersClientCommandOutput,
 } from "./commands/NullAndEmptyHeadersClientCommand";
 import {
   NullAndEmptyHeadersServerCommandInput,
-  NullAndEmptyHeadersServerCommandOutput
+  NullAndEmptyHeadersServerCommandOutput,
 } from "./commands/NullAndEmptyHeadersServerCommand";
 import {
   OmitsNullSerializesEmptyStringCommandInput,
-  OmitsNullSerializesEmptyStringCommandOutput
+  OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import {
   QueryIdempotencyTokenAutoFillCommandInput,
-  QueryIdempotencyTokenAutoFillCommandOutput
+  QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
-import {
-  RecursiveShapesCommandInput,
-  RecursiveShapesCommandOutput
-} from "./commands/RecursiveShapesCommand";
+import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "./commands/RecursiveShapesCommand";
 import {
   SimpleScalarPropertiesCommandInput,
-  SimpleScalarPropertiesCommandOutput
+  SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
 import {
   TimestampFormatHeadersCommandInput,
-  TimestampFormatHeadersCommandOutput
+  TimestampFormatHeadersCommandOutput,
 } from "./commands/TimestampFormatHeadersCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -117,38 +84,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -159,7 +121,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -222,8 +184,7 @@ export type ServiceOutputTypes =
   | SimpleScalarPropertiesCommandOutput
   | TimestampFormatHeadersCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -312,9 +273,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RestJsonProtocolClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RestJsonProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -323,9 +282,7 @@ export type RestJsonProtocolClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RestJsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RestJsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -348,7 +305,7 @@ export class RestJsonProtocolClient extends __Client<
   constructor(configuration: RestJsonProtocolClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

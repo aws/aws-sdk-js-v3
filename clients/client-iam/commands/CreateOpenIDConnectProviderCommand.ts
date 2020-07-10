@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  CreateOpenIDConnectProviderRequest,
-  CreateOpenIDConnectProviderResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { CreateOpenIDConnectProviderRequest, CreateOpenIDConnectProviderResponse } from "../models/index";
 import {
   deserializeAws_queryCreateOpenIDConnectProviderCommand,
-  serializeAws_queryCreateOpenIDConnectProviderCommand
+  serializeAws_queryCreateOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateOpenIDConnectProviderCommandInput = CreateOpenIDConnectProviderRequest;
-export type CreateOpenIDConnectProviderCommandOutput = CreateOpenIDConnectProviderResponse &
-  __MetadataBearer;
+export type CreateOpenIDConnectProviderCommandOutput = CreateOpenIDConnectProviderResponse & __MetadataBearer;
 
 export class CreateOpenIDConnectProviderCommand extends $Command<
   CreateOpenIDConnectProviderCommandInput,
@@ -49,18 +38,13 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateOpenIDConnectProviderCommandInput,
-    CreateOpenIDConnectProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateOpenIDConnectProviderCommandInput, CreateOpenIDConnectProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateOpenIDConnectProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateOpenIDConnectProviderCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryCreateOpenIDConnectProviderCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

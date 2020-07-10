@@ -11,11 +11,7 @@ const cacheQueue: Array<string> = [];
  * @param region    The AWS region in which the service resides.
  * @param service   The service to which the signed request is being sent.
  */
-export function createScope(
-  shortDate: string,
-  region: string,
-  service: string
-): string {
+export function createScope(shortDate: string, region: string, service: string): string {
   return `${shortDate}/${region}/${service}/${KEY_TYPE_IDENTIFIER}`;
 }
 
@@ -38,9 +34,7 @@ export function getSigningKey(
   region: string,
   service: string
 ): Promise<Uint8Array> {
-  const cacheKey =
-    `${shortDate}:${region}:${service}:` +
-    `${credentials.accessKeyId}:${credentials.sessionToken}`;
+  const cacheKey = `${shortDate}:${region}:${service}:` + `${credentials.accessKeyId}:${credentials.sessionToken}`;
   if (cacheKey in signingKeyCache) {
     return signingKeyCache[cacheKey];
   }
@@ -51,18 +45,14 @@ export function getSigningKey(
   }
 
   return (signingKeyCache[cacheKey] = new Promise((resolve, reject) => {
-    let keyPromise: Promise<SourceData> = Promise.resolve(
-      `AWS4${credentials.secretAccessKey}`
-    );
+    let keyPromise: Promise<SourceData> = Promise.resolve(`AWS4${credentials.secretAccessKey}`);
 
     for (let signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
-      keyPromise = keyPromise.then<Uint8Array>(intermediateKey =>
-        hmac(sha256Constructor, intermediateKey, signable)
-      );
+      keyPromise = keyPromise.then<Uint8Array>((intermediateKey) => hmac(sha256Constructor, intermediateKey, signable));
       keyPromise.catch(() => {});
     }
 
-    (keyPromise as Promise<Uint8Array>).then(resolve, reason => {
+    (keyPromise as Promise<Uint8Array>).then(resolve, (reason) => {
       delete signingKeyCache[cacheKey];
       reject(reason);
     });
@@ -74,16 +64,12 @@ export function getSigningKey(
  */
 export function clearCredentialCache(): void {
   cacheQueue.length = 0;
-  Object.keys(signingKeyCache).forEach(cacheKey => {
+  Object.keys(signingKeyCache).forEach((cacheKey) => {
     delete signingKeyCache[cacheKey];
   });
 }
 
-function hmac(
-  ctor: HashConstructor,
-  secret: SourceData,
-  data: SourceData
-): Promise<Uint8Array> {
+function hmac(ctor: HashConstructor, secret: SourceData, data: SourceData): Promise<Uint8Array> {
   const hash = new ctor(secret);
   hash.update(data);
   return hash.digest();

@@ -2,22 +2,22 @@ import { IoTJobsDataPlaneClient } from "./IoTJobsDataPlaneClient";
 import {
   DescribeJobExecutionCommand,
   DescribeJobExecutionCommandInput,
-  DescribeJobExecutionCommandOutput
+  DescribeJobExecutionCommandOutput,
 } from "./commands/DescribeJobExecutionCommand";
 import {
   GetPendingJobExecutionsCommand,
   GetPendingJobExecutionsCommandInput,
-  GetPendingJobExecutionsCommandOutput
+  GetPendingJobExecutionsCommandOutput,
 } from "./commands/GetPendingJobExecutionsCommand";
 import {
   StartNextPendingJobExecutionCommand,
   StartNextPendingJobExecutionCommandInput,
-  StartNextPendingJobExecutionCommandOutput
+  StartNextPendingJobExecutionCommandOutput,
 } from "./commands/StartNextPendingJobExecutionCommand";
 import {
   UpdateJobExecutionCommand,
   UpdateJobExecutionCommandInput,
-  UpdateJobExecutionCommandOutput
+  UpdateJobExecutionCommandOutput,
 } from "./commands/UpdateJobExecutionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -53,17 +53,14 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
   ): void;
   public describeJobExecution(
     args: DescribeJobExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobExecutionCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobExecutionCommandOutput) => void
   ): Promise<DescribeJobExecutionCommandOutput> | void {
     const command = new DescribeJobExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -88,17 +85,14 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
   ): void;
   public getPendingJobExecutions(
     args: GetPendingJobExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPendingJobExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPendingJobExecutionsCommandOutput) => void),
     cb?: (err: any, data?: GetPendingJobExecutionsCommandOutput) => void
   ): Promise<GetPendingJobExecutionsCommandOutput> | void {
     const command = new GetPendingJobExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -123,17 +117,14 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
   ): void;
   public startNextPendingJobExecution(
     args: StartNextPendingJobExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartNextPendingJobExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartNextPendingJobExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartNextPendingJobExecutionCommandOutput) => void
   ): Promise<StartNextPendingJobExecutionCommandOutput> | void {
     const command = new StartNextPendingJobExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -158,17 +149,14 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
   ): void;
   public updateJobExecution(
     args: UpdateJobExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobExecutionCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobExecutionCommandOutput) => void
   ): Promise<UpdateJobExecutionCommandOutput> | void {
     const command = new UpdateJobExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

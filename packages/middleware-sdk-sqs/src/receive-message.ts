@@ -6,7 +6,7 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
@@ -20,9 +20,7 @@ interface Message {
   MessageId: string | undefined;
 }
 
-export function receiveMessageMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function receiveMessageMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -42,13 +40,11 @@ export function receiveMessageMiddleware(
       }
     }
     if (messageIds.length > 0) {
-      throw new Error(
-        "Invalid MD5 checksum on messages: " + messageIds.join(", ")
-      );
+      throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
     }
 
     return next({
-      ...args
+      ...args,
     });
   };
 }
@@ -56,16 +52,11 @@ export function receiveMessageMiddleware(
 export const receiveMessageMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
-  name: "receiveMessageMiddleware"
+  name: "receiveMessageMiddleware",
 };
 
-export const getReceiveMessagePlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      receiveMessageMiddleware(config),
-      receiveMessageMiddlewareOptions
-    );
-  }
+export const getReceiveMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(receiveMessageMiddleware(config), receiveMessageMiddlewareOptions);
+  },
 });

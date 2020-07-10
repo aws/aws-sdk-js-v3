@@ -9,5 +9,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "react-native",
   defaultUserAgent: `aws-sdk-js-v3-react-native-${name}/${version}`,
   sha256: Sha256,
-  urlParser: parseUrl
+  urlParser: parseUrl,
 };

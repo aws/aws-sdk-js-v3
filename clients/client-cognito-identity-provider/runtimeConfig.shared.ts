@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2016-04-18",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "cognito-idp"
+  signingName: "cognito-idp",
 };

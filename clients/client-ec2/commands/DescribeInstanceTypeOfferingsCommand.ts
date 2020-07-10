@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeInstanceTypeOfferingsRequest,
-  DescribeInstanceTypeOfferingsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeInstanceTypeOfferingsRequest, DescribeInstanceTypeOfferingsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeInstanceTypeOfferingsCommand,
-  serializeAws_ec2DescribeInstanceTypeOfferingsCommand
+  serializeAws_ec2DescribeInstanceTypeOfferingsCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeInstanceTypeOfferingsCommandInput = DescribeInstanceTypeOfferingsRequest;
-export type DescribeInstanceTypeOfferingsCommandOutput = DescribeInstanceTypeOfferingsResult &
-  __MetadataBearer;
+export type DescribeInstanceTypeOfferingsCommandOutput = DescribeInstanceTypeOfferingsResult & __MetadataBearer;
 
 export class DescribeInstanceTypeOfferingsCommand extends $Command<
   DescribeInstanceTypeOfferingsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstanceTypeOfferingsCommandInput,
-    DescribeInstanceTypeOfferingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstanceTypeOfferingsCommandInput, DescribeInstanceTypeOfferingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeInstanceTypeOfferingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeInstanceTypeOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInstanceTypeOfferingsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceTypeOfferingsCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceTypeOfferingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeInstanceTypeOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

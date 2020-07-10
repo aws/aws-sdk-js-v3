@@ -1,21 +1,11 @@
-import {
-  UpdateDiscovererRequest,
-  UpdateDiscovererResponse
-} from "../models/index";
+import { UpdateDiscovererRequest, UpdateDiscovererResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateDiscovererCommand,
-  serializeAws_restJson1UpdateDiscovererCommand
+  serializeAws_restJson1UpdateDiscovererCommand,
 } from "../protocols/Aws_restJson1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  schemasClientResolvedConfig
-} from "../schemasClient";
+import { ServiceInputTypes, ServiceOutputTypes, schemasClientResolvedConfig } from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateDiscovererCommandInput = UpdateDiscovererRequest;
-export type UpdateDiscovererCommandOutput = UpdateDiscovererResponse &
-  __MetadataBearer;
+export type UpdateDiscovererCommandOutput = UpdateDiscovererResponse & __MetadataBearer;
 
 export class UpdateDiscovererCommand extends $Command<
   UpdateDiscovererCommandInput,
@@ -50,14 +39,12 @@ export class UpdateDiscovererCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDiscovererCommandInput, UpdateDiscovererCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class UpdateDiscovererCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDiscovererCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDiscovererCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDiscovererCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDiscovererCommandOutput> {
     return deserializeAws_restJson1UpdateDiscovererCommand(output, context);
   }
 

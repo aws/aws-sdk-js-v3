@@ -1,151 +1,100 @@
-import {
-  AcknowledgeJobCommandInput,
-  AcknowledgeJobCommandOutput
-} from "./commands/AcknowledgeJobCommand";
+import { AcknowledgeJobCommandInput, AcknowledgeJobCommandOutput } from "./commands/AcknowledgeJobCommand";
 import {
   AcknowledgeThirdPartyJobCommandInput,
-  AcknowledgeThirdPartyJobCommandOutput
+  AcknowledgeThirdPartyJobCommandOutput,
 } from "./commands/AcknowledgeThirdPartyJobCommand";
 import {
   CreateCustomActionTypeCommandInput,
-  CreateCustomActionTypeCommandOutput
+  CreateCustomActionTypeCommandOutput,
 } from "./commands/CreateCustomActionTypeCommand";
-import {
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput
-} from "./commands/CreatePipelineCommand";
+import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
 import {
   DeleteCustomActionTypeCommandInput,
-  DeleteCustomActionTypeCommandOutput
+  DeleteCustomActionTypeCommandOutput,
 } from "./commands/DeleteCustomActionTypeCommand";
-import {
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput
-} from "./commands/DeletePipelineCommand";
-import {
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput
-} from "./commands/DeleteWebhookCommand";
+import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
 import {
   DeregisterWebhookWithThirdPartyCommandInput,
-  DeregisterWebhookWithThirdPartyCommandOutput
+  DeregisterWebhookWithThirdPartyCommandOutput,
 } from "./commands/DeregisterWebhookWithThirdPartyCommand";
 import {
   DisableStageTransitionCommandInput,
-  DisableStageTransitionCommandOutput
+  DisableStageTransitionCommandOutput,
 } from "./commands/DisableStageTransitionCommand";
 import {
   EnableStageTransitionCommandInput,
-  EnableStageTransitionCommandOutput
+  EnableStageTransitionCommandOutput,
 } from "./commands/EnableStageTransitionCommand";
-import {
-  GetJobDetailsCommandInput,
-  GetJobDetailsCommandOutput
-} from "./commands/GetJobDetailsCommand";
-import {
-  GetPipelineCommandInput,
-  GetPipelineCommandOutput
-} from "./commands/GetPipelineCommand";
+import { GetJobDetailsCommandInput, GetJobDetailsCommandOutput } from "./commands/GetJobDetailsCommand";
+import { GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
 import {
   GetPipelineExecutionCommandInput,
-  GetPipelineExecutionCommandOutput
+  GetPipelineExecutionCommandOutput,
 } from "./commands/GetPipelineExecutionCommand";
-import {
-  GetPipelineStateCommandInput,
-  GetPipelineStateCommandOutput
-} from "./commands/GetPipelineStateCommand";
+import { GetPipelineStateCommandInput, GetPipelineStateCommandOutput } from "./commands/GetPipelineStateCommand";
 import {
   GetThirdPartyJobDetailsCommandInput,
-  GetThirdPartyJobDetailsCommandOutput
+  GetThirdPartyJobDetailsCommandOutput,
 } from "./commands/GetThirdPartyJobDetailsCommand";
 import {
   ListActionExecutionsCommandInput,
-  ListActionExecutionsCommandOutput
+  ListActionExecutionsCommandOutput,
 } from "./commands/ListActionExecutionsCommand";
-import {
-  ListActionTypesCommandInput,
-  ListActionTypesCommandOutput
-} from "./commands/ListActionTypesCommand";
+import { ListActionTypesCommandInput, ListActionTypesCommandOutput } from "./commands/ListActionTypesCommand";
 import {
   ListPipelineExecutionsCommandInput,
-  ListPipelineExecutionsCommandOutput
+  ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand";
-import {
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput
-} from "./commands/ListPipelinesCommand";
+import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWebhooksCommandInput,
-  ListWebhooksCommandOutput
-} from "./commands/ListWebhooksCommand";
-import {
-  PollForJobsCommandInput,
-  PollForJobsCommandOutput
-} from "./commands/PollForJobsCommand";
+import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
+import { PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand";
 import {
   PollForThirdPartyJobsCommandInput,
-  PollForThirdPartyJobsCommandOutput
+  PollForThirdPartyJobsCommandOutput,
 } from "./commands/PollForThirdPartyJobsCommand";
-import {
-  PutActionRevisionCommandInput,
-  PutActionRevisionCommandOutput
-} from "./commands/PutActionRevisionCommand";
-import {
-  PutApprovalResultCommandInput,
-  PutApprovalResultCommandOutput
-} from "./commands/PutApprovalResultCommand";
+import { PutActionRevisionCommandInput, PutActionRevisionCommandOutput } from "./commands/PutActionRevisionCommand";
+import { PutApprovalResultCommandInput, PutApprovalResultCommandOutput } from "./commands/PutApprovalResultCommand";
 import {
   PutJobFailureResultCommandInput,
-  PutJobFailureResultCommandOutput
+  PutJobFailureResultCommandOutput,
 } from "./commands/PutJobFailureResultCommand";
 import {
   PutJobSuccessResultCommandInput,
-  PutJobSuccessResultCommandOutput
+  PutJobSuccessResultCommandOutput,
 } from "./commands/PutJobSuccessResultCommand";
 import {
   PutThirdPartyJobFailureResultCommandInput,
-  PutThirdPartyJobFailureResultCommandOutput
+  PutThirdPartyJobFailureResultCommandOutput,
 } from "./commands/PutThirdPartyJobFailureResultCommand";
 import {
   PutThirdPartyJobSuccessResultCommandInput,
-  PutThirdPartyJobSuccessResultCommandOutput
+  PutThirdPartyJobSuccessResultCommandOutput,
 } from "./commands/PutThirdPartyJobSuccessResultCommand";
-import {
-  PutWebhookCommandInput,
-  PutWebhookCommandOutput
-} from "./commands/PutWebhookCommand";
+import { PutWebhookCommandInput, PutWebhookCommandOutput } from "./commands/PutWebhookCommand";
 import {
   RegisterWebhookWithThirdPartyCommandInput,
-  RegisterWebhookWithThirdPartyCommandOutput
+  RegisterWebhookWithThirdPartyCommandOutput,
 } from "./commands/RegisterWebhookWithThirdPartyCommand";
 import {
   RetryStageExecutionCommandInput,
-  RetryStageExecutionCommandOutput
+  RetryStageExecutionCommandOutput,
 } from "./commands/RetryStageExecutionCommand";
 import {
   StartPipelineExecutionCommandInput,
-  StartPipelineExecutionCommandOutput
+  StartPipelineExecutionCommandOutput,
 } from "./commands/StartPipelineExecutionCommand";
 import {
   StopPipelineExecutionCommandInput,
-  StopPipelineExecutionCommandOutput
+  StopPipelineExecutionCommandOutput,
 } from "./commands/StopPipelineExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput
-} from "./commands/UpdatePipelineCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -153,38 +102,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -195,7 +139,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -276,8 +220,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdatePipelineCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -366,9 +309,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodePipelineClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodePipelineClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -377,9 +318,7 @@ export type CodePipelineClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -596,7 +535,7 @@ export class CodePipelineClient extends __Client<
   constructor(configuration: CodePipelineClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

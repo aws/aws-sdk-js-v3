@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  ApplySecurityGroupsToLoadBalancerInput,
-  ApplySecurityGroupsToLoadBalancerOutput
-} from "../models/index";
+import { ApplySecurityGroupsToLoadBalancerInput, ApplySecurityGroupsToLoadBalancerOutput } from "../models/index";
 import {
   deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
-  serializeAws_queryApplySecurityGroupsToLoadBalancerCommand
+  serializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ApplySecurityGroupsToLoadBalancerCommandInput = ApplySecurityGroupsToLoadBalancerInput;
-export type ApplySecurityGroupsToLoadBalancerCommandOutput = ApplySecurityGroupsToLoadBalancerOutput &
-  __MetadataBearer;
+export type ApplySecurityGroupsToLoadBalancerCommandOutput = ApplySecurityGroupsToLoadBalancerOutput & __MetadataBearer;
 
 export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
   ApplySecurityGroupsToLoadBalancerCommandInput,
@@ -49,18 +42,13 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ApplySecurityGroupsToLoadBalancerCommandInput,
-    ApplySecurityGroupsToLoadBalancerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ApplySecurityGroupsToLoadBalancerCommandInput, ApplySecurityGroupsToLoadBalancerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +62,14 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
     input: ApplySecurityGroupsToLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryApplySecurityGroupsToLoadBalancerCommand(
-      input,
-      context
-    );
+    return serializeAws_queryApplySecurityGroupsToLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> {
-    return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

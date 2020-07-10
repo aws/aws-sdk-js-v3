@@ -2,12 +2,12 @@ import { MarketplaceCommerceAnalyticsClient } from "./MarketplaceCommerceAnalyti
 import {
   GenerateDataSetCommand,
   GenerateDataSetCommandInput,
-  GenerateDataSetCommandOutput
+  GenerateDataSetCommandOutput,
 } from "./commands/GenerateDataSetCommand";
 import {
   StartSupportDataExportCommand,
   StartSupportDataExportCommandInput,
-  StartSupportDataExportCommandOutput
+  StartSupportDataExportCommandOutput,
 } from "./commands/StartSupportDataExportCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -40,17 +40,14 @@ export class MarketplaceCommerceAnalytics extends MarketplaceCommerceAnalyticsCl
   ): void;
   public generateDataSet(
     args: GenerateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataSetCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataSetCommandOutput) => void
   ): Promise<GenerateDataSetCommandOutput> | void {
     const command = new GenerateDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -82,17 +79,14 @@ export class MarketplaceCommerceAnalytics extends MarketplaceCommerceAnalyticsCl
   ): void;
   public startSupportDataExport(
     args: StartSupportDataExportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSupportDataExportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSupportDataExportCommandOutput) => void),
     cb?: (err: any, data?: StartSupportDataExportCommandOutput) => void
   ): Promise<StartSupportDataExportCommandOutput> | void {
     const command = new StartSupportDataExportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

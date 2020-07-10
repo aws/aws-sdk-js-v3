@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  DescribeReservedCacheNodesOfferingsMessage,
-  ReservedCacheNodesOfferingMessage
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DescribeReservedCacheNodesOfferingsMessage, ReservedCacheNodesOfferingMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
-  serializeAws_queryDescribeReservedCacheNodesOfferingsCommand
+  serializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeReservedCacheNodesOfferingsCommandInput = DescribeReservedCacheNodesOfferingsMessage;
-export type DescribeReservedCacheNodesOfferingsCommandOutput = ReservedCacheNodesOfferingMessage &
-  __MetadataBearer;
+export type DescribeReservedCacheNodesOfferingsCommandOutput = ReservedCacheNodesOfferingMessage & __MetadataBearer;
 
 export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
   DescribeReservedCacheNodesOfferingsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReservedCacheNodesOfferingsCommandInput,
-    DescribeReservedCacheNodesOfferingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReservedCacheNodesOfferingsCommandInput, DescribeReservedCacheNodesOfferingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     input: DescribeReservedCacheNodesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedCacheNodesOfferingsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeReservedCacheNodesOfferingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> {
-    return deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

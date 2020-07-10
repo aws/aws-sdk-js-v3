@@ -1,18 +1,10 @@
 import { CloudSearchDomainClient } from "./CloudSearchDomainClient";
-import {
-  SearchCommand,
-  SearchCommandInput,
-  SearchCommandOutput
-} from "./commands/SearchCommand";
-import {
-  SuggestCommand,
-  SuggestCommandInput,
-  SuggestCommandOutput
-} from "./commands/SuggestCommand";
+import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
+import { SuggestCommand, SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
 import {
   UploadDocumentsCommand,
   UploadDocumentsCommandInput,
-  UploadDocumentsCommandOutput
+  UploadDocumentsCommandOutput,
 } from "./commands/UploadDocumentsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -34,14 +26,8 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
    *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html">Searching Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    *       <p>The endpoint for submitting <code>Search</code> requests is domain-specific and requires the <code>--endpoint-url</code> option. You submit search requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. The endpoints are also available on the domain dashboard in the Amazon CloudSearch console.</p>
    */
-  public search(
-    args: SearchCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SearchCommandOutput>;
-  public search(
-    args: SearchCommandInput,
-    cb: (err: any, data?: SearchCommandOutput) => void
-  ): void;
+  public search(args: SearchCommandInput, options?: __HttpHandlerOptions): Promise<SearchCommandOutput>;
+  public search(args: SearchCommandInput, cb: (err: any, data?: SearchCommandOutput) => void): void;
   public search(
     args: SearchCommandInput,
     options: __HttpHandlerOptions,
@@ -49,17 +35,14 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public search(
     args: SearchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchCommandOutput) => void),
     cb?: (err: any, data?: SearchCommandOutput) => void
   ): Promise<SearchCommandOutput> | void {
     const command = new SearchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -72,14 +55,8 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
    *
    *       <p>The endpoint for submitting <code>Suggest</code> requests is domain-specific and requires the <code>--endpoint-url</code> option. You submit suggest requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. The endpoints are also available on the domain dashboard in the Amazon CloudSearch console.</p>
    */
-  public suggest(
-    args: SuggestCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SuggestCommandOutput>;
-  public suggest(
-    args: SuggestCommandInput,
-    cb: (err: any, data?: SuggestCommandOutput) => void
-  ): void;
+  public suggest(args: SuggestCommandInput, options?: __HttpHandlerOptions): Promise<SuggestCommandOutput>;
+  public suggest(args: SuggestCommandInput, cb: (err: any, data?: SuggestCommandOutput) => void): void;
   public suggest(
     args: SuggestCommandInput,
     options: __HttpHandlerOptions,
@@ -87,17 +64,14 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public suggest(
     args: SuggestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SuggestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SuggestCommandOutput) => void),
     cb?: (err: any, data?: SuggestCommandOutput) => void
   ): Promise<SuggestCommandOutput> | void {
     const command = new SuggestCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -125,17 +99,14 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public uploadDocuments(
     args: UploadDocumentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadDocumentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadDocumentsCommandOutput) => void),
     cb?: (err: any, data?: UploadDocumentsCommandOutput) => void
   ): Promise<UploadDocumentsCommandOutput> | void {
     const command = new UploadDocumentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

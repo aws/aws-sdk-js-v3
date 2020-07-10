@@ -7,7 +7,7 @@ const handler = copySnapshotPresignedUrlMiddleware({
   endpoint,
   region,
   sha256: MockSha256,
-  signingEscapePath: true
+  signingEscapePath: true,
 })(nextHandler, {} as any);
 
 describe("middleware-sdk-ec2", () => {
@@ -18,20 +18,16 @@ describe("middleware-sdk-ec2", () => {
   it("generates PresignedUrl and DestinationRegion parameters", async () => {
     const params = {
       SourceRegion: "src-region",
-      SourceSnapshotId: "snap-123456789"
+      SourceSnapshotId: "snap-123456789",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);
     const middlewareOutput = nextHandler.mock.calls[0][0];
     expect(middlewareOutput.input.SourceRegion).toEqual(params.SourceRegion);
-    expect(middlewareOutput.input.SourceSnapshotId).toEqual(
-      params.SourceSnapshotId
-    );
+    expect(middlewareOutput.input.SourceSnapshotId).toEqual(params.SourceSnapshotId);
     expect(middlewareOutput.input.DestinationRegion).toEqual(await region());
     const presignedUrl = middlewareOutput.input.PresignedUrl;
-    expect(presignedUrl).toMatch(
-      /https%3A%2F%2Fec2.src-region.amazonaws.com%2F%3F/
-    );
+    expect(presignedUrl).toMatch(/https%3A%2F%2Fec2.src-region.amazonaws.com%2F%3F/);
     expect(presignedUrl).toMatch(/Action%3DCopySnapshot/);
     expect(presignedUrl).toMatch(/Version%3D2016\-11\-15/);
     expect(presignedUrl).toMatch(
@@ -50,7 +46,7 @@ describe("middleware-sdk-ec2", () => {
     const params = {
       PresignedUrl: "provided",
       SourceRegion: "src-region",
-      SourceSnapshotId: "snap-123456789"
+      SourceSnapshotId: "snap-123456789",
     };
     await handler({ input: params });
     expect(nextHandler.mock.calls.length).toBe(1);

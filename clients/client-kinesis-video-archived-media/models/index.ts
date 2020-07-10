@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -10,37 +6,32 @@ import { Readable } from "stream";
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *             allowed client calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ClientLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ClientLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClientLimitExceededException =>
-    __isa(o, "ClientLimitExceededException");
+  export const isa = (o: any): o is ClientLimitExceededException => __isa(o, "ClientLimitExceededException");
 }
 
 export enum ContainerFormat {
   FRAGMENTED_MP4 = "FRAGMENTED_MP4",
-  MPEG_TS = "MPEG_TS"
+  MPEG_TS = "MPEG_TS",
 }
 
 export enum DASHDisplayFragmentNumber {
   ALWAYS = "ALWAYS",
-  NEVER = "NEVER"
+  NEVER = "NEVER",
 }
 
 export enum DASHDisplayFragmentTimestamp {
   ALWAYS = "ALWAYS",
-  NEVER = "NEVER"
+  NEVER = "NEVER",
 }
 
 /**
@@ -84,21 +75,20 @@ export interface DASHFragmentSelector {
 
 export namespace DASHFragmentSelector {
   export const filterSensitiveLog = (obj: DASHFragmentSelector): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DASHFragmentSelector =>
-    __isa(o, "DASHFragmentSelector");
+  export const isa = (o: any): o is DASHFragmentSelector => __isa(o, "DASHFragmentSelector");
 }
 
 export enum DASHFragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 export enum DASHPlaybackMode {
   LIVE = "LIVE",
   LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND"
+  ON_DEMAND = "ON_DEMAND",
 }
 
 /**
@@ -149,10 +139,9 @@ export interface DASHTimestampRange {
 
 export namespace DASHTimestampRange {
   export const filterSensitiveLog = (obj: DASHTimestampRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DASHTimestampRange =>
-    __isa(o, "DASHTimestampRange");
+  export const isa = (o: any): o is DASHTimestampRange => __isa(o, "DASHTimestampRange");
 }
 
 /**
@@ -190,7 +179,7 @@ export interface Fragment {
 
 export namespace Fragment {
   export const filterSensitiveLog = (obj: Fragment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Fragment => __isa(o, "Fragment");
 }
@@ -232,15 +221,14 @@ export interface FragmentSelector {
 
 export namespace FragmentSelector {
   export const filterSensitiveLog = (obj: FragmentSelector): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FragmentSelector =>
-    __isa(o, "FragmentSelector");
+  export const isa = (o: any): o is FragmentSelector => __isa(o, "FragmentSelector");
 }
 
 export enum FragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 export interface GetDASHStreamingSessionURLInput {
@@ -398,13 +386,10 @@ export interface GetDASHStreamingSessionURLInput {
 }
 
 export namespace GetDASHStreamingSessionURLInput {
-  export const filterSensitiveLog = (
-    obj: GetDASHStreamingSessionURLInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDASHStreamingSessionURLInput =>
-    __isa(o, "GetDASHStreamingSessionURLInput");
+  export const isa = (o: any): o is GetDASHStreamingSessionURLInput => __isa(o, "GetDASHStreamingSessionURLInput");
 }
 
 export interface GetDASHStreamingSessionURLOutput {
@@ -417,13 +402,10 @@ export interface GetDASHStreamingSessionURLOutput {
 }
 
 export namespace GetDASHStreamingSessionURLOutput {
-  export const filterSensitiveLog = (
-    obj: GetDASHStreamingSessionURLOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDASHStreamingSessionURLOutput =>
-    __isa(o, "GetDASHStreamingSessionURLOutput");
+  export const isa = (o: any): o is GetDASHStreamingSessionURLOutput => __isa(o, "GetDASHStreamingSessionURLOutput");
 }
 
 export interface GetHLSStreamingSessionURLInput {
@@ -622,13 +604,10 @@ export interface GetHLSStreamingSessionURLInput {
 }
 
 export namespace GetHLSStreamingSessionURLInput {
-  export const filterSensitiveLog = (
-    obj: GetHLSStreamingSessionURLInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetHLSStreamingSessionURLInput =>
-    __isa(o, "GetHLSStreamingSessionURLInput");
+  export const isa = (o: any): o is GetHLSStreamingSessionURLInput => __isa(o, "GetHLSStreamingSessionURLInput");
 }
 
 export interface GetHLSStreamingSessionURLOutput {
@@ -641,13 +620,10 @@ export interface GetHLSStreamingSessionURLOutput {
 }
 
 export namespace GetHLSStreamingSessionURLOutput {
-  export const filterSensitiveLog = (
-    obj: GetHLSStreamingSessionURLOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetHLSStreamingSessionURLOutput =>
-    __isa(o, "GetHLSStreamingSessionURLOutput");
+  export const isa = (o: any): o is GetHLSStreamingSessionURLOutput => __isa(o, "GetHLSStreamingSessionURLOutput");
 }
 
 export interface GetMediaForFragmentListInput {
@@ -665,13 +641,10 @@ export interface GetMediaForFragmentListInput {
 }
 
 export namespace GetMediaForFragmentListInput {
-  export const filterSensitiveLog = (
-    obj: GetMediaForFragmentListInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetMediaForFragmentListInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetMediaForFragmentListInput =>
-    __isa(o, "GetMediaForFragmentListInput");
+  export const isa = (o: any): o is GetMediaForFragmentListInput => __isa(o, "GetMediaForFragmentListInput");
 }
 
 export interface GetMediaForFragmentListOutput {
@@ -720,24 +693,21 @@ export interface GetMediaForFragmentListOutput {
 }
 
 export namespace GetMediaForFragmentListOutput {
-  export const filterSensitiveLog = (
-    obj: GetMediaForFragmentListOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetMediaForFragmentListOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetMediaForFragmentListOutput =>
-    __isa(o, "GetMediaForFragmentListOutput");
+  export const isa = (o: any): o is GetMediaForFragmentListOutput => __isa(o, "GetMediaForFragmentListOutput");
 }
 
 export enum HLSDiscontinuityMode {
   ALWAYS = "ALWAYS",
   NEVER = "NEVER",
-  ON_DISCONTINUITY = "ON_DISCONTINUITY"
+  ON_DISCONTINUITY = "ON_DISCONTINUITY",
 }
 
 export enum HLSDisplayFragmentTimestamp {
   ALWAYS = "ALWAYS",
-  NEVER = "NEVER"
+  NEVER = "NEVER",
 }
 
 /**
@@ -781,21 +751,20 @@ export interface HLSFragmentSelector {
 
 export namespace HLSFragmentSelector {
   export const filterSensitiveLog = (obj: HLSFragmentSelector): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HLSFragmentSelector =>
-    __isa(o, "HLSFragmentSelector");
+  export const isa = (o: any): o is HLSFragmentSelector => __isa(o, "HLSFragmentSelector");
 }
 
 export enum HLSFragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 export enum HLSPlaybackMode {
   LIVE = "LIVE",
   LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND"
+  ON_DEMAND = "ON_DEMAND",
 }
 
 /**
@@ -845,19 +814,16 @@ export interface HLSTimestampRange {
 
 export namespace HLSTimestampRange {
   export const filterSensitiveLog = (obj: HLSTimestampRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HLSTimestampRange =>
-    __isa(o, "HLSTimestampRange");
+  export const isa = (o: any): o is HLSTimestampRange => __isa(o, "HLSTimestampRange");
 }
 
 /**
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be
  *             used.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -865,32 +831,26 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
  * <p>The codec private data in at least one of the tracks of the video stream is not valid
  *             for this operation.</p>
  */
-export interface InvalidCodecPrivateDataException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCodecPrivateDataException extends __SmithyException, $MetadataBearer {
   name: "InvalidCodecPrivateDataException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidCodecPrivateDataException {
-  export const filterSensitiveLog = (
-    obj: InvalidCodecPrivateDataException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidCodecPrivateDataException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidCodecPrivateDataException =>
-    __isa(o, "InvalidCodecPrivateDataException");
+  export const isa = (o: any): o is InvalidCodecPrivateDataException => __isa(o, "InvalidCodecPrivateDataException");
 }
 
 export interface ListFragmentsInput {
@@ -922,10 +882,9 @@ export interface ListFragmentsInput {
 
 export namespace ListFragmentsInput {
   export const filterSensitiveLog = (obj: ListFragmentsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListFragmentsInput =>
-    __isa(o, "ListFragmentsInput");
+  export const isa = (o: any): o is ListFragmentsInput => __isa(o, "ListFragmentsInput");
 }
 
 export interface ListFragmentsOutput {
@@ -946,40 +905,32 @@ export interface ListFragmentsOutput {
 
 export namespace ListFragmentsOutput {
   export const filterSensitiveLog = (obj: ListFragmentsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListFragmentsOutput =>
-    __isa(o, "ListFragmentsOutput");
+  export const isa = (o: any): o is ListFragmentsOutput => __isa(o, "ListFragmentsOutput");
 }
 
 /**
  * <p>No codec private data was found in at least one of tracks of the video stream.</p>
  */
-export interface MissingCodecPrivateDataException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingCodecPrivateDataException extends __SmithyException, $MetadataBearer {
   name: "MissingCodecPrivateDataException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace MissingCodecPrivateDataException {
-  export const filterSensitiveLog = (
-    obj: MissingCodecPrivateDataException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MissingCodecPrivateDataException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MissingCodecPrivateDataException =>
-    __isa(o, "MissingCodecPrivateDataException");
+  export const isa = (o: any): o is MissingCodecPrivateDataException => __isa(o, "MissingCodecPrivateDataException");
 }
 
 /**
  * <p>A streaming session was requested for a stream that does not retain data (that is, has
  *             a <code>DataRetentionInHours</code> of 0). </p>
  */
-export interface NoDataRetentionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoDataRetentionException extends __SmithyException, $MetadataBearer {
   name: "NoDataRetentionException";
   $fault: "client";
   Message?: string;
@@ -987,19 +938,16 @@ export interface NoDataRetentionException
 
 export namespace NoDataRetentionException {
   export const filterSensitiveLog = (obj: NoDataRetentionException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NoDataRetentionException =>
-    __isa(o, "NoDataRetentionException");
+  export const isa = (o: any): o is NoDataRetentionException => __isa(o, "NoDataRetentionException");
 }
 
 /**
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *             stream, or the token has expired.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -1007,10 +955,9 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -1025,9 +972,7 @@ export namespace NotAuthorizedException {
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1035,10 +980,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1060,10 +1004,9 @@ export interface TimestampRange {
 
 export namespace TimestampRange {
   export const filterSensitiveLog = (obj: TimestampRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TimestampRange =>
-    __isa(o, "TimestampRange");
+  export const isa = (o: any): o is TimestampRange => __isa(o, "TimestampRange");
 }
 
 /**
@@ -1072,19 +1015,15 @@ export namespace TimestampRange {
  *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  */
-export interface UnsupportedStreamMediaTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedStreamMediaTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedStreamMediaTypeException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace UnsupportedStreamMediaTypeException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedStreamMediaTypeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedStreamMediaTypeException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UnsupportedStreamMediaTypeException =>
     __isa(o, "UnsupportedStreamMediaTypeException");

@@ -1,806 +1,554 @@
 import {
   AcceptCertificateTransferCommandInput,
-  AcceptCertificateTransferCommandOutput
+  AcceptCertificateTransferCommandOutput,
 } from "./commands/AcceptCertificateTransferCommand";
 import {
   AddThingToBillingGroupCommandInput,
-  AddThingToBillingGroupCommandOutput
+  AddThingToBillingGroupCommandOutput,
 } from "./commands/AddThingToBillingGroupCommand";
 import {
   AddThingToThingGroupCommandInput,
-  AddThingToThingGroupCommandOutput
+  AddThingToThingGroupCommandOutput,
 } from "./commands/AddThingToThingGroupCommand";
 import {
   AssociateTargetsWithJobCommandInput,
-  AssociateTargetsWithJobCommandOutput
+  AssociateTargetsWithJobCommandOutput,
 } from "./commands/AssociateTargetsWithJobCommand";
-import {
-  AttachPolicyCommandInput,
-  AttachPolicyCommandOutput
-} from "./commands/AttachPolicyCommand";
+import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand";
 import {
   AttachPrincipalPolicyCommandInput,
-  AttachPrincipalPolicyCommandOutput
+  AttachPrincipalPolicyCommandOutput,
 } from "./commands/AttachPrincipalPolicyCommand";
 import {
   AttachSecurityProfileCommandInput,
-  AttachSecurityProfileCommandOutput
+  AttachSecurityProfileCommandOutput,
 } from "./commands/AttachSecurityProfileCommand";
 import {
   AttachThingPrincipalCommandInput,
-  AttachThingPrincipalCommandOutput
+  AttachThingPrincipalCommandOutput,
 } from "./commands/AttachThingPrincipalCommand";
 import {
   CancelAuditMitigationActionsTaskCommandInput,
-  CancelAuditMitigationActionsTaskCommandOutput
+  CancelAuditMitigationActionsTaskCommandOutput,
 } from "./commands/CancelAuditMitigationActionsTaskCommand";
-import {
-  CancelAuditTaskCommandInput,
-  CancelAuditTaskCommandOutput
-} from "./commands/CancelAuditTaskCommand";
+import { CancelAuditTaskCommandInput, CancelAuditTaskCommandOutput } from "./commands/CancelAuditTaskCommand";
 import {
   CancelCertificateTransferCommandInput,
-  CancelCertificateTransferCommandOutput
+  CancelCertificateTransferCommandOutput,
 } from "./commands/CancelCertificateTransferCommand";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
-import {
-  CancelJobExecutionCommandInput,
-  CancelJobExecutionCommandOutput
-} from "./commands/CancelJobExecutionCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { CancelJobExecutionCommandInput, CancelJobExecutionCommandOutput } from "./commands/CancelJobExecutionCommand";
 import {
   ClearDefaultAuthorizerCommandInput,
-  ClearDefaultAuthorizerCommandOutput
+  ClearDefaultAuthorizerCommandOutput,
 } from "./commands/ClearDefaultAuthorizerCommand";
 import {
   ConfirmTopicRuleDestinationCommandInput,
-  ConfirmTopicRuleDestinationCommandOutput
+  ConfirmTopicRuleDestinationCommandOutput,
 } from "./commands/ConfirmTopicRuleDestinationCommand";
-import {
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput
-} from "./commands/CreateAuthorizerCommand";
-import {
-  CreateBillingGroupCommandInput,
-  CreateBillingGroupCommandOutput
-} from "./commands/CreateBillingGroupCommand";
+import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand";
+import { CreateBillingGroupCommandInput, CreateBillingGroupCommandOutput } from "./commands/CreateBillingGroupCommand";
 import {
   CreateCertificateFromCsrCommandInput,
-  CreateCertificateFromCsrCommandOutput
+  CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand";
 import {
   CreateDomainConfigurationCommandInput,
-  CreateDomainConfigurationCommandOutput
+  CreateDomainConfigurationCommandOutput,
 } from "./commands/CreateDomainConfigurationCommand";
 import {
   CreateDynamicThingGroupCommandInput,
-  CreateDynamicThingGroupCommandOutput
+  CreateDynamicThingGroupCommandOutput,
 } from "./commands/CreateDynamicThingGroupCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateKeysAndCertificateCommandInput,
-  CreateKeysAndCertificateCommandOutput
+  CreateKeysAndCertificateCommandOutput,
 } from "./commands/CreateKeysAndCertificateCommand";
 import {
   CreateMitigationActionCommandInput,
-  CreateMitigationActionCommandOutput
+  CreateMitigationActionCommandOutput,
 } from "./commands/CreateMitigationActionCommand";
-import {
-  CreateOTAUpdateCommandInput,
-  CreateOTAUpdateCommandOutput
-} from "./commands/CreateOTAUpdateCommand";
-import {
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput
-} from "./commands/CreatePolicyCommand";
+import { CreateOTAUpdateCommandInput, CreateOTAUpdateCommandOutput } from "./commands/CreateOTAUpdateCommand";
+import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
 import {
   CreatePolicyVersionCommandInput,
-  CreatePolicyVersionCommandOutput
+  CreatePolicyVersionCommandOutput,
 } from "./commands/CreatePolicyVersionCommand";
 import {
   CreateProvisioningClaimCommandInput,
-  CreateProvisioningClaimCommandOutput
+  CreateProvisioningClaimCommandOutput,
 } from "./commands/CreateProvisioningClaimCommand";
 import {
   CreateProvisioningTemplateCommandInput,
-  CreateProvisioningTemplateCommandOutput
+  CreateProvisioningTemplateCommandOutput,
 } from "./commands/CreateProvisioningTemplateCommand";
 import {
   CreateProvisioningTemplateVersionCommandInput,
-  CreateProvisioningTemplateVersionCommandOutput
+  CreateProvisioningTemplateVersionCommandOutput,
 } from "./commands/CreateProvisioningTemplateVersionCommand";
-import {
-  CreateRoleAliasCommandInput,
-  CreateRoleAliasCommandOutput
-} from "./commands/CreateRoleAliasCommand";
+import { CreateRoleAliasCommandInput, CreateRoleAliasCommandOutput } from "./commands/CreateRoleAliasCommand";
 import {
   CreateScheduledAuditCommandInput,
-  CreateScheduledAuditCommandOutput
+  CreateScheduledAuditCommandOutput,
 } from "./commands/CreateScheduledAuditCommand";
 import {
   CreateSecurityProfileCommandInput,
-  CreateSecurityProfileCommandOutput
+  CreateSecurityProfileCommandOutput,
 } from "./commands/CreateSecurityProfileCommand";
-import {
-  CreateStreamCommandInput,
-  CreateStreamCommandOutput
-} from "./commands/CreateStreamCommand";
-import {
-  CreateThingCommandInput,
-  CreateThingCommandOutput
-} from "./commands/CreateThingCommand";
-import {
-  CreateThingGroupCommandInput,
-  CreateThingGroupCommandOutput
-} from "./commands/CreateThingGroupCommand";
-import {
-  CreateThingTypeCommandInput,
-  CreateThingTypeCommandOutput
-} from "./commands/CreateThingTypeCommand";
-import {
-  CreateTopicRuleCommandInput,
-  CreateTopicRuleCommandOutput
-} from "./commands/CreateTopicRuleCommand";
+import { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
+import { CreateThingCommandInput, CreateThingCommandOutput } from "./commands/CreateThingCommand";
+import { CreateThingGroupCommandInput, CreateThingGroupCommandOutput } from "./commands/CreateThingGroupCommand";
+import { CreateThingTypeCommandInput, CreateThingTypeCommandOutput } from "./commands/CreateThingTypeCommand";
+import { CreateTopicRuleCommandInput, CreateTopicRuleCommandOutput } from "./commands/CreateTopicRuleCommand";
 import {
   CreateTopicRuleDestinationCommandInput,
-  CreateTopicRuleDestinationCommandOutput
+  CreateTopicRuleDestinationCommandOutput,
 } from "./commands/CreateTopicRuleDestinationCommand";
 import {
   DeleteAccountAuditConfigurationCommandInput,
-  DeleteAccountAuditConfigurationCommandOutput
+  DeleteAccountAuditConfigurationCommandOutput,
 } from "./commands/DeleteAccountAuditConfigurationCommand";
-import {
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput
-} from "./commands/DeleteAuthorizerCommand";
-import {
-  DeleteBillingGroupCommandInput,
-  DeleteBillingGroupCommandOutput
-} from "./commands/DeleteBillingGroupCommand";
+import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand";
+import { DeleteBillingGroupCommandInput, DeleteBillingGroupCommandOutput } from "./commands/DeleteBillingGroupCommand";
 import {
   DeleteCACertificateCommandInput,
-  DeleteCACertificateCommandOutput
+  DeleteCACertificateCommandOutput,
 } from "./commands/DeleteCACertificateCommand";
-import {
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput
-} from "./commands/DeleteCertificateCommand";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
 import {
   DeleteDomainConfigurationCommandInput,
-  DeleteDomainConfigurationCommandOutput
+  DeleteDomainConfigurationCommandOutput,
 } from "./commands/DeleteDomainConfigurationCommand";
 import {
   DeleteDynamicThingGroupCommandInput,
-  DeleteDynamicThingGroupCommandOutput
+  DeleteDynamicThingGroupCommandOutput,
 } from "./commands/DeleteDynamicThingGroupCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand";
-import {
-  DeleteJobExecutionCommandInput,
-  DeleteJobExecutionCommandOutput
-} from "./commands/DeleteJobExecutionCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import { DeleteJobExecutionCommandInput, DeleteJobExecutionCommandOutput } from "./commands/DeleteJobExecutionCommand";
 import {
   DeleteMitigationActionCommandInput,
-  DeleteMitigationActionCommandOutput
+  DeleteMitigationActionCommandOutput,
 } from "./commands/DeleteMitigationActionCommand";
-import {
-  DeleteOTAUpdateCommandInput,
-  DeleteOTAUpdateCommandOutput
-} from "./commands/DeleteOTAUpdateCommand";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand";
+import { DeleteOTAUpdateCommandInput, DeleteOTAUpdateCommandOutput } from "./commands/DeleteOTAUpdateCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DeletePolicyVersionCommandInput,
-  DeletePolicyVersionCommandOutput
+  DeletePolicyVersionCommandOutput,
 } from "./commands/DeletePolicyVersionCommand";
 import {
   DeleteProvisioningTemplateCommandInput,
-  DeleteProvisioningTemplateCommandOutput
+  DeleteProvisioningTemplateCommandOutput,
 } from "./commands/DeleteProvisioningTemplateCommand";
 import {
   DeleteProvisioningTemplateVersionCommandInput,
-  DeleteProvisioningTemplateVersionCommandOutput
+  DeleteProvisioningTemplateVersionCommandOutput,
 } from "./commands/DeleteProvisioningTemplateVersionCommand";
 import {
   DeleteRegistrationCodeCommandInput,
-  DeleteRegistrationCodeCommandOutput
+  DeleteRegistrationCodeCommandOutput,
 } from "./commands/DeleteRegistrationCodeCommand";
-import {
-  DeleteRoleAliasCommandInput,
-  DeleteRoleAliasCommandOutput
-} from "./commands/DeleteRoleAliasCommand";
+import { DeleteRoleAliasCommandInput, DeleteRoleAliasCommandOutput } from "./commands/DeleteRoleAliasCommand";
 import {
   DeleteScheduledAuditCommandInput,
-  DeleteScheduledAuditCommandOutput
+  DeleteScheduledAuditCommandOutput,
 } from "./commands/DeleteScheduledAuditCommand";
 import {
   DeleteSecurityProfileCommandInput,
-  DeleteSecurityProfileCommandOutput
+  DeleteSecurityProfileCommandOutput,
 } from "./commands/DeleteSecurityProfileCommand";
-import {
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput
-} from "./commands/DeleteStreamCommand";
-import {
-  DeleteThingCommandInput,
-  DeleteThingCommandOutput
-} from "./commands/DeleteThingCommand";
-import {
-  DeleteThingGroupCommandInput,
-  DeleteThingGroupCommandOutput
-} from "./commands/DeleteThingGroupCommand";
-import {
-  DeleteThingTypeCommandInput,
-  DeleteThingTypeCommandOutput
-} from "./commands/DeleteThingTypeCommand";
-import {
-  DeleteTopicRuleCommandInput,
-  DeleteTopicRuleCommandOutput
-} from "./commands/DeleteTopicRuleCommand";
+import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
+import { DeleteThingCommandInput, DeleteThingCommandOutput } from "./commands/DeleteThingCommand";
+import { DeleteThingGroupCommandInput, DeleteThingGroupCommandOutput } from "./commands/DeleteThingGroupCommand";
+import { DeleteThingTypeCommandInput, DeleteThingTypeCommandOutput } from "./commands/DeleteThingTypeCommand";
+import { DeleteTopicRuleCommandInput, DeleteTopicRuleCommandOutput } from "./commands/DeleteTopicRuleCommand";
 import {
   DeleteTopicRuleDestinationCommandInput,
-  DeleteTopicRuleDestinationCommandOutput
+  DeleteTopicRuleDestinationCommandOutput,
 } from "./commands/DeleteTopicRuleDestinationCommand";
 import {
   DeleteV2LoggingLevelCommandInput,
-  DeleteV2LoggingLevelCommandOutput
+  DeleteV2LoggingLevelCommandOutput,
 } from "./commands/DeleteV2LoggingLevelCommand";
-import {
-  DeprecateThingTypeCommandInput,
-  DeprecateThingTypeCommandOutput
-} from "./commands/DeprecateThingTypeCommand";
+import { DeprecateThingTypeCommandInput, DeprecateThingTypeCommandOutput } from "./commands/DeprecateThingTypeCommand";
 import {
   DescribeAccountAuditConfigurationCommandInput,
-  DescribeAccountAuditConfigurationCommandOutput
+  DescribeAccountAuditConfigurationCommandOutput,
 } from "./commands/DescribeAccountAuditConfigurationCommand";
 import {
   DescribeAuditFindingCommandInput,
-  DescribeAuditFindingCommandOutput
+  DescribeAuditFindingCommandOutput,
 } from "./commands/DescribeAuditFindingCommand";
 import {
   DescribeAuditMitigationActionsTaskCommandInput,
-  DescribeAuditMitigationActionsTaskCommandOutput
+  DescribeAuditMitigationActionsTaskCommandOutput,
 } from "./commands/DescribeAuditMitigationActionsTaskCommand";
-import {
-  DescribeAuditTaskCommandInput,
-  DescribeAuditTaskCommandOutput
-} from "./commands/DescribeAuditTaskCommand";
-import {
-  DescribeAuthorizerCommandInput,
-  DescribeAuthorizerCommandOutput
-} from "./commands/DescribeAuthorizerCommand";
+import { DescribeAuditTaskCommandInput, DescribeAuditTaskCommandOutput } from "./commands/DescribeAuditTaskCommand";
+import { DescribeAuthorizerCommandInput, DescribeAuthorizerCommandOutput } from "./commands/DescribeAuthorizerCommand";
 import {
   DescribeBillingGroupCommandInput,
-  DescribeBillingGroupCommandOutput
+  DescribeBillingGroupCommandOutput,
 } from "./commands/DescribeBillingGroupCommand";
 import {
   DescribeCACertificateCommandInput,
-  DescribeCACertificateCommandOutput
+  DescribeCACertificateCommandOutput,
 } from "./commands/DescribeCACertificateCommand";
 import {
   DescribeCertificateCommandInput,
-  DescribeCertificateCommandOutput
+  DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
 import {
   DescribeDefaultAuthorizerCommandInput,
-  DescribeDefaultAuthorizerCommandOutput
+  DescribeDefaultAuthorizerCommandOutput,
 } from "./commands/DescribeDefaultAuthorizerCommand";
 import {
   DescribeDomainConfigurationCommandInput,
-  DescribeDomainConfigurationCommandOutput
+  DescribeDomainConfigurationCommandOutput,
 } from "./commands/DescribeDomainConfigurationCommand";
-import {
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput
-} from "./commands/DescribeEndpointCommand";
+import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
 import {
   DescribeEventConfigurationsCommandInput,
-  DescribeEventConfigurationsCommandOutput
+  DescribeEventConfigurationsCommandOutput,
 } from "./commands/DescribeEventConfigurationsCommand";
-import {
-  DescribeIndexCommandInput,
-  DescribeIndexCommandOutput
-} from "./commands/DescribeIndexCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
+import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   DescribeJobExecutionCommandInput,
-  DescribeJobExecutionCommandOutput
+  DescribeJobExecutionCommandOutput,
 } from "./commands/DescribeJobExecutionCommand";
 import {
   DescribeMitigationActionCommandInput,
-  DescribeMitigationActionCommandOutput
+  DescribeMitigationActionCommandOutput,
 } from "./commands/DescribeMitigationActionCommand";
 import {
   DescribeProvisioningTemplateCommandInput,
-  DescribeProvisioningTemplateCommandOutput
+  DescribeProvisioningTemplateCommandOutput,
 } from "./commands/DescribeProvisioningTemplateCommand";
 import {
   DescribeProvisioningTemplateVersionCommandInput,
-  DescribeProvisioningTemplateVersionCommandOutput
+  DescribeProvisioningTemplateVersionCommandOutput,
 } from "./commands/DescribeProvisioningTemplateVersionCommand";
-import {
-  DescribeRoleAliasCommandInput,
-  DescribeRoleAliasCommandOutput
-} from "./commands/DescribeRoleAliasCommand";
+import { DescribeRoleAliasCommandInput, DescribeRoleAliasCommandOutput } from "./commands/DescribeRoleAliasCommand";
 import {
   DescribeScheduledAuditCommandInput,
-  DescribeScheduledAuditCommandOutput
+  DescribeScheduledAuditCommandOutput,
 } from "./commands/DescribeScheduledAuditCommand";
 import {
   DescribeSecurityProfileCommandInput,
-  DescribeSecurityProfileCommandOutput
+  DescribeSecurityProfileCommandOutput,
 } from "./commands/DescribeSecurityProfileCommand";
-import {
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput
-} from "./commands/DescribeStreamCommand";
-import {
-  DescribeThingCommandInput,
-  DescribeThingCommandOutput
-} from "./commands/DescribeThingCommand";
-import {
-  DescribeThingGroupCommandInput,
-  DescribeThingGroupCommandOutput
-} from "./commands/DescribeThingGroupCommand";
+import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
+import { DescribeThingCommandInput, DescribeThingCommandOutput } from "./commands/DescribeThingCommand";
+import { DescribeThingGroupCommandInput, DescribeThingGroupCommandOutput } from "./commands/DescribeThingGroupCommand";
 import {
   DescribeThingRegistrationTaskCommandInput,
-  DescribeThingRegistrationTaskCommandOutput
+  DescribeThingRegistrationTaskCommandOutput,
 } from "./commands/DescribeThingRegistrationTaskCommand";
-import {
-  DescribeThingTypeCommandInput,
-  DescribeThingTypeCommandOutput
-} from "./commands/DescribeThingTypeCommand";
-import {
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput
-} from "./commands/DetachPolicyCommand";
+import { DescribeThingTypeCommandInput, DescribeThingTypeCommandOutput } from "./commands/DescribeThingTypeCommand";
+import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
 import {
   DetachPrincipalPolicyCommandInput,
-  DetachPrincipalPolicyCommandOutput
+  DetachPrincipalPolicyCommandOutput,
 } from "./commands/DetachPrincipalPolicyCommand";
 import {
   DetachSecurityProfileCommandInput,
-  DetachSecurityProfileCommandOutput
+  DetachSecurityProfileCommandOutput,
 } from "./commands/DetachSecurityProfileCommand";
 import {
   DetachThingPrincipalCommandInput,
-  DetachThingPrincipalCommandOutput
+  DetachThingPrincipalCommandOutput,
 } from "./commands/DetachThingPrincipalCommand";
-import {
-  DisableTopicRuleCommandInput,
-  DisableTopicRuleCommandOutput
-} from "./commands/DisableTopicRuleCommand";
-import {
-  EnableTopicRuleCommandInput,
-  EnableTopicRuleCommandOutput
-} from "./commands/EnableTopicRuleCommand";
-import {
-  GetCardinalityCommandInput,
-  GetCardinalityCommandOutput
-} from "./commands/GetCardinalityCommand";
+import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "./commands/DisableTopicRuleCommand";
+import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "./commands/EnableTopicRuleCommand";
+import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "./commands/GetCardinalityCommand";
 import {
   GetEffectivePoliciesCommandInput,
-  GetEffectivePoliciesCommandOutput
+  GetEffectivePoliciesCommandOutput,
 } from "./commands/GetEffectivePoliciesCommand";
 import {
   GetIndexingConfigurationCommandInput,
-  GetIndexingConfigurationCommandOutput
+  GetIndexingConfigurationCommandOutput,
 } from "./commands/GetIndexingConfigurationCommand";
-import {
-  GetJobDocumentCommandInput,
-  GetJobDocumentCommandOutput
-} from "./commands/GetJobDocumentCommand";
-import {
-  GetLoggingOptionsCommandInput,
-  GetLoggingOptionsCommandOutput
-} from "./commands/GetLoggingOptionsCommand";
-import {
-  GetOTAUpdateCommandInput,
-  GetOTAUpdateCommandOutput
-} from "./commands/GetOTAUpdateCommand";
-import {
-  GetPercentilesCommandInput,
-  GetPercentilesCommandOutput
-} from "./commands/GetPercentilesCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
-import {
-  GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput
-} from "./commands/GetPolicyVersionCommand";
+import { GetJobDocumentCommandInput, GetJobDocumentCommandOutput } from "./commands/GetJobDocumentCommand";
+import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "./commands/GetLoggingOptionsCommand";
+import { GetOTAUpdateCommandInput, GetOTAUpdateCommandOutput } from "./commands/GetOTAUpdateCommand";
+import { GetPercentilesCommandInput, GetPercentilesCommandOutput } from "./commands/GetPercentilesCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
 import {
   GetRegistrationCodeCommandInput,
-  GetRegistrationCodeCommandOutput
+  GetRegistrationCodeCommandOutput,
 } from "./commands/GetRegistrationCodeCommand";
-import {
-  GetStatisticsCommandInput,
-  GetStatisticsCommandOutput
-} from "./commands/GetStatisticsCommand";
-import {
-  GetTopicRuleCommandInput,
-  GetTopicRuleCommandOutput
-} from "./commands/GetTopicRuleCommand";
+import { GetStatisticsCommandInput, GetStatisticsCommandOutput } from "./commands/GetStatisticsCommand";
+import { GetTopicRuleCommandInput, GetTopicRuleCommandOutput } from "./commands/GetTopicRuleCommand";
 import {
   GetTopicRuleDestinationCommandInput,
-  GetTopicRuleDestinationCommandOutput
+  GetTopicRuleDestinationCommandOutput,
 } from "./commands/GetTopicRuleDestinationCommand";
 import {
   GetV2LoggingOptionsCommandInput,
-  GetV2LoggingOptionsCommandOutput
+  GetV2LoggingOptionsCommandOutput,
 } from "./commands/GetV2LoggingOptionsCommand";
 import {
   ListActiveViolationsCommandInput,
-  ListActiveViolationsCommandOutput
+  ListActiveViolationsCommandOutput,
 } from "./commands/ListActiveViolationsCommand";
 import {
   ListAttachedPoliciesCommandInput,
-  ListAttachedPoliciesCommandOutput
+  ListAttachedPoliciesCommandOutput,
 } from "./commands/ListAttachedPoliciesCommand";
-import {
-  ListAuditFindingsCommandInput,
-  ListAuditFindingsCommandOutput
-} from "./commands/ListAuditFindingsCommand";
+import { ListAuditFindingsCommandInput, ListAuditFindingsCommandOutput } from "./commands/ListAuditFindingsCommand";
 import {
   ListAuditMitigationActionsExecutionsCommandInput,
-  ListAuditMitigationActionsExecutionsCommandOutput
+  ListAuditMitigationActionsExecutionsCommandOutput,
 } from "./commands/ListAuditMitigationActionsExecutionsCommand";
 import {
   ListAuditMitigationActionsTasksCommandInput,
-  ListAuditMitigationActionsTasksCommandOutput
+  ListAuditMitigationActionsTasksCommandOutput,
 } from "./commands/ListAuditMitigationActionsTasksCommand";
-import {
-  ListAuditTasksCommandInput,
-  ListAuditTasksCommandOutput
-} from "./commands/ListAuditTasksCommand";
-import {
-  ListAuthorizersCommandInput,
-  ListAuthorizersCommandOutput
-} from "./commands/ListAuthorizersCommand";
-import {
-  ListBillingGroupsCommandInput,
-  ListBillingGroupsCommandOutput
-} from "./commands/ListBillingGroupsCommand";
-import {
-  ListCACertificatesCommandInput,
-  ListCACertificatesCommandOutput
-} from "./commands/ListCACertificatesCommand";
+import { ListAuditTasksCommandInput, ListAuditTasksCommandOutput } from "./commands/ListAuditTasksCommand";
+import { ListAuthorizersCommandInput, ListAuthorizersCommandOutput } from "./commands/ListAuthorizersCommand";
+import { ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput } from "./commands/ListBillingGroupsCommand";
+import { ListCACertificatesCommandInput, ListCACertificatesCommandOutput } from "./commands/ListCACertificatesCommand";
 import {
   ListCertificatesByCACommandInput,
-  ListCertificatesByCACommandOutput
+  ListCertificatesByCACommandOutput,
 } from "./commands/ListCertificatesByCACommand";
-import {
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput
-} from "./commands/ListCertificatesCommand";
+import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
 import {
   ListDomainConfigurationsCommandInput,
-  ListDomainConfigurationsCommandOutput
+  ListDomainConfigurationsCommandOutput,
 } from "./commands/ListDomainConfigurationsCommand";
-import {
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput
-} from "./commands/ListIndicesCommand";
+import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
   ListJobExecutionsForJobCommandInput,
-  ListJobExecutionsForJobCommandOutput
+  ListJobExecutionsForJobCommandOutput,
 } from "./commands/ListJobExecutionsForJobCommand";
 import {
   ListJobExecutionsForThingCommandInput,
-  ListJobExecutionsForThingCommandOutput
+  ListJobExecutionsForThingCommandOutput,
 } from "./commands/ListJobExecutionsForThingCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMitigationActionsCommandInput,
-  ListMitigationActionsCommandOutput
+  ListMitigationActionsCommandOutput,
 } from "./commands/ListMitigationActionsCommand";
-import {
-  ListOTAUpdatesCommandInput,
-  ListOTAUpdatesCommandOutput
-} from "./commands/ListOTAUpdatesCommand";
+import { ListOTAUpdatesCommandInput, ListOTAUpdatesCommandOutput } from "./commands/ListOTAUpdatesCommand";
 import {
   ListOutgoingCertificatesCommandInput,
-  ListOutgoingCertificatesCommandOutput
+  ListOutgoingCertificatesCommandOutput,
 } from "./commands/ListOutgoingCertificatesCommand";
-import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
   ListPolicyPrincipalsCommandInput,
-  ListPolicyPrincipalsCommandOutput
+  ListPolicyPrincipalsCommandOutput,
 } from "./commands/ListPolicyPrincipalsCommand";
-import {
-  ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput
-} from "./commands/ListPolicyVersionsCommand";
+import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "./commands/ListPolicyVersionsCommand";
 import {
   ListPrincipalPoliciesCommandInput,
-  ListPrincipalPoliciesCommandOutput
+  ListPrincipalPoliciesCommandOutput,
 } from "./commands/ListPrincipalPoliciesCommand";
 import {
   ListPrincipalThingsCommandInput,
-  ListPrincipalThingsCommandOutput
+  ListPrincipalThingsCommandOutput,
 } from "./commands/ListPrincipalThingsCommand";
 import {
   ListProvisioningTemplateVersionsCommandInput,
-  ListProvisioningTemplateVersionsCommandOutput
+  ListProvisioningTemplateVersionsCommandOutput,
 } from "./commands/ListProvisioningTemplateVersionsCommand";
 import {
   ListProvisioningTemplatesCommandInput,
-  ListProvisioningTemplatesCommandOutput
+  ListProvisioningTemplatesCommandOutput,
 } from "./commands/ListProvisioningTemplatesCommand";
-import {
-  ListRoleAliasesCommandInput,
-  ListRoleAliasesCommandOutput
-} from "./commands/ListRoleAliasesCommand";
+import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "./commands/ListRoleAliasesCommand";
 import {
   ListScheduledAuditsCommandInput,
-  ListScheduledAuditsCommandOutput
+  ListScheduledAuditsCommandOutput,
 } from "./commands/ListScheduledAuditsCommand";
 import {
   ListSecurityProfilesCommandInput,
-  ListSecurityProfilesCommandOutput
+  ListSecurityProfilesCommandOutput,
 } from "./commands/ListSecurityProfilesCommand";
 import {
   ListSecurityProfilesForTargetCommandInput,
-  ListSecurityProfilesForTargetCommandOutput
+  ListSecurityProfilesForTargetCommandOutput,
 } from "./commands/ListSecurityProfilesForTargetCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTargetsForPolicyCommandInput,
-  ListTargetsForPolicyCommandOutput
+  ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand";
 import {
   ListTargetsForSecurityProfileCommandInput,
-  ListTargetsForSecurityProfileCommandOutput
+  ListTargetsForSecurityProfileCommandOutput,
 } from "./commands/ListTargetsForSecurityProfileCommand";
-import {
-  ListThingGroupsCommandInput,
-  ListThingGroupsCommandOutput
-} from "./commands/ListThingGroupsCommand";
+import { ListThingGroupsCommandInput, ListThingGroupsCommandOutput } from "./commands/ListThingGroupsCommand";
 import {
   ListThingGroupsForThingCommandInput,
-  ListThingGroupsForThingCommandOutput
+  ListThingGroupsForThingCommandOutput,
 } from "./commands/ListThingGroupsForThingCommand";
 import {
   ListThingPrincipalsCommandInput,
-  ListThingPrincipalsCommandOutput
+  ListThingPrincipalsCommandOutput,
 } from "./commands/ListThingPrincipalsCommand";
 import {
   ListThingRegistrationTaskReportsCommandInput,
-  ListThingRegistrationTaskReportsCommandOutput
+  ListThingRegistrationTaskReportsCommandOutput,
 } from "./commands/ListThingRegistrationTaskReportsCommand";
 import {
   ListThingRegistrationTasksCommandInput,
-  ListThingRegistrationTasksCommandOutput
+  ListThingRegistrationTasksCommandOutput,
 } from "./commands/ListThingRegistrationTasksCommand";
-import {
-  ListThingTypesCommandInput,
-  ListThingTypesCommandOutput
-} from "./commands/ListThingTypesCommand";
-import {
-  ListThingsCommandInput,
-  ListThingsCommandOutput
-} from "./commands/ListThingsCommand";
+import { ListThingTypesCommandInput, ListThingTypesCommandOutput } from "./commands/ListThingTypesCommand";
+import { ListThingsCommandInput, ListThingsCommandOutput } from "./commands/ListThingsCommand";
 import {
   ListThingsInBillingGroupCommandInput,
-  ListThingsInBillingGroupCommandOutput
+  ListThingsInBillingGroupCommandOutput,
 } from "./commands/ListThingsInBillingGroupCommand";
 import {
   ListThingsInThingGroupCommandInput,
-  ListThingsInThingGroupCommandOutput
+  ListThingsInThingGroupCommandOutput,
 } from "./commands/ListThingsInThingGroupCommand";
 import {
   ListTopicRuleDestinationsCommandInput,
-  ListTopicRuleDestinationsCommandOutput
+  ListTopicRuleDestinationsCommandOutput,
 } from "./commands/ListTopicRuleDestinationsCommand";
-import {
-  ListTopicRulesCommandInput,
-  ListTopicRulesCommandOutput
-} from "./commands/ListTopicRulesCommand";
+import { ListTopicRulesCommandInput, ListTopicRulesCommandOutput } from "./commands/ListTopicRulesCommand";
 import {
   ListV2LoggingLevelsCommandInput,
-  ListV2LoggingLevelsCommandOutput
+  ListV2LoggingLevelsCommandOutput,
 } from "./commands/ListV2LoggingLevelsCommand";
 import {
   ListViolationEventsCommandInput,
-  ListViolationEventsCommandOutput
+  ListViolationEventsCommandOutput,
 } from "./commands/ListViolationEventsCommand";
 import {
   RegisterCACertificateCommandInput,
-  RegisterCACertificateCommandOutput
+  RegisterCACertificateCommandOutput,
 } from "./commands/RegisterCACertificateCommand";
 import {
   RegisterCertificateCommandInput,
-  RegisterCertificateCommandOutput
+  RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand";
-import {
-  RegisterThingCommandInput,
-  RegisterThingCommandOutput
-} from "./commands/RegisterThingCommand";
+import { RegisterThingCommandInput, RegisterThingCommandOutput } from "./commands/RegisterThingCommand";
 import {
   RejectCertificateTransferCommandInput,
-  RejectCertificateTransferCommandOutput
+  RejectCertificateTransferCommandOutput,
 } from "./commands/RejectCertificateTransferCommand";
 import {
   RemoveThingFromBillingGroupCommandInput,
-  RemoveThingFromBillingGroupCommandOutput
+  RemoveThingFromBillingGroupCommandOutput,
 } from "./commands/RemoveThingFromBillingGroupCommand";
 import {
   RemoveThingFromThingGroupCommandInput,
-  RemoveThingFromThingGroupCommandOutput
+  RemoveThingFromThingGroupCommandOutput,
 } from "./commands/RemoveThingFromThingGroupCommand";
-import {
-  ReplaceTopicRuleCommandInput,
-  ReplaceTopicRuleCommandOutput
-} from "./commands/ReplaceTopicRuleCommand";
-import {
-  SearchIndexCommandInput,
-  SearchIndexCommandOutput
-} from "./commands/SearchIndexCommand";
+import { ReplaceTopicRuleCommandInput, ReplaceTopicRuleCommandOutput } from "./commands/ReplaceTopicRuleCommand";
+import { SearchIndexCommandInput, SearchIndexCommandOutput } from "./commands/SearchIndexCommand";
 import {
   SetDefaultAuthorizerCommandInput,
-  SetDefaultAuthorizerCommandOutput
+  SetDefaultAuthorizerCommandOutput,
 } from "./commands/SetDefaultAuthorizerCommand";
 import {
   SetDefaultPolicyVersionCommandInput,
-  SetDefaultPolicyVersionCommandOutput
+  SetDefaultPolicyVersionCommandOutput,
 } from "./commands/SetDefaultPolicyVersionCommand";
-import {
-  SetLoggingOptionsCommandInput,
-  SetLoggingOptionsCommandOutput
-} from "./commands/SetLoggingOptionsCommand";
-import {
-  SetV2LoggingLevelCommandInput,
-  SetV2LoggingLevelCommandOutput
-} from "./commands/SetV2LoggingLevelCommand";
+import { SetLoggingOptionsCommandInput, SetLoggingOptionsCommandOutput } from "./commands/SetLoggingOptionsCommand";
+import { SetV2LoggingLevelCommandInput, SetV2LoggingLevelCommandOutput } from "./commands/SetV2LoggingLevelCommand";
 import {
   SetV2LoggingOptionsCommandInput,
-  SetV2LoggingOptionsCommandOutput
+  SetV2LoggingOptionsCommandOutput,
 } from "./commands/SetV2LoggingOptionsCommand";
 import {
   StartAuditMitigationActionsTaskCommandInput,
-  StartAuditMitigationActionsTaskCommandOutput
+  StartAuditMitigationActionsTaskCommandOutput,
 } from "./commands/StartAuditMitigationActionsTaskCommand";
 import {
   StartOnDemandAuditTaskCommandInput,
-  StartOnDemandAuditTaskCommandOutput
+  StartOnDemandAuditTaskCommandOutput,
 } from "./commands/StartOnDemandAuditTaskCommand";
 import {
   StartThingRegistrationTaskCommandInput,
-  StartThingRegistrationTaskCommandOutput
+  StartThingRegistrationTaskCommandOutput,
 } from "./commands/StartThingRegistrationTaskCommand";
 import {
   StopThingRegistrationTaskCommandInput,
-  StopThingRegistrationTaskCommandOutput
+  StopThingRegistrationTaskCommandOutput,
 } from "./commands/StopThingRegistrationTaskCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  TestAuthorizationCommandInput,
-  TestAuthorizationCommandOutput
-} from "./commands/TestAuthorizationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestAuthorizationCommandInput, TestAuthorizationCommandOutput } from "./commands/TestAuthorizationCommand";
 import {
   TestInvokeAuthorizerCommandInput,
-  TestInvokeAuthorizerCommandOutput
+  TestInvokeAuthorizerCommandOutput,
 } from "./commands/TestInvokeAuthorizerCommand";
 import {
   TransferCertificateCommandInput,
-  TransferCertificateCommandOutput
+  TransferCertificateCommandOutput,
 } from "./commands/TransferCertificateCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateAccountAuditConfigurationCommandInput,
-  UpdateAccountAuditConfigurationCommandOutput
+  UpdateAccountAuditConfigurationCommandOutput,
 } from "./commands/UpdateAccountAuditConfigurationCommand";
-import {
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput
-} from "./commands/UpdateAuthorizerCommand";
-import {
-  UpdateBillingGroupCommandInput,
-  UpdateBillingGroupCommandOutput
-} from "./commands/UpdateBillingGroupCommand";
+import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand";
+import { UpdateBillingGroupCommandInput, UpdateBillingGroupCommandOutput } from "./commands/UpdateBillingGroupCommand";
 import {
   UpdateCACertificateCommandInput,
-  UpdateCACertificateCommandOutput
+  UpdateCACertificateCommandOutput,
 } from "./commands/UpdateCACertificateCommand";
-import {
-  UpdateCertificateCommandInput,
-  UpdateCertificateCommandOutput
-} from "./commands/UpdateCertificateCommand";
+import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand";
 import {
   UpdateDomainConfigurationCommandInput,
-  UpdateDomainConfigurationCommandOutput
+  UpdateDomainConfigurationCommandOutput,
 } from "./commands/UpdateDomainConfigurationCommand";
 import {
   UpdateDynamicThingGroupCommandInput,
-  UpdateDynamicThingGroupCommandOutput
+  UpdateDynamicThingGroupCommandOutput,
 } from "./commands/UpdateDynamicThingGroupCommand";
 import {
   UpdateEventConfigurationsCommandInput,
-  UpdateEventConfigurationsCommandOutput
+  UpdateEventConfigurationsCommandOutput,
 } from "./commands/UpdateEventConfigurationsCommand";
 import {
   UpdateIndexingConfigurationCommandInput,
-  UpdateIndexingConfigurationCommandOutput
+  UpdateIndexingConfigurationCommandOutput,
 } from "./commands/UpdateIndexingConfigurationCommand";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
   UpdateMitigationActionCommandInput,
-  UpdateMitigationActionCommandOutput
+  UpdateMitigationActionCommandOutput,
 } from "./commands/UpdateMitigationActionCommand";
 import {
   UpdateProvisioningTemplateCommandInput,
-  UpdateProvisioningTemplateCommandOutput
+  UpdateProvisioningTemplateCommandOutput,
 } from "./commands/UpdateProvisioningTemplateCommand";
-import {
-  UpdateRoleAliasCommandInput,
-  UpdateRoleAliasCommandOutput
-} from "./commands/UpdateRoleAliasCommand";
+import { UpdateRoleAliasCommandInput, UpdateRoleAliasCommandOutput } from "./commands/UpdateRoleAliasCommand";
 import {
   UpdateScheduledAuditCommandInput,
-  UpdateScheduledAuditCommandOutput
+  UpdateScheduledAuditCommandOutput,
 } from "./commands/UpdateScheduledAuditCommand";
 import {
   UpdateSecurityProfileCommandInput,
-  UpdateSecurityProfileCommandOutput
+  UpdateSecurityProfileCommandOutput,
 } from "./commands/UpdateSecurityProfileCommand";
-import {
-  UpdateStreamCommandInput,
-  UpdateStreamCommandOutput
-} from "./commands/UpdateStreamCommand";
-import {
-  UpdateThingCommandInput,
-  UpdateThingCommandOutput
-} from "./commands/UpdateThingCommand";
-import {
-  UpdateThingGroupCommandInput,
-  UpdateThingGroupCommandOutput
-} from "./commands/UpdateThingGroupCommand";
+import { UpdateStreamCommandInput, UpdateStreamCommandOutput } from "./commands/UpdateStreamCommand";
+import { UpdateThingCommandInput, UpdateThingCommandOutput } from "./commands/UpdateThingCommand";
+import { UpdateThingGroupCommandInput, UpdateThingGroupCommandOutput } from "./commands/UpdateThingGroupCommand";
 import {
   UpdateThingGroupsForThingCommandInput,
-  UpdateThingGroupsForThingCommandOutput
+  UpdateThingGroupsForThingCommandOutput,
 } from "./commands/UpdateThingGroupsForThingCommand";
 import {
   UpdateTopicRuleDestinationCommandInput,
-  UpdateTopicRuleDestinationCommandOutput
+  UpdateTopicRuleDestinationCommandOutput,
 } from "./commands/UpdateTopicRuleDestinationCommand";
 import {
   ValidateSecurityProfileBehaviorsCommandInput,
-  ValidateSecurityProfileBehaviorsCommandOutput
+  ValidateSecurityProfileBehaviorsCommandOutput,
 } from "./commands/ValidateSecurityProfileBehaviorsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -809,38 +557,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -851,7 +594,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -1260,8 +1003,7 @@ export type ServiceOutputTypes =
   | UpdateTopicRuleDestinationCommandOutput
   | ValidateSecurityProfileBehaviorsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -1350,9 +1092,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -1361,9 +1101,7 @@ export type IoTClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -1395,7 +1133,7 @@ export class IoTClient extends __Client<
   constructor(configuration: IoTClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

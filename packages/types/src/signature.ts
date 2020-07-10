@@ -56,10 +56,7 @@ export interface RequestPresigner {
    * @param requestToSign The request that should be signed.
    * @param options       Additional signing options.
    */
-  presign(
-    requestToSign: HttpRequest,
-    options?: RequestPresigningArguments
-  ): Promise<HttpRequest>;
+  presign(requestToSign: HttpRequest, options?: RequestPresigningArguments): Promise<HttpRequest>;
 }
 
 /**
@@ -70,10 +67,7 @@ export interface RequestSigner {
   /**
    * Sign the provided request for immediate dispatch.
    */
-  sign(
-    requestToSign: HttpRequest,
-    options?: RequestSigningArguments
-  ): Promise<HttpRequest>;
+  sign(requestToSign: HttpRequest, options?: RequestSigningArguments): Promise<HttpRequest>;
 }
 
 export interface StringSigner {

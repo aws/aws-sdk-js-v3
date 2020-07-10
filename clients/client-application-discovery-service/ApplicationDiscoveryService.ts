@@ -2,127 +2,119 @@ import { ApplicationDiscoveryServiceClient } from "./ApplicationDiscoveryService
 import {
   AssociateConfigurationItemsToApplicationCommand,
   AssociateConfigurationItemsToApplicationCommandInput,
-  AssociateConfigurationItemsToApplicationCommandOutput
+  AssociateConfigurationItemsToApplicationCommandOutput,
 } from "./commands/AssociateConfigurationItemsToApplicationCommand";
 import {
   BatchDeleteImportDataCommand,
   BatchDeleteImportDataCommandInput,
-  BatchDeleteImportDataCommandOutput
+  BatchDeleteImportDataCommandOutput,
 } from "./commands/BatchDeleteImportDataCommand";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
+  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
-import {
-  CreateTagsCommand,
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteApplicationsCommand,
   DeleteApplicationsCommandInput,
-  DeleteApplicationsCommandOutput
+  DeleteApplicationsCommandOutput,
 } from "./commands/DeleteApplicationsCommand";
-import {
-  DeleteTagsCommand,
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAgentsCommand,
   DescribeAgentsCommandInput,
-  DescribeAgentsCommandOutput
+  DescribeAgentsCommandOutput,
 } from "./commands/DescribeAgentsCommand";
 import {
   DescribeConfigurationsCommand,
   DescribeConfigurationsCommandInput,
-  DescribeConfigurationsCommandOutput
+  DescribeConfigurationsCommandOutput,
 } from "./commands/DescribeConfigurationsCommand";
 import {
   DescribeContinuousExportsCommand,
   DescribeContinuousExportsCommandInput,
-  DescribeContinuousExportsCommandOutput
+  DescribeContinuousExportsCommandOutput,
 } from "./commands/DescribeContinuousExportsCommand";
 import {
   DescribeExportConfigurationsCommand,
   DescribeExportConfigurationsCommandInput,
-  DescribeExportConfigurationsCommandOutput
+  DescribeExportConfigurationsCommandOutput,
 } from "./commands/DescribeExportConfigurationsCommand";
 import {
   DescribeExportTasksCommand,
   DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput
+  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
   DescribeImportTasksCommand,
   DescribeImportTasksCommandInput,
-  DescribeImportTasksCommandOutput
+  DescribeImportTasksCommandOutput,
 } from "./commands/DescribeImportTasksCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
   DisassociateConfigurationItemsFromApplicationCommand,
   DisassociateConfigurationItemsFromApplicationCommandInput,
-  DisassociateConfigurationItemsFromApplicationCommandOutput
+  DisassociateConfigurationItemsFromApplicationCommandOutput,
 } from "./commands/DisassociateConfigurationItemsFromApplicationCommand";
 import {
   ExportConfigurationsCommand,
   ExportConfigurationsCommandInput,
-  ExportConfigurationsCommandOutput
+  ExportConfigurationsCommandOutput,
 } from "./commands/ExportConfigurationsCommand";
 import {
   GetDiscoverySummaryCommand,
   GetDiscoverySummaryCommandInput,
-  GetDiscoverySummaryCommandOutput
+  GetDiscoverySummaryCommandOutput,
 } from "./commands/GetDiscoverySummaryCommand";
 import {
   ListConfigurationsCommand,
   ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput
+  ListConfigurationsCommandOutput,
 } from "./commands/ListConfigurationsCommand";
 import {
   ListServerNeighborsCommand,
   ListServerNeighborsCommandInput,
-  ListServerNeighborsCommandOutput
+  ListServerNeighborsCommandOutput,
 } from "./commands/ListServerNeighborsCommand";
 import {
   StartContinuousExportCommand,
   StartContinuousExportCommandInput,
-  StartContinuousExportCommandOutput
+  StartContinuousExportCommandOutput,
 } from "./commands/StartContinuousExportCommand";
 import {
   StartDataCollectionByAgentIdsCommand,
   StartDataCollectionByAgentIdsCommandInput,
-  StartDataCollectionByAgentIdsCommandOutput
+  StartDataCollectionByAgentIdsCommandOutput,
 } from "./commands/StartDataCollectionByAgentIdsCommand";
 import {
   StartExportTaskCommand,
   StartExportTaskCommandInput,
-  StartExportTaskCommandOutput
+  StartExportTaskCommandOutput,
 } from "./commands/StartExportTaskCommand";
 import {
   StartImportTaskCommand,
   StartImportTaskCommandInput,
-  StartImportTaskCommandOutput
+  StartImportTaskCommandOutput,
 } from "./commands/StartImportTaskCommand";
 import {
   StopContinuousExportCommand,
   StopContinuousExportCommandInput,
-  StopContinuousExportCommandOutput
+  StopContinuousExportCommandOutput,
 } from "./commands/StopContinuousExportCommand";
 import {
   StopDataCollectionByAgentIdsCommand,
   StopDataCollectionByAgentIdsCommandInput,
-  StopDataCollectionByAgentIdsCommandOutput
+  StopDataCollectionByAgentIdsCommandOutput,
 } from "./commands/StopDataCollectionByAgentIdsCommand";
 import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
+  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -265,38 +257,25 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): Promise<AssociateConfigurationItemsToApplicationCommandOutput>;
   public associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateConfigurationItemsToApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void
   ): void;
   public associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateConfigurationItemsToApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void
   ): void;
   public associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateConfigurationItemsToApplicationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateConfigurationItemsToApplicationCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void),
+    cb?: (err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void
   ): Promise<AssociateConfigurationItemsToApplicationCommandOutput> | void {
     const command = new AssociateConfigurationItemsToApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -328,17 +307,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public batchDeleteImportData(
     args: BatchDeleteImportDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteImportDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteImportDataCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteImportDataCommandOutput) => void
   ): Promise<BatchDeleteImportDataCommandOutput> | void {
     const command = new BatchDeleteImportDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -363,17 +339,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public createApplication(
     args: CreateApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationCommandOutput) => void
   ): Promise<CreateApplicationCommandOutput> | void {
     const command = new CreateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -384,14 +357,8 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
    * <p>Creates one or more tags for configuration items. Tags are metadata that help you
    *       categorize IT assets. This API accepts a list of multiple configuration items.</p>
    */
-  public createTags(
-    args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTagsCommandOutput>;
-  public createTags(
-    args: CreateTagsCommandInput,
-    cb: (err: any, data?: CreateTagsCommandOutput) => void
-  ): void;
+  public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
+  public createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
   public createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -399,17 +366,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -435,17 +399,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public deleteApplications(
     args: DeleteApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationsCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationsCommandOutput) => void
   ): Promise<DeleteApplicationsCommandOutput> | void {
     const command = new DeleteApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -456,14 +417,8 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
    * <p>Deletes the association between configuration items and one or more tags. This API
    *       accepts a list of multiple configuration items.</p>
    */
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTagsCommandOutput>;
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    cb: (err: any, data?: DeleteTagsCommandOutput) => void
-  ): void;
+  public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
+  public deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -471,17 +426,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -508,17 +460,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeAgents(
     args: DescribeAgentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAgentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAgentsCommandOutput) => void
   ): Promise<DescribeAgentsCommandOutput> | void {
     const command = new DescribeAgentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -568,17 +517,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeConfigurations(
     args: DescribeConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeConfigurationsCommandOutput) => void
   ): Promise<DescribeConfigurationsCommandOutput> | void {
     const command = new DescribeConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -605,17 +551,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeContinuousExports(
     args: DescribeContinuousExportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeContinuousExportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContinuousExportsCommandOutput) => void),
     cb?: (err: any, data?: DescribeContinuousExportsCommandOutput) => void
   ): Promise<DescribeContinuousExportsCommandOutput> | void {
     const command = new DescribeContinuousExportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -641,17 +584,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeExportConfigurations(
     args: DescribeExportConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeExportConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeExportConfigurationsCommandOutput) => void
   ): Promise<DescribeExportConfigurationsCommandOutput> | void {
     const command = new DescribeExportConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -677,17 +617,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeExportTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeExportTasksCommandOutput) => void
   ): Promise<DescribeExportTasksCommandOutput> | void {
     const command = new DescribeExportTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -713,17 +650,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeImportTasks(
     args: DescribeImportTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImportTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImportTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeImportTasksCommandOutput) => void
   ): Promise<DescribeImportTasksCommandOutput> | void {
     const command = new DescribeImportTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -752,10 +686,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
     args: DescribeTagsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTagsCommandOutput>;
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    cb: (err: any, data?: DescribeTagsCommandOutput) => void
-  ): void;
+  public describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   public describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -763,17 +694,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -789,42 +717,25 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput>;
   public disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateConfigurationItemsFromApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void
   ): void;
   public disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateConfigurationItemsFromApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void
   ): void;
   public disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateConfigurationItemsFromApplicationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateConfigurationItemsFromApplicationCommandOutput
-    ) => void
-  ): Promise<
-    DisassociateConfigurationItemsFromApplicationCommandOutput
-  > | void {
-    const command = new DisassociateConfigurationItemsFromApplicationCommand(
-      args
-    );
+      | ((err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void
+  ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> | void {
+    const command = new DisassociateConfigurationItemsFromApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -854,17 +765,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public exportConfigurations(
     args: ExportConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ExportConfigurationsCommandOutput) => void
   ): Promise<ExportConfigurationsCommandOutput> | void {
     const command = new ExportConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -891,17 +799,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public getDiscoverySummary(
     args: GetDiscoverySummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiscoverySummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDiscoverySummaryCommandOutput) => void),
     cb?: (err: any, data?: GetDiscoverySummaryCommandOutput) => void
   ): Promise<GetDiscoverySummaryCommandOutput> | void {
     const command = new GetDiscoverySummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -928,17 +833,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public listConfigurations(
     args: ListConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListConfigurationsCommandOutput) => void
   ): Promise<ListConfigurationsCommandOutput> | void {
     const command = new ListConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -964,17 +866,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public listServerNeighbors(
     args: ListServerNeighborsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServerNeighborsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServerNeighborsCommandOutput) => void),
     cb?: (err: any, data?: ListServerNeighborsCommandOutput) => void
   ): Promise<ListServerNeighborsCommandOutput> | void {
     const command = new ListServerNeighborsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -999,17 +898,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public startContinuousExport(
     args: StartContinuousExportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartContinuousExportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartContinuousExportCommandOutput) => void),
     cb?: (err: any, data?: StartContinuousExportCommandOutput) => void
   ): Promise<StartContinuousExportCommandOutput> | void {
     const command = new StartContinuousExportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1034,17 +930,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public startDataCollectionByAgentIds(
     args: StartDataCollectionByAgentIdsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDataCollectionByAgentIdsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDataCollectionByAgentIdsCommandOutput) => void),
     cb?: (err: any, data?: StartDataCollectionByAgentIdsCommandOutput) => void
   ): Promise<StartDataCollectionByAgentIdsCommandOutput> | void {
     const command = new StartDataCollectionByAgentIdsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1077,17 +970,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public startExportTask(
     args: StartExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExportTaskCommandOutput) => void),
     cb?: (err: any, data?: StartExportTaskCommandOutput) => void
   ): Promise<StartExportTaskCommandOutput> | void {
     const command = new StartExportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1147,17 +1037,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public startImportTask(
     args: StartImportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartImportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportTaskCommandOutput) => void),
     cb?: (err: any, data?: StartImportTaskCommandOutput) => void
   ): Promise<StartImportTaskCommandOutput> | void {
     const command = new StartImportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1182,17 +1069,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public stopContinuousExport(
     args: StopContinuousExportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopContinuousExportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopContinuousExportCommandOutput) => void),
     cb?: (err: any, data?: StopContinuousExportCommandOutput) => void
   ): Promise<StopContinuousExportCommandOutput> | void {
     const command = new StopContinuousExportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1217,17 +1101,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public stopDataCollectionByAgentIds(
     args: StopDataCollectionByAgentIdsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDataCollectionByAgentIdsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDataCollectionByAgentIdsCommandOutput) => void),
     cb?: (err: any, data?: StopDataCollectionByAgentIdsCommandOutput) => void
   ): Promise<StopDataCollectionByAgentIdsCommandOutput> | void {
     const command = new StopDataCollectionByAgentIdsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1252,17 +1133,14 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): Promise<UpdateApplicationCommandOutput> | void {
     const command = new UpdateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum DataSetType {
@@ -30,7 +26,7 @@ export enum DataSetType {
   MONTHLY_REVENUE_FIELD_DEMONSTRATION_USAGE = "monthly_revenue_field_demonstration_usage",
   MONTHLY_REVENUE_FLEXIBLE_PAYMENT_SCHEDULE = "monthly_revenue_flexible_payment_schedule",
   SALES_COMPENSATION_BILLED_REVENUE = "sales_compensation_billed_revenue",
-  US_SALES_AND_USE_TAX_RECORDS = "us_sales_and_use_tax_records"
+  US_SALES_AND_USE_TAX_RECORDS = "us_sales_and_use_tax_records",
 }
 
 /**
@@ -176,10 +172,9 @@ export interface GenerateDataSetRequest {
 
 export namespace GenerateDataSetRequest {
   export const filterSensitiveLog = (obj: GenerateDataSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GenerateDataSetRequest =>
-    __isa(o, "GenerateDataSetRequest");
+  export const isa = (o: any): o is GenerateDataSetRequest => __isa(o, "GenerateDataSetRequest");
 }
 
 /**
@@ -196,18 +191,15 @@ export interface GenerateDataSetResult {
 
 export namespace GenerateDataSetResult {
   export const filterSensitiveLog = (obj: GenerateDataSetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GenerateDataSetResult =>
-    __isa(o, "GenerateDataSetResult");
+  export const isa = (o: any): o is GenerateDataSetResult => __isa(o, "GenerateDataSetResult");
 }
 
 /**
  * This exception is thrown when an internal service error occurs.
  */
-export interface MarketplaceCommerceAnalyticsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MarketplaceCommerceAnalyticsException extends __SmithyException, $MetadataBearer {
   name: "MarketplaceCommerceAnalyticsException";
   $fault: "server";
   /**
@@ -217,10 +209,8 @@ export interface MarketplaceCommerceAnalyticsException
 }
 
 export namespace MarketplaceCommerceAnalyticsException {
-  export const filterSensitiveLog = (
-    obj: MarketplaceCommerceAnalyticsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MarketplaceCommerceAnalyticsException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MarketplaceCommerceAnalyticsException =>
     __isa(o, "MarketplaceCommerceAnalyticsException");
@@ -286,13 +276,10 @@ export interface StartSupportDataExportRequest {
 }
 
 export namespace StartSupportDataExportRequest {
-  export const filterSensitiveLog = (
-    obj: StartSupportDataExportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartSupportDataExportRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartSupportDataExportRequest =>
-    __isa(o, "StartSupportDataExportRequest");
+  export const isa = (o: any): o is StartSupportDataExportRequest => __isa(o, "StartSupportDataExportRequest");
 }
 
 /**
@@ -308,15 +295,10 @@ export interface StartSupportDataExportResult {
 }
 
 export namespace StartSupportDataExportResult {
-  export const filterSensitiveLog = (
-    obj: StartSupportDataExportResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartSupportDataExportResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartSupportDataExportResult =>
-    __isa(o, "StartSupportDataExportResult");
+  export const isa = (o: any): o is StartSupportDataExportResult => __isa(o, "StartSupportDataExportResult");
 }
 
-export type SupportDataSetType =
-  | "customer_support_contacts_data"
-  | "test_customer_support_contacts_data";
+export type SupportDataSetType = "customer_support_contacts_data" | "test_customer_support_contacts_data";

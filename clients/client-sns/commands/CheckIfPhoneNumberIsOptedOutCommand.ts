@@ -1,21 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  CheckIfPhoneNumberIsOptedOutInput,
-  CheckIfPhoneNumberIsOptedOutResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { CheckIfPhoneNumberIsOptedOutInput, CheckIfPhoneNumberIsOptedOutResponse } from "../models/index";
 import {
   deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand,
-  serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand
+  serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CheckIfPhoneNumberIsOptedOutCommandInput = CheckIfPhoneNumberIsOptedOutInput;
-export type CheckIfPhoneNumberIsOptedOutCommandOutput = CheckIfPhoneNumberIsOptedOutResponse &
-  __MetadataBearer;
+export type CheckIfPhoneNumberIsOptedOutCommandOutput = CheckIfPhoneNumberIsOptedOutResponse & __MetadataBearer;
 
 export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
   CheckIfPhoneNumberIsOptedOutCommandInput,
@@ -49,18 +38,13 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CheckIfPhoneNumberIsOptedOutCommandInput,
-    CheckIfPhoneNumberIsOptedOutCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CheckIfPhoneNumberIsOptedOutCommandInput, CheckIfPhoneNumberIsOptedOutCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CheckIfPhoneNumberIsOptedOutCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(
-      input,
-      context
-    );
+  private serialize(input: CheckIfPhoneNumberIsOptedOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> {
-    return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(output, context);
   }
 
   // Start section: command_body_extra

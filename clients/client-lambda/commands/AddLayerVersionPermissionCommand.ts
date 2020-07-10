@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  AddLayerVersionPermissionRequest,
-  AddLayerVersionPermissionResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { AddLayerVersionPermissionRequest, AddLayerVersionPermissionResponse } from "../models/index";
 import {
   deserializeAws_restJson1AddLayerVersionPermissionCommand,
-  serializeAws_restJson1AddLayerVersionPermissionCommand
+  serializeAws_restJson1AddLayerVersionPermissionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AddLayerVersionPermissionCommandInput = AddLayerVersionPermissionRequest;
-export type AddLayerVersionPermissionCommandOutput = AddLayerVersionPermissionResponse &
-  __MetadataBearer;
+export type AddLayerVersionPermissionCommandOutput = AddLayerVersionPermissionResponse & __MetadataBearer;
 
 export class AddLayerVersionPermissionCommand extends $Command<
   AddLayerVersionPermissionCommandInput,
@@ -49,18 +38,13 @@ export class AddLayerVersionPermissionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddLayerVersionPermissionCommandInput,
-    AddLayerVersionPermissionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddLayerVersionPermissionCommandInput, AddLayerVersionPermissionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class AddLayerVersionPermissionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddLayerVersionPermissionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddLayerVersionPermissionCommand(
-      input,
-      context
-    );
+  private serialize(input: AddLayerVersionPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1AddLayerVersionPermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddLayerVersionPermissionCommandOutput> {
-    return deserializeAws_restJson1AddLayerVersionPermissionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1AddLayerVersionPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

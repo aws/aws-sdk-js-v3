@@ -1,18 +1,15 @@
 import {
   ManagedBlockchainClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { CreateProposalInput, CreateProposalOutput } from "../models/index";
 import {
   deserializeAws_restJson1CreateProposalCommand,
-  serializeAws_restJson1CreateProposalCommand
+  serializeAws_restJson1CreateProposalCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateProposalCommandInput = CreateProposalInput;
-export type CreateProposalCommandOutput = CreateProposalOutput &
-  __MetadataBearer;
+export type CreateProposalCommandOutput = CreateProposalOutput & __MetadataBearer;
 
 export class CreateProposalCommand extends $Command<
   CreateProposalCommandInput,
@@ -47,14 +43,12 @@ export class CreateProposalCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateProposalCommandInput, CreateProposalCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +58,11 @@ export class CreateProposalCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateProposalCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateProposalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProposalCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateProposalCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProposalCommandOutput> {
     return deserializeAws_restJson1CreateProposalCommand(output, context);
   }
 

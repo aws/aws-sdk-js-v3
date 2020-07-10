@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  GetGroupCertificateAuthorityRequest,
-  GetGroupCertificateAuthorityResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetGroupCertificateAuthorityRequest, GetGroupCertificateAuthorityResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetGroupCertificateAuthorityCommand,
-  serializeAws_restJson1GetGroupCertificateAuthorityCommand
+  serializeAws_restJson1GetGroupCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetGroupCertificateAuthorityCommandInput = GetGroupCertificateAuthorityRequest;
-export type GetGroupCertificateAuthorityCommandOutput = GetGroupCertificateAuthorityResponse &
-  __MetadataBearer;
+export type GetGroupCertificateAuthorityCommandOutput = GetGroupCertificateAuthorityResponse & __MetadataBearer;
 
 export class GetGroupCertificateAuthorityCommand extends $Command<
   GetGroupCertificateAuthorityCommandInput,
@@ -49,18 +38,13 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetGroupCertificateAuthorityCommandInput,
-    GetGroupCertificateAuthorityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetGroupCertificateAuthorityCommandInput, GetGroupCertificateAuthorityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetGroupCertificateAuthorityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupCertificateAuthorityCommand(
-      input,
-      context
-    );
+  private serialize(input: GetGroupCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetGroupCertificateAuthorityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1GetGroupCertificateAuthorityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetGroupCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

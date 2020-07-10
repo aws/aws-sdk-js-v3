@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient";
-import {
-  StopTrainingEntityRecognizerRequest,
-  StopTrainingEntityRecognizerResponse
-} from "../models/index";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopTrainingEntityRecognizerCommand,
-  serializeAws_json1_1StopTrainingEntityRecognizerCommand
+  serializeAws_json1_1StopTrainingEntityRecognizerCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StopTrainingEntityRecognizerCommandInput = StopTrainingEntityRecognizerRequest;
-export type StopTrainingEntityRecognizerCommandOutput = StopTrainingEntityRecognizerResponse &
-  __MetadataBearer;
+export type StopTrainingEntityRecognizerCommandOutput = StopTrainingEntityRecognizerResponse & __MetadataBearer;
 
 export class StopTrainingEntityRecognizerCommand extends $Command<
   StopTrainingEntityRecognizerCommandInput,
@@ -49,18 +38,13 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopTrainingEntityRecognizerCommandInput,
-    StopTrainingEntityRecognizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopTrainingEntityRecognizerCommandInput, StopTrainingEntityRecognizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopTrainingEntityRecognizerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTrainingEntityRecognizerCommand(
-      input,
-      context
-    );
+  private serialize(input: StopTrainingEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1StopTrainingEntityRecognizerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopTrainingEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1StopTrainingEntityRecognizerCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopTrainingEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

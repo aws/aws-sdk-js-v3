@@ -5,7 +5,7 @@ import {
   ParsedIniData,
   Profile,
   SharedConfigFiles,
-  SharedConfigInit
+  SharedConfigInit,
 } from "@aws-sdk/shared-ini-file-loader";
 
 const DEFAULT_PROFILE = "default";
@@ -73,10 +73,7 @@ export interface FromIniInit extends SharedConfigInit {
    * @param sourceCreds The credentials with which to assume a role.
    * @param params
    */
-  roleAssumer?: (
-    sourceCreds: Credentials,
-    params: AssumeRoleParams
-  ) => Promise<Credentials>;
+  roleAssumer?: (sourceCreds: Credentials, params: AssumeRoleParams) => Promise<Credentials>;
 }
 
 interface StaticCredsProfile extends Profile {
@@ -117,10 +114,7 @@ function isAssumeRoleProfile(arg: any): arg is AssumeRoleProfile {
  * role assumption and multi-factor authentication.
  */
 export function fromIni(init: FromIniInit = {}): CredentialProvider {
-  return () =>
-    parseKnownFiles(init).then(profiles =>
-      resolveProfileData(getMasterProfileName(init), profiles, init)
-    );
+  return () => parseKnownFiles(init).then((profiles) => resolveProfileData(getMasterProfileName(init), profiles, init));
 }
 
 export function getMasterProfileName(init: FromIniInit): string {
@@ -150,13 +144,12 @@ async function resolveProfileData(
       mfa_serial,
       role_arn: RoleArn,
       role_session_name: RoleSessionName = "aws-sdk-js-" + Date.now(),
-      source_profile
+      source_profile,
     } = data;
 
     if (!options.roleAssumer) {
       throw new ProviderError(
-        `Profile ${profileName} requires a role to be assumed, but no` +
-          ` role assumption callback was provided.`,
+        `Profile ${profileName} requires a role to be assumed, but no` + ` role assumption callback was provided.`,
         false
       );
     }
@@ -172,14 +165,13 @@ async function resolveProfileData(
 
     const sourceCreds = resolveProfileData(source_profile, profiles, options, {
       ...visitedProfiles,
-      [source_profile]: true
+      [source_profile]: true,
     });
     const params: AssumeRoleParams = { RoleArn, RoleSessionName, ExternalId };
     if (mfa_serial) {
       if (!options.mfaCodeProvider) {
         throw new ProviderError(
-          `Profile ${profileName} requires multi-factor authentication,` +
-            ` but no MFA code callback was provided.`,
+          `Profile ${profileName} requires multi-factor authentication,` + ` but no MFA code callback was provided.`,
           false
         );
       }
@@ -201,30 +193,25 @@ async function resolveProfileData(
   // terminal resolution error if a profile has been specified by the user
   // (whether via a parameter, an environment variable, or another profile's
   // `source_profile` key).
-  throw new ProviderError(
-    `Profile ${profileName} could not be found or parsed in shared` +
-      ` credentials file.`
-  );
+  throw new ProviderError(`Profile ${profileName} could not be found or parsed in shared` + ` credentials file.`);
 }
 
 export function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
   const { loadedConfig = loadSharedConfigFiles(init) } = init;
 
-  return loadedConfig.then(parsedFiles => {
+  return loadedConfig.then((parsedFiles) => {
     const { configFile, credentialsFile } = parsedFiles;
     return {
       ...configFile,
-      ...credentialsFile
+      ...credentialsFile,
     };
   });
 }
 
-function resolveStaticCredentials(
-  profile: StaticCredsProfile
-): Promise<Credentials> {
+function resolveStaticCredentials(profile: StaticCredsProfile): Promise<Credentials> {
   return Promise.resolve({
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,
-    sessionToken: profile.aws_session_token
+    sessionToken: profile.aws_session_token,
   });
 }

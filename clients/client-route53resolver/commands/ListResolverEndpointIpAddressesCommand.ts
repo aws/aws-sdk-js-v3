@@ -1,21 +1,11 @@
-import {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53ResolverClient";
-import {
-  ListResolverEndpointIpAddressesRequest,
-  ListResolverEndpointIpAddressesResponse
-} from "../models/index";
+import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { ListResolverEndpointIpAddressesRequest, ListResolverEndpointIpAddressesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListResolverEndpointIpAddressesCommand,
-  serializeAws_json1_1ListResolverEndpointIpAddressesCommand
+  serializeAws_json1_1ListResolverEndpointIpAddressesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListResolverEndpointIpAddressesCommandInput = ListResolverEndpointIpAddressesRequest;
-export type ListResolverEndpointIpAddressesCommandOutput = ListResolverEndpointIpAddressesResponse &
-  __MetadataBearer;
+export type ListResolverEndpointIpAddressesCommandOutput = ListResolverEndpointIpAddressesResponse & __MetadataBearer;
 
 export class ListResolverEndpointIpAddressesCommand extends $Command<
   ListResolverEndpointIpAddressesCommandInput,
@@ -49,18 +38,13 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResolverEndpointIpAddressesCommandInput,
-    ListResolverEndpointIpAddressesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResolverEndpointIpAddressesCommandInput, ListResolverEndpointIpAddressesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     input: ListResolverEndpointIpAddressesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverEndpointIpAddressesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListResolverEndpointIpAddressesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverEndpointIpAddressesCommandOutput> {
-    return deserializeAws_json1_1ListResolverEndpointIpAddressesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListResolverEndpointIpAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  EC2ProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2ProtocolClient";
+import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { IgnoresWrappingXmlNameOutput } from "../models/index";
 import {
   deserializeAws_ec2IgnoresWrappingXmlNameCommand,
-  serializeAws_ec2IgnoresWrappingXmlNameCommand
+  serializeAws_ec2IgnoresWrappingXmlNameCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type IgnoresWrappingXmlNameCommandInput = {};
-export type IgnoresWrappingXmlNameCommandOutput = IgnoresWrappingXmlNameOutput &
-  __MetadataBearer;
+export type IgnoresWrappingXmlNameCommandOutput = IgnoresWrappingXmlNameOutput & __MetadataBearer;
 
 export class IgnoresWrappingXmlNameCommand extends $Command<
   IgnoresWrappingXmlNameCommandInput,
@@ -46,18 +38,13 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    IgnoresWrappingXmlNameCommandInput,
-    IgnoresWrappingXmlNameCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<IgnoresWrappingXmlNameCommandInput, IgnoresWrappingXmlNameCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: IgnoresWrappingXmlNameCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: IgnoresWrappingXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2IgnoresWrappingXmlNameCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<IgnoresWrappingXmlNameCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IgnoresWrappingXmlNameCommandOutput> {
     return deserializeAws_ec2IgnoresWrappingXmlNameCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
-import {
-  DisassociateFromMasterAccountRequest,
-  DisassociateFromMasterAccountResponse
-} from "../models/index";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/index";
 import {
   deserializeAws_restJson1DisassociateFromMasterAccountCommand,
-  serializeAws_restJson1DisassociateFromMasterAccountCommand
+  serializeAws_restJson1DisassociateFromMasterAccountCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DisassociateFromMasterAccountCommandInput = DisassociateFromMasterAccountRequest;
-export type DisassociateFromMasterAccountCommandOutput = DisassociateFromMasterAccountResponse &
-  __MetadataBearer;
+export type DisassociateFromMasterAccountCommandOutput = DisassociateFromMasterAccountResponse & __MetadataBearer;
 
 export class DisassociateFromMasterAccountCommand extends $Command<
   DisassociateFromMasterAccountCommandInput,
@@ -49,18 +38,13 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateFromMasterAccountCommandInput,
-    DisassociateFromMasterAccountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateFromMasterAccountCommandInput, DisassociateFromMasterAccountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateFromMasterAccountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateFromMasterAccountCommand(
-      input,
-      context
-    );
+  private serialize(input: DisassociateFromMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DisassociateFromMasterAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFromMasterAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateFromMasterAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DisassociateFromMasterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -22,8 +22,7 @@ export function getCanonicalQuery({ query = {} }: HttpRequest): string {
         .slice(0)
         .sort()
         .reduce(
-          (encoded: Array<string>, value: string) =>
-            encoded.concat([`${escapeUri(key)}=${escapeUri(value)}`]),
+          (encoded: Array<string>, value: string) => encoded.concat([`${escapeUri(key)}=${escapeUri(value)}`]),
           []
         )
         .join("&");
@@ -31,7 +30,7 @@ export function getCanonicalQuery({ query = {} }: HttpRequest): string {
   }
 
   return keys
-    .map(key => serialized[key])
-    .filter(serialized => serialized) // omit any falsy values
+    .map((key) => serialized[key])
+    .filter((serialized) => serialized) // omit any falsy values
     .join("&");
 }

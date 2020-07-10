@@ -24,20 +24,18 @@ export interface BucketEndpointResolvedConfig {
   useDualstackEndpoint: boolean;
 }
 
-export function resolveBucketEndpointConfig<T>(
-  input: T & BucketEndpointInputConfig
-): T & BucketEndpointResolvedConfig {
+export function resolveBucketEndpointConfig<T>(input: T & BucketEndpointInputConfig): T & BucketEndpointResolvedConfig {
   const {
     bucketEndpoint = false,
     forcePathStyle = false,
     useAccelerateEndpoint = false,
-    useDualstackEndpoint = false
+    useDualstackEndpoint = false,
   } = input;
   return {
     ...input,
     bucketEndpoint,
     forcePathStyle,
     useAccelerateEndpoint,
-    useDualstackEndpoint
+    useDualstackEndpoint,
   };
 }

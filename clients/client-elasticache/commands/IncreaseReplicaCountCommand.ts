@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  IncreaseReplicaCountMessage,
-  IncreaseReplicaCountResult
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { IncreaseReplicaCountMessage, IncreaseReplicaCountResult } from "../models/index";
 import {
   deserializeAws_queryIncreaseReplicaCountCommand,
-  serializeAws_queryIncreaseReplicaCountCommand
+  serializeAws_queryIncreaseReplicaCountCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type IncreaseReplicaCountCommandInput = IncreaseReplicaCountMessage;
-export type IncreaseReplicaCountCommandOutput = IncreaseReplicaCountResult &
-  __MetadataBearer;
+export type IncreaseReplicaCountCommandOutput = IncreaseReplicaCountResult & __MetadataBearer;
 
 export class IncreaseReplicaCountCommand extends $Command<
   IncreaseReplicaCountCommandInput,
@@ -49,18 +38,13 @@ export class IncreaseReplicaCountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    IncreaseReplicaCountCommandInput,
-    IncreaseReplicaCountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<IncreaseReplicaCountCommandInput, IncreaseReplicaCountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class IncreaseReplicaCountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: IncreaseReplicaCountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: IncreaseReplicaCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryIncreaseReplicaCountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<IncreaseReplicaCountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IncreaseReplicaCountCommandOutput> {
     return deserializeAws_queryIncreaseReplicaCountCommand(output, context);
   }
 

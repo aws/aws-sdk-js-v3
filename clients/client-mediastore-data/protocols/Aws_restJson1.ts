@@ -1,43 +1,25 @@
-import {
-  DeleteObjectCommandInput,
-  DeleteObjectCommandOutput
-} from "../commands/DeleteObjectCommand";
-import {
-  DescribeObjectCommandInput,
-  DescribeObjectCommandOutput
-} from "../commands/DescribeObjectCommand";
-import {
-  GetObjectCommandInput,
-  GetObjectCommandOutput
-} from "../commands/GetObjectCommand";
-import {
-  ListItemsCommandInput,
-  ListItemsCommandOutput
-} from "../commands/ListItemsCommand";
-import {
-  PutObjectCommandInput,
-  PutObjectCommandOutput
-} from "../commands/PutObjectCommand";
+import { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "../commands/DeleteObjectCommand";
+import { DescribeObjectCommandInput, DescribeObjectCommandOutput } from "../commands/DescribeObjectCommand";
+import { GetObjectCommandInput, GetObjectCommandOutput } from "../commands/GetObjectCommand";
+import { ListItemsCommandInput, ListItemsCommandOutput } from "../commands/ListItemsCommand";
+import { PutObjectCommandInput, PutObjectCommandOutput } from "../commands/PutObjectCommand";
 import {
   ContainerNotFoundException,
   InternalServerError,
   Item,
   ObjectNotFoundException,
-  RequestedRangeNotSatisfiableException
+  RequestedRangeNotSatisfiableException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1DeleteObjectCommand = async (
@@ -45,7 +27,7 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
@@ -57,7 +39,7 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
       "{Path+}",
       labelValue
         .split("/")
-        .map(segment => __extendedEncodeURIComponent(segment))
+        .map((segment) => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -72,7 +54,7 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -81,7 +63,7 @@ export const serializeAws_restJson1DescribeObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
@@ -93,7 +75,7 @@ export const serializeAws_restJson1DescribeObjectCommand = async (
       "{Path+}",
       labelValue
         .split("/")
-        .map(segment => __extendedEncodeURIComponent(segment))
+        .map((segment) => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -108,7 +90,7 @@ export const serializeAws_restJson1DescribeObjectCommand = async (
     method: "HEAD",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -118,7 +100,7 @@ export const serializeAws_restJson1GetObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.Range) && { Range: input.Range! })
+    ...(isSerializableHeaderValue(input.Range) && { Range: input.Range! }),
   };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
@@ -130,7 +112,7 @@ export const serializeAws_restJson1GetObjectCommand = async (
       "{Path+}",
       labelValue
         .split("/")
-        .map(segment => __extendedEncodeURIComponent(segment))
+        .map((segment) => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -145,7 +127,7 @@ export const serializeAws_restJson1GetObjectCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -154,15 +136,15 @@ export const serializeAws_restJson1ListItemsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/";
   const query: any = {
     ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString()
+      MaxResults: input.MaxResults.toString(),
     }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Path !== undefined && { Path: input.Path })
+    ...(input.Path !== undefined && { Path: input.Path }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -174,7 +156,7 @@ export const serializeAws_restJson1ListItemsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -186,14 +168,14 @@ export const serializeAws_restJson1PutObjectCommand = async (
     "Content-Type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     ...(isSerializableHeaderValue(input.CacheControl) && {
-      "Cache-Control": input.CacheControl!
+      "Cache-Control": input.CacheControl!,
     }),
     ...(isSerializableHeaderValue(input.ContentType) && {
-      "Content-Type": input.ContentType!
+      "Content-Type": input.ContentType!,
     }),
     ...(isSerializableHeaderValue(input.StorageClass) && {
-      "x-amz-storage-class": input.StorageClass!
-    })
+      "x-amz-storage-class": input.StorageClass!,
+    }),
   };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
@@ -205,7 +187,7 @@ export const serializeAws_restJson1PutObjectCommand = async (
       "{Path+}",
       labelValue
         .split("/")
-        .map(segment => __extendedEncodeURIComponent(segment))
+        .map((segment) => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -223,7 +205,7 @@ export const serializeAws_restJson1PutObjectCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -236,7 +218,7 @@ export const deserializeAws_restJson1DeleteObjectCommand = async (
   }
   const contents: DeleteObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteObjectResponse"
+    __type: "DeleteObjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -248,7 +230,7 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
 ): Promise<DeleteObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -257,34 +239,25 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastoredata#ObjectNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ObjectNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ObjectNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -295,7 +268,7 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -318,7 +291,7 @@ export const deserializeAws_restJson1DescribeObjectCommand = async (
     ContentLength: undefined,
     ContentType: undefined,
     ETag: undefined,
-    LastModified: undefined
+    LastModified: undefined,
   };
   if (output.headers["cache-control"] !== undefined) {
     contents.CacheControl = output.headers["cache-control"];
@@ -345,7 +318,7 @@ const deserializeAws_restJson1DescribeObjectCommandError = async (
 ): Promise<DescribeObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -354,34 +327,25 @@ const deserializeAws_restJson1DescribeObjectCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastoredata#ObjectNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ObjectNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ObjectNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -392,7 +356,7 @@ const deserializeAws_restJson1DescribeObjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -417,7 +381,7 @@ export const deserializeAws_restJson1GetObjectCommand = async (
     ContentRange: undefined,
     ContentType: undefined,
     ETag: undefined,
-    LastModified: undefined
+    LastModified: undefined,
   };
   if (output.headers["cache-control"] !== undefined) {
     contents.CacheControl = output.headers["cache-control"];
@@ -448,7 +412,7 @@ const deserializeAws_restJson1GetObjectCommandError = async (
 ): Promise<GetObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -457,45 +421,33 @@ const deserializeAws_restJson1GetObjectCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastoredata#ObjectNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ObjectNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ObjectNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "RequestedRangeNotSatisfiableException":
     case "com.amazonaws.mediastoredata#RequestedRangeNotSatisfiableException":
       response = {
-        ...(await deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -506,7 +458,7 @@ const deserializeAws_restJson1GetObjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -526,7 +478,7 @@ export const deserializeAws_restJson1ListItemsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListItemsResponse",
     Items: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Items !== undefined && data.Items !== null) {
@@ -544,7 +496,7 @@ const deserializeAws_restJson1ListItemsCommandError = async (
 ): Promise<ListItemsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -553,23 +505,17 @@ const deserializeAws_restJson1ListItemsCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -580,7 +526,7 @@ const deserializeAws_restJson1ListItemsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -601,7 +547,7 @@ export const deserializeAws_restJson1PutObjectCommand = async (
     __type: "PutObjectResponse",
     ContentSHA256: undefined,
     ETag: undefined,
-    StorageClass: undefined
+    StorageClass: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ContentSHA256 !== undefined && data.ContentSHA256 !== null) {
@@ -622,7 +568,7 @@ const deserializeAws_restJson1PutObjectCommandError = async (
 ): Promise<PutObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -631,23 +577,17 @@ const deserializeAws_restJson1PutObjectCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -658,7 +598,7 @@ const deserializeAws_restJson1PutObjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -675,7 +615,7 @@ const deserializeAws_restJson1ContainerNotFoundExceptionResponse = async (
     name: "ContainerNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -692,7 +632,7 @@ const deserializeAws_restJson1InternalServerErrorResponse = async (
     name: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -709,7 +649,7 @@ const deserializeAws_restJson1ObjectNotFoundExceptionResponse = async (
     name: "ObjectNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -726,7 +666,7 @@ const deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse = as
     name: "RequestedRangeNotSatisfiableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -735,83 +675,52 @@ const deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse = as
   return contents;
 };
 
-const deserializeAws_restJson1Item = (
-  output: any,
-  context: __SerdeContext
-): Item => {
+const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
     __type: "Item",
     ContentLength:
-      output.ContentLength !== undefined && output.ContentLength !== null
-        ? output.ContentLength
-        : undefined,
-    ContentType:
-      output.ContentType !== undefined && output.ContentType !== null
-        ? output.ContentType
-        : undefined,
-    ETag:
-      output.ETag !== undefined && output.ETag !== null
-        ? output.ETag
-        : undefined,
+      output.ContentLength !== undefined && output.ContentLength !== null ? output.ContentLength : undefined,
+    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
+    ETag: output.ETag !== undefined && output.ETag !== null ? output.ETag : undefined,
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ItemList = (
-  output: any,
-  context: __SerdeContext
-): Item[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Item(entry, context)
-  );
+const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): Item[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Item(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -822,8 +731,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

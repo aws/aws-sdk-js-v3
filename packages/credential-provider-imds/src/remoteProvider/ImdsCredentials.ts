@@ -19,5 +19,5 @@ export const fromImdsCredentials = (creds: ImdsCredentials): Credentials => ({
   accessKeyId: creds.AccessKeyId,
   secretAccessKey: creds.SecretAccessKey,
   sessionToken: creds.Token,
-  expiration: new Date(creds.Expiration)
+  expiration: new Date(creds.Expiration),
 });

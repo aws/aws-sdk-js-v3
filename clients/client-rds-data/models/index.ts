@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -92,16 +88,11 @@ export namespace ArrayValue {
     _: (name: string, value: any) => T;
   }
   export const visit = <T>(value: ArrayValue, visitor: Visitor<T>): T => {
-    if (value.arrayValues !== undefined)
-      return visitor.arrayValues(value.arrayValues);
-    if (value.booleanValues !== undefined)
-      return visitor.booleanValues(value.booleanValues);
-    if (value.doubleValues !== undefined)
-      return visitor.doubleValues(value.doubleValues);
-    if (value.longValues !== undefined)
-      return visitor.longValues(value.longValues);
-    if (value.stringValues !== undefined)
-      return visitor.stringValues(value.stringValues);
+    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
+    if (value.booleanValues !== undefined) return visitor.booleanValues(value.booleanValues);
+    if (value.doubleValues !== undefined) return visitor.doubleValues(value.doubleValues);
+    if (value.longValues !== undefined) return visitor.longValues(value.longValues);
+    if (value.stringValues !== undefined) return visitor.stringValues(value.stringValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -109,9 +100,7 @@ export namespace ArrayValue {
 /**
  * <p>There is an error in the call or in a SQL statement.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -122,10 +111,9 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -188,13 +176,10 @@ export interface BatchExecuteStatementRequest {
 }
 
 export namespace BatchExecuteStatementRequest {
-  export const filterSensitiveLog = (
-    obj: BatchExecuteStatementRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchExecuteStatementRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchExecuteStatementRequest =>
-    __isa(o, "BatchExecuteStatementRequest");
+  export const isa = (o: any): o is BatchExecuteStatementRequest => __isa(o, "BatchExecuteStatementRequest");
 }
 
 /**
@@ -210,13 +195,10 @@ export interface BatchExecuteStatementResponse {
 }
 
 export namespace BatchExecuteStatementResponse {
-  export const filterSensitiveLog = (
-    obj: BatchExecuteStatementResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchExecuteStatementResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchExecuteStatementResponse =>
-    __isa(o, "BatchExecuteStatementResponse");
+  export const isa = (o: any): o is BatchExecuteStatementResponse => __isa(o, "BatchExecuteStatementResponse");
 }
 
 /**
@@ -248,10 +230,9 @@ export interface BeginTransactionRequest {
 
 export namespace BeginTransactionRequest {
   export const filterSensitiveLog = (obj: BeginTransactionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BeginTransactionRequest =>
-    __isa(o, "BeginTransactionRequest");
+  export const isa = (o: any): o is BeginTransactionRequest => __isa(o, "BeginTransactionRequest");
 }
 
 /**
@@ -268,10 +249,9 @@ export interface BeginTransactionResponse {
 
 export namespace BeginTransactionResponse {
   export const filterSensitiveLog = (obj: BeginTransactionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BeginTransactionResponse =>
-    __isa(o, "BeginTransactionResponse");
+  export const isa = (o: any): o is BeginTransactionResponse => __isa(o, "BeginTransactionResponse");
 }
 
 /**
@@ -352,10 +332,9 @@ export interface ColumnMetadata {
 
 export namespace ColumnMetadata {
   export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ColumnMetadata =>
-    __isa(o, "ColumnMetadata");
+  export const isa = (o: any): o is ColumnMetadata => __isa(o, "ColumnMetadata");
 }
 
 /**
@@ -381,10 +360,9 @@ export interface CommitTransactionRequest {
 
 export namespace CommitTransactionRequest {
   export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommitTransactionRequest =>
-    __isa(o, "CommitTransactionRequest");
+  export const isa = (o: any): o is CommitTransactionRequest => __isa(o, "CommitTransactionRequest");
 }
 
 /**
@@ -400,15 +378,14 @@ export interface CommitTransactionResponse {
 
 export namespace CommitTransactionResponse {
   export const filterSensitiveLog = (obj: CommitTransactionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommitTransactionResponse =>
-    __isa(o, "CommitTransactionResponse");
+  export const isa = (o: any): o is CommitTransactionResponse => __isa(o, "CommitTransactionResponse");
 }
 
 export enum DecimalReturnType {
   DOUBLE_OR_LONG = "DOUBLE_OR_LONG",
-  STRING = "STRING"
+  STRING = "STRING",
 }
 
 /**
@@ -448,10 +425,9 @@ export interface ExecuteSqlRequest {
 
 export namespace ExecuteSqlRequest {
   export const filterSensitiveLog = (obj: ExecuteSqlRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecuteSqlRequest =>
-    __isa(o, "ExecuteSqlRequest");
+  export const isa = (o: any): o is ExecuteSqlRequest => __isa(o, "ExecuteSqlRequest");
 }
 
 /**
@@ -468,10 +444,9 @@ export interface ExecuteSqlResponse {
 
 export namespace ExecuteSqlResponse {
   export const filterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecuteSqlResponse =>
-    __isa(o, "ExecuteSqlResponse");
+  export const isa = (o: any): o is ExecuteSqlResponse => __isa(o, "ExecuteSqlResponse");
 }
 
 /**
@@ -549,10 +524,9 @@ export interface ExecuteStatementRequest {
 
 export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecuteStatementRequest =>
-    __isa(o, "ExecuteStatementRequest");
+  export const isa = (o: any): o is ExecuteStatementRequest => __isa(o, "ExecuteStatementRequest");
 }
 
 /**
@@ -591,10 +565,9 @@ export interface ExecuteStatementResponse {
 
 export namespace ExecuteStatementResponse {
   export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecuteStatementResponse =>
-    __isa(o, "ExecuteStatementResponse");
+  export const isa = (o: any): o is ExecuteStatementResponse => __isa(o, "ExecuteStatementResponse");
 }
 
 /**
@@ -726,19 +699,13 @@ export namespace Field {
     _: (name: string, value: any) => T;
   }
   export const visit = <T>(value: Field, visitor: Visitor<T>): T => {
-    if (value.arrayValue !== undefined)
-      return visitor.arrayValue(value.arrayValue);
-    if (value.blobValue !== undefined)
-      return visitor.blobValue(value.blobValue);
-    if (value.booleanValue !== undefined)
-      return visitor.booleanValue(value.booleanValue);
-    if (value.doubleValue !== undefined)
-      return visitor.doubleValue(value.doubleValue);
+    if (value.arrayValue !== undefined) return visitor.arrayValue(value.arrayValue);
+    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
     if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.longValue !== undefined)
-      return visitor.longValue(value.longValue);
-    if (value.stringValue !== undefined)
-      return visitor.stringValue(value.stringValue);
+    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -757,30 +724,24 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 
 export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
  * <p>An internal error occurred.</p>
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServerErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException =>
-    __isa(o, "InternalServerErrorException");
+  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 /**
@@ -797,10 +758,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -816,7 +776,7 @@ export interface _Record {
 
 export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
@@ -839,7 +799,7 @@ export interface ResultFrame {
 
 export namespace ResultFrame {
   export const filterSensitiveLog = (obj: ResultFrame): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResultFrame => __isa(o, "ResultFrame");
 }
@@ -862,10 +822,9 @@ export interface ResultSetMetadata {
 
 export namespace ResultSetMetadata {
   export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResultSetMetadata =>
-    __isa(o, "ResultSetMetadata");
+  export const isa = (o: any): o is ResultSetMetadata => __isa(o, "ResultSetMetadata");
 }
 
 /**
@@ -889,10 +848,9 @@ export interface ResultSetOptions {
 
 export namespace ResultSetOptions {
   export const filterSensitiveLog = (obj: ResultSetOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResultSetOptions =>
-    __isa(o, "ResultSetOptions");
+  export const isa = (o: any): o is ResultSetOptions => __isa(o, "ResultSetOptions");
 }
 
 /**
@@ -919,10 +877,9 @@ export interface RollbackTransactionRequest {
 
 export namespace RollbackTransactionRequest {
   export const filterSensitiveLog = (obj: RollbackTransactionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RollbackTransactionRequest =>
-    __isa(o, "RollbackTransactionRequest");
+  export const isa = (o: any): o is RollbackTransactionRequest => __isa(o, "RollbackTransactionRequest");
 }
 
 /**
@@ -938,32 +895,26 @@ export interface RollbackTransactionResponse {
 }
 
 export namespace RollbackTransactionResponse {
-  export const filterSensitiveLog = (
-    obj: RollbackTransactionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RollbackTransactionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RollbackTransactionResponse =>
-    __isa(o, "RollbackTransactionResponse");
+  export const isa = (o: any): o is RollbackTransactionResponse => __isa(o, "RollbackTransactionResponse");
 }
 
 /**
  * <p>The service specified by the <code>resourceArn</code> parameter is not
  *             available.</p>
  */
-export interface ServiceUnavailableError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableError extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableError";
   $fault: "server";
 }
 
 export namespace ServiceUnavailableError {
   export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableError =>
-    __isa(o, "ServiceUnavailableError");
+  export const isa = (o: any): o is ServiceUnavailableError => __isa(o, "ServiceUnavailableError");
 }
 
 /**
@@ -1014,7 +965,7 @@ export interface SqlParameter {
 
 export namespace SqlParameter {
   export const filterSensitiveLog = (obj: SqlParameter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SqlParameter => __isa(o, "SqlParameter");
 }
@@ -1041,18 +992,15 @@ export interface SqlStatementResult {
 
 export namespace SqlStatementResult {
   export const filterSensitiveLog = (obj: SqlStatementResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SqlStatementResult =>
-    __isa(o, "SqlStatementResult");
+  export const isa = (o: any): o is SqlStatementResult => __isa(o, "SqlStatementResult");
 }
 
 /**
  * <p>The execution of the SQL statement timed out.</p>
  */
-export interface StatementTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StatementTimeoutException extends __SmithyException, $MetadataBearer {
   name: "StatementTimeoutException";
   $fault: "client";
   /**
@@ -1068,10 +1016,9 @@ export interface StatementTimeoutException
 
 export namespace StatementTimeoutException {
   export const filterSensitiveLog = (obj: StatementTimeoutException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StatementTimeoutException =>
-    __isa(o, "StatementTimeoutException");
+  export const isa = (o: any): o is StatementTimeoutException => __isa(o, "StatementTimeoutException");
 }
 
 /**
@@ -1087,7 +1034,7 @@ export interface StructValue {
 
 export namespace StructValue {
   export const filterSensitiveLog = (obj: StructValue): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
 }
@@ -1096,7 +1043,7 @@ export enum TypeHint {
   DATE = "DATE",
   DECIMAL = "DECIMAL",
   TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP"
+  TIMESTAMP = "TIMESTAMP",
 }
 
 /**
@@ -1112,7 +1059,7 @@ export interface UpdateResult {
 
 export namespace UpdateResult {
   export const filterSensitiveLog = (obj: UpdateResult): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UpdateResult => __isa(o, "UpdateResult");
 }
@@ -1328,23 +1275,16 @@ export namespace Value {
     _: (name: string, value: any) => T;
   }
   export const visit = <T>(value: Value, visitor: Visitor<T>): T => {
-    if (value.arrayValues !== undefined)
-      return visitor.arrayValues(value.arrayValues);
-    if (value.bigIntValue !== undefined)
-      return visitor.bigIntValue(value.bigIntValue);
+    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
+    if (value.bigIntValue !== undefined) return visitor.bigIntValue(value.bigIntValue);
     if (value.bitValue !== undefined) return visitor.bitValue(value.bitValue);
-    if (value.blobValue !== undefined)
-      return visitor.blobValue(value.blobValue);
-    if (value.doubleValue !== undefined)
-      return visitor.doubleValue(value.doubleValue);
+    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
     if (value.intValue !== undefined) return visitor.intValue(value.intValue);
     if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.realValue !== undefined)
-      return visitor.realValue(value.realValue);
-    if (value.stringValue !== undefined)
-      return visitor.stringValue(value.stringValue);
-    if (value.structValue !== undefined)
-      return visitor.structValue(value.structValue);
+    if (value.realValue !== undefined) return visitor.realValue(value.realValue);
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.structValue !== undefined) return visitor.structValue(value.structValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

@@ -2,98 +2,78 @@ import { SnowballClient } from "./SnowballClient";
 import {
   CancelClusterCommand,
   CancelClusterCommandInput,
-  CancelClusterCommandOutput
+  CancelClusterCommandOutput,
 } from "./commands/CancelClusterCommand";
-import {
-  CancelJobCommand,
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
+import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import {
   CreateAddressCommand,
   CreateAddressCommandInput,
-  CreateAddressCommandOutput
+  CreateAddressCommandOutput,
 } from "./commands/CreateAddressCommand";
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
-  CreateClusterCommandOutput
+  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
-import {
-  CreateJobCommand,
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   DescribeAddressCommand,
   DescribeAddressCommandInput,
-  DescribeAddressCommandOutput
+  DescribeAddressCommandOutput,
 } from "./commands/DescribeAddressCommand";
 import {
   DescribeAddressesCommand,
   DescribeAddressesCommandInput,
-  DescribeAddressesCommandOutput
+  DescribeAddressesCommandOutput,
 } from "./commands/DescribeAddressesCommand";
 import {
   DescribeClusterCommand,
   DescribeClusterCommandInput,
-  DescribeClusterCommandOutput
+  DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
-import {
-  DescribeJobCommand,
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
+import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   GetJobManifestCommand,
   GetJobManifestCommandInput,
-  GetJobManifestCommandOutput
+  GetJobManifestCommandOutput,
 } from "./commands/GetJobManifestCommand";
 import {
   GetJobUnlockCodeCommand,
   GetJobUnlockCodeCommandInput,
-  GetJobUnlockCodeCommandOutput
+  GetJobUnlockCodeCommandOutput,
 } from "./commands/GetJobUnlockCodeCommand";
 import {
   GetSnowballUsageCommand,
   GetSnowballUsageCommandInput,
-  GetSnowballUsageCommandOutput
+  GetSnowballUsageCommandOutput,
 } from "./commands/GetSnowballUsageCommand";
 import {
   GetSoftwareUpdatesCommand,
   GetSoftwareUpdatesCommandInput,
-  GetSoftwareUpdatesCommandOutput
+  GetSoftwareUpdatesCommandOutput,
 } from "./commands/GetSoftwareUpdatesCommand";
 import {
   ListClusterJobsCommand,
   ListClusterJobsCommandInput,
-  ListClusterJobsCommandOutput
+  ListClusterJobsCommandOutput,
 } from "./commands/ListClusterJobsCommand";
 import {
   ListClustersCommand,
   ListClustersCommandInput,
-  ListClustersCommandOutput
+  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
   ListCompatibleImagesCommand,
   ListCompatibleImagesCommandInput,
-  ListCompatibleImagesCommandOutput
+  ListCompatibleImagesCommandOutput,
 } from "./commands/ListCompatibleImagesCommand";
-import {
-  ListJobsCommand,
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   UpdateClusterCommand,
   UpdateClusterCommandInput,
-  UpdateClusterCommandOutput
+  UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
-import {
-  UpdateJobCommand,
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand";
+import { UpdateJobCommand, UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -126,17 +106,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public cancelCluster(
     args: CancelClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelClusterCommandOutput) => void),
     cb?: (err: any, data?: CancelClusterCommandOutput) => void
   ): Promise<CancelClusterCommandOutput> | void {
     const command = new CancelClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -149,14 +126,8 @@ export class Snowball extends SnowballClient {
    *         <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the
    *       response element data returned.</p>
    */
-  public cancelJob(
-    args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelJobCommandOutput>;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
-  ): void;
+  public cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
+  public cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
   public cancelJob(
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
@@ -164,17 +135,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -202,17 +170,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public createAddress(
     args: CreateAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAddressCommandOutput) => void),
     cb?: (err: any, data?: CreateAddressCommandOutput) => void
   ): Promise<CreateAddressCommandOutput> | void {
     const command = new CreateAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -238,17 +203,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -262,14 +224,8 @@ export class Snowball extends SnowballClient {
    *       the <code>clusterId</code> value; the other job attributes are inherited from the cluster.
    *     </p>
    */
-  public createJob(
-    args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateJobCommandOutput>;
-  public createJob(
-    args: CreateJobCommandInput,
-    cb: (err: any, data?: CreateJobCommandOutput) => void
-  ): void;
+  public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
+  public createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
   public createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -277,17 +233,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -313,17 +266,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public describeAddress(
     args: DescribeAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressCommandOutput) => void),
     cb?: (err: any, data?: DescribeAddressCommandOutput) => void
   ): Promise<DescribeAddressCommandOutput> | void {
     const command = new DescribeAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -350,17 +300,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public describeAddresses(
     args: DescribeAddressesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAddressesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAddressesCommandOutput) => void
   ): Promise<DescribeAddressesCommandOutput> | void {
     const command = new DescribeAddressesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -386,17 +333,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public describeCluster(
     args: DescribeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterCommandOutput) => void
   ): Promise<DescribeClusterCommandOutput> | void {
     const command = new DescribeClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -407,14 +351,8 @@ export class Snowball extends SnowballClient {
    * <p>Returns information about a specific job including shipping information, job status,
    *       and other important metadata. </p>
    */
-  public describeJob(
-    args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeJobCommandOutput>;
-  public describeJob(
-    args: DescribeJobCommandInput,
-    cb: (err: any, data?: DescribeJobCommandOutput) => void
-  ): void;
+  public describeJob(args: DescribeJobCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobCommandOutput>;
+  public describeJob(args: DescribeJobCommandInput, cb: (err: any, data?: DescribeJobCommandOutput) => void): void;
   public describeJob(
     args: DescribeJobCommandInput,
     options: __HttpHandlerOptions,
@@ -422,17 +360,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public describeJob(
     args: DescribeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobCommandOutput) => void
   ): Promise<DescribeJobCommandOutput> | void {
     const command = new DescribeJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -475,17 +410,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public getJobManifest(
     args: GetJobManifestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobManifestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobManifestCommandOutput) => void),
     cb?: (err: any, data?: GetJobManifestCommandOutput) => void
   ): Promise<GetJobManifestCommandOutput> | void {
     const command = new GetJobManifestCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -522,17 +454,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public getJobUnlockCode(
     args: GetJobUnlockCodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobUnlockCodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobUnlockCodeCommandOutput) => void),
     cb?: (err: any, data?: GetJobUnlockCodeCommandOutput) => void
   ): Promise<GetJobUnlockCodeCommandOutput> | void {
     const command = new GetJobUnlockCodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -561,17 +490,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public getSnowballUsage(
     args: GetSnowballUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSnowballUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSnowballUsageCommandOutput) => void),
     cb?: (err: any, data?: GetSnowballUsageCommandOutput) => void
   ): Promise<GetSnowballUsageCommandOutput> | void {
     const command = new GetSnowballUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -597,17 +523,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public getSoftwareUpdates(
     args: GetSoftwareUpdatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSoftwareUpdatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSoftwareUpdatesCommandOutput) => void),
     cb?: (err: any, data?: GetSoftwareUpdatesCommandOutput) => void
   ): Promise<GetSoftwareUpdatesCommandOutput> | void {
     const command = new GetSoftwareUpdatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -634,17 +557,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public listClusterJobs(
     args: ListClusterJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClusterJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClusterJobsCommandOutput) => void),
     cb?: (err: any, data?: ListClusterJobsCommandOutput) => void
   ): Promise<ListClusterJobsCommandOutput> | void {
     const command = new ListClusterJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -660,10 +580,7 @@ export class Snowball extends SnowballClient {
     args: ListClustersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListClustersCommandOutput>;
-  public listClusters(
-    args: ListClustersCommandInput,
-    cb: (err: any, data?: ListClustersCommandOutput) => void
-  ): void;
+  public listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   public listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -671,17 +588,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -710,17 +624,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public listCompatibleImages(
     args: ListCompatibleImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCompatibleImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCompatibleImagesCommandOutput) => void),
     cb?: (err: any, data?: ListCompatibleImagesCommandOutput) => void
   ): Promise<ListCompatibleImagesCommandOutput> | void {
     const command = new ListCompatibleImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -734,14 +645,8 @@ export class Snowball extends SnowballClient {
    *       in one of the US regions will return jobs from the list of all jobs associated with this
    *       account in all US regions.</p>
    */
-  public listJobs(
-    args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobsCommandOutput>;
-  public listJobs(
-    args: ListJobsCommandInput,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
-  ): void;
+  public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
+  public listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   public listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -749,17 +654,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -787,17 +689,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public updateCluster(
     args: UpdateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterCommandOutput) => void),
     cb?: (err: any, data?: UpdateClusterCommandOutput) => void
   ): Promise<UpdateClusterCommandOutput> | void {
     const command = new UpdateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -809,14 +708,8 @@ export class Snowball extends SnowballClient {
    *       the information associated with a job. Once the job changes to a different job state, usually
    *       within 60 minutes of the job being created, this action is no longer available.</p>
    */
-  public updateJob(
-    args: UpdateJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateJobCommandOutput>;
-  public updateJob(
-    args: UpdateJobCommandInput,
-    cb: (err: any, data?: UpdateJobCommandOutput) => void
-  ): void;
+  public updateJob(args: UpdateJobCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJobCommandOutput>;
+  public updateJob(args: UpdateJobCommandInput, cb: (err: any, data?: UpdateJobCommandOutput) => void): void;
   public updateJob(
     args: UpdateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -824,17 +717,14 @@ export class Snowball extends SnowballClient {
   ): void;
   public updateJob(
     args: UpdateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobCommandOutput) => void
   ): Promise<UpdateJobCommandOutput> | void {
     const command = new UpdateJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

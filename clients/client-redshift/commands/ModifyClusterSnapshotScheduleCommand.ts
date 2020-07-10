@@ -1,18 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { ModifyClusterSnapshotScheduleMessage } from "../models/index";
 import {
   deserializeAws_queryModifyClusterSnapshotScheduleCommand,
-  serializeAws_queryModifyClusterSnapshotScheduleCommand
+  serializeAws_queryModifyClusterSnapshotScheduleCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ModifyClusterSnapshotScheduleCommandInput = ModifyClusterSnapshotScheduleMessage;
@@ -45,18 +38,13 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClusterSnapshotScheduleCommandInput,
-    ModifyClusterSnapshotScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClusterSnapshotScheduleCommandInput, ModifyClusterSnapshotScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +54,15 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyClusterSnapshotScheduleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterSnapshotScheduleCommand(
-      input,
-      context
-    );
+  private serialize(input: ModifyClusterSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryModifyClusterSnapshotScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyClusterSnapshotScheduleCommandOutput> {
-    return deserializeAws_queryModifyClusterSnapshotScheduleCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyClusterSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

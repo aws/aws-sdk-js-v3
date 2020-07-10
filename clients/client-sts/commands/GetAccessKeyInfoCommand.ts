@@ -1,21 +1,11 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
-import {
-  GetAccessKeyInfoRequest,
-  GetAccessKeyInfoResponse
-} from "../models/index";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
+import { GetAccessKeyInfoRequest, GetAccessKeyInfoResponse } from "../models/index";
 import {
   deserializeAws_queryGetAccessKeyInfoCommand,
-  serializeAws_queryGetAccessKeyInfoCommand
+  serializeAws_queryGetAccessKeyInfoCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetAccessKeyInfoCommandInput = GetAccessKeyInfoRequest;
-export type GetAccessKeyInfoCommandOutput = GetAccessKeyInfoResponse &
-  __MetadataBearer;
+export type GetAccessKeyInfoCommandOutput = GetAccessKeyInfoResponse & __MetadataBearer;
 
 export class GetAccessKeyInfoCommand extends $Command<
   GetAccessKeyInfoCommandInput,
@@ -50,14 +39,12 @@ export class GetAccessKeyInfoCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccessKeyInfoCommandInput, GetAccessKeyInfoCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetAccessKeyInfoCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAccessKeyInfoCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAccessKeyInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetAccessKeyInfoCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAccessKeyInfoCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessKeyInfoCommandOutput> {
     return deserializeAws_queryGetAccessKeyInfoCommand(output, context);
   }
 

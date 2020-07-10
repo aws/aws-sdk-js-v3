@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  GetUserAttributeVerificationCodeRequest,
-  GetUserAttributeVerificationCodeResponse
-} from "../models/index";
+import { GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetUserAttributeVerificationCodeCommand,
-  serializeAws_json1_1GetUserAttributeVerificationCodeCommand
+  serializeAws_json1_1GetUserAttributeVerificationCodeCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetUserAttributeVerificationCodeCommandInput = GetUserAttributeVerificationCodeRequest;
-export type GetUserAttributeVerificationCodeCommandOutput = GetUserAttributeVerificationCodeResponse &
-  __MetadataBearer;
+export type GetUserAttributeVerificationCodeCommandOutput = GetUserAttributeVerificationCodeResponse & __MetadataBearer;
 
 export class GetUserAttributeVerificationCodeCommand extends $Command<
   GetUserAttributeVerificationCodeCommandInput,
@@ -49,18 +42,13 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetUserAttributeVerificationCodeCommandInput,
-    GetUserAttributeVerificationCodeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetUserAttributeVerificationCodeCommandInput, GetUserAttributeVerificationCodeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +62,14 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     input: GetUserAttributeVerificationCodeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUserAttributeVerificationCodeCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetUserAttributeVerificationCodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUserAttributeVerificationCodeCommandOutput> {
-    return deserializeAws_json1_1GetUserAttributeVerificationCodeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetUserAttributeVerificationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

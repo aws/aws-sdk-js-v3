@@ -1,21 +1,11 @@
-import {
-  LakeFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LakeFormationClient";
-import {
-  DeregisterResourceRequest,
-  DeregisterResourceResponse
-} from "../models/index";
+import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { DeregisterResourceRequest, DeregisterResourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterResourceCommand,
-  serializeAws_json1_1DeregisterResourceCommand
+  serializeAws_json1_1DeregisterResourceCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeregisterResourceCommandInput = DeregisterResourceRequest;
-export type DeregisterResourceCommandOutput = DeregisterResourceResponse &
-  __MetadataBearer;
+export type DeregisterResourceCommandOutput = DeregisterResourceResponse & __MetadataBearer;
 
 export class DeregisterResourceCommand extends $Command<
   DeregisterResourceCommandInput,
@@ -50,14 +39,12 @@ export class DeregisterResourceCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterResourceCommandInput, DeregisterResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DeregisterResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeregisterResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeregisterResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeregisterResourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterResourceCommandOutput> {
     return deserializeAws_json1_1DeregisterResourceCommand(output, context);
   }
 

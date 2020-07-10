@@ -1,21 +1,11 @@
-import {
-  CodeGuruReviewerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeGuruReviewerClient";
-import {
-  DisassociateRepositoryRequest,
-  DisassociateRepositoryResponse
-} from "../models/index";
+import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
+import { DisassociateRepositoryRequest, DisassociateRepositoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1DisassociateRepositoryCommand,
-  serializeAws_restJson1DisassociateRepositoryCommand
+  serializeAws_restJson1DisassociateRepositoryCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DisassociateRepositoryCommandInput = DisassociateRepositoryRequest;
-export type DisassociateRepositoryCommandOutput = DisassociateRepositoryResponse &
-  __MetadataBearer;
+export type DisassociateRepositoryCommandOutput = DisassociateRepositoryResponse & __MetadataBearer;
 
 export class DisassociateRepositoryCommand extends $Command<
   DisassociateRepositoryCommandInput,
@@ -49,18 +38,13 @@ export class DisassociateRepositoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateRepositoryCommandInput,
-    DisassociateRepositoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateRepositoryCommandInput, DisassociateRepositoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class DisassociateRepositoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateRepositoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateRepositoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateRepositoryCommandOutput> {
-    return deserializeAws_restJson1DisassociateRepositoryCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateRepositoryCommandOutput> {
+    return deserializeAws_restJson1DisassociateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

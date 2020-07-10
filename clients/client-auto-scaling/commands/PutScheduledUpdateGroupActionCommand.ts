@@ -1,18 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { PutScheduledUpdateGroupActionType } from "../models/index";
 import {
   deserializeAws_queryPutScheduledUpdateGroupActionCommand,
-  serializeAws_queryPutScheduledUpdateGroupActionCommand
+  serializeAws_queryPutScheduledUpdateGroupActionCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutScheduledUpdateGroupActionCommandInput = PutScheduledUpdateGroupActionType;
@@ -45,18 +38,13 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutScheduledUpdateGroupActionCommandInput,
-    PutScheduledUpdateGroupActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutScheduledUpdateGroupActionCommandInput, PutScheduledUpdateGroupActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +54,15 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutScheduledUpdateGroupActionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryPutScheduledUpdateGroupActionCommand(
-      input,
-      context
-    );
+  private serialize(input: PutScheduledUpdateGroupActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryPutScheduledUpdateGroupActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutScheduledUpdateGroupActionCommandOutput> {
-    return deserializeAws_queryPutScheduledUpdateGroupActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPutScheduledUpdateGroupActionCommand(output, context);
   }
 
   // Start section: command_body_extra

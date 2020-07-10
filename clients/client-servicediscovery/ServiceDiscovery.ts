@@ -2,102 +2,94 @@ import { ServiceDiscoveryClient } from "./ServiceDiscoveryClient";
 import {
   CreateHttpNamespaceCommand,
   CreateHttpNamespaceCommandInput,
-  CreateHttpNamespaceCommandOutput
+  CreateHttpNamespaceCommandOutput,
 } from "./commands/CreateHttpNamespaceCommand";
 import {
   CreatePrivateDnsNamespaceCommand,
   CreatePrivateDnsNamespaceCommandInput,
-  CreatePrivateDnsNamespaceCommandOutput
+  CreatePrivateDnsNamespaceCommandOutput,
 } from "./commands/CreatePrivateDnsNamespaceCommand";
 import {
   CreatePublicDnsNamespaceCommand,
   CreatePublicDnsNamespaceCommandInput,
-  CreatePublicDnsNamespaceCommandOutput
+  CreatePublicDnsNamespaceCommandOutput,
 } from "./commands/CreatePublicDnsNamespaceCommand";
 import {
   CreateServiceCommand,
   CreateServiceCommandInput,
-  CreateServiceCommandOutput
+  CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
   DeleteNamespaceCommand,
   DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput
+  DeleteNamespaceCommandOutput,
 } from "./commands/DeleteNamespaceCommand";
 import {
   DeleteServiceCommand,
   DeleteServiceCommandInput,
-  DeleteServiceCommandOutput
+  DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
 import {
   DeregisterInstanceCommand,
   DeregisterInstanceCommandInput,
-  DeregisterInstanceCommandOutput
+  DeregisterInstanceCommandOutput,
 } from "./commands/DeregisterInstanceCommand";
 import {
   DiscoverInstancesCommand,
   DiscoverInstancesCommandInput,
-  DiscoverInstancesCommandOutput
+  DiscoverInstancesCommandOutput,
 } from "./commands/DiscoverInstancesCommand";
-import {
-  GetInstanceCommand,
-  GetInstanceCommandInput,
-  GetInstanceCommandOutput
-} from "./commands/GetInstanceCommand";
+import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
   GetInstancesHealthStatusCommand,
   GetInstancesHealthStatusCommandInput,
-  GetInstancesHealthStatusCommandOutput
+  GetInstancesHealthStatusCommandOutput,
 } from "./commands/GetInstancesHealthStatusCommand";
 import {
   GetNamespaceCommand,
   GetNamespaceCommandInput,
-  GetNamespaceCommandOutput
+  GetNamespaceCommandOutput,
 } from "./commands/GetNamespaceCommand";
 import {
   GetOperationCommand,
   GetOperationCommandInput,
-  GetOperationCommandOutput
+  GetOperationCommandOutput,
 } from "./commands/GetOperationCommand";
-import {
-  GetServiceCommand,
-  GetServiceCommandInput,
-  GetServiceCommandOutput
-} from "./commands/GetServiceCommand";
+import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
   ListInstancesCommand,
   ListInstancesCommandInput,
-  ListInstancesCommandOutput
+  ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
 import {
   ListNamespacesCommand,
   ListNamespacesCommandInput,
-  ListNamespacesCommandOutput
+  ListNamespacesCommandOutput,
 } from "./commands/ListNamespacesCommand";
 import {
   ListOperationsCommand,
   ListOperationsCommandInput,
-  ListOperationsCommandOutput
+  ListOperationsCommandOutput,
 } from "./commands/ListOperationsCommand";
 import {
   ListServicesCommand,
   ListServicesCommandInput,
-  ListServicesCommandOutput
+  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
   RegisterInstanceCommand,
   RegisterInstanceCommandInput,
-  RegisterInstanceCommandOutput
+  RegisterInstanceCommandOutput,
 } from "./commands/RegisterInstanceCommand";
 import {
   UpdateInstanceCustomHealthStatusCommand,
   UpdateInstanceCustomHealthStatusCommandInput,
-  UpdateInstanceCustomHealthStatusCommandOutput
+  UpdateInstanceCustomHealthStatusCommandOutput,
 } from "./commands/UpdateInstanceCustomHealthStatusCommand";
 import {
   UpdateServiceCommand,
   UpdateServiceCommandInput,
-  UpdateServiceCommandOutput
+  UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -131,17 +123,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public createHttpNamespace(
     args: CreateHttpNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHttpNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHttpNamespaceCommandOutput) => void),
     cb?: (err: any, data?: CreateHttpNamespaceCommandOutput) => void
   ): Promise<CreateHttpNamespaceCommandOutput> | void {
     const command = new CreateHttpNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -171,17 +160,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public createPrivateDnsNamespace(
     args: CreatePrivateDnsNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePrivateDnsNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePrivateDnsNamespaceCommandOutput) => void),
     cb?: (err: any, data?: CreatePrivateDnsNamespaceCommandOutput) => void
   ): Promise<CreatePrivateDnsNamespaceCommandOutput> | void {
     const command = new CreatePrivateDnsNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -211,17 +197,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public createPublicDnsNamespace(
     args: CreatePublicDnsNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePublicDnsNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePublicDnsNamespaceCommandOutput) => void),
     cb?: (err: any, data?: CreatePublicDnsNamespaceCommandOutput) => void
   ): Promise<CreatePublicDnsNamespaceCommandOutput> | void {
     const command = new CreatePublicDnsNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -276,17 +259,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public createService(
     args: CreateServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceCommandOutput) => void),
     cb?: (err: any, data?: CreateServiceCommandOutput) => void
   ): Promise<CreateServiceCommandOutput> | void {
     const command = new CreateServiceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -311,17 +291,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
     cb?: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): Promise<DeleteNamespaceCommandOutput> | void {
     const command = new DeleteNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -346,17 +323,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public deleteService(
     args: DeleteServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceCommandOutput) => void),
     cb?: (err: any, data?: DeleteServiceCommandOutput) => void
   ): Promise<DeleteServiceCommandOutput> | void {
     const command = new DeleteServiceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -381,17 +355,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public deregisterInstance(
     args: DeregisterInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeregisterInstanceCommandOutput) => void
   ): Promise<DeregisterInstanceCommandOutput> | void {
     const command = new DeregisterInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -416,17 +387,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public discoverInstances(
     args: DiscoverInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DiscoverInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DiscoverInstancesCommandOutput) => void),
     cb?: (err: any, data?: DiscoverInstancesCommandOutput) => void
   ): Promise<DiscoverInstancesCommandOutput> | void {
     const command = new DiscoverInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -436,14 +404,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
    * <p>Gets information about a specified instance.</p>
    */
-  public getInstance(
-    args: GetInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetInstanceCommandOutput>;
-  public getInstance(
-    args: GetInstanceCommandInput,
-    cb: (err: any, data?: GetInstanceCommandOutput) => void
-  ): void;
+  public getInstance(args: GetInstanceCommandInput, options?: __HttpHandlerOptions): Promise<GetInstanceCommandOutput>;
+  public getInstance(args: GetInstanceCommandInput, cb: (err: any, data?: GetInstanceCommandOutput) => void): void;
   public getInstance(
     args: GetInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -451,17 +413,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getInstance(
     args: GetInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceCommandOutput) => void
   ): Promise<GetInstanceCommandOutput> | void {
     const command = new GetInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -490,17 +449,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getInstancesHealthStatus(
     args: GetInstancesHealthStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstancesHealthStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstancesHealthStatusCommandOutput) => void),
     cb?: (err: any, data?: GetInstancesHealthStatusCommandOutput) => void
   ): Promise<GetInstancesHealthStatusCommandOutput> | void {
     const command = new GetInstancesHealthStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -514,10 +470,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
     args: GetNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetNamespaceCommandOutput>;
-  public getNamespace(
-    args: GetNamespaceCommandInput,
-    cb: (err: any, data?: GetNamespaceCommandOutput) => void
-  ): void;
+  public getNamespace(args: GetNamespaceCommandInput, cb: (err: any, data?: GetNamespaceCommandOutput) => void): void;
   public getNamespace(
     args: GetNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -525,17 +478,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getNamespace(
     args: GetNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNamespaceCommandOutput) => void),
     cb?: (err: any, data?: GetNamespaceCommandOutput) => void
   ): Promise<GetNamespaceCommandOutput> | void {
     const command = new GetNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -553,10 +503,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
     args: GetOperationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetOperationCommandOutput>;
-  public getOperation(
-    args: GetOperationCommandInput,
-    cb: (err: any, data?: GetOperationCommandOutput) => void
-  ): void;
+  public getOperation(args: GetOperationCommandInput, cb: (err: any, data?: GetOperationCommandOutput) => void): void;
   public getOperation(
     args: GetOperationCommandInput,
     options: __HttpHandlerOptions,
@@ -564,17 +511,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getOperation(
     args: GetOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationCommandOutput) => void),
     cb?: (err: any, data?: GetOperationCommandOutput) => void
   ): Promise<GetOperationCommandOutput> | void {
     const command = new GetOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -584,14 +528,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
    * <p>Gets the settings for a specified service.</p>
    */
-  public getService(
-    args: GetServiceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetServiceCommandOutput>;
-  public getService(
-    args: GetServiceCommandInput,
-    cb: (err: any, data?: GetServiceCommandOutput) => void
-  ): void;
+  public getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
+  public getService(args: GetServiceCommandInput, cb: (err: any, data?: GetServiceCommandOutput) => void): void;
   public getService(
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -599,17 +537,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getService(
     args: GetServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceCommandOutput) => void),
     cb?: (err: any, data?: GetServiceCommandOutput) => void
   ): Promise<GetServiceCommandOutput> | void {
     const command = new GetServiceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -634,17 +569,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public listInstances(
     args: ListInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListInstancesCommandOutput) => void
   ): Promise<ListInstancesCommandOutput> | void {
     const command = new ListInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -669,17 +601,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public listNamespaces(
     args: ListNamespacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNamespacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNamespacesCommandOutput) => void),
     cb?: (err: any, data?: ListNamespacesCommandOutput) => void
   ): Promise<ListNamespacesCommandOutput> | void {
     const command = new ListNamespacesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -704,17 +633,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public listOperations(
     args: ListOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOperationsCommandOutput) => void),
     cb?: (err: any, data?: ListOperationsCommandOutput) => void
   ): Promise<ListOperationsCommandOutput> | void {
     const command = new ListOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -728,10 +654,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
     args: ListServicesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListServicesCommandOutput>;
-  public listServices(
-    args: ListServicesCommandInput,
-    cb: (err: any, data?: ListServicesCommandOutput) => void
-  ): void;
+  public listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
   public listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -739,17 +662,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public listServices(
     args: ListServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicesCommandOutput) => void),
     cb?: (err: any, data?: ListServicesCommandOutput) => void
   ): Promise<ListServicesCommandOutput> | void {
     const command = new ListServicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -813,17 +733,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public registerInstance(
     args: RegisterInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterInstanceCommandOutput) => void),
     cb?: (err: any, data?: RegisterInstanceCommandOutput) => void
   ): Promise<RegisterInstanceCommandOutput> | void {
     const command = new RegisterInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -852,23 +769,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public updateInstanceCustomHealthStatus(
     args: UpdateInstanceCustomHealthStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateInstanceCustomHealthStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateInstanceCustomHealthStatusCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceCustomHealthStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInstanceCustomHealthStatusCommandOutput) => void
   ): Promise<UpdateInstanceCustomHealthStatusCommandOutput> | void {
     const command = new UpdateInstanceCustomHealthStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -910,17 +818,14 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public updateService(
     args: UpdateServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceCommandOutput) => void
   ): Promise<UpdateServiceCommandOutput> | void {
     const command = new UpdateServiceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

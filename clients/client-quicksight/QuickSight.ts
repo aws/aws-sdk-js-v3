@@ -2,328 +2,296 @@ import { QuickSightClient } from "./QuickSightClient";
 import {
   CancelIngestionCommand,
   CancelIngestionCommandInput,
-  CancelIngestionCommandOutput
+  CancelIngestionCommandOutput,
 } from "./commands/CancelIngestionCommand";
 import {
   CreateDashboardCommand,
   CreateDashboardCommandInput,
-  CreateDashboardCommandOutput
+  CreateDashboardCommandOutput,
 } from "./commands/CreateDashboardCommand";
 import {
   CreateDataSetCommand,
   CreateDataSetCommandInput,
-  CreateDataSetCommandOutput
+  CreateDataSetCommandOutput,
 } from "./commands/CreateDataSetCommand";
 import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput
+  CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
-import {
-  CreateGroupCommand,
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateGroupMembershipCommand,
   CreateGroupMembershipCommandInput,
-  CreateGroupMembershipCommandOutput
+  CreateGroupMembershipCommandOutput,
 } from "./commands/CreateGroupMembershipCommand";
 import {
   CreateIAMPolicyAssignmentCommand,
   CreateIAMPolicyAssignmentCommandInput,
-  CreateIAMPolicyAssignmentCommandOutput
+  CreateIAMPolicyAssignmentCommandOutput,
 } from "./commands/CreateIAMPolicyAssignmentCommand";
 import {
   CreateIngestionCommand,
   CreateIngestionCommandInput,
-  CreateIngestionCommandOutput
+  CreateIngestionCommandOutput,
 } from "./commands/CreateIngestionCommand";
 import {
   CreateTemplateAliasCommand,
   CreateTemplateAliasCommandInput,
-  CreateTemplateAliasCommandOutput
+  CreateTemplateAliasCommandOutput,
 } from "./commands/CreateTemplateAliasCommand";
 import {
   CreateTemplateCommand,
   CreateTemplateCommandInput,
-  CreateTemplateCommandOutput
+  CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
 import {
   DeleteDashboardCommand,
   DeleteDashboardCommandInput,
-  DeleteDashboardCommandOutput
+  DeleteDashboardCommandOutput,
 } from "./commands/DeleteDashboardCommand";
 import {
   DeleteDataSetCommand,
   DeleteDataSetCommandInput,
-  DeleteDataSetCommandOutput
+  DeleteDataSetCommandOutput,
 } from "./commands/DeleteDataSetCommand";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput
+  DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
-import {
-  DeleteGroupCommand,
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteGroupMembershipCommand,
   DeleteGroupMembershipCommandInput,
-  DeleteGroupMembershipCommandOutput
+  DeleteGroupMembershipCommandOutput,
 } from "./commands/DeleteGroupMembershipCommand";
 import {
   DeleteIAMPolicyAssignmentCommand,
   DeleteIAMPolicyAssignmentCommandInput,
-  DeleteIAMPolicyAssignmentCommandOutput
+  DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
 import {
   DeleteTemplateAliasCommand,
   DeleteTemplateAliasCommandInput,
-  DeleteTemplateAliasCommandOutput
+  DeleteTemplateAliasCommandOutput,
 } from "./commands/DeleteTemplateAliasCommand";
 import {
   DeleteTemplateCommand,
   DeleteTemplateCommandInput,
-  DeleteTemplateCommandOutput
+  DeleteTemplateCommandOutput,
 } from "./commands/DeleteTemplateCommand";
 import {
   DeleteUserByPrincipalIdCommand,
   DeleteUserByPrincipalIdCommandInput,
-  DeleteUserByPrincipalIdCommandOutput
+  DeleteUserByPrincipalIdCommandOutput,
 } from "./commands/DeleteUserByPrincipalIdCommand";
-import {
-  DeleteUserCommand,
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DescribeDashboardCommand,
   DescribeDashboardCommandInput,
-  DescribeDashboardCommandOutput
+  DescribeDashboardCommandOutput,
 } from "./commands/DescribeDashboardCommand";
 import {
   DescribeDashboardPermissionsCommand,
   DescribeDashboardPermissionsCommandInput,
-  DescribeDashboardPermissionsCommandOutput
+  DescribeDashboardPermissionsCommandOutput,
 } from "./commands/DescribeDashboardPermissionsCommand";
 import {
   DescribeDataSetCommand,
   DescribeDataSetCommandInput,
-  DescribeDataSetCommandOutput
+  DescribeDataSetCommandOutput,
 } from "./commands/DescribeDataSetCommand";
 import {
   DescribeDataSetPermissionsCommand,
   DescribeDataSetPermissionsCommandInput,
-  DescribeDataSetPermissionsCommandOutput
+  DescribeDataSetPermissionsCommandOutput,
 } from "./commands/DescribeDataSetPermissionsCommand";
 import {
   DescribeDataSourceCommand,
   DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput
+  DescribeDataSourceCommandOutput,
 } from "./commands/DescribeDataSourceCommand";
 import {
   DescribeDataSourcePermissionsCommand,
   DescribeDataSourcePermissionsCommandInput,
-  DescribeDataSourcePermissionsCommandOutput
+  DescribeDataSourcePermissionsCommandOutput,
 } from "./commands/DescribeDataSourcePermissionsCommand";
 import {
   DescribeGroupCommand,
   DescribeGroupCommandInput,
-  DescribeGroupCommandOutput
+  DescribeGroupCommandOutput,
 } from "./commands/DescribeGroupCommand";
 import {
   DescribeIAMPolicyAssignmentCommand,
   DescribeIAMPolicyAssignmentCommandInput,
-  DescribeIAMPolicyAssignmentCommandOutput
+  DescribeIAMPolicyAssignmentCommandOutput,
 } from "./commands/DescribeIAMPolicyAssignmentCommand";
 import {
   DescribeIngestionCommand,
   DescribeIngestionCommandInput,
-  DescribeIngestionCommandOutput
+  DescribeIngestionCommandOutput,
 } from "./commands/DescribeIngestionCommand";
 import {
   DescribeTemplateAliasCommand,
   DescribeTemplateAliasCommandInput,
-  DescribeTemplateAliasCommandOutput
+  DescribeTemplateAliasCommandOutput,
 } from "./commands/DescribeTemplateAliasCommand";
 import {
   DescribeTemplateCommand,
   DescribeTemplateCommandInput,
-  DescribeTemplateCommandOutput
+  DescribeTemplateCommandOutput,
 } from "./commands/DescribeTemplateCommand";
 import {
   DescribeTemplatePermissionsCommand,
   DescribeTemplatePermissionsCommandInput,
-  DescribeTemplatePermissionsCommandOutput
+  DescribeTemplatePermissionsCommandOutput,
 } from "./commands/DescribeTemplatePermissionsCommand";
 import {
   DescribeUserCommand,
   DescribeUserCommandInput,
-  DescribeUserCommandOutput
+  DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
 import {
   GetDashboardEmbedUrlCommand,
   GetDashboardEmbedUrlCommandInput,
-  GetDashboardEmbedUrlCommandOutput
+  GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand";
 import {
   ListDashboardVersionsCommand,
   ListDashboardVersionsCommandInput,
-  ListDashboardVersionsCommandOutput
+  ListDashboardVersionsCommandOutput,
 } from "./commands/ListDashboardVersionsCommand";
 import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
-  ListDashboardsCommandOutput
+  ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
 import {
   ListDataSetsCommand,
   ListDataSetsCommandInput,
-  ListDataSetsCommandOutput
+  ListDataSetsCommandOutput,
 } from "./commands/ListDataSetsCommand";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput
+  ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
 import {
   ListGroupMembershipsCommand,
   ListGroupMembershipsCommandInput,
-  ListGroupMembershipsCommandOutput
+  ListGroupMembershipsCommandOutput,
 } from "./commands/ListGroupMembershipsCommand";
-import {
-  ListGroupsCommand,
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListIAMPolicyAssignmentsCommand,
   ListIAMPolicyAssignmentsCommandInput,
-  ListIAMPolicyAssignmentsCommandOutput
+  ListIAMPolicyAssignmentsCommandOutput,
 } from "./commands/ListIAMPolicyAssignmentsCommand";
 import {
   ListIAMPolicyAssignmentsForUserCommand,
   ListIAMPolicyAssignmentsForUserCommandInput,
-  ListIAMPolicyAssignmentsForUserCommandOutput
+  ListIAMPolicyAssignmentsForUserCommandOutput,
 } from "./commands/ListIAMPolicyAssignmentsForUserCommand";
 import {
   ListIngestionsCommand,
   ListIngestionsCommandInput,
-  ListIngestionsCommandOutput
+  ListIngestionsCommandOutput,
 } from "./commands/ListIngestionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTemplateAliasesCommand,
   ListTemplateAliasesCommandInput,
-  ListTemplateAliasesCommandOutput
+  ListTemplateAliasesCommandOutput,
 } from "./commands/ListTemplateAliasesCommand";
 import {
   ListTemplateVersionsCommand,
   ListTemplateVersionsCommandInput,
-  ListTemplateVersionsCommandOutput
+  ListTemplateVersionsCommandOutput,
 } from "./commands/ListTemplateVersionsCommand";
 import {
   ListTemplatesCommand,
   ListTemplatesCommandInput,
-  ListTemplatesCommandOutput
+  ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
 import {
   ListUserGroupsCommand,
   ListUserGroupsCommandInput,
-  ListUserGroupsCommandOutput
+  ListUserGroupsCommandOutput,
 } from "./commands/ListUserGroupsCommand";
-import {
-  ListUsersCommand,
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   RegisterUserCommand,
   RegisterUserCommandInput,
-  RegisterUserCommandOutput
+  RegisterUserCommandOutput,
 } from "./commands/RegisterUserCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateDashboardCommand,
   UpdateDashboardCommandInput,
-  UpdateDashboardCommandOutput
+  UpdateDashboardCommandOutput,
 } from "./commands/UpdateDashboardCommand";
 import {
   UpdateDashboardPermissionsCommand,
   UpdateDashboardPermissionsCommandInput,
-  UpdateDashboardPermissionsCommandOutput
+  UpdateDashboardPermissionsCommandOutput,
 } from "./commands/UpdateDashboardPermissionsCommand";
 import {
   UpdateDashboardPublishedVersionCommand,
   UpdateDashboardPublishedVersionCommandInput,
-  UpdateDashboardPublishedVersionCommandOutput
+  UpdateDashboardPublishedVersionCommandOutput,
 } from "./commands/UpdateDashboardPublishedVersionCommand";
 import {
   UpdateDataSetCommand,
   UpdateDataSetCommandInput,
-  UpdateDataSetCommandOutput
+  UpdateDataSetCommandOutput,
 } from "./commands/UpdateDataSetCommand";
 import {
   UpdateDataSetPermissionsCommand,
   UpdateDataSetPermissionsCommandInput,
-  UpdateDataSetPermissionsCommandOutput
+  UpdateDataSetPermissionsCommandOutput,
 } from "./commands/UpdateDataSetPermissionsCommand";
 import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
+  UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
   UpdateDataSourcePermissionsCommand,
   UpdateDataSourcePermissionsCommandInput,
-  UpdateDataSourcePermissionsCommandOutput
+  UpdateDataSourcePermissionsCommandOutput,
 } from "./commands/UpdateDataSourcePermissionsCommand";
-import {
-  UpdateGroupCommand,
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateIAMPolicyAssignmentCommand,
   UpdateIAMPolicyAssignmentCommandInput,
-  UpdateIAMPolicyAssignmentCommandOutput
+  UpdateIAMPolicyAssignmentCommandOutput,
 } from "./commands/UpdateIAMPolicyAssignmentCommand";
 import {
   UpdateTemplateAliasCommand,
   UpdateTemplateAliasCommandInput,
-  UpdateTemplateAliasCommandOutput
+  UpdateTemplateAliasCommandOutput,
 } from "./commands/UpdateTemplateAliasCommand";
 import {
   UpdateTemplateCommand,
   UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput
+  UpdateTemplateCommandOutput,
 } from "./commands/UpdateTemplateCommand";
 import {
   UpdateTemplatePermissionsCommand,
   UpdateTemplatePermissionsCommandInput,
-  UpdateTemplatePermissionsCommandOutput
+  UpdateTemplatePermissionsCommandOutput,
 } from "./commands/UpdateTemplatePermissionsCommand";
-import {
-  UpdateUserCommand,
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -352,17 +320,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public cancelIngestion(
     args: CancelIngestionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelIngestionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelIngestionCommandOutput) => void),
     cb?: (err: any, data?: CancelIngestionCommandOutput) => void
   ): Promise<CancelIngestionCommandOutput> | void {
     const command = new CancelIngestionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -394,17 +359,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createDashboard(
     args: CreateDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDashboardCommandOutput) => void),
     cb?: (err: any, data?: CreateDashboardCommandOutput) => void
   ): Promise<CreateDashboardCommandOutput> | void {
     const command = new CreateDashboardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -429,17 +391,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createDataSet(
     args: CreateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSetCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSetCommandOutput) => void
   ): Promise<CreateDataSetCommandOutput> | void {
     const command = new CreateDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -464,17 +423,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createDataSource(
     args: CreateDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): Promise<CreateDataSourceCommandOutput> | void {
     const command = new CreateDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -488,14 +444,8 @@ export class QuickSight extends QuickSightClient {
    *             </code>.</p>
    * 		       <p>The response is a group object.</p>
    */
-  public createGroup(
-    args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGroupCommandOutput>;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    cb: (err: any, data?: CreateGroupCommandOutput) => void
-  ): void;
+  public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
+  public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
   public createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -503,17 +453,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -538,17 +485,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createGroupMembership(
     args: CreateGroupMembershipCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupMembershipCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupMembershipCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupMembershipCommandOutput) => void
   ): Promise<CreateGroupMembershipCommandOutput> | void {
     const command = new CreateGroupMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -575,17 +519,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createIAMPolicyAssignment(
     args: CreateIAMPolicyAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void),
     cb?: (err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void
   ): Promise<CreateIAMPolicyAssignmentCommandOutput> | void {
     const command = new CreateIAMPolicyAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -614,17 +555,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createIngestion(
     args: CreateIngestionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIngestionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIngestionCommandOutput) => void),
     cb?: (err: any, data?: CreateIngestionCommandOutput) => void
   ): Promise<CreateIngestionCommandOutput> | void {
     const command = new CreateIngestionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -656,17 +594,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createTemplate(
     args: CreateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateTemplateCommandOutput) => void
   ): Promise<CreateTemplateCommandOutput> | void {
     const command = new CreateTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -691,17 +626,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createTemplateAlias(
     args: CreateTemplateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTemplateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTemplateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateTemplateAliasCommandOutput) => void
   ): Promise<CreateTemplateAliasCommandOutput> | void {
     const command = new CreateTemplateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -726,17 +658,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteDashboard(
     args: DeleteDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDashboardCommandOutput) => void),
     cb?: (err: any, data?: DeleteDashboardCommandOutput) => void
   ): Promise<DeleteDashboardCommandOutput> | void {
     const command = new DeleteDashboardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -761,17 +690,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteDataSet(
     args: DeleteDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSetCommandOutput) => void
   ): Promise<DeleteDataSetCommandOutput> | void {
     const command = new DeleteDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -797,17 +723,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): Promise<DeleteDataSourceCommandOutput> | void {
     const command = new DeleteDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -817,14 +740,8 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Removes a user group from Amazon QuickSight. </p>
    */
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupCommandOutput>;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): void;
+  public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
+  public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -832,17 +749,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -867,17 +781,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteGroupMembership(
     args: DeleteGroupMembershipCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupMembershipCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupMembershipCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
   ): Promise<DeleteGroupMembershipCommandOutput> | void {
     const command = new DeleteGroupMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -902,17 +813,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteIAMPolicyAssignment(
     args: DeleteIAMPolicyAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void),
     cb?: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
   ): Promise<DeleteIAMPolicyAssignmentCommandOutput> | void {
     const command = new DeleteIAMPolicyAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -937,17 +845,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteTemplate(
     args: DeleteTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): Promise<DeleteTemplateCommandOutput> | void {
     const command = new DeleteTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -973,17 +878,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteTemplateAlias(
     args: DeleteTemplateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTemplateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTemplateAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteTemplateAliasCommandOutput) => void
   ): Promise<DeleteTemplateAliasCommandOutput> | void {
     const command = new DeleteTemplateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -995,14 +897,8 @@ export class QuickSight extends QuickSightClient {
    * 			Identity and Access Management (IAM) user or role that's making the call. The IAM user
    * 			isn't deleted as a result of this call. </p>
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
   public deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1010,17 +906,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1045,17 +938,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteUserByPrincipalId(
     args: DeleteUserByPrincipalIdCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
   ): Promise<DeleteUserByPrincipalIdCommandOutput> | void {
     const command = new DeleteUserByPrincipalIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1080,17 +970,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeDashboard(
     args: DescribeDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDashboardCommandOutput) => void),
     cb?: (err: any, data?: DescribeDashboardCommandOutput) => void
   ): Promise<DescribeDashboardCommandOutput> | void {
     const command = new DescribeDashboardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1115,17 +1002,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeDashboardPermissions(
     args: DescribeDashboardPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDashboardPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDashboardPermissionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
   ): Promise<DescribeDashboardPermissionsCommandOutput> | void {
     const command = new DescribeDashboardPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1150,17 +1034,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeDataSet(
     args: DescribeDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDataSetCommandOutput) => void
   ): Promise<DescribeDataSetCommandOutput> | void {
     const command = new DescribeDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1186,17 +1067,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeDataSetPermissions(
     args: DescribeDataSetPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDataSetPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSetPermissionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDataSetPermissionsCommandOutput) => void
   ): Promise<DescribeDataSetPermissionsCommandOutput> | void {
     const command = new DescribeDataSetPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1221,17 +1099,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeDataSource(
     args: DescribeDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeDataSourceCommandOutput) => void
   ): Promise<DescribeDataSourceCommandOutput> | void {
     const command = new DescribeDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1256,17 +1131,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeDataSourcePermissions(
     args: DescribeDataSourcePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDataSourcePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSourcePermissionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDataSourcePermissionsCommandOutput) => void
   ): Promise<DescribeDataSourcePermissionsCommandOutput> | void {
     const command = new DescribeDataSourcePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1291,17 +1163,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeGroup(
     args: DescribeGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeGroupCommandOutput) => void
   ): Promise<DescribeGroupCommandOutput> | void {
     const command = new DescribeGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1326,17 +1195,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeIAMPolicyAssignment(
     args: DescribeIAMPolicyAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void),
     cb?: (err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void
   ): Promise<DescribeIAMPolicyAssignmentCommandOutput> | void {
     const command = new DescribeIAMPolicyAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1361,17 +1227,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeIngestion(
     args: DescribeIngestionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIngestionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIngestionCommandOutput) => void),
     cb?: (err: any, data?: DescribeIngestionCommandOutput) => void
   ): Promise<DescribeIngestionCommandOutput> | void {
     const command = new DescribeIngestionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1396,17 +1259,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeTemplate(
     args: DescribeTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTemplateCommandOutput) => void),
     cb?: (err: any, data?: DescribeTemplateCommandOutput) => void
   ): Promise<DescribeTemplateCommandOutput> | void {
     const command = new DescribeTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1431,17 +1291,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeTemplateAlias(
     args: DescribeTemplateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTemplateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTemplateAliasCommandOutput) => void),
     cb?: (err: any, data?: DescribeTemplateAliasCommandOutput) => void
   ): Promise<DescribeTemplateAliasCommandOutput> | void {
     const command = new DescribeTemplateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1466,17 +1323,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeTemplatePermissions(
     args: DescribeTemplatePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTemplatePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTemplatePermissionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTemplatePermissionsCommandOutput) => void
   ): Promise<DescribeTemplatePermissionsCommandOutput> | void {
     const command = new DescribeTemplatePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1490,10 +1344,7 @@ export class QuickSight extends QuickSightClient {
     args: DescribeUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeUserCommandOutput>;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
-  ): void;
+  public describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
   public describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1501,17 +1352,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1542,17 +1390,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public getDashboardEmbedUrl(
     args: GetDashboardEmbedUrlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDashboardEmbedUrlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDashboardEmbedUrlCommandOutput) => void),
     cb?: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
   ): Promise<GetDashboardEmbedUrlCommandOutput> | void {
     const command = new GetDashboardEmbedUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1577,17 +1422,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listDashboards(
     args: ListDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDashboardsCommandOutput) => void),
     cb?: (err: any, data?: ListDashboardsCommandOutput) => void
   ): Promise<ListDashboardsCommandOutput> | void {
     const command = new ListDashboardsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1612,17 +1454,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listDashboardVersions(
     args: ListDashboardVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDashboardVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListDashboardVersionsCommandOutput) => void
   ): Promise<ListDashboardVersionsCommandOutput> | void {
     const command = new ListDashboardVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1637,10 +1476,7 @@ export class QuickSight extends QuickSightClient {
     args: ListDataSetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDataSetsCommandOutput>;
-  public listDataSets(
-    args: ListDataSetsCommandInput,
-    cb: (err: any, data?: ListDataSetsCommandOutput) => void
-  ): void;
+  public listDataSets(args: ListDataSetsCommandInput, cb: (err: any, data?: ListDataSetsCommandOutput) => void): void;
   public listDataSets(
     args: ListDataSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1648,17 +1484,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listDataSets(
     args: ListDataSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSetsCommandOutput) => void),
     cb?: (err: any, data?: ListDataSetsCommandOutput) => void
   ): Promise<ListDataSetsCommandOutput> | void {
     const command = new ListDataSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1683,17 +1516,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listDataSources(
     args: ListDataSourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSourcesCommandOutput) => void),
     cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): Promise<ListDataSourcesCommandOutput> | void {
     const command = new ListDataSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1718,17 +1548,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listGroupMemberships(
     args: ListGroupMembershipsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupMembershipsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupMembershipsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupMembershipsCommandOutput) => void
   ): Promise<ListGroupMembershipsCommandOutput> | void {
     const command = new ListGroupMembershipsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1738,14 +1565,8 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Lists all user groups in Amazon QuickSight. </p>
    */
-  public listGroups(
-    args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupsCommandOutput>;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
-  ): void;
+  public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
+  public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   public listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1753,17 +1574,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1788,17 +1606,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listIAMPolicyAssignments(
     args: ListIAMPolicyAssignmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void),
     cb?: (err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void
   ): Promise<ListIAMPolicyAssignmentsCommandOutput> | void {
     const command = new ListIAMPolicyAssignmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1825,20 +1640,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listIAMPolicyAssignmentsForUser(
     args: ListIAMPolicyAssignmentsForUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListIAMPolicyAssignmentsForUserCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void),
     cb?: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
   ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> | void {
     const command = new ListIAMPolicyAssignmentsForUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1863,17 +1672,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listIngestions(
     args: ListIngestionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIngestionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIngestionsCommandOutput) => void),
     cb?: (err: any, data?: ListIngestionsCommandOutput) => void
   ): Promise<ListIngestionsCommandOutput> | void {
     const command = new ListIngestionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1898,17 +1704,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1933,17 +1736,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listTemplateAliases(
     args: ListTemplateAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplateAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplateAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListTemplateAliasesCommandOutput) => void
   ): Promise<ListTemplateAliasesCommandOutput> | void {
     const command = new ListTemplateAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1968,17 +1768,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listTemplates(
     args: ListTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListTemplatesCommandOutput) => void
   ): Promise<ListTemplatesCommandOutput> | void {
     const command = new ListTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2003,17 +1800,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listTemplateVersions(
     args: ListTemplateVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
   ): Promise<ListTemplateVersionsCommandOutput> | void {
     const command = new ListTemplateVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2038,17 +1832,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listUserGroups(
     args: ListUserGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListUserGroupsCommandOutput) => void
   ): Promise<ListUserGroupsCommandOutput> | void {
     const command = new ListUserGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2058,14 +1849,8 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Returns a list of all of the Amazon QuickSight users belonging to this account. </p>
    */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
+  public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
   public listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -2073,17 +1858,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2098,10 +1880,7 @@ export class QuickSight extends QuickSightClient {
     args: RegisterUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterUserCommandOutput>;
-  public registerUser(
-    args: RegisterUserCommandInput,
-    cb: (err: any, data?: RegisterUserCommandOutput) => void
-  ): void;
+  public registerUser(args: RegisterUserCommandInput, cb: (err: any, data?: RegisterUserCommandOutput) => void): void;
   public registerUser(
     args: RegisterUserCommandInput,
     options: __HttpHandlerOptions,
@@ -2109,17 +1888,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public registerUser(
     args: RegisterUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterUserCommandOutput) => void),
     cb?: (err: any, data?: RegisterUserCommandOutput) => void
   ): Promise<RegisterUserCommandOutput> | void {
     const command = new RegisterUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2150,14 +1926,8 @@ export class QuickSight extends QuickSightClient {
    *             </li>
    *          </ul>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2165,17 +1935,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2200,17 +1967,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2235,17 +1999,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDashboard(
     args: UpdateDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDashboardCommandOutput) => void),
     cb?: (err: any, data?: UpdateDashboardCommandOutput) => void
   ): Promise<UpdateDashboardCommandOutput> | void {
     const command = new UpdateDashboardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2270,17 +2031,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDashboardPermissions(
     args: UpdateDashboardPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDashboardPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDashboardPermissionsCommandOutput) => void),
     cb?: (err: any, data?: UpdateDashboardPermissionsCommandOutput) => void
   ): Promise<UpdateDashboardPermissionsCommandOutput> | void {
     const command = new UpdateDashboardPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2305,20 +2063,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDashboardPublishedVersion(
     args: UpdateDashboardPublishedVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDashboardPublishedVersionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDashboardPublishedVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateDashboardPublishedVersionCommandOutput) => void
   ): Promise<UpdateDashboardPublishedVersionCommandOutput> | void {
     const command = new UpdateDashboardPublishedVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2343,17 +2095,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDataSet(
     args: UpdateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
   ): Promise<UpdateDataSetCommandOutput> | void {
     const command = new UpdateDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2379,17 +2128,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDataSetPermissions(
     args: UpdateDataSetPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSetPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSetPermissionsCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSetPermissionsCommandOutput) => void
   ): Promise<UpdateDataSetPermissionsCommandOutput> | void {
     const command = new UpdateDataSetPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2414,17 +2160,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): Promise<UpdateDataSourceCommandOutput> | void {
     const command = new UpdateDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2449,17 +2192,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDataSourcePermissions(
     args: UpdateDataSourcePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
   ): Promise<UpdateDataSourcePermissionsCommandOutput> | void {
     const command = new UpdateDataSourcePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2469,14 +2209,8 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Changes a group description. </p>
    */
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGroupCommandOutput>;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    cb: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): void;
+  public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
+  public updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2484,17 +2218,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2520,17 +2251,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateIAMPolicyAssignment(
     args: UpdateIAMPolicyAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void),
     cb?: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
   ): Promise<UpdateIAMPolicyAssignmentCommandOutput> | void {
     const command = new UpdateIAMPolicyAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2555,17 +2283,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateTemplate(
     args: UpdateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): Promise<UpdateTemplateCommandOutput> | void {
     const command = new UpdateTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2590,17 +2315,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateTemplateAlias(
     args: UpdateTemplateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTemplateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTemplateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateTemplateAliasCommandOutput) => void
   ): Promise<UpdateTemplateAliasCommandOutput> | void {
     const command = new UpdateTemplateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2625,17 +2347,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateTemplatePermissions(
     args: UpdateTemplatePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTemplatePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTemplatePermissionsCommandOutput) => void),
     cb?: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
   ): Promise<UpdateTemplatePermissionsCommandOutput> | void {
     const command = new UpdateTemplatePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2645,14 +2364,8 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Updates an Amazon QuickSight user.</p>
    */
-  public updateUser(
-    args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateUserCommandOutput>;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
-  ): void;
+  public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
   public updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -2660,17 +2373,14 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

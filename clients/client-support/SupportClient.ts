@@ -1,59 +1,44 @@
 import {
   AddAttachmentsToSetCommandInput,
-  AddAttachmentsToSetCommandOutput
+  AddAttachmentsToSetCommandOutput,
 } from "./commands/AddAttachmentsToSetCommand";
 import {
   AddCommunicationToCaseCommandInput,
-  AddCommunicationToCaseCommandOutput
+  AddCommunicationToCaseCommandOutput,
 } from "./commands/AddCommunicationToCaseCommand";
-import {
-  CreateCaseCommandInput,
-  CreateCaseCommandOutput
-} from "./commands/CreateCaseCommand";
-import {
-  DescribeAttachmentCommandInput,
-  DescribeAttachmentCommandOutput
-} from "./commands/DescribeAttachmentCommand";
-import {
-  DescribeCasesCommandInput,
-  DescribeCasesCommandOutput
-} from "./commands/DescribeCasesCommand";
+import { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
+import { DescribeAttachmentCommandInput, DescribeAttachmentCommandOutput } from "./commands/DescribeAttachmentCommand";
+import { DescribeCasesCommandInput, DescribeCasesCommandOutput } from "./commands/DescribeCasesCommand";
 import {
   DescribeCommunicationsCommandInput,
-  DescribeCommunicationsCommandOutput
+  DescribeCommunicationsCommandOutput,
 } from "./commands/DescribeCommunicationsCommand";
-import {
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
-} from "./commands/DescribeServicesCommand";
+import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
 import {
   DescribeSeverityLevelsCommandInput,
-  DescribeSeverityLevelsCommandOutput
+  DescribeSeverityLevelsCommandOutput,
 } from "./commands/DescribeSeverityLevelsCommand";
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-  DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
+  DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckRefreshStatusesCommand";
 import {
   DescribeTrustedAdvisorCheckResultCommandInput,
-  DescribeTrustedAdvisorCheckResultCommandOutput
+  DescribeTrustedAdvisorCheckResultCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckResultCommand";
 import {
   DescribeTrustedAdvisorCheckSummariesCommandInput,
-  DescribeTrustedAdvisorCheckSummariesCommandOutput
+  DescribeTrustedAdvisorCheckSummariesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
 import {
   DescribeTrustedAdvisorChecksCommandInput,
-  DescribeTrustedAdvisorChecksCommandOutput
+  DescribeTrustedAdvisorChecksCommandOutput,
 } from "./commands/DescribeTrustedAdvisorChecksCommand";
 import {
   RefreshTrustedAdvisorCheckCommandInput,
-  RefreshTrustedAdvisorCheckCommandOutput
+  RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
-import {
-  ResolveCaseCommandInput,
-  ResolveCaseCommandOutput
-} from "./commands/ResolveCaseCommand";
+import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,38 +46,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -103,7 +83,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -138,8 +118,7 @@ export type ServiceOutputTypes =
   | RefreshTrustedAdvisorCheckCommandOutput
   | ResolveCaseCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -228,9 +207,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SupportClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SupportClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -239,9 +216,7 @@ export type SupportClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -326,7 +301,7 @@ export class SupportClient extends __Client<
   constructor(configuration: SupportClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

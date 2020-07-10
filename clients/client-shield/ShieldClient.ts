@@ -1,75 +1,42 @@
 import {
   AssociateDRTLogBucketCommandInput,
-  AssociateDRTLogBucketCommandOutput
+  AssociateDRTLogBucketCommandOutput,
 } from "./commands/AssociateDRTLogBucketCommand";
-import {
-  AssociateDRTRoleCommandInput,
-  AssociateDRTRoleCommandOutput
-} from "./commands/AssociateDRTRoleCommand";
-import {
-  CreateProtectionCommandInput,
-  CreateProtectionCommandOutput
-} from "./commands/CreateProtectionCommand";
-import {
-  CreateSubscriptionCommandInput,
-  CreateSubscriptionCommandOutput
-} from "./commands/CreateSubscriptionCommand";
-import {
-  DeleteProtectionCommandInput,
-  DeleteProtectionCommandOutput
-} from "./commands/DeleteProtectionCommand";
-import {
-  DeleteSubscriptionCommandInput,
-  DeleteSubscriptionCommandOutput
-} from "./commands/DeleteSubscriptionCommand";
-import {
-  DescribeAttackCommandInput,
-  DescribeAttackCommandOutput
-} from "./commands/DescribeAttackCommand";
-import {
-  DescribeDRTAccessCommandInput,
-  DescribeDRTAccessCommandOutput
-} from "./commands/DescribeDRTAccessCommand";
+import { AssociateDRTRoleCommandInput, AssociateDRTRoleCommandOutput } from "./commands/AssociateDRTRoleCommand";
+import { CreateProtectionCommandInput, CreateProtectionCommandOutput } from "./commands/CreateProtectionCommand";
+import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "./commands/CreateSubscriptionCommand";
+import { DeleteProtectionCommandInput, DeleteProtectionCommandOutput } from "./commands/DeleteProtectionCommand";
+import { DeleteSubscriptionCommandInput, DeleteSubscriptionCommandOutput } from "./commands/DeleteSubscriptionCommand";
+import { DescribeAttackCommandInput, DescribeAttackCommandOutput } from "./commands/DescribeAttackCommand";
+import { DescribeDRTAccessCommandInput, DescribeDRTAccessCommandOutput } from "./commands/DescribeDRTAccessCommand";
 import {
   DescribeEmergencyContactSettingsCommandInput,
-  DescribeEmergencyContactSettingsCommandOutput
+  DescribeEmergencyContactSettingsCommandOutput,
 } from "./commands/DescribeEmergencyContactSettingsCommand";
-import {
-  DescribeProtectionCommandInput,
-  DescribeProtectionCommandOutput
-} from "./commands/DescribeProtectionCommand";
+import { DescribeProtectionCommandInput, DescribeProtectionCommandOutput } from "./commands/DescribeProtectionCommand";
 import {
   DescribeSubscriptionCommandInput,
-  DescribeSubscriptionCommandOutput
+  DescribeSubscriptionCommandOutput,
 } from "./commands/DescribeSubscriptionCommand";
 import {
   DisassociateDRTLogBucketCommandInput,
-  DisassociateDRTLogBucketCommandOutput
+  DisassociateDRTLogBucketCommandOutput,
 } from "./commands/DisassociateDRTLogBucketCommand";
 import {
   DisassociateDRTRoleCommandInput,
-  DisassociateDRTRoleCommandOutput
+  DisassociateDRTRoleCommandOutput,
 } from "./commands/DisassociateDRTRoleCommand";
 import {
   GetSubscriptionStateCommandInput,
-  GetSubscriptionStateCommandOutput
+  GetSubscriptionStateCommandOutput,
 } from "./commands/GetSubscriptionStateCommand";
-import {
-  ListAttacksCommandInput,
-  ListAttacksCommandOutput
-} from "./commands/ListAttacksCommand";
-import {
-  ListProtectionsCommandInput,
-  ListProtectionsCommandOutput
-} from "./commands/ListProtectionsCommand";
+import { ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand";
+import { ListProtectionsCommandInput, ListProtectionsCommandOutput } from "./commands/ListProtectionsCommand";
 import {
   UpdateEmergencyContactSettingsCommandInput,
-  UpdateEmergencyContactSettingsCommandOutput
+  UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand";
-import {
-  UpdateSubscriptionCommandInput,
-  UpdateSubscriptionCommandOutput
-} from "./commands/UpdateSubscriptionCommand";
+import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "./commands/UpdateSubscriptionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -77,38 +44,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -119,7 +81,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -162,8 +124,7 @@ export type ServiceOutputTypes =
   | UpdateEmergencyContactSettingsCommandOutput
   | UpdateSubscriptionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -252,9 +213,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ShieldClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ShieldClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -263,9 +222,7 @@ export type ShieldClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ShieldClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ShieldClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -291,7 +248,7 @@ export class ShieldClient extends __Client<
   constructor(configuration: ShieldClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

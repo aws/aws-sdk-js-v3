@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2017-03-31",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "lakeformation"
+  signingName: "lakeformation",
 };

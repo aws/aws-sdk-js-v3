@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ResetServiceSettingRequest,
-  ResetServiceSettingResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ResetServiceSettingRequest, ResetServiceSettingResult } from "../models/index";
 import {
   deserializeAws_json1_1ResetServiceSettingCommand,
-  serializeAws_json1_1ResetServiceSettingCommand
+  serializeAws_json1_1ResetServiceSettingCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ResetServiceSettingCommandInput = ResetServiceSettingRequest;
-export type ResetServiceSettingCommandOutput = ResetServiceSettingResult &
-  __MetadataBearer;
+export type ResetServiceSettingCommandOutput = ResetServiceSettingResult & __MetadataBearer;
 
 export class ResetServiceSettingCommand extends $Command<
   ResetServiceSettingCommandInput,
@@ -49,18 +38,13 @@ export class ResetServiceSettingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetServiceSettingCommandInput,
-    ResetServiceSettingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetServiceSettingCommandInput, ResetServiceSettingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ResetServiceSettingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ResetServiceSettingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ResetServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetServiceSettingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ResetServiceSettingCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetServiceSettingCommandOutput> {
     return deserializeAws_json1_1ResetServiceSettingCommand(output, context);
   }
 

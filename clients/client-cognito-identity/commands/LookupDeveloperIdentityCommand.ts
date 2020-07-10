@@ -1,22 +1,12 @@
-import {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoIdentityClient";
-import {
-  LookupDeveloperIdentityInput,
-  LookupDeveloperIdentityResponse
-} from "../models/index";
+import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
+import { LookupDeveloperIdentityInput, LookupDeveloperIdentityResponse } from "../models/index";
 import {
   deserializeAws_json1_1LookupDeveloperIdentityCommand,
-  serializeAws_json1_1LookupDeveloperIdentityCommand
+  serializeAws_json1_1LookupDeveloperIdentityCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type LookupDeveloperIdentityCommandInput = LookupDeveloperIdentityInput;
-export type LookupDeveloperIdentityCommandOutput = LookupDeveloperIdentityResponse &
-  __MetadataBearer;
+export type LookupDeveloperIdentityCommandOutput = LookupDeveloperIdentityResponse & __MetadataBearer;
 
 export class LookupDeveloperIdentityCommand extends $Command<
   LookupDeveloperIdentityCommandInput,
@@ -50,19 +39,14 @@ export class LookupDeveloperIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    LookupDeveloperIdentityCommandInput,
-    LookupDeveloperIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<LookupDeveloperIdentityCommandInput, LookupDeveloperIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,21 +56,12 @@ export class LookupDeveloperIdentityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: LookupDeveloperIdentityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: LookupDeveloperIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1LookupDeveloperIdentityCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<LookupDeveloperIdentityCommandOutput> {
-    return deserializeAws_json1_1LookupDeveloperIdentityCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupDeveloperIdentityCommandOutput> {
+    return deserializeAws_json1_1LookupDeveloperIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

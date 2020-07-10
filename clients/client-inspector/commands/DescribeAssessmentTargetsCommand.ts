@@ -1,21 +1,11 @@
-import {
-  InspectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../InspectorClient";
-import {
-  DescribeAssessmentTargetsRequest,
-  DescribeAssessmentTargetsResponse
-} from "../models/index";
+import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { DescribeAssessmentTargetsRequest, DescribeAssessmentTargetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAssessmentTargetsCommand,
-  serializeAws_json1_1DescribeAssessmentTargetsCommand
+  serializeAws_json1_1DescribeAssessmentTargetsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeAssessmentTargetsCommandInput = DescribeAssessmentTargetsRequest;
-export type DescribeAssessmentTargetsCommandOutput = DescribeAssessmentTargetsResponse &
-  __MetadataBearer;
+export type DescribeAssessmentTargetsCommandOutput = DescribeAssessmentTargetsResponse & __MetadataBearer;
 
 export class DescribeAssessmentTargetsCommand extends $Command<
   DescribeAssessmentTargetsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeAssessmentTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAssessmentTargetsCommandInput,
-    DescribeAssessmentTargetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAssessmentTargetsCommandInput, DescribeAssessmentTargetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class DescribeAssessmentTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAssessmentTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAssessmentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAssessmentTargetsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeAssessmentTargetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssessmentTargetsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssessmentTargetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAssessmentTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

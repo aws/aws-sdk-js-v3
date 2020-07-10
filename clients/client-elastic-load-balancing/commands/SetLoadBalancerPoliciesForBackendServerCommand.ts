@@ -1,21 +1,18 @@
 import {
   ElasticLoadBalancingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import {
   SetLoadBalancerPoliciesForBackendServerInput,
-  SetLoadBalancerPoliciesForBackendServerOutput
+  SetLoadBalancerPoliciesForBackendServerOutput,
 } from "../models/index";
 import {
   deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
-  serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand
+  serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +21,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SetLoadBalancerPoliciesForBackendServerCommandInput = SetLoadBalancerPoliciesForBackendServerInput;
@@ -39,9 +36,7 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: SetLoadBalancerPoliciesForBackendServerCommandInput
-  ) {
+  constructor(readonly input: SetLoadBalancerPoliciesForBackendServerCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +50,12 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     SetLoadBalancerPoliciesForBackendServerCommandInput,
     SetLoadBalancerPoliciesForBackendServerCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +69,14 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     input: SetLoadBalancerPoliciesForBackendServerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> {
-    return deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,7 +2,7 @@ import { EC2InstanceConnectClient } from "./EC2InstanceConnectClient";
 import {
   SendSSHPublicKeyCommand,
   SendSSHPublicKeyCommandInput,
-  SendSSHPublicKeyCommandOutput
+  SendSSHPublicKeyCommandOutput,
 } from "./commands/SendSSHPublicKeyCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -30,17 +30,14 @@ export class EC2InstanceConnect extends EC2InstanceConnectClient {
   ): void;
   public sendSSHPublicKey(
     args: SendSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendSSHPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendSSHPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: SendSSHPublicKeyCommandOutput) => void
   ): Promise<SendSSHPublicKeyCommandOutput> | void {
     const command = new SendSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

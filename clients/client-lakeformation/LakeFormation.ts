@@ -2,67 +2,67 @@ import { LakeFormationClient } from "./LakeFormationClient";
 import {
   BatchGrantPermissionsCommand,
   BatchGrantPermissionsCommandInput,
-  BatchGrantPermissionsCommandOutput
+  BatchGrantPermissionsCommandOutput,
 } from "./commands/BatchGrantPermissionsCommand";
 import {
   BatchRevokePermissionsCommand,
   BatchRevokePermissionsCommandInput,
-  BatchRevokePermissionsCommandOutput
+  BatchRevokePermissionsCommandOutput,
 } from "./commands/BatchRevokePermissionsCommand";
 import {
   DeregisterResourceCommand,
   DeregisterResourceCommandInput,
-  DeregisterResourceCommandOutput
+  DeregisterResourceCommandOutput,
 } from "./commands/DeregisterResourceCommand";
 import {
   DescribeResourceCommand,
   DescribeResourceCommandInput,
-  DescribeResourceCommandOutput
+  DescribeResourceCommandOutput,
 } from "./commands/DescribeResourceCommand";
 import {
   GetDataLakeSettingsCommand,
   GetDataLakeSettingsCommandInput,
-  GetDataLakeSettingsCommandOutput
+  GetDataLakeSettingsCommandOutput,
 } from "./commands/GetDataLakeSettingsCommand";
 import {
   GetEffectivePermissionsForPathCommand,
   GetEffectivePermissionsForPathCommandInput,
-  GetEffectivePermissionsForPathCommandOutput
+  GetEffectivePermissionsForPathCommandOutput,
 } from "./commands/GetEffectivePermissionsForPathCommand";
 import {
   GrantPermissionsCommand,
   GrantPermissionsCommandInput,
-  GrantPermissionsCommandOutput
+  GrantPermissionsCommandOutput,
 } from "./commands/GrantPermissionsCommand";
 import {
   ListPermissionsCommand,
   ListPermissionsCommandInput,
-  ListPermissionsCommandOutput
+  ListPermissionsCommandOutput,
 } from "./commands/ListPermissionsCommand";
 import {
   ListResourcesCommand,
   ListResourcesCommandInput,
-  ListResourcesCommandOutput
+  ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand";
 import {
   PutDataLakeSettingsCommand,
   PutDataLakeSettingsCommandInput,
-  PutDataLakeSettingsCommandOutput
+  PutDataLakeSettingsCommandOutput,
 } from "./commands/PutDataLakeSettingsCommand";
 import {
   RegisterResourceCommand,
   RegisterResourceCommandInput,
-  RegisterResourceCommandOutput
+  RegisterResourceCommandOutput,
 } from "./commands/RegisterResourceCommand";
 import {
   RevokePermissionsCommand,
   RevokePermissionsCommandInput,
-  RevokePermissionsCommandOutput
+  RevokePermissionsCommandOutput,
 } from "./commands/RevokePermissionsCommand";
 import {
   UpdateResourceCommand,
   UpdateResourceCommandInput,
-  UpdateResourceCommandOutput
+  UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -89,17 +89,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public batchGrantPermissions(
     args: BatchGrantPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGrantPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGrantPermissionsCommandOutput) => void),
     cb?: (err: any, data?: BatchGrantPermissionsCommandOutput) => void
   ): Promise<BatchGrantPermissionsCommandOutput> | void {
     const command = new BatchGrantPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -124,17 +121,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public batchRevokePermissions(
     args: BatchRevokePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchRevokePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchRevokePermissionsCommandOutput) => void),
     cb?: (err: any, data?: BatchRevokePermissionsCommandOutput) => void
   ): Promise<BatchRevokePermissionsCommandOutput> | void {
     const command = new BatchRevokePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -161,17 +155,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public deregisterResource(
     args: DeregisterResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterResourceCommandOutput) => void),
     cb?: (err: any, data?: DeregisterResourceCommandOutput) => void
   ): Promise<DeregisterResourceCommandOutput> | void {
     const command = new DeregisterResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -196,17 +187,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public describeResource(
     args: DescribeResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeResourceCommandOutput) => void
   ): Promise<DescribeResourceCommandOutput> | void {
     const command = new DescribeResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -231,17 +219,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public getDataLakeSettings(
     args: GetDataLakeSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDataLakeSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataLakeSettingsCommandOutput) => void),
     cb?: (err: any, data?: GetDataLakeSettingsCommandOutput) => void
   ): Promise<GetDataLakeSettingsCommandOutput> | void {
     const command = new GetDataLakeSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -266,20 +251,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public getEffectivePermissionsForPath(
     args: GetEffectivePermissionsForPathCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetEffectivePermissionsForPathCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEffectivePermissionsForPathCommandOutput) => void),
     cb?: (err: any, data?: GetEffectivePermissionsForPathCommandOutput) => void
   ): Promise<GetEffectivePermissionsForPathCommandOutput> | void {
     const command = new GetEffectivePermissionsForPathCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -305,17 +284,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public grantPermissions(
     args: GrantPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GrantPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GrantPermissionsCommandOutput) => void),
     cb?: (err: any, data?: GrantPermissionsCommandOutput) => void
   ): Promise<GrantPermissionsCommandOutput> | void {
     const command = new GrantPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -342,17 +318,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public listPermissions(
     args: ListPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPermissionsCommandOutput) => void),
     cb?: (err: any, data?: ListPermissionsCommandOutput) => void
   ): Promise<ListPermissionsCommandOutput> | void {
     const command = new ListPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -377,17 +350,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public listResources(
     args: ListResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesCommandOutput) => void
   ): Promise<ListResourcesCommandOutput> | void {
     const command = new ListResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -412,17 +382,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public putDataLakeSettings(
     args: PutDataLakeSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDataLakeSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDataLakeSettingsCommandOutput) => void),
     cb?: (err: any, data?: PutDataLakeSettingsCommandOutput) => void
   ): Promise<PutDataLakeSettingsCommandOutput> | void {
     const command = new PutDataLakeSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -449,17 +416,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public registerResource(
     args: RegisterResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterResourceCommandOutput) => void),
     cb?: (err: any, data?: RegisterResourceCommandOutput) => void
   ): Promise<RegisterResourceCommandOutput> | void {
     const command = new RegisterResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -484,17 +448,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public revokePermissions(
     args: RevokePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokePermissionsCommandOutput) => void),
     cb?: (err: any, data?: RevokePermissionsCommandOutput) => void
   ): Promise<RevokePermissionsCommandOutput> | void {
     const command = new RevokePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -519,17 +480,14 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public updateResource(
     args: UpdateResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceCommandOutput) => void
   ): Promise<UpdateResourceCommandOutput> | void {
     const command = new UpdateResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

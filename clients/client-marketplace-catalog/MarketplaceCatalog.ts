@@ -2,32 +2,32 @@ import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
 import {
   CancelChangeSetCommand,
   CancelChangeSetCommandInput,
-  CancelChangeSetCommandOutput
+  CancelChangeSetCommandOutput,
 } from "./commands/CancelChangeSetCommand";
 import {
   DescribeChangeSetCommand,
   DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput
+  DescribeChangeSetCommandOutput,
 } from "./commands/DescribeChangeSetCommand";
 import {
   DescribeEntityCommand,
   DescribeEntityCommandInput,
-  DescribeEntityCommandOutput
+  DescribeEntityCommandOutput,
 } from "./commands/DescribeEntityCommand";
 import {
   ListChangeSetsCommand,
   ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput
+  ListChangeSetsCommandOutput,
 } from "./commands/ListChangeSetsCommand";
 import {
   ListEntitiesCommand,
   ListEntitiesCommandInput,
-  ListEntitiesCommandOutput
+  ListEntitiesCommandOutput,
 } from "./commands/ListEntitiesCommand";
 import {
   StartChangeSetCommand,
   StartChangeSetCommandInput,
-  StartChangeSetCommandOutput
+  StartChangeSetCommandOutput,
 } from "./commands/StartChangeSetCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -62,17 +62,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public cancelChangeSet(
     args: CancelChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelChangeSetCommandOutput) => void),
     cb?: (err: any, data?: CancelChangeSetCommandOutput) => void
   ): Promise<CancelChangeSetCommandOutput> | void {
     const command = new CancelChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -97,17 +94,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public describeChangeSet(
     args: DescribeChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChangeSetCommandOutput) => void),
     cb?: (err: any, data?: DescribeChangeSetCommandOutput) => void
   ): Promise<DescribeChangeSetCommandOutput> | void {
     const command = new DescribeChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -132,17 +126,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public describeEntity(
     args: DescribeEntityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEntityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntityCommandOutput) => void),
     cb?: (err: any, data?: DescribeEntityCommandOutput) => void
   ): Promise<DescribeEntityCommandOutput> | void {
     const command = new DescribeEntityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -173,17 +164,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public listChangeSets(
     args: ListChangeSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChangeSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChangeSetsCommandOutput) => void),
     cb?: (err: any, data?: ListChangeSetsCommandOutput) => void
   ): Promise<ListChangeSetsCommandOutput> | void {
     const command = new ListChangeSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -197,10 +185,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
     args: ListEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEntitiesCommandOutput>;
-  public listEntities(
-    args: ListEntitiesCommandInput,
-    cb: (err: any, data?: ListEntitiesCommandOutput) => void
-  ): void;
+  public listEntities(args: ListEntitiesCommandInput, cb: (err: any, data?: ListEntitiesCommandOutput) => void): void;
   public listEntities(
     args: ListEntitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -208,17 +193,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public listEntities(
     args: ListEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitiesCommandOutput) => void),
     cb?: (err: any, data?: ListEntitiesCommandOutput) => void
   ): Promise<ListEntitiesCommandOutput> | void {
     const command = new ListEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -243,17 +225,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public startChangeSet(
     args: StartChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChangeSetCommandOutput) => void),
     cb?: (err: any, data?: StartChangeSetCommandOutput) => void
   ): Promise<StartChangeSetCommandOutput> | void {
     const command = new StartChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

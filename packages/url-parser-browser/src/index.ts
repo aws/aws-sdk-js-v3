@@ -14,6 +14,6 @@ export const parseUrl: UrlParser = (url: string): Endpoint => {
     port: port ? parseInt(port) : undefined,
     protocol,
     path: pathname,
-    query
+    query,
   };
 };

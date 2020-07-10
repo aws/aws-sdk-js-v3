@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddTagsToCertificateRequest {
@@ -26,13 +22,10 @@ export interface AddTagsToCertificateRequest {
 }
 
 export namespace AddTagsToCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: AddTagsToCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddTagsToCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddTagsToCertificateRequest =>
-    __isa(o, "AddTagsToCertificateRequest");
+  export const isa = (o: any): o is AddTagsToCertificateRequest => __isa(o, "AddTagsToCertificateRequest");
 }
 
 /**
@@ -210,10 +203,9 @@ export interface CertificateDetail {
 
 export namespace CertificateDetail {
   export const filterSensitiveLog = (obj: CertificateDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateDetail =>
-    __isa(o, "CertificateDetail");
+  export const isa = (o: any): o is CertificateDetail => __isa(o, "CertificateDetail");
 }
 
 /**
@@ -231,17 +223,14 @@ export interface CertificateOptions {
    * <p>You can opt out of certificate transparency logging by specifying the
    *         <code>DISABLED</code> option. Opt in by specifying <code>ENABLED</code>. </p>
    */
-  CertificateTransparencyLoggingPreference?:
-    | CertificateTransparencyLoggingPreference
-    | string;
+  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | string;
 }
 
 export namespace CertificateOptions {
   export const filterSensitiveLog = (obj: CertificateOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateOptions =>
-    __isa(o, "CertificateOptions");
+  export const isa = (o: any): o is CertificateOptions => __isa(o, "CertificateOptions");
 }
 
 export enum CertificateStatus {
@@ -251,7 +240,7 @@ export enum CertificateStatus {
   ISSUED = "ISSUED",
   PENDING_VALIDATION = "PENDING_VALIDATION",
   REVOKED = "REVOKED",
-  VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT"
+  VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT",
 }
 
 /**
@@ -280,21 +269,20 @@ export interface CertificateSummary {
 
 export namespace CertificateSummary {
   export const filterSensitiveLog = (obj: CertificateSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateSummary =>
-    __isa(o, "CertificateSummary");
+  export const isa = (o: any): o is CertificateSummary => __isa(o, "CertificateSummary");
 }
 
 export enum CertificateTransparencyLoggingPreference {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum CertificateType {
   AMAZON_ISSUED = "AMAZON_ISSUED",
   IMPORTED = "IMPORTED",
-  PRIVATE = "PRIVATE"
+  PRIVATE = "PRIVATE",
 }
 
 export interface DeleteCertificateRequest {
@@ -312,10 +300,9 @@ export interface DeleteCertificateRequest {
 
 export namespace DeleteCertificateRequest {
   export const filterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteCertificateRequest =>
-    __isa(o, "DeleteCertificateRequest");
+  export const isa = (o: any): o is DeleteCertificateRequest => __isa(o, "DeleteCertificateRequest");
 }
 
 export interface DescribeCertificateRequest {
@@ -333,10 +320,9 @@ export interface DescribeCertificateRequest {
 
 export namespace DescribeCertificateRequest {
   export const filterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificateRequest =>
-    __isa(o, "DescribeCertificateRequest");
+  export const isa = (o: any): o is DescribeCertificateRequest => __isa(o, "DescribeCertificateRequest");
 }
 
 export interface DescribeCertificateResponse {
@@ -348,19 +334,16 @@ export interface DescribeCertificateResponse {
 }
 
 export namespace DescribeCertificateResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeCertificateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCertificateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificateResponse =>
-    __isa(o, "DescribeCertificateResponse");
+  export const isa = (o: any): o is DescribeCertificateResponse => __isa(o, "DescribeCertificateResponse");
 }
 
 export enum DomainStatus {
   FAILED = "FAILED",
   PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS"
+  SUCCESS = "SUCCESS",
 }
 
 /**
@@ -419,10 +402,9 @@ export interface DomainValidation {
 
 export namespace DomainValidation {
   export const filterSensitiveLog = (obj: DomainValidation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DomainValidation =>
-    __isa(o, "DomainValidation");
+  export const isa = (o: any): o is DomainValidation => __isa(o, "DomainValidation");
 }
 
 /**
@@ -466,10 +448,9 @@ export interface DomainValidationOption {
 
 export namespace DomainValidationOption {
   export const filterSensitiveLog = (obj: DomainValidationOption): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DomainValidationOption =>
-    __isa(o, "DomainValidationOption");
+  export const isa = (o: any): o is DomainValidationOption => __isa(o, "DomainValidationOption");
 }
 
 export interface ExportCertificateRequest {
@@ -496,10 +477,9 @@ export interface ExportCertificateRequest {
 export namespace ExportCertificateRequest {
   export const filterSensitiveLog = (obj: ExportCertificateRequest): any => ({
     ...obj,
-    ...(obj.Passphrase && { Passphrase: SENSITIVE_STRING })
+    ...(obj.Passphrase && { Passphrase: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExportCertificateRequest =>
-    __isa(o, "ExportCertificateRequest");
+  export const isa = (o: any): o is ExportCertificateRequest => __isa(o, "ExportCertificateRequest");
 }
 
 export interface ExportCertificateResponse {
@@ -525,10 +505,9 @@ export interface ExportCertificateResponse {
 export namespace ExportCertificateResponse {
   export const filterSensitiveLog = (obj: ExportCertificateResponse): any => ({
     ...obj,
-    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING })
+    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExportCertificateResponse =>
-    __isa(o, "ExportCertificateResponse");
+  export const isa = (o: any): o is ExportCertificateResponse => __isa(o, "ExportCertificateResponse");
 }
 
 /**
@@ -600,10 +579,9 @@ export interface ExtendedKeyUsage {
 
 export namespace ExtendedKeyUsage {
   export const filterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExtendedKeyUsage =>
-    __isa(o, "ExtendedKeyUsage");
+  export const isa = (o: any): o is ExtendedKeyUsage => __isa(o, "ExtendedKeyUsage");
 }
 
 export enum ExtendedKeyUsageName {
@@ -618,7 +596,7 @@ export enum ExtendedKeyUsageName {
   OCSP_SIGNING = "OCSP_SIGNING",
   TIME_STAMPING = "TIME_STAMPING",
   TLS_WEB_CLIENT_AUTHENTICATION = "TLS_WEB_CLIENT_AUTHENTICATION",
-  TLS_WEB_SERVER_AUTHENTICATION = "TLS_WEB_SERVER_AUTHENTICATION"
+  TLS_WEB_SERVER_AUTHENTICATION = "TLS_WEB_SERVER_AUTHENTICATION",
 }
 
 export enum FailureReason {
@@ -637,7 +615,7 @@ export enum FailureReason {
   PCA_LIMIT_EXCEEDED = "PCA_LIMIT_EXCEEDED",
   PCA_NAME_CONSTRAINTS_VALIDATION = "PCA_NAME_CONSTRAINTS_VALIDATION",
   PCA_REQUEST_FAILED = "PCA_REQUEST_FAILED",
-  PCA_RESOURCE_NOT_FOUND = "PCA_RESOURCE_NOT_FOUND"
+  PCA_RESOURCE_NOT_FOUND = "PCA_RESOURCE_NOT_FOUND",
 }
 
 /**
@@ -668,7 +646,7 @@ export interface Filters {
 
 export namespace Filters {
   export const filterSensitiveLog = (obj: Filters): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Filters => __isa(o, "Filters");
 }
@@ -687,10 +665,9 @@ export interface GetCertificateRequest {
 
 export namespace GetCertificateRequest {
   export const filterSensitiveLog = (obj: GetCertificateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCertificateRequest =>
-    __isa(o, "GetCertificateRequest");
+  export const isa = (o: any): o is GetCertificateRequest => __isa(o, "GetCertificateRequest");
 }
 
 export interface GetCertificateResponse {
@@ -710,10 +687,9 @@ export interface GetCertificateResponse {
 
 export namespace GetCertificateResponse {
   export const filterSensitiveLog = (obj: GetCertificateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCertificateResponse =>
-    __isa(o, "GetCertificateResponse");
+  export const isa = (o: any): o is GetCertificateResponse => __isa(o, "GetCertificateResponse");
 }
 
 export interface ImportCertificateRequest {
@@ -750,10 +726,9 @@ export interface ImportCertificateRequest {
 export namespace ImportCertificateRequest {
   export const filterSensitiveLog = (obj: ImportCertificateRequest): any => ({
     ...obj,
-    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING })
+    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ImportCertificateRequest =>
-    __isa(o, "ImportCertificateRequest");
+  export const isa = (o: any): o is ImportCertificateRequest => __isa(o, "ImportCertificateRequest");
 }
 
 export interface ImportCertificateResponse {
@@ -767,18 +742,15 @@ export interface ImportCertificateResponse {
 
 export namespace ImportCertificateResponse {
   export const filterSensitiveLog = (obj: ImportCertificateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportCertificateResponse =>
-    __isa(o, "ImportCertificateResponse");
+  export const isa = (o: any): o is ImportCertificateResponse => __isa(o, "ImportCertificateResponse");
 }
 
 /**
  * <p>One or more of of request parameters specified is not valid.</p>
  */
-export interface InvalidArgsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgsException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgsException";
   $fault: "client";
   message?: string;
@@ -786,18 +758,15 @@ export interface InvalidArgsException
 
 export namespace InvalidArgsException {
   export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgsException =>
-    __isa(o, "InvalidArgsException");
+  export const isa = (o: any): o is InvalidArgsException => __isa(o, "InvalidArgsException");
 }
 
 /**
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
-export interface InvalidArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidArnException";
   $fault: "client";
   message?: string;
@@ -805,29 +774,24 @@ export interface InvalidArnException
 
 export namespace InvalidArnException {
   export const filterSensitiveLog = (obj: InvalidArnException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArnException =>
-    __isa(o, "InvalidArnException");
+  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
  * <p>One or more values in the <a>DomainValidationOption</a> structure is
  *       incorrect.</p>
  */
-export interface InvalidDomainValidationOptionsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDomainValidationOptionsException extends __SmithyException, $MetadataBearer {
   name: "InvalidDomainValidationOptionsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidDomainValidationOptionsException {
-  export const filterSensitiveLog = (
-    obj: InvalidDomainValidationOptionsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDomainValidationOptionsException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidDomainValidationOptionsException =>
     __isa(o, "InvalidDomainValidationOptionsException");
@@ -836,9 +800,7 @@ export namespace InvalidDomainValidationOptionsException {
 /**
  * <p>An input parameter was invalid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -846,18 +808,15 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>Processing has reached an invalid state.</p>
  */
-export interface InvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
@@ -865,19 +824,16 @@ export interface InvalidStateException
 
 export namespace InvalidStateException {
   export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidStateException =>
-    __isa(o, "InvalidStateException");
+  export const isa = (o: any): o is InvalidStateException => __isa(o, "InvalidStateException");
 }
 
 /**
  * <p>One or both of the values that make up the key-value pair is not valid. For example, you
  *       cannot specify a tag value that begins with <code>aws:</code>.</p>
  */
-export interface InvalidTagException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
   message?: string;
@@ -885,10 +841,9 @@ export interface InvalidTagException
 
 export namespace InvalidTagException {
   export const filterSensitiveLog = (obj: InvalidTagException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTagException =>
-    __isa(o, "InvalidTagException");
+  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 export enum KeyAlgorithm {
@@ -897,7 +852,7 @@ export enum KeyAlgorithm {
   EC_secp521r1 = "EC_secp521r1",
   RSA_1024 = "RSA_1024",
   RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096"
+  RSA_4096 = "RSA_4096",
 }
 
 /**
@@ -914,7 +869,7 @@ export interface KeyUsage {
 
 export namespace KeyUsage {
   export const filterSensitiveLog = (obj: KeyUsage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is KeyUsage => __isa(o, "KeyUsage");
 }
@@ -930,15 +885,13 @@ export enum KeyUsageName {
   ENCHIPER_ONLY = "ENCIPHER_ONLY",
   KEY_AGREEMENT = "KEY_AGREEMENT",
   KEY_ENCIPHERMENT = "KEY_ENCIPHERMENT",
-  NON_REPUDATION = "NON_REPUDIATION"
+  NON_REPUDATION = "NON_REPUDIATION",
 }
 
 /**
  * <p>An ACM limit has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -946,10 +899,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListCertificatesRequest {
@@ -983,10 +935,9 @@ export interface ListCertificatesRequest {
 
 export namespace ListCertificatesRequest {
   export const filterSensitiveLog = (obj: ListCertificatesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListCertificatesRequest =>
-    __isa(o, "ListCertificatesRequest");
+  export const isa = (o: any): o is ListCertificatesRequest => __isa(o, "ListCertificatesRequest");
 }
 
 export interface ListCertificatesResponse {
@@ -1005,10 +956,9 @@ export interface ListCertificatesResponse {
 
 export namespace ListCertificatesResponse {
   export const filterSensitiveLog = (obj: ListCertificatesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListCertificatesResponse =>
-    __isa(o, "ListCertificatesResponse");
+  export const isa = (o: any): o is ListCertificatesResponse => __isa(o, "ListCertificatesResponse");
 }
 
 export interface ListTagsForCertificateRequest {
@@ -1025,13 +975,10 @@ export interface ListTagsForCertificateRequest {
 }
 
 export namespace ListTagsForCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: ListTagsForCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForCertificateRequest =>
-    __isa(o, "ListTagsForCertificateRequest");
+  export const isa = (o: any): o is ListTagsForCertificateRequest => __isa(o, "ListTagsForCertificateRequest");
 }
 
 export interface ListTagsForCertificateResponse {
@@ -1043,17 +990,14 @@ export interface ListTagsForCertificateResponse {
 }
 
 export namespace ListTagsForCertificateResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForCertificateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForCertificateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForCertificateResponse =>
-    __isa(o, "ListTagsForCertificateResponse");
+  export const isa = (o: any): o is ListTagsForCertificateResponse => __isa(o, "ListTagsForCertificateResponse");
 }
 
 export enum RecordType {
-  CNAME = "CNAME"
+  CNAME = "CNAME",
 }
 
 export interface RemoveTagsFromCertificateRequest {
@@ -1077,25 +1021,22 @@ export interface RemoveTagsFromCertificateRequest {
 }
 
 export namespace RemoveTagsFromCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: RemoveTagsFromCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveTagsFromCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromCertificateRequest =>
-    __isa(o, "RemoveTagsFromCertificateRequest");
+  export const isa = (o: any): o is RemoveTagsFromCertificateRequest => __isa(o, "RemoveTagsFromCertificateRequest");
 }
 
 export enum RenewalEligibility {
   ELIGIBLE = "ELIGIBLE",
-  INELIGIBLE = "INELIGIBLE"
+  INELIGIBLE = "INELIGIBLE",
 }
 
 export enum RenewalStatus {
   FAILED = "FAILED",
   PENDING_AUTO_RENEWAL = "PENDING_AUTO_RENEWAL",
   PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS"
+  SUCCESS = "SUCCESS",
 }
 
 /**
@@ -1131,10 +1072,9 @@ export interface RenewalSummary {
 
 export namespace RenewalSummary {
   export const filterSensitiveLog = (obj: RenewalSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RenewalSummary =>
-    __isa(o, "RenewalSummary");
+  export const isa = (o: any): o is RenewalSummary => __isa(o, "RenewalSummary");
 }
 
 export interface RenewCertificateRequest {
@@ -1152,10 +1092,9 @@ export interface RenewCertificateRequest {
 
 export namespace RenewCertificateRequest {
   export const filterSensitiveLog = (obj: RenewCertificateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RenewCertificateRequest =>
-    __isa(o, "RenewCertificateRequest");
+  export const isa = (o: any): o is RenewCertificateRequest => __isa(o, "RenewCertificateRequest");
 }
 
 export interface RequestCertificateRequest {
@@ -1255,10 +1194,9 @@ export interface RequestCertificateRequest {
 
 export namespace RequestCertificateRequest {
   export const filterSensitiveLog = (obj: RequestCertificateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestCertificateRequest =>
-    __isa(o, "RequestCertificateRequest");
+  export const isa = (o: any): o is RequestCertificateRequest => __isa(o, "RequestCertificateRequest");
 }
 
 export interface RequestCertificateResponse {
@@ -1274,19 +1212,16 @@ export interface RequestCertificateResponse {
 
 export namespace RequestCertificateResponse {
   export const filterSensitiveLog = (obj: RequestCertificateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestCertificateResponse =>
-    __isa(o, "RequestCertificateResponse");
+  export const isa = (o: any): o is RequestCertificateResponse => __isa(o, "RequestCertificateResponse");
 }
 
 /**
  * <p>The certificate request is in process and the certificate in your account has not yet been
  *       issued.</p>
  */
-export interface RequestInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestInProgressException extends __SmithyException, $MetadataBearer {
   name: "RequestInProgressException";
   $fault: "client";
   message?: string;
@@ -1294,10 +1229,9 @@ export interface RequestInProgressException
 
 export namespace RequestInProgressException {
   export const filterSensitiveLog = (obj: RequestInProgressException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestInProgressException =>
-    __isa(o, "RequestInProgressException");
+  export const isa = (o: any): o is RequestInProgressException => __isa(o, "RequestInProgressException");
 }
 
 export interface ResendValidationEmailRequest {
@@ -1349,22 +1283,17 @@ export interface ResendValidationEmailRequest {
 }
 
 export namespace ResendValidationEmailRequest {
-  export const filterSensitiveLog = (
-    obj: ResendValidationEmailRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResendValidationEmailRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResendValidationEmailRequest =>
-    __isa(o, "ResendValidationEmailRequest");
+  export const isa = (o: any): o is ResendValidationEmailRequest => __isa(o, "ResendValidationEmailRequest");
 }
 
 /**
  * <p>The certificate is in use by another AWS service in the caller's account. Remove the
  *       association and try again.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -1372,19 +1301,16 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1392,10 +1318,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1423,10 +1348,9 @@ export interface ResourceRecord {
 
 export namespace ResourceRecord {
   export const filterSensitiveLog = (obj: ResourceRecord): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceRecord =>
-    __isa(o, "ResourceRecord");
+  export const isa = (o: any): o is ResourceRecord => __isa(o, "ResourceRecord");
 }
 
 export enum RevocationReason {
@@ -1439,7 +1363,7 @@ export enum RevocationReason {
   PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
   REMOVE_FROM_CRL = "REMOVE_FROM_CRL",
   SUPERCEDED = "SUPERCEDED",
-  UNSPECIFIED = "UNSPECIFIED"
+  UNSPECIFIED = "UNSPECIFIED",
 }
 
 /**
@@ -1460,7 +1384,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -1476,18 +1400,15 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 
 export namespace TagPolicyException {
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagPolicyException =>
-    __isa(o, "TagPolicyException");
+  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 /**
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -1495,10 +1416,9 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UpdateCertificateOptionsRequest {
@@ -1522,16 +1442,13 @@ export interface UpdateCertificateOptionsRequest {
 }
 
 export namespace UpdateCertificateOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateCertificateOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateCertificateOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateCertificateOptionsRequest =>
-    __isa(o, "UpdateCertificateOptionsRequest");
+  export const isa = (o: any): o is UpdateCertificateOptionsRequest => __isa(o, "UpdateCertificateOptionsRequest");
 }
 
 export enum ValidationMethod {
   DNS = "DNS",
-  EMAIL = "EMAIL"
+  EMAIL = "EMAIL",
 }

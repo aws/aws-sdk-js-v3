@@ -1,21 +1,11 @@
-import {
-  KinesisClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KinesisClient";
-import {
-  DescribeStreamSummaryInput,
-  DescribeStreamSummaryOutput
-} from "../models/index";
+import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { DescribeStreamSummaryInput, DescribeStreamSummaryOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeStreamSummaryCommand,
-  serializeAws_json1_1DescribeStreamSummaryCommand
+  serializeAws_json1_1DescribeStreamSummaryCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeStreamSummaryCommandInput = DescribeStreamSummaryInput;
-export type DescribeStreamSummaryCommandOutput = DescribeStreamSummaryOutput &
-  __MetadataBearer;
+export type DescribeStreamSummaryCommandOutput = DescribeStreamSummaryOutput & __MetadataBearer;
 
 export class DescribeStreamSummaryCommand extends $Command<
   DescribeStreamSummaryCommandInput,
@@ -49,18 +38,13 @@ export class DescribeStreamSummaryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStreamSummaryCommandInput,
-    DescribeStreamSummaryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStreamSummaryCommandInput, DescribeStreamSummaryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeStreamSummaryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeStreamSummaryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeStreamSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStreamSummaryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeStreamSummaryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamSummaryCommandOutput> {
     return deserializeAws_json1_1DescribeStreamSummaryCommand(output, context);
   }
 

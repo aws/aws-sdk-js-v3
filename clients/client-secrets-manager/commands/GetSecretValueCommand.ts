@@ -1,18 +1,11 @@
-import {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecretsManagerClient";
+import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 import { GetSecretValueRequest, GetSecretValueResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSecretValueCommand,
-  serializeAws_json1_1GetSecretValueCommand
+  serializeAws_json1_1GetSecretValueCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetSecretValueCommandInput = GetSecretValueRequest;
-export type GetSecretValueCommandOutput = GetSecretValueResponse &
-  __MetadataBearer;
+export type GetSecretValueCommandOutput = GetSecretValueResponse & __MetadataBearer;
 
 export class GetSecretValueCommand extends $Command<
   GetSecretValueCommandInput,
@@ -47,14 +39,12 @@ export class GetSecretValueCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSecretValueCommandInput, GetSecretValueCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetSecretValueCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSecretValueCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSecretValueCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSecretValueCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecretValueCommandOutput> {
     return deserializeAws_json1_1GetSecretValueCommand(output, context);
   }
 

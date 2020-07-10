@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient";
-import {
-  UpdateBandwidthRateLimitInput,
-  UpdateBandwidthRateLimitOutput
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
+import { UpdateBandwidthRateLimitInput, UpdateBandwidthRateLimitOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateBandwidthRateLimitCommand,
-  serializeAws_json1_1UpdateBandwidthRateLimitCommand
+  serializeAws_json1_1UpdateBandwidthRateLimitCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateBandwidthRateLimitCommandInput = UpdateBandwidthRateLimitInput;
-export type UpdateBandwidthRateLimitCommandOutput = UpdateBandwidthRateLimitOutput &
-  __MetadataBearer;
+export type UpdateBandwidthRateLimitCommandOutput = UpdateBandwidthRateLimitOutput & __MetadataBearer;
 
 export class UpdateBandwidthRateLimitCommand extends $Command<
   UpdateBandwidthRateLimitCommandInput,
@@ -49,18 +38,13 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateBandwidthRateLimitCommandInput,
-    UpdateBandwidthRateLimitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateBandwidthRateLimitCommandInput, UpdateBandwidthRateLimitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateBandwidthRateLimitCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateBandwidthRateLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBandwidthRateLimitCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateBandwidthRateLimitCommandOutput> {
-    return deserializeAws_json1_1UpdateBandwidthRateLimitCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBandwidthRateLimitCommandOutput> {
+    return deserializeAws_json1_1UpdateBandwidthRateLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

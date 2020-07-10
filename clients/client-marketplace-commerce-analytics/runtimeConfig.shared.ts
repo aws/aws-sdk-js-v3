@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2015-07-01",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "marketplacecommerceanalytics"
+  signingName: "marketplacecommerceanalytics",
 };

@@ -1,18 +1,11 @@
-import {
-  EventBridgeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EventBridgeClient";
+import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1RemoveTargetsCommand,
-  serializeAws_json1_1RemoveTargetsCommand
+  serializeAws_json1_1RemoveTargetsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RemoveTargetsCommandInput = RemoveTargetsRequest;
-export type RemoveTargetsCommandOutput = RemoveTargetsResponse &
-  __MetadataBearer;
+export type RemoveTargetsCommandOutput = RemoveTargetsResponse & __MetadataBearer;
 
 export class RemoveTargetsCommand extends $Command<
   RemoveTargetsCommandInput,
@@ -47,14 +39,12 @@ export class RemoveTargetsCommand extends $Command<
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveTargetsCommandInput, RemoveTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class RemoveTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RemoveTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveTargetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RemoveTargetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTargetsCommandOutput> {
     return deserializeAws_json1_1RemoveTargetsCommand(output, context);
   }
 

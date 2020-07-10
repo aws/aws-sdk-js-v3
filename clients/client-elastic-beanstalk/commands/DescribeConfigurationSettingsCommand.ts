@@ -1,21 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
-import {
-  ConfigurationSettingsDescriptions,
-  DescribeConfigurationSettingsMessage
-} from "../models/index";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { ConfigurationSettingsDescriptions, DescribeConfigurationSettingsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeConfigurationSettingsCommand,
-  serializeAws_queryDescribeConfigurationSettingsCommand
+  serializeAws_queryDescribeConfigurationSettingsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeConfigurationSettingsCommandInput = DescribeConfigurationSettingsMessage;
-export type DescribeConfigurationSettingsCommandOutput = ConfigurationSettingsDescriptions &
-  __MetadataBearer;
+export type DescribeConfigurationSettingsCommandOutput = ConfigurationSettingsDescriptions & __MetadataBearer;
 
 export class DescribeConfigurationSettingsCommand extends $Command<
   DescribeConfigurationSettingsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigurationSettingsCommandInput,
-    DescribeConfigurationSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigurationSettingsCommandInput, DescribeConfigurationSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeConfigurationSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeConfigurationSettingsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeConfigurationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDescribeConfigurationSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationSettingsCommandOutput> {
-    return deserializeAws_queryDescribeConfigurationSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeConfigurationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

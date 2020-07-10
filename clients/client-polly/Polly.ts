@@ -2,47 +2,39 @@ import { PollyClient } from "./PollyClient";
 import {
   DeleteLexiconCommand,
   DeleteLexiconCommandInput,
-  DeleteLexiconCommandOutput
+  DeleteLexiconCommandOutput,
 } from "./commands/DeleteLexiconCommand";
 import {
   DescribeVoicesCommand,
   DescribeVoicesCommandInput,
-  DescribeVoicesCommandOutput
+  DescribeVoicesCommandOutput,
 } from "./commands/DescribeVoicesCommand";
-import {
-  GetLexiconCommand,
-  GetLexiconCommandInput,
-  GetLexiconCommandOutput
-} from "./commands/GetLexiconCommand";
+import { GetLexiconCommand, GetLexiconCommandInput, GetLexiconCommandOutput } from "./commands/GetLexiconCommand";
 import {
   GetSpeechSynthesisTaskCommand,
   GetSpeechSynthesisTaskCommandInput,
-  GetSpeechSynthesisTaskCommandOutput
+  GetSpeechSynthesisTaskCommandOutput,
 } from "./commands/GetSpeechSynthesisTaskCommand";
 import {
   ListLexiconsCommand,
   ListLexiconsCommandInput,
-  ListLexiconsCommandOutput
+  ListLexiconsCommandOutput,
 } from "./commands/ListLexiconsCommand";
 import {
   ListSpeechSynthesisTasksCommand,
   ListSpeechSynthesisTasksCommandInput,
-  ListSpeechSynthesisTasksCommandOutput
+  ListSpeechSynthesisTasksCommandOutput,
 } from "./commands/ListSpeechSynthesisTasksCommand";
-import {
-  PutLexiconCommand,
-  PutLexiconCommandInput,
-  PutLexiconCommandOutput
-} from "./commands/PutLexiconCommand";
+import { PutLexiconCommand, PutLexiconCommandInput, PutLexiconCommandOutput } from "./commands/PutLexiconCommand";
 import {
   StartSpeechSynthesisTaskCommand,
   StartSpeechSynthesisTaskCommandInput,
-  StartSpeechSynthesisTaskCommandOutput
+  StartSpeechSynthesisTaskCommandOutput,
 } from "./commands/StartSpeechSynthesisTaskCommand";
 import {
   SynthesizeSpeechCommand,
   SynthesizeSpeechCommandInput,
-  SynthesizeSpeechCommandOutput
+  SynthesizeSpeechCommandOutput,
 } from "./commands/SynthesizeSpeechCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -74,17 +66,14 @@ export class Polly extends PollyClient {
   ): void;
   public deleteLexicon(
     args: DeleteLexiconCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLexiconCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLexiconCommandOutput) => void),
     cb?: (err: any, data?: DeleteLexiconCommandOutput) => void
   ): Promise<DeleteLexiconCommandOutput> | void {
     const command = new DeleteLexiconCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -128,17 +117,14 @@ export class Polly extends PollyClient {
   ): void;
   public describeVoices(
     args: DescribeVoicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVoicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVoicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVoicesCommandOutput) => void
   ): Promise<DescribeVoicesCommandOutput> | void {
     const command = new DescribeVoicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -149,14 +135,8 @@ export class Polly extends PollyClient {
    * <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region.
    *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
    */
-  public getLexicon(
-    args: GetLexiconCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLexiconCommandOutput>;
-  public getLexicon(
-    args: GetLexiconCommandInput,
-    cb: (err: any, data?: GetLexiconCommandOutput) => void
-  ): void;
+  public getLexicon(args: GetLexiconCommandInput, options?: __HttpHandlerOptions): Promise<GetLexiconCommandOutput>;
+  public getLexicon(args: GetLexiconCommandInput, cb: (err: any, data?: GetLexiconCommandOutput) => void): void;
   public getLexicon(
     args: GetLexiconCommandInput,
     options: __HttpHandlerOptions,
@@ -164,17 +144,14 @@ export class Polly extends PollyClient {
   ): void;
   public getLexicon(
     args: GetLexiconCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLexiconCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLexiconCommandOutput) => void),
     cb?: (err: any, data?: GetLexiconCommandOutput) => void
   ): Promise<GetLexiconCommandOutput> | void {
     const command = new GetLexiconCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -201,17 +178,14 @@ export class Polly extends PollyClient {
   ): void;
   public getSpeechSynthesisTask(
     args: GetSpeechSynthesisTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void),
     cb?: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
   ): Promise<GetSpeechSynthesisTaskCommandOutput> | void {
     const command = new GetSpeechSynthesisTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -226,10 +200,7 @@ export class Polly extends PollyClient {
     args: ListLexiconsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLexiconsCommandOutput>;
-  public listLexicons(
-    args: ListLexiconsCommandInput,
-    cb: (err: any, data?: ListLexiconsCommandOutput) => void
-  ): void;
+  public listLexicons(args: ListLexiconsCommandInput, cb: (err: any, data?: ListLexiconsCommandOutput) => void): void;
   public listLexicons(
     args: ListLexiconsCommandInput,
     options: __HttpHandlerOptions,
@@ -237,17 +208,14 @@ export class Polly extends PollyClient {
   ): void;
   public listLexicons(
     args: ListLexiconsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLexiconsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLexiconsCommandOutput) => void),
     cb?: (err: any, data?: ListLexiconsCommandOutput) => void
   ): Promise<ListLexiconsCommandOutput> | void {
     const command = new ListLexiconsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -273,17 +241,14 @@ export class Polly extends PollyClient {
   ): void;
   public listSpeechSynthesisTasks(
     args: ListSpeechSynthesisTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void),
     cb?: (err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void
   ): Promise<ListSpeechSynthesisTasksCommandOutput> | void {
     const command = new ListSpeechSynthesisTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -298,14 +263,8 @@ export class Polly extends PollyClient {
    *       therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
    */
-  public putLexicon(
-    args: PutLexiconCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutLexiconCommandOutput>;
-  public putLexicon(
-    args: PutLexiconCommandInput,
-    cb: (err: any, data?: PutLexiconCommandOutput) => void
-  ): void;
+  public putLexicon(args: PutLexiconCommandInput, options?: __HttpHandlerOptions): Promise<PutLexiconCommandOutput>;
+  public putLexicon(args: PutLexiconCommandInput, cb: (err: any, data?: PutLexiconCommandOutput) => void): void;
   public putLexicon(
     args: PutLexiconCommandInput,
     options: __HttpHandlerOptions,
@@ -313,17 +272,14 @@ export class Polly extends PollyClient {
   ): void;
   public putLexicon(
     args: PutLexiconCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLexiconCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLexiconCommandOutput) => void),
     cb?: (err: any, data?: PutLexiconCommandOutput) => void
   ): Promise<PutLexiconCommandOutput> | void {
     const command = new PutLexiconCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -352,17 +308,14 @@ export class Polly extends PollyClient {
   ): void;
   public startSpeechSynthesisTask(
     args: StartSpeechSynthesisTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void),
     cb?: (err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void
   ): Promise<StartSpeechSynthesisTaskCommandOutput> | void {
     const command = new StartSpeechSynthesisTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -390,17 +343,14 @@ export class Polly extends PollyClient {
   ): void;
   public synthesizeSpeech(
     args: SynthesizeSpeechCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SynthesizeSpeechCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SynthesizeSpeechCommandOutput) => void),
     cb?: (err: any, data?: SynthesizeSpeechCommandOutput) => void
   ): Promise<SynthesizeSpeechCommandOutput> | void {
     const command = new SynthesizeSpeechCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

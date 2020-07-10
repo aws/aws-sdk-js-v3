@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetBucketLifecycleConfigurationOutput,
-  GetBucketLifecycleConfigurationRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlGetBucketLifecycleConfigurationCommand
+  serializeAws_restXmlGetBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetBucketLifecycleConfigurationCommandInput = GetBucketLifecycleConfigurationRequest;
-export type GetBucketLifecycleConfigurationCommandOutput = GetBucketLifecycleConfigurationOutput &
-  __MetadataBearer;
+export type GetBucketLifecycleConfigurationCommandOutput = GetBucketLifecycleConfigurationOutput & __MetadataBearer;
 
 export class GetBucketLifecycleConfigurationCommand extends $Command<
   GetBucketLifecycleConfigurationCommandInput,
@@ -50,19 +39,14 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBucketLifecycleConfigurationCommandInput,
-    GetBucketLifecycleConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBucketLifecycleConfigurationCommandInput, GetBucketLifecycleConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +60,14 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     input: GetBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

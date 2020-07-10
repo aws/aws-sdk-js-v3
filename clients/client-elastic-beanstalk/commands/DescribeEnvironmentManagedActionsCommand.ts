@@ -1,21 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
-import {
-  DescribeEnvironmentManagedActionsRequest,
-  DescribeEnvironmentManagedActionsResult
-} from "../models/index";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { DescribeEnvironmentManagedActionsRequest, DescribeEnvironmentManagedActionsResult } from "../models/index";
 import {
   deserializeAws_queryDescribeEnvironmentManagedActionsCommand,
-  serializeAws_queryDescribeEnvironmentManagedActionsCommand
+  serializeAws_queryDescribeEnvironmentManagedActionsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeEnvironmentManagedActionsCommandInput = DescribeEnvironmentManagedActionsRequest;
-export type DescribeEnvironmentManagedActionsCommandOutput = DescribeEnvironmentManagedActionsResult &
-  __MetadataBearer;
+export type DescribeEnvironmentManagedActionsCommandOutput = DescribeEnvironmentManagedActionsResult & __MetadataBearer;
 
 export class DescribeEnvironmentManagedActionsCommand extends $Command<
   DescribeEnvironmentManagedActionsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEnvironmentManagedActionsCommandInput,
-    DescribeEnvironmentManagedActionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEnvironmentManagedActionsCommandInput, DescribeEnvironmentManagedActionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     input: DescribeEnvironmentManagedActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentManagedActionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeEnvironmentManagedActionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentManagedActionsCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentManagedActionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEnvironmentManagedActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

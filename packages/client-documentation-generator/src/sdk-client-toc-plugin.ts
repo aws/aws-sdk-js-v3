@@ -1,13 +1,10 @@
 import * as ts from "typescript";
-import {
-  Component,
-  RendererComponent
-} from "typedoc/dist/lib/output/components";
+import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
 import {
   Reflection,
   ProjectReflection,
   ReflectionKind,
-  DeclarationReflection
+  DeclarationReflection,
 } from "typedoc/dist/lib/models/reflections";
 import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
 import { PageEvent } from "typedoc/dist/lib/output/events";
@@ -25,7 +22,7 @@ export class SdkClientTocPlugin extends RendererComponent {
     this.owner.off(PageEvent.BEGIN, tocPlugin.onRendererBeginPage);
 
     this.listenTo(this.owner, {
-      [PageEvent.BEGIN]: this.onRendererBeginPage
+      [PageEvent.BEGIN]: this.onRendererBeginPage,
     });
   }
 
@@ -40,10 +37,7 @@ export class SdkClientTocPlugin extends RendererComponent {
     }
 
     const trail: Reflection[] = [];
-    while (
-      model.constructor.name !== "ProjectReflection" &&
-      !model.kindOf(ReflectionKind.SomeModule)
-    ) {
+    while (model.constructor.name !== "ProjectReflection" && !model.kindOf(ReflectionKind.SomeModule)) {
       trail.unshift(model);
       model = model.parent;
     }
@@ -52,16 +46,8 @@ export class SdkClientTocPlugin extends RendererComponent {
     page.toc = new NavigationItem(model.name);
 
     if (!model.parent && !trail.length) {
-      this.commandsNavigationItem = new NavigationItem(
-        "Commands",
-        void 0,
-        page.toc
-      );
-      this.exceptionsNavigationItem = new NavigationItem(
-        "Exceptions",
-        void 0,
-        page.toc
-      );
+      this.commandsNavigationItem = new NavigationItem("Commands", void 0, page.toc);
+      this.exceptionsNavigationItem = new NavigationItem("Exceptions", void 0, page.toc);
     }
 
     this.buildToc(model, trail, page.toc, tocRestriction);
@@ -89,10 +75,7 @@ export class SdkClientTocPlugin extends RendererComponent {
   }
 
   private isInputOrOutput(model: DeclarationReflection): boolean {
-    return (
-      model.kindString === "Interface" &&
-      (model.name.endsWith("Input") || model.name.endsWith("Output"))
-    );
+    return model.kindString === "Interface" && (model.name.endsWith("Input") || model.name.endsWith("Output"));
   }
 
   /**
@@ -103,12 +86,7 @@ export class SdkClientTocPlugin extends RendererComponent {
    * @param parent  The parent [[NavigationItem]] the toc should be appended to.
    * @param restriction  The restricted table of contents.
    */
-  buildToc(
-    model: Reflection,
-    trail: Reflection[],
-    parent: NavigationItem,
-    restriction?: string[]
-  ) {
+  buildToc(model: Reflection, trail: Reflection[], parent: NavigationItem, restriction?: string[]) {
     const index = trail.indexOf(model);
     const children = model["children"] || [];
 
@@ -120,11 +98,7 @@ export class SdkClientTocPlugin extends RendererComponent {
       this.buildToc(child, trail, item);
     } else {
       children.forEach((child: DeclarationReflection) => {
-        if (
-          restriction &&
-          restriction.length > 0 &&
-          restriction.indexOf(child.name) === -1
-        ) {
+        if (restriction && restriction.length > 0 && restriction.indexOf(child.name) === -1) {
           return;
         }
 
@@ -143,48 +117,27 @@ export class SdkClientTocPlugin extends RendererComponent {
         }
 
         if (this.isCommand(child)) {
-          const item = NavigationItem.create(
-            child,
-            this.commandsNavigationItem,
-            true
-          );
+          const item = NavigationItem.create(child, this.commandsNavigationItem, true);
           // create an entry for the command
           const commandName = child.name.toLowerCase();
           if (!this.commandToNavigationItems.get(commandName)) {
             this.commandToNavigationItems.set(commandName, item);
           }
         } else if (this.isException(child)) {
-          const item = NavigationItem.create(
-            child,
-            this.exceptionsNavigationItem,
-            true
-          );
+          const item = NavigationItem.create(child, this.exceptionsNavigationItem, true);
         } else if (
           this.isUnion(child) &&
           (child as any).type.types.every((type: ReferenceType) => {
-            return (
-              type.reflection &&
-              this.isException(type.reflection as DeclarationReflection)
-            );
+            return type.reflection && this.isException(type.reflection as DeclarationReflection);
           })
         ) {
           // get command from name
-          const commandName =
-            child.name.replace("ExceptionsUnion", "").toLowerCase() + "command";
-          const item = NavigationItem.create(
-            child,
-            this.commandToNavigationItems.get(commandName),
-            true
-          );
+          const commandName = child.name.replace("ExceptionsUnion", "").toLowerCase() + "command";
+          const item = NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
         } else if (this.isInputOrOutput(child)) {
           // get command from name
-          const commandName =
-            child.name.replace(/Input|Output/, "").toLowerCase() + "command";
-          const item = NavigationItem.create(
-            child,
-            this.commandToNavigationItems.get(commandName),
-            true
-          );
+          const commandName = child.name.replace(/Input|Output/, "").toLowerCase() + "command";
+          const item = NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
         } else if (child.name.startsWith("_")) {
           return;
         } else {

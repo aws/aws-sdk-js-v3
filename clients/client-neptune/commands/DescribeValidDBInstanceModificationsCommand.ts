@@ -1,21 +1,14 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   DescribeValidDBInstanceModificationsMessage,
-  DescribeValidDBInstanceModificationsResult
+  DescribeValidDBInstanceModificationsResult,
 } from "../models/index";
 import {
   deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
-  serializeAws_queryDescribeValidDBInstanceModificationsCommand
+  serializeAws_queryDescribeValidDBInstanceModificationsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeValidDBInstanceModificationsCommandInput = DescribeValidDBInstanceModificationsMessage;
@@ -39,9 +32,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeValidDBInstanceModificationsCommandInput
-  ) {
+  constructor(readonly input: DescribeValidDBInstanceModificationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,13 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeValidDBInstanceModificationsCommandInput,
-    DescribeValidDBInstanceModificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeValidDBInstanceModificationsCommandInput, DescribeValidDBInstanceModificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +62,14 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     input: DescribeValidDBInstanceModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeValidDBInstanceModificationsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeValidDBInstanceModificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> {
-    return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

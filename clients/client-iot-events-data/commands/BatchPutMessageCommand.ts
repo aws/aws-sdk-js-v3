@@ -1,21 +1,11 @@
-import {
-  IoTEventsDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTEventsDataClient";
-import {
-  BatchPutMessageRequest,
-  BatchPutMessageResponse
-} from "../models/index";
+import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
+import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/index";
 import {
   deserializeAws_restJson1BatchPutMessageCommand,
-  serializeAws_restJson1BatchPutMessageCommand
+  serializeAws_restJson1BatchPutMessageCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type BatchPutMessageCommandInput = BatchPutMessageRequest;
-export type BatchPutMessageCommandOutput = BatchPutMessageResponse &
-  __MetadataBearer;
+export type BatchPutMessageCommandOutput = BatchPutMessageResponse & __MetadataBearer;
 
 export class BatchPutMessageCommand extends $Command<
   BatchPutMessageCommandInput,
@@ -50,14 +39,12 @@ export class BatchPutMessageCommand extends $Command<
     configuration: IoTEventsDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchPutMessageCommandInput, BatchPutMessageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class BatchPutMessageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchPutMessageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchPutMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchPutMessageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchPutMessageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMessageCommandOutput> {
     return deserializeAws_restJson1BatchPutMessageCommand(output, context);
   }
 

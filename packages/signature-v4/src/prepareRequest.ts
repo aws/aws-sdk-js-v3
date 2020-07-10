@@ -7,10 +7,7 @@ import { GENERATED_HEADERS } from "./constants";
  */
 export function prepareRequest(request: HttpRequest): HttpRequest {
   // Create a clone of the request object that does not clone the body
-  request =
-    typeof (request as any).clone === "function"
-      ? (request as any).clone()
-      : cloneRequest(request);
+  request = typeof (request as any).clone === "function" ? (request as any).clone() : cloneRequest(request);
 
   for (let headerName of Object.keys(request.headers)) {
     if (GENERATED_HEADERS.indexOf(headerName.toLowerCase()) > -1) {

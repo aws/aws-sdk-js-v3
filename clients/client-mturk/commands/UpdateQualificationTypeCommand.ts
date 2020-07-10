@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  UpdateQualificationTypeRequest,
-  UpdateQualificationTypeResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { UpdateQualificationTypeRequest, UpdateQualificationTypeResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateQualificationTypeCommand,
-  serializeAws_json1_1UpdateQualificationTypeCommand
+  serializeAws_json1_1UpdateQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateQualificationTypeCommandInput = UpdateQualificationTypeRequest;
-export type UpdateQualificationTypeCommandOutput = UpdateQualificationTypeResponse &
-  __MetadataBearer;
+export type UpdateQualificationTypeCommandOutput = UpdateQualificationTypeResponse & __MetadataBearer;
 
 export class UpdateQualificationTypeCommand extends $Command<
   UpdateQualificationTypeCommandInput,
@@ -49,18 +38,13 @@ export class UpdateQualificationTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateQualificationTypeCommandInput,
-    UpdateQualificationTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateQualificationTypeCommandInput, UpdateQualificationTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class UpdateQualificationTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateQualificationTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateQualificationTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1UpdateQualificationTypeCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQualificationTypeCommandOutput> {
+    return deserializeAws_json1_1UpdateQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

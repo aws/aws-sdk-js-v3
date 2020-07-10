@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -23,7 +19,7 @@ export interface Attribute {
 
 export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
@@ -58,10 +54,9 @@ export interface AuthorizationData {
 
 export namespace AuthorizationData {
   export const filterSensitiveLog = (obj: AuthorizationData): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationData =>
-    __isa(o, "AuthorizationData");
+  export const isa = (o: any): o is AuthorizationData => __isa(o, "AuthorizationData");
 }
 
 export interface BatchCheckLayerAvailabilityRequest {
@@ -84,10 +79,8 @@ export interface BatchCheckLayerAvailabilityRequest {
 }
 
 export namespace BatchCheckLayerAvailabilityRequest {
-  export const filterSensitiveLog = (
-    obj: BatchCheckLayerAvailabilityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchCheckLayerAvailabilityRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is BatchCheckLayerAvailabilityRequest =>
     __isa(o, "BatchCheckLayerAvailabilityRequest");
@@ -108,10 +101,8 @@ export interface BatchCheckLayerAvailabilityResponse {
 }
 
 export namespace BatchCheckLayerAvailabilityResponse {
-  export const filterSensitiveLog = (
-    obj: BatchCheckLayerAvailabilityResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchCheckLayerAvailabilityResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is BatchCheckLayerAvailabilityResponse =>
     __isa(o, "BatchCheckLayerAvailabilityResponse");
@@ -144,10 +135,9 @@ export interface BatchDeleteImageRequest {
 
 export namespace BatchDeleteImageRequest {
   export const filterSensitiveLog = (obj: BatchDeleteImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImageRequest =>
-    __isa(o, "BatchDeleteImageRequest");
+  export const isa = (o: any): o is BatchDeleteImageRequest => __isa(o, "BatchDeleteImageRequest");
 }
 
 export interface BatchDeleteImageResponse {
@@ -165,10 +155,9 @@ export interface BatchDeleteImageResponse {
 
 export namespace BatchDeleteImageResponse {
   export const filterSensitiveLog = (obj: BatchDeleteImageResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImageResponse =>
-    __isa(o, "BatchDeleteImageResponse");
+  export const isa = (o: any): o is BatchDeleteImageResponse => __isa(o, "BatchDeleteImageResponse");
 }
 
 export interface BatchGetImageRequest {
@@ -203,10 +192,9 @@ export interface BatchGetImageRequest {
 
 export namespace BatchGetImageRequest {
   export const filterSensitiveLog = (obj: BatchGetImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetImageRequest =>
-    __isa(o, "BatchGetImageRequest");
+  export const isa = (o: any): o is BatchGetImageRequest => __isa(o, "BatchGetImageRequest");
 }
 
 export interface BatchGetImageResponse {
@@ -224,10 +212,9 @@ export interface BatchGetImageResponse {
 
 export namespace BatchGetImageResponse {
   export const filterSensitiveLog = (obj: BatchGetImageResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetImageResponse =>
-    __isa(o, "BatchGetImageResponse");
+  export const isa = (o: any): o is BatchGetImageResponse => __isa(o, "BatchGetImageResponse");
 }
 
 export interface CompleteLayerUploadRequest {
@@ -257,10 +244,9 @@ export interface CompleteLayerUploadRequest {
 
 export namespace CompleteLayerUploadRequest {
   export const filterSensitiveLog = (obj: CompleteLayerUploadRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CompleteLayerUploadRequest =>
-    __isa(o, "CompleteLayerUploadRequest");
+  export const isa = (o: any): o is CompleteLayerUploadRequest => __isa(o, "CompleteLayerUploadRequest");
 }
 
 export interface CompleteLayerUploadResponse {
@@ -287,13 +273,10 @@ export interface CompleteLayerUploadResponse {
 }
 
 export namespace CompleteLayerUploadResponse {
-  export const filterSensitiveLog = (
-    obj: CompleteLayerUploadResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CompleteLayerUploadResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CompleteLayerUploadResponse =>
-    __isa(o, "CompleteLayerUploadResponse");
+  export const isa = (o: any): o is CompleteLayerUploadResponse => __isa(o, "CompleteLayerUploadResponse");
 }
 
 export interface CreateRepositoryRequest {
@@ -331,10 +314,9 @@ export interface CreateRepositoryRequest {
 
 export namespace CreateRepositoryRequest {
   export const filterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryRequest =>
-    __isa(o, "CreateRepositoryRequest");
+  export const isa = (o: any): o is CreateRepositoryRequest => __isa(o, "CreateRepositoryRequest");
 }
 
 export interface CreateRepositoryResponse {
@@ -347,10 +329,9 @@ export interface CreateRepositoryResponse {
 
 export namespace CreateRepositoryResponse {
   export const filterSensitiveLog = (obj: CreateRepositoryResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryResponse =>
-    __isa(o, "CreateRepositoryResponse");
+  export const isa = (o: any): o is CreateRepositoryResponse => __isa(o, "CreateRepositoryResponse");
 }
 
 export interface DeleteLifecyclePolicyRequest {
@@ -368,13 +349,10 @@ export interface DeleteLifecyclePolicyRequest {
 }
 
 export namespace DeleteLifecyclePolicyRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteLifecyclePolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLifecyclePolicyRequest =>
-    __isa(o, "DeleteLifecyclePolicyRequest");
+  export const isa = (o: any): o is DeleteLifecyclePolicyRequest => __isa(o, "DeleteLifecyclePolicyRequest");
 }
 
 export interface DeleteLifecyclePolicyResponse {
@@ -401,13 +379,10 @@ export interface DeleteLifecyclePolicyResponse {
 }
 
 export namespace DeleteLifecyclePolicyResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteLifecyclePolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLifecyclePolicyResponse =>
-    __isa(o, "DeleteLifecyclePolicyResponse");
+  export const isa = (o: any): o is DeleteLifecyclePolicyResponse => __isa(o, "DeleteLifecyclePolicyResponse");
 }
 
 export interface DeleteRepositoryPolicyRequest {
@@ -426,13 +401,10 @@ export interface DeleteRepositoryPolicyRequest {
 }
 
 export namespace DeleteRepositoryPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteRepositoryPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRepositoryPolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryPolicyRequest =>
-    __isa(o, "DeleteRepositoryPolicyRequest");
+  export const isa = (o: any): o is DeleteRepositoryPolicyRequest => __isa(o, "DeleteRepositoryPolicyRequest");
 }
 
 export interface DeleteRepositoryPolicyResponse {
@@ -454,13 +426,10 @@ export interface DeleteRepositoryPolicyResponse {
 }
 
 export namespace DeleteRepositoryPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteRepositoryPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRepositoryPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryPolicyResponse =>
-    __isa(o, "DeleteRepositoryPolicyResponse");
+  export const isa = (o: any): o is DeleteRepositoryPolicyResponse => __isa(o, "DeleteRepositoryPolicyResponse");
 }
 
 export interface DeleteRepositoryRequest {
@@ -484,10 +453,9 @@ export interface DeleteRepositoryRequest {
 
 export namespace DeleteRepositoryRequest {
   export const filterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryRequest =>
-    __isa(o, "DeleteRepositoryRequest");
+  export const isa = (o: any): o is DeleteRepositoryRequest => __isa(o, "DeleteRepositoryRequest");
 }
 
 export interface DeleteRepositoryResponse {
@@ -500,10 +468,9 @@ export interface DeleteRepositoryResponse {
 
 export namespace DeleteRepositoryResponse {
   export const filterSensitiveLog = (obj: DeleteRepositoryResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryResponse =>
-    __isa(o, "DeleteRepositoryResponse");
+  export const isa = (o: any): o is DeleteRepositoryResponse => __isa(o, "DeleteRepositoryResponse");
 }
 
 export interface DescribeImageScanFindingsRequest {
@@ -549,13 +516,10 @@ export interface DescribeImageScanFindingsRequest {
 }
 
 export namespace DescribeImageScanFindingsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeImageScanFindingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImageScanFindingsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImageScanFindingsRequest =>
-    __isa(o, "DescribeImageScanFindingsRequest");
+  export const isa = (o: any): o is DescribeImageScanFindingsRequest => __isa(o, "DescribeImageScanFindingsRequest");
 }
 
 export interface DescribeImageScanFindingsResponse {
@@ -596,13 +560,10 @@ export interface DescribeImageScanFindingsResponse {
 }
 
 export namespace DescribeImageScanFindingsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeImageScanFindingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImageScanFindingsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImageScanFindingsResponse =>
-    __isa(o, "DescribeImageScanFindingsResponse");
+  export const isa = (o: any): o is DescribeImageScanFindingsResponse => __isa(o, "DescribeImageScanFindingsResponse");
 }
 
 /**
@@ -621,10 +582,9 @@ export interface DescribeImagesFilter {
 
 export namespace DescribeImagesFilter {
   export const filterSensitiveLog = (obj: DescribeImagesFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesFilter =>
-    __isa(o, "DescribeImagesFilter");
+  export const isa = (o: any): o is DescribeImagesFilter => __isa(o, "DescribeImagesFilter");
 }
 
 export interface DescribeImagesRequest {
@@ -677,10 +637,9 @@ export interface DescribeImagesRequest {
 
 export namespace DescribeImagesRequest {
   export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesRequest =>
-    __isa(o, "DescribeImagesRequest");
+  export const isa = (o: any): o is DescribeImagesRequest => __isa(o, "DescribeImagesRequest");
 }
 
 export interface DescribeImagesResponse {
@@ -703,10 +662,9 @@ export interface DescribeImagesResponse {
 
 export namespace DescribeImagesResponse {
   export const filterSensitiveLog = (obj: DescribeImagesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesResponse =>
-    __isa(o, "DescribeImagesResponse");
+  export const isa = (o: any): o is DescribeImagesResponse => __isa(o, "DescribeImagesResponse");
 }
 
 export interface DescribeRepositoriesRequest {
@@ -753,13 +711,10 @@ export interface DescribeRepositoriesRequest {
 }
 
 export namespace DescribeRepositoriesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeRepositoriesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRepositoriesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRepositoriesRequest =>
-    __isa(o, "DescribeRepositoriesRequest");
+  export const isa = (o: any): o is DescribeRepositoriesRequest => __isa(o, "DescribeRepositoriesRequest");
 }
 
 export interface DescribeRepositoriesResponse {
@@ -780,21 +735,16 @@ export interface DescribeRepositoriesResponse {
 }
 
 export namespace DescribeRepositoriesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeRepositoriesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRepositoriesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRepositoriesResponse =>
-    __isa(o, "DescribeRepositoriesResponse");
+  export const isa = (o: any): o is DescribeRepositoriesResponse => __isa(o, "DescribeRepositoriesResponse");
 }
 
 /**
  * <p>The specified layer upload does not contain any layer parts.</p>
  */
-export interface EmptyUploadException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EmptyUploadException extends __SmithyException, $MetadataBearer {
   name: "EmptyUploadException";
   $fault: "client";
   /**
@@ -805,10 +755,9 @@ export interface EmptyUploadException
 
 export namespace EmptyUploadException {
   export const filterSensitiveLog = (obj: EmptyUploadException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EmptyUploadException =>
-    __isa(o, "EmptyUploadException");
+  export const isa = (o: any): o is EmptyUploadException => __isa(o, "EmptyUploadException");
 }
 
 export enum FindingSeverity {
@@ -817,7 +766,7 @@ export enum FindingSeverity {
   INFORMATIONAL = "INFORMATIONAL",
   LOW = "LOW",
   MEDIUM = "MEDIUM",
-  UNDEFINED = "UNDEFINED"
+  UNDEFINED = "UNDEFINED",
 }
 
 export interface GetAuthorizationTokenRequest {
@@ -830,13 +779,10 @@ export interface GetAuthorizationTokenRequest {
 }
 
 export namespace GetAuthorizationTokenRequest {
-  export const filterSensitiveLog = (
-    obj: GetAuthorizationTokenRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizationTokenRequest =>
-    __isa(o, "GetAuthorizationTokenRequest");
+  export const isa = (o: any): o is GetAuthorizationTokenRequest => __isa(o, "GetAuthorizationTokenRequest");
 }
 
 export interface GetAuthorizationTokenResponse {
@@ -849,13 +795,10 @@ export interface GetAuthorizationTokenResponse {
 }
 
 export namespace GetAuthorizationTokenResponse {
-  export const filterSensitiveLog = (
-    obj: GetAuthorizationTokenResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAuthorizationTokenResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizationTokenResponse =>
-    __isa(o, "GetAuthorizationTokenResponse");
+  export const isa = (o: any): o is GetAuthorizationTokenResponse => __isa(o, "GetAuthorizationTokenResponse");
 }
 
 export interface GetDownloadUrlForLayerRequest {
@@ -878,13 +821,10 @@ export interface GetDownloadUrlForLayerRequest {
 }
 
 export namespace GetDownloadUrlForLayerRequest {
-  export const filterSensitiveLog = (
-    obj: GetDownloadUrlForLayerRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDownloadUrlForLayerRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDownloadUrlForLayerRequest =>
-    __isa(o, "GetDownloadUrlForLayerRequest");
+  export const isa = (o: any): o is GetDownloadUrlForLayerRequest => __isa(o, "GetDownloadUrlForLayerRequest");
 }
 
 export interface GetDownloadUrlForLayerResponse {
@@ -901,13 +841,10 @@ export interface GetDownloadUrlForLayerResponse {
 }
 
 export namespace GetDownloadUrlForLayerResponse {
-  export const filterSensitiveLog = (
-    obj: GetDownloadUrlForLayerResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDownloadUrlForLayerResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDownloadUrlForLayerResponse =>
-    __isa(o, "GetDownloadUrlForLayerResponse");
+  export const isa = (o: any): o is GetDownloadUrlForLayerResponse => __isa(o, "GetDownloadUrlForLayerResponse");
 }
 
 export interface GetLifecyclePolicyPreviewRequest {
@@ -961,13 +898,10 @@ export interface GetLifecyclePolicyPreviewRequest {
 }
 
 export namespace GetLifecyclePolicyPreviewRequest {
-  export const filterSensitiveLog = (
-    obj: GetLifecyclePolicyPreviewRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLifecyclePolicyPreviewRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyPreviewRequest =>
-    __isa(o, "GetLifecyclePolicyPreviewRequest");
+  export const isa = (o: any): o is GetLifecyclePolicyPreviewRequest => __isa(o, "GetLifecyclePolicyPreviewRequest");
 }
 
 export interface GetLifecyclePolicyPreviewResponse {
@@ -1013,13 +947,10 @@ export interface GetLifecyclePolicyPreviewResponse {
 }
 
 export namespace GetLifecyclePolicyPreviewResponse {
-  export const filterSensitiveLog = (
-    obj: GetLifecyclePolicyPreviewResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLifecyclePolicyPreviewResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyPreviewResponse =>
-    __isa(o, "GetLifecyclePolicyPreviewResponse");
+  export const isa = (o: any): o is GetLifecyclePolicyPreviewResponse => __isa(o, "GetLifecyclePolicyPreviewResponse");
 }
 
 export interface GetLifecyclePolicyRequest {
@@ -1038,10 +969,9 @@ export interface GetLifecyclePolicyRequest {
 
 export namespace GetLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyRequest =>
-    __isa(o, "GetLifecyclePolicyRequest");
+  export const isa = (o: any): o is GetLifecyclePolicyRequest => __isa(o, "GetLifecyclePolicyRequest");
 }
 
 export interface GetLifecyclePolicyResponse {
@@ -1069,10 +999,9 @@ export interface GetLifecyclePolicyResponse {
 
 export namespace GetLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyResponse =>
-    __isa(o, "GetLifecyclePolicyResponse");
+  export const isa = (o: any): o is GetLifecyclePolicyResponse => __isa(o, "GetLifecyclePolicyResponse");
 }
 
 export interface GetRepositoryPolicyRequest {
@@ -1091,10 +1020,9 @@ export interface GetRepositoryPolicyRequest {
 
 export namespace GetRepositoryPolicyRequest {
   export const filterSensitiveLog = (obj: GetRepositoryPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryPolicyRequest =>
-    __isa(o, "GetRepositoryPolicyRequest");
+  export const isa = (o: any): o is GetRepositoryPolicyRequest => __isa(o, "GetRepositoryPolicyRequest");
 }
 
 export interface GetRepositoryPolicyResponse {
@@ -1116,13 +1044,10 @@ export interface GetRepositoryPolicyResponse {
 }
 
 export namespace GetRepositoryPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: GetRepositoryPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRepositoryPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryPolicyResponse =>
-    __isa(o, "GetRepositoryPolicyResponse");
+  export const isa = (o: any): o is GetRepositoryPolicyResponse => __isa(o, "GetRepositoryPolicyResponse");
 }
 
 /**
@@ -1153,22 +1078,20 @@ export interface Image {
 
 export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Image => __isa(o, "Image");
 }
 
 export enum ImageActionType {
-  EXPIRE = "EXPIRE"
+  EXPIRE = "EXPIRE",
 }
 
 /**
  * <p>The specified image has already been pushed, and there were no changes to the manifest
  *             or image tag after the last push.</p>
  */
-export interface ImageAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ImageAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ImageAlreadyExistsException";
   $fault: "client";
   /**
@@ -1178,13 +1101,10 @@ export interface ImageAlreadyExistsException
 }
 
 export namespace ImageAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ImageAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImageAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ImageAlreadyExistsException =>
-    __isa(o, "ImageAlreadyExistsException");
+  export const isa = (o: any): o is ImageAlreadyExistsException => __isa(o, "ImageAlreadyExistsException");
 }
 
 /**
@@ -1243,7 +1163,7 @@ export interface ImageDetail {
 
 export namespace ImageDetail {
   export const filterSensitiveLog = (obj: ImageDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ImageDetail => __isa(o, "ImageDetail");
 }
@@ -1271,7 +1191,7 @@ export interface ImageFailure {
 
 export namespace ImageFailure {
   export const filterSensitiveLog = (obj: ImageFailure): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ImageFailure => __isa(o, "ImageFailure");
 }
@@ -1281,7 +1201,7 @@ export enum ImageFailureCode {
   ImageTagDoesNotMatchDigest = "ImageTagDoesNotMatchDigest",
   InvalidImageDigest = "InvalidImageDigest",
   InvalidImageTag = "InvalidImageTag",
-  MissingDigestAndTag = "MissingDigestAndTag"
+  MissingDigestAndTag = "MissingDigestAndTag",
 }
 
 /**
@@ -1302,18 +1222,15 @@ export interface ImageIdentifier {
 
 export namespace ImageIdentifier {
   export const filterSensitiveLog = (obj: ImageIdentifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageIdentifier =>
-    __isa(o, "ImageIdentifier");
+  export const isa = (o: any): o is ImageIdentifier => __isa(o, "ImageIdentifier");
 }
 
 /**
  * <p>The image requested does not exist in the specified repository.</p>
  */
-export interface ImageNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ImageNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ImageNotFoundException";
   $fault: "client";
   message?: string;
@@ -1321,10 +1238,9 @@ export interface ImageNotFoundException
 
 export namespace ImageNotFoundException {
   export const filterSensitiveLog = (obj: ImageNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageNotFoundException =>
-    __isa(o, "ImageNotFoundException");
+  export const isa = (o: any): o is ImageNotFoundException => __isa(o, "ImageNotFoundException");
 }
 
 /**
@@ -1360,10 +1276,9 @@ export interface ImageScanFinding {
 
 export namespace ImageScanFinding {
   export const filterSensitiveLog = (obj: ImageScanFinding): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageScanFinding =>
-    __isa(o, "ImageScanFinding");
+  export const isa = (o: any): o is ImageScanFinding => __isa(o, "ImageScanFinding");
 }
 
 /**
@@ -1394,10 +1309,9 @@ export interface ImageScanFindings {
 
 export namespace ImageScanFindings {
   export const filterSensitiveLog = (obj: ImageScanFindings): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageScanFindings =>
-    __isa(o, "ImageScanFindings");
+  export const isa = (o: any): o is ImageScanFindings => __isa(o, "ImageScanFindings");
 }
 
 /**
@@ -1423,10 +1337,9 @@ export interface ImageScanFindingsSummary {
 
 export namespace ImageScanFindingsSummary {
   export const filterSensitiveLog = (obj: ImageScanFindingsSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageScanFindingsSummary =>
-    __isa(o, "ImageScanFindingsSummary");
+  export const isa = (o: any): o is ImageScanFindingsSummary => __isa(o, "ImageScanFindingsSummary");
 }
 
 /**
@@ -1445,10 +1358,9 @@ export interface ImageScanningConfiguration {
 
 export namespace ImageScanningConfiguration {
   export const filterSensitiveLog = (obj: ImageScanningConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageScanningConfiguration =>
-    __isa(o, "ImageScanningConfiguration");
+  export const isa = (o: any): o is ImageScanningConfiguration => __isa(o, "ImageScanningConfiguration");
 }
 
 /**
@@ -1469,37 +1381,31 @@ export interface ImageScanStatus {
 
 export namespace ImageScanStatus {
   export const filterSensitiveLog = (obj: ImageScanStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageScanStatus =>
-    __isa(o, "ImageScanStatus");
+  export const isa = (o: any): o is ImageScanStatus => __isa(o, "ImageScanStatus");
 }
 
 /**
  * <p>The specified image is tagged with a tag that already exists. The repository is
  *             configured for tag immutability.</p>
  */
-export interface ImageTagAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ImageTagAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ImageTagAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ImageTagAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ImageTagAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImageTagAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ImageTagAlreadyExistsException =>
-    __isa(o, "ImageTagAlreadyExistsException");
+  export const isa = (o: any): o is ImageTagAlreadyExistsException => __isa(o, "ImageTagAlreadyExistsException");
 }
 
 export enum ImageTagMutability {
   IMMUTABLE = "IMMUTABLE",
-  MUTABLE = "MUTABLE"
+  MUTABLE = "MUTABLE",
 }
 
 export interface InitiateLayerUploadRequest {
@@ -1518,10 +1424,9 @@ export interface InitiateLayerUploadRequest {
 
 export namespace InitiateLayerUploadRequest {
   export const filterSensitiveLog = (obj: InitiateLayerUploadRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InitiateLayerUploadRequest =>
-    __isa(o, "InitiateLayerUploadRequest");
+  export const isa = (o: any): o is InitiateLayerUploadRequest => __isa(o, "InitiateLayerUploadRequest");
 }
 
 export interface InitiateLayerUploadResponse {
@@ -1539,22 +1444,17 @@ export interface InitiateLayerUploadResponse {
 }
 
 export namespace InitiateLayerUploadResponse {
-  export const filterSensitiveLog = (
-    obj: InitiateLayerUploadResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InitiateLayerUploadResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InitiateLayerUploadResponse =>
-    __isa(o, "InitiateLayerUploadResponse");
+  export const isa = (o: any): o is InitiateLayerUploadResponse => __isa(o, "InitiateLayerUploadResponse");
 }
 
 /**
  * <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
  *             not match the digest specified.</p>
  */
-export interface InvalidLayerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLayerException extends __SmithyException, $MetadataBearer {
   name: "InvalidLayerException";
   $fault: "client";
   /**
@@ -1565,19 +1465,16 @@ export interface InvalidLayerException
 
 export namespace InvalidLayerException {
   export const filterSensitiveLog = (obj: InvalidLayerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidLayerException =>
-    __isa(o, "InvalidLayerException");
+  export const isa = (o: any): o is InvalidLayerException => __isa(o, "InvalidLayerException");
 }
 
 /**
  * <p>The layer part size is not valid, or the first byte specified is not consecutive to
  *             the last byte of a previous layer part upload.</p>
  */
-export interface InvalidLayerPartException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLayerPartException extends __SmithyException, $MetadataBearer {
   name: "InvalidLayerPartException";
   $fault: "client";
   /**
@@ -1609,19 +1506,16 @@ export interface InvalidLayerPartException
 
 export namespace InvalidLayerPartException {
   export const filterSensitiveLog = (obj: InvalidLayerPartException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidLayerPartException =>
-    __isa(o, "InvalidLayerPartException");
+  export const isa = (o: any): o is InvalidLayerPartException => __isa(o, "InvalidLayerPartException");
 }
 
 /**
  * <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -1632,32 +1526,26 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have
  *             a maximum length of 256 characters.</p>
  */
-export interface InvalidTagParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagParameterException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidTagParameterException {
-  export const filterSensitiveLog = (
-    obj: InvalidTagParameterException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidTagParameterException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTagParameterException =>
-    __isa(o, "InvalidTagParameterException");
+  export const isa = (o: any): o is InvalidTagParameterException => __isa(o, "InvalidTagParameterException");
 }
 
 /**
@@ -1690,7 +1578,7 @@ export interface Layer {
 
 export namespace Layer {
   export const filterSensitiveLog = (obj: Layer): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Layer => __isa(o, "Layer");
 }
@@ -1698,9 +1586,7 @@ export namespace Layer {
 /**
  * <p>The image layer already exists in the associated repository.</p>
  */
-export interface LayerAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LayerAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "LayerAlreadyExistsException";
   $fault: "client";
   /**
@@ -1710,18 +1596,15 @@ export interface LayerAlreadyExistsException
 }
 
 export namespace LayerAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: LayerAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LayerAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LayerAlreadyExistsException =>
-    __isa(o, "LayerAlreadyExistsException");
+  export const isa = (o: any): o is LayerAlreadyExistsException => __isa(o, "LayerAlreadyExistsException");
 }
 
 export enum LayerAvailability {
   AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE"
+  UNAVAILABLE = "UNAVAILABLE",
 }
 
 /**
@@ -1747,23 +1630,21 @@ export interface LayerFailure {
 
 export namespace LayerFailure {
   export const filterSensitiveLog = (obj: LayerFailure): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is LayerFailure => __isa(o, "LayerFailure");
 }
 
 export enum LayerFailureCode {
   InvalidLayerDigest = "InvalidLayerDigest",
-  MissingLayerDigest = "MissingLayerDigest"
+  MissingLayerDigest = "MissingLayerDigest",
 }
 
 /**
  * <p>The specified layer is not available because it is not associated with an image.
  *             Unassociated image layers may be cleaned up at any time.</p>
  */
-export interface LayerInaccessibleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LayerInaccessibleException extends __SmithyException, $MetadataBearer {
   name: "LayerInaccessibleException";
   $fault: "client";
   /**
@@ -1774,18 +1655,15 @@ export interface LayerInaccessibleException
 
 export namespace LayerInaccessibleException {
   export const filterSensitiveLog = (obj: LayerInaccessibleException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LayerInaccessibleException =>
-    __isa(o, "LayerInaccessibleException");
+  export const isa = (o: any): o is LayerInaccessibleException => __isa(o, "LayerInaccessibleException");
 }
 
 /**
  * <p>Layer parts must be at least 5 MiB in size.</p>
  */
-export interface LayerPartTooSmallException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LayerPartTooSmallException extends __SmithyException, $MetadataBearer {
   name: "LayerPartTooSmallException";
   $fault: "client";
   /**
@@ -1796,19 +1674,16 @@ export interface LayerPartTooSmallException
 
 export namespace LayerPartTooSmallException {
   export const filterSensitiveLog = (obj: LayerPartTooSmallException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LayerPartTooSmallException =>
-    __isa(o, "LayerPartTooSmallException");
+  export const isa = (o: any): o is LayerPartTooSmallException => __isa(o, "LayerPartTooSmallException");
 }
 
 /**
  * <p>The specified layers could not be found, or the specified layer is not valid for this
  *             repository.</p>
  */
-export interface LayersNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LayersNotFoundException extends __SmithyException, $MetadataBearer {
   name: "LayersNotFoundException";
   $fault: "client";
   /**
@@ -1819,32 +1694,26 @@ export interface LayersNotFoundException
 
 export namespace LayersNotFoundException {
   export const filterSensitiveLog = (obj: LayersNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LayersNotFoundException =>
-    __isa(o, "LayersNotFoundException");
+  export const isa = (o: any): o is LayersNotFoundException => __isa(o, "LayersNotFoundException");
 }
 
 /**
  * <p>The lifecycle policy could not be found, and no policy is set to the
  *             repository.</p>
  */
-export interface LifecyclePolicyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LifecyclePolicyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "LifecyclePolicyNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LifecyclePolicyNotFoundException {
-  export const filterSensitiveLog = (
-    obj: LifecyclePolicyNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LifecyclePolicyNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyNotFoundException =>
-    __isa(o, "LifecyclePolicyNotFoundException");
+  export const isa = (o: any): o is LifecyclePolicyNotFoundException => __isa(o, "LifecyclePolicyNotFoundException");
 }
 
 /**
@@ -1859,32 +1728,25 @@ export interface LifecyclePolicyPreviewFilter {
 }
 
 export namespace LifecyclePolicyPreviewFilter {
-  export const filterSensitiveLog = (
-    obj: LifecyclePolicyPreviewFilter
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewFilter): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyPreviewFilter =>
-    __isa(o, "LifecyclePolicyPreviewFilter");
+  export const isa = (o: any): o is LifecyclePolicyPreviewFilter => __isa(o, "LifecyclePolicyPreviewFilter");
 }
 
 /**
  * <p>The previous lifecycle policy preview request has not completed. Please try again
  *             later.</p>
  */
-export interface LifecyclePolicyPreviewInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LifecyclePolicyPreviewInProgressException extends __SmithyException, $MetadataBearer {
   name: "LifecyclePolicyPreviewInProgressException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LifecyclePolicyPreviewInProgressException {
-  export const filterSensitiveLog = (
-    obj: LifecyclePolicyPreviewInProgressException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewInProgressException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LifecyclePolicyPreviewInProgressException =>
     __isa(o, "LifecyclePolicyPreviewInProgressException");
@@ -1893,19 +1755,15 @@ export namespace LifecyclePolicyPreviewInProgressException {
 /**
  * <p>There is no dry run for this repository.</p>
  */
-export interface LifecyclePolicyPreviewNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LifecyclePolicyPreviewNotFoundException extends __SmithyException, $MetadataBearer {
   name: "LifecyclePolicyPreviewNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LifecyclePolicyPreviewNotFoundException {
-  export const filterSensitiveLog = (
-    obj: LifecyclePolicyPreviewNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewNotFoundException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LifecyclePolicyPreviewNotFoundException =>
     __isa(o, "LifecyclePolicyPreviewNotFoundException");
@@ -1944,20 +1802,17 @@ export interface LifecyclePolicyPreviewResult {
 }
 
 export namespace LifecyclePolicyPreviewResult {
-  export const filterSensitiveLog = (
-    obj: LifecyclePolicyPreviewResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyPreviewResult =>
-    __isa(o, "LifecyclePolicyPreviewResult");
+  export const isa = (o: any): o is LifecyclePolicyPreviewResult => __isa(o, "LifecyclePolicyPreviewResult");
 }
 
 export enum LifecyclePolicyPreviewStatus {
   COMPLETE = "COMPLETE",
   EXPIRED = "EXPIRED",
   FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
+  IN_PROGRESS = "IN_PROGRESS",
 }
 
 /**
@@ -1972,13 +1827,10 @@ export interface LifecyclePolicyPreviewSummary {
 }
 
 export namespace LifecyclePolicyPreviewSummary {
-  export const filterSensitiveLog = (
-    obj: LifecyclePolicyPreviewSummary
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewSummary): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyPreviewSummary =>
-    __isa(o, "LifecyclePolicyPreviewSummary");
+  export const isa = (o: any): o is LifecyclePolicyPreviewSummary => __isa(o, "LifecyclePolicyPreviewSummary");
 }
 
 /**
@@ -1994,10 +1846,9 @@ export interface LifecyclePolicyRuleAction {
 
 export namespace LifecyclePolicyRuleAction {
   export const filterSensitiveLog = (obj: LifecyclePolicyRuleAction): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyRuleAction =>
-    __isa(o, "LifecyclePolicyRuleAction");
+  export const isa = (o: any): o is LifecyclePolicyRuleAction => __isa(o, "LifecyclePolicyRuleAction");
 }
 
 /**
@@ -2005,9 +1856,7 @@ export namespace LifecyclePolicyRuleAction {
  *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service_limits.html">Amazon ECR Default Service
  *                 Limits</a> in the Amazon Elastic Container Registry User Guide.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2018,10 +1867,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2039,10 +1887,9 @@ export interface ListImagesFilter {
 
 export namespace ListImagesFilter {
   export const filterSensitiveLog = (obj: ListImagesFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListImagesFilter =>
-    __isa(o, "ListImagesFilter");
+  export const isa = (o: any): o is ListImagesFilter => __isa(o, "ListImagesFilter");
 }
 
 export interface ListImagesRequest {
@@ -2092,10 +1939,9 @@ export interface ListImagesRequest {
 
 export namespace ListImagesRequest {
   export const filterSensitiveLog = (obj: ListImagesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListImagesRequest =>
-    __isa(o, "ListImagesRequest");
+  export const isa = (o: any): o is ListImagesRequest => __isa(o, "ListImagesRequest");
 }
 
 export interface ListImagesResponse {
@@ -2117,10 +1963,9 @@ export interface ListImagesResponse {
 
 export namespace ListImagesResponse {
   export const filterSensitiveLog = (obj: ListImagesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListImagesResponse =>
-    __isa(o, "ListImagesResponse");
+  export const isa = (o: any): o is ListImagesResponse => __isa(o, "ListImagesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -2134,10 +1979,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -2149,13 +1993,10 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface PutImageRequest {
@@ -2185,10 +2026,9 @@ export interface PutImageRequest {
 
 export namespace PutImageRequest {
   export const filterSensitiveLog = (obj: PutImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutImageRequest =>
-    __isa(o, "PutImageRequest");
+  export const isa = (o: any): o is PutImageRequest => __isa(o, "PutImageRequest");
 }
 
 export interface PutImageResponse {
@@ -2201,10 +2041,9 @@ export interface PutImageResponse {
 
 export namespace PutImageResponse {
   export const filterSensitiveLog = (obj: PutImageResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutImageResponse =>
-    __isa(o, "PutImageResponse");
+  export const isa = (o: any): o is PutImageResponse => __isa(o, "PutImageResponse");
 }
 
 export interface PutImageScanningConfigurationRequest {
@@ -2231,10 +2070,8 @@ export interface PutImageScanningConfigurationRequest {
 }
 
 export namespace PutImageScanningConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: PutImageScanningConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutImageScanningConfigurationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutImageScanningConfigurationRequest =>
     __isa(o, "PutImageScanningConfigurationRequest");
@@ -2259,10 +2096,8 @@ export interface PutImageScanningConfigurationResponse {
 }
 
 export namespace PutImageScanningConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: PutImageScanningConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutImageScanningConfigurationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutImageScanningConfigurationResponse =>
     __isa(o, "PutImageScanningConfigurationResponse");
@@ -2292,13 +2127,10 @@ export interface PutImageTagMutabilityRequest {
 }
 
 export namespace PutImageTagMutabilityRequest {
-  export const filterSensitiveLog = (
-    obj: PutImageTagMutabilityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutImageTagMutabilityRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutImageTagMutabilityRequest =>
-    __isa(o, "PutImageTagMutabilityRequest");
+  export const isa = (o: any): o is PutImageTagMutabilityRequest => __isa(o, "PutImageTagMutabilityRequest");
 }
 
 export interface PutImageTagMutabilityResponse {
@@ -2320,13 +2152,10 @@ export interface PutImageTagMutabilityResponse {
 }
 
 export namespace PutImageTagMutabilityResponse {
-  export const filterSensitiveLog = (
-    obj: PutImageTagMutabilityResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutImageTagMutabilityResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutImageTagMutabilityResponse =>
-    __isa(o, "PutImageTagMutabilityResponse");
+  export const isa = (o: any): o is PutImageTagMutabilityResponse => __isa(o, "PutImageTagMutabilityResponse");
 }
 
 export interface PutLifecyclePolicyRequest {
@@ -2350,10 +2179,9 @@ export interface PutLifecyclePolicyRequest {
 
 export namespace PutLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: PutLifecyclePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutLifecyclePolicyRequest =>
-    __isa(o, "PutLifecyclePolicyRequest");
+  export const isa = (o: any): o is PutLifecyclePolicyRequest => __isa(o, "PutLifecyclePolicyRequest");
 }
 
 export interface PutLifecyclePolicyResponse {
@@ -2376,10 +2204,9 @@ export interface PutLifecyclePolicyResponse {
 
 export namespace PutLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: PutLifecyclePolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutLifecyclePolicyResponse =>
-    __isa(o, "PutLifecyclePolicyResponse");
+  export const isa = (o: any): o is PutLifecyclePolicyResponse => __isa(o, "PutLifecyclePolicyResponse");
 }
 
 /**
@@ -2428,7 +2255,7 @@ export interface Repository {
 
 export namespace Repository {
   export const filterSensitiveLog = (obj: Repository): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Repository => __isa(o, "Repository");
 }
@@ -2436,9 +2263,7 @@ export namespace Repository {
 /**
  * <p>The specified repository already exists in the specified registry.</p>
  */
-export interface RepositoryAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "RepositoryAlreadyExistsException";
   $fault: "client";
   /**
@@ -2448,22 +2273,17 @@ export interface RepositoryAlreadyExistsException
 }
 
 export namespace RepositoryAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: RepositoryAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryAlreadyExistsException =>
-    __isa(o, "RepositoryAlreadyExistsException");
+  export const isa = (o: any): o is RepositoryAlreadyExistsException => __isa(o, "RepositoryAlreadyExistsException");
 }
 
 /**
  * <p>The specified repository contains images. To delete a repository that contains images,
  *             you must force the deletion with the <code>force</code> parameter.</p>
  */
-export interface RepositoryNotEmptyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNotEmptyException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNotEmptyException";
   $fault: "client";
   /**
@@ -2473,22 +2293,17 @@ export interface RepositoryNotEmptyException
 }
 
 export namespace RepositoryNotEmptyException {
-  export const filterSensitiveLog = (
-    obj: RepositoryNotEmptyException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryNotEmptyException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryNotEmptyException =>
-    __isa(o, "RepositoryNotEmptyException");
+  export const isa = (o: any): o is RepositoryNotEmptyException => __isa(o, "RepositoryNotEmptyException");
 }
 
 /**
  * <p>The specified repository could not be found. Check the spelling of the specified
  *             repository and ensure that you are performing operations on the correct registry.</p>
  */
-export interface RepositoryNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNotFoundException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNotFoundException";
   $fault: "client";
   /**
@@ -2498,22 +2313,17 @@ export interface RepositoryNotFoundException
 }
 
 export namespace RepositoryNotFoundException {
-  export const filterSensitiveLog = (
-    obj: RepositoryNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryNotFoundException =>
-    __isa(o, "RepositoryNotFoundException");
+  export const isa = (o: any): o is RepositoryNotFoundException => __isa(o, "RepositoryNotFoundException");
 }
 
 /**
  * <p>The specified repository and registry combination does not have an associated
  *             repository policy.</p>
  */
-export interface RepositoryPolicyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryPolicyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "RepositoryPolicyNotFoundException";
   $fault: "client";
   /**
@@ -2523,22 +2333,17 @@ export interface RepositoryPolicyNotFoundException
 }
 
 export namespace RepositoryPolicyNotFoundException {
-  export const filterSensitiveLog = (
-    obj: RepositoryPolicyNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryPolicyNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryPolicyNotFoundException =>
-    __isa(o, "RepositoryPolicyNotFoundException");
+  export const isa = (o: any): o is RepositoryPolicyNotFoundException => __isa(o, "RepositoryPolicyNotFoundException");
 }
 
 /**
  * <p>The specified image scan could not be found. Ensure that image scanning is enabled on
  *             the repository and try again.</p>
  */
-export interface ScanNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ScanNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ScanNotFoundException";
   $fault: "client";
   message?: string;
@@ -2546,16 +2351,15 @@ export interface ScanNotFoundException
 
 export namespace ScanNotFoundException {
   export const filterSensitiveLog = (obj: ScanNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScanNotFoundException =>
-    __isa(o, "ScanNotFoundException");
+  export const isa = (o: any): o is ScanNotFoundException => __isa(o, "ScanNotFoundException");
 }
 
 export enum ScanStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
+  IN_PROGRESS = "IN_PROGRESS",
 }
 
 /**
@@ -2572,10 +2376,9 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
 
 export namespace ServerException {
   export const filterSensitiveLog = (obj: ServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServerException =>
-    __isa(o, "ServerException");
+  export const isa = (o: any): o is ServerException => __isa(o, "ServerException");
 }
 
 export interface SetRepositoryPolicyRequest {
@@ -2609,10 +2412,9 @@ export interface SetRepositoryPolicyRequest {
 
 export namespace SetRepositoryPolicyRequest {
   export const filterSensitiveLog = (obj: SetRepositoryPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetRepositoryPolicyRequest =>
-    __isa(o, "SetRepositoryPolicyRequest");
+  export const isa = (o: any): o is SetRepositoryPolicyRequest => __isa(o, "SetRepositoryPolicyRequest");
 }
 
 export interface SetRepositoryPolicyResponse {
@@ -2634,13 +2436,10 @@ export interface SetRepositoryPolicyResponse {
 }
 
 export namespace SetRepositoryPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: SetRepositoryPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SetRepositoryPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SetRepositoryPolicyResponse =>
-    __isa(o, "SetRepositoryPolicyResponse");
+  export const isa = (o: any): o is SetRepositoryPolicyResponse => __isa(o, "SetRepositoryPolicyResponse");
 }
 
 export interface StartImageScanRequest {
@@ -2664,10 +2463,9 @@ export interface StartImageScanRequest {
 
 export namespace StartImageScanRequest {
   export const filterSensitiveLog = (obj: StartImageScanRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartImageScanRequest =>
-    __isa(o, "StartImageScanRequest");
+  export const isa = (o: any): o is StartImageScanRequest => __isa(o, "StartImageScanRequest");
 }
 
 export interface StartImageScanResponse {
@@ -2695,10 +2493,9 @@ export interface StartImageScanResponse {
 
 export namespace StartImageScanResponse {
   export const filterSensitiveLog = (obj: StartImageScanResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartImageScanResponse =>
-    __isa(o, "StartImageScanResponse");
+  export const isa = (o: any): o is StartImageScanResponse => __isa(o, "StartImageScanResponse");
 }
 
 export interface StartLifecyclePolicyPreviewRequest {
@@ -2722,10 +2519,8 @@ export interface StartLifecyclePolicyPreviewRequest {
 }
 
 export namespace StartLifecyclePolicyPreviewRequest {
-  export const filterSensitiveLog = (
-    obj: StartLifecyclePolicyPreviewRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartLifecyclePolicyPreviewRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartLifecyclePolicyPreviewRequest =>
     __isa(o, "StartLifecyclePolicyPreviewRequest");
@@ -2755,10 +2550,8 @@ export interface StartLifecyclePolicyPreviewResponse {
 }
 
 export namespace StartLifecyclePolicyPreviewResponse {
-  export const filterSensitiveLog = (
-    obj: StartLifecyclePolicyPreviewResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartLifecyclePolicyPreviewResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartLifecyclePolicyPreviewResponse =>
     __isa(o, "StartLifecyclePolicyPreviewResponse");
@@ -2787,7 +2580,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -2810,10 +2603,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -2822,25 +2614,22 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export enum TagStatus {
   ANY = "ANY",
   TAGGED = "TAGGED",
-  UNTAGGED = "UNTAGGED"
+  UNTAGGED = "UNTAGGED",
 }
 
 /**
  * <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -2848,10 +2637,9 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceRequest {
@@ -2870,10 +2658,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -2882,10 +2669,9 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UploadLayerPartRequest {
@@ -2925,10 +2711,9 @@ export interface UploadLayerPartRequest {
 
 export namespace UploadLayerPartRequest {
   export const filterSensitiveLog = (obj: UploadLayerPartRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UploadLayerPartRequest =>
-    __isa(o, "UploadLayerPartRequest");
+  export const isa = (o: any): o is UploadLayerPartRequest => __isa(o, "UploadLayerPartRequest");
 }
 
 export interface UploadLayerPartResponse {
@@ -2956,19 +2741,16 @@ export interface UploadLayerPartResponse {
 
 export namespace UploadLayerPartResponse {
   export const filterSensitiveLog = (obj: UploadLayerPartResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UploadLayerPartResponse =>
-    __isa(o, "UploadLayerPartResponse");
+  export const isa = (o: any): o is UploadLayerPartResponse => __isa(o, "UploadLayerPartResponse");
 }
 
 /**
  * <p>The upload could not be found, or the specified upload id is not valid for this
  *             repository.</p>
  */
-export interface UploadNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UploadNotFoundException extends __SmithyException, $MetadataBearer {
   name: "UploadNotFoundException";
   $fault: "client";
   /**
@@ -2979,8 +2761,7 @@ export interface UploadNotFoundException
 
 export namespace UploadNotFoundException {
   export const filterSensitiveLog = (obj: UploadNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UploadNotFoundException =>
-    __isa(o, "UploadNotFoundException");
+  export const isa = (o: any): o is UploadNotFoundException => __isa(o, "UploadNotFoundException");
 }

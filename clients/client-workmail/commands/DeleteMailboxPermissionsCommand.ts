@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailClientResolvedConfig
-} from "../WorkMailClient";
-import {
-  DeleteMailboxPermissionsRequest,
-  DeleteMailboxPermissionsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
+import { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteMailboxPermissionsCommand,
-  serializeAws_json1_1DeleteMailboxPermissionsCommand
+  serializeAws_json1_1DeleteMailboxPermissionsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteMailboxPermissionsCommandInput = DeleteMailboxPermissionsRequest;
-export type DeleteMailboxPermissionsCommandOutput = DeleteMailboxPermissionsResponse &
-  __MetadataBearer;
+export type DeleteMailboxPermissionsCommandOutput = DeleteMailboxPermissionsResponse & __MetadataBearer;
 
 export class DeleteMailboxPermissionsCommand extends $Command<
   DeleteMailboxPermissionsCommandInput,
@@ -49,18 +38,13 @@ export class DeleteMailboxPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMailboxPermissionsCommandInput,
-    DeleteMailboxPermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMailboxPermissionsCommandInput, DeleteMailboxPermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class DeleteMailboxPermissionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteMailboxPermissionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteMailboxPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMailboxPermissionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteMailboxPermissionsCommandOutput> {
-    return deserializeAws_json1_1DeleteMailboxPermissionsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMailboxPermissionsCommandOutput> {
+    return deserializeAws_json1_1DeleteMailboxPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,12 +2,12 @@ import { KinesisVideoSignalingClient } from "./KinesisVideoSignalingClient";
 import {
   GetIceServerConfigCommand,
   GetIceServerConfigCommandInput,
-  GetIceServerConfigCommandOutput
+  GetIceServerConfigCommandOutput,
 } from "./commands/GetIceServerConfigCommand";
 import {
   SendAlexaOfferToMasterCommand,
   SendAlexaOfferToMasterCommandInput,
-  SendAlexaOfferToMasterCommandOutput
+  SendAlexaOfferToMasterCommandOutput,
 } from "./commands/SendAlexaOfferToMasterCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -48,17 +48,14 @@ export class KinesisVideoSignaling extends KinesisVideoSignalingClient {
   ): void;
   public getIceServerConfig(
     args: GetIceServerConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIceServerConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIceServerConfigCommandOutput) => void),
     cb?: (err: any, data?: GetIceServerConfigCommandOutput) => void
   ): Promise<GetIceServerConfigCommandOutput> | void {
     const command = new GetIceServerConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -88,17 +85,14 @@ export class KinesisVideoSignaling extends KinesisVideoSignalingClient {
   ): void;
   public sendAlexaOfferToMaster(
     args: SendAlexaOfferToMasterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendAlexaOfferToMasterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendAlexaOfferToMasterCommandOutput) => void),
     cb?: (err: any, data?: SendAlexaOfferToMasterCommandOutput) => void
   ): Promise<SendAlexaOfferToMasterCommandOutput> | void {
     const command = new SendAlexaOfferToMasterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,18 +1,11 @@
-import {
-  FirehoseClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FirehoseClient";
+import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { PutRecordBatchInput, PutRecordBatchOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutRecordBatchCommand,
-  serializeAws_json1_1PutRecordBatchCommand
+  serializeAws_json1_1PutRecordBatchCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutRecordBatchCommandInput = PutRecordBatchInput;
-export type PutRecordBatchCommandOutput = PutRecordBatchOutput &
-  __MetadataBearer;
+export type PutRecordBatchCommandOutput = PutRecordBatchOutput & __MetadataBearer;
 
 export class PutRecordBatchCommand extends $Command<
   PutRecordBatchCommandInput,
@@ -47,14 +39,12 @@ export class PutRecordBatchCommand extends $Command<
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutRecordBatchCommandInput, PutRecordBatchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class PutRecordBatchCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutRecordBatchCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutRecordBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRecordBatchCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutRecordBatchCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordBatchCommandOutput> {
     return deserializeAws_json1_1PutRecordBatchCommand(output, context);
   }
 

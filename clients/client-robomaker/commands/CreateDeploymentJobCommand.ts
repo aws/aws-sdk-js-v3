@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient";
-import {
-  CreateDeploymentJobRequest,
-  CreateDeploymentJobResponse
-} from "../models/index";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { CreateDeploymentJobRequest, CreateDeploymentJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateDeploymentJobCommand,
-  serializeAws_restJson1CreateDeploymentJobCommand
+  serializeAws_restJson1CreateDeploymentJobCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateDeploymentJobCommandInput = CreateDeploymentJobRequest;
-export type CreateDeploymentJobCommandOutput = CreateDeploymentJobResponse &
-  __MetadataBearer;
+export type CreateDeploymentJobCommandOutput = CreateDeploymentJobResponse & __MetadataBearer;
 
 export class CreateDeploymentJobCommand extends $Command<
   CreateDeploymentJobCommandInput,
@@ -49,18 +38,13 @@ export class CreateDeploymentJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDeploymentJobCommandInput,
-    CreateDeploymentJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDeploymentJobCommandInput, CreateDeploymentJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateDeploymentJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDeploymentJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeploymentJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDeploymentJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentJobCommandOutput> {
     return deserializeAws_restJson1CreateDeploymentJobCommand(output, context);
   }
 

@@ -2,61 +2,25 @@ import { Int64 } from "./Int64";
 
 describe("Int64", () => {
   it("should hold integers greater than Number.MAX_SAFE_INTEGER without losing precision", () => {
-    const bytes = Uint8Array.from([
-      0x7f,
-      0xff,
-      0xff,
-      0xff,
-      0xff,
-      0xff,
-      0xff,
-      0xff
-    ]);
+    const bytes = Uint8Array.from([0x7f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff]);
 
     expect(new Int64(bytes).bytes).toEqual(bytes);
   });
 
   it("should allow the use of Int64s in arithmetic expressions", () => {
-    const bytes = Uint8Array.from([
-      0x00,
-      0x00,
-      0x00,
-      0x00,
-      0x00,
-      0x00,
-      0x00,
-      0x10
-    ]);
+    const bytes = Uint8Array.from([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10]);
 
     expect((new Int64(bytes) as any) + 4).toBe(20);
   });
 
   it("should allow the use of negative Int64s in arithmetic expressions", () => {
-    const bytes = Uint8Array.from([
-      0xff,
-      0xf0,
-      0x00,
-      0x00,
-      0x00,
-      0x00,
-      0x00,
-      0x00
-    ]);
+    const bytes = Uint8Array.from([0xff, 0xf0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
 
     expect((new Int64(bytes) as any) + 2 ** 52).toBe(0);
   });
 
   it("should stringify negative Int64s in base 10", () => {
-    const bytes = Uint8Array.from([
-      0xff,
-      0xff,
-      0xff,
-      0xff,
-      0xff,
-      0xff,
-      0xff,
-      0xe2
-    ]);
+    const bytes = Uint8Array.from([0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xe2]);
 
     expect(String(new Int64(bytes))).toBe("-30");
   });

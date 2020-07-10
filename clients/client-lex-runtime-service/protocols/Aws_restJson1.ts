@@ -1,23 +1,8 @@
-import {
-  DeleteSessionCommandInput,
-  DeleteSessionCommandOutput
-} from "../commands/DeleteSessionCommand";
-import {
-  GetSessionCommandInput,
-  GetSessionCommandOutput
-} from "../commands/GetSessionCommand";
-import {
-  PostContentCommandInput,
-  PostContentCommandOutput
-} from "../commands/PostContentCommand";
-import {
-  PostTextCommandInput,
-  PostTextCommandOutput
-} from "../commands/PostTextCommand";
-import {
-  PutSessionCommandInput,
-  PutSessionCommandOutput
-} from "../commands/PutSessionCommand";
+import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "../commands/DeleteSessionCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
+import { PostContentCommandInput, PostContentCommandOutput } from "../commands/PostContentCommand";
+import { PostTextCommandInput, PostTextCommandOutput } from "../commands/PostTextCommand";
+import { PutSessionCommandInput, PutSessionCommandOutput } from "../commands/PutSessionCommand";
 import {
   BadGatewayException,
   BadRequestException,
@@ -35,22 +20,19 @@ import {
   RequestTimeoutException,
   ResponseCard,
   SentimentResponse,
-  UnsupportedMediaTypeException
+  UnsupportedMediaTypeException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1DeleteSessionCommand = async (
@@ -58,7 +40,7 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
@@ -66,10 +48,7 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
@@ -78,10 +57,7 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -90,10 +66,7 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{userId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
@@ -106,7 +79,7 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -115,7 +88,7 @@ export const serializeAws_restJson1GetSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
@@ -123,10 +96,7 @@ export const serializeAws_restJson1GetSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
@@ -135,10 +105,7 @@ export const serializeAws_restJson1GetSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -147,17 +114,14 @@ export const serializeAws_restJson1GetSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{userId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
   const query: any = {
     ...(input.checkpointLabelFilter !== undefined && {
-      checkpointLabelFilter: input.checkpointLabelFilter
-    })
+      checkpointLabelFilter: input.checkpointLabelFilter,
+    }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -169,7 +133,7 @@ export const serializeAws_restJson1GetSessionCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -182,18 +146,14 @@ export const serializeAws_restJson1PostContentCommand = async (
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
     ...(isSerializableHeaderValue(input.contentType) && {
-      "Content-Type": input.contentType!
+      "Content-Type": input.contentType!,
     }),
     ...(isSerializableHeaderValue(input.requestAttributes) && {
-      "x-amz-lex-request-attributes": __LazyJsonString.fromObject(
-        input.requestAttributes!
-      )
+      "x-amz-lex-request-attributes": __LazyJsonString.fromObject(input.requestAttributes!),
     }),
     ...(isSerializableHeaderValue(input.sessionAttributes) && {
-      "x-amz-lex-session-attributes": __LazyJsonString.fromObject(
-        input.sessionAttributes!
-      )
-    })
+      "x-amz-lex-session-attributes": __LazyJsonString.fromObject(input.sessionAttributes!),
+    }),
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/content";
   if (input.botAlias !== undefined) {
@@ -201,10 +161,7 @@ export const serializeAws_restJson1PostContentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
@@ -213,10 +170,7 @@ export const serializeAws_restJson1PostContentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -225,10 +179,7 @@ export const serializeAws_restJson1PostContentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{userId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
@@ -244,7 +195,7 @@ export const serializeAws_restJson1PostContentCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -253,7 +204,7 @@ export const serializeAws_restJson1PostTextCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/text";
   if (input.botAlias !== undefined) {
@@ -261,10 +212,7 @@ export const serializeAws_restJson1PostTextCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
@@ -273,10 +221,7 @@ export const serializeAws_restJson1PostTextCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -285,10 +230,7 @@ export const serializeAws_restJson1PostTextCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{userId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
@@ -296,17 +238,11 @@ export const serializeAws_restJson1PostTextCommand = async (
   body = JSON.stringify({
     ...(input.inputText !== undefined && { inputText: input.inputText }),
     ...(input.requestAttributes !== undefined && {
-      requestAttributes: serializeAws_restJson1StringMap(
-        input.requestAttributes,
-        context
-      )
+      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
     }),
     ...(input.sessionAttributes !== undefined && {
-      sessionAttributes: serializeAws_restJson1StringMap(
-        input.sessionAttributes,
-        context
-      )
-    })
+      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -316,7 +252,7 @@ export const serializeAws_restJson1PostTextCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -326,7 +262,7 @@ export const serializeAws_restJson1PutSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! })
+    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
@@ -334,10 +270,7 @@ export const serializeAws_restJson1PutSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
@@ -346,10 +279,7 @@ export const serializeAws_restJson1PutSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -358,33 +288,21 @@ export const serializeAws_restJson1PutSessionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{userId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.dialogAction !== undefined && {
-      dialogAction: serializeAws_restJson1DialogAction(
-        input.dialogAction,
-        context
-      )
+      dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context),
     }),
     ...(input.recentIntentSummaryView !== undefined && {
-      recentIntentSummaryView: serializeAws_restJson1IntentSummaryList(
-        input.recentIntentSummaryView,
-        context
-      )
+      recentIntentSummaryView: serializeAws_restJson1IntentSummaryList(input.recentIntentSummaryView, context),
     }),
     ...(input.sessionAttributes !== undefined && {
-      sessionAttributes: serializeAws_restJson1StringMap(
-        input.sessionAttributes,
-        context
-      )
-    })
+      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -394,7 +312,7 @@ export const serializeAws_restJson1PutSessionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -411,7 +329,7 @@ export const deserializeAws_restJson1DeleteSessionCommand = async (
     botAlias: undefined,
     botName: undefined,
     sessionId: undefined,
-    userId: undefined
+    userId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.botAlias !== undefined && data.botAlias !== null) {
@@ -435,7 +353,7 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
 ): Promise<DeleteSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -444,56 +362,41 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -504,7 +407,7 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -526,29 +429,17 @@ export const deserializeAws_restJson1GetSessionCommand = async (
     dialogAction: undefined,
     recentIntentSummaryView: undefined,
     sessionAttributes: undefined,
-    sessionId: undefined
+    sessionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.dialogAction !== undefined && data.dialogAction !== null) {
-    contents.dialogAction = deserializeAws_restJson1DialogAction(
-      data.dialogAction,
-      context
-    );
+    contents.dialogAction = deserializeAws_restJson1DialogAction(data.dialogAction, context);
   }
-  if (
-    data.recentIntentSummaryView !== undefined &&
-    data.recentIntentSummaryView !== null
-  ) {
-    contents.recentIntentSummaryView = deserializeAws_restJson1IntentSummaryList(
-      data.recentIntentSummaryView,
-      context
-    );
+  if (data.recentIntentSummaryView !== undefined && data.recentIntentSummaryView !== null) {
+    contents.recentIntentSummaryView = deserializeAws_restJson1IntentSummaryList(data.recentIntentSummaryView, context);
   }
   if (data.sessionAttributes !== undefined && data.sessionAttributes !== null) {
-    contents.sessionAttributes = deserializeAws_restJson1StringMap(
-      data.sessionAttributes,
-      context
-    );
+    contents.sessionAttributes = deserializeAws_restJson1StringMap(data.sessionAttributes, context);
   }
   if (data.sessionId !== undefined && data.sessionId !== null) {
     contents.sessionId = data.sessionId;
@@ -562,7 +453,7 @@ const deserializeAws_restJson1GetSessionCommandError = async (
 ): Promise<GetSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -571,45 +462,33 @@ const deserializeAws_restJson1GetSessionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -620,7 +499,7 @@ const deserializeAws_restJson1GetSessionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -650,7 +529,7 @@ export const deserializeAws_restJson1PostContentCommand = async (
     sessionAttributes: undefined,
     sessionId: undefined,
     slotToElicit: undefined,
-    slots: undefined
+    slots: undefined,
   };
   if (output.headers["content-type"] !== undefined) {
     contents.contentType = output.headers["content-type"];
@@ -674,9 +553,7 @@ export const deserializeAws_restJson1PostContentCommand = async (
     contents.sentimentResponse = output.headers["x-amz-lex-sentiment"];
   }
   if (output.headers["x-amz-lex-session-attributes"] !== undefined) {
-    contents.sessionAttributes = new __LazyJsonString(
-      output.headers["x-amz-lex-session-attributes"]
-    );
+    contents.sessionAttributes = new __LazyJsonString(output.headers["x-amz-lex-session-attributes"]);
   }
   if (output.headers["x-amz-lex-session-id"] !== undefined) {
     contents.sessionId = output.headers["x-amz-lex-session-id"];
@@ -698,7 +575,7 @@ const deserializeAws_restJson1PostContentCommandError = async (
 ): Promise<PostContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -707,122 +584,89 @@ const deserializeAws_restJson1PostContentCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.lexruntimeservice#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimeservice#DependencyFailedException":
       response = {
-        ...(await deserializeAws_restJson1DependencyFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LoopDetectedException":
     case "com.amazonaws.lexruntimeservice#LoopDetectedException":
       response = {
-        ...(await deserializeAws_restJson1LoopDetectedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LoopDetectedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotAcceptableException":
     case "com.amazonaws.lexruntimeservice#NotAcceptableException":
       response = {
-        ...(await deserializeAws_restJson1NotAcceptableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotAcceptableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "RequestTimeoutException":
     case "com.amazonaws.lexruntimeservice#RequestTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnsupportedMediaTypeException":
     case "com.amazonaws.lexruntimeservice#UnsupportedMediaTypeException":
       response = {
-        ...(await deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -833,7 +677,7 @@ const deserializeAws_restJson1PostContentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -861,7 +705,7 @@ export const deserializeAws_restJson1PostTextCommand = async (
     sessionAttributes: undefined,
     sessionId: undefined,
     slotToElicit: undefined,
-    slots: undefined
+    slots: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.dialogState !== undefined && data.dialogState !== null) {
@@ -877,22 +721,13 @@ export const deserializeAws_restJson1PostTextCommand = async (
     contents.messageFormat = data.messageFormat;
   }
   if (data.responseCard !== undefined && data.responseCard !== null) {
-    contents.responseCard = deserializeAws_restJson1ResponseCard(
-      data.responseCard,
-      context
-    );
+    contents.responseCard = deserializeAws_restJson1ResponseCard(data.responseCard, context);
   }
   if (data.sentimentResponse !== undefined && data.sentimentResponse !== null) {
-    contents.sentimentResponse = deserializeAws_restJson1SentimentResponse(
-      data.sentimentResponse,
-      context
-    );
+    contents.sentimentResponse = deserializeAws_restJson1SentimentResponse(data.sentimentResponse, context);
   }
   if (data.sessionAttributes !== undefined && data.sessionAttributes !== null) {
-    contents.sessionAttributes = deserializeAws_restJson1StringMap(
-      data.sessionAttributes,
-      context
-    );
+    contents.sessionAttributes = deserializeAws_restJson1StringMap(data.sessionAttributes, context);
   }
   if (data.sessionId !== undefined && data.sessionId !== null) {
     contents.sessionId = data.sessionId;
@@ -912,7 +747,7 @@ const deserializeAws_restJson1PostTextCommandError = async (
 ): Promise<PostTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -921,89 +756,65 @@ const deserializeAws_restJson1PostTextCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.lexruntimeservice#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimeservice#DependencyFailedException":
       response = {
-        ...(await deserializeAws_restJson1DependencyFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LoopDetectedException":
     case "com.amazonaws.lexruntimeservice#LoopDetectedException":
       response = {
-        ...(await deserializeAws_restJson1LoopDetectedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LoopDetectedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1014,7 +825,7 @@ const deserializeAws_restJson1PostTextCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1042,7 +853,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
     sessionAttributes: undefined,
     sessionId: undefined,
     slotToElicit: undefined,
-    slots: undefined
+    slots: undefined,
   };
   if (output.headers["content-type"] !== undefined) {
     contents.contentType = output.headers["content-type"];
@@ -1060,9 +871,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
     contents.messageFormat = output.headers["x-amz-lex-message-format"];
   }
   if (output.headers["x-amz-lex-session-attributes"] !== undefined) {
-    contents.sessionAttributes = new __LazyJsonString(
-      output.headers["x-amz-lex-session-attributes"]
-    );
+    contents.sessionAttributes = new __LazyJsonString(output.headers["x-amz-lex-session-attributes"]);
   }
   if (output.headers["x-amz-lex-session-id"] !== undefined) {
     contents.sessionId = output.headers["x-amz-lex-session-id"];
@@ -1084,7 +893,7 @@ const deserializeAws_restJson1PutSessionCommandError = async (
 ): Promise<PutSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1093,89 +902,65 @@ const deserializeAws_restJson1PutSessionCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.lexruntimeservice#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimeservice#DependencyFailedException":
       response = {
-        ...(await deserializeAws_restJson1DependencyFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotAcceptableException":
     case "com.amazonaws.lexruntimeservice#NotAcceptableException":
       response = {
-        ...(await deserializeAws_restJson1NotAcceptableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotAcceptableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1186,7 +971,7 @@ const deserializeAws_restJson1PutSessionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1203,7 +988,7 @@ const deserializeAws_restJson1BadGatewayExceptionResponse = async (
     name: "BadGatewayException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1220,7 +1005,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
     name: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1237,7 +1022,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
     name: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1254,7 +1039,7 @@ const deserializeAws_restJson1DependencyFailedExceptionResponse = async (
     name: "DependencyFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1271,7 +1056,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
     name: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1289,7 +1074,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
-    retryAfterSeconds: undefined
+    retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
     contents.retryAfterSeconds = parsedOutput.headers["retry-after"];
@@ -1309,7 +1094,7 @@ const deserializeAws_restJson1LoopDetectedExceptionResponse = async (
     name: "LoopDetectedException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1326,7 +1111,7 @@ const deserializeAws_restJson1NotAcceptableExceptionResponse = async (
     name: "NotAcceptableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1343,7 +1128,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
     name: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1360,7 +1145,7 @@ const deserializeAws_restJson1RequestTimeoutExceptionResponse = async (
     name: "RequestTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1377,7 +1162,7 @@ const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
     name: "UnsupportedMediaTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1386,277 +1171,168 @@ const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1DialogAction = (
-  input: DialogAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
   return {
     ...(input.fulfillmentState !== undefined && {
-      fulfillmentState: input.fulfillmentState
+      fulfillmentState: input.fulfillmentState,
     }),
     ...(input.intentName !== undefined && { intentName: input.intentName }),
     ...(input.message !== undefined && { message: input.message }),
     ...(input.messageFormat !== undefined && {
-      messageFormat: input.messageFormat
+      messageFormat: input.messageFormat,
     }),
     ...(input.slotToElicit !== undefined && {
-      slotToElicit: input.slotToElicit
+      slotToElicit: input.slotToElicit,
     }),
     ...(input.slots !== undefined && {
-      slots: serializeAws_restJson1StringMap(input.slots, context)
+      slots: serializeAws_restJson1StringMap(input.slots, context),
     }),
-    ...(input.type !== undefined && { type: input.type })
+    ...(input.type !== undefined && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1IntentSummary = (
-  input: IntentSummary,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1IntentSummary = (input: IntentSummary, context: __SerdeContext): any => {
   return {
     ...(input.checkpointLabel !== undefined && {
-      checkpointLabel: input.checkpointLabel
+      checkpointLabel: input.checkpointLabel,
     }),
     ...(input.confirmationStatus !== undefined && {
-      confirmationStatus: input.confirmationStatus
+      confirmationStatus: input.confirmationStatus,
     }),
     ...(input.dialogActionType !== undefined && {
-      dialogActionType: input.dialogActionType
+      dialogActionType: input.dialogActionType,
     }),
     ...(input.fulfillmentState !== undefined && {
-      fulfillmentState: input.fulfillmentState
+      fulfillmentState: input.fulfillmentState,
     }),
     ...(input.intentName !== undefined && { intentName: input.intentName }),
     ...(input.slotToElicit !== undefined && {
-      slotToElicit: input.slotToElicit
+      slotToElicit: input.slotToElicit,
     }),
     ...(input.slots !== undefined && {
-      slots: serializeAws_restJson1StringMap(input.slots, context)
-    })
+      slots: serializeAws_restJson1StringMap(input.slots, context),
+    }),
   };
 };
 
-const serializeAws_restJson1IntentSummaryList = (
-  input: IntentSummary[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1IntentSummary(entry, context)
-  );
+const serializeAws_restJson1IntentSummaryList = (input: IntentSummary[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1IntentSummary(entry, context));
 };
 
-const serializeAws_restJson1StringMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1StringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1Button = (
-  output: any,
-  context: __SerdeContext
-): Button => {
+const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): Button => {
   return {
     __type: "Button",
-    text:
-      output.text !== undefined && output.text !== null
-        ? output.text
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    text: output.text !== undefined && output.text !== null ? output.text : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DialogAction = (
-  output: any,
-  context: __SerdeContext
-): DialogAction => {
+const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeContext): DialogAction => {
   return {
     __type: "DialogAction",
     fulfillmentState:
-      output.fulfillmentState !== undefined && output.fulfillmentState !== null
-        ? output.fulfillmentState
-        : undefined,
-    intentName:
-      output.intentName !== undefined && output.intentName !== null
-        ? output.intentName
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+      output.fulfillmentState !== undefined && output.fulfillmentState !== null ? output.fulfillmentState : undefined,
+    intentName: output.intentName !== undefined && output.intentName !== null ? output.intentName : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     messageFormat:
-      output.messageFormat !== undefined && output.messageFormat !== null
-        ? output.messageFormat
-        : undefined,
-    slotToElicit:
-      output.slotToElicit !== undefined && output.slotToElicit !== null
-        ? output.slotToElicit
-        : undefined,
+      output.messageFormat !== undefined && output.messageFormat !== null ? output.messageFormat : undefined,
+    slotToElicit: output.slotToElicit !== undefined && output.slotToElicit !== null ? output.slotToElicit : undefined,
     slots:
       output.slots !== undefined && output.slots !== null
         ? deserializeAws_restJson1StringMap(output.slots, context)
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1GenericAttachment = (
-  output: any,
-  context: __SerdeContext
-): GenericAttachment => {
+const deserializeAws_restJson1GenericAttachment = (output: any, context: __SerdeContext): GenericAttachment => {
   return {
     __type: "GenericAttachment",
     attachmentLinkUrl:
-      output.attachmentLinkUrl !== undefined &&
-      output.attachmentLinkUrl !== null
+      output.attachmentLinkUrl !== undefined && output.attachmentLinkUrl !== null
         ? output.attachmentLinkUrl
         : undefined,
     buttons:
       output.buttons !== undefined && output.buttons !== null
         ? deserializeAws_restJson1listOfButtons(output.buttons, context)
         : undefined,
-    imageUrl:
-      output.imageUrl !== undefined && output.imageUrl !== null
-        ? output.imageUrl
-        : undefined,
-    subTitle:
-      output.subTitle !== undefined && output.subTitle !== null
-        ? output.subTitle
-        : undefined,
-    title:
-      output.title !== undefined && output.title !== null
-        ? output.title
-        : undefined
+    imageUrl: output.imageUrl !== undefined && output.imageUrl !== null ? output.imageUrl : undefined,
+    subTitle: output.subTitle !== undefined && output.subTitle !== null ? output.subTitle : undefined,
+    title: output.title !== undefined && output.title !== null ? output.title : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1genericAttachmentList = (
-  output: any,
-  context: __SerdeContext
-): GenericAttachment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1GenericAttachment(entry, context)
-  );
+const deserializeAws_restJson1genericAttachmentList = (output: any, context: __SerdeContext): GenericAttachment[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1GenericAttachment(entry, context));
 };
 
-const deserializeAws_restJson1IntentSummary = (
-  output: any,
-  context: __SerdeContext
-): IntentSummary => {
+const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeContext): IntentSummary => {
   return {
     __type: "IntentSummary",
     checkpointLabel:
-      output.checkpointLabel !== undefined && output.checkpointLabel !== null
-        ? output.checkpointLabel
-        : undefined,
+      output.checkpointLabel !== undefined && output.checkpointLabel !== null ? output.checkpointLabel : undefined,
     confirmationStatus:
-      output.confirmationStatus !== undefined &&
-      output.confirmationStatus !== null
+      output.confirmationStatus !== undefined && output.confirmationStatus !== null
         ? output.confirmationStatus
         : undefined,
     dialogActionType:
-      output.dialogActionType !== undefined && output.dialogActionType !== null
-        ? output.dialogActionType
-        : undefined,
+      output.dialogActionType !== undefined && output.dialogActionType !== null ? output.dialogActionType : undefined,
     fulfillmentState:
-      output.fulfillmentState !== undefined && output.fulfillmentState !== null
-        ? output.fulfillmentState
-        : undefined,
-    intentName:
-      output.intentName !== undefined && output.intentName !== null
-        ? output.intentName
-        : undefined,
-    slotToElicit:
-      output.slotToElicit !== undefined && output.slotToElicit !== null
-        ? output.slotToElicit
-        : undefined,
+      output.fulfillmentState !== undefined && output.fulfillmentState !== null ? output.fulfillmentState : undefined,
+    intentName: output.intentName !== undefined && output.intentName !== null ? output.intentName : undefined,
+    slotToElicit: output.slotToElicit !== undefined && output.slotToElicit !== null ? output.slotToElicit : undefined,
     slots:
       output.slots !== undefined && output.slots !== null
         ? deserializeAws_restJson1StringMap(output.slots, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1IntentSummaryList = (
-  output: any,
-  context: __SerdeContext
-): IntentSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1IntentSummary(entry, context)
-  );
+const deserializeAws_restJson1IntentSummaryList = (output: any, context: __SerdeContext): IntentSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1IntentSummary(entry, context));
 };
 
-const deserializeAws_restJson1listOfButtons = (
-  output: any,
-  context: __SerdeContext
-): Button[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Button(entry, context)
-  );
+const deserializeAws_restJson1listOfButtons = (output: any, context: __SerdeContext): Button[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Button(entry, context));
 };
 
-const deserializeAws_restJson1ResponseCard = (
-  output: any,
-  context: __SerdeContext
-): ResponseCard => {
+const deserializeAws_restJson1ResponseCard = (output: any, context: __SerdeContext): ResponseCard => {
   return {
     __type: "ResponseCard",
-    contentType:
-      output.contentType !== undefined && output.contentType !== null
-        ? output.contentType
-        : undefined,
+    contentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
     genericAttachments:
-      output.genericAttachments !== undefined &&
-      output.genericAttachments !== null
-        ? deserializeAws_restJson1genericAttachmentList(
-            output.genericAttachments,
-            context
-          )
+      output.genericAttachments !== undefined && output.genericAttachments !== null
+        ? deserializeAws_restJson1genericAttachmentList(output.genericAttachments, context)
         : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1SentimentResponse = (
-  output: any,
-  context: __SerdeContext
-): SentimentResponse => {
+const deserializeAws_restJson1SentimentResponse = (output: any, context: __SerdeContext): SentimentResponse => {
   return {
     __type: "SentimentResponse",
     sentimentLabel:
-      output.sentimentLabel !== undefined && output.sentimentLabel !== null
-        ? output.sentimentLabel
-        : undefined,
+      output.sentimentLabel !== undefined && output.sentimentLabel !== null ? output.sentimentLabel : undefined,
     sentimentScore:
-      output.sentimentScore !== undefined && output.sentimentScore !== null
-        ? output.sentimentScore
-        : undefined
+      output.sentimentScore !== undefined && output.sentimentScore !== null ? output.sentimentScore : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1StringMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
@@ -1665,38 +1341,29 @@ const deserializeAws_restJson1StringMap = (
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -1707,8 +1374,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

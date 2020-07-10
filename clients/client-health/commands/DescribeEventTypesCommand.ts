@@ -1,21 +1,11 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient";
-import {
-  DescribeEventTypesRequest,
-  DescribeEventTypesResponse
-} from "../models/index";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
+import { DescribeEventTypesRequest, DescribeEventTypesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEventTypesCommand,
-  serializeAws_json1_1DescribeEventTypesCommand
+  serializeAws_json1_1DescribeEventTypesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeEventTypesCommandInput = DescribeEventTypesRequest;
-export type DescribeEventTypesCommandOutput = DescribeEventTypesResponse &
-  __MetadataBearer;
+export type DescribeEventTypesCommandOutput = DescribeEventTypesResponse & __MetadataBearer;
 
 export class DescribeEventTypesCommand extends $Command<
   DescribeEventTypesCommandInput,
@@ -50,14 +39,12 @@ export class DescribeEventTypesCommand extends $Command<
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventTypesCommandInput, DescribeEventTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DescribeEventTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventTypesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEventTypesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTypesCommandOutput> {
     return deserializeAws_json1_1DescribeEventTypesCommand(output, context);
   }
 
