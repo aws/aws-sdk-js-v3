@@ -1,6 +1,7 @@
 import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
 import { RendererEvent } from "typedoc/dist/lib/output/events";
 import { NavigationPlugin } from "typedoc/dist/lib/output/plugins";
+import * as ts from "typescript";
 
 @Component({ name: "SdkClientRenameGlobal" })
 export class SdkClientRenameGlobalPlugin extends RendererComponent {
@@ -12,7 +13,7 @@ export class SdkClientRenameGlobalPlugin extends RendererComponent {
     });
   }
 
-  onRenderedBegin(): void {
+  onRenderedBegin(event: RendererEvent) {
     const navigationItem = this.navigationPlugin.navigation;
     if (!navigationItem) {
       return;

@@ -1,10 +1,11 @@
 import {
   AbsoluteLocation,
-  AbsoluteLocation,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestHandlerOptions,
+  MetadataBearer,
+  Pluggable,
 } from "@aws-sdk/types";
 
 import { RetryResolvedConfig } from "./configurations";

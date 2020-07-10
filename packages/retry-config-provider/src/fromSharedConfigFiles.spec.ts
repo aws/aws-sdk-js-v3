@@ -1,8 +1,6 @@
 import { ProviderError } from "@aws-sdk/property-provider";
 import { loadSharedConfigFiles, ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
-import { loadSharedConfigFiles, ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 
-import { ENV_PROFILE,fromSharedConfigFiles } from "./fromSharedConfigFiles";
 import { ENV_PROFILE, fromSharedConfigFiles } from "./fromSharedConfigFiles";
 
 jest.mock("@aws-sdk/shared-ini-file-loader", () => ({

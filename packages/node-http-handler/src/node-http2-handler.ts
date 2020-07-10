@@ -33,7 +33,6 @@ export class NodeHttp2Handler implements HttpHandler {
   }
 
   destroy(): void {
-    //eslint-disable-next-line @typescript-eslint/no-unused-vars
     for (const [_, http2Session] of this.connectionPool) {
       http2Session.destroy();
     }

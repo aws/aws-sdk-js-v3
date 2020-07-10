@@ -1,5 +1,4 @@
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
-import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 import { join, sep } from "path";
 
 import { ENV_PROFILE, fromProcess } from "./";

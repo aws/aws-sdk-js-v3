@@ -1,11 +1,13 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { Client } from "@aws-sdk/smithy-client";
 import {
   BuildHandlerArguments,
   FinalizeHandlerArguments,
+  MetadataBearer,
+  SerializeHandlerArguments,
 } from "@aws-sdk/types";
 
-import { fooClient, httpRequest,InputTypesUnion, operationCommand, OperationInput } from "./foo.fixture";
 import { fooClient, httpRequest, InputTypesUnion, operationCommand, OperationInput } from "./foo.fixture";
-import { createRequest } from "./index";
 import { createRequest } from "./index";
 
 describe("create-request", () => {

@@ -1,3 +1,4 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import * as process from "process";
 
 import { defaultUserAgent } from ".";

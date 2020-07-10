@@ -13,26 +13,8 @@ import {
   RequestSigner,
   RequestSigningArguments,
   SigningArguments,
-  StringSigner
-} from "@aws-sdk/types";
-import {
-  Credentials,
-  DateInput,
-  EventSigner,
-  EventSigningArguments,
-  FormattedEvent,
-  HashConstructor,
-  HeaderBag,
-  HttpRequest,
-  Provider,
-  RequestPresigner,
-  RequestPresigningArguments,
-  RequestSigner,
-  RequestSigningArguments,
-  SigningArguments,
   StringSigner,
 } from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
 import {
@@ -43,7 +25,6 @@ import {
   AUTH_HEADER,
   CREDENTIAL_QUERY_PARAM,
   EVENT_ALGORITHM_IDENTIFIER,
-  EVENT_ALGORITHM_IDENTIFIER,
   EXPIRES_QUERY_PARAM,
   MAX_PRESIGNED_TTL,
   SHA256_HEADER,
@@ -52,6 +33,10 @@ import {
   TOKEN_HEADER,
   TOKEN_QUERY_PARAM,
 } from "./constants";
+import { createScope, getSigningKey } from "./credentialDerivation";
+import { getCanonicalHeaders } from "./getCanonicalHeaders";
+import { getCanonicalQuery } from "./getCanonicalQuery";
+import { getPayloadHash } from "./getPayloadHash";
 import { hasHeader } from "./hasHeader";
 import { moveHeadersToQuery } from "./moveHeadersToQuery";
 import { prepareRequest } from "./prepareRequest";

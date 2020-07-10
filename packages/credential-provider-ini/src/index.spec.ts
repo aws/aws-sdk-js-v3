@@ -1,6 +1,5 @@
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
-import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials } from "@aws-sdk/types";
+import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { join, sep } from "path";
 
 import { AssumeRoleParams, ENV_PROFILE, fromIni } from "./";

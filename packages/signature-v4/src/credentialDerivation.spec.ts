@@ -1,9 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { Credentials } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
-import { toHex } from "@aws-sdk/util-hex-encoding";
 
-import { clearCredentialCache, createScope, getSigningKey } from "./credentialDerivation";
 import { clearCredentialCache, createScope, getSigningKey } from "./credentialDerivation";
 
 describe("createScope", () => {

@@ -68,7 +68,7 @@ export const changeResourceRecordSetsMiddlewareOptions: InitializeHandlerOptions
   tags: ["ROUTE53_IDS", "CHANGE_RESOURCE_RECORD_SETS"],
   name: "changeResourceRecordSetsMiddleware",
 };
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 export const getChangeResourceRecordSetsPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(changeResourceRecordSetsMiddleware(), changeResourceRecordSetsMiddlewareOptions);

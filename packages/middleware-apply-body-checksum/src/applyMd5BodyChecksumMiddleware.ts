@@ -7,6 +7,7 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   HeaderBag,
+  MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 

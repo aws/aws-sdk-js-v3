@@ -117,7 +117,6 @@ describe("bucketHostname", () => {
     // too short
     "fo",
     // too long
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     new Array(64).map((_) => "a").join(""),
     // leading period
     ".myawsbucket",

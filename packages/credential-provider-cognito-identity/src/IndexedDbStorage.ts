@@ -56,7 +56,7 @@ export class IndexedDbStorage implements Storage {
         reject(new Error("Unable to access DB"));
       };
 
-      openDbRequest.onupgradeneeded = () => {
+      openDbRequest.onupgradeneeded = (event) => {
         const db = openDbRequest.result;
         db.onerror = () => {
           reject(new Error("Failed to create object store"));

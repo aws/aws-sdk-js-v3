@@ -1,10 +1,11 @@
 import {
   DeserializeHandlerOptions,
-  DeserializeHandlerOptions,
-  EndpointBearer,
   EndpointBearer,
   MetadataBearer,
   MiddlewareStack,
+  Pluggable,
+  RequestSerializer,
+  ResponseDeserializer,
   SerializeHandlerOptions,
 } from "@aws-sdk/types";
 

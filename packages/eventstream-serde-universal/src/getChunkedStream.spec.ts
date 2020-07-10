@@ -1,6 +1,5 @@
-import { endEventMessage,recordEventMessage, statsEventMessage } from "./fixtures/event.fixture";
+import { endEventMessage, recordEventMessage, statsEventMessage } from "./fixtures/event.fixture";
 import { MockEventMessageSource } from "./fixtures/MockEventMessageSource.fixture";
-import { getChunkedStream } from "./getChunkedStream";
 import { getChunkedStream } from "./getChunkedStream";
 
 describe("getChunkedStream", () => {
@@ -89,7 +88,6 @@ describe("getChunkedStream", () => {
     const chunkerStream = getChunkedStream(mockStream);
     let error: Error | undefined = undefined;
     try {
-      //eslint-disable-next-line @typescript-eslint/no-unused-vars
       for await (const msg of chunkerStream) {
         //Pass
       }

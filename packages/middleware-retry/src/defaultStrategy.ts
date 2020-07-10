@@ -1,16 +1,13 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/smithy-client";
-import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider,RetryStrategy } from "@aws-sdk/types";
+import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
 
-import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS,THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
-import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
-import { defaultDelayDecider } from "./delayDecider";
-import { defaultRetryDecider } from "./retryDecider";
 import { defaultRetryDecider } from "./retryDecider";
 
 /**

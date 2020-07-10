@@ -4,7 +4,6 @@ jest.mock("./EventSigningStream", () => ({
   EventSigningStream: mockSingingStream,
 }));
 import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments, HttpRequest } from "@aws-sdk/types";
-import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments,HttpRequest } from "@aws-sdk/types";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 

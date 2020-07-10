@@ -1,16 +1,15 @@
 import { sep } from "path";
 import { Converter } from "typedoc/dist/lib/converter";
-import { Component,ConverterComponent } from "typedoc/dist/lib/converter/components";
 import { Component, ConverterComponent } from "typedoc/dist/lib/converter/components";
 import { Context } from "typedoc/dist/lib/converter/context";
-import * as ts from "typescript";
+import { SourceFile } from "typedoc/dist/lib/models";
 import * as ts from "typescript";
 
 const basePathsToIgnore = ["model"];
 
 @Component({ name: "SdkClientSourceUpdatePlugin" })
 export class SdkClientSourceUpdatePlugin extends ConverterComponent {
-  initialize(): void {
+  initialize() {
     this.listenTo(this.owner, {
       [Converter.EVENT_BEGIN]: this.onBegin,
     });
@@ -20,7 +19,7 @@ export class SdkClientSourceUpdatePlugin extends ConverterComponent {
    * Purge source files we wish to ignore.
    * @param context
    */
-  onBegin(context: Context): void {
+  onBegin(context: Context) {
     const program = context.program;
     const basePath = (program as any).getCommonSourceDirectory();
     const sourceFiles: ts.SourceFile[] = <any>program.getSourceFiles();

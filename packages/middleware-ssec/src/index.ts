@@ -4,7 +4,6 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   InitializeMiddleware,
-  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
   SourceData,

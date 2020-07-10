@@ -31,7 +31,7 @@ export const fooClient: Client<any, InputTypesUnion, OutputTypesUnion, any> = {
 export const operationCommand: Command<InputTypesUnion, OutputTypesUnion, any, OperationInput, OperationOutput> = {
   middlewareStack: new MiddlewareStack<object, OutputTypesUnion>(),
   input: {} as any,
-  resolveMiddleware: (stack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>) => {
+  resolveMiddleware: (stack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>, config: any, options: any) => {
     const concatStack = stack.concat(operationCommand.middlewareStack);
     return concatStack.resolve(() => Promise.resolve({ output, response: {} }), {} as any);
   },

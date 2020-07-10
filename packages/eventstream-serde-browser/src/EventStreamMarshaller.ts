@@ -1,7 +1,8 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller,Message } from "@aws-sdk/types";
+import { EventStreamMarshaller as UniversalEventStreamMarshaller } from "@aws-sdk/eventstream-serde-universal";
+import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Message } from "@aws-sdk/types";
 
-import { iterableToReadableStream,readableStreamtoIterable } from "./utils";
+import { iterableToReadableStream, readableStreamtoIterable } from "./utils";
 
 export interface EventStreamMarshaller extends IEventStreamMarshaller {}
 

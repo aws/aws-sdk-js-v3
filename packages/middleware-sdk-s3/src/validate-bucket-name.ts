@@ -30,7 +30,6 @@ export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   name: "validateBucketNameMiddleware",
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getValidateBucketNamePlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(validateBucketNameMiddleware(), validateBucketNameMiddlewareOptions);

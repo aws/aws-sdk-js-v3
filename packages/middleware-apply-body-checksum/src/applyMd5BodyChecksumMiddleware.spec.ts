@@ -27,7 +27,6 @@ describe("applyMd5BodyChecksumMiddleware", () => {
       const handler = applyMd5BodyChecksumMiddleware({
         md5: MockHash,
         base64Encoder: mockEncoder,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
       })(next, {} as any);
 
@@ -48,7 +47,6 @@ describe("applyMd5BodyChecksumMiddleware", () => {
       const handler = applyMd5BodyChecksumMiddleware({
         md5: MockHash,
         base64Encoder: mockEncoder,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
       })(next, {} as any);
 
@@ -76,7 +74,6 @@ describe("applyMd5BodyChecksumMiddleware", () => {
     const handler = applyMd5BodyChecksumMiddleware({
       md5: MockHash,
       base64Encoder: mockEncoder,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
     })(next, {} as any);
 

@@ -14,6 +14,6 @@ export const isClockSkewError = (error: SdkError) => CLOCK_SKEW_ERROR_CODES.incl
 export const isThrottlingError = (error: SdkError) =>
   THROTTLING_ERROR_CODES.includes(error.name) || error.$retryable?.throttling == true;
 
-export const isTransientError = (error: SdkError): boolean =>
+export const isTransientError = (error: SdkError) =>
   TRANSIENT_ERROR_CODES.includes(error.name) ||
   TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0);

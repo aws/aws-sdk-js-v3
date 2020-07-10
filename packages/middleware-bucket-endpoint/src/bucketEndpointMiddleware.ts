@@ -10,6 +10,9 @@ import {
   RelativeLocation,
 } from "@aws-sdk/types";
 
+import { bucketHostname } from "./bucketHostname";
+import { BucketEndpointResolvedConfig } from "./configurations";
+
 export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>

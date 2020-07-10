@@ -1,5 +1,5 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller,Message } from "@aws-sdk/types";
+import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Message } from "@aws-sdk/types";
 
 import { getChunkedStream } from "./getChunkedStream";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";

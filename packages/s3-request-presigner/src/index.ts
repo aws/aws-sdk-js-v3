@@ -1,5 +1,4 @@
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
-import { SignatureV4, SignatureV4CryptoInit,SignatureV4Init } from "@aws-sdk/signature-v4";
 import { RequestPresigner, RequestPresigningArguments } from "@aws-sdk/types";
 import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
 

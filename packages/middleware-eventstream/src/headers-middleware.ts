@@ -1,4 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { BuildHandlerOptions, BuildMiddleware } from "@aws-sdk/types";
 export const eventStreamHeaderMiddleware: BuildMiddleware<any, any> = (next) => async (args) => {
   const { request } = args;
   if (!HttpRequest.isInstance(request)) return next(args);

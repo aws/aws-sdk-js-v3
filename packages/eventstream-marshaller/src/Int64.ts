@@ -47,7 +47,7 @@ export class Int64 {
     return parseInt(toHex(bytes), 16) * (negative ? -1 : 1);
   }
 
-  toString(): string {
+  toString() {
     return String(this.valueOf());
   }
 }

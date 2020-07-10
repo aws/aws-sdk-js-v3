@@ -4,7 +4,6 @@ import {
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestHandlerOptions,
-  FinalizeRequestHandlerOptions,
   FinalizeRequestMiddleware,
   Pluggable,
   RelativeLocation,

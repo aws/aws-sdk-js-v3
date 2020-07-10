@@ -3,8 +3,8 @@ import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
-  BuildHandlerOptions,
   BuildHandlerOutput,
+  MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 

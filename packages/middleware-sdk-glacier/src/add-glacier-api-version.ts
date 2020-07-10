@@ -8,6 +8,8 @@ import {
   MetadataBearer,
 } from "@aws-sdk/types";
 
+import { ResolvedGlacierMiddlewareConfig } from "./configurations";
+
 export function addGlacierApiVersionMiddleware(options: ResolvedGlacierMiddlewareConfig): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>

@@ -1,5 +1,4 @@
 import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { Credentials, HashConstructor, Provider, RegionInfo,RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
 import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
 
 export interface AwsAuthInputConfig {

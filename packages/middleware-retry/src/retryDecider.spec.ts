@@ -6,6 +6,8 @@ import {
 } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/smithy-client";
 
+import { defaultRetryDecider } from "./retryDecider";
+
 jest.mock("@aws-sdk/service-error-classification");
 
 describe("defaultRetryDecider", () => {

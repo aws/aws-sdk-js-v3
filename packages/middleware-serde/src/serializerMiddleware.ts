@@ -1,6 +1,5 @@
 import {
   EndpointBearer,
-  EndpointBearer,
   RequestSerializer,
   SerializeHandler,
   SerializeHandlerArguments,

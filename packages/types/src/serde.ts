@@ -1,4 +1,5 @@
-import { Endpoint } from "./http";
+import { Endpoint, HttpRequest } from "./http";
+import { RequestSigner } from "./signature";
 import { RequestHandler } from "./transfer";
 import { Decoder, Encoder, Provider } from "./util";
 

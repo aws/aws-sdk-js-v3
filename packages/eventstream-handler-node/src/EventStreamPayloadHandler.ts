@@ -5,7 +5,12 @@ import {
   EventSigner,
   EventStreamPayloadHandler as IEventStreamPayloadHandler,
   FinalizeHandler,
+  FinalizeHandlerArguments,
   FinalizeHandlerOutput,
+  HandlerExecutionContext,
+  HttpRequest,
+  MetadataBearer,
+  Provider,
 } from "@aws-sdk/types";
 import { PassThrough, pipeline, Readable } from "stream";
 
@@ -34,7 +39,8 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
 
   async handle<T extends MetadataBearer>(
     next: FinalizeHandler<any, T>,
-    args: FinalizeHandlerArguments<any>
+    args: FinalizeHandlerArguments<any>,
+    context: HandlerExecutionContext = {} as any
   ): Promise<FinalizeHandlerOutput<T>> {
     const request = args.request as HttpRequest;
     const { body: payload } = request;

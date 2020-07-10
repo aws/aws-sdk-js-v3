@@ -15,7 +15,7 @@ export class ReadFromBuffers extends Readable {
     this.buffersToRead = options.buffers;
     this.errorAfter = typeof options.errorAfter === "number" ? options.errorAfter : -1;
   }
-  //eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   _read(size: number) {
     if (this.errorAfter !== -1 && this.errorAfter === this.numBuffersRead) {
       this.emit("error", new Error("Mock Error"));

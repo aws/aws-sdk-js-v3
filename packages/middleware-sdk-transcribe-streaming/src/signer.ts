@@ -4,6 +4,8 @@ import {
   HttpRequest as IHttpRequest,
   RequestPresigner,
   RequestPresigningArguments,
+  RequestSigner,
+  RequestSigningArguments,
 } from "@aws-sdk/types";
 
 export class SignatureV4 implements RequestSigner, RequestPresigner {

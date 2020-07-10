@@ -45,7 +45,6 @@ export const idNormalizerMiddlewareOptions: InitializeHandlerOptions = {
   name: "idNormalizerMiddleware",
 };
 
-//eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getIdNormalizerPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(idNormalizerMiddleware(), idNormalizerMiddlewareOptions);

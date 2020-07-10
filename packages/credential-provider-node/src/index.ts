@@ -8,6 +8,7 @@ import {
 } from "@aws-sdk/credential-provider-imds";
 import { ENV_PROFILE, fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
 import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
+import { chain, memoize, ProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider } from "@aws-sdk/types";
 
 export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";

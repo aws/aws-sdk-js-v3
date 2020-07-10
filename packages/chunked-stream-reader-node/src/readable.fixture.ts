@@ -16,9 +16,10 @@ export class ReadFromBuffers extends Readable {
     this.errorAfter = typeof options.errorAfter === "number" ? options.errorAfter : -1;
   }
 
-  _read(): boolean {
+  _read(size: number) {
     if (this.errorAfter !== -1 && this.errorAfter === this.numBuffersRead) {
       this.emit("error", new Error("Mock Error"));
+      return;
     }
     if (this.numBuffersRead >= this.buffersToRead.length) {
       return this.push(null);

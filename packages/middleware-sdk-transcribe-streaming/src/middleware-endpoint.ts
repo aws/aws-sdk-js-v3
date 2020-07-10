@@ -3,7 +3,9 @@ import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
+  BuildMiddleware,
   RelativeLocation,
+  RequestHandler,
 } from "@aws-sdk/types";
 
 /**
