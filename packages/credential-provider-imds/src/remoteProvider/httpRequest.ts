@@ -17,11 +17,11 @@ export function httpRequest(options: RequestOptions): Promise<Buffer> {
     req.on("response", (res: IncomingMessage) => {
       const { statusCode = 400 } = res;
       if (statusCode < 200 || 300 <= statusCode) {
-        reject(
-          new ProviderError(
-            "Error response received from instance metadata service"
-          )
+        const error = new ProviderError(
+          "Error response received from instance metadata service"
         );
+        (error as any).statusCode = statusCode;
+        reject(error);
       }
 
       const chunks: Array<Buffer> = [];

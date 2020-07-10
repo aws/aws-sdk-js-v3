@@ -53,6 +53,25 @@ describe("httpRequest", () => {
   });
 
   describe("throws error", () => {
+    const errorOnStatusCode = async (statusCode: number) => {
+      it(`statusCode: ${statusCode}`, async () => {
+        const scope = nock(`http://${host}:${port}`)
+          .get(path)
+          .reply(statusCode, "continue");
+
+        await expect(httpRequest({ host, path, port })).rejects.toStrictEqual(
+          Object.assign(
+            new ProviderError(
+              "Error response received from instance metadata service"
+            ),
+            { statusCode }
+          )
+        );
+
+        scope.done();
+      });
+    };
+
     it("when request throws error", async () => {
       const scope = nock(`http://${host}:${port}`)
         .get(path)
@@ -63,6 +82,14 @@ describe("httpRequest", () => {
       );
 
       scope.done();
+    });
+
+    describe("when request returns with statusCode < 200", () => {
+      [100, 101, 103].forEach(errorOnStatusCode);
+    });
+
+    describe("when request returns with statusCode >= 300", () => {
+      [300, 400, 500].forEach(errorOnStatusCode);
     });
   });
 });
