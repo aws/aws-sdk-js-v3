@@ -38,10 +38,7 @@ class EXPECTED_REQUEST_SERIALIZATION_ERROR {
  * request. The thrown exception contains the serialized request.
  */
 class RequestSerializationTestHandler implements HttpHandler {
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
 }
@@ -55,12 +52,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
   headers: HeaderBag;
   body: String;
 
-  constructor(
-    isSuccess: boolean,
-    code: number,
-    headers?: HeaderBag,
-    body?: String
-  ) {
+  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: String) {
     this.isSuccess = isSuccess;
     this.code = code;
     if (headers === undefined) {
@@ -74,16 +66,13 @@ class ResponseDeserializationTestHandler implements HttpHandler {
     this.body = body;
   }
 
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.resolve({
       response: {
         statusCode: this.code,
         headers: this.headers,
-        body: Readable.from([this.body])
-      }
+        body: Readable.from([this.body]),
+      },
     });
   }
 }
@@ -95,12 +84,9 @@ interface comparableParts {
 /**
  * Generates a standard map of un-equal values given input parts.
  */
-const compareParts = (
-  expectedParts: comparableParts,
-  generatedParts: comparableParts
-) => {
+const compareParts = (expectedParts: comparableParts, generatedParts: comparableParts) => {
   const unequalParts: any = {};
-  Object.keys(expectedParts).forEach(key => {
+  Object.keys(expectedParts).forEach((key) => {
     if (generatedParts[key] === undefined) {
       unequalParts[key] = { exp: expectedParts[key], gen: undefined };
     } else if (!equivalentContents(expectedParts[key], generatedParts[key])) {
@@ -108,7 +94,7 @@ const compareParts = (
     }
   });
 
-  Object.keys(generatedParts).forEach(key => {
+  Object.keys(generatedParts).forEach((key) => {
     if (expectedParts[key] === undefined) {
       unequalParts[key] = { exp: undefined, gen: generatedParts[key] };
     }
@@ -140,12 +126,8 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   delete generated["__type"];
   delete localExpected["$metadata"];
   delete generated["$metadata"];
-  Object.keys(localExpected).forEach(
-    key => localExpected[key] === undefined && delete localExpected[key]
-  );
-  Object.keys(generated).forEach(
-    key => generated[key] === undefined && delete generated[key]
-  );
+  Object.keys(localExpected).forEach((key) => localExpected[key] === undefined && delete localExpected[key]);
+  Object.keys(generated).forEach((key) => generated[key] === undefined && delete generated[key]);
 
   const expectedProperties = Object.getOwnPropertyNames(localExpected);
   const generatedProperties = Object.getOwnPropertyNames(generated);
@@ -158,9 +140,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // Compare properties directly.
   for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
-    if (
-      !equivalentContents(localExpected[propertyName], generated[propertyName])
-    ) {
+    if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
     }
   }
@@ -173,7 +153,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
  */
 it("QueryEmptyInputAndEmptyOutput:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new EmptyInputAndEmptyOutputCommand({} as any);
@@ -196,10 +176,7 @@ it("QueryEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=EmptyInputAndEmptyOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -209,7 +186,7 @@ it("QueryEmptyInputAndEmptyOutput:Request", async () => {
  */
 it("QueryEmptyInputAndEmptyOutput:Response", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined)
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
   });
 
   const params: any = {};
@@ -234,7 +211,7 @@ it("QueryQueryFlattenedXmlMap:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<FlattenedXmlMapResponse xmlns="https://example.com/">
           <FlattenedXmlMapResult>
@@ -248,7 +225,7 @@ it("QueryQueryFlattenedXmlMap:Response", async () => {
               </myMap>
           </FlattenedXmlMapResult>
       </FlattenedXmlMapResponse>`
-    )
+    ),
   });
 
   const params: any = {};
@@ -267,11 +244,11 @@ it("QueryQueryFlattenedXmlMap:Response", async () => {
       myMap: {
         foo: "Foo",
 
-        baz: "Baz"
-      }
-    }
+        baz: "Baz",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -286,7 +263,7 @@ it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<FlattenedXmlMapWithXmlNameResponse xmlns="https://example.com/">
           <FlattenedXmlMapWithXmlNameResult>
@@ -300,7 +277,7 @@ it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
               </KVP>
           </FlattenedXmlMapWithXmlNameResult>
       </FlattenedXmlMapWithXmlNameResponse>`
-    )
+    ),
   });
 
   const params: any = {};
@@ -319,11 +296,11 @@ it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
       myMap: {
         a: "A",
 
-        b: "B"
-      }
-    }
+        b: "B",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -338,7 +315,7 @@ it("QueryGreetingWithErrors:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<GreetingWithErrorsResponse xmlns="https://example.com/">
           <GreetingWithErrorsResult>
@@ -346,7 +323,7 @@ it("QueryGreetingWithErrors:Response", async () => {
           </GreetingWithErrorsResult>
       </GreetingWithErrorsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -362,10 +339,10 @@ it("QueryGreetingWithErrors:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      greeting: "Hello"
-    }
+      greeting: "Hello",
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -380,7 +357,7 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
       false,
       400,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<ErrorResponse>
          <Error>
@@ -391,7 +368,7 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
          <RequestId>foo-id</RequestId>
       </ErrorResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -409,10 +386,10 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
     expect(r["$metadata"].httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
-        message: "Hi"
-      }
+        message: "Hi",
+      },
     ][0];
-    Object.keys(paramsToValidate).forEach(param => {
+    Object.keys(paramsToValidate).forEach((param) => {
       expect(r[param]).toBeDefined();
       expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
     });
@@ -427,7 +404,7 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
       false,
       400,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<ErrorResponse>
          <Error>
@@ -442,7 +419,7 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
          <RequestId>foo-id</RequestId>
       </ErrorResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -463,11 +440,11 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
         TopLevel: "Top level",
 
         Nested: {
-          Foo: "bar"
-        }
-      }
+          Foo: "bar",
+        },
+      },
     ][0];
-    Object.keys(paramsToValidate).forEach(param => {
+    Object.keys(paramsToValidate).forEach((param) => {
       expect(r[param]).toBeDefined();
       expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
     });
@@ -485,7 +462,7 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<IgnoresWrappingXmlNameResponse xmlns="http://foo.com" xmlns="https://example.com/">
           <IgnoresWrappingXmlNameResult>
@@ -493,7 +470,7 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
           </IgnoresWrappingXmlNameResult>
       </IgnoresWrappingXmlNameResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -509,10 +486,10 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      foo: "bar"
-    }
+      foo: "bar",
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -523,7 +500,7 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
  */
 it("NestedStructures:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new NestedStructuresCommand({
@@ -533,9 +510,9 @@ it("NestedStructures:Request", async () => {
       OtherArg: true,
 
       RecursiveArg: {
-        StringArg: "baz"
-      } as any
-    } as any
+        StringArg: "baz",
+      } as any,
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -559,10 +536,7 @@ it("NestedStructures:Request", async () => {
     &Nested.StringArg=foo
     &Nested.OtherArg=true
     &Nested.RecursiveArg.StringArg=baz`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -572,7 +546,7 @@ it("NestedStructures:Request", async () => {
  */
 it("QueryNoInputAndNoOutput:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new NoInputAndNoOutputCommand({});
@@ -595,10 +569,7 @@ it("QueryNoInputAndNoOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndNoOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -608,7 +579,7 @@ it("QueryNoInputAndNoOutput:Request", async () => {
  */
 it("QueryNoInputAndNoOutput:Response", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined)
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
   });
 
   const params: any = {};
@@ -629,7 +600,7 @@ it("QueryNoInputAndNoOutput:Response", async () => {
  */
 it("QueryNoInputAndOutput:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new NoInputAndOutputCommand({} as any);
@@ -652,10 +623,7 @@ it("QueryNoInputAndOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -665,7 +633,7 @@ it("QueryNoInputAndOutput:Request", async () => {
  */
 it("QueryNoInputAndOutput:Response", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined)
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
   });
 
   const params: any = {};
@@ -686,11 +654,11 @@ it("QueryNoInputAndOutput:Response", async () => {
  */
 it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryIdempotencyTokenAutoFillCommand({
-    token: "00000000-0000-4000-8000-000000000000"
+    token: "00000000-0000-4000-8000-000000000000",
   } as any);
   try {
     await client.send(command);
@@ -712,10 +680,7 @@ it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &token=00000000-0000-4000-8000-000000000000`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -725,11 +690,11 @@ it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
  */
 it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryIdempotencyTokenAutoFillCommand({
-    token: "00000000-0000-4000-8000-000000000123"
+    token: "00000000-0000-4000-8000-000000000123",
   } as any);
   try {
     await client.send(command);
@@ -751,10 +716,7 @@ it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &token=00000000-0000-4000-8000-000000000123`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -764,7 +726,7 @@ it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
  */
 it("QueryLists:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
@@ -772,13 +734,13 @@ it("QueryLists:Request", async () => {
 
     ComplexListArg: [
       {
-        hi: "hello"
+        hi: "hello",
       } as any,
 
       {
-        hi: "hola"
-      } as any
-    ]
+        hi: "hola",
+      } as any,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -804,10 +766,7 @@ it("QueryLists:Request", async () => {
     &ListArg.member.3=baz
     &ComplexListArg.member.1.hi=hello
     &ComplexListArg.member.2.hi=hola`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -817,11 +776,11 @@ it("QueryLists:Request", async () => {
  */
 it("EmptyQueryLists:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
-    ListArg: []
+    ListArg: [],
   } as any);
   try {
     await client.send(command);
@@ -842,10 +801,7 @@ it("EmptyQueryLists:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -855,11 +811,11 @@ it("EmptyQueryLists:Request", async () => {
  */
 it("FlattenedQueryLists:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
-    FlattenedListArg: ["A", "B"]
+    FlattenedListArg: ["A", "B"],
   } as any);
   try {
     await client.send(command);
@@ -882,10 +838,7 @@ it("FlattenedQueryLists:Request", async () => {
     &Version=2020-01-08
     &FlattenedListArg.1=A
     &FlattenedListArg.2=B`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -895,11 +848,11 @@ it("FlattenedQueryLists:Request", async () => {
  */
 it("QueryListArgWithXmlNameMember:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
-    ListArgWithXmlNameMember: ["A", "B"]
+    ListArgWithXmlNameMember: ["A", "B"],
   } as any);
   try {
     await client.send(command);
@@ -922,10 +875,7 @@ it("QueryListArgWithXmlNameMember:Request", async () => {
     &Version=2020-01-08
     &ListArgWithXmlNameMember.item.1=A
     &ListArgWithXmlNameMember.item.2=B`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -935,11 +885,11 @@ it("QueryListArgWithXmlNameMember:Request", async () => {
  */
 it("QueryFlattenedListArgWithXmlName:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
-    FlattenedListArgWithXmlName: ["A", "B"]
+    FlattenedListArgWithXmlName: ["A", "B"],
   } as any);
   try {
     await client.send(command);
@@ -962,10 +912,7 @@ it("QueryFlattenedListArgWithXmlName:Request", async () => {
     &Version=2020-01-08
     &Hi.1=A
     &Hi.2=B`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -975,15 +922,15 @@ it("QueryFlattenedListArgWithXmlName:Request", async () => {
  */
 it("QuerySimpleQueryMaps:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryMapsCommand({
     MapArg: {
       foo: "Foo",
 
-      bar: "Bar"
-    } as any
+      bar: "Bar",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1008,10 +955,7 @@ it("QuerySimpleQueryMaps:Request", async () => {
     &MapArg.entry.1.value=Foo
     &MapArg.entry.2.key=bar
     &MapArg.entry.2.value=Bar`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1021,13 +965,13 @@ it("QuerySimpleQueryMaps:Request", async () => {
  */
 it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryMapsCommand({
     RenamedMapArg: {
-      foo: "Foo"
-    } as any
+      foo: "Foo",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1050,10 +994,7 @@ it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
     &Version=2020-01-08
     &Foo.entry.1.key=foo
     &Foo.entry.1.value=Foo`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1063,19 +1004,19 @@ it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
  */
 it("QueryComplexQueryMaps:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryMapsCommand({
     ComplexMapArg: {
       foo: {
-        hi: "Foo"
+        hi: "Foo",
       } as any,
 
       bar: {
-        hi: "Bar"
-      } as any
-    } as any
+        hi: "Bar",
+      } as any,
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1100,10 +1041,7 @@ it("QueryComplexQueryMaps:Request", async () => {
     &ComplexMapArg.entry.1.value.hi=Foo
     &ComplexMapArg.entry.2.key=bar
     &ComplexMapArg.entry.2.value.hi=Bar`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1113,11 +1051,11 @@ it("QueryComplexQueryMaps:Request", async () => {
  */
 it("QueryEmptyQueryMaps:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryMapsCommand({
-    MapArg: {} as any
+    MapArg: {} as any,
   } as any);
   try {
     await client.send(command);
@@ -1138,10 +1076,7 @@ it("QueryEmptyQueryMaps:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1151,15 +1086,15 @@ it("QueryEmptyQueryMaps:Request", async () => {
  */
 it("QueryQueryMapWithMemberXmlName:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryMapsCommand({
     MapWithXmlMemberName: {
       foo: "Foo",
 
-      bar: "Bar"
-    } as any
+      bar: "Bar",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1184,10 +1119,7 @@ it("QueryQueryMapWithMemberXmlName:Request", async () => {
     &MapWithXmlMemberName.entry.1.V=Foo
     &MapWithXmlMemberName.entry.2.K=bar
     &MapWithXmlMemberName.entry.2.V=Bar`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1197,15 +1129,15 @@ it("QueryQueryMapWithMemberXmlName:Request", async () => {
  */
 it("QueryFlattenedQueryMaps:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryMapsCommand({
     FlattenedMap: {
       foo: "Foo",
 
-      bar: "Bar"
-    } as any
+      bar: "Bar",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1230,10 +1162,7 @@ it("QueryFlattenedQueryMaps:Request", async () => {
     &FlattenedMap.1.value=Foo
     &FlattenedMap.2.key=bar
     &FlattenedMap.2.value=Bar`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1243,15 +1172,15 @@ it("QueryFlattenedQueryMaps:Request", async () => {
  */
 it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryMapsCommand({
     FlattenedMapWithXmlName: {
       foo: "Foo",
 
-      bar: "Bar"
-    } as any
+      bar: "Bar",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1276,10 +1205,7 @@ it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
     &Hi.1.V=Foo
     &Hi.2.K=bar
     &Hi.2.V=Bar`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1289,15 +1215,15 @@ it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
  */
 it("QueryQueryMapOfLists:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryMapsCommand({
     MapOfLists: {
       foo: ["A", "B"],
 
-      bar: ["C", "D"]
-    } as any
+      bar: ["C", "D"],
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1324,10 +1250,7 @@ it("QueryQueryMapOfLists:Request", async () => {
     &MapOfLists.entry.2.key=bar
     &MapOfLists.entry.2.value.member.1=C
     &MapOfLists.entry.2.value.member.2=D`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1337,7 +1260,7 @@ it("QueryQueryMapOfLists:Request", async () => {
  */
 it("QueryTimestampsInput:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryTimestampsCommand({
@@ -1345,7 +1268,7 @@ it("QueryTimestampsInput:Request", async () => {
 
     epochMember: new Date(1422172800000),
 
-    epochTarget: new Date(1422172800000)
+    epochTarget: new Date(1422172800000),
   } as any);
   try {
     await client.send(command);
@@ -1369,10 +1292,7 @@ it("QueryTimestampsInput:Request", async () => {
     &normalFormat=2015-01-25T08%3A00%3A00Z
     &epochMember=1422172800
     &epochTarget=1422172800`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1386,7 +1306,7 @@ it("QueryRecursiveShapes:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<RecursiveXmlShapesResponse xmlns="https://example.com/">
           <RecursiveXmlShapesResult>
@@ -1405,7 +1325,7 @@ it("QueryRecursiveShapes:Response", async () => {
           </RecursiveXmlShapesResult>
       </RecursiveXmlShapesResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1431,14 +1351,14 @@ it("QueryRecursiveShapes:Response", async () => {
             foo: "Foo2",
 
             nested: {
-              bar: "Bar2"
-            }
-          }
-        }
-      }
-    }
+              bar: "Bar2",
+            },
+          },
+        },
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1449,13 +1369,13 @@ it("QueryRecursiveShapes:Response", async () => {
  */
 it("QuerySimpleInputParamsStrings:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
     Foo: "val1",
 
-    Bar: "val2"
+    Bar: "val2",
   } as any);
   try {
     await client.send(command);
@@ -1478,10 +1398,7 @@ it("QuerySimpleInputParamsStrings:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Bar=val2`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1491,13 +1408,13 @@ it("QuerySimpleInputParamsStrings:Request", async () => {
  */
 it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
     Foo: "val1",
 
-    Baz: true
+    Baz: true,
   } as any);
   try {
     await client.send(command);
@@ -1520,10 +1437,7 @@ it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Baz=true`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1533,11 +1447,11 @@ it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
  */
 it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    Baz: false
+    Baz: false,
   } as any);
   try {
     await client.send(command);
@@ -1559,10 +1473,7 @@ it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Baz=false`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1572,11 +1483,11 @@ it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
  */
 it("QuerySimpleInputParamsInteger:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    Bam: 10
+    Bam: 10,
   } as any);
   try {
     await client.send(command);
@@ -1598,10 +1509,7 @@ it("QuerySimpleInputParamsInteger:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Bam=10`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1611,11 +1519,11 @@ it("QuerySimpleInputParamsInteger:Request", async () => {
  */
 it("QuerySimpleInputParamsFloat:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    Boo: 10.8
+    Boo: 10.8,
   } as any);
   try {
     await client.send(command);
@@ -1637,10 +1545,7 @@ it("QuerySimpleInputParamsFloat:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Boo=10.8`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1650,11 +1555,11 @@ it("QuerySimpleInputParamsFloat:Request", async () => {
  */
 it("QuerySimpleInputParamsBlob:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    Qux: Uint8Array.from("value", c => c.charCodeAt(0))
+    Qux: Uint8Array.from("value", (c) => c.charCodeAt(0)),
   } as any);
   try {
     await client.send(command);
@@ -1676,10 +1581,7 @@ it("QuerySimpleInputParamsBlob:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Qux=dmFsdWU%3D`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1689,11 +1591,11 @@ it("QuerySimpleInputParamsBlob:Request", async () => {
  */
 it("QueryEnums:Request", async () => {
   const client = new QueryProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    FooEnum: "Foo"
+    FooEnum: "Foo",
   } as any);
   try {
     await client.send(command);
@@ -1715,10 +1617,7 @@ it("QueryEnums:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &FooEnum=Foo`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1732,7 +1631,7 @@ it("QuerySimpleScalarProperties:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
           <SimpleScalarXmlPropertiesResult>
@@ -1749,7 +1648,7 @@ it("QuerySimpleScalarProperties:Response", async () => {
           </SimpleScalarXmlPropertiesResult>
       </SimpleScalarXmlPropertiesResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1783,10 +1682,10 @@ it("QuerySimpleScalarProperties:Response", async () => {
 
       floatValue: 5.5,
 
-      doubleValue: 6.5
-    }
+      doubleValue: 6.5,
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1801,7 +1700,7 @@ it("QueryXmlBlobs:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlBlobsResponse xmlns="https://example.com/">
           <XmlBlobsResult>
@@ -1809,7 +1708,7 @@ it("QueryXmlBlobs:Response", async () => {
           </XmlBlobsResult>
       </XmlBlobsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1825,10 +1724,10 @@ it("QueryXmlBlobs:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      data: Uint8Array.from("value", c => c.charCodeAt(0))
-    }
+      data: Uint8Array.from("value", (c) => c.charCodeAt(0)),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1843,7 +1742,7 @@ it("QueryXmlEnums:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlEnumsResponse xmlns="https://example.com/">
           <XmlEnumsResult>
@@ -1871,7 +1770,7 @@ it("QueryXmlEnums:Response", async () => {
           </XmlEnumsResult>
       </XmlEnumsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1900,11 +1799,11 @@ it("QueryXmlEnums:Response", async () => {
       fooEnumMap: {
         hi: "Foo",
 
-        zero: "0"
-      }
-    }
+        zero: "0",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1919,7 +1818,7 @@ it("QueryXmlLists:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlListsResponse xmlns="https://example.com/">
           <XmlListsResult>
@@ -1978,7 +1877,7 @@ it("QueryXmlLists:Response", async () => {
           </XmlListsResult>
       </XmlListsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2009,7 +1908,7 @@ it("QueryXmlLists:Response", async () => {
       nestedStringList: [
         ["foo", "bar"],
 
-        ["baz", "qux"]
+        ["baz", "qux"],
       ],
 
       renamedListMembers: ["foo", "bar"],
@@ -2022,18 +1921,18 @@ it("QueryXmlLists:Response", async () => {
         {
           a: "1",
 
-          b: "2"
+          b: "2",
         },
 
         {
           a: "3",
 
-          b: "4"
-        }
-      ]
-    }
+          b: "4",
+        },
+      ],
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2048,7 +1947,7 @@ it("QueryXmlMaps:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlMapsResponse xmlns="https://example.com/">
           <XmlMapsResult>
@@ -2069,7 +1968,7 @@ it("QueryXmlMaps:Response", async () => {
           </XmlMapsResult>
       </XmlMapsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2087,16 +1986,16 @@ it("QueryXmlMaps:Response", async () => {
     {
       myMap: {
         foo: {
-          hi: "there"
+          hi: "there",
         },
 
         baz: {
-          hi: "bye"
-        }
-      }
-    }
+          hi: "bye",
+        },
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2111,7 +2010,7 @@ it("QueryQueryXmlMapsXmlName:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlMapsXmlNameResponse xmlns="https://example.com/">
           <XmlMapsXmlNameResult>
@@ -2132,7 +2031,7 @@ it("QueryQueryXmlMapsXmlName:Response", async () => {
           </XmlMapsXmlNameResult>
       </XmlMapsXmlNameResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2150,16 +2049,16 @@ it("QueryQueryXmlMapsXmlName:Response", async () => {
     {
       myMap: {
         foo: {
-          hi: "there"
+          hi: "there",
         },
 
         baz: {
-          hi: "bye"
-        }
-      }
-    }
+          hi: "bye",
+        },
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2174,7 +2073,7 @@ it("QueryXmlNamespaces:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlNamespacesResponse xmlns="http://foo.com" xmlns="https://example.com/">
           <XmlNamespacesResult>
@@ -2188,7 +2087,7 @@ it("QueryXmlNamespaces:Response", async () => {
           </XmlNamespacesResult>
       </XmlNamespacesResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2207,11 +2106,11 @@ it("QueryXmlNamespaces:Response", async () => {
       nested: {
         foo: "Foo",
 
-        values: ["Bar", "Baz"]
-      }
-    }
+        values: ["Bar", "Baz"],
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2226,7 +2125,7 @@ it("QueryXmlTimestamps:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
           <XmlTimestampsResult>
@@ -2234,7 +2133,7 @@ it("QueryXmlTimestamps:Response", async () => {
           </XmlTimestampsResult>
       </XmlTimestampsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2250,10 +2149,10 @@ it("QueryXmlTimestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      normal: new Date(1398796238000)
-    }
+      normal: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2268,7 +2167,7 @@ it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
           <XmlTimestampsResult>
@@ -2276,7 +2175,7 @@ it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
           </XmlTimestampsResult>
       </XmlTimestampsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2292,10 +2191,10 @@ it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTime: new Date(1398796238000)
-    }
+      dateTime: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2310,7 +2209,7 @@ it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
           <XmlTimestampsResult>
@@ -2318,7 +2217,7 @@ it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
           </XmlTimestampsResult>
       </XmlTimestampsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2334,10 +2233,10 @@ it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSeconds: new Date(1398796238000)
-    }
+      epochSeconds: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2352,7 +2251,7 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml"
+        "content-type": "text/xml",
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
           <XmlTimestampsResult>
@@ -2360,7 +2259,7 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
           </XmlTimestampsResult>
       </XmlTimestampsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2376,10 +2275,10 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDate: new Date(1398796238000)
-    }
+      httpDate: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2389,14 +2288,11 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (
-  expectedBody: string,
-  generatedBody: string
-): Object => {
+const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
   const fromEntries = (components: string[][]): { [key: string]: string } => {
     const parts: { [key: string]: string } = {};
 
-    components.forEach(component => {
+    components.forEach((component) => {
       parts[component[0]] = component[1];
     });
 
@@ -2404,12 +2300,8 @@ const compareEquivalentBodies = (
   };
 
   // Generate to k:v maps from query components
-  const expectedParts = fromEntries(
-    expectedBody.split("&").map(part => part.trim().split("="))
-  );
-  const generatedParts = fromEntries(
-    generatedBody.split("&").map(part => part.trim().split("="))
-  );
+  const expectedParts = fromEntries(expectedBody.split("&").map((part) => part.trim().split("=")));
+  const generatedParts = fromEntries(generatedBody.split("&").map((part) => part.trim().split("=")));
 
   return compareParts(expectedParts, generatedParts);
 };

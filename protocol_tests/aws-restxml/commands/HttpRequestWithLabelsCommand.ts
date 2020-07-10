@@ -1,18 +1,11 @@
-import {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestXmlProtocolClient";
+import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 import { HttpRequestWithLabelsInput } from "../models/index";
 import {
   deserializeAws_restXmlHttpRequestWithLabelsCommand,
-  serializeAws_restXmlHttpRequestWithLabelsCommand
+  serializeAws_restXmlHttpRequestWithLabelsCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type HttpRequestWithLabelsCommandInput = HttpRequestWithLabelsInput;
@@ -45,18 +38,13 @@ export class HttpRequestWithLabelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    HttpRequestWithLabelsCommandInput,
-    HttpRequestWithLabelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<HttpRequestWithLabelsCommandInput, HttpRequestWithLabelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,17 +54,11 @@ export class HttpRequestWithLabelsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: HttpRequestWithLabelsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: HttpRequestWithLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlHttpRequestWithLabelsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<HttpRequestWithLabelsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpRequestWithLabelsCommandOutput> {
     return deserializeAws_restXmlHttpRequestWithLabelsCommand(output, context);
   }
 

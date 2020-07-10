@@ -2,7 +2,7 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa
+  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
@@ -12,7 +12,7 @@ export interface EmptyStruct {
 
 export namespace EmptyStruct {
   export const filterSensitiveLog = (obj: EmptyStruct): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EmptyStruct => __isa(o, "EmptyStruct");
 }
@@ -34,25 +34,21 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
 
 export namespace ErrorWithMembers {
   export const filterSensitiveLog = (obj: ErrorWithMembers): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ErrorWithMembers =>
-    __isa(o, "ErrorWithMembers");
+  export const isa = (o: any): o is ErrorWithMembers => __isa(o, "ErrorWithMembers");
 }
 
-export interface ErrorWithoutMembers
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ErrorWithoutMembers extends __SmithyException, $MetadataBearer {
   name: "ErrorWithoutMembers";
   $fault: "server";
 }
 
 export namespace ErrorWithoutMembers {
   export const filterSensitiveLog = (obj: ErrorWithoutMembers): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ErrorWithoutMembers =>
-    __isa(o, "ErrorWithoutMembers");
+  export const isa = (o: any): o is ErrorWithoutMembers => __isa(o, "ErrorWithoutMembers");
 }
 
 export interface KitchenSink {
@@ -87,7 +83,7 @@ export interface KitchenSink {
 
 export namespace KitchenSink {
   export const filterSensitiveLog = (obj: KitchenSink): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is KitchenSink => __isa(o, "KitchenSink");
 }
@@ -99,7 +95,7 @@ export interface SimpleStruct {
 
 export namespace SimpleStruct {
   export const filterSensitiveLog = (obj: SimpleStruct): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SimpleStruct => __isa(o, "SimpleStruct");
 }
@@ -111,8 +107,7 @@ export interface StructWithLocationName {
 
 export namespace StructWithLocationName {
   export const filterSensitiveLog = (obj: StructWithLocationName): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StructWithLocationName =>
-    __isa(o, "StructWithLocationName");
+  export const isa = (o: any): o is StructWithLocationName => __isa(o, "StructWithLocationName");
 }

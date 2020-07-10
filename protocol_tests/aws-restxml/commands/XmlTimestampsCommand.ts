@@ -1,18 +1,11 @@
-import {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestXmlProtocolClient";
+import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 import { XmlTimestampsInputOutput } from "../models/index";
 import {
   deserializeAws_restXmlXmlTimestampsCommand,
-  serializeAws_restXmlXmlTimestampsCommand
+  serializeAws_restXmlXmlTimestampsCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type XmlTimestampsCommandInput = XmlTimestampsInputOutput;
-export type XmlTimestampsCommandOutput = XmlTimestampsInputOutput &
-  __MetadataBearer;
+export type XmlTimestampsCommandOutput = XmlTimestampsInputOutput & __MetadataBearer;
 
 export class XmlTimestampsCommand extends $Command<
   XmlTimestampsCommandInput,
@@ -47,14 +39,12 @@ export class XmlTimestampsCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlTimestampsCommandInput, XmlTimestampsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class XmlTimestampsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: XmlTimestampsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: XmlTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlTimestampsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<XmlTimestampsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlTimestampsCommandOutput> {
     return deserializeAws_restXmlXmlTimestampsCommand(output, context);
   }
 
