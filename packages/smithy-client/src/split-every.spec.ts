@@ -43,9 +43,20 @@ describe("splitEvery", () => {
     expect(splitEvery(m1, delim, count)).toMatchObject(["foo"]);
     expect(splitEvery(m2, delim, count)).toMatchObject(["foo, bar"]);
     expect(splitEvery(m3, delim, count)).toMatchObject(["foo, bar", "baz"]);
-    expect(splitEvery(m4, delim, count)).toMatchObject(["foo, bar", "baz, qux"]);
-    expect(splitEvery(m5, delim, count)).toMatchObject(["foo, bar", "baz, qux", "coo"]);
-    expect(splitEvery(m6, delim, count)).toMatchObject(["foo, bar", "baz, qux", "coo, tan"]);
+    expect(splitEvery(m4, delim, count)).toMatchObject([
+      "foo, bar",
+      "baz, qux"
+    ]);
+    expect(splitEvery(m5, delim, count)).toMatchObject([
+      "foo, bar",
+      "baz, qux",
+      "coo"
+    ]);
+    expect(splitEvery(m6, delim, count)).toMatchObject([
+      "foo, bar",
+      "baz, qux",
+      "coo, tan"
+    ]);
   });
 
   it("Handles splitting on 3", () => {
@@ -53,8 +64,17 @@ describe("splitEvery", () => {
     expect(splitEvery(m1, delim, count)).toMatchObject(["foo"]);
     expect(splitEvery(m2, delim, count)).toMatchObject(["foo, bar"]);
     expect(splitEvery(m3, delim, count)).toMatchObject(["foo, bar, baz"]);
-    expect(splitEvery(m4, delim, count)).toMatchObject(["foo, bar, baz", "qux"]);
-    expect(splitEvery(m5, delim, count)).toMatchObject(["foo, bar, baz", "qux, coo"]);
-    expect(splitEvery(m6, delim, count)).toMatchObject(["foo, bar, baz", "qux, coo, tan"]);
+    expect(splitEvery(m4, delim, count)).toMatchObject([
+      "foo, bar, baz",
+      "qux"
+    ]);
+    expect(splitEvery(m5, delim, count)).toMatchObject([
+      "foo, bar, baz",
+      "qux, coo"
+    ]);
+    expect(splitEvery(m6, delim, count)).toMatchObject([
+      "foo, bar, baz",
+      "qux, coo, tan"
+    ]);
   });
 });

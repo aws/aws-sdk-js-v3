@@ -6,10 +6,16 @@
  * @param delimiter The delimiter to split on.
  * @param numDelimiters The number of delimiters to have encountered to split.
  */
-export function splitEvery(value: string, delimiter: string, numDelimiters: number): Array<string> {
+export function splitEvery(
+  value: string,
+  delimiter: string,
+  numDelimiters: number
+): Array<string> {
   // Fail if we don't have a clear number to split on.
   if (numDelimiters <= 0 || !Number.isInteger(numDelimiters)) {
-    throw new Error("Invalid number of delimiters (" + numDelimiters + ") for splitEvery.");
+    throw new Error(
+      "Invalid number of delimiters (" + numDelimiters + ") for splitEvery."
+    );
   }
 
   const segments = value.split(delimiter);

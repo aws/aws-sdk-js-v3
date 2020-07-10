@@ -7,5 +7,7 @@ export const fromEnv = (envVarName: string): Provider<string> => async () => {
     return envVar;
   }
 
-  throw new ProviderError(`No value defined for the ${envVarName} environment variable`);
+  throw new ProviderError(
+    `No value defined for the ${envVarName} environment variable`
+  );
 };

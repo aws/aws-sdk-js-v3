@@ -18,7 +18,9 @@ export function blobReader(
         resolve();
         return;
       }
-      fileReader.readAsDataURL(blob.slice(totalBytesRead, Math.min(size, totalBytesRead + chunkSize)));
+      fileReader.readAsDataURL(
+        blob.slice(totalBytesRead, Math.min(size, totalBytesRead + chunkSize))
+      );
     };
 
     fileReader.onload = event => {

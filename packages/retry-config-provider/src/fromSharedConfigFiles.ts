@@ -22,8 +22,14 @@ export interface SharedConfigInit extends BaseSharedConfigInit {
   loadedConfig?: Promise<SharedConfigFiles>;
 }
 
-export const fromSharedConfigFiles = (init: SharedConfigInit = {}, configKey: string): Provider<string> => async () => {
-  const { loadedConfig = loadSharedConfigFiles(init), profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE } = init;
+export const fromSharedConfigFiles = (
+  init: SharedConfigInit = {},
+  configKey: string
+): Provider<string> => async () => {
+  const {
+    loadedConfig = loadSharedConfigFiles(init),
+    profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE
+  } = init;
 
   const { configFile } = await loadedConfig;
   const { [configKey]: configValue } = configFile[profile] || {};
@@ -31,5 +37,7 @@ export const fromSharedConfigFiles = (init: SharedConfigInit = {}, configKey: st
     return configValue;
   }
 
-  throw new ProviderError(`No ${configKey} found for profile ${profile} in SDK configuration files`);
+  throw new ProviderError(
+    `No ${configKey} found for profile ${profile} in SDK configuration files`
+  );
 };

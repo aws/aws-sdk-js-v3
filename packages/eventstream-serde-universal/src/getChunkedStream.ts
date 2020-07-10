@@ -1,11 +1,16 @@
-export function getChunkedStream(source: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> {
+export function getChunkedStream(
+  source: AsyncIterable<Uint8Array>
+): AsyncIterable<Uint8Array> {
   let currentMessageTotalLength = 0;
   let currentMessagePendingLength = 0;
   let currentMessage: Uint8Array | null = null;
   let messageLengthBuffer: Uint8Array | null = null;
   const allocateMessage = (size: number) => {
     if (typeof size !== "number") {
-      throw new Error("Attempted to allocate an event message where size was not a number: " + size);
+      throw new Error(
+        "Attempted to allocate an event message where size was not a number: " +
+          size
+      );
     }
     currentMessageTotalLength = size;
     currentMessagePendingLength = 4;
@@ -59,7 +64,9 @@ export function getChunkedStream(source: AsyncIterable<Uint8Array>): AsyncIterab
             // not enough information to create the current message
             break;
           }
-          allocateMessage(new DataView(messageLengthBuffer.buffer).getUint32(0, false));
+          allocateMessage(
+            new DataView(messageLengthBuffer.buffer).getUint32(0, false)
+          );
           messageLengthBuffer = null;
         }
 
@@ -77,7 +84,10 @@ export function getChunkedStream(source: AsyncIterable<Uint8Array>): AsyncIterab
         currentOffset += numBytesToWrite;
 
         // check if a message is ready to be pushed
-        if (currentMessageTotalLength && currentMessageTotalLength === currentMessagePendingLength) {
+        if (
+          currentMessageTotalLength &&
+          currentMessageTotalLength === currentMessagePendingLength
+        ) {
           // push out the message
           yield currentMessage as Uint8Array;
           // cleanup

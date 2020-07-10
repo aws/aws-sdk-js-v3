@@ -11,5 +11,10 @@ export const defaultRetryDecider = (error: SdkError) => {
     return false;
   }
 
-  return isRetryableByTrait(error) || isClockSkewError(error) || isThrottlingError(error) || isTransientError(error);
+  return (
+    isRetryableByTrait(error) ||
+    isClockSkewError(error) ||
+    isThrottlingError(error) ||
+    isTransientError(error)
+  );
 };

@@ -11,7 +11,12 @@ export function streamReader(
     stream.on("end", () => {
       if (temporaryBuffer?.byteLength) {
         for (let i = 0; i < temporaryBuffer.byteLength; i += chunkSize) {
-          onChunk(temporaryBuffer.subarray(i, Math.min(i + chunkSize, temporaryBuffer.byteLength)));
+          onChunk(
+            temporaryBuffer.subarray(
+              i,
+              Math.min(i + chunkSize, temporaryBuffer.byteLength)
+            )
+          );
         }
         // clear the temporaryBuffer
         temporaryBuffer = void 0;

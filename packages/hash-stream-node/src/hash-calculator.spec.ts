@@ -18,7 +18,11 @@ function createMockHash(): {
 }
 
 describe("HashCalculator", () => {
-  const writePromise = (calculator: HashCalculator, chunk: Buffer, encoding?: string): Promise<void> => {
+  const writePromise = (
+    calculator: HashCalculator,
+    chunk: Buffer,
+    encoding?: string
+  ): Promise<void> => {
     return new Promise((resolve, reject) => {
       calculator.write(chunk, encoding, err => {
         if (err) {
@@ -30,7 +34,11 @@ describe("HashCalculator", () => {
     });
   };
 
-  const listOfBuffers: Buffer[] = [Buffer.from("foo"), Buffer.from("bar"), Buffer.from("buzz")];
+  const listOfBuffers: Buffer[] = [
+    Buffer.from("foo"),
+    Buffer.from("bar"),
+    Buffer.from("buzz")
+  ];
 
   it("updates a hash from upstream stream", async () => {
     const mockHash = createMockHash();

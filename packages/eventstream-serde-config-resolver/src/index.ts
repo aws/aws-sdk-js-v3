@@ -1,4 +1,9 @@
-import { Decoder, Encoder, EventStreamMarshaller, EventStreamSerdeProvider } from "@aws-sdk/types";
+import {
+  Decoder,
+  Encoder,
+  EventStreamMarshaller,
+  EventStreamSerdeProvider
+} from "@aws-sdk/types";
 export interface EventStreamSerdeInputConfig {}
 
 export interface EventStreamSerdeResolvedConfig {

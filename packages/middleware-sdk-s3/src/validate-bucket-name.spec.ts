@@ -21,7 +21,9 @@ describe("validateBucketNameMiddleware", () => {
       error = e;
     }
     expect(error).toBeDefined();
-    expect(error.message).toEqual(`Bucket name shouldn't contain '/', received '${bucket}'`);
+    expect(error.message).toEqual(
+      `Bucket name shouldn't contain '/', received '${bucket}'`
+    );
     expect(error.name).toEqual("InvalidBucketName");
   });
 

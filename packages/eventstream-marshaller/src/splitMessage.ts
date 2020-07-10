@@ -20,9 +20,15 @@ export interface MessageParts {
 /**
  * @internal
  */
-export function splitMessage({ byteLength, byteOffset, buffer }: ArrayBufferView): MessageParts {
+export function splitMessage({
+  byteLength,
+  byteOffset,
+  buffer
+}: ArrayBufferView): MessageParts {
   if (byteLength < MINIMUM_MESSAGE_LENGTH) {
-    throw new Error("Provided message too short to accommodate event stream message overhead");
+    throw new Error(
+      "Provided message too short to accommodate event stream message overhead"
+    );
   }
 
   const view = new DataView(buffer, byteOffset, byteLength);
@@ -30,14 +36,21 @@ export function splitMessage({ byteLength, byteOffset, buffer }: ArrayBufferView
   const messageLength = view.getUint32(0, false);
 
   if (byteLength !== messageLength) {
-    throw new Error("Reported message length does not match received message length");
+    throw new Error(
+      "Reported message length does not match received message length"
+    );
   }
 
   const headerLength = view.getUint32(PRELUDE_MEMBER_LENGTH, false);
   const expectedPreludeChecksum = view.getUint32(PRELUDE_LENGTH, false);
-  const expectedMessageChecksum = view.getUint32(byteLength - CHECKSUM_LENGTH, false);
+  const expectedMessageChecksum = view.getUint32(
+    byteLength - CHECKSUM_LENGTH,
+    false
+  );
 
-  const checksummer = new Crc32().update(new Uint8Array(buffer, byteOffset, PRELUDE_LENGTH));
+  const checksummer = new Crc32().update(
+    new Uint8Array(buffer, byteOffset, PRELUDE_LENGTH)
+  );
   if (expectedPreludeChecksum !== checksummer.digest()) {
     throw new Error(
       `The prelude checksum specified in the message (${expectedPreludeChecksum}) does not match the calculated CRC32 checksum (${checksummer.digest()})`
@@ -45,7 +58,11 @@ export function splitMessage({ byteLength, byteOffset, buffer }: ArrayBufferView
   }
 
   checksummer.update(
-    new Uint8Array(buffer, byteOffset + PRELUDE_LENGTH, byteLength - (PRELUDE_LENGTH + CHECKSUM_LENGTH))
+    new Uint8Array(
+      buffer,
+      byteOffset + PRELUDE_LENGTH,
+      byteLength - (PRELUDE_LENGTH + CHECKSUM_LENGTH)
+    )
   );
   if (expectedMessageChecksum !== checksummer.digest()) {
     throw new Error(
@@ -54,11 +71,17 @@ export function splitMessage({ byteLength, byteOffset, buffer }: ArrayBufferView
   }
 
   return {
-    headers: new DataView(buffer, byteOffset + PRELUDE_LENGTH + CHECKSUM_LENGTH, headerLength),
+    headers: new DataView(
+      buffer,
+      byteOffset + PRELUDE_LENGTH + CHECKSUM_LENGTH,
+      headerLength
+    ),
     body: new Uint8Array(
       buffer,
       byteOffset + PRELUDE_LENGTH + CHECKSUM_LENGTH + headerLength,
-      messageLength - headerLength - (PRELUDE_LENGTH + CHECKSUM_LENGTH + CHECKSUM_LENGTH)
+      messageLength -
+        headerLength -
+        (PRELUDE_LENGTH + CHECKSUM_LENGTH + CHECKSUM_LENGTH)
     )
   };
 }

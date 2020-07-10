@@ -46,7 +46,11 @@ describe("getValueFromTextNode", () => {
     };
     const output = getValueFromTextNode(input);
     expect(output.key).toBe(input.key);
-    expect(output.keyWithoutTextNodeAtAnyLevel).toBe(input.keyWithoutTextNodeAtAnyLevel);
-    expect(output.keyWithTextNodeAtLevel2.keyWithTextNode).toBe(valueInsideTextNode);
+    expect(output.keyWithoutTextNodeAtAnyLevel).toBe(
+      input.keyWithoutTextNodeAtAnyLevel
+    );
+    expect(output.keyWithTextNodeAtLevel2.keyWithTextNode).toBe(
+      valueInsideTextNode
+    );
   });
 });
