@@ -1,6 +1,6 @@
-import { Buffer } from "buffer";
-import { request, IncomingMessage, RequestOptions } from "http";
 import { ProviderError } from "@aws-sdk/property-provider";
+import { Buffer } from "buffer";
+import { IncomingMessage, request, RequestOptions } from "http";
 
 /**
  * @internal
@@ -8,16 +8,21 @@ import { ProviderError } from "@aws-sdk/property-provider";
 export function httpRequest(options: RequestOptions): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     const req = request({ method: "GET", ...options });
+
     req.on("error", (err) => {
-      reject(new ProviderError("Unable to connect to instance metadata service"));
+      reject(Object.assign(new ProviderError("Unable to connect to instance metadata service"), err));
+    });
+
+    req.on("timeout", () => {
+      reject(new Error("TimeoutError"));
     });
 
     req.on("response", (res: IncomingMessage) => {
       const { statusCode = 400 } = res;
       if (statusCode < 200 || 300 <= statusCode) {
-        const error = new ProviderError("Error response received from instance metadata service");
-        (error as any).statusCode = statusCode;
-        reject(error);
+        reject(
+          Object.assign(new ProviderError("Error response received from instance metadata service"), { statusCode })
+        );
       }
 
       const chunks: Array<Buffer> = [];

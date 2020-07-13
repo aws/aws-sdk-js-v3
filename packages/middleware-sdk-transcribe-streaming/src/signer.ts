@@ -1,12 +1,12 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { SignatureV4 as BaseSignatureV4 } from "@aws-sdk/signature-v4";
 import {
-  RequestSigner,
   HttpRequest as IHttpRequest,
-  RequestSigningArguments,
   RequestPresigner,
   RequestPresigningArguments,
+  RequestSigner,
+  RequestSigningArguments,
 } from "@aws-sdk/types";
-import { SignatureV4 as BaseSignatureV4 } from "@aws-sdk/signature-v4";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export class SignatureV4 implements RequestSigner, RequestPresigner {
   private readonly signer: BaseSignatureV4;

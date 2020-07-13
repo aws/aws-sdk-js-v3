@@ -1,3 +1,4 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -7,7 +8,6 @@ import {
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 interface PreviouslyResolved {
   runtime: string;
@@ -17,7 +17,7 @@ export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildM
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let { request } = args;
+    const { request } = args;
     if (HttpRequest.isInstance(request) && request.body && options.runtime === "node") {
       request.headers = {
         ...request.headers,

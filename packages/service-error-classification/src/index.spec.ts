@@ -1,11 +1,12 @@
+import { RetryableTrait, SdkError } from "@aws-sdk/smithy-client";
+
 import {
   CLOCK_SKEW_ERROR_CODES,
   THROTTLING_ERROR_CODES,
   TRANSIENT_ERROR_CODES,
   TRANSIENT_ERROR_STATUS_CODES,
 } from "./constants";
-import { isRetryableByTrait, isClockSkewError, isThrottlingError, isTransientError } from "./index";
-import { SdkError, RetryableTrait } from "@aws-sdk/smithy-client";
+import { isClockSkewError, isRetryableByTrait, isThrottlingError, isTransientError } from "./index";
 
 const checkForErrorType = (
   isErrorTypeFunc: (error: SdkError) => boolean,

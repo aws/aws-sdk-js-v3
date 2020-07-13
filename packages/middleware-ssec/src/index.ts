@@ -3,11 +3,12 @@ import {
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-  InitializeMiddleware,
   SourceData,
 } from "@aws-sdk/types";
+
 import { ResolvedSsecMiddlewareConfig } from "./configuration";
 
 export function ssecMiddleware(options: ResolvedSsecMiddlewareConfig): InitializeMiddleware<any, any> {

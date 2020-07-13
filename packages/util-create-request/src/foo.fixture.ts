@@ -1,7 +1,7 @@
-import { MetadataBearer } from "@aws-sdk/types";
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Client, Command } from "@aws-sdk/smithy-client";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { Client, Command } from "@aws-sdk/smithy-client";
+import { MetadataBearer } from "@aws-sdk/types";
 
 export interface OperationInput {
   String: string;
@@ -31,7 +31,7 @@ export const fooClient: Client<any, InputTypesUnion, OutputTypesUnion, any> = {
 export const operationCommand: Command<InputTypesUnion, OutputTypesUnion, any, OperationInput, OperationOutput> = {
   middlewareStack: new MiddlewareStack<object, OutputTypesUnion>(),
   input: {} as any,
-  resolveMiddleware: (stack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>, config: any, options: any) => {
+  resolveMiddleware: (stack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>) => {
     const concatStack = stack.concat(operationCommand.middlewareStack);
     return concatStack.resolve(() => Promise.resolve({ output, response: {} }), {} as any);
   },

@@ -1,6 +1,5 @@
-import { Hash, HashConstructor, StreamHasher } from "@aws-sdk/types";
-
 import { blobReader } from "@aws-sdk/chunked-blob-reader";
+import { HashConstructor, StreamHasher } from "@aws-sdk/types";
 
 export const blobHasher: StreamHasher<Blob> = async function blobHasher(
   hashCtor: HashConstructor,

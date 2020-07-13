@@ -1,7 +1,8 @@
-import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
-import { HashConstructor, HttpRequest } from "@aws-sdk/types";
 import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
+import { HashConstructor, HttpRequest } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+
+import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
 
 /**
  * @internal

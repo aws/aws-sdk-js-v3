@@ -1,5 +1,5 @@
-import { MiddlewareStack } from "./middleware";
 import { Command } from "./command";
+import { MiddlewareStack } from "./middleware";
 import { MetadataBearer } from "./response";
 
 /**

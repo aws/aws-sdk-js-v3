@@ -1,6 +1,7 @@
-import { awsAuthMiddleware } from "./middleware";
-import { RequestSigner } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { RequestSigner } from "@aws-sdk/types";
+
+import { awsAuthMiddleware } from "./middleware";
 
 describe("SigningHandler", () => {
   const noOpSigner: RequestSigner = {

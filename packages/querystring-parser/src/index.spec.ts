@@ -1,5 +1,6 @@
-import { parseQueryString } from "./";
 import { QueryParameterBag } from "@aws-sdk/types";
+
+import { parseQueryString } from "./";
 
 describe("parseQueryString", () => {
   const testCases = new Map<string, QueryParameterBag>([

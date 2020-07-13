@@ -1,9 +1,9 @@
-import { createReadStream } from "fs";
-import { TreeHash } from "@aws-sdk/sha256-tree-hash";
-import { Decoder, HttpRequest, HashConstructor } from "@aws-sdk/types";
-import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
-import { toHex } from "@aws-sdk/util-hex-encoding";
 import { streamReader } from "@aws-sdk/chunked-stream-reader-node";
+import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
+import { TreeHash } from "@aws-sdk/sha256-tree-hash";
+import { Decoder, HashConstructor, HttpRequest } from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
+import { createReadStream } from "fs";
 
 export async function bodyChecksumGenerator(
   request: HttpRequest,

@@ -1,8 +1,8 @@
-import { ConverterComponent } from "typedoc/dist/lib/converter/components";
 import { PluginHost } from "typedoc/dist/lib/utils";
-import { SdkClientTocPlugin } from "./sdk-client-toc-plugin";
-import { SdkClientSourceUpdatePlugin } from "./sdk-client-source-update";
+
 import { SdkClientRenameGlobalPlugin } from "./sdk-client-rename-global";
+import { SdkClientSourceUpdatePlugin } from "./sdk-client-source-update";
+import { SdkClientTocPlugin } from "./sdk-client-toc-plugin";
 
 /**
  *

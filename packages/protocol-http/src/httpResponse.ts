@@ -1,4 +1,4 @@
-import { HttpMessage, HeaderBag, HttpResponse as IHttpResponse } from "@aws-sdk/types";
+import { HeaderBag, HttpMessage, HttpResponse as IHttpResponse } from "@aws-sdk/types";
 
 type HttpResponseOptions = Partial<HttpMessage> & {
   statusCode: number;

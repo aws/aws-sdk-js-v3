@@ -1,5 +1,6 @@
-import { sendMessageBatchMiddleware } from "./send-message-batch";
 import { HashConstructor } from "@aws-sdk/types";
+
+import { sendMessageBatchMiddleware } from "./send-message-batch";
 
 describe("sendMessageBatchMiddleware", () => {
   const mockHashUpdate = jest.fn();

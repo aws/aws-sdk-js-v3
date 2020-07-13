@@ -1,6 +1,7 @@
-import { RequestHandler, BuildHandlerArguments } from "@aws-sdk/types";
-import { websocketURLMiddleware } from "./middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { BuildHandlerArguments, RequestHandler } from "@aws-sdk/types";
+
+import { websocketURLMiddleware } from "./middleware-endpoint";
 
 describe("websocketURLMiddleware", () => {
   const mockHandler: RequestHandler<any, any> = {

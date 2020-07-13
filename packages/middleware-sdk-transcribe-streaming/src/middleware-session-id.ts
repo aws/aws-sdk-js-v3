@@ -1,8 +1,8 @@
 import {
-  InitializeMiddleware,
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
+  InitializeMiddleware,
   RequestHandler,
 } from "@aws-sdk/types";
 import { v4 } from "uuid";

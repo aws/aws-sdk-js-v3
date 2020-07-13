@@ -1,12 +1,7 @@
-import {
-  BuildMiddleware,
-  BuildHandlerOptions,
-  FinalizeRequestMiddleware,
-  FinalizeRequestHandlerOptions,
-  RelativeLocation,
-} from "@aws-sdk/types";
-import { EventStreamResolvedConfig } from "./configuration";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { FinalizeRequestHandlerOptions, FinalizeRequestMiddleware, RelativeLocation } from "@aws-sdk/types";
+
+import { EventStreamResolvedConfig } from "./configuration";
 
 export const eventStreamHandlingMiddleware = (
   options: EventStreamResolvedConfig

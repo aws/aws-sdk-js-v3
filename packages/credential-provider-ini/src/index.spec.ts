@@ -1,7 +1,8 @@
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
-import { join, sep } from "path";
-import { AssumeRoleParams, ENV_PROFILE, fromIni } from "./";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
+import { Credentials } from "@aws-sdk/types";
+import { join, sep } from "path";
+
+import { AssumeRoleParams, ENV_PROFILE, fromIni } from "./";
 
 jest.mock("fs", () => {
   interface FsModule {
@@ -11,7 +12,7 @@ jest.mock("fs", () => {
   }
 
   const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
-  let matchers = new Map<string, string>();
+  const matchers = new Map<string, string>();
 
   function readFile(path: string, encoding: string, callback: (err: Error | null, data?: string) => void): void {
     if (matchers.has(path)) {
@@ -676,7 +677,7 @@ source_profile = default
         { creds: FOO_CREDS, arn: roleArnFor("foo") },
       ];
 
-      for (let { creds, arn } of expectedCalls) {
+      for (const { creds, arn } of expectedCalls) {
         const call = <any>roleAssumer.mock.calls.shift();
         expect(call[0]).toEqual(creds);
         expect(call[1].RoleArn).toEqual(arn);

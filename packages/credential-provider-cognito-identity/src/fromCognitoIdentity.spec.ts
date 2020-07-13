@@ -1,6 +1,7 @@
-import { fromCognitoIdentity } from "./fromCognitoIdentity";
-import { ProviderError } from "@aws-sdk/property-provider";
 import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity";
+import { ProviderError } from "@aws-sdk/property-provider";
+
+import { fromCognitoIdentity } from "./fromCognitoIdentity";
 
 describe("fromCognitoIdentity", () => {
   const identityId = "id";

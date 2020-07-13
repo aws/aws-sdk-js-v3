@@ -1,8 +1,8 @@
 import {
   changeResourceRecordSetsMiddleware,
   getChangeResourceRecordSetsPlugin,
-  idNormalizerMiddleware,
   getIdNormalizerPlugin,
+  idNormalizerMiddleware,
 } from "./index";
 
 describe("middleware-sdk-route53 package exports", () => {

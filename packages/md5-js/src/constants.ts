@@ -1,12 +1,12 @@
 /**
  * @internal
  */
-export const BLOCK_SIZE: number = 64;
+export const BLOCK_SIZE = 64;
 
 /**
  * @internal
  */
-export const DIGEST_LENGTH: number = 16;
+export const DIGEST_LENGTH = 16;
 
 /**
  * @internal

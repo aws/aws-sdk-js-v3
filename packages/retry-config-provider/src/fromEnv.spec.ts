@@ -1,5 +1,6 @@
-import { fromEnv } from "./fromEnv";
 import { ProviderError } from "@aws-sdk/property-provider";
+
+import { fromEnv } from "./fromEnv";
 
 describe("fromEnv", () => {
   const envVarName = "ENV_VAR_NAME";

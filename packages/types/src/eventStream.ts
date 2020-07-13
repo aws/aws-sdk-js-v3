@@ -1,11 +1,11 @@
 import { HttpRequest } from "./http";
-import { MetadataBearer } from "./response";
 import {
-  HandlerExecutionContext,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
+  HandlerExecutionContext,
 } from "./middleware";
+import { MetadataBearer } from "./response";
 /**
  * An event stream message. The headers and body properties will always be
  * defined, with empty headers represented as an object with no keys and an

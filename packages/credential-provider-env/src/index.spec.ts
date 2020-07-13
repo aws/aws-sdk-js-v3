@@ -1,5 +1,6 @@
 import { ProviderError } from "@aws-sdk/property-provider";
-import { ENV_KEY, ENV_SECRET, ENV_SESSION, ENV_EXPIRATION, fromEnv } from "./";
+
+import { ENV_EXPIRATION, ENV_KEY, ENV_SECRET, ENV_SESSION, fromEnv } from "./";
 
 const akid = process.env[ENV_KEY];
 const secret = process.env[ENV_SECRET];

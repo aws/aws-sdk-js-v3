@@ -1,5 +1,6 @@
-import { addChecksumHeadersMiddleware } from "./add-checksum-headers";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { addChecksumHeadersMiddleware } from "./add-checksum-headers";
 
 describe("addChecksumHeadersMiddleware", () => {
   const bodyChecksumGenerator = jest

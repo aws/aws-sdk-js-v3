@@ -1,4 +1,4 @@
-import { HandlerOptions, Step, MiddlewareType, Priority } from "@aws-sdk/types";
+import { HandlerOptions, MiddlewareType, Priority,Step } from "@aws-sdk/types";
 export interface MiddlewareEntry<Input extends object, Output extends object> extends HandlerOptions {
   step: Step;
   middleware: MiddlewareType<Input, Output>;

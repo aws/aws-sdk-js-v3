@@ -1,6 +1,7 @@
-import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { SdkError } from "@aws-sdk/smithy-client";
-import { INITIAL_RETRY_TOKENS, TIMEOUT_RETRY_COST, RETRY_COST, NO_RETRY_INCREMENT } from "./constants";
+
+import { INITIAL_RETRY_TOKENS, NO_RETRY_INCREMENT, RETRY_COST, TIMEOUT_RETRY_COST } from "./constants";
+import { getDefaultRetryQuota } from "./defaultRetryQuota";
 
 describe("defaultRetryQuota", () => {
   const getMockError = () => new Error() as SdkError;
@@ -135,13 +136,13 @@ describe("defaultRetryQuota", () => {
       const retryQuota = getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
 
       // release 100 tokens.
-      [...Array(100).keys()].forEach((key) => {
+      [...Array(100).keys()].forEach(() => {
         retryQuota.releaseRetryTokens();
       });
 
       // availableCapacity is still maxed at INITIAL_RETRY_TOKENS
       // hasRetryTokens would be true only till INITIAL_RETRY_TOKENS/RETRY_COST times
-      [...Array(Math.floor(INITIAL_RETRY_TOKENS / RETRY_COST)).keys()].forEach((key) => {
+      [...Array(Math.floor(INITIAL_RETRY_TOKENS / RETRY_COST)).keys()].forEach(() => {
         expect(retryQuota.hasRetryTokens(error)).toBe(true);
         retryQuota.retrieveRetryTokens(error);
       });

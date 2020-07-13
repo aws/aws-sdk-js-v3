@@ -1,5 +1,6 @@
-import { cloneRequest } from "./cloneRequest";
 import { HttpRequest, QueryParameterBag } from "@aws-sdk/types";
+
+import { cloneRequest } from "./cloneRequest";
 
 describe("cloneRequest", () => {
   const request: HttpRequest = Object.freeze({

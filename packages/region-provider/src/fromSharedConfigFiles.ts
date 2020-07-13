@@ -26,7 +26,7 @@ export const fromSharedConfigFiles = (init: SharedConfigInit = {}): Provider<str
   const { loadedConfig = loadSharedConfigFiles(init), profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE } = init;
 
   const { configFile, credentialsFile } = await loadedConfig;
-  for (let file of [credentialsFile, configFile]) {
+  for (const file of [credentialsFile, configFile]) {
     const { region } = file[profile] || <any>{};
     if (typeof region === "string") {
       return region;

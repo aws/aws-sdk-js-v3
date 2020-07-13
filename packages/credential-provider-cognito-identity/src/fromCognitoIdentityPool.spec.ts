@@ -1,6 +1,7 @@
-import { fromCognitoIdentityPool } from "./fromCognitoIdentityPool";
-import { ProviderError } from "@aws-sdk/property-provider";
 import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
+import { ProviderError } from "@aws-sdk/property-provider";
+
+import { fromCognitoIdentityPool } from "./fromCognitoIdentityPool";
 
 jest.mock("./fromCognitoIdentity", () => {
   const promiseFunc = jest.fn().mockResolvedValue({
@@ -23,8 +24,8 @@ jest.mock("./localStorage", () => {
     },
   };
 });
-import { localStorage } from "./localStorage";
 import { InMemoryStorage } from "./InMemoryStorage";
+import { localStorage } from "./localStorage";
 
 describe("fromCognitoIdentityPool", () => {
   const identityPoolId = "poolId";

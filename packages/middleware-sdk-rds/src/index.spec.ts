@@ -1,5 +1,5 @@
 import { crossRegionPresignedUrlMiddleware } from "./";
-import { MockSha256, region, credentials, endpoint } from "./fixture";
+import { credentials, endpoint, MockSha256, region } from "./fixture";
 
 const nextHandler = jest.fn();
 const arn = "arn:aws:rds:src-region:000000000000:src-snapshot:dist-snapshot";

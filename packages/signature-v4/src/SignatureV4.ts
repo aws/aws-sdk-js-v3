@@ -1,9 +1,22 @@
-import { createScope, getSigningKey } from "./credentialDerivation";
-import { getCanonicalHeaders } from "./getCanonicalHeaders";
-import { getCanonicalQuery } from "./getCanonicalQuery";
-import { getPayloadHash } from "./getPayloadHash";
-import { prepareRequest } from "./prepareRequest";
-import { moveHeadersToQuery } from "./moveHeadersToQuery";
+import {
+  Credentials,
+  DateInput,
+  EventSigner,
+  EventSigningArguments,
+  FormattedEvent,
+  HashConstructor,
+  HeaderBag,
+  HttpRequest,
+  Provider,
+  RequestPresigner,
+  RequestPresigningArguments,
+  RequestSigner,
+  RequestSigningArguments,
+  SigningArguments,
+  StringSigner,
+} from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
+
 import {
   ALGORITHM_IDENTIFIER,
   ALGORITHM_QUERY_PARAM,
@@ -11,6 +24,7 @@ import {
   AMZ_DATE_QUERY_PARAM,
   AUTH_HEADER,
   CREDENTIAL_QUERY_PARAM,
+  EVENT_ALGORITHM_IDENTIFIER,
   EXPIRES_QUERY_PARAM,
   MAX_PRESIGNED_TTL,
   SHA256_HEADER,
@@ -18,27 +32,14 @@ import {
   SIGNED_HEADERS_QUERY_PARAM,
   TOKEN_HEADER,
   TOKEN_QUERY_PARAM,
-  EVENT_ALGORITHM_IDENTIFIER,
 } from "./constants";
-import {
-  Credentials,
-  DateInput,
-  HashConstructor,
-  Provider,
-  RequestPresigner,
-  RequestSigner,
-  RequestSigningArguments,
-  RequestPresigningArguments,
-  SigningArguments,
-  StringSigner,
-  EventSigner,
-  FormattedEvent,
-  EventSigningArguments,
-  HeaderBag,
-  HttpRequest,
-} from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
+import { createScope, getSigningKey } from "./credentialDerivation";
+import { getCanonicalHeaders } from "./getCanonicalHeaders";
+import { getCanonicalQuery } from "./getCanonicalQuery";
+import { getPayloadHash } from "./getPayloadHash";
 import { hasHeader } from "./hasHeader";
+import { moveHeadersToQuery } from "./moveHeadersToQuery";
+import { prepareRequest } from "./prepareRequest";
 import { iso8601 } from "./utilDate";
 
 export interface SignatureV4Init {

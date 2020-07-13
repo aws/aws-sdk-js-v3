@@ -1,6 +1,7 @@
-import { SIGNATURE_HEADER } from "./constants";
 import { HttpRequest } from "@aws-sdk/types";
 import { escapeUri } from "@aws-sdk/util-uri-escape";
+
+import { SIGNATURE_HEADER } from "./constants";
 
 /**
  * @internal
@@ -8,7 +9,7 @@ import { escapeUri } from "@aws-sdk/util-uri-escape";
 export function getCanonicalQuery({ query = {} }: HttpRequest): string {
   const keys: Array<string> = [];
   const serialized: { [key: string]: string } = {};
-  for (let key of Object.keys(query).sort()) {
+  for (const key of Object.keys(query).sort()) {
     if (key.toLowerCase() === SIGNATURE_HEADER) {
       continue;
     }

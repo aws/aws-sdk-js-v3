@@ -1,6 +1,7 @@
-import { getCanonicalHeaders } from "./getCanonicalHeaders";
-import { ALWAYS_UNSIGNABLE_HEADERS } from "./constants";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { ALWAYS_UNSIGNABLE_HEADERS } from "./constants";
+import { getCanonicalHeaders } from "./getCanonicalHeaders";
 
 describe("getCanonicalHeaders", () => {
   it("should downcase all headers", () => {
@@ -37,7 +38,7 @@ describe("getCanonicalHeaders", () => {
       },
       hostname: "foo.us-east-1.amazonaws.com",
     });
-    for (let headerName of Object.keys(ALWAYS_UNSIGNABLE_HEADERS)) {
+    for (const headerName of Object.keys(ALWAYS_UNSIGNABLE_HEADERS)) {
       request.headers[headerName] = "baz";
     }
 

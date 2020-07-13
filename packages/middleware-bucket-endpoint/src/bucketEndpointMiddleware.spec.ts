@@ -1,5 +1,6 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+
 import { bucketEndpointMiddleware, bucketEndpointMiddlewareOptions } from "./bucketEndpointMiddleware";
 import { resolveBucketEndpointConfig } from "./configurations";
 

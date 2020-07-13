@@ -1,5 +1,5 @@
+import { credentials, endpoint, MockSha256, region } from "./fixture";
 import { copySnapshotPresignedUrlMiddleware } from "./index";
-import { credentials, endpoint, region, MockSha256 } from "./fixture";
 
 const nextHandler = jest.fn();
 const handler = copySnapshotPresignedUrlMiddleware({

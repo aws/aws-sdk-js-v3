@@ -1,4 +1,5 @@
 import { join, sep } from "path";
+
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH, loadSharedConfigFiles } from "./";
 
 jest.mock("fs", () => {
@@ -9,7 +10,7 @@ jest.mock("fs", () => {
   }
 
   const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
-  let matchers = new Map<string, string>();
+  const matchers = new Map<string, string>();
 
   function readFile(path: string, encoding: string, callback: (err: Error | null, data?: string) => void): void {
     if (matchers.has(path)) {

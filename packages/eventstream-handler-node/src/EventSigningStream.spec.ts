@@ -1,10 +1,11 @@
-import { EventSigningStream } from "./EventSigningStream";
 import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { toUtf8, fromUtf8 } from "@aws-sdk/util-utf8-node";
 import { Message, MessageHeaders } from "@aws-sdk/types";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+
+import { EventSigningStream } from "./EventSigningStream";
 
 describe("EventSigningStream", () => {
-  let originalDate = Date;
+  const originalDate = Date;
   afterEach(() => {
     Date = originalDate;
   });
@@ -42,6 +43,7 @@ describe("EventSigningStream", () => {
       .mockReturnValueOnce("7369676e617475726532"); //'signature2'
     // mock 'new Date()'
     let mockDateCount = 0;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const mockDate = jest
       .spyOn(global, "Date")
       //@ts-ignore: https://stackoverflow.com/questions/60912023/jest-typescript-mock-date-constructor/60918716#60918716

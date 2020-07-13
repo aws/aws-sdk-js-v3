@@ -1,4 +1,5 @@
-import { HttpRequest, HeaderBag } from "@aws-sdk/types";
+import { HeaderBag,HttpRequest } from "@aws-sdk/types";
+
 import { ALWAYS_UNSIGNABLE_HEADERS, PROXY_HEADER_PATTERN, SEC_HEADER_PATTERN } from "./constants";
 
 /**
@@ -10,7 +11,7 @@ export function getCanonicalHeaders(
   signableHeaders?: Set<string>
 ): HeaderBag {
   const canonical: HeaderBag = {};
-  for (let headerName of Object.keys(headers).sort()) {
+  for (const headerName of Object.keys(headers).sort()) {
     const canonicalHeaderName = headerName.toLowerCase();
     if (
       canonicalHeaderName in ALWAYS_UNSIGNABLE_HEADERS ||

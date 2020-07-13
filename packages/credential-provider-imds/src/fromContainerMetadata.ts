@@ -1,11 +1,12 @@
+import { ProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider } from "@aws-sdk/types";
-import { RemoteProviderInit, providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
+import { RequestOptions } from "http";
+import { parse } from "url";
+
 import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
+import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
-import { ProviderError } from "@aws-sdk/property-provider";
-import { parse } from "url";
-import { RequestOptions } from "http";
 
 export const ENV_CMDS_FULL_URI = "AWS_CONTAINER_CREDENTIALS_FULL_URI";
 export const ENV_CMDS_RELATIVE_URI = "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI";

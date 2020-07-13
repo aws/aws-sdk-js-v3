@@ -1,5 +1,6 @@
-import { predictEndpointMiddleware } from "./predict-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { predictEndpointMiddleware } from "./predict-endpoint";
 
 describe("predictEndpointMiddleware", () => {
   const mockUrlParser = jest.fn().mockReturnValue({

@@ -5,6 +5,7 @@ jest.mock("buffer", () => {
   return { Buffer };
 });
 import { Buffer } from "buffer";
+
 import { fromArrayBuffer, fromString } from "./";
 
 describe("fromArrayBuffer", () => {

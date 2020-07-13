@@ -1,17 +1,18 @@
-import { S3RequestPresigner, S3RequestPresignerOptions } from "./index";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import { Hash } from "@aws-sdk/hash-node";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+
 import {
   ALGORITHM_IDENTIFIER,
-  SHA256_HEADER,
   ALGORITHM_QUERY_PARAM,
   AMZ_DATE_QUERY_PARAM,
   CREDENTIAL_QUERY_PARAM,
   EXPIRES_QUERY_PARAM,
   HOST_HEADER,
+  SHA256_HEADER,
   SIGNED_HEADERS_QUERY_PARAM,
   UNSIGNED_PAYLOAD,
 } from "./constants";
+import { S3RequestPresigner, S3RequestPresignerOptions } from "./index";
 
 describe("s3 presigner", () => {
   const s3ResolvedConfig: S3RequestPresignerOptions = {

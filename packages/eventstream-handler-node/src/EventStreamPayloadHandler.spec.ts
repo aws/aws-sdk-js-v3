@@ -1,10 +1,11 @@
-import { Readable, PassThrough } from "stream";
+import { PassThrough, Readable } from "stream";
 const mockSingingStream = jest.fn().mockImplementation(() => new PassThrough());
 jest.mock("./EventSigningStream", () => ({
   EventSigningStream: mockSingingStream,
 }));
+import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments, HttpRequest } from "@aws-sdk/types";
+
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
-import { EventSigner, Decoder, Encoder, FinalizeHandler, HttpRequest, FinalizeHandlerArguments } from "@aws-sdk/types";
 
 describe("EventStreamPayloadHandler", () => {
   const mockSigner: EventSigner = {

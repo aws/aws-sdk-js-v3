@@ -1,5 +1,6 @@
-import { defaultProvider, ENV_IMDS_DISABLED } from "./";
 import { ProviderError } from "@aws-sdk/property-provider";
+
+import { defaultProvider, ENV_IMDS_DISABLED } from "./";
 
 jest.mock("@aws-sdk/credential-provider-env", () => {
   const envProvider = jest.fn();
@@ -17,7 +18,6 @@ jest.mock("@aws-sdk/credential-provider-ini", () => {
   };
 });
 import { ENV_PROFILE, fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
-
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 
 jest.mock("@aws-sdk/credential-provider-process", () => {

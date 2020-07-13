@@ -1,5 +1,6 @@
-import { addExpectContinueMiddleware } from "./index";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { addExpectContinueMiddleware } from "./index";
 
 describe("addExpectContinueMiddleware", () => {
   const mockNextHandler = jest.fn();

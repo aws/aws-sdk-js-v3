@@ -1,6 +1,6 @@
-import { getChunkedStream } from "./getChunkedStream";
-import { recordEventMessage, statsEventMessage, endEventMessage } from "./fixtures/event.fixture";
+import { endEventMessage, recordEventMessage, statsEventMessage } from "./fixtures/event.fixture";
 import { MockEventMessageSource } from "./fixtures/MockEventMessageSource.fixture";
+import { getChunkedStream } from "./getChunkedStream";
 
 describe("getChunkedStream", () => {
   it("splits payloads into individual messages", async () => {
@@ -88,6 +88,7 @@ describe("getChunkedStream", () => {
     const chunkerStream = getChunkedStream(mockStream);
     let error: Error | undefined = undefined;
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for await (const msg of chunkerStream) {
         //Pass
       }

@@ -1,13 +1,14 @@
-import { createRequest } from "./index";
-import { fooClient, operationCommand, InputTypesUnion, OperationInput, httpRequest } from "./foo.fixture";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { Client } from "@aws-sdk/smithy-client";
 import {
-  MetadataBearer,
-  SerializeHandlerArguments,
   BuildHandlerArguments,
   FinalizeHandlerArguments,
+  MetadataBearer,
+  SerializeHandlerArguments,
 } from "@aws-sdk/types";
-import { Client } from "@aws-sdk/smithy-client";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { fooClient, httpRequest, InputTypesUnion, operationCommand, OperationInput } from "./foo.fixture";
+import { createRequest } from "./index";
 
 describe("create-request", () => {
   it("should concat initialize and serialize middlewares from client and command", async () => {

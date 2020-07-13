@@ -1,5 +1,5 @@
-import { CredentialProvider } from "@aws-sdk/types";
 import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialProvider } from "@aws-sdk/types";
 
 export const ENV_KEY = "AWS_ACCESS_KEY_ID";
 export const ENV_SECRET = "AWS_SECRET_ACCESS_KEY";

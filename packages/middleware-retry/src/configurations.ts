@@ -1,4 +1,5 @@
-import { RetryStrategy, Provider } from "@aws-sdk/types";
+import { Provider, RetryStrategy } from "@aws-sdk/types";
+
 import { StandardRetryStrategy } from "./defaultStrategy";
 
 export interface RetryInputConfig {

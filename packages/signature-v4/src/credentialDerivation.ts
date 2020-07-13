@@ -1,4 +1,5 @@
 import { Credentials, HashConstructor, SourceData } from "@aws-sdk/types";
+
 import { KEY_TYPE_IDENTIFIER, MAX_CACHE_SIZE } from "./constants";
 
 const signingKeyCache: { [key: string]: Promise<Uint8Array> } = {};
@@ -47,7 +48,7 @@ export function getSigningKey(
   return (signingKeyCache[cacheKey] = new Promise((resolve, reject) => {
     let keyPromise: Promise<SourceData> = Promise.resolve(`AWS4${credentials.secretAccessKey}`);
 
-    for (let signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
+    for (const signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
       keyPromise = keyPromise.then<Uint8Array>((intermediateKey) => hmac(sha256Constructor, intermediateKey, signable));
       keyPromise.catch(() => {});
     }

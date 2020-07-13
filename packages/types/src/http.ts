@@ -1,5 +1,4 @@
 import { AbortSignal } from "./abort";
-import { Readable } from "stream";
 /**
  * A collection of key/value pairs with case-insensitive keys.
  */

@@ -1,5 +1,6 @@
-import { acceptHeaderMiddleware } from "./index";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { acceptHeaderMiddleware } from "./index";
 
 describe("acceptHeaderMiddleware", () => {
   const next = jest.fn();

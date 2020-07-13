@@ -1,6 +1,6 @@
-import { defaultUserAgent } from ".";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import * as process from "process";
+
+import { defaultUserAgent } from ".";
 
 describe("defaultUserAgent", () => {
   it("should response basic node default user agent", () => {

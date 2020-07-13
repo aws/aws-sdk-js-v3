@@ -1,14 +1,15 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
-  FinalizeRequestMiddleware,
   FinalizeHandlerOutput,
+  FinalizeRequestHandlerOptions,
+  FinalizeRequestMiddleware,
   Pluggable,
   RelativeLocation,
-  FinalizeRequestHandlerOptions,
 } from "@aws-sdk/types";
+
 import { AwsAuthResolvedConfig } from "./configurations";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 const isClockSkewed = (newServerTime: number, systemClockOffset: number) =>
   Math.abs(getSkewCorrectedDate(systemClockOffset).getTime() - newServerTime) >= 300000;

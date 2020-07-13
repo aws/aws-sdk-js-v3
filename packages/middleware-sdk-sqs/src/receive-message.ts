@@ -1,14 +1,15 @@
-import { PreviouslyResolved } from "./configurations";
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+
+import { PreviouslyResolved } from "./configurations";
 
 interface ReceiveMessageResult {
   Messages: Array<Message>;
@@ -28,7 +29,7 @@ export function receiveMessageMiddleware(options: PreviouslyResolved): Initializ
   ): Promise<InitializeHandlerOutput<Output>> => {
     const resp = await next({ ...args });
     const output = (resp.output as unknown) as ReceiveMessageResult;
-    let messageIds = [];
+    const messageIds = [];
     if (output.Messages !== undefined) {
       for (const message of output.Messages) {
         const md5 = message.MD5OfBody;

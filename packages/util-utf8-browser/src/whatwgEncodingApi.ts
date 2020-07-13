@@ -3,6 +3,7 @@
  *
  * @see https://encoding.spec.whatwg.org/
  */
+// eslint-disable-next-line @typescript-eslint/no-namespace
 namespace Encoding {
   interface TextDecoderOptions {
     fatal?: boolean;

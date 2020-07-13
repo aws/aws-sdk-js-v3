@@ -19,6 +19,7 @@ export class MockEventMessageSource extends Readable {
   }
 
   _read() {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
     if (this.readCount === this.data.length) {
       if (this.throwError) {

@@ -1,15 +1,16 @@
 import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
-  MetadataBearer,
   HeaderBag,
+  MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+
 import { Md5BodyChecksumResolvedConfig } from "./md5Configuration";
 
 export function applyMd5BodyChecksumMiddleware(options: Md5BodyChecksumResolvedConfig): BuildMiddleware<any, any> {

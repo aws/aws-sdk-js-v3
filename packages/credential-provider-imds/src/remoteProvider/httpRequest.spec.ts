@@ -1,14 +1,15 @@
-import * as nock from "nock";
-import { createServer } from "http";
-import { httpRequest } from "./httpRequest";
 import { ProviderError } from "@aws-sdk/property-provider";
+import { createServer } from "http";
+import * as nock from "nock";
+
+import { httpRequest } from "./httpRequest";
 
 describe("httpRequest", () => {
   let port: number;
   const host = "localhost";
   const path = "/";
 
-  const getOpenPort = async (candidatePort: number = 4321): Promise<number> => {
+  const getOpenPort = async (candidatePort = 4321): Promise<number> => {
     try {
       return new Promise<number>((resolve, reject) => {
         const server = createServer();
@@ -78,5 +79,17 @@ describe("httpRequest", () => {
     describe("when request returns with statusCode >= 300", () => {
       [300, 400, 500].forEach(errorOnStatusCode);
     });
+  });
+
+  it("timeout", async () => {
+    const timeout = 1000;
+    const scope = nock(`http://${host}:${port}`)
+      .get(path)
+      .delay(timeout * 2)
+      .reply(200, "expectedResponse");
+
+    await expect(httpRequest({ host, path, port, timeout })).rejects.toStrictEqual(new Error("TimeoutError"));
+
+    scope.done();
   });
 });

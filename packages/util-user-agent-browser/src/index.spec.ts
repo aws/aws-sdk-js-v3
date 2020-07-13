@@ -1,5 +1,4 @@
 import { defaultUserAgent } from ".";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 it("should response basic node default user agent", () => {
   let originUserAgent = "";

@@ -1,10 +1,11 @@
+import { SdkError } from "@aws-sdk/smithy-client";
+
 import {
   CLOCK_SKEW_ERROR_CODES,
   THROTTLING_ERROR_CODES,
   TRANSIENT_ERROR_CODES,
   TRANSIENT_ERROR_STATUS_CODES,
 } from "./constants";
-import { SdkError } from "@aws-sdk/smithy-client";
 
 export const isRetryableByTrait = (error: SdkError) => error.$retryable !== undefined;
 

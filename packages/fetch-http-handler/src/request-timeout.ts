@@ -1,4 +1,4 @@
-export function requestTimeout(timeoutInMs: number = 0): Promise<never> {
+export function requestTimeout(timeoutInMs = 0): Promise<never> {
   return new Promise((resolve, reject) => {
     if (timeoutInMs) {
       setTimeout(() => {

@@ -1,5 +1,6 @@
-import { ProviderError } from "./ProviderError";
 import { Provider } from "@aws-sdk/types";
+
+import { ProviderError } from "./ProviderError";
 
 /**
  * Compose a single credential provider function from multiple credential

@@ -1,5 +1,4 @@
 import { AbortController } from "./AbortController";
-import { AbortSignal } from "./AbortSignal";
 
 describe("AbortSignal", () => {
   it("should report aborted to be false until the signal is aborted", () => {

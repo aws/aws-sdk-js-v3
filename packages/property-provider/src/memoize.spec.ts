@@ -18,7 +18,7 @@ describe("memoize", () => {
       expect.assertions(repeatTimes * 2);
 
       const memoized = memoize(provider);
-
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for (const index in [...Array(repeatTimes).keys()]) {
         expect(await memoized()).toStrictEqual(mockReturn);
         expect(provider).toHaveBeenCalledTimes(1);
@@ -30,7 +30,7 @@ describe("memoize", () => {
 
       const memoized = memoize(provider);
       const result = memoized();
-
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for (const index in [...Array(repeatTimes).keys()]) {
         expect(memoized()).toStrictEqual(result);
         expect(provider).toHaveBeenCalledTimes(1);
@@ -51,7 +51,7 @@ describe("memoize", () => {
       const isExpiredFalseTest = async (requiresRefresh?: any) => {
         isExpired.mockReturnValue(false);
         const memoized = memoize(provider, isExpired, requiresRefresh);
-
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const index in [...Array(repeatTimes).keys()]) {
           expect(await memoized()).toEqual(mockReturn);
         }
@@ -76,7 +76,7 @@ describe("memoize", () => {
     describe("should reinvoke the underlying provider when isExpired returns `true`", () => {
       const isExpiredTrueTest = async (requiresRefresh?: any) => {
         const memoized = memoize(provider, isExpired, requiresRefresh);
-
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const index in [...Array(repeatTimes).keys()]) {
           expect(await memoized()).toEqual(mockReturn);
         }
@@ -103,7 +103,7 @@ describe("memoize", () => {
         const memoized = memoize(provider, isExpired, requiresRefresh);
         const result = memoized();
         expect(await result).toBe(mockReturn);
-
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const index in [...Array(repeatTimes).keys()]) {
           expect(memoized()).toStrictEqual(result);
           expect(provider).toHaveBeenCalledTimes(1);

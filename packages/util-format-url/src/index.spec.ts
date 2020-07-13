@@ -1,5 +1,6 @@
-import { formatUrl } from "./";
 import { HttpRequest } from "@aws-sdk/types";
+
+import { formatUrl } from "./";
 
 describe("format url", () => {
   const requestTemplate: HttpRequest = {
@@ -27,7 +28,7 @@ describe("format url", () => {
   });
 
   it("should append port number to hostname", () => {
-    let request = {
+    const request = {
       ...requestTemplate,
       port: 80,
     };
@@ -49,7 +50,7 @@ describe("format url", () => {
     });
 
     it("should not uri encode the path(input should be already encoded)", () => {
-      let request = {
+      const request = {
         ...requestTemplate,
         path: "%3Ba/b/c",
       };
@@ -78,7 +79,7 @@ describe("format url", () => {
     });
 
     it("should encode query with value as array", () => {
-      let request = {
+      const request = {
         ...requestTemplate,
         query: {
           foo: ["query", "with", "array", "value"],
@@ -88,21 +89,21 @@ describe("format url", () => {
     });
 
     it("should encode pure string (when value is null)", () => {
-      let request = {
+      const request = {
         ...requestTemplate,
         query: {
           query: null,
         },
       };
       expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?query");
-      let queryLikePath = {
+      const queryLikePath = {
         ...requestTemplate,
         query: {
           "a/query/string": null,
         },
       };
       expect(formatUrl(queryLikePath)).toBe("https://foo.mock-region.awsamazon.com/?a%2Fquery%2Fstring");
-      let complicateQuery = {
+      const complicateQuery = {
         ...requestTemplate,
         query: {
           "that's all": null,
