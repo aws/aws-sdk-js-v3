@@ -22,6 +22,7 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.StringUtils;
 
 /**
  * Uses the {@code aws.api#service$sdkId} trait property to determine the
@@ -54,7 +55,7 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
     }
 
     private static Symbol updateServiceSymbol(Symbol symbol, String serviceId) {
-        String name = serviceId.replace(" ", "") + "Client";
+        String name = StringUtils.capitalize(serviceId.replace(" ", "")) + "Client";
         return symbol.toBuilder()
                 .name(name)
                 .namespace("./" + name, "/")
