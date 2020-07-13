@@ -1,14 +1,15 @@
-import * as nock from "nock";
-import { createServer } from "http";
-import { httpRequest } from "./httpRequest";
 import { ProviderError } from "@aws-sdk/property-provider";
+import { createServer } from "http";
+import * as nock from "nock";
+
+import { httpRequest } from "./httpRequest";
 
 describe("httpRequest", () => {
   let port: number;
   const host = "localhost";
   const path = "/";
 
-  const getOpenPort = async (candidatePort: number = 4321): Promise<number> => {
+  const getOpenPort = async (candidatePort = 4321): Promise<number> => {
     try {
       return new Promise<number>((resolve, reject) => {
         const server = createServer();

@@ -1,5 +1,6 @@
-import { fromImdsCredentials, ImdsCredentials, isImdsCredentials } from "./ImdsCredentials";
 import { Credentials } from "@aws-sdk/types";
+
+import { fromImdsCredentials, ImdsCredentials, isImdsCredentials } from "./ImdsCredentials";
 
 const creds: ImdsCredentials = Object.freeze({
   AccessKeyId: "foo",
@@ -30,7 +31,7 @@ describe("isImdsCredentials", () => {
   });
 
   it("should reject scalar values", () => {
-    for (let scalar of ["string", 1, true, null, void 0]) {
+    for (const scalar of ["string", 1, true, null, void 0]) {
       expect(isImdsCredentials(scalar)).toBe(false);
     }
   });
