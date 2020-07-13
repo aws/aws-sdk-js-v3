@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { CreateDatasetRequest, CreateDatasetResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDatasetCommand,
@@ -23,7 +23,7 @@ export type CreateDatasetCommandOutput = CreateDatasetResponse & __MetadataBeare
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,
   CreateDatasetCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class CreateDatasetCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDatasetCommandInput, CreateDatasetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

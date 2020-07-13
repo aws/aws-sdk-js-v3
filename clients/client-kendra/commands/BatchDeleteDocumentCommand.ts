@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteDocumentCommand,
@@ -23,7 +23,7 @@ export type BatchDeleteDocumentCommandOutput = BatchDeleteDocumentResponse & __M
 export class BatchDeleteDocumentCommand extends $Command<
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
-  kendraClientResolvedConfig
+  KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class BatchDeleteDocumentCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteDocumentCommandInput, BatchDeleteDocumentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

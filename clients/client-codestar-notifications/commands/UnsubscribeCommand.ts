@@ -1,8 +1,8 @@
 import {
+  CodestarnotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig,
-} from "../codestarnotificationsClient";
+} from "../CodestarnotificationsClient";
 import { UnsubscribeRequest, UnsubscribeResult } from "../models/index";
 import {
   deserializeAws_restJson1UnsubscribeCommand,
@@ -27,7 +27,7 @@ export type UnsubscribeCommandOutput = UnsubscribeResult & __MetadataBearer;
 export class UnsubscribeCommand extends $Command<
   UnsubscribeCommandInput,
   UnsubscribeCommandOutput,
-  codestarnotificationsClientResolvedConfig
+  CodestarnotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class UnsubscribeCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: codestarnotificationsClientResolvedConfig,
+    configuration: CodestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnsubscribeCommandInput, UnsubscribeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

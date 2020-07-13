@@ -1,9 +1,9 @@
+import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 import { DescribeSavingsPlansOfferingRatesRequest, DescribeSavingsPlansOfferingRatesResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand,
   serializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand,
 } from "../protocols/Aws_restJson1";
-import { ServiceInputTypes, ServiceOutputTypes, savingsplansClientResolvedConfig } from "../savingsplansClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +24,7 @@ export type DescribeSavingsPlansOfferingRatesCommandOutput = DescribeSavingsPlan
 export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
   DescribeSavingsPlansOfferingRatesCommandInput,
   DescribeSavingsPlansOfferingRatesCommandOutput,
-  savingsplansClientResolvedConfig
+  SavingsplansClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -37,7 +37,7 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: savingsplansClientResolvedConfig,
+    configuration: SavingsplansClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSavingsPlansOfferingRatesCommandInput, DescribeSavingsPlansOfferingRatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

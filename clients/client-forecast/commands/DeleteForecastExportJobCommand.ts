@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeleteForecastExportJobRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteForecastExportJobCommand,
@@ -23,7 +23,7 @@ export type DeleteForecastExportJobCommandOutput = __MetadataBearer;
 export class DeleteForecastExportJobCommand extends $Command<
   DeleteForecastExportJobCommandInput,
   DeleteForecastExportJobCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class DeleteForecastExportJobCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteForecastExportJobCommandInput, DeleteForecastExportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

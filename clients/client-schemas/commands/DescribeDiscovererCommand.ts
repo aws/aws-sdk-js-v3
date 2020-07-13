@@ -1,9 +1,9 @@
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 import { DescribeDiscovererRequest, DescribeDiscovererResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeDiscovererCommand,
   serializeAws_restJson1DescribeDiscovererCommand,
 } from "../protocols/Aws_restJson1";
-import { ServiceInputTypes, ServiceOutputTypes, schemasClientResolvedConfig } from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +23,7 @@ export type DescribeDiscovererCommandOutput = DescribeDiscovererResponse & __Met
 export class DescribeDiscovererCommand extends $Command<
   DescribeDiscovererCommandInput,
   DescribeDiscovererCommandOutput,
-  schemasClientResolvedConfig
+  SchemasClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class DescribeDiscovererCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: schemasClientResolvedConfig,
+    configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDiscovererCommandInput, DescribeDiscovererCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

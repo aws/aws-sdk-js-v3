@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListImagePipelinesRequest, ListImagePipelinesResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListImagePipelinesCommand,
@@ -23,7 +23,7 @@ export type ListImagePipelinesCommandOutput = ListImagePipelinesResponse & __Met
 export class ListImagePipelinesCommand extends $Command<
   ListImagePipelinesCommandInput,
   ListImagePipelinesCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class ListImagePipelinesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListImagePipelinesCommandInput, ListImagePipelinesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

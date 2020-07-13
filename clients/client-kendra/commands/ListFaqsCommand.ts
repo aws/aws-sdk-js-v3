@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListFaqsRequest, ListFaqsResponse } from "../models/index";
 import { deserializeAws_json1_1ListFaqsCommand, serializeAws_json1_1ListFaqsCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -17,7 +17,7 @@ import {
 export type ListFaqsCommandInput = ListFaqsRequest;
 export type ListFaqsCommandOutput = ListFaqsResponse & __MetadataBearer;
 
-export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsCommandOutput, kendraClientResolvedConfig> {
+export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsCommandOutput, KendraClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -29,7 +29,7 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFaqsCommandInput, ListFaqsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

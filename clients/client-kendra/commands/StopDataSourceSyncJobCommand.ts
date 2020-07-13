@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { StopDataSourceSyncJobRequest } from "../models/index";
 import {
   deserializeAws_json1_1StopDataSourceSyncJobCommand,
@@ -23,7 +23,7 @@ export type StopDataSourceSyncJobCommandOutput = __MetadataBearer;
 export class StopDataSourceSyncJobCommand extends $Command<
   StopDataSourceSyncJobCommandInput,
   StopDataSourceSyncJobCommandOutput,
-  kendraClientResolvedConfig
+  KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class StopDataSourceSyncJobCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopDataSourceSyncJobCommandInput, StopDataSourceSyncJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

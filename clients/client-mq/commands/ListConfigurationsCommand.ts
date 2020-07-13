@@ -1,5 +1,5 @@
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { ListConfigurationsRequest, ListConfigurationsResponse } from "../models/index";
-import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1ListConfigurationsCommand,
   serializeAws_restJson1ListConfigurationsCommand,
@@ -23,7 +23,7 @@ export type ListConfigurationsCommandOutput = ListConfigurationsResponse & __Met
 export class ListConfigurationsCommand extends $Command<
   ListConfigurationsCommandInput,
   ListConfigurationsCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class ListConfigurationsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListConfigurationsCommandInput, ListConfigurationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

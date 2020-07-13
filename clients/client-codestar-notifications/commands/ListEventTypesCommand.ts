@@ -1,8 +1,8 @@
 import {
+  CodestarnotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig,
-} from "../codestarnotificationsClient";
+} from "../CodestarnotificationsClient";
 import { ListEventTypesRequest, ListEventTypesResult } from "../models/index";
 import {
   deserializeAws_restJson1ListEventTypesCommand,
@@ -27,7 +27,7 @@ export type ListEventTypesCommandOutput = ListEventTypesResult & __MetadataBeare
 export class ListEventTypesCommand extends $Command<
   ListEventTypesCommandInput,
   ListEventTypesCommandOutput,
-  codestarnotificationsClientResolvedConfig
+  CodestarnotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class ListEventTypesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: codestarnotificationsClientResolvedConfig,
+    configuration: CodestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEventTypesCommandInput, ListEventTypesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

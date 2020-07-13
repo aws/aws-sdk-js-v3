@@ -1,9 +1,9 @@
+import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 import { ListSigningPlatformsRequest, ListSigningPlatformsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListSigningPlatformsCommand,
   serializeAws_restJson1ListSigningPlatformsCommand,
 } from "../protocols/Aws_restJson1";
-import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +23,7 @@ export type ListSigningPlatformsCommandOutput = ListSigningPlatformsResponse & _
 export class ListSigningPlatformsCommand extends $Command<
   ListSigningPlatformsCommandInput,
   ListSigningPlatformsCommandOutput,
-  signerClientResolvedConfig
+  SignerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class ListSigningPlatformsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: signerClientResolvedConfig,
+    configuration: SignerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSigningPlatformsCommandInput, ListSigningPlatformsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

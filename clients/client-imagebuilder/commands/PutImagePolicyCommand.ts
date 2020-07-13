@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { PutImagePolicyRequest, PutImagePolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1PutImagePolicyCommand,
@@ -23,7 +23,7 @@ export type PutImagePolicyCommandOutput = PutImagePolicyResponse & __MetadataBea
 export class PutImagePolicyCommand extends $Command<
   PutImagePolicyCommandInput,
   PutImagePolicyCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class PutImagePolicyCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutImagePolicyCommandInput, PutImagePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

@@ -1,5 +1,5 @@
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { DescribeBrokerEngineTypesRequest, DescribeBrokerEngineTypesResponse } from "../models/index";
-import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1DescribeBrokerEngineTypesCommand,
   serializeAws_restJson1DescribeBrokerEngineTypesCommand,
@@ -23,7 +23,7 @@ export type DescribeBrokerEngineTypesCommandOutput = DescribeBrokerEngineTypesRe
 export class DescribeBrokerEngineTypesCommand extends $Command<
   DescribeBrokerEngineTypesCommandInput,
   DescribeBrokerEngineTypesCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeBrokerEngineTypesCommandInput, DescribeBrokerEngineTypesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

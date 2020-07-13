@@ -1,5 +1,5 @@
-export * from "./savingsplansClient";
-export * from "./savingsplans";
+export * from "./SavingsplansClient";
+export * from "./Savingsplans";
 export * from "./commands/CreateSavingsPlanCommand";
 export * from "./commands/DescribeSavingsPlanRatesCommand";
 export * from "./commands/DescribeSavingsPlansCommand";

@@ -1,5 +1,5 @@
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { RebootBrokerRequest, RebootBrokerResponse } from "../models/index";
-import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1RebootBrokerCommand,
   serializeAws_restJson1RebootBrokerCommand,
@@ -23,7 +23,7 @@ export type RebootBrokerCommandOutput = RebootBrokerResponse & __MetadataBearer;
 export class RebootBrokerCommand extends $Command<
   RebootBrokerCommandInput,
   RebootBrokerCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class RebootBrokerCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebootBrokerCommandInput, RebootBrokerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

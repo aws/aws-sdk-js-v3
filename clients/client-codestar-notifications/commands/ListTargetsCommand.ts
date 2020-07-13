@@ -1,8 +1,8 @@
 import {
+  CodestarnotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig,
-} from "../codestarnotificationsClient";
+} from "../CodestarnotificationsClient";
 import { ListTargetsRequest, ListTargetsResult } from "../models/index";
 import {
   deserializeAws_restJson1ListTargetsCommand,
@@ -27,7 +27,7 @@ export type ListTargetsCommandOutput = ListTargetsResult & __MetadataBearer;
 export class ListTargetsCommand extends $Command<
   ListTargetsCommandInput,
   ListTargetsCommandOutput,
-  codestarnotificationsClientResolvedConfig
+  CodestarnotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class ListTargetsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: codestarnotificationsClientResolvedConfig,
+    configuration: CodestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTargetsCommandInput, ListTargetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

@@ -1,5 +1,5 @@
-export * from "./signerClient";
-export * from "./signer";
+export * from "./SignerClient";
+export * from "./Signer";
 export * from "./commands/CancelSigningProfileCommand";
 export * from "./commands/DescribeSigningJobCommand";
 export * from "./commands/GetSigningPlatformCommand";

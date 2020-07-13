@@ -1,5 +1,5 @@
-export * from "./schemasClient";
-export * from "./schemas";
+export * from "./SchemasClient";
+export * from "./Schemas";
 export * from "./commands/CreateDiscovererCommand";
 export * from "./commands/CreateRegistryCommand";
 export * from "./commands/CreateSchemaCommand";

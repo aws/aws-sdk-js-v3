@@ -1,8 +1,8 @@
 import {
+  CodestarnotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig,
-} from "../codestarnotificationsClient";
+} from "../CodestarnotificationsClient";
 import { UntagResourceRequest, UntagResourceResult } from "../models/index";
 import {
   deserializeAws_restJson1UntagResourceCommand,
@@ -27,7 +27,7 @@ export type UntagResourceCommandOutput = UntagResourceResult & __MetadataBearer;
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
-  codestarnotificationsClientResolvedConfig
+  CodestarnotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class UntagResourceCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: codestarnotificationsClientResolvedConfig,
+    configuration: CodestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

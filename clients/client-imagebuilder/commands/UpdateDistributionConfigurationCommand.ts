@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { UpdateDistributionConfigurationRequest, UpdateDistributionConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateDistributionConfigurationCommand,
@@ -23,7 +23,7 @@ export type UpdateDistributionConfigurationCommandOutput = UpdateDistributionCon
 export class UpdateDistributionConfigurationCommand extends $Command<
   UpdateDistributionConfigurationCommandInput,
   UpdateDistributionConfigurationCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class UpdateDistributionConfigurationCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDistributionConfigurationCommandInput, UpdateDistributionConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
