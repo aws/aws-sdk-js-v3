@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="software.amazon.smithy.aws.typescript.codegen.AwsPackageFixturesGeneratorIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-13T21:46:37" hostname="dev-dsk-trivikr-2b-c1ea01ce.us-west-2.amazon.com" time="0.571">
+  <properties/>
+  <testcase name="expandsPackageFixtureFiles()" classname="software.amazon.smithy.aws.typescript.codegen.AwsPackageFixturesGeneratorIntegrationTest" time="0.571"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor <init>
+INFO: Generating TypeScript client for service smithy.example#OriginalName
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor <init>
+INFO: Attempting to discover TypeScriptIntegration from the classpath...
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddAwsRuntimeConfig
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddBuiltinPlugins
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/config-resolver/RegionInputConfig, alias='RegionInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/config-resolver/RegionResolvedConfig, alias='RegionResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/config-resolver/resolveRegionConfig, alias='resolveRegionConfig', options=[DECLARE, USE]}, pluginFunction=null, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/config-resolver/EndpointsInputConfig, alias='EndpointsInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/config-resolver/EndpointsResolvedConfig, alias='EndpointsResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/config-resolver/resolveEndpointsConfig, alias='resolveEndpointsConfig', options=[DECLARE, USE]}, pluginFunction=null, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/middleware-signing/AwsAuthInputConfig, alias='AwsAuthInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/middleware-signing/AwsAuthResolvedConfig, alias='AwsAuthResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/middleware-signing/resolveAwsAuthConfig, alias='resolveAwsAuthConfig', options=[DECLARE, USE]}, pluginFunction=null, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-signing/getAwsAuthPlugin, alias='getAwsAuthPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/middleware-retry/RetryInputConfig, alias='RetryInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/middleware-retry/RetryResolvedConfig, alias='RetryResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/middleware-retry/resolveRetryConfig, alias='resolveRetryConfig', options=[DECLARE, USE]}, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-retry/getRetryPlugin, alias='getRetryPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/middleware-user-agent/UserAgentInputConfig, alias='UserAgentInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/middleware-user-agent/UserAgentResolvedConfig, alias='UserAgentResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/middleware-user-agent/resolveUserAgentConfig, alias='resolveUserAgentConfig', options=[DECLARE, USE]}, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-user-agent/getUserAgentPlugin, alias='getUserAgentPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-content-length/getContentLengthPlugin, alias='getContentLengthPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-api-gateway/getAcceptHeaderPlugin, alias='getAcceptHeaderPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-s3/getValidateBucketNamePlugin, alias='getValidateBucketNamePlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-expect-continue/getAddExpectContinuePlugin, alias='getAddExpectContinuePlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-glacier/getGlacierPlugin, alias='getGlacierPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-ec2/getCopySnapshotPresignedUrlPlugin, alias='getCopySnapshotPresignedUrlPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-ssec/getSsecPlugin, alias='getSsecPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-location-constraint/getLocationConstraintPlugin, alias='getLocationConstraintPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-machinelearning/getPredictEndpointPlugin, alias='getPredictEndpointPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/middleware-bucket-endpoint/BucketEndpointInputConfig, alias='BucketEndpointInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/middleware-bucket-endpoint/BucketEndpointResolvedConfig, alias='BucketEndpointResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/middleware-bucket-endpoint/resolveBucketEndpointConfig, alias='resolveBucketEndpointConfig', options=[DECLARE, USE]}, pluginFunction=null, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-bucket-endpoint/getBucketEndpointPlugin, alias='getBucketEndpointPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-apply-body-checksum/getApplyMd5BodyChecksumPlugin, alias='getApplyMd5BodyChecksumPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-route53/getChangeResourceRecordSetsPlugin, alias='getChangeResourceRecordSetsPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-rds/getCrossRegionPresignedUrlPlugin, alias='getCrossRegionPresignedUrlPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-route53/getIdNormalizerPlugin, alias='getIdNormalizerPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-s3-control/getPrependAccountIdPlugin, alias='getPrependAccountIdPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-sqs/getSendMessagePlugin, alias='getSendMessagePlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-sqs/getSendMessageBatchPlugin, alias='getSendMessageBatchPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-sqs/getReceiveMessagePlugin, alias='getReceiveMessagePlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/middleware-host-header/HostHeaderInputConfig, alias='HostHeaderInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/middleware-host-header/HostHeaderResolvedConfig, alias='HostHeaderResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/middleware-host-header/resolveHostHeaderConfig, alias='resolveHostHeaderConfig', options=[DECLARE, USE]}, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-host-header/getHostHeaderPlugin, alias='getHostHeaderPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-signing/getAwsAuthPlugin, alias='getAwsAuthPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddProtocols
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AwsEndpointGeneratorIntegration
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AwsPackageFixturesGeneratorIntegration
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddMd5HashDependency
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddStreamHasherDependency
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddBodyChecksumGeneratorDependency
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddS3Config
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddEventStreamHandlingDependency
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/middleware-eventstream/EventStreamInputConfig, alias='EventStreamInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/middleware-eventstream/EventStreamResolvedConfig, alias='EventStreamResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/middleware-eventstream/resolveEventStreamConfig, alias='resolveEventStreamConfig', options=[DECLARE, USE]}, pluginFunction=null, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=null, resolvedConfig=null, resolveFunction=null, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-eventstream/getEventStreamPlugin, alias='getEventStreamPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddHttp2Dependency
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.aws.typescript.codegen.AddTranscribeStreamingDependency
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/middleware-sdk-transcribe-streaming/WebSocketInputConfig, alias='WebSocketInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/middleware-sdk-transcribe-streaming/WebSocketResolvedConfig, alias='WebSocketResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-transcribe-streaming/resolveWebSocketConfig, alias='resolveWebSocketConfig', options=[DECLARE, USE]}, pluginFunction=SymbolReference{symbol=@aws-sdk/middleware-sdk-transcribe-streaming/getWebSocketPlugin, alias='getWebSocketPlugin', options=[DECLARE, USE]}, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$new$4
+INFO: Adding TypeScriptIntegration: software.amazon.smithy.typescript.codegen.integration.AddEventStreamDependency
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor lambda$null$3
+INFO: Adding TypeScript runtime plugin: RuntimeClientPlugin{inputConfig=SymbolReference{symbol=@aws-sdk/eventstream-serde-config-resolver/EventStreamSerdeInputConfig, alias='EventStreamSerdeInputConfig', options=[DECLARE, USE]}, resolvedConfig=SymbolReference{symbol=@aws-sdk/eventstream-serde-config-resolver/EventStreamSerdeResolvedConfig, alias='EventStreamSerdeResolvedConfig', options=[DECLARE, USE]}, resolveFunction=SymbolReference{symbol=@aws-sdk/eventstream-serde-config-resolver/resolveEventStreamSerdeConfig, alias='resolveEventStreamSerdeConfig', options=[DECLARE, USE]}, pluginFunction=null, destroyFunction=null}
+Jul 13, 2020 9:46:38 PM software.amazon.smithy.typescript.codegen.CodegenVisitor serviceShape
+INFO: Generating serde for protocol aws.rest-json-1 on smithy.example#OriginalName
+]]></system-err>
+</testsuite>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EndpointGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">EndpointGenerator.java</span></div><h1>EndpointGenerator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.TreeMap;
+import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.model.node.Node;
+import software.amazon.smithy.model.node.ObjectNode;
+import software.amazon.smithy.model.node.StringNode;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.utils.CaseUtils;
+import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.OptionalUtils;
+import software.amazon.smithy.utils.StringUtils;
+
+/**
+ * Writes out a file that resolves endpoints using endpoints.json, but the
+ * created resolver resolves endpoints for a single service.
+ */
+final class EndpointGenerator implements Runnable {
+
+    private static final int VERSION = 3;
+
+    private final TypeScriptWriter writer;
+    private final ObjectNode endpointData;
+    private final String endpointPrefix;
+<span class="fc" id="L47">    private final Map&lt;String, Partition&gt; partitions = new TreeMap&lt;&gt;();</span>
+<span class="fc" id="L48">    private final Map&lt;String, ObjectNode&gt; endpoints = new TreeMap&lt;&gt;();</span>
+
+<span class="fc" id="L50">    EndpointGenerator(ServiceShape service, TypeScriptWriter writer) {</span>
+<span class="fc" id="L51">        this.writer = writer;</span>
+<span class="fc" id="L52">        endpointPrefix = getEndpointPrefix(service);</span>
+<span class="fc" id="L53">        endpointData = Node.parse(IoUtils.readUtf8Resource(getClass(), &quot;endpoints.json&quot;)).expectObjectNode();</span>
+<span class="fc" id="L54">        validateVersion();</span>
+<span class="fc" id="L55">        loadPartitions();</span>
+<span class="fc" id="L56">        loadServiceEndpoints();</span>
+<span class="fc" id="L57">    }</span>
+
+    private void validateVersion() {
+<span class="fc" id="L60">        int version = endpointData.expectNumberMember(&quot;version&quot;).getValue().intValue();</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        if (version != VERSION) {</span>
+<span class="nc" id="L62">            throw new CodegenException(&quot;Invalid endpoints.json version. Expected version 3, found &quot; +  version);</span>
+        }
+<span class="fc" id="L64">    }</span>
+
+    // Get service's endpoint prefix from a known list. If not found, fallback to ArnNamespace
+    private String getEndpointPrefix(ServiceShape service) {
+<span class="fc" id="L68">        ObjectNode endpointPrefixData = Node.parse(IoUtils.readUtf8Resource(getClass(), &quot;endpoint-prefix.json&quot;))</span>
+<span class="fc" id="L69">                .expectObjectNode();</span>
+<span class="fc" id="L70">        ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class)</span>
+<span class="pc" id="L71">                .orElseThrow(() -&gt; new CodegenException(&quot;No service trait found on &quot; + service.getId()));</span>
+<span class="fc" id="L72">        return endpointPrefixData.getStringMemberOrDefault(serviceTrait.getSdkId(), serviceTrait.getArnNamespace());</span>
+    }
+
+    private void loadPartitions() {
+<span class="fc" id="L76">        List&lt;ObjectNode&gt; partitionObjects = endpointData</span>
+<span class="fc" id="L77">                .expectArrayMember(&quot;partitions&quot;)</span>
+<span class="fc" id="L78">                .getElementsAs(Node::expectObjectNode);</span>
+
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        for (ObjectNode partition : partitionObjects) {</span>
+<span class="fc" id="L81">            String partitionName = partition.expectStringMember(&quot;partition&quot;).getValue();</span>
+<span class="fc" id="L82">            partitions.put(partitionName, new Partition(partition, partitionName));</span>
+<span class="fc" id="L83">        }</span>
+<span class="fc" id="L84">    }</span>
+
+    private void loadServiceEndpoints() {
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        for (Partition partition : partitions.values()) {</span>
+<span class="fc" id="L88">            String dnsSuffix = partition.dnsSuffix;</span>
+<span class="fc" id="L89">            ObjectNode serviceData = partition.getService();</span>
+<span class="fc" id="L90">            ObjectNode endpointMap = serviceData.getObjectMember(&quot;endpoints&quot;).orElse(Node.objectNode());</span>
+
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">            for (Map.Entry&lt;String, Node&gt; entry : endpointMap.getStringMap().entrySet()) {</span>
+                // Merge the endpoint settings into the resolved service settings.
+<span class="nc" id="L94">                ObjectNode config = partition.getDefaults().merge(entry.getValue().expectObjectNode());</span>
+                // Resolve the hostname.
+<span class="nc" id="L96">                String hostName = config.expectStringMember(&quot;hostname&quot;).getValue();</span>
+<span class="nc" id="L97">                hostName = hostName.replace(&quot;{dnsSuffix}&quot;, dnsSuffix);</span>
+<span class="nc" id="L98">                hostName = hostName.replace(&quot;{service}&quot;, endpointPrefix);</span>
+<span class="nc" id="L99">                hostName = hostName.replace(&quot;{region}&quot;, entry.getKey());</span>
+<span class="nc" id="L100">                config = config.withMember(&quot;hostname&quot;, hostName);</span>
+<span class="nc" id="L101">                endpoints.put(entry.getKey(), config);</span>
+<span class="nc" id="L102">            }</span>
+<span class="fc" id="L103">        }</span>
+<span class="fc" id="L104">    }</span>
+
+    @Override
+    public void run() {
+<span class="fc" id="L108">        writePartitionTemplates();</span>
+<span class="fc" id="L109">        writePartitionRegions();</span>
+<span class="fc" id="L110">        writeEndpointProviderFunction();</span>
+<span class="fc" id="L111">    }</span>
+
+    private void writePartitionTemplates() {
+<span class="fc" id="L114">        writer.write(&quot;// Partition default templates&quot;);</span>
+<span class="fc" id="L115">        partitions.values().forEach(partition -&gt; {</span>
+<span class="fc" id="L116">            writer.write(&quot;const $L = $S;&quot;, partition.templateVariableName, partition.templateValue);</span>
+<span class="fc" id="L117">        });</span>
+<span class="fc" id="L118">        writer.write(&quot;&quot;);</span>
+<span class="fc" id="L119">    }</span>
+
+    private void writePartitionRegions() {
+<span class="fc" id="L122">        writer.write(&quot;// Partition regions&quot;);</span>
+<span class="fc" id="L123">        partitions.values().forEach(partition -&gt; {</span>
+<span class="fc" id="L124">            writer.openBlock(&quot;const $L = new Set([&quot;, &quot;]);&quot;, partition.regionVariableName, () -&gt; {</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">                for (String region : partition.getAllRegions()) {</span>
+<span class="fc" id="L126">                    writer.write(&quot;$S,&quot;, region);</span>
+<span class="fc" id="L127">                }</span>
+<span class="fc" id="L128">            });</span>
+<span class="fc" id="L129">        });</span>
+<span class="fc" id="L130">        writer.write(&quot;&quot;);</span>
+<span class="fc" id="L131">    }</span>
+
+    private void writeEndpointProviderFunction() {
+<span class="fc" id="L134">        writer.addImport(&quot;RegionInfoProvider&quot;, &quot;RegionInfoProvider&quot;, TypeScriptDependency.AWS_SDK_TYPES.packageName);</span>
+<span class="fc" id="L135">        writer.addImport(&quot;RegionInfo&quot;, &quot;RegionInfo&quot;, TypeScriptDependency.AWS_SDK_TYPES.packageName);</span>
+<span class="fc" id="L136">        writer.openBlock(&quot;export const defaultRegionInfoProvider: RegionInfoProvider = (\n&quot;</span>
+                         + &quot;  region: string,\n&quot;
+                         + &quot;  options?: any\n&quot;
+                         + &quot;) =&gt; {&quot;, &quot;};&quot;, () -&gt; {
+<span class="fc" id="L140">            writer.write(&quot;let regionInfo: RegionInfo | undefined = undefined;&quot;);</span>
+<span class="fc" id="L141">            writer.openBlock(&quot;switch (region) {&quot;, &quot;}&quot;, () -&gt; {</span>
+<span class="fc" id="L142">                writer.write(&quot;// First, try to match exact region names.&quot;);</span>
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">                for (Map.Entry&lt;String, ObjectNode&gt; entry : endpoints.entrySet()) {</span>
+<span class="nc" id="L144">                    writer.write(&quot;case $S:&quot;, entry.getKey()).indent();</span>
+<span class="nc" id="L145">                    writeEndpointSpecificResolver(entry.getValue());</span>
+<span class="nc" id="L146">                    writer.write(&quot;break;&quot;);</span>
+<span class="nc" id="L147">                    writer.dedent();</span>
+<span class="nc" id="L148">                }</span>
+<span class="fc" id="L149">                writer.write(&quot;// Next, try to match partition endpoints.&quot;);</span>
+<span class="fc" id="L150">                writer.write(&quot;default:&quot;).indent();</span>
+<span class="fc" id="L151">                partitions.values().forEach(partition -&gt; {</span>
+<span class="fc" id="L152">                    writer.openBlock(&quot;if ($L.has(region)) {&quot;, &quot;}&quot;, partition.regionVariableName, () -&gt; {</span>
+<span class="fc" id="L153">                        writePartitionEndpointResolver(partition); });</span>
+<span class="fc" id="L154">                });</span>
+                // Default to using the AWS partition resolver.
+<span class="fc" id="L156">                writer.write(&quot;// Finally, assume it's an AWS partition endpoint.&quot;);</span>
+<span class="fc" id="L157">                writer.openBlock(&quot;if (regionInfo === undefined) {&quot;, &quot;}&quot;, () -&gt; {</span>
+<span class="fc" id="L158">                    writePartitionEndpointResolver(partitions.get(&quot;aws&quot;)); });</span>
+<span class="fc" id="L159">                writer.dedent();</span>
+<span class="fc" id="L160">            });</span>
+<span class="fc" id="L161">            writer.write(&quot;return Promise.resolve(regionInfo);&quot;);</span>
+<span class="fc" id="L162">        });</span>
+<span class="fc" id="L163">    }</span>
+
+    private void writePartitionEndpointResolver(Partition partition) {
+<span class="fc" id="L166">        OptionalUtils.ifPresentOrElse(</span>
+<span class="fc" id="L167">                partition.getPartitionEndpoint(),</span>
+<span class="nc" id="L168">                name -&gt; writer.write(&quot;return defaultRegionInfoProvider($S);&quot;, name),</span>
+                () -&gt; {
+<span class="fc" id="L170">                    writer.openBlock(&quot;regionInfo = {&quot;, &quot;};&quot;, () -&gt; {</span>
+<span class="fc" id="L171">                        String template = partition.templateVariableName;</span>
+<span class="fc" id="L172">                        writer.write(&quot;hostname: $L.replace(\&quot;{region}\&quot;, region),&quot;, template);</span>
+<span class="fc" id="L173">                        writeAdditionalEndpointSettings(partition.getDefaults());</span>
+<span class="fc" id="L174">                    });</span>
+<span class="fc" id="L175">                }</span>
+        );
+<span class="fc" id="L177">    }</span>
+
+    private void writeEndpointSpecificResolver(ObjectNode resolved) {
+<span class="nc" id="L180">        String hostname = resolved.expectStringMember(&quot;hostname&quot;).getValue();</span>
+<span class="nc" id="L181">        writer.openBlock(&quot;regionInfo = {&quot;, &quot;};&quot;, () -&gt; {</span>
+<span class="nc" id="L182">            writer.write(&quot;hostname: $S,&quot;, hostname);</span>
+<span class="nc" id="L183">            writeAdditionalEndpointSettings(resolved);</span>
+<span class="nc" id="L184">        });</span>
+<span class="nc" id="L185">    }</span>
+
+    // Write credential scope settings into the resolved endpoint object.
+    private void writeAdditionalEndpointSettings(ObjectNode settings) {
+<span class="fc" id="L189">        settings.getObjectMember(&quot;credentialScope&quot;).ifPresent(scope -&gt; {</span>
+<span class="nc" id="L190">            scope.getStringMember(&quot;region&quot;).ifPresent(signingRegion -&gt; {</span>
+<span class="nc" id="L191">                writer.write(&quot;signingRegion: $S,&quot;, signingRegion);</span>
+<span class="nc" id="L192">            });</span>
+<span class="nc" id="L193">            scope.getStringMember(&quot;service&quot;).ifPresent(signingService -&gt; {</span>
+<span class="nc" id="L194">                writer.write(&quot;signingService: $S,&quot;, signingService);</span>
+<span class="nc" id="L195">            });</span>
+<span class="nc" id="L196">        });</span>
+<span class="fc" id="L197">    }</span>
+
+    private final class Partition {
+        final ObjectNode defaults;
+        final String regionVariableName;
+        final String templateVariableName;
+        final String templateValue;
+        final String dnsSuffix;
+        private final ObjectNode config;
+
+<span class="fc" id="L207">        private Partition(ObjectNode config, String partition) {</span>
+<span class="fc" id="L208">            this.config = config;</span>
+            // Resolve the partition defaults + the service defaults.
+<span class="fc" id="L210">            ObjectNode partitionDefaults = config.expectObjectMember(&quot;defaults&quot;);</span>
+<span class="fc" id="L211">            defaults = partitionDefaults.merge(getService().getObjectMember(&quot;defaults&quot;).orElse(Node.objectNode()));</span>
+
+            // Resolve the template to use for this service in this partition.
+<span class="fc" id="L214">            String template = defaults.expectStringMember(&quot;hostname&quot;).getValue();</span>
+<span class="fc" id="L215">            template = template.replace(&quot;{service}&quot;, endpointPrefix);</span>
+<span class="fc" id="L216">            template = template.replace(&quot;{dnsSuffix}&quot;, config.expectStringMember(&quot;dnsSuffix&quot;).getValue());</span>
+<span class="fc" id="L217">            templateValue = template;</span>
+
+            // Compute the template and regions variable names.
+<span class="fc" id="L220">            String snakePartition = StringUtils.upperCase(CaseUtils.toSnakeCase(partition));</span>
+<span class="fc" id="L221">            templateVariableName = snakePartition + &quot;_TEMPLATE&quot;;</span>
+<span class="fc" id="L222">            regionVariableName = snakePartition + &quot;_REGIONS&quot;;</span>
+
+<span class="fc" id="L224">            dnsSuffix = config.expectStringMember(&quot;dnsSuffix&quot;).getValue();</span>
+<span class="fc" id="L225">        }</span>
+
+        ObjectNode getDefaults() {
+<span class="fc" id="L228">            return defaults;</span>
+        }
+
+        ObjectNode getService() {
+<span class="fc" id="L232">            ObjectNode services = config.getObjectMember(&quot;services&quot;).orElse(Node.objectNode());</span>
+<span class="fc" id="L233">            return services.getObjectMember(endpointPrefix).orElse(Node.objectNode());</span>
+        }
+
+        Set&lt;String&gt; getAllRegions() {
+<span class="fc" id="L237">            return config.getObjectMember(&quot;regions&quot;).orElse(Node.objectNode()).getStringMap().keySet();</span>
+        }
+
+        Optional&lt;String&gt; getPartitionEndpoint() {
+<span class="fc" id="L241">            ObjectNode service = getService();</span>
+            // Note: regionalized services always use regionalized endpoints.
+<span class="pc bpc" id="L243" title="1 of 2 branches missed.">            return service.getBooleanMemberOrDefault(&quot;isRegionalized&quot;, true)</span>
+<span class="pc" id="L244">                   ? Optional.empty()</span>
+<span class="nc" id="L245">                   : service.getStringMember(&quot;partitionEndpoint&quot;).map(StringNode::getValue);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

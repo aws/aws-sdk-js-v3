@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ec2ShapeSerVisitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">Ec2ShapeSerVisitor.java</span></div><h1>Ec2ShapeSerVisitor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Optional;
+import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
+import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.model.shapes.DocumentShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.ShapeType;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.XmlNameTrait;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.StringUtils;
+
+/**
+ * Visitor to generate serialization functions for shapes in form-urlencoded
+ * based document bodies specific to aws.ec2.
+ *
+ * This class uses the implementations provided by {@code QueryShapeSerVisitor} but with
+ * the following protocol specific customizations for aws.ec2:
+ *
+ * &lt;ul&gt;
+ *   &lt;li&gt;aws.ec2 flattens all lists, sets, and maps regardless of the {@code @xmlFlattened} trait.&lt;/li&gt;
+ *   &lt;li&gt;aws.ec2 respects the {@code @ec2QueryName} trait, then the {@code xmlName}
+ *     trait value with the first letter capitalized.&lt;/li&gt;
+ * &lt;/ul&gt;
+ *
+ * Timestamps are serialized to {@link Format}.DATE_TIME by default.
+ *
+ * @see AwsEc2
+ * @see QueryShapeSerVisitor
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/aws-core.html#ec2QueryName-trait&quot;&gt;Smithy EC2 Query Name trait.&lt;/a&gt;
+ */
+final class Ec2ShapeSerVisitor extends QueryShapeSerVisitor {
+
+    Ec2ShapeSerVisitor(GenerationContext context) {
+<span class="nc" id="L51">        super(context);</span>
+<span class="nc" id="L52">    }</span>
+
+    @Override
+    protected void serializeDocument(GenerationContext context, DocumentShape shape) {
+<span class="nc" id="L56">        throw new CodegenException(String.format(</span>
+<span class="nc" id="L57">                &quot;Cannot serialize Document types in the aws.ec2 protocol, shape: %s.&quot;, shape.getId()));</span>
+    }
+
+    @Override
+    protected String getMemberSerializedLocationName(MemberShape memberShape, String defaultValue) {
+        // The serialization for aws.ec2 prioritizes the @ec2QueryName trait for serialization.
+<span class="nc" id="L63">        Optional&lt;Ec2QueryNameTrait&gt; trait = memberShape.getTrait(Ec2QueryNameTrait.class);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (trait.isPresent()) {</span>
+<span class="nc" id="L65">            return trait.get().getValue();</span>
+        }
+
+        // Fall back to the capitalized @xmlName trait if present on the member,
+        // otherwise use the capitalized default value.
+<span class="nc" id="L70">        return memberShape.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L71">                .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L72">                .map(StringUtils::capitalize)</span>
+<span class="nc" id="L73">                .orElseGet(() -&gt; StringUtils.capitalize(defaultValue));</span>
+    }
+
+    @Override
+    protected boolean isFlattenedMember(GenerationContext context, MemberShape memberShape) {
+        // All lists, sets, and maps are flattened in aws.ec2.
+<span class="nc" id="L79">        ShapeType targetType = context.getModel().expectShape(memberShape.getTarget()).getType();</span>
+<span class="nc bnc" id="L80" title="All 6 branches missed.">        return targetType == ShapeType.LIST || targetType == ShapeType.SET || targetType == ShapeType.MAP;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

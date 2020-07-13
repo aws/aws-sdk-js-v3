@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddAwsRuntimeConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AddAwsRuntimeConfig.java</span></div><h1>AddAwsRuntimeConfig.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.logging.Logger;
+import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
+
+/**
+ * AWS clients need to know the service name used to sign requests,
+ * credentials for signing requests, and the region name used to resolve
+ * endpoints.
+ *
+ * &lt;p&gt;This plugin adds the following config interface fields:
+ *
+ * &lt;ul&gt;
+ *     &lt;li&gt;signingName: Defines the service name that signs AWS requests.&lt;/li&gt;
+ *     &lt;li&gt;credentialDefaultProvider: Provides credentials if no credentials
+ *     are explicitly provided.&lt;/li&gt;
+ *     &lt;li&gt;regionDefaultProvider: Provides a region if no region is
+ *     explicitly provided&lt;/li&gt;
+ *     &lt;li&gt;maxAttemptsDefaultProvider: Provides value for maxAttempts if no region is
+ *     explicitly provided&lt;/li&gt;
+ * &lt;/ul&gt;
+ *
+ * &lt;p&gt;This plugin adds the following Node runtime specific values:
+ *
+ * &lt;ul&gt;
+ *     &lt;li&gt;signingName: Sets this to the signing name derived from the model.&lt;/li&gt;
+ *     &lt;li&gt;credentialDefaultProvider: Uses the default credential provider that
+ *     checks things like environment variables and the AWS config file.&lt;/li&gt;
+ *     &lt;li&gt;regionDefaultProvider: Uses the default region provider that
+ *     checks things like environment variables and the AWS config file.&lt;/li&gt;
+ *     &lt;li&gt;maxAttemptsDefaultProvider: Uses the default maxAttempts provider that
+ *     checks things like environment variables and the AWS config file.&lt;/li&gt;
+ * &lt;/ul&gt;
+ *
+ * &lt;p&gt;This plugin adds the following Browser runtime specific values:
+ *
+ * &lt;ul&gt;
+ *     &lt;li&gt;signingName: Sets this to the signing name derived from the model.&lt;/li&gt;
+ *     &lt;li&gt;credentialDefaultProvider: Throws an exception since credentials must
+ *     be explicitly provided in the browser (environment variables and
+ *     the shared config can't be resolved from the browser).&lt;/li&gt;
+ *     &lt;li&gt;regionDefaultProvider: Throws an exception since a region must
+ *     be explicitly provided in the browser (environment variables and
+ *     the shared config can't be resolved from the browser).&lt;/li&gt;
+ *     &lt;li&gt;maxAttemptsDefaultProvider: Returns default value of &quot;3&quot;.&lt;/li&gt;
+ * &lt;/ul&gt;
+ */
+<span class="fc" id="L76">public final class AddAwsRuntimeConfig implements TypeScriptIntegration {</span>
+
+<span class="fc" id="L78">    private static final Logger LOGGER = Logger.getLogger(AddAwsRuntimeConfig.class.getName());</span>
+
+    @Override
+    public void addConfigInterfaceFields(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            TypeScriptWriter writer
+    ) {
+<span class="fc" id="L87">        writer.addImport(&quot;Provider&quot;, &quot;__Provider&quot;, TypeScriptDependency.AWS_SDK_TYPES.packageName);</span>
+<span class="fc" id="L88">        writer.addImport(&quot;Credentials&quot;, &quot;__Credentials&quot;, TypeScriptDependency.AWS_SDK_TYPES.packageName);</span>
+
+<span class="fc" id="L90">        writer.writeDocs(&quot;The service name with which to sign requests.&quot;)</span>
+<span class="fc" id="L91">                .write(&quot;signingName?: string;\n&quot;);</span>
+<span class="fc" id="L92">        writer.writeDocs(&quot;Default credentials provider; Not available in browser runtime&quot;)</span>
+<span class="fc" id="L93">                .write(&quot;credentialDefaultProvider?: (input: any) =&gt; __Provider&lt;__Credentials&gt;;\n&quot;);</span>
+<span class="fc" id="L94">        writer.writeDocs(&quot;Provider function that return promise of a region string&quot;)</span>
+<span class="fc" id="L95">                .write(&quot;regionDefaultProvider?: (input: any) =&gt; __Provider&lt;string&gt;;\n&quot;);</span>
+<span class="fc" id="L96">        writer.writeDocs(&quot;Provider function that return promise of a maxAttempts string&quot;)</span>
+<span class="fc" id="L97">                .write(&quot;maxAttemptsDefaultProvider?: (input: any) =&gt; __Provider&lt;string&gt;;\n&quot;);</span>
+<span class="fc" id="L98">    }</span>
+
+    @Override
+    public Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; getRuntimeConfigWriters(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            LanguageTarget target
+    ) {
+<span class="fc" id="L107">        ServiceShape service = settings.getService(model);</span>
+<span class="fc" id="L108">        Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; runtimeConfigs = new HashMap();</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        if (target.equals(LanguageTarget.SHARED)) {</span>
+<span class="fc" id="L110">            String signingName = service.getTrait(ServiceTrait.class)</span>
+<span class="fc" id="L111">                    .map(ServiceTrait::getArnNamespace)</span>
+<span class="fc" id="L112">                    .orElse(null);</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">            if (signingName != null) {</span>
+<span class="fc" id="L114">                runtimeConfigs.put(&quot;signingName&quot;, writer -&gt; {</span>
+<span class="fc" id="L115">                    writer.write(&quot;signingName: $S,&quot;, signingName);</span>
+<span class="fc" id="L116">                });</span>
+            } else {
+<span class="nc" id="L118">                LOGGER.info(&quot;Cannot generate a signing name for the client because no aws.api#Service &quot;</span>
+<span class="nc" id="L119">                        + &quot;trait was found on &quot; + service.getId());</span>
+            }
+        }
+<span class="fc" id="L122">        runtimeConfigs.putAll(getRuntimeConfig(service, target));</span>
+<span class="fc" id="L123">        return runtimeConfigs;</span>
+    }
+
+    private Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; getRuntimeConfig(ServiceShape service, LanguageTarget target) {
+<span class="fc" id="L127">        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(&quot;&quot;);</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">        if (serviceId.equals(&quot;Cognito Identity&quot;)) {</span>
+<span class="nc" id="L129">            return getCognitoIdentityConfig(target);</span>
+        } else {
+<span class="fc" id="L131">            return getDefaultConfig(target);</span>
+        }
+    }
+
+    private Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; getDefaultConfig(LanguageTarget target) {
+<span class="fc bfc" id="L136" title="All 3 branches covered.">        switch (target) {</span>
+            case BROWSER:
+<span class="fc" id="L138">                return MapUtils.of(</span>
+                        &quot;credentialDefaultProvider&quot;, writer -&gt; {
+<span class="fc" id="L140">                            writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);</span>
+<span class="fc" id="L141">                            writer.addImport(&quot;invalidFunction&quot;, &quot;invalidFunction&quot;,</span>
+                                    TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+<span class="fc" id="L143">                            writer.write(</span>
+                                    &quot;credentialDefaultProvider: invalidFunction(\&quot;Credential is missing\&quot;) as any,&quot;);
+<span class="fc" id="L145">                        },</span>
+                        &quot;regionDefaultProvider&quot;, writer -&gt; {
+<span class="fc" id="L147">                            writer.write(&quot;regionDefaultProvider: invalidFunction(\&quot;Region is missing\&quot;) as any,&quot;);</span>
+<span class="fc" id="L148">                        },</span>
+                        &quot;maxAttemptsDefaultProvider&quot;, writer -&gt; {
+<span class="fc" id="L150">                            writer.write(&quot;maxAttemptsDefaultProvider: (() =&gt; '3') as any,&quot;);</span>
+<span class="fc" id="L151">                        }</span>
+                );
+            case NODE:
+<span class="fc" id="L154">                return MapUtils.of(</span>
+                        &quot;credentialDefaultProvider&quot;, writer -&gt; {
+<span class="fc" id="L156">                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);</span>
+<span class="fc" id="L157">                            writer.addImport(&quot;defaultProvider&quot;, &quot;credentialDefaultProvider&quot;,</span>
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+<span class="fc" id="L159">                            writer.write(&quot;credentialDefaultProvider,&quot;);</span>
+<span class="fc" id="L160">                        },</span>
+                        &quot;regionDefaultProvider&quot;, writer -&gt; {
+<span class="fc" id="L162">                            writer.addDependency(AwsDependency.REGION_PROVIDER);</span>
+<span class="fc" id="L163">                            writer.addImport(&quot;defaultProvider&quot;, &quot;regionDefaultProvider&quot;,</span>
+                                    AwsDependency.REGION_PROVIDER.packageName);
+<span class="fc" id="L165">                            writer.write(&quot;regionDefaultProvider,&quot;);</span>
+<span class="fc" id="L166">                        },</span>
+                        &quot;maxAttemptsDefaultProvider&quot;, writer -&gt; {
+<span class="fc" id="L168">                            writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);</span>
+<span class="fc" id="L169">                            writer.addImport(&quot;maxAttemptsProvider&quot;, &quot;maxAttemptsDefaultProvider&quot;,</span>
+                                    AwsDependency.RETRY_CONFIG_PROVIDER.packageName);
+<span class="fc" id="L171">                            writer.write(&quot;maxAttemptsDefaultProvider,&quot;);</span>
+<span class="fc" id="L172">                        }</span>
+                );
+            default:
+<span class="fc" id="L175">                return Collections.emptyMap();</span>
+        }
+    }
+
+    /**
+     * Cognito Identity client doesn't require signing for some commands, so we are tolerant to
+     * credential config resolver failure.
+     */
+    private Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; getCognitoIdentityConfig(LanguageTarget target) {
+<span class="nc bnc" id="L184" title="All 3 branches missed.">        switch (target) {</span>
+            case BROWSER:
+<span class="nc" id="L186">                return MapUtils.of(</span>
+                        &quot;credentialDefaultProvider&quot;, writer -&gt; {
+<span class="nc" id="L188">                            writer.write(&quot;credentialDefaultProvider: (() =&gt; {}) as any,&quot;);</span>
+<span class="nc" id="L189">                        },</span>
+                        &quot;regionDefaultProvider&quot;, writer -&gt; {
+<span class="nc" id="L191">                            writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);</span>
+<span class="nc" id="L192">                            writer.addImport(&quot;invalidFunction&quot;, &quot;invalidFunction&quot;,</span>
+                                    TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+<span class="nc" id="L194">                            writer.write(&quot;regionDefaultProvider: invalidFunction(\&quot;Region is missing\&quot;) as any,&quot;);</span>
+<span class="nc" id="L195">                        },</span>
+                        &quot;maxAttemptsDefaultProvider&quot;, writer -&gt; {
+<span class="nc" id="L197">                            writer.write(&quot;maxAttemptsDefaultProvider: (() =&gt; '3') as any,&quot;);</span>
+<span class="nc" id="L198">                        }</span>
+                );
+            case NODE:
+<span class="nc" id="L201">                return MapUtils.of(</span>
+                        &quot;credentialDefaultProvider&quot;, writer -&gt; {
+<span class="nc" id="L203">                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);</span>
+<span class="nc" id="L204">                            writer.addImport(&quot;defaultProvider&quot;, &quot;credentialDefaultProvider&quot;,</span>
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+<span class="nc" id="L206">                            writer.openBlock(&quot;credentialDefaultProvider: ((options: any) =&gt; {&quot;, &quot;}) as any,&quot;, () -&gt; {</span>
+<span class="nc" id="L207">                                        writer.write(&quot;try {&quot;).indent();</span>
+<span class="nc" id="L208">                                        writer.write(&quot;return credentialDefaultProvider(options);&quot;);</span>
+<span class="nc" id="L209">                                        writer.dedent().write(&quot;} catch(e){}&quot;);</span>
+<span class="nc" id="L210">                                        writer.write(&quot;return {}&quot;);</span>
+<span class="nc" id="L211">                                    });</span>
+<span class="nc" id="L212">                        },</span>
+                        &quot;regionDefaultProvider&quot;, writer -&gt; {
+<span class="nc" id="L214">                            writer.addDependency(AwsDependency.REGION_PROVIDER);</span>
+<span class="nc" id="L215">                            writer.addImport(&quot;defaultProvider&quot;, &quot;regionDefaultProvider&quot;,</span>
+                                    AwsDependency.REGION_PROVIDER.packageName);
+<span class="nc" id="L217">                            writer.write(&quot;regionDefaultProvider,&quot;);</span>
+<span class="nc" id="L218">                        },</span>
+                        &quot;maxAttemptsDefaultProvider&quot;, writer -&gt; {
+<span class="nc" id="L220">                            writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);</span>
+<span class="nc" id="L221">                            writer.addImport(&quot;maxAttemptsProvider&quot;, &quot;maxAttemptsDefaultProvider&quot;,</span>
+                                    AwsDependency.RETRY_CONFIG_PROVIDER.packageName);
+<span class="nc" id="L223">                            writer.write(&quot;maxAttemptsDefaultProvider,&quot;);</span>
+<span class="nc" id="L224">                        }</span>
+                );
+            default:
+<span class="nc" id="L227">                return Collections.emptyMap();</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

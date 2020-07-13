@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RestJsonProtocolGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">RestJsonProtocolGenerator.java</span></div><h1>RestJsonProtocolGenerator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.List;
+import java.util.Set;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.knowledge.HttpBinding;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
+import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
+import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
+import software.amazon.smithy.utils.IoUtils;
+
+/**
+ * Handles general components across the AWS JSON protocols that have HTTP bindings.
+ * It handles reading and writing from document bodies, including generating any
+ * functions needed for performing serde.
+ *
+ * This builds on the foundations of the {@link HttpBindingProtocolGenerator} to handle
+ * components of binding to HTTP requests and responses.
+ *
+ * @see JsonShapeSerVisitor
+ * @see JsonShapeDeserVisitor
+ * @see JsonMemberSerVisitor
+ * @see JsonMemberDeserVisitor
+ * @see AwsProtocolUtils
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/http.html&quot;&gt;Smithy HTTP protocol bindings.&lt;/a&gt;
+ */
+abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
+    /**
+     * Creates a AWS JSON RPC protocol generator.
+     */
+    RestJsonProtocolGenerator() {
+<span class="fc" id="L57">        super(true);</span>
+<span class="fc" id="L58">    }</span>
+
+    @Override
+    protected TimestampFormatTrait.Format getDocumentTimestampFormat() {
+<span class="nc" id="L62">        return TimestampFormatTrait.Format.EPOCH_SECONDS;</span>
+    }
+
+    @Override
+    protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set&lt;Shape&gt; shapes) {
+<span class="fc" id="L67">        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context));</span>
+<span class="fc" id="L68">    }</span>
+
+    @Override
+    protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set&lt;Shape&gt; shapes) {
+<span class="fc" id="L72">        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));</span>
+<span class="fc" id="L73">    }</span>
+
+    @Override
+    public void generateSharedComponents(GenerationContext context) {
+<span class="fc" id="L77">        super.generateSharedComponents(context);</span>
+<span class="fc" id="L78">        AwsProtocolUtils.generateJsonParseBody(context);</span>
+<span class="fc" id="L79">        AwsProtocolUtils.addItempotencyAutofillImport(context);</span>
+
+<span class="fc" id="L81">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="fc" id="L82">        writer.addUseImports(getApplicationProtocol().getResponseType());</span>
+<span class="fc" id="L83">        writer.write(IoUtils.readUtf8Resource(getClass(), &quot;load-rest-json-error-code-stub.ts&quot;));</span>
+<span class="fc" id="L84">    }</span>
+
+    @Override
+    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
+<span class="nc" id="L88">        super.writeDefaultHeaders(context, operation);</span>
+<span class="nc" id="L89">        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);</span>
+<span class="nc" id="L90">    }</span>
+
+    @Override
+    public void serializeInputDocument(
+            GenerationContext context,
+            OperationShape operation,
+            List&lt;HttpBinding&gt; documentBindings
+    ) {
+        // Short circuit when we have no bindings.
+<span class="nc" id="L99">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">        if (documentBindings.isEmpty()) {</span>
+<span class="nc" id="L101">            writer.write(&quot;body = \&quot;{}\&quot;;&quot;);</span>
+<span class="nc" id="L102">            return;</span>
+        }
+
+<span class="nc" id="L105">        SymbolProvider symbolProvider = context.getSymbolProvider();</span>
+
+<span class="nc" id="L107">        writer.openBlock(&quot;body = JSON.stringify({&quot;, &quot;});&quot;, () -&gt; {</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            for (HttpBinding binding : documentBindings) {</span>
+<span class="nc" id="L109">                MemberShape memberShape = binding.getMember();</span>
+                // The name of the member to get from the input shape.
+<span class="nc" id="L111">                String memberName = symbolProvider.toMemberName(memberShape);</span>
+<span class="nc" id="L112">                String inputLocation = &quot;input.&quot; + memberName;</span>
+                // Use the jsonName trait value if present, otherwise use the member name.
+<span class="nc" id="L114">                String locationName = memberShape.getTrait(JsonNameTrait.class)</span>
+<span class="nc" id="L115">                        .map(JsonNameTrait::getValue)</span>
+<span class="nc" id="L116">                        .orElseGet(binding::getLocationName);</span>
+<span class="nc" id="L117">                Shape target = context.getModel().expectShape(memberShape.getTarget());</span>
+
+                // Handle @timestampFormat on members not just the targeted shape.
+<span class="nc bnc" id="L120" title="All 2 branches missed.">                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)</span>
+<span class="nc" id="L121">                        ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,</span>
+<span class="nc" id="L122">                                getDocumentTimestampFormat(), inputLocation)</span>
+<span class="nc" id="L123">                        : target.accept(getMemberSerVisitor(context, inputLocation));</span>
+
+<span class="nc bnc" id="L125" title="All 2 branches missed.">                if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {</span>
+<span class="nc" id="L126">                    writer.write(&quot;'$L': $L ?? generateIdempotencyToken(),&quot;, locationName, valueProvider);</span>
+                } else {
+<span class="nc" id="L128">                    writer.write(&quot;...($L !== undefined &amp;&amp; { '$L': $L }),&quot;, inputLocation, locationName, valueProvider);</span>
+                }
+<span class="nc" id="L130">            }</span>
+<span class="nc" id="L131">        });</span>
+<span class="nc" id="L132">    }</span>
+
+    @Override
+    protected void serializeInputPayload(
+            GenerationContext context,
+            OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+        // We want the standard serialization, but need to alter it to JSON.
+<span class="nc" id="L141">        super.serializeInputPayload(context, operation, payloadBinding);</span>
+
+<span class="nc" id="L143">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L144">        MemberShape payloadMember = payloadBinding.getMember();</span>
+<span class="nc" id="L145">        Shape target = context.getModel().expectShape(payloadMember.getTarget());</span>
+
+        // When payload target is a structure or union but payload is not a stream, default
+        // to an empty JSON body instead of an undefined body and make sure any structure or union
+        // content ends up as a JSON string.
+<span class="nc bnc" id="L150" title="All 4 branches missed.">        if (target instanceof StructureShape</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">                || (target instanceof UnionShape &amp;&amp; !target.hasTrait(StreamingTrait.class))</span>
+        ) {
+<span class="nc" id="L153">            writer.openBlock(&quot;if (body === undefined) {&quot;, &quot;}&quot;, () -&gt; writer.write(&quot;body = {};&quot;));</span>
+<span class="nc" id="L154">            writer.write(&quot;body = JSON.stringify(body);&quot;);</span>
+        }
+<span class="nc" id="L156">    }</span>
+
+    private DocumentMemberSerVisitor getMemberSerVisitor(GenerationContext context, String dataSource) {
+<span class="nc" id="L159">        return new JsonMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());</span>
+    }
+
+    @Override
+    protected void writeErrorCodeParser(GenerationContext context) {
+<span class="nc" id="L164">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Outsource error code parsing since it's complex for this protocol.
+<span class="nc" id="L167">        writer.write(&quot;errorCode = loadRestJsonErrorCode(output, parsedOutput.body);&quot;);</span>
+<span class="nc" id="L168">    }</span>
+
+    @Override
+    public void deserializeOutputDocument(
+            GenerationContext context,
+            Shape operationOrError,
+            List&lt;HttpBinding&gt; documentBindings
+    ) {
+<span class="nc" id="L176">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L177">        SymbolProvider symbolProvider = context.getSymbolProvider();</span>
+
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        for (HttpBinding binding : documentBindings) {</span>
+<span class="nc" id="L180">            Shape target = context.getModel().expectShape(binding.getMember().getTarget());</span>
+            // The name of the member to get from the input shape.
+<span class="nc" id="L182">            String memberName = symbolProvider.toMemberName(binding.getMember());</span>
+            // Use the jsonName trait value if present, otherwise use the member name.
+<span class="nc" id="L184">            String locationName = binding.getMember().getTrait(JsonNameTrait.class)</span>
+<span class="nc" id="L185">                    .map(JsonNameTrait::getValue)</span>
+<span class="nc" id="L186">                    .orElseGet(binding::getLocationName);</span>
+<span class="nc" id="L187">            writer.openBlock(&quot;if (data.$L !== undefined &amp;&amp; data.$L !== null) {&quot;, &quot;}&quot;, locationName, locationName,</span>
+                    () -&gt; {
+<span class="nc" id="L189">                writer.write(&quot;contents.$L = $L;&quot;, memberName,</span>
+<span class="nc" id="L190">                        target.accept(getMemberDeserVisitor(context, &quot;data.&quot; + locationName)));</span>
+<span class="nc" id="L191">            });</span>
+<span class="nc" id="L192">        }</span>
+<span class="nc" id="L193">    }</span>
+
+    private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {
+<span class="nc" id="L196">        return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

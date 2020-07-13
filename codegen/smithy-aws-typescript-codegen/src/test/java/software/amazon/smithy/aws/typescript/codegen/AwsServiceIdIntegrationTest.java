@@ -36,9 +36,9 @@ public class AwsServiceIdIntegrationTest {
     }
 
     @Test
-    public void testNotCapitalizedServiceId() {
+    public void testFirstNotCapitalizedServiceId() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("notCapitalized.smithy"))
+                .addImport(getClass().getResource("firstNotCapitalized.smithy"))
                 .discoverModels()
                 .assemble()
                 .unwrap();
@@ -49,8 +49,27 @@ public class AwsServiceIdIntegrationTest {
                 new TypeScriptSettings(), model, provider);
         Symbol symbol = decorated.toSymbol(service);
 
-        assertThat(symbol.getName(), equalTo("NotCapitalizedClient"));
-        assertThat(symbol.getNamespace(), equalTo("./NotCapitalizedClient"));
-        assertThat(symbol.getDefinitionFile(), equalTo("NotCapitalizedClient.ts"));
+        assertThat(symbol.getName(), equalTo("FirstNotCapitalizedClient"));
+        assertThat(symbol.getNamespace(), equalTo("./FirstNotCapitalizedClient"));
+        assertThat(symbol.getDefinitionFile(), equalTo("FirstNotCapitalizedClient.ts"));
+    }
+
+    @Test
+    public void testRestNotCapitalizedServiceId() {
+        Model model = Model.assembler()
+                .addImport(getClass().getResource("Restnotcapitalized.smithy"))
+                .discoverModels()
+                .assemble()
+                .unwrap();
+        Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
+        AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
+        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
+        SymbolProvider decorated = integration.decorateSymbolProvider(
+                new TypeScriptSettings(), model, provider);
+        Symbol symbol = decorated.toSymbol(service);
+
+        assertThat(symbol.getName(), equalTo("RestNotCapitalizedClient"));
+        assertThat(symbol.getNamespace(), equalTo("./RestNotCapitalizedClient"));
+        assertThat(symbol.getDefinitionFile(), equalTo("RestNotCapitalizedClient.ts"));
     }
 }

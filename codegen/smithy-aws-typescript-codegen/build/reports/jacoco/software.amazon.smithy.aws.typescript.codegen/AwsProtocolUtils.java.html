@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AwsProtocolUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AwsProtocolUtils.java</span></div><h1>AwsProtocolUtils.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import static software.amazon.smithy.model.knowledge.HttpBinding.Location.DOCUMENT;
+
+import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
+import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
+import software.amazon.smithy.model.knowledge.HttpBindingIndex;
+import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
+import software.amazon.smithy.model.neighbor.Walker;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.XmlNamespaceTrait;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.IoUtils;
+
+/**
+ * Utility methods for generating AWS protocols.
+ */
+final class AwsProtocolUtils {
+
+    private AwsProtocolUtils() {}
+
+    /**
+     * Writes an {@code 'x-amz-content-sha256' = 'UNSIGNED-PAYLOAD'} header for an
+     * {@code @aws.api#unsignedPayload} trait that specifies the {@code &quot;aws.v4&quot;} auth scheme.
+     *
+     * @see &lt;a href=https://awslabs.github.io/smithy/spec/aws-core.html#aws-api-unsignedpayload-trait&gt;@aws.api#unsignedPayload trait&lt;/a&gt;
+     *
+     * @param context The generation context.
+     * @param operation The operation being generated.
+     */
+    static void generateUnsignedPayloadSigV4Header(GenerationContext context, OperationShape operation) {
+<span class="nc" id="L57">        TypeScriptWriter writer = context.getWriter();</span>
+
+<span class="nc" id="L59">        operation.getTrait(UnsignedPayloadTrait.class)</span>
+<span class="nc" id="L60">                .ifPresent(trait -&gt; {</span>
+<span class="nc" id="L61">                    writer.write(&quot;'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',&quot;);</span>
+<span class="nc" id="L62">                });</span>
+<span class="nc" id="L63">    }</span>
+
+    /**
+     * Writes a serde function for a set of shapes using the passed visitor.
+     * This will walk the input set of shapes and invoke the visitor for any
+     * members of aggregate shapes in the set.
+     *
+     * @see software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor
+     * @see software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor
+     *
+     * @param context The generation context.
+     * @param shapes A list of shapes to generate serde for, including their members.
+     * @param visitor A ShapeVisitor that generates a serde function for shapes.
+     */
+    static void generateDocumentBodyShapeSerde(
+            GenerationContext context,
+            Set&lt;Shape&gt; shapes,
+            ShapeVisitor&lt;Void&gt; visitor
+    ) {
+        // Walk all the shapes within those in the document and generate for them as well.
+<span class="fc" id="L83">        Walker shapeWalker = new Walker(context.getModel().getKnowledge(NeighborProviderIndex.class).getProvider());</span>
+<span class="fc" id="L84">        Set&lt;Shape&gt; shapesToGenerate = new TreeSet&lt;&gt;(shapes);</span>
+<span class="pc" id="L85">        shapes.forEach(shape -&gt; shapesToGenerate.addAll(shapeWalker.walkShapes(shape)));</span>
+<span class="pc" id="L86">        shapesToGenerate.forEach(shape -&gt; shape.accept(visitor));</span>
+<span class="fc" id="L87">    }</span>
+
+    /**
+     * Writes a response body parser function for JSON protocols. This
+     * will parse a present body after converting it to utf-8.
+     *
+     * @param context The generation context.
+     */
+    static void generateJsonParseBody(GenerationContext context) {
+<span class="fc" id="L96">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Include a JSON body parser used to deserialize documents from HTTP responses.
+<span class="fc" id="L99">        writer.addImport(&quot;SerdeContext&quot;, &quot;__SerdeContext&quot;, &quot;@aws-sdk/types&quot;);</span>
+<span class="fc" id="L100">        writer.openBlock(&quot;const parseBody = (streamBody: any, context: __SerdeContext): &quot;</span>
+                + &quot;any =&gt; collectBodyString(streamBody, context).then(encoded =&gt; {&quot;, &quot;});&quot;, () -&gt; {
+<span class="fc" id="L102">                    writer.openBlock(&quot;if (encoded.length) {&quot;, &quot;}&quot;, () -&gt; {</span>
+<span class="fc" id="L103">                        writer.write(&quot;return JSON.parse(encoded);&quot;);</span>
+<span class="fc" id="L104">                    });</span>
+<span class="fc" id="L105">                    writer.write(&quot;return {};&quot;);</span>
+<span class="fc" id="L106">                });</span>
+
+<span class="fc" id="L108">        writer.write(&quot;&quot;);</span>
+<span class="fc" id="L109">    }</span>
+
+    /**
+     * Writes a response body parser function for XML protocols. This
+     * will parse a present body after converting it to utf-8.
+     *
+     * @param context The generation context.
+     */
+    static void generateXmlParseBody(GenerationContext context) {
+<span class="nc" id="L118">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Include function that decodes XML escape characters.
+<span class="nc" id="L121">        writer.write(IoUtils.readUtf8Resource(AwsProtocolUtils.class, &quot;decodeEscapedXML.ts&quot;));</span>
+
+        // Include an XML body parser used to deserialize documents from HTTP responses.
+<span class="nc" id="L124">        writer.addImport(&quot;SerdeContext&quot;, &quot;__SerdeContext&quot;, &quot;@aws-sdk/types&quot;);</span>
+<span class="nc" id="L125">        writer.addImport(&quot;getValueFromTextNode&quot;, &quot;__getValueFromTextNode&quot;, &quot;@aws-sdk/smithy-client&quot;);</span>
+<span class="nc" id="L126">        writer.addDependency(AwsDependency.XML_PARSER);</span>
+<span class="nc" id="L127">        writer.addImport(&quot;parse&quot;, &quot;xmlParse&quot;, &quot;fast-xml-parser&quot;);</span>
+<span class="nc" id="L128">        writer.openBlock(&quot;const parseBody = (streamBody: any, context: __SerdeContext): &quot;</span>
+                + &quot;any =&gt; collectBodyString(streamBody, context).then(encoded =&gt; {&quot;, &quot;});&quot;, () -&gt; {
+<span class="nc" id="L130">                    writer.openBlock(&quot;if (encoded.length) {&quot;, &quot;}&quot;, () -&gt; {</span>
+<span class="nc" id="L131">                        writer.write(&quot;const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', &quot;</span>
+                                + &quot;ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val, tagName) &quot;
+                                + &quot;=&gt; decodeEscapedXML(val) });&quot;);
+<span class="nc" id="L134">                        writer.write(&quot;const textNodeName = '#text';&quot;);</span>
+<span class="nc" id="L135">                        writer.write(&quot;const key = Object.keys(parsedObj)[0];&quot;);</span>
+<span class="nc" id="L136">                        writer.write(&quot;const parsedObjToReturn = parsedObj[key];&quot;);</span>
+<span class="nc" id="L137">                        writer.openBlock(&quot;if (parsedObjToReturn[textNodeName]) {&quot;, &quot;}&quot;, () -&gt; {</span>
+<span class="nc" id="L138">                            writer.write(&quot;parsedObjToReturn[key] = parsedObjToReturn[textNodeName];&quot;);</span>
+<span class="nc" id="L139">                            writer.write(&quot;delete parsedObjToReturn[textNodeName];&quot;);</span>
+<span class="nc" id="L140">                        });</span>
+<span class="nc" id="L141">                        writer.write(&quot;return __getValueFromTextNode(parsedObjToReturn);&quot;);</span>
+<span class="nc" id="L142">                    });</span>
+<span class="nc" id="L143">                    writer.write(&quot;return {};&quot;);</span>
+<span class="nc" id="L144">                });</span>
+<span class="nc" id="L145">        writer.write(&quot;&quot;);</span>
+<span class="nc" id="L146">    }</span>
+
+    /**
+     * Writes a form urlencoded string builder function for query based protocols.
+     * This will escape the keys and values, combine those with an '=', and combine
+     * those strings with an '&amp;'.
+     *
+     * @param context The generation context.
+     */
+    static void generateBuildFormUrlencodedString(GenerationContext context) {
+<span class="nc" id="L156">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Write a single function to handle combining a map in to a valid query string.
+<span class="nc" id="L159">        writer.addImport(&quot;extendedEncodeURIComponent&quot;, &quot;__extendedEncodeURIComponent&quot;, &quot;@aws-sdk/smithy-client&quot;);</span>
+<span class="nc" id="L160">        writer.openBlock(&quot;const buildFormUrlencodedString = (formEntries: { [key: string]: string }): &quot;</span>
+                + &quot;string =&gt; Object.entries(formEntries).map(&quot;, &quot;).join(\&quot;&amp;\&quot;);&quot;,
+<span class="nc" id="L162">                () -&gt; writer.write(&quot;([key, value]) =&gt; __extendedEncodeURIComponent(key) + '=' + &quot;</span>
+                    + &quot;__extendedEncodeURIComponent(value)&quot;));
+<span class="nc" id="L164">        writer.write(&quot;&quot;);</span>
+<span class="nc" id="L165">    }</span>
+
+    /**
+     * Writes a default body for query-based operations when the operation doesn't
+     * have an input defined.
+     *
+     * @param context The generation context.
+     * @param operation The operation being generated for.
+     * @return That a body variable was generated and should be set on the request.
+     */
+    static boolean generateUndefinedQueryInputBody(GenerationContext context, OperationShape operation) {
+<span class="nc" id="L176">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Set the form encoded string.
+<span class="nc" id="L179">        writer.openBlock(&quot;const body = buildFormUrlencodedString({&quot;, &quot;});&quot;, () -&gt; {</span>
+            // Set the protocol required values.
+<span class="nc" id="L181">            writer.write(&quot;Action: $S,&quot;, operation.getId().getName());</span>
+<span class="nc" id="L182">            writer.write(&quot;Version: $S,&quot;, context.getService().getVersion());</span>
+<span class="nc" id="L183">        });</span>
+
+<span class="nc" id="L185">        return true;</span>
+    }
+
+    /**
+     * Writes an attribute containing information about a Shape's optionally specified
+     * XML namespace configuration to an attribute of the passed node name.
+     *
+     * @param context The generation context.
+     * @param shape The shape to apply the namespace attribute to, if present on it.
+     * @param nodeName The node to apply the namespace attribute to.
+     * @return Returns if an XML namespace attribute was written.
+     */
+    static boolean writeXmlNamespace(GenerationContext context, Shape shape, String nodeName) {
+<span class="nc" id="L198">        Optional&lt;XmlNamespaceTrait&gt; traitOptional = shape.getTrait(XmlNamespaceTrait.class);</span>
+
+<span class="nc bnc" id="L200" title="All 2 branches missed.">        if (!traitOptional.isPresent()) {</span>
+<span class="nc" id="L201">            return false;</span>
+        }
+
+<span class="nc" id="L204">        XmlNamespaceTrait trait = traitOptional.get();</span>
+<span class="nc" id="L205">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L206">        String xmlns = &quot;xmlns&quot;;</span>
+<span class="nc" id="L207">        Optional&lt;String&gt; prefix = trait.getPrefix();</span>
+<span class="nc bnc" id="L208" title="All 2 branches missed.">        if (prefix.isPresent()) {</span>
+<span class="nc" id="L209">            xmlns += &quot;:&quot; + prefix.get();</span>
+        }
+<span class="nc" id="L211">        writer.write(&quot;$L.addAttribute($S, $S);&quot;, nodeName, xmlns, trait.getUri());</span>
+<span class="nc" id="L212">        return true;</span>
+    }
+
+    /**
+     * Imports a UUID v4 generating function used for auto-filling idempotency tokens.
+     *
+     * @param context The generation context.
+     */
+    static void addItempotencyAutofillImport(GenerationContext context) {
+<span class="fc" id="L221">        context.getModel().shapes(MemberShape.class)</span>
+<span class="fc" id="L222">                .filter(memberShape -&gt; memberShape.hasTrait(IdempotencyTokenTrait.class))</span>
+<span class="fc" id="L223">                .findFirst()</span>
+<span class="fc" id="L224">                .ifPresent(memberShape -&gt; {</span>
+<span class="nc" id="L225">                    TypeScriptWriter writer = context.getWriter();</span>
+
+                    // Include the uuid package and import the v4 function as our more clearly named alias.
+<span class="nc" id="L228">                    writer.addDependency(AwsDependency.UUID_GENERATOR);</span>
+<span class="nc" id="L229">                    writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);</span>
+<span class="nc" id="L230">                    writer.addImport(&quot;v4&quot;, &quot;generateIdempotencyToken&quot;, &quot;uuid&quot;);</span>
+<span class="nc" id="L231">                });</span>
+<span class="fc" id="L232">    }</span>
+
+    /**
+     * Writes a statement that auto-fills the value of a member that is an idempotency
+     * token if it is undefined at the time of serialization.
+     *
+     * @param context The generation context.
+     * @param memberShape The member that may be an idempotency token.
+     * @param inputLocation The location of input data for the member.
+     */
+    static void writeIdempotencyAutofill(GenerationContext context, MemberShape memberShape, String inputLocation) {
+<span class="nc bnc" id="L243" title="All 2 branches missed.">        if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {</span>
+<span class="nc" id="L244">            TypeScriptWriter writer = context.getWriter();</span>
+
+<span class="nc" id="L246">            writer.openBlock(&quot;if ($L === undefined) {&quot;, &quot;}&quot;, inputLocation, () -&gt;</span>
+<span class="nc" id="L247">                    writer.write(&quot;$L = generateIdempotencyToken();&quot;, inputLocation));</span>
+        }
+<span class="nc" id="L249">    }</span>
+
+    /**
+     * Gets a value provider for the timestamp member handling proper serialization
+     * formatting.
+     *
+     * @param context The generation context.
+     * @param memberShape The member that needs timestamp serialization.
+     * @param defaultFormat The timestamp format to default to.
+     * @param inputLocation The location of input data for the member.
+     * @return A string representing the proper value provider for this timestamp.
+     */
+    static String getInputTimestampValueProvider(
+            GenerationContext context,
+            MemberShape memberShape,
+            Format defaultFormat,
+            String inputLocation
+    ) {
+<span class="nc" id="L267">        HttpBindingIndex httpIndex = context.getModel().getKnowledge(HttpBindingIndex.class);</span>
+<span class="nc" id="L268">        TimestampFormatTrait.Format format = httpIndex.determineTimestampFormat(memberShape, DOCUMENT, defaultFormat);</span>
+<span class="nc" id="L269">        return HttpProtocolGeneratorUtils.getTimestampInputParam(context, inputLocation, memberShape, format);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

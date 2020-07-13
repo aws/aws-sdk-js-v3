@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>XmlMemberDeserVisitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">XmlMemberDeserVisitor.java</span></div><h1>XmlMemberDeserVisitor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.model.shapes.BigDecimalShape;
+import software.amazon.smithy.model.shapes.BigIntegerShape;
+import software.amazon.smithy.model.shapes.BooleanShape;
+import software.amazon.smithy.model.shapes.ByteShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.IntegerShape;
+import software.amazon.smithy.model.shapes.LongShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShortShape;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+
+/**
+ * Overrides several of the default implementations to handle XML document
+ * contents deserializing to strings instead of typed components:
+ *
+ * &lt;ul&gt;
+ *   &lt;li&gt;Uses {@code parseFloat} on Float and Double shapes.&lt;/li&gt;
+ *   &lt;li&gt;Fails on BigDecimal and BigInteger shapes.&lt;/li&gt;
+ *   &lt;li&gt;Uses {@code parseInt} on other number shapes.&lt;/li&gt;
+ *   &lt;li&gt;Compares boolean shapes to the string {@code &quot;true&quot;} to generate a boolean.&lt;/li&gt;
+ * &lt;/ul&gt;
+ *
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/xml.html&quot;&gt;Smithy XML traits.&lt;/a&gt;
+ */
+final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
+
+    XmlMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+<span class="nc" id="L49">        super(context, dataSource, defaultTimestampFormat);</span>
+<span class="nc" id="L50">    }</span>
+
+    @Override
+    public String booleanShape(BooleanShape shape) {
+<span class="nc" id="L54">        return getDataSource() + &quot; == 'true'&quot;;</span>
+    }
+
+    @Override
+    public String byteShape(ByteShape shape) {
+<span class="nc" id="L59">        return deserializeInt();</span>
+    }
+
+    @Override
+    public String shortShape(ShortShape shape) {
+<span class="nc" id="L64">        return deserializeInt();</span>
+    }
+
+    @Override
+    public String integerShape(IntegerShape shape) {
+<span class="nc" id="L69">        return deserializeInt();</span>
+    }
+
+    @Override
+    public String longShape(LongShape shape) {
+<span class="nc" id="L74">        return deserializeInt();</span>
+    }
+
+    private String deserializeInt() {
+<span class="nc" id="L78">        return &quot;parseInt(&quot; + getDataSource() + &quot;)&quot;;</span>
+    }
+
+    @Override
+    public String floatShape(FloatShape shape) {
+<span class="nc" id="L83">        return deserializeFloat();</span>
+    }
+
+    @Override
+    public String doubleShape(DoubleShape shape) {
+<span class="nc" id="L88">        return deserializeFloat();</span>
+    }
+
+    private String deserializeFloat() {
+<span class="nc" id="L92">        return &quot;parseFloat(&quot; + getDataSource() + &quot;)&quot;;</span>
+    }
+
+    @Override
+    public String bigDecimalShape(BigDecimalShape shape) {
+        // Fail instead of losing precision through Number.
+<span class="nc" id="L98">        return unsupportedShape(shape);</span>
+    }
+
+    @Override
+    public String bigIntegerShape(BigIntegerShape shape) {
+        // Fail instead of losing precision through Number.
+<span class="nc" id="L104">        return unsupportedShape(shape);</span>
+    }
+
+    private String unsupportedShape(Shape shape) {
+<span class="nc" id="L108">        throw new CodegenException(String.format(&quot;Cannot deserialize shape type %s on protocol, shape: %s.&quot;,</span>
+<span class="nc" id="L109">                shape.getType(), shape.getId()));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

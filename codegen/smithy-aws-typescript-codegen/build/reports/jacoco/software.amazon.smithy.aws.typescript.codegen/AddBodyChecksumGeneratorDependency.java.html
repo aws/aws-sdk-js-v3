@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddBodyChecksumGeneratorDependency.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AddBodyChecksumGeneratorDependency.java</span></div><h1>AddBodyChecksumGeneratorDependency.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.logging.Logger;
+import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+
+import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SetUtils;
+
+/**
+ * Adds blobReader dependency if needed.
+ */
+<span class="fc" id="L38">public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration {</span>
+<span class="fc" id="L39">    private static final Set&lt;String&gt; SERVICE_IDS = SetUtils.of(&quot;Glacier&quot;);</span>
+
+<span class="fc" id="L41">    private static final Logger LOGGER = Logger.getLogger(AddBodyChecksumGeneratorDependency.class.getName());</span>
+
+    @Override
+    public void addConfigInterfaceFields(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            TypeScriptWriter writer
+    ) {
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if (!needsBodyChecksumGeneratorDep(settings.getService(model))) {</span>
+<span class="fc" id="L51">            return;</span>
+        }
+<span class="nc" id="L53">        writer.addImport(&quot;HttpRequest&quot;, &quot;__HttpRequest&quot;, &quot;@aws-sdk/types&quot;);</span>
+<span class="nc" id="L54">        writer.writeDocs(&quot;Function that returns body checksums.&quot;);</span>
+<span class="nc" id="L55">        writer.write(&quot;bodyChecksumGenerator?: (request: __HttpRequest, options: { sha256: __HashConstructor; &quot;</span>
+                + &quot;utf8Decoder: __Decoder }) =&gt; Promise&lt;[string, string]&gt;;\n&quot;);
+<span class="nc" id="L57">}</span>
+
+    @Override
+    public Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; getRuntimeConfigWriters(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            LanguageTarget target
+    ) {
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if (!needsBodyChecksumGeneratorDep(settings.getService(model))) {</span>
+<span class="fc" id="L67">            return Collections.emptyMap();</span>
+        }
+
+<span class="nc bnc" id="L70" title="All 3 branches missed.">        switch (target) {</span>
+            case NODE:
+<span class="nc" id="L72">                return MapUtils.of(&quot;bodyChecksumGenerator&quot;, writer -&gt; {</span>
+<span class="nc" id="L73">                    writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_NODE);</span>
+<span class="nc" id="L74">                    writer.addImport(&quot;bodyChecksumGenerator&quot;, &quot;bodyChecksumGenerator&quot;,</span>
+                            AwsDependency.BODY_CHECKSUM_GENERATOR_NODE.packageName);
+<span class="nc" id="L76">                    writer.write(&quot;bodyChecksumGenerator,&quot;);</span>
+<span class="nc" id="L77">                });</span>
+            case BROWSER:
+<span class="nc" id="L79">                return MapUtils.of(&quot;bodyChecksumGenerator&quot;, writer -&gt; {</span>
+<span class="nc" id="L80">                    writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER);</span>
+<span class="nc" id="L81">                    writer.addImport(&quot;bodyChecksumGenerator&quot;, &quot;bodyChecksumGenerator&quot;,</span>
+                            AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER.packageName);
+<span class="nc" id="L83">                    writer.write(&quot;bodyChecksumGenerator,&quot;);</span>
+<span class="nc" id="L84">                });</span>
+            default:
+<span class="nc" id="L86">                return Collections.emptyMap();</span>
+        }
+    }
+
+    private static boolean needsBodyChecksumGeneratorDep(ServiceShape service) {
+<span class="fc" id="L91">        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(&quot;&quot;);</span>
+<span class="fc" id="L92">        return SERVICE_IDS.contains(serviceId);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

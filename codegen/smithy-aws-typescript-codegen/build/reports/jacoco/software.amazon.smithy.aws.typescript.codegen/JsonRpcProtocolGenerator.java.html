@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JsonRpcProtocolGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">JsonRpcProtocolGenerator.java</span></div><h1>JsonRpcProtocolGenerator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Set;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
+import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
+
+/**
+ * Handles general components across the AWS JSON protocols that have do not have
+ * HTTP bindings. It handles reading and writing from document bodies, including
+ * generating any functions needed for performing serde.
+ *
+ * This builds on the foundations of the {@link HttpRpcProtocolGenerator} to handle
+ * standard components of the HTTP requests and responses.
+ *
+ * @see JsonShapeSerVisitor
+ * @see JsonShapeDeserVisitor
+ * @see JsonMemberSerVisitor
+ * @see JsonMemberDeserVisitor
+ * @see AwsProtocolUtils
+ */
+abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
+
+    /**
+     * Creates a AWS JSON RPC protocol generator.
+     */
+    JsonRpcProtocolGenerator() {
+        // AWS JSON RPC protocols will attempt to parse error codes from response bodies.
+<span class="fc" id="L49">        super(true);</span>
+<span class="fc" id="L50">    }</span>
+
+    @Override
+    protected String getOperationPath(GenerationContext context, OperationShape operationShape) {
+<span class="nc" id="L54">        return &quot;/&quot;;</span>
+    }
+
+    protected Format getDocumentTimestampFormat() {
+<span class="nc" id="L58">        return Format.EPOCH_SECONDS;</span>
+    }
+
+    @Override
+    protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set&lt;Shape&gt; shapes) {
+<span class="nc" id="L63">        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context));</span>
+<span class="nc" id="L64">    }</span>
+
+    @Override
+    protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set&lt;Shape&gt; shapes) {
+<span class="nc" id="L68">        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));</span>
+<span class="nc" id="L69">    }</span>
+
+    @Override
+    public void generateSharedComponents(GenerationContext context) {
+<span class="nc" id="L73">        super.generateSharedComponents(context);</span>
+<span class="nc" id="L74">        AwsProtocolUtils.generateJsonParseBody(context);</span>
+<span class="nc" id="L75">        AwsProtocolUtils.addItempotencyAutofillImport(context);</span>
+<span class="nc" id="L76">    }</span>
+
+    @Override
+    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
+<span class="nc" id="L80">        super.writeDefaultHeaders(context, operation);</span>
+<span class="nc" id="L81">        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);</span>
+
+        // AWS JSON RPC protocols use a combination of the service and operation shape names,
+        // separated by a '.' character, for the target header.
+<span class="nc" id="L85">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L86">        String target = context.getService().getId().getName() + &quot;.&quot; + operation.getId().getName();</span>
+<span class="nc" id="L87">        writer.write(&quot;'X-Amz-Target': $S,&quot;, target);</span>
+<span class="nc" id="L88">    }</span>
+
+    @Override
+    protected void serializeInputDocument(
+            GenerationContext context,
+            OperationShape operation,
+            StructureShape inputStructure
+    ) {
+<span class="nc" id="L96">        TypeScriptWriter writer = context.getWriter();</span>
+
+<span class="nc" id="L98">        writer.write(&quot;body = JSON.stringify($L);&quot;, inputStructure.accept(getMemberSerVisitor(context, &quot;input&quot;)));</span>
+<span class="nc" id="L99">    }</span>
+
+    private DocumentMemberSerVisitor getMemberSerVisitor(GenerationContext context, String dataSource) {
+<span class="nc" id="L102">        return new JsonMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());</span>
+    }
+
+    @Override
+    protected void writeErrorCodeParser(GenerationContext context) {
+<span class="nc" id="L107">        TypeScriptWriter writer = context.getWriter();</span>
+        // parsedOutput is in scope because HttpRpcProtocolGenerator.isErrorCodeInBody is true
+<span class="nc" id="L109">        writer.write(&quot;const errorTypeParts: String = parsedOutput.body[\&quot;__type\&quot;].split('#');&quot;);</span>
+<span class="nc" id="L110">        writer.write(&quot;errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];&quot;);</span>
+<span class="nc" id="L111">    }</span>
+
+    @Override
+    protected void deserializeOutputDocument(
+            GenerationContext context,
+            OperationShape operation,
+            StructureShape outputStructure
+    ) {
+<span class="nc" id="L119">        TypeScriptWriter writer = context.getWriter();</span>
+
+<span class="nc" id="L121">        writer.write(&quot;contents = $L;&quot;, outputStructure.accept(getMemberDeserVisitor(context, &quot;data&quot;)));</span>
+<span class="nc" id="L122">    }</span>
+
+    private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {
+<span class="nc" id="L125">        return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

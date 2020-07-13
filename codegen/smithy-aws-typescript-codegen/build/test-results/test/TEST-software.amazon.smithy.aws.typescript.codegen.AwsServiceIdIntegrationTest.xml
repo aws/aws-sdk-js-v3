@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegrationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-07-13T21:46:38" hostname="dev-dsk-trivikr-2b-c1ea01ce.us-west-2.amazon.com" time="0.052">
+  <properties/>
+  <testcase name="testSomeLibraryMethod()" classname="software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegrationTest" time="0.019"/>
+  <testcase name="testFirstNotCapitalizedServiceId()" classname="software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegrationTest" time="0.018"/>
+  <testcase name="testRestNotCapitalizedServiceId()" classname="software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegrationTest" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

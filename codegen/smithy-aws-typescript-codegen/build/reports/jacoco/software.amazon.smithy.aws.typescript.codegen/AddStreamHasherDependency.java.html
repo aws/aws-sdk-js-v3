@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddStreamHasherDependency.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AddStreamHasherDependency.java</span></div><h1>AddStreamHasherDependency.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Collections;
+import java.util.Map;
+import java.util.function.Consumer;
+
+import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
+
+/**
+ * Adds StreamHasher if needed.
+ */
+<span class="fc" id="L35">public class AddStreamHasherDependency implements TypeScriptIntegration {</span>
+
+    @Override
+    public void addConfigInterfaceFields(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            TypeScriptWriter writer
+    ) {
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if (!needsStreamHasher(settings.getService(model))) {</span>
+<span class="fc" id="L45">            return;</span>
+        }
+
+<span class="nc" id="L48">        writer.addImport(&quot;Readable&quot;, &quot;Readable&quot;, &quot;stream&quot;);</span>
+<span class="nc" id="L49">        writer.addImport(&quot;StreamHasher&quot;, &quot;__StreamHasher&quot;, &quot;@aws-sdk/types&quot;);</span>
+<span class="nc" id="L50">        writer.writeDocs(&quot;A function that, given a hash constructor and a stream, calculates the \n&quot;</span>
+                + &quot;hash of the streamed value&quot;);
+<span class="nc" id="L52">        writer.write(&quot;streamHasher?: __StreamHasher&lt;Readable&gt; | __StreamHasher&lt;Blob&gt;;\n&quot;);</span>
+<span class="nc" id="L53">    }</span>
+
+    @Override
+    public Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; getRuntimeConfigWriters(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            LanguageTarget target
+    ) {
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">        if (!needsStreamHasher(settings.getService(model))) {</span>
+<span class="fc" id="L63">            return Collections.emptyMap();</span>
+        }
+
+<span class="nc bnc" id="L66" title="All 3 branches missed.">        switch (target) {</span>
+            case NODE:
+<span class="nc" id="L68">                return MapUtils.of(&quot;streamHasher&quot;, writer -&gt; {</span>
+<span class="nc" id="L69">                    writer.addDependency(AwsDependency.STREAM_HASHER_NODE);</span>
+<span class="nc" id="L70">                    writer.addImport(&quot;fileStreamHasher&quot;, &quot;streamHasher&quot;, AwsDependency.STREAM_HASHER_NODE.packageName);</span>
+<span class="nc" id="L71">                    writer.write(&quot;streamHasher,&quot;);</span>
+<span class="nc" id="L72">                });</span>
+            case BROWSER:
+<span class="nc" id="L74">                return MapUtils.of(&quot;streamHasher&quot;, writer -&gt; {</span>
+<span class="nc" id="L75">                    writer.addDependency(AwsDependency.STREAM_HASHER_BROWSER);</span>
+<span class="nc" id="L76">                    writer.addImport(&quot;blobHasher&quot;, &quot;streamHasher&quot;, AwsDependency.STREAM_HASHER_BROWSER.packageName);</span>
+<span class="nc" id="L77">                    writer.write(&quot;streamHasher,&quot;);</span>
+<span class="nc" id="L78">                });</span>
+            default:
+<span class="nc" id="L80">                return Collections.emptyMap();</span>
+        }
+    }
+
+    private static boolean needsStreamHasher(ServiceShape service) {
+<span class="fc" id="L85">        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(&quot;&quot;);</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (serviceId.equals(&quot;S3&quot;)) {</span>
+<span class="nc" id="L87">            return true;</span>
+        }
+
+<span class="fc" id="L90">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

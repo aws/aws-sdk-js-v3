@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AwsEc2.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AwsEc2.java</span></div><h1>AwsEc2.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Set;
+import software.amazon.smithy.aws.traits.protocols.Ec2QueryTrait;
+import software.amazon.smithy.codegen.core.SymbolReference;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
+
+/**
+ * Handles generating the aws.ec2 protocol for services. It handles reading and
+ * writing from document bodies, including generating any functions needed for
+ * performing serde.
+ *
+ * This builds on the foundations of the {@link HttpRpcProtocolGenerator} to handle
+ * standard components of the HTTP requests and responses.
+ *
+ * @see Ec2ShapeSerVisitor
+ * @see XmlShapeDeserVisitor
+ * @see QueryMemberSerVisitor
+ * @see XmlMemberDeserVisitor
+ * @see AwsProtocolUtils
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/xml.html&quot;&gt;Smithy XML traits.&lt;/a&gt;
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/aws-core.html#ec2QueryName-trait&quot;&gt;Smithy EC2 Query Name trait.&lt;/a&gt;
+ */
+final class AwsEc2 extends HttpRpcProtocolGenerator {
+
+    AwsEc2() {
+<span class="fc" id="L48">        super(true);</span>
+<span class="fc" id="L49">    }</span>
+
+    @Override
+    protected String getOperationPath(GenerationContext context, OperationShape operationShape) {
+<span class="nc" id="L53">        return &quot;/&quot;;</span>
+    }
+
+    @Override
+    public ShapeId getProtocol() {
+<span class="fc" id="L58">        return Ec2QueryTrait.ID;</span>
+    }
+
+    @Override
+    public String getName() {
+<span class="nc" id="L63">        return &quot;aws.ec2&quot;;</span>
+    }
+
+    @Override
+    protected String getDocumentContentType() {
+<span class="nc" id="L68">        return &quot;application/x-www-form-urlencoded&quot;;</span>
+    }
+
+    @Override
+    protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set&lt;Shape&gt; shapes) {
+<span class="nc" id="L73">        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new Ec2ShapeSerVisitor(context));</span>
+<span class="nc" id="L74">    }</span>
+
+    @Override
+    protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set&lt;Shape&gt; shapes) {
+<span class="nc" id="L78">        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new XmlShapeDeserVisitor(context));</span>
+<span class="nc" id="L79">    }</span>
+
+    @Override
+    public void generateSharedComponents(GenerationContext context) {
+<span class="nc" id="L83">        super.generateSharedComponents(context);</span>
+<span class="nc" id="L84">        AwsProtocolUtils.generateXmlParseBody(context);</span>
+<span class="nc" id="L85">        AwsProtocolUtils.generateBuildFormUrlencodedString(context);</span>
+<span class="nc" id="L86">        AwsProtocolUtils.addItempotencyAutofillImport(context);</span>
+
+<span class="nc" id="L88">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Generate a function that handles the complex rules around deserializing
+        // an error code from an xml error body.
+<span class="nc" id="L92">        SymbolReference responseType = getApplicationProtocol().getResponseType();</span>
+<span class="nc" id="L93">        writer.openBlock(&quot;const loadEc2ErrorCode = (\n&quot;</span>
+                       + &quot;  output: $T,\n&quot;
+                       + &quot;  data: any\n&quot;
+                       + &quot;): string =&gt; {&quot;, &quot;};&quot;, responseType, () -&gt; {
+            // Attempt to fetch the error code from the specific location.
+<span class="nc" id="L98">            String errorCodeLocation = getErrorBodyLocation(context, &quot;data&quot;) + &quot;.Code&quot;;</span>
+<span class="nc" id="L99">            writer.openBlock(&quot;if ($L !== undefined) {&quot;, &quot;}&quot;, errorCodeLocation, () -&gt; {</span>
+<span class="nc" id="L100">                writer.write(&quot;return $L;&quot;, errorCodeLocation);</span>
+<span class="nc" id="L101">            });</span>
+
+            // Default a 404 status code to the NotFound code.
+<span class="nc" id="L104">            writer.openBlock(&quot;if (output.statusCode == 404) {&quot;, &quot;}&quot;, () -&gt; writer.write(&quot;return 'NotFound';&quot;));</span>
+
+            // Default to an empty error code so an unmodeled exception is built.
+<span class="nc" id="L107">            writer.write(&quot;return '';&quot;);</span>
+<span class="nc" id="L108">        });</span>
+<span class="nc" id="L109">        writer.write(&quot;&quot;);</span>
+<span class="nc" id="L110">    }</span>
+
+    @Override
+    protected String getErrorBodyLocation(GenerationContext context, String outputLocation) {
+<span class="nc" id="L114">        return outputLocation + &quot;.Errors.Error&quot;;</span>
+    }
+
+    @Override
+    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
+<span class="nc" id="L119">        super.writeDefaultHeaders(context, operation);</span>
+<span class="nc" id="L120">        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);</span>
+<span class="nc" id="L121">    }</span>
+
+    @Override
+    protected void serializeInputDocument(
+            GenerationContext context,
+            OperationShape operation,
+            StructureShape inputStructure
+    ) {
+<span class="nc" id="L129">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Set the form encoded string.
+<span class="nc" id="L132">        writer.openBlock(&quot;body = buildFormUrlencodedString({&quot;, &quot;});&quot;, () -&gt; {</span>
+            // Gather all the explicit input entries.
+<span class="nc" id="L134">            writer.write(&quot;...$L,&quot;,</span>
+<span class="nc" id="L135">                    inputStructure.accept(new QueryMemberSerVisitor(context, &quot;input&quot;, Format.DATE_TIME)));</span>
+            // Set the protocol required values.
+<span class="nc" id="L137">            writer.write(&quot;Action: $S,&quot;, operation.getId().getName());</span>
+<span class="nc" id="L138">            writer.write(&quot;Version: $S,&quot;, context.getService().getVersion());</span>
+<span class="nc" id="L139">        });</span>
+<span class="nc" id="L140">    }</span>
+
+    @Override
+    protected boolean writeUndefinedInputBody(GenerationContext context, OperationShape operation) {
+<span class="nc" id="L144">        return AwsProtocolUtils.generateUndefinedQueryInputBody(context, operation);</span>
+    }
+
+    @Override
+    protected void writeErrorCodeParser(GenerationContext context) {
+<span class="nc" id="L149">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Outsource error code parsing since it's complex for this protocol.
+<span class="nc" id="L152">        writer.write(&quot;errorCode = loadEc2ErrorCode(output, parsedOutput.body);&quot;);</span>
+<span class="nc" id="L153">    }</span>
+
+    @Override
+    protected void deserializeOutputDocument(
+            GenerationContext context,
+            OperationShape operation,
+            StructureShape outputStructure
+    ) {
+<span class="nc" id="L161">        TypeScriptWriter writer = context.getWriter();</span>
+
+<span class="nc" id="L163">        writer.write(&quot;contents = $L;&quot;,</span>
+<span class="nc" id="L164">                outputStructure.accept(new XmlMemberDeserVisitor(context, &quot;data&quot;, Format.DATE_TIME)));</span>
+<span class="nc" id="L165">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

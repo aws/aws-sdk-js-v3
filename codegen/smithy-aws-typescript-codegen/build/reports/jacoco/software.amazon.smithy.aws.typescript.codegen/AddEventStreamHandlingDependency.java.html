@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddEventStreamHandlingDependency.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AddEventStreamHandlingDependency.java</span></div><h1>AddEventStreamHandlingDependency.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.EventStreamIndex;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
+import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.ListUtils;
+import software.amazon.smithy.utils.MapUtils;
+
+/**
+ * Adds runtime client plugins that handle the eventstream flow in request,
+ * including eventstream payload signing.
+ */
+<span class="fc" id="L45">public class AddEventStreamHandlingDependency implements TypeScriptIntegration {</span>
+    @Override
+    public List&lt;RuntimeClientPlugin&gt; getClientPlugins() {
+<span class="fc" id="L48">        return ListUtils.of(</span>
+<span class="fc" id="L49">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L50">                        .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,</span>
+                                &quot;EventStream&quot;, HAS_CONFIG)
+<span class="fc" id="L52">                        .servicePredicate(AddEventStreamHandlingDependency::hasEventStreamInput)</span>
+<span class="fc" id="L53">                        .build(),</span>
+<span class="fc" id="L54">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L55">                        .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,</span>
+                                &quot;EventStream&quot;, HAS_MIDDLEWARE)
+<span class="fc" id="L57">                        .operationPredicate(AddEventStreamHandlingDependency::hasEventStreamInput)</span>
+<span class="fc" id="L58">                        .build()</span>
+        );
+    }
+
+    @Override
+    public void addConfigInterfaceFields(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            TypeScriptWriter writer
+    ) {
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (hasEventStreamInput(model, settings.getService(model))) {</span>
+<span class="nc" id="L70">            writer.addImport(&quot;EventStreamPayloadHandlerProvider&quot;, &quot;__EventStreamPayloadHandlerProvider&quot;,</span>
+                    TypeScriptDependency.AWS_SDK_TYPES.packageName);
+<span class="nc" id="L72">            writer.writeDocs(&quot;The function that provides necessary utilities for handling request event stream.&quot;);</span>
+<span class="nc" id="L73">            writer.write(&quot;eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;\n&quot;);</span>
+        }
+<span class="fc" id="L75">    }</span>
+
+    @Override
+    public Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; getRuntimeConfigWriters(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            LanguageTarget target
+    ) {
+<span class="fc" id="L84">        ServiceShape service = settings.getService(model);</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        if (!hasEventStreamInput(model, service)) {</span>
+<span class="fc" id="L86">            return Collections.emptyMap();</span>
+        }
+
+<span class="nc bnc" id="L89" title="All 4 branches missed.">        switch (target) {</span>
+            case NODE:
+<span class="nc" id="L91">                return MapUtils.of(&quot;eventStreamPayloadHandlerProvider&quot;, writer -&gt; {</span>
+<span class="nc" id="L92">                    writer.addDependency(AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);</span>
+<span class="nc" id="L93">                    writer.addImport(&quot;eventStreamPayloadHandlerProvider&quot;, &quot;eventStreamPayloadHandlerProvider&quot;,</span>
+                            AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE.packageName);
+<span class="nc" id="L95">                    writer.write(&quot;eventStreamPayloadHandlerProvider,&quot;);</span>
+<span class="nc" id="L96">                });</span>
+            case BROWSER:
+                /**
+                 * Browser doesn't support streaming requests as of March 2020.
+                 * Each service client needs to support eventstream request in browser individually.
+                 * Services like TranscribeStreaming support it via WebSocket.
+                 */
+<span class="nc" id="L103">                return MapUtils.of(&quot;eventStreamPayloadHandlerProvider&quot;, writer -&gt; {</span>
+<span class="nc" id="L104">                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);</span>
+<span class="nc" id="L105">                    writer.addImport(&quot;invalidFunction&quot;, &quot;invalidFunction&quot;,</span>
+                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+<span class="nc" id="L107">                    writer.openBlock(&quot;eventStreamPayloadHandlerProvider: () =&gt; ({&quot;, &quot;}),&quot;, () -&gt; {</span>
+<span class="nc" id="L108">                        writer.write(&quot;handle: invalidFunction(\&quot;event stream request is not supported in browser.\&quot;),&quot;);</span>
+<span class="nc" id="L109">                    });</span>
+<span class="nc" id="L110">                });</span>
+            case REACT_NATIVE:
+                /**
+                 * ReactNative doesn't support streaming requests as of March 2020.
+                 * Here we don't supply invalidFunction. Each service client needs to support eventstream request
+                 * in RN has to implement a customization providing its own eventStreamSignerProvider
+                 */
+<span class="nc" id="L117">                return MapUtils.of(&quot;eventStreamPayloadHandlerProvider&quot;, writer -&gt; {</span>
+<span class="nc" id="L118">                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);</span>
+<span class="nc" id="L119">                    writer.addImport(&quot;invalidFunction&quot;, &quot;invalidFunction&quot;,</span>
+                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+<span class="nc" id="L121">                    writer.openBlock(&quot;eventStreamPayloadHandlerProvider: () =&gt; ({&quot;, &quot;}),&quot;, () -&gt; {</span>
+<span class="nc" id="L122">                        writer.write(&quot;handle: invalidFunction(\&quot;event stream request &quot;</span>
+                                + &quot;is not supported in ReactNative.\&quot;),&quot;);
+<span class="nc" id="L124">                    });</span>
+<span class="nc" id="L125">                });</span>
+            default:
+<span class="nc" id="L127">                return Collections.emptyMap();</span>
+        }
+    }
+
+    private static boolean hasEventStreamInput(Model model, ServiceShape service) {
+<span class="fc" id="L132">        TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);</span>
+<span class="fc" id="L133">        Set&lt;OperationShape&gt; operations = topDownIndex.getContainedOperations(service);</span>
+<span class="fc" id="L134">        EventStreamIndex eventStreamIndex = model.getKnowledge(EventStreamIndex.class);</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">        for (OperationShape operation : operations) {</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">            if (eventStreamIndex.getInputInfo(operation).isPresent()) {</span>
+<span class="nc" id="L137">                return true;</span>
+            }
+<span class="nc" id="L139">        }</span>
+<span class="fc" id="L140">        return false;</span>
+    }
+
+    private static boolean hasEventStreamInput(Model model, ServiceShape service, OperationShape operation) {
+<span class="nc" id="L144">        EventStreamIndex eventStreamIndex = model.getKnowledge(EventStreamIndex.class);</span>
+<span class="nc" id="L145">        return eventStreamIndex.getInputInfo(operation).isPresent();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

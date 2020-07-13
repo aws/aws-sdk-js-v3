@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>XmlShapeDeserVisitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">XmlShapeDeserVisitor.java</span></div><h1>XmlShapeDeserVisitor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
+import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.CollectionShape;
+import software.amazon.smithy.model.shapes.DocumentShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.XmlFlattenedTrait;
+import software.amazon.smithy.model.traits.XmlNameTrait;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
+import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+
+/**
+ * Visitor to generate deserialization functions for shapes in XML-document
+ * based document bodies.
+ *
+ * No standard visitation methods are overridden; function body generation for all
+ * expected deserializers is handled by this class.
+ *
+ * Timestamps are deserialized from {@link Format}.DATE_TIME by default.
+ *
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/xml.html&quot;&gt;Smithy XML traits.&lt;/a&gt;
+ */
+final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
+
+    XmlShapeDeserVisitor(GenerationContext context) {
+<span class="nc" id="L54">        super(context);</span>
+<span class="nc" id="L55">    }</span>
+
+    private DocumentMemberDeserVisitor getMemberVisitor(String dataSource) {
+<span class="nc" id="L58">        return new XmlMemberDeserVisitor(getContext(), dataSource, Format.DATE_TIME);</span>
+    }
+
+    @Override
+    protected void deserializeCollection(GenerationContext context, CollectionShape shape) {
+<span class="nc" id="L63">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L64">        Shape target = context.getModel().expectShape(shape.getMember().getTarget());</span>
+
+        // Dispatch to the output value provider for any additional handling.
+<span class="nc" id="L67">        writer.openBlock(&quot;return (output || []).map((entry: any) =&gt; &quot;, &quot;);&quot;, () -&gt; {</span>
+<span class="nc" id="L68">            String dataSource = getUnnamedTargetWrapper(context, target, &quot;entry&quot;);</span>
+<span class="nc" id="L69">            writer.write(&quot;$L&quot;, target.accept(getMemberVisitor(dataSource)));</span>
+<span class="nc" id="L70">        });</span>
+<span class="nc" id="L71">    }</span>
+
+    private String getUnnamedTargetWrapper(GenerationContext context, Shape target, String dataSource) {
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        if (!deserializationReturnsArray(target)) {</span>
+<span class="nc" id="L75">            return dataSource;</span>
+        }
+
+<span class="nc" id="L78">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L79">        writer.addImport(&quot;getArrayIfSingleItem&quot;, &quot;__getArrayIfSingleItem&quot;, &quot;@aws-sdk/smithy-client&quot;);</span>
+        // The XML parser will set one K:V for a member that could
+        // return multiple entries but only has one.
+        // Update the target element if we target another level of collection.
+<span class="nc" id="L83">        String targetLocation = getUnnamedAggregateTargetLocation(context.getModel(), target);</span>
+<span class="nc" id="L84">        return String.format(&quot;__getArrayIfSingleItem(%s[\&quot;%s\&quot;])&quot;, dataSource, targetLocation);</span>
+    }
+
+    private boolean deserializationReturnsArray(Shape shape) {
+<span class="nc bnc" id="L88" title="All 4 branches missed.">        return (shape instanceof CollectionShape) || (shape instanceof MapShape);</span>
+    }
+
+    @Override
+    protected void deserializeDocument(GenerationContext context, DocumentShape shape) {
+<span class="nc" id="L93">        throw new CodegenException(String.format(&quot;Cannot deserialize Document types on AWS XML protocols, shape: %s.&quot;,</span>
+<span class="nc" id="L94">                shape.getId()));</span>
+    }
+
+    @Override
+    protected void deserializeMap(GenerationContext context, MapShape shape) {
+<span class="nc" id="L99">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L100">        Shape target = context.getModel().expectShape(shape.getValue().getTarget());</span>
+<span class="nc" id="L101">        String keyLocation = shape.getKey().getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue).orElse(&quot;key&quot;);</span>
+<span class="nc" id="L102">        String valueLocation = shape.getValue().getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L103">                .orElse(&quot;value&quot;);</span>
+
+        // Get the right serialization for each entry in the map. Undefined
+        // outputs won't have this deserializer invoked.
+<span class="nc" id="L107">        writer.openBlock(&quot;return output.reduce((acc: any, pair: any) =&gt; ({&quot;, &quot;}), {});&quot;, () -&gt; {</span>
+<span class="nc" id="L108">            writer.write(&quot;...acc,&quot;);</span>
+            // Dispatch to the output value provider for any additional handling.
+<span class="nc" id="L110">            String dataSource = getUnnamedTargetWrapper(context, target, &quot;pair[\&quot;&quot; + valueLocation + &quot;\&quot;]&quot;);</span>
+<span class="nc" id="L111">            writer.write(&quot;[pair[$S]]: $L&quot;, keyLocation, target.accept(getMemberVisitor(dataSource)));</span>
+<span class="nc" id="L112">        });</span>
+<span class="nc" id="L113">    }</span>
+
+    @Override
+    protected void deserializeStructure(GenerationContext context, StructureShape shape) {
+<span class="nc" id="L117">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Prepare the document contents structure.
+<span class="nc" id="L120">        Map&lt;String, MemberShape&gt; members = shape.getAllMembers();</span>
+<span class="nc" id="L121">        writer.openBlock(&quot;let contents: any = {&quot;, &quot;};&quot;, () -&gt; {</span>
+<span class="nc" id="L122">            writer.write(&quot;__type: $S,&quot;, shape.getId().getName());</span>
+            // Set all the members to undefined to meet type constraints.
+<span class="nc" id="L124">            members.forEach((memberName, memberShape) -&gt; writer.write(&quot;$L: undefined,&quot;, memberName));</span>
+<span class="nc" id="L125">        });</span>
+
+<span class="nc" id="L127">        members.forEach((memberName, memberShape) -&gt; {</span>
+            // Grab the target shape so we can use a member deserializer on it.
+<span class="nc" id="L129">            Shape target = context.getModel().expectShape(memberShape.getTarget());</span>
+<span class="nc" id="L130">            deserializeNamedMember(context, memberName, memberShape, &quot;output&quot;, (dataSource, visitor) -&gt; {</span>
+<span class="nc" id="L131">                writer.write(&quot;contents.$L = $L;&quot;, memberName, target.accept(visitor));</span>
+<span class="nc" id="L132">            });</span>
+<span class="nc" id="L133">        });</span>
+
+<span class="nc" id="L135">        writer.write(&quot;return contents;&quot;);</span>
+<span class="nc" id="L136">    }</span>
+
+    /**
+     * Generates an if statement for deserializing an output member, validating its
+     * presence at the correct location, handling collections and flattening, and
+     * dispatching to the supplied function to generate the body of the if statement.
+     *
+     * @param context The generation context.
+     * @param memberName The name of the member being deserialized.
+     * @param memberShape The shape of the member being deserialized.
+     * @param inputLocation The parent input location of the member being deserialized.
+     * @param statementBodyGenerator A function that generates the proper deserialization
+     *   after member presence is validated.
+     */
+    void deserializeNamedMember(
+            GenerationContext context,
+            String memberName,
+            MemberShape memberShape,
+            String inputLocation,
+            BiConsumer&lt;String, DocumentMemberDeserVisitor&gt; statementBodyGenerator
+    ) {
+<span class="nc" id="L157">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L158">        Model model = context.getModel();</span>
+
+        // Use the @xmlName trait if present on the member, otherwise use the member name.
+<span class="nc" id="L161">        String locationName = memberShape.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L162">                .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L163">                .orElse(memberName);</span>
+        // Grab the target shape so we can use a member deserializer on it.
+<span class="nc" id="L165">        Shape target = context.getModel().expectShape(memberShape.getTarget());</span>
+        // Handle @xmlFlattened for collections and maps.
+<span class="nc" id="L167">        boolean isFlattened = memberShape.hasTrait(XmlFlattenedTrait.class);</span>
+        // Handle targets that return multiple entities per member.
+<span class="nc" id="L169">        boolean deserializationReturnsArray = deserializationReturnsArray(target);</span>
+
+        // Build a string based on the traits that represents the location.
+        // Note we don't need to handle @xmlAttribute here because the parser flattens
+        // attributes in to the main structure.
+<span class="nc" id="L174">        StringBuilder sourceBuilder = new StringBuilder(inputLocation).append(&quot;['&quot;).append(locationName).append(&quot;']&quot;);</span>
+        // Track any locations we need to validate on our way to the final element.
+<span class="nc" id="L176">        List&lt;String&gt; locationsToValidate = new ArrayList&lt;&gt;();</span>
+
+        // Go in to a specialized element for unflattened aggregates.
+<span class="nc bnc" id="L179" title="All 4 branches missed.">        if (deserializationReturnsArray &amp;&amp; !isFlattened) {</span>
+            // Make sure we validate the wrapping element is set.
+<span class="nc" id="L181">            locationsToValidate.add(sourceBuilder.toString());</span>
+            // Update the target element.
+<span class="nc" id="L183">            String targetLocation = getUnnamedAggregateTargetLocation(model, target);</span>
+<span class="nc" id="L184">            sourceBuilder.append(&quot;['&quot;).append(targetLocation).append(&quot;']&quot;);</span>
+        }
+
+        // Handle self-closed xml parsed as an empty string.
+<span class="nc bnc" id="L188" title="All 2 branches missed.">        if (deserializationReturnsArray) {</span>
+<span class="nc" id="L189">            writer.openBlock(&quot;if ($L.$L === \&quot;\&quot;) {&quot;, &quot;}&quot;, inputLocation, locationName, () -&gt; {</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">                if (target instanceof MapShape) {</span>
+<span class="nc" id="L191">                    writer.write(&quot;contents.$L = {};&quot;, memberName);</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">                } else if (target instanceof CollectionShape) {</span>
+<span class="nc" id="L193">                    writer.write(&quot;contents.$L = [];&quot;, memberName);</span>
+                }
+<span class="nc" id="L195">            });</span>
+        }
+
+        // Handle the response property.
+<span class="nc" id="L199">        String source = sourceBuilder.toString();</span>
+        // Validate the resulting target element is set.
+<span class="nc" id="L201">        locationsToValidate.add(source);</span>
+        // Build a string of the elements to validate before deserializing.
+<span class="nc" id="L203">        String validationStatement = locationsToValidate.stream()</span>
+<span class="nc" id="L204">                .map(location -&gt; location + &quot; !== undefined&quot;)</span>
+<span class="nc" id="L205">                .collect(Collectors.joining(&quot; &amp;&amp; &quot;));</span>
+<span class="nc" id="L206">        writer.openBlock(&quot;if ($L) {&quot;, &quot;}&quot;, validationStatement, () -&gt; {</span>
+<span class="nc" id="L207">            String dataSource = getNamedTargetWrapper(context, target, source);</span>
+<span class="nc" id="L208">            statementBodyGenerator.accept(dataSource, getMemberVisitor(dataSource));</span>
+<span class="nc" id="L209">        });</span>
+<span class="nc" id="L210">    }</span>
+
+    private String getNamedTargetWrapper(GenerationContext context, Shape target, String dataSource) {
+<span class="nc bnc" id="L213" title="All 2 branches missed.">        if (!deserializationReturnsArray(target)) {</span>
+<span class="nc" id="L214">            return dataSource;</span>
+        }
+
+<span class="nc" id="L217">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L218">        writer.addImport(&quot;getArrayIfSingleItem&quot;, &quot;__getArrayIfSingleItem&quot;, &quot;@aws-sdk/smithy-client&quot;);</span>
+        // The XML parser will set one K:V for a member that could
+        // return multiple entries but only has one.
+<span class="nc" id="L221">        return String.format(&quot;__getArrayIfSingleItem(%s)&quot;, dataSource);</span>
+    }
+
+    private String getUnnamedAggregateTargetLocation(Model model, Shape shape) {
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        if (shape.isMapShape()) {</span>
+<span class="nc" id="L226">            return &quot;entry&quot;;</span>
+        }
+
+        // Any other aggregate shape is an instance of a CollectionShape.
+<span class="nc" id="L230">        return ((CollectionShape) shape).getMember().getMemberTrait(model, XmlNameTrait.class)</span>
+<span class="nc" id="L231">                .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L232">                .orElse(&quot;member&quot;);</span>
+    }
+
+    @Override
+    protected void deserializeUnion(GenerationContext context, UnionShape shape) {
+<span class="nc" id="L237">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Check for any known union members and return when we find one.
+<span class="nc" id="L240">        Map&lt;String, MemberShape&gt; members = shape.getAllMembers();</span>
+<span class="nc" id="L241">        members.forEach((memberName, memberShape) -&gt; {</span>
+            // Grab the target shape so we can use a member deserializer on it.
+<span class="nc" id="L243">            Shape target = context.getModel().expectShape(memberShape.getTarget());</span>
+<span class="nc" id="L244">            deserializeNamedMember(context, memberName, memberShape, &quot;output&quot;, (dataSource, visitor) -&gt; {</span>
+<span class="nc" id="L245">                writer.openBlock(&quot;return {&quot;, &quot;};&quot;, () -&gt; {</span>
+                    // Dispatch to the output value provider for any additional handling.
+<span class="nc" id="L247">                    writer.write(&quot;$L: $L&quot;, memberName, target.accept(visitor));</span>
+<span class="nc" id="L248">                });</span>
+<span class="nc" id="L249">            });</span>
+<span class="nc" id="L250">        });</span>
+
+        // Or write output element to the unknown member.
+<span class="nc" id="L253">        writer.write(&quot;return { $$unknown: Object.entries(output)[0] };&quot;);</span>
+<span class="nc" id="L254">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

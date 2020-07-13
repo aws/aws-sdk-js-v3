@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AwsRestXml.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AwsRestXml.java</span></div><h1>AwsRestXml.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.List;
+import java.util.Set;
+import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.codegen.core.SymbolReference;
+import software.amazon.smithy.model.knowledge.HttpBinding;
+import software.amazon.smithy.model.knowledge.HttpBinding.Location;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
+
+/**
+ * Handles generating the aws.rest-xml protocol for services. It handles reading and
+ * writing from document bodies, including generating any functions needed for
+ * performing serde.
+ *
+ * This builds on the foundations of the {@link HttpBindingProtocolGenerator} to handle
+ * components of binding to HTTP requests and responses.
+ *
+ * A service-specific customization exists for Amazon S3, which doesn't wrap the Error
+ * object in the response.
+ *
+ * TODO: Build an XmlIndex to handle pre-computing resolved values for names, namespaces, and more.
+ *
+ * @see XmlShapeSerVisitor
+ * @see XmlShapeDeserVisitor
+ * @see XmlMemberSerVisitor
+ * @see XmlMemberDeserVisitor
+ * @see AwsProtocolUtils
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/http.html&quot;&gt;Smithy HTTP protocol bindings.&lt;/a&gt;
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/xml.html&quot;&gt;Smithy XML traits.&lt;/a&gt;
+ */
+final class AwsRestXml extends HttpBindingProtocolGenerator {
+
+    AwsRestXml() {
+<span class="fc" id="L60">        super(true);</span>
+<span class="fc" id="L61">    }</span>
+
+    @Override
+    protected String getDocumentContentType() {
+<span class="nc" id="L65">        return &quot;application/xml&quot;;</span>
+    }
+
+    @Override
+    protected Format getDocumentTimestampFormat() {
+<span class="nc" id="L70">        return Format.DATE_TIME;</span>
+    }
+
+    @Override
+    public ShapeId getProtocol() {
+<span class="fc" id="L75">        return RestXmlTrait.ID;</span>
+    }
+
+    @Override
+    public String getName() {
+<span class="nc" id="L80">        return &quot;aws.rest-xml&quot;;</span>
+    }
+
+    @Override
+    protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set&lt;Shape&gt; shapes) {
+<span class="nc" id="L85">        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new XmlShapeSerVisitor(context));</span>
+<span class="nc" id="L86">    }</span>
+
+    @Override
+    protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set&lt;Shape&gt; shapes) {
+<span class="nc" id="L90">        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new XmlShapeDeserVisitor(context));</span>
+<span class="nc" id="L91">    }</span>
+
+    @Override
+    public void generateSharedComponents(GenerationContext context) {
+<span class="nc" id="L95">        super.generateSharedComponents(context);</span>
+<span class="nc" id="L96">        AwsProtocolUtils.generateXmlParseBody(context);</span>
+<span class="nc" id="L97">        AwsProtocolUtils.addItempotencyAutofillImport(context);</span>
+
+<span class="nc" id="L99">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L100">        writer.addDependency(AwsDependency.XML_BUILDER);</span>
+
+        // Generate a function that handles the complex rules around deserializing
+        // an error code from a rest-xml error.
+<span class="nc" id="L104">        SymbolReference responseType = getApplicationProtocol().getResponseType();</span>
+<span class="nc" id="L105">        writer.openBlock(&quot;const loadRestXmlErrorCode = (\n&quot;</span>
+                       + &quot;  output: $T,\n&quot;
+                       + &quot;  data: any\n&quot;
+                       + &quot;): string =&gt; {&quot;, &quot;};&quot;, responseType, () -&gt; {
+            // Attempt to fetch the error code from the specific location.
+<span class="nc" id="L110">            String errorCodeLocation = getErrorBodyLocation(context, &quot;data&quot;) + &quot;.Code&quot;;</span>
+<span class="nc" id="L111">            writer.openBlock(&quot;if ($L !== undefined) {&quot;, &quot;}&quot;, errorCodeLocation, () -&gt; {</span>
+<span class="nc" id="L112">                writer.write(&quot;return $L;&quot;, errorCodeLocation);</span>
+<span class="nc" id="L113">            });</span>
+
+            // Default a 404 status code to the NotFound code.
+<span class="nc" id="L116">            writer.openBlock(&quot;if (output.statusCode == 404) {&quot;, &quot;}&quot;, () -&gt; writer.write(&quot;return 'NotFound';&quot;));</span>
+
+            // Default to an empty error code so an unmodeled exception is built.
+<span class="nc" id="L119">            writer.write(&quot;return '';&quot;);</span>
+<span class="nc" id="L120">        });</span>
+<span class="nc" id="L121">        writer.write(&quot;&quot;);</span>
+<span class="nc" id="L122">    }</span>
+
+    @Override
+    protected String getErrorBodyLocation(GenerationContext context, String outputLocation) {
+        // Some services, S3 for example, don't wrap the Error object in the response.
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        if (usesWrappedErrorResponse(context)) {</span>
+<span class="nc" id="L128">            return outputLocation + &quot;.Error&quot;;</span>
+        }
+<span class="nc" id="L130">        return outputLocation;</span>
+    }
+
+    private boolean usesWrappedErrorResponse(GenerationContext context) {
+<span class="nc bnc" id="L134" title="All 2 branches missed.">        return !context.getService().expectTrait(RestXmlTrait.class).isNoErrorWrapping();</span>
+    }
+
+    @Override
+    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
+<span class="nc" id="L139">        super.writeDefaultHeaders(context, operation);</span>
+<span class="nc" id="L140">        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);</span>
+<span class="nc" id="L141">    }</span>
+
+    @Override
+    protected void serializeInputDocument(
+            GenerationContext context,
+            OperationShape operation,
+            List&lt;HttpBinding&gt; documentBindings
+    ) {
+        // Short circuit when we have no bindings.
+<span class="nc" id="L150">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        if (documentBindings.isEmpty()) {</span>
+<span class="nc" id="L152">            writer.write(&quot;body = \&quot;\&quot;;&quot;);</span>
+<span class="nc" id="L153">            return;</span>
+        }
+
+<span class="nc" id="L156">        SymbolProvider symbolProvider = context.getSymbolProvider();</span>
+<span class="nc" id="L157">        ShapeId inputShapeId = documentBindings.get(0).getMember().getContainer();</span>
+
+        // Start with the XML declaration.
+<span class="nc" id="L160">        writer.write(&quot;body = \&quot;&lt;?xml version=\\\&quot;1.0\\\&quot; encoding=\\\&quot;UTF-8\\\&quot;?&gt;\&quot;;&quot;);</span>
+
+<span class="nc" id="L162">        writer.addImport(&quot;XmlNode&quot;, &quot;__XmlNode&quot;, &quot;@aws-sdk/xml-builder&quot;);</span>
+<span class="nc" id="L163">        writer.write(&quot;const bodyNode = new __XmlNode($S);&quot;, inputShapeId.getName());</span>
+
+        // Add @xmlNamespace value of the service to the root node,
+        // fall back to one from the input shape.
+<span class="nc" id="L167">        boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, context.getService(), &quot;bodyNode&quot;);</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        if (!serviceXmlns) {</span>
+<span class="nc" id="L169">            StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);</span>
+<span class="nc" id="L170">            AwsProtocolUtils.writeXmlNamespace(context, inputShape, &quot;bodyNode&quot;);</span>
+        }
+
+<span class="nc" id="L173">        XmlShapeSerVisitor shapeSerVisitor = new XmlShapeSerVisitor(context);</span>
+
+<span class="nc bnc" id="L175" title="All 2 branches missed.">        for (HttpBinding binding : documentBindings) {</span>
+<span class="nc" id="L176">            MemberShape memberShape = binding.getMember();</span>
+            // The name of the member to get from the input shape.
+<span class="nc" id="L178">            String memberName = symbolProvider.toMemberName(memberShape);</span>
+<span class="nc" id="L179">            String inputLocation = &quot;input.&quot; + memberName;</span>
+
+            // Handle if the member is an idempotency token that should be auto-filled.
+<span class="nc" id="L182">            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);</span>
+
+<span class="nc" id="L184">            writer.openBlock(&quot;if ($L !== undefined) {&quot;, &quot;}&quot;, inputLocation, () -&gt; {</span>
+<span class="nc" id="L185">                shapeSerVisitor.serializeNamedMember(context, memberName, memberShape, () -&gt; inputLocation);</span>
+<span class="nc" id="L186">            });</span>
+<span class="nc" id="L187">        }</span>
+
+        // Append the generated XML to the body.
+<span class="nc" id="L190">        writer.write(&quot;body += bodyNode.toString();&quot;);</span>
+<span class="nc" id="L191">    }</span>
+
+    @Override
+    protected void serializeInputPayload(
+            GenerationContext context,
+            OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+<span class="nc" id="L199">        SymbolProvider symbolProvider = context.getSymbolProvider();</span>
+<span class="nc" id="L200">        TypeScriptWriter writer = context.getWriter();</span>
+
+<span class="nc" id="L202">        MemberShape member = payloadBinding.getMember();</span>
+<span class="nc" id="L203">        String memberName = symbolProvider.toMemberName(member);</span>
+
+<span class="nc" id="L205">        writer.write(&quot;let contents: any;&quot;);</span>
+
+        // Generate an if statement to set the body node if the member is set.
+<span class="nc" id="L208">        writer.openBlock(&quot;if (input.$L !== undefined) {&quot;, &quot;}&quot;, memberName, () -&gt; {</span>
+<span class="nc" id="L209">            Shape target = context.getModel().expectShape(member.getTarget());</span>
+<span class="nc" id="L210">            writer.write(&quot;contents = $L;&quot;,</span>
+<span class="nc" id="L211">                    getInputValue(context, Location.PAYLOAD, &quot;input.&quot; + memberName, member, target));</span>
+
+            // XmlNode will serialize Structure and non-streaming Union payloads as XML documents.
+<span class="nc bnc" id="L214" title="All 4 branches missed.">            if (target instanceof StructureShape</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">                    || (target instanceof UnionShape &amp;&amp; !target.hasTrait(StreamingTrait.class))</span>
+            ) {
+                // Start with the XML declaration.
+<span class="nc" id="L218">                writer.write(&quot;body = \&quot;&lt;?xml version=\\\&quot;1.0\\\&quot; encoding=\\\&quot;UTF-8\\\&quot;?&gt;\&quot;;&quot;);</span>
+
+                // Add @xmlNamespace value of the service to the root node,
+                // fall back to one from the payload target.
+<span class="nc" id="L222">                boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, context.getService(), &quot;contents&quot;);</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">                if (!serviceXmlns) {</span>
+<span class="nc" id="L224">                    AwsProtocolUtils.writeXmlNamespace(context, target, &quot;contents&quot;);</span>
+                }
+
+                // Append the generated XML to the body.
+<span class="nc" id="L228">                writer.write(&quot;body += contents.toString();&quot;);</span>
+<span class="nc" id="L229">            } else {</span>
+                // Strings and blobs (streaming or not) will not need any modification.
+<span class="nc" id="L231">                writer.write(&quot;body = contents;&quot;);</span>
+            }
+<span class="nc" id="L233">        });</span>
+<span class="nc" id="L234">    }</span>
+
+    @Override
+    protected void writeErrorCodeParser(GenerationContext context) {
+<span class="nc" id="L238">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Outsource error code parsing since it's complex for this protocol.
+<span class="nc" id="L241">        writer.write(&quot;errorCode = loadRestXmlErrorCode(output, parsedOutput.body);&quot;);</span>
+<span class="nc" id="L242">    }</span>
+
+    @Override
+    protected void deserializeOutputDocument(
+            GenerationContext context,
+            Shape operationOrError,
+            List&lt;HttpBinding&gt; documentBindings
+    ) {
+<span class="nc" id="L250">        SymbolProvider symbolProvider = context.getSymbolProvider();</span>
+<span class="nc" id="L251">        XmlShapeDeserVisitor shapeVisitor = new XmlShapeDeserVisitor(context);</span>
+
+<span class="nc bnc" id="L253" title="All 2 branches missed.">        for (HttpBinding binding : documentBindings) {</span>
+<span class="nc" id="L254">            MemberShape memberShape = binding.getMember();</span>
+            // Grab the target shape so we can use a member deserializer on it.
+<span class="nc" id="L256">            Shape target = context.getModel().expectShape(memberShape.getTarget());</span>
+            // The name of the member to get from the output shape.
+<span class="nc" id="L258">            String memberName = symbolProvider.toMemberName(memberShape);</span>
+
+<span class="nc" id="L260">            shapeVisitor.deserializeNamedMember(context, memberName, memberShape, &quot;data&quot;, (dataSource, visitor) -&gt; {</span>
+<span class="nc" id="L261">                TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L262">                writer.write(&quot;contents.$L = $L;&quot;, memberName, target.accept(visitor));</span>
+<span class="nc" id="L263">            });</span>
+<span class="nc" id="L264">        }</span>
+<span class="nc" id="L265">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

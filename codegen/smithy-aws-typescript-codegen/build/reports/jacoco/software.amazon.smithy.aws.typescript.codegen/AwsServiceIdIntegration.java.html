@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AwsServiceIdIntegration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AwsServiceIdIntegration.java</span></div><h1>AwsServiceIdIntegration.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Arrays;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
+import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.codegen.core.Symbol;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
+import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.StringUtils;
+
+/**
+ * Uses the {@code aws.api#service$sdkId} trait property to determine the
+ * name of a service.
+ */
+<span class="fc" id="L34">public final class AwsServiceIdIntegration implements TypeScriptIntegration {</span>
+
+<span class="fc" id="L36">    private static final Logger LOGGER = Logger.getLogger(AwsServiceIdIntegration.class.getName());</span>
+
+    @Override
+    public SymbolProvider decorateSymbolProvider(
+            TypeScriptSettings settings, Model model, SymbolProvider symbolProvider) {
+<span class="fc" id="L41">        return shape -&gt; {</span>
+<span class="fc" id="L42">            Symbol symbol = symbolProvider.toSymbol(shape);</span>
+
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">            if (!shape.isServiceShape()) {</span>
+<span class="nc" id="L45">                return symbol;</span>
+            }
+
+            // If the SDK service ID trait is present, use that, otherwise fall back to
+            // the default naming strategy for the service.
+<span class="fc" id="L50">            return shape.getTrait(ServiceTrait.class)</span>
+<span class="fc" id="L51">                    .map(ServiceTrait::getSdkId)</span>
+<span class="fc" id="L52">                    .map(id -&gt; updateServiceSymbol(symbol, id))</span>
+<span class="fc" id="L53">                    .orElseGet(() -&gt; {</span>
+<span class="nc" id="L54">                        LOGGER.warning(String.format(&quot;No `%s` trait found on `%s`&quot;, ServiceTrait.ID, shape.getId()));</span>
+<span class="nc" id="L55">                        return symbol;</span>
+                    });
+        };
+    }
+
+    private static Symbol updateServiceSymbol(Symbol symbol, String serviceId) {
+<span class="fc" id="L61">        String name = String.join(&quot;&quot;, Arrays.asList(</span>
+            serviceId
+<span class="fc" id="L63">                .split(&quot; &quot;))</span>
+<span class="fc" id="L64">                .stream()</span>
+<span class="fc" id="L65">                .map(StringUtils::capitalize)</span>
+<span class="fc" id="L66">                .collect(Collectors.toList()</span>
+        )) + &quot;Client&quot;;
+<span class="fc" id="L68">        return symbol.toBuilder()</span>
+<span class="fc" id="L69">                .name(name)</span>
+<span class="fc" id="L70">                .namespace(&quot;./&quot; + name, &quot;/&quot;)</span>
+<span class="fc" id="L71">                .definitionFile(name + &quot;.ts&quot;)</span>
+<span class="fc" id="L72">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

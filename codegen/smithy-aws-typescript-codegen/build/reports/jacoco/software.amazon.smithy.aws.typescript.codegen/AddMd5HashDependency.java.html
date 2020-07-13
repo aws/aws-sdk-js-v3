@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddMd5HashDependency.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AddMd5HashDependency.java</span></div><h1>AddMd5HashDependency.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
+
+import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SetUtils;
+
+/**
+ * Adds Md5Hash if needed.
+ */
+<span class="fc" id="L38">public class AddMd5HashDependency implements TypeScriptIntegration {</span>
+<span class="fc" id="L39">    private static final Set&lt;String&gt; SERVICE_IDS = SetUtils.of(&quot;S3&quot;, &quot;SQS&quot;);</span>
+
+    @Override
+    public void addConfigInterfaceFields(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            TypeScriptWriter writer
+    ) {
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (!needsMd5Dep(settings.getService(model))) {</span>
+<span class="fc" id="L49">            return;</span>
+        }
+
+<span class="nc" id="L52">        writer.addImport(&quot;HashConstructor&quot;, &quot;__HashConstructor&quot;, &quot;@aws-sdk/types&quot;);</span>
+<span class="nc" id="L53">        writer.writeDocs(&quot;A constructor for a class implementing the @aws-sdk/types.Hash interface \n&quot;</span>
+                + &quot;that computes MD5 hashes&quot;);
+<span class="nc" id="L55">        writer.write(&quot;md5?: __HashConstructor;\n&quot;);</span>
+<span class="nc" id="L56">    }</span>
+
+    @Override
+    public Map&lt;String, Consumer&lt;TypeScriptWriter&gt;&gt; getRuntimeConfigWriters(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            LanguageTarget target
+    ) {
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (!needsMd5Dep(settings.getService(model))) {</span>
+<span class="fc" id="L66">            return Collections.emptyMap();</span>
+        }
+
+<span class="nc bnc" id="L69" title="All 3 branches missed.">        switch (target) {</span>
+            case NODE:
+<span class="nc" id="L71">                return MapUtils.of(&quot;md5&quot;, writer -&gt; {</span>
+<span class="nc" id="L72">                    writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);</span>
+<span class="nc" id="L73">                    writer.addImport(&quot;HashConstructor&quot;, &quot;__HashConstructor&quot;,</span>
+                            TypeScriptDependency.AWS_SDK_TYPES.packageName);
+<span class="nc" id="L75">                    writer.write(&quot;md5: Hash.bind(null, \&quot;md5\&quot;),&quot;);</span>
+<span class="nc" id="L76">                });</span>
+            case BROWSER:
+<span class="nc" id="L78">                return MapUtils.of(&quot;md5&quot;, writer -&gt; {</span>
+<span class="nc" id="L79">                    writer.addDependency(AwsDependency.MD5_BROWSER);</span>
+<span class="nc" id="L80">                    writer.addImport(&quot;Md5&quot;, &quot;Md5&quot;, AwsDependency.MD5_BROWSER.packageName);</span>
+<span class="nc" id="L81">                    writer.write(&quot;md5: Md5,&quot;);</span>
+<span class="nc" id="L82">                });</span>
+            default:
+<span class="nc" id="L84">                return Collections.emptyMap();</span>
+        }
+    }
+
+    private static boolean needsMd5Dep(ServiceShape service) {
+<span class="fc" id="L89">        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(&quot;&quot;);</span>
+<span class="fc" id="L90">        return SERVICE_IDS.contains(serviceId);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

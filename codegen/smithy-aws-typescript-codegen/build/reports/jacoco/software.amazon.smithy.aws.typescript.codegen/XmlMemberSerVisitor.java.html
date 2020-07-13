@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>XmlMemberSerVisitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">XmlMemberSerVisitor.java</span></div><h1>XmlMemberSerVisitor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.model.shapes.BigDecimalShape;
+import software.amazon.smithy.model.shapes.BigIntegerShape;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.BooleanShape;
+import software.amazon.smithy.model.shapes.ByteShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.IntegerShape;
+import software.amazon.smithy.model.shapes.LongShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShortShape;
+import software.amazon.smithy.model.shapes.StringShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.XmlNameTrait;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+
+/**
+ * Overrides several of the default implementations to handle XML document
+ * contents serializing as XmlText entities instead of typed components:
+ *
+ * &lt;ul&gt;
+ *   &lt;li&gt;All scalar types are set as contents of an XmlText inside an XmlNode.&lt;/li&gt;
+ *   &lt;li&gt;Fails on BigDecimal and BigInteger shapes.&lt;/li&gt;
+ * &lt;/ul&gt;
+ *
+ * TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
+ *
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/xml.html&quot;&gt;Smithy XML traits.&lt;/a&gt;
+ */
+final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
+
+    XmlMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+<span class="nc" id="L54">        super(context, dataSource, defaultTimestampFormat);</span>
+<span class="nc" id="L55">    }</span>
+
+    @Override
+    public String stringShape(StringShape shape) {
+<span class="nc" id="L59">        return getAsXmlText(shape, super.stringShape(shape));</span>
+    }
+
+    @Override
+    public String blobShape(BlobShape shape) {
+<span class="nc" id="L64">        return getAsXmlText(shape, super.blobShape(shape));</span>
+    }
+
+    @Override
+    public String timestampShape(TimestampShape shape) {
+<span class="nc" id="L69">        return getAsXmlText(shape, super.timestampShape(shape));</span>
+    }
+
+    @Override
+    public String booleanShape(BooleanShape shape) {
+<span class="nc" id="L74">        return serializeSimpleScalar(shape);</span>
+    }
+
+    @Override
+    public String byteShape(ByteShape shape) {
+<span class="nc" id="L79">        return serializeSimpleScalar(shape);</span>
+    }
+
+    @Override
+    public String shortShape(ShortShape shape) {
+<span class="nc" id="L84">        return serializeSimpleScalar(shape);</span>
+    }
+
+    @Override
+    public String integerShape(IntegerShape shape) {
+<span class="nc" id="L89">        return serializeSimpleScalar(shape);</span>
+    }
+
+    @Override
+    public String longShape(LongShape shape) {
+<span class="nc" id="L94">        return serializeSimpleScalar(shape);</span>
+    }
+
+    @Override
+    public String floatShape(FloatShape shape) {
+<span class="nc" id="L99">        return serializeSimpleScalar(shape);</span>
+    }
+
+    @Override
+    public String doubleShape(DoubleShape shape) {
+<span class="nc" id="L104">        return serializeSimpleScalar(shape);</span>
+    }
+
+    private String serializeSimpleScalar(Shape shape) {
+<span class="nc" id="L108">        return getAsXmlText(shape, &quot;String(&quot; + getDataSource() + &quot;)&quot;);</span>
+    }
+
+    String getAsXmlText(Shape shape, String dataSource) {
+        // Handle the @xmlName trait for the shape itself.
+<span class="nc" id="L113">        String nodeName = shape.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L114">                .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L115">                .orElse(shape.getId().getName());</span>
+
+<span class="nc" id="L117">        TypeScriptWriter writer = getContext().getWriter();</span>
+<span class="nc" id="L118">        writer.addImport(&quot;XmlNode&quot;, &quot;__XmlNode&quot;, &quot;@aws-sdk/xml-builder&quot;);</span>
+<span class="nc" id="L119">        writer.addImport(&quot;XmlText&quot;, &quot;__XmlText&quot;, &quot;@aws-sdk/xml-builder&quot;);</span>
+<span class="nc" id="L120">        return &quot;new __XmlNode(\&quot;&quot; + nodeName + &quot;\&quot;).addChildNode(new __XmlText(&quot; + dataSource + &quot;))&quot;;</span>
+    }
+
+    @Override
+    public String bigDecimalShape(BigDecimalShape shape) {
+        // Fail instead of losing precision through Number.
+<span class="nc" id="L126">        return unsupportedShape(shape);</span>
+    }
+
+    @Override
+    public String bigIntegerShape(BigIntegerShape shape) {
+        // Fail instead of losing precision through Number.
+<span class="nc" id="L132">        return unsupportedShape(shape);</span>
+    }
+
+    private String unsupportedShape(Shape shape) {
+<span class="nc" id="L136">        throw new CodegenException(String.format(&quot;Cannot serialize shape type %s on protocol, shape: %s.&quot;,</span>
+<span class="nc" id="L137">                shape.getType(), shape.getId()));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>XmlShapeSerVisitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">XmlShapeSerVisitor.java</span></div><h1>XmlShapeSerVisitor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Map;
+import java.util.function.Supplier;
+import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.CollectionShape;
+import software.amazon.smithy.model.shapes.DocumentShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.XmlAttributeTrait;
+import software.amazon.smithy.model.traits.XmlFlattenedTrait;
+import software.amazon.smithy.model.traits.XmlNameTrait;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
+import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+
+/**
+ * Visitor to generate serialization functions for shapes in XML-document
+ * based document bodies.
+ *
+ * This class handles function body generation for all types expected by the {@code
+ * DocumentShapeSerVisitor}. No other shape type serialization is overridden.
+ *
+ * Timestamps are serialized to {@link Format}.DATE_TIME by default.
+ *
+ * @see &lt;a href=&quot;https://awslabs.github.io/smithy/spec/xml.html&quot;&gt;Smithy XML traits.&lt;/a&gt;
+ */
+final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
+<span class="nc" id="L51">    private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;</span>
+
+    XmlShapeSerVisitor(GenerationContext context) {
+<span class="nc" id="L54">        super(context);</span>
+<span class="nc" id="L55">    }</span>
+
+    private XmlMemberSerVisitor getMemberVisitor(String dataSource) {
+<span class="nc" id="L58">        return new XmlMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);</span>
+    }
+
+    @Override
+    protected void serializeCollection(GenerationContext context, CollectionShape shape) {
+<span class="nc" id="L63">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L64">        MemberShape memberShape = shape.getMember();</span>
+<span class="nc" id="L65">        Shape target = context.getModel().expectShape(memberShape.getTarget());</span>
+<span class="nc" id="L66">        writer.addImport(&quot;XmlNode&quot;, &quot;__XmlNode&quot;, &quot;@aws-sdk/xml-builder&quot;);</span>
+
+        // Use the @xmlName trait if present on the member, otherwise use &quot;member&quot;.
+<span class="nc" id="L69">        String locationName = memberShape.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L70">                .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L71">                .orElse(&quot;member&quot;);</span>
+
+<span class="nc" id="L73">        writer.openBlock(&quot;return input.map(entry =&gt; {&quot;, &quot;});&quot;, () -&gt; {</span>
+            // Dispatch to the input value provider for any additional handling.
+<span class="nc" id="L75">            writer.write(&quot;const node = $L;&quot;, target.accept(getMemberVisitor(&quot;entry&quot;)));</span>
+            // Handle proper unwrapping of target nodes.
+<span class="nc bnc" id="L77" title="All 2 branches missed.">            if (serializationReturnsArray(target)) {</span>
+<span class="nc" id="L78">                writer.openBlock(&quot;return node.reduce((acc: __XmlNode, workingNode: any) =&gt; {&quot;, &quot;}&quot;, () -&gt; {</span>
+                    // Add @xmlNamespace value of the target member.
+<span class="nc" id="L80">                    AwsProtocolUtils.writeXmlNamespace(context, memberShape, &quot;workingNode&quot;);</span>
+<span class="nc" id="L81">                    writer.write(&quot;return acc.addChildNode(workingNode);&quot;);</span>
+<span class="nc" id="L82">                });</span>
+<span class="nc" id="L83">                writer.write(&quot;, new __XmlNode($S));&quot;, locationName);</span>
+            } else {
+                // Add @xmlNamespace value of the target member.
+<span class="nc" id="L86">                AwsProtocolUtils.writeXmlNamespace(context, memberShape, &quot;node&quot;);</span>
+<span class="nc" id="L87">                writer.write(&quot;return node.withName($S);&quot;, locationName);</span>
+            }
+<span class="nc" id="L89">        });</span>
+<span class="nc" id="L90">    }</span>
+
+    @Override
+    protected void serializeDocument(GenerationContext context, DocumentShape shape) {
+<span class="nc" id="L94">        throw new CodegenException(String.format(</span>
+<span class="nc" id="L95">                &quot;Cannot serialize Document types on AWS XML protocols, shape: %s.&quot;, shape.getId()));</span>
+    }
+
+    @Override
+    protected void serializeMap(GenerationContext context, MapShape shape) {
+<span class="nc" id="L100">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L101">        Model model = context.getModel();</span>
+<span class="nc" id="L102">        writer.addImport(&quot;XmlNode&quot;, &quot;__XmlNode&quot;, &quot;@aws-sdk/xml-builder&quot;);</span>
+
+        // Use the keys as an iteration point to dispatch to the input value providers.
+<span class="nc" id="L105">        writer.openBlock(&quot;return Object.keys(input).map(key =&gt; {&quot;, &quot;});&quot;, () -&gt; {</span>
+            // Prepare a containing node for each entry's k/v pair.
+<span class="nc" id="L107">            writer.write(&quot;const entryNode = new __XmlNode(\&quot;entry\&quot;);&quot;);</span>
+
+            // Prepare the key's node.
+            // Use the @xmlName trait if present on the member, otherwise use &quot;key&quot;.
+<span class="nc" id="L111">            MemberShape keyMember = shape.getKey();</span>
+<span class="nc" id="L112">            Shape keyTarget = model.expectShape(keyMember.getTarget());</span>
+<span class="nc" id="L113">            String keyName = keyMember.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L114">                    .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L115">                    .orElse(&quot;key&quot;);</span>
+<span class="nc" id="L116">            writer.write(&quot;const keyNode = $L.withName($S);&quot;, keyTarget.accept(getMemberVisitor(&quot;key&quot;)), keyName);</span>
+            // Add @xmlNamespace value of the key member.
+<span class="nc" id="L118">            AwsProtocolUtils.writeXmlNamespace(context, keyMember, &quot;workingNode&quot;);</span>
+<span class="nc" id="L119">            writer.write(&quot;entryNode.addChildNode(keyNode);&quot;);</span>
+
+            // Prepare the value's node.
+            // Use the @xmlName trait if present on the member, otherwise use &quot;value&quot;.
+<span class="nc" id="L123">            MemberShape valueMember = shape.getValue();</span>
+<span class="nc" id="L124">            Shape valueTarget = model.expectShape(valueMember.getTarget());</span>
+<span class="nc" id="L125">            String valueName = valueMember.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L126">                    .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L127">                    .orElse(&quot;value&quot;);</span>
+            // Dispatch to the input value provider for any additional handling.
+<span class="nc" id="L129">            writer.write(&quot;const node = $L;&quot;, valueTarget.accept(getMemberVisitor(&quot;input[key]&quot;)));</span>
+            // Handle proper unwrapping of target nodes.
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            if (serializationReturnsArray(valueTarget)) {</span>
+<span class="nc" id="L132">                writer.openBlock(&quot;entryNode.addChildNode(&quot;, &quot;);&quot;, () -&gt; {</span>
+<span class="nc" id="L133">                    writer.openBlock(&quot;node.reduce((acc: __XmlNode, workingNode: any) =&gt; {&quot;, &quot;}&quot;, () -&gt; {</span>
+                        // Add @xmlNamespace value of the value member.
+<span class="nc" id="L135">                        AwsProtocolUtils.writeXmlNamespace(context, valueMember, &quot;workingNode&quot;);</span>
+<span class="nc" id="L136">                        writer.write(&quot;return acc.addChildNode(workingNode);&quot;);</span>
+<span class="nc" id="L137">                    });</span>
+<span class="nc" id="L138">                    writer.write(&quot;, new __XmlNode($S));&quot;, valueName);</span>
+<span class="nc" id="L139">                });</span>
+            } else {
+                // Add @xmlNamespace value of the target member.
+<span class="nc" id="L142">                AwsProtocolUtils.writeXmlNamespace(context, valueMember, &quot;node&quot;);</span>
+<span class="nc" id="L143">                writer.write(&quot;entryNode.addChildNode(node.withName($S));&quot;, valueName);</span>
+            }
+
+<span class="nc" id="L146">            writer.write(&quot;return entryNode;&quot;);</span>
+<span class="nc" id="L147">        });</span>
+<span class="nc" id="L148">    }</span>
+
+    @Override
+    protected void serializeStructure(GenerationContext context, StructureShape shape) {
+<span class="nc" id="L152">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L153">        writer.addImport(&quot;XmlNode&quot;, &quot;__XmlNode&quot;, &quot;@aws-sdk/xml-builder&quot;);</span>
+
+        // Handle the @xmlName trait for the structure itself.
+<span class="nc" id="L156">        String nodeName = shape.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L157">                .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L158">                .orElse(shape.getId().getName());</span>
+
+        // Create the structure's node.
+<span class="nc" id="L161">        writer.write(&quot;const bodyNode = new __XmlNode($S);&quot;, nodeName);</span>
+
+        // Serialize every member of the structure if present.
+<span class="nc" id="L164">        Map&lt;String, MemberShape&gt; members = shape.getAllMembers();</span>
+<span class="nc" id="L165">        members.forEach((memberName, memberShape) -&gt; {</span>
+<span class="nc" id="L166">            String inputLocation = &quot;input.&quot; + memberName;</span>
+
+            // Handle if the member is an idempotency token that should be auto-filled.
+<span class="nc" id="L169">            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);</span>
+
+<span class="nc" id="L171">            writer.openBlock(&quot;if ($L !== undefined) {&quot;, &quot;}&quot;, inputLocation, () -&gt; {</span>
+<span class="nc" id="L172">                serializeNamedMember(context, memberName, memberShape, () -&gt; inputLocation);</span>
+<span class="nc" id="L173">            });</span>
+<span class="nc" id="L174">        });</span>
+
+<span class="nc" id="L176">        writer.write(&quot;return bodyNode;&quot;);</span>
+<span class="nc" id="L177">    }</span>
+
+    void serializeNamedMember(
+            GenerationContext context,
+            String memberName,
+            MemberShape memberShape,
+            Supplier&lt;String&gt; inputLocation
+    ) {
+<span class="nc" id="L185">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Use the @xmlName trait if present on the member, otherwise use the member name.
+<span class="nc" id="L188">        String locationName = memberShape.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L189">                .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L190">                .orElse(memberName);</span>
+
+        // Handle @xmlAttribute simple members.
+<span class="nc bnc" id="L193" title="All 2 branches missed.">        if (memberShape.hasTrait(XmlAttributeTrait.class)) {</span>
+<span class="nc" id="L194">            writer.write(&quot;bodyNode.addAttribute($S, $L);&quot;, locationName, inputLocation.get());</span>
+        } else {
+            // Grab the target shape so we can use a member serializer on it.
+<span class="nc" id="L197">            Shape target = context.getModel().expectShape(memberShape.getTarget());</span>
+<span class="nc" id="L198">            XmlMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation.get());</span>
+
+            // Collected members must be handled with flattening and renaming.
+<span class="nc bnc" id="L201" title="All 2 branches missed.">            if (serializationReturnsArray(target)) {</span>
+<span class="nc" id="L202">                serializeNamedMemberFromArray(context, locationName, memberShape, target, inputVisitor);</span>
+            } else {
+                // Handle @timestampFormat on members not just the targeted shape.
+                String valueProvider;
+<span class="nc bnc" id="L206" title="All 2 branches missed.">                if (memberShape.hasTrait(TimestampFormatTrait.class)) {</span>
+<span class="nc" id="L207">                    valueProvider = inputVisitor.getAsXmlText(target,</span>
+<span class="nc" id="L208">                            AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,</span>
+<span class="nc" id="L209">                                    TIMESTAMP_FORMAT, inputLocation.get()) + &quot;.toString()&quot;);</span>
+                } else {
+<span class="nc" id="L211">                    valueProvider = target.accept(inputVisitor);</span>
+                }
+
+                // Standard members are added as children after updating their names.
+<span class="nc" id="L215">                writer.write(&quot;const node = $L.withName($S);&quot;, valueProvider, locationName);</span>
+                // Add @xmlNamespace value of the target member.
+<span class="nc" id="L217">                AwsProtocolUtils.writeXmlNamespace(context, memberShape, &quot;node&quot;);</span>
+<span class="nc" id="L218">                writer.write(&quot;bodyNode.addChildNode(node);&quot;);</span>
+            }
+        }
+<span class="nc" id="L221">    }</span>
+
+    private void serializeNamedMemberFromArray(
+            GenerationContext context,
+            String locationName,
+            MemberShape memberShape,
+            Shape target,
+            DocumentMemberSerVisitor inputVisitor
+    ) {
+<span class="nc" id="L230">        TypeScriptWriter writer = context.getWriter();</span>
+
+        // Handle @xmlFlattened for collections and maps.
+<span class="nc" id="L233">        boolean isFlattened = memberShape.hasTrait(XmlFlattenedTrait.class);</span>
+
+        // Get all the nodes that are going to be serialized.
+<span class="nc" id="L236">        writer.write(&quot;const nodes = $L;&quot;, target.accept(inputVisitor));</span>
+
+        // Prepare a containing node to hold the nodes if not flattened.
+<span class="nc bnc" id="L239" title="All 2 branches missed.">        if (!isFlattened) {</span>
+<span class="nc" id="L240">            writer.write(&quot;const containerNode = new __XmlNode($S);&quot;, locationName);</span>
+            // Add @xmlNamespace value of the target member.
+<span class="nc" id="L242">            AwsProtocolUtils.writeXmlNamespace(context, memberShape, &quot;containerNode&quot;);</span>
+        }
+
+        // Add every node to the target node.
+<span class="nc" id="L246">        writer.openBlock(&quot;nodes.map((node: any) =&gt; {&quot;, &quot;});&quot;, () -&gt; {</span>
+            // Adjust to add sub nodes to the right target based on flattening.
+<span class="nc bnc" id="L248" title="All 2 branches missed.">            String targetNode = isFlattened ? &quot;bodyNode&quot; : &quot;containerNode&quot;;</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">            if (isFlattened) {</span>
+<span class="nc" id="L250">                writer.write(&quot;node = node.withName($S);&quot;, locationName);</span>
+            }
+<span class="nc" id="L252">            writer.write(&quot;$L.addChildNode(node);&quot;, targetNode);</span>
+<span class="nc" id="L253">        });</span>
+
+        // For non-flattened collected nodes, we have to add the containing node.
+<span class="nc bnc" id="L256" title="All 2 branches missed.">        if (!isFlattened) {</span>
+<span class="nc" id="L257">            writer.write(&quot;bodyNode.addChildNode(containerNode);&quot;);</span>
+        }
+<span class="nc" id="L259">    }</span>
+
+    private boolean serializationReturnsArray(Shape shape) {
+<span class="nc bnc" id="L262" title="All 4 branches missed.">        return (shape instanceof CollectionShape) || (shape instanceof MapShape);</span>
+    }
+
+    @Override
+    protected void serializeUnion(GenerationContext context, UnionShape shape) {
+<span class="nc" id="L267">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L268">        writer.addImport(&quot;XmlNode&quot;, &quot;__XmlNode&quot;, &quot;@aws-sdk/xml-builder&quot;);</span>
+<span class="nc" id="L269">        writer.addImport(&quot;XmlText&quot;, &quot;__XmlText&quot;, &quot;@aws-sdk/xml-builder&quot;);</span>
+
+        // Handle the @xmlName trait for the union itself.
+<span class="nc" id="L272">        String nodeName = shape.getTrait(XmlNameTrait.class)</span>
+<span class="nc" id="L273">                .map(XmlNameTrait::getValue)</span>
+<span class="nc" id="L274">                .orElse(shape.getId().getName());</span>
+
+        // Create the union's node.
+<span class="nc" id="L277">        writer.write(&quot;const bodyNode = new __XmlNode($S);&quot;, nodeName);</span>
+
+        // Visit over the union type, then get the right serialization for the member.
+<span class="nc" id="L280">        writer.openBlock(&quot;$L.visit(input, {&quot;, &quot;});&quot;, shape.getId().getName(), () -&gt; {</span>
+<span class="nc" id="L281">            Map&lt;String, MemberShape&gt; members = shape.getAllMembers();</span>
+<span class="nc" id="L282">            members.forEach((memberName, memberShape) -&gt; {</span>
+<span class="nc" id="L283">                writer.openBlock(&quot;$L: value =&gt; {&quot;, &quot;},&quot;, memberName, () -&gt; {</span>
+<span class="nc" id="L284">                    serializeNamedMember(context, memberName, memberShape, () -&gt; &quot;value&quot;);</span>
+<span class="nc" id="L285">                });</span>
+<span class="nc" id="L286">            });</span>
+
+            // Handle the unknown property.
+<span class="nc" id="L289">            writer.openBlock(&quot;_: (name: string, value: any) =&gt; {&quot;, &quot;}&quot;, () -&gt; {</span>
+                // Throw an exception if we're trying to serialize something that we wouldn't know how to.
+<span class="nc" id="L291">                writer.openBlock(&quot;if (!(value instanceof __XmlNode || value instanceof __XmlText)) {&quot;, &quot;}&quot;, () -&gt; {</span>
+<span class="nc" id="L292">                    writer.write(&quot;throw new Error(\&quot;Unable to serialize unknown union members in XML.\&quot;);&quot;);</span>
+<span class="nc" id="L293">                });</span>
+
+                // Set the node explicitly for potentially correct cases.
+<span class="nc" id="L296">                writer.write(&quot;bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));&quot;);</span>
+<span class="nc" id="L297">            });</span>
+<span class="nc" id="L298">        });</span>
+
+<span class="nc" id="L300">        writer.write(&quot;return bodyNode;&quot;);</span>
+<span class="nc" id="L301">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

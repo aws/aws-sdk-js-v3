@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddBuiltinPlugins.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AddBuiltinPlugins.java</span></div><h1>AddBuiltinPlugins.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
+
+import java.util.List;
+import java.util.Set;
+
+import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.OperationIndex;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
+import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
+import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.ListUtils;
+import software.amazon.smithy.utils.SetUtils;
+
+/**
+ * Adds all built-in runtime client plugins to clients.
+ */
+<span class="fc" id="L39">public class AddBuiltinPlugins implements TypeScriptIntegration {</span>
+
+<span class="fc" id="L41">    private static final Set&lt;String&gt; SSEC_OPERATIONS = SetUtils.of(&quot;SSECustomerKey&quot;, &quot;CopySourceSSECustomerKey&quot;);</span>
+
+<span class="fc" id="L43">    private static final Set&lt;String&gt; ROUTE_53_ID_MEMBERS = SetUtils.of(&quot;DelegationSetId&quot;, &quot;HostedZoneId&quot;, &quot;Id&quot;);</span>
+
+<span class="fc" id="L45">    private static final Set&lt;String&gt; RDS_PRESIGNED_URL_OPERATIONS = SetUtils.of(</span>
+        &quot;CopyDBSnapshot&quot;,
+        &quot;CreateDBInstanceReadReplica&quot;,
+        &quot;CreateDBCluster&quot;,
+        &quot;CopyDBClusterSnapshot&quot;
+    );
+
+<span class="fc" id="L52">    private static final Set&lt;String&gt; S3_MD5_OPERATIONS = SetUtils.of(</span>
+            &quot;DeleteObjects&quot;,
+            &quot;PutBucketCors&quot;,
+            &quot;PutBucketLifecycle&quot;,
+            &quot;PutBucketLifecycleConfiguration&quot;,
+            &quot;PutBucketPolicy&quot;,
+            &quot;PutBucketTagging&quot;,
+            &quot;PutBucketReplication&quot;
+    );
+
+<span class="fc" id="L62">    private static final Set&lt;String&gt; NON_BUCKET_ENDPOINT_OPERATIONS = SetUtils.of(</span>
+            &quot;CreateBucket&quot;,
+            &quot;DeleteBucket&quot;,
+            &quot;ListBuckets&quot;
+    );
+
+    @Override
+    public List&lt;RuntimeClientPlugin&gt; getClientPlugins() {
+        // Note that order is significant because configurations might
+        // rely on previously resolved values.
+<span class="fc" id="L72">        return ListUtils.of(</span>
+<span class="fc" id="L73">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L74">                        .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, &quot;Region&quot;, HAS_CONFIG)</span>
+<span class="fc" id="L75">                        .build(),</span>
+<span class="fc" id="L76">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L77">                        .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, &quot;Endpoints&quot;, HAS_CONFIG)</span>
+<span class="fc" id="L78">                        .build(),</span>
+<span class="fc" id="L79">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L80">                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, &quot;AwsAuth&quot;, HAS_CONFIG)</span>
+<span class="fc" id="L81">                        .build(),</span>
+<span class="fc" id="L82">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L83">                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, &quot;AwsAuth&quot;, HAS_MIDDLEWARE)</span>
+                        // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">                        .servicePredicate((m, s) -&gt; !testServiceId(s, &quot;Cognito Identity&quot;))</span>
+<span class="fc" id="L86">                        .build(),</span>
+<span class="fc" id="L87">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L88">                        .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, &quot;Retry&quot;)</span>
+<span class="fc" id="L89">                        .build(),</span>
+<span class="fc" id="L90">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L91">                        .withConventions(TypeScriptDependency.MIDDLEWARE_USER_AGENT.dependency, &quot;UserAgent&quot;)</span>
+<span class="fc" id="L92">                        .build(),</span>
+<span class="fc" id="L93">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L94">                        .withConventions(TypeScriptDependency.MIDDLEWARE_CONTENT_LENGTH.dependency, &quot;ContentLength&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="fc" id="L96">                        .build(),</span>
+<span class="fc" id="L97">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L98">                        .withConventions(AwsDependency.ACCEPT_HEADER.dependency, &quot;AcceptHeader&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="fc" id="L100">                        .servicePredicate((m, s) -&gt; testServiceId(s, &quot;API Gateway&quot;))</span>
+<span class="fc" id="L101">                        .build(),</span>
+<span class="fc" id="L102">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L103">                        .withConventions(AwsDependency.VALIDATE_BUCKET_NAME.dependency, &quot;ValidateBucketName&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="fc" id="L105">                        .servicePredicate((m, s) -&gt; testServiceId(s, &quot;S3&quot;))</span>
+<span class="fc" id="L106">                        .build(),</span>
+<span class="fc" id="L107">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L108">                        .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, &quot;AddExpectContinue&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="fc" id="L110">                        .servicePredicate((m, s) -&gt; testServiceId(s, &quot;S3&quot;))</span>
+<span class="fc" id="L111">                        .build(),</span>
+<span class="fc" id="L112">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L113">                        .withConventions(AwsDependency.GLACIER_MIDDLEWARE.dependency,</span>
+                                         &quot;Glacier&quot;, HAS_MIDDLEWARE)
+<span class="fc" id="L115">                        .servicePredicate((m, s) -&gt; testServiceId(s, &quot;Glacier&quot;))</span>
+<span class="fc" id="L116">                        .build(),</span>
+<span class="fc" id="L117">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L118">                        .withConventions(AwsDependency.EC2_MIDDLEWARE.dependency,</span>
+                                         &quot;CopySnapshotPresignedUrl&quot;, HAS_MIDDLEWARE)
+<span class="pc bnc" id="L120" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; o.getId().getName().equals(&quot;CopySnapshot&quot;)</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;EC2&quot;))</span>
+<span class="fc" id="L122">                        .build(),</span>
+<span class="fc" id="L123">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L124">                        .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, &quot;Ssec&quot;, HAS_MIDDLEWARE)</span>
+<span class="pc bnc" id="L125" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; testInputContainsMember(m, o, SSEC_OPERATIONS)</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;S3&quot;))</span>
+<span class="fc" id="L127">                        .build(),</span>
+<span class="fc" id="L128">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L129">                        .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, &quot;LocationConstraint&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="pc bnc" id="L131" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; o.getId().getName().equals(&quot;CreateBucket&quot;)</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;S3&quot;))</span>
+<span class="fc" id="L133">                        .build(),</span>
+<span class="fc" id="L134">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L135">                        .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, &quot;PredictEndpoint&quot;,</span>
+                                HAS_MIDDLEWARE)
+<span class="pc bnc" id="L137" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; o.getId().getName().equals(&quot;Predict&quot;)</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;Machine Learning&quot;))</span>
+<span class="fc" id="L139">                        .build(),</span>
+                /**
+                 * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
+                 * The second applies the middleware to bucket endpoint operations.
+                 */
+<span class="fc" id="L144">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L145">                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, &quot;BucketEndpoint&quot;,</span>
+                                         HAS_CONFIG)
+<span class="fc" id="L147">                        .servicePredicate((m, s) -&gt; testServiceId(s, &quot;S3&quot;))</span>
+<span class="fc" id="L148">                        .build(),</span>
+<span class="fc" id="L149">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L150">                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, &quot;BucketEndpoint&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="pc bnc" id="L152" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName())</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;S3&quot;))</span>
+<span class="fc" id="L154">                        .build(),</span>
+<span class="fc" id="L155">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L156">                        .withConventions(AwsDependency.BODY_CHECKSUM.dependency, &quot;ApplyMd5BodyChecksum&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="pc bnc" id="L158" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; S3_MD5_OPERATIONS.contains(o.getId().getName())</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;S3&quot;))</span>
+<span class="fc" id="L160">                        .build(),</span>
+<span class="fc" id="L161">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L162">                        .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,</span>
+                                         &quot;ChangeResourceRecordSets&quot;, HAS_MIDDLEWARE)
+<span class="pc bnc" id="L164" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; o.getId().getName().equals(&quot;ChangeResourceRecordSets&quot;)</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;Route 53&quot;))</span>
+<span class="fc" id="L166">                        .build(),</span>
+<span class="fc" id="L167">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L168">                        .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, &quot;CrossRegionPresignedUrl&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="pc bnc" id="L170" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; RDS_PRESIGNED_URL_OPERATIONS.contains(o.getId().getName())</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;RDS&quot;))</span>
+<span class="fc" id="L172">                        .build(),</span>
+<span class="fc" id="L173">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L174">                        .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, &quot;IdNormalizer&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="pc bnc" id="L176" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS)</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;Route 53&quot;))</span>
+<span class="fc" id="L178">                        .build(),</span>
+<span class="fc" id="L179">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L180">                        .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, &quot;PrependAccountId&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="fc" id="L182">                        .servicePredicate((m, s) -&gt; testServiceId(s, &quot;S3 Control&quot;))</span>
+<span class="fc" id="L183">                        .build(),</span>
+<span class="fc" id="L184">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L185">                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, &quot;SendMessage&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="pc bnc" id="L187" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; o.getId().getName().equals(&quot;SendMessage&quot;)</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;SQS&quot;))</span>
+<span class="fc" id="L189">                        .build(),</span>
+<span class="fc" id="L190">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L191">                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, &quot;SendMessageBatch&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="pc bnc" id="L193" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; o.getId().getName().equals(&quot;SendMessageBatch&quot;)</span>
+<span class="nc bnc" id="L194" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;SQS&quot;))</span>
+<span class="fc" id="L195">                        .build(),</span>
+<span class="fc" id="L196">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L197">                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, &quot;ReceiveMessage&quot;,</span>
+                                         HAS_MIDDLEWARE)
+<span class="pc bnc" id="L199" title="All 2 branches missed.">                        .operationPredicate((m, s, o) -&gt; o.getId().getName().equals(&quot;ReceiveMessage&quot;)</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">                                            &amp;&amp; testServiceId(s, &quot;SQS&quot;))</span>
+<span class="fc" id="L201">                        .build(),</span>
+<span class="fc" id="L202">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L203">                        .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, &quot;HostHeader&quot;)</span>
+<span class="fc" id="L204">                        .build(),</span>
+<span class="fc" id="L205">                RuntimeClientPlugin.builder()</span>
+<span class="fc" id="L206">                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, &quot;AwsAuth&quot;, HAS_MIDDLEWARE)</span>
+<span class="fc" id="L207">                        .operationPredicate(AddBuiltinPlugins::operationUsesAwsAuth)</span>
+<span class="fc" id="L208">                        .build()</span>
+        );
+    }
+
+    private static boolean testInputContainsMember(
+            Model model,
+            OperationShape operationShape,
+            Set&lt;String&gt; expectedMemberNames
+    ) {
+<span class="nc" id="L217">        OperationIndex operationIndex = model.getKnowledge(OperationIndex.class);</span>
+<span class="nc" id="L218">        return operationIndex.getInput(operationShape)</span>
+<span class="nc" id="L219">                .filter(input -&gt; input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))</span>
+<span class="nc" id="L220">                .isPresent();</span>
+    }
+
+    private static boolean testServiceId(Shape serviceShape, String expectedId) {
+<span class="fc" id="L224">        return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(&quot;&quot;).equals(expectedId);</span>
+    }
+
+    private static boolean operationUsesAwsAuth(Model model, ServiceShape service, OperationShape operation) {
+        // Cognito Identity service doesn't need auth for GetId, GetOpenIdToken, GetCredentialsForIdentity.
+<span class="nc bnc" id="L229" title="All 2 branches missed.">        if (testServiceId(service, &quot;Cognito Identity&quot;)) {</span>
+<span class="nc" id="L230">            Boolean isUnsignedCommand = SetUtils.of(&quot;GetId&quot;, &quot;GetOpenIdToken&quot;, &quot;GetCredentialsForIdentity&quot;)</span>
+<span class="nc" id="L231">                    .contains(operation.getId().getName());</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">            return !isUnsignedCommand;</span>
+        }
+<span class="nc" id="L234">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

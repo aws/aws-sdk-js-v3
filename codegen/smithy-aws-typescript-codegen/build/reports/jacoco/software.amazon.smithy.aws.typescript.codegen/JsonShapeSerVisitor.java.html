@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JsonShapeSerVisitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">JsonShapeSerVisitor.java</span></div><h1>JsonShapeSerVisitor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import java.util.Map;
+import java.util.TreeMap;
+import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.CollectionShape;
+import software.amazon.smithy.model.shapes.DocumentShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
+import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
+import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+
+/**
+ * Visitor to generate serialization functions for shapes in AWS JSON protocol
+ * document bodies.
+ *
+ * This class handles function body generation for all types expected by the {@code
+ * DocumentShapeSerVisitor}. No other shape type serialization is overridden.
+ *
+ * Timestamps are serialized to {@link Format}.EPOCH_SECONDS by default.
+ */
+final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
+<span class="fc" id="L48">    private static final Format TIMESTAMP_FORMAT = Format.EPOCH_SECONDS;</span>
+
+    JsonShapeSerVisitor(GenerationContext context) {
+<span class="fc" id="L51">        super(context);</span>
+<span class="fc" id="L52">    }</span>
+
+    private DocumentMemberSerVisitor getMemberVisitor(String dataSource) {
+<span class="nc" id="L55">        return new JsonMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);</span>
+    }
+
+    @Override
+    public void serializeCollection(GenerationContext context, CollectionShape shape) {
+<span class="nc" id="L60">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L61">        Shape target = context.getModel().expectShape(shape.getMember().getTarget());</span>
+
+<span class="nc" id="L63">        writer.openBlock(&quot;return input.map(entry =&gt; &quot;, &quot;);&quot;, () -&gt;</span>
+                // Dispatch to the input value provider for any additional handling.
+<span class="nc" id="L65">                writer.write(&quot;$L&quot;, target.accept(getMemberVisitor(&quot;entry&quot;))));</span>
+<span class="nc" id="L66">    }</span>
+
+    @Override
+    public void serializeDocument(GenerationContext context, DocumentShape shape) {
+<span class="nc" id="L70">        TypeScriptWriter writer = context.getWriter();</span>
+        // Documents are JSON content, so don't modify.
+<span class="nc" id="L72">        writer.write(&quot;return input;&quot;);</span>
+<span class="nc" id="L73">    }</span>
+
+    @Override
+    public void serializeMap(GenerationContext context, MapShape shape) {
+<span class="nc" id="L77">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L78">        Shape target = context.getModel().expectShape(shape.getValue().getTarget());</span>
+<span class="nc" id="L79">        SymbolProvider symbolProvider = context.getSymbolProvider();</span>
+
+        // Get the right serialization for each entry in the map. Undefined
+        // inputs won't have this serializer invoked.
+<span class="nc" id="L83">        writer.openBlock(&quot;return Object.entries(input).reduce((acc: $T, [key, value]: [$T, any]) =&gt; ({&quot;,</span>
+            &quot;}), {});&quot;,
+<span class="nc" id="L85">            symbolProvider.toSymbol(shape),</span>
+<span class="nc" id="L86">            symbolProvider.toSymbol(shape.getKey()),</span>
+            () -&gt; {
+<span class="nc" id="L88">                writer.write(&quot;...acc,&quot;);</span>
+                // Dispatch to the input value provider for any additional handling.
+<span class="nc" id="L90">                writer.write(&quot;[key]: $L&quot;, target.accept(getMemberVisitor(&quot;value&quot;)));</span>
+<span class="nc" id="L91">            }</span>
+        );
+<span class="nc" id="L93">    }</span>
+
+    @Override
+    public void serializeStructure(GenerationContext context, StructureShape shape) {
+<span class="nc" id="L97">        TypeScriptWriter writer = context.getWriter();</span>
+
+<span class="nc" id="L99">        writer.openBlock(&quot;return {&quot;, &quot;};&quot;, () -&gt; {</span>
+            // Use a TreeMap to sort the members.
+<span class="nc" id="L101">            Map&lt;String, MemberShape&gt; members = new TreeMap&lt;&gt;(shape.getAllMembers());</span>
+<span class="nc" id="L102">            members.forEach((memberName, memberShape) -&gt; {</span>
+                // Use the jsonName trait value if present, otherwise use the member name.
+<span class="nc" id="L104">                String locationName = memberShape.getTrait(JsonNameTrait.class)</span>
+<span class="nc" id="L105">                        .map(JsonNameTrait::getValue)</span>
+<span class="nc" id="L106">                        .orElse(memberName);</span>
+<span class="nc" id="L107">                Shape target = context.getModel().expectShape(memberShape.getTarget());</span>
+<span class="nc" id="L108">                String inputLocation = &quot;input.&quot; + memberName;</span>
+
+                // Handle @timestampFormat on members not just the targeted shape.
+<span class="nc bnc" id="L111" title="All 2 branches missed.">                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)</span>
+<span class="nc" id="L112">                        ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,</span>
+                                TIMESTAMP_FORMAT, inputLocation)
+<span class="nc" id="L114">                        : target.accept(getMemberVisitor(inputLocation));</span>
+
+<span class="nc bnc" id="L116" title="All 2 branches missed.">                if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {</span>
+<span class="nc" id="L117">                    writer.write(&quot;'$L': $L ?? generateIdempotencyToken(),&quot;, locationName, valueProvider);</span>
+                } else {
+<span class="nc" id="L119">                    writer.write(&quot;...($L !== undefined &amp;&amp; { $S: $L }),&quot;, inputLocation, locationName, valueProvider);</span>
+                }
+<span class="nc" id="L121">            });</span>
+
+<span class="nc" id="L123">        });</span>
+<span class="nc" id="L124">    }</span>
+
+    @Override
+    public void serializeUnion(GenerationContext context, UnionShape shape) {
+<span class="nc" id="L128">        TypeScriptWriter writer = context.getWriter();</span>
+<span class="nc" id="L129">        Model model = context.getModel();</span>
+
+        // Visit over the union type, then get the right serialization for the member.
+<span class="nc" id="L132">        writer.openBlock(&quot;return $L.visit(input, {&quot;, &quot;});&quot;, shape.getId().getName(), () -&gt; {</span>
+            // Use a TreeMap to sort the members.
+<span class="nc" id="L134">            Map&lt;String, MemberShape&gt; members = new TreeMap&lt;&gt;(shape.getAllMembers());</span>
+<span class="nc" id="L135">            members.forEach((memberName, memberShape) -&gt; {</span>
+                    // Use the jsonName trait value if present, otherwise use the member name.
+<span class="nc" id="L137">                    String locationName = memberShape.getTrait(JsonNameTrait.class)</span>
+<span class="nc" id="L138">                            .map(JsonNameTrait::getValue)</span>
+<span class="nc" id="L139">                            .orElse(memberName);</span>
+<span class="nc" id="L140">                    Shape target = model.expectShape(memberShape.getTarget());</span>
+                    // Dispatch to the input value provider for any additional handling.
+<span class="nc" id="L142">                    writer.write(&quot;$L: value =&gt; ({ $S: $L }),&quot;, memberName, locationName,</span>
+<span class="nc" id="L143">                            target.accept(getMemberVisitor(&quot;value&quot;)));</span>
+<span class="nc" id="L144">                });</span>
+<span class="nc" id="L145">            writer.write(&quot;_: (name, value) =&gt; ({ name: value } as any)&quot;);</span>
+<span class="nc" id="L146">        });</span>
+<span class="nc" id="L147">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

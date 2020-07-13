@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AwsDependency.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">smithy-aws-typescript-codegen</a> &gt; <a href="index.source.html" class="el_package">software.amazon.smithy.aws.typescript.codegen</a> &gt; <span class="el_source">AwsDependency.java</span></div><h1>AwsDependency.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the &quot;license&quot; file accompanying this file. This file is distributed
+ * on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+package software.amazon.smithy.aws.typescript.codegen;
+
+import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.DEV_DEPENDENCY;
+import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.NORMAL_DEPENDENCY;
+
+import java.util.Collections;
+import java.util.List;
+import software.amazon.smithy.codegen.core.SymbolDependency;
+import software.amazon.smithy.codegen.core.SymbolDependencyContainer;
+
+/**
+ * This enum should define all TypeScript dependencies that are introduced by
+ * this package.
+ */
+<span class="fc" id="L30">public enum AwsDependency implements SymbolDependencyContainer {</span>
+
+<span class="fc" id="L32">    MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-signing&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L33">    CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, &quot;@aws-sdk/credential-provider-node&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L34">    REGION_PROVIDER(NORMAL_DEPENDENCY, &quot;@aws-sdk/region-provider&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L35">    ACCEPT_HEADER(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-api-gateway&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L36">    VALIDATE_BUCKET_NAME(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-s3&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L37">    ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-expect-continue&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L38">    GLACIER_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-glacier&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L39">    MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-machinelearning&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L40">    S3_CONTROL_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-s3-control&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L41">    SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-ssec&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L42">    RDS_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-rds&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L43">    LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-location-constraint&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L44">    MD5_BROWSER(NORMAL_DEPENDENCY, &quot;@aws-sdk/md5-js&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L45">    STREAM_HASHER_NODE(NORMAL_DEPENDENCY, &quot;@aws-sdk/hash-stream-node&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L46">    STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, &quot;@aws-sdk/hash-blob-browser&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L47">    ROUTE53_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-route53&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L48">    EC2_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-ec2&quot;, &quot;^1.0.0-beta.0&quot;),</span>
+<span class="fc" id="L49">    BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-bucket-endpoint&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L50">    BODY_CHECKSUM(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-apply-body-checksum&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L51">    MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-host-header&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L52">    SQS_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-sqs&quot;, &quot;^1.0.0-beta.0&quot;),</span>
+<span class="fc" id="L53">    BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, &quot;@aws-sdk/body-checksum-browser&quot;, &quot;^1.0.0-beta.0&quot;),</span>
+<span class="fc" id="L54">    BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, &quot;@aws-sdk/body-checksum-node&quot;, &quot;^1.0.0-beta.0&quot;),</span>
+<span class="fc" id="L55">    XML_BUILDER(NORMAL_DEPENDENCY, &quot;@aws-sdk/xml-builder&quot;, &quot;^1.0.0-beta.1&quot;),</span>
+<span class="fc" id="L56">    XML_PARSER(NORMAL_DEPENDENCY, &quot;fast-xml-parser&quot;, &quot;^3.16.0&quot;),</span>
+<span class="fc" id="L57">    UUID_GENERATOR(NORMAL_DEPENDENCY, &quot;uuid&quot;, &quot;^3.0.0&quot;),</span>
+<span class="fc" id="L58">    UUID_GENERATOR_TYPES(DEV_DEPENDENCY, &quot;@types/uuid&quot;, &quot;^3.0.0&quot;),</span>
+<span class="fc" id="L59">    MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-eventstream&quot;, &quot;^1.0.0-beta.0&quot;),</span>
+<span class="fc" id="L60">    AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, &quot;@aws-sdk/eventstream-handler-node&quot;, &quot;^1.0.0-beta.0&quot;),</span>
+<span class="fc" id="L61">    TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, &quot;@aws-sdk/middleware-sdk-transcribe-streaming&quot;,</span>
+            &quot;^1.0.0-gamma.0&quot;),
+<span class="fc" id="L63">    RETRY_CONFIG_PROVIDER(NORMAL_DEPENDENCY, &quot;@aws-sdk/retry-config-provider&quot;, &quot;^1.0.0-gamma.0&quot;);</span>
+
+    public final String packageName;
+    public final String version;
+    public final SymbolDependency dependency;
+
+<span class="fc" id="L69">    AwsDependency(String type, String name, String version) {</span>
+<span class="fc" id="L70">        this.dependency = SymbolDependency.builder().dependencyType(type).packageName(name).version(version).build();</span>
+<span class="fc" id="L71">        this.packageName = name;</span>
+<span class="fc" id="L72">        this.version = version;</span>
+<span class="fc" id="L73">    }</span>
+
+    @Override
+    public List&lt;SymbolDependency&gt; getDependencies() {
+<span class="fc" id="L77">        return Collections.singletonList(dependency);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
