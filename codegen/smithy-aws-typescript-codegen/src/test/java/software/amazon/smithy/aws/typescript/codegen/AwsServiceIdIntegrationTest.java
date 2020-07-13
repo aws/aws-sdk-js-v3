@@ -34,4 +34,23 @@ public class AwsServiceIdIntegrationTest {
         assertThat(symbol.getNamespace(), equalTo("./NotSameClient"));
         assertThat(symbol.getDefinitionFile(), equalTo("NotSameClient.ts"));
     }
+
+    @Test
+    public void testNotCapitalizedServiceId() {
+        Model model = Model.assembler()
+                .addImport(getClass().getResource("notCapitalized.smithy"))
+                .discoverModels()
+                .assemble()
+                .unwrap();
+        Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
+        AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
+        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
+        SymbolProvider decorated = integration.decorateSymbolProvider(
+                new TypeScriptSettings(), model, provider);
+        Symbol symbol = decorated.toSymbol(service);
+
+        assertThat(symbol.getName(), equalTo("NotCapitalizedClient"));
+        assertThat(symbol.getNamespace(), equalTo("./NotCapitalizedClient"));
+        assertThat(symbol.getDefinitionFile(), equalTo("NotCapitalizedClient.ts"));
+    }
 }
