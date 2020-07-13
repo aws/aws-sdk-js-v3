@@ -80,4 +80,16 @@ describe("httpRequest", () => {
       [300, 400, 500].forEach(errorOnStatusCode);
     });
   });
+
+  it("timeout", async () => {
+    const timeout = 1000;
+    const scope = nock(`http://${host}:${port}`)
+      .get(path)
+      .delay(timeout * 2)
+      .reply(200, "expectedResponse");
+
+    await expect(httpRequest({ host, path, port, timeout })).rejects.toStrictEqual(new Error("TimeoutError"));
+
+    scope.done();
+  });
 });
