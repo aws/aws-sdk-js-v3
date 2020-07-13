@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/credential-provider-imds@1.0.0-gamma.2...@aws-sdk/credential-provider-imds@1.0.0-gamma.3) (2020-07-13)
+
+
+### Features
+
+* **credential-provider-imds:** signed IMDS workflow ([#1358](https://github.com/aws/aws-sdk-js-v3/issues/1358)) ([954ff24](https://github.com/aws/aws-sdk-js-v3/commit/954ff242bd020c5ef1cbeed6718f68c8c6766d25))
+* add code linting and prettify ([#1350](https://github.com/aws/aws-sdk-js-v3/issues/1350)) ([47770fa](https://github.com/aws/aws-sdk-js-v3/commit/47770fa493c3405f193069cd18319882529ff484))
+* lint all ts files in packages ([#1367](https://github.com/aws/aws-sdk-js-v3/issues/1367)) ([e7b79cb](https://github.com/aws/aws-sdk-js-v3/commit/e7b79cb6b268a1b56cba4bcd0bfc4042f339f012))
+* **credential-provider-imds:** update httpGet to accept options.method ([#1353](https://github.com/aws/aws-sdk-js-v3/issues/1353)) ([db2651c](https://github.com/aws/aws-sdk-js-v3/commit/db2651cbf8a1ca7919c6821f117fc70bd30be861))
+
+
+
+
+
 # [1.0.0-gamma.2](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/credential-provider-imds@0.1.0-preview.2...@aws-sdk/credential-provider-imds@1.0.0-gamma.2) (2020-07-08)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/util-body-length-node@1.0.0-gamma.2...@aws-sdk/util-body-length-node@1.0.0-gamma.3) (2020-07-13)
+
+**Note:** Version bump only for package @aws-sdk/util-body-length-node
+
+
+
+
+
 # [1.0.0-gamma.2](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/util-body-length-node@0.1.0-preview.2...@aws-sdk/util-body-length-node@1.0.0-gamma.2) (2020-07-08)
 
 

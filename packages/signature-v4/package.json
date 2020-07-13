@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4",
-  "version": "1.0.0-gamma.2",
+  "version": "1.0.0-gamma.3",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -19,16 +19,16 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-array-buffer": "1.0.0-gamma.2",
-    "@aws-sdk/types": "1.0.0-gamma.2",
-    "@aws-sdk/util-hex-encoding": "1.0.0-gamma.2",
-    "@aws-sdk/util-uri-escape": "1.0.0-gamma.2",
+    "@aws-sdk/is-array-buffer": "1.0.0-gamma.3",
+    "@aws-sdk/types": "1.0.0-gamma.3",
+    "@aws-sdk/util-hex-encoding": "1.0.0-gamma.3",
+    "@aws-sdk/util-uri-escape": "1.0.0-gamma.3",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "^1.0.0-alpha.0",
-    "@aws-sdk/protocol-http": "1.0.0-gamma.2",
-    "@aws-sdk/util-buffer-from": "1.0.0-gamma.2",
+    "@aws-sdk/protocol-http": "1.0.0-gamma.3",
+    "@aws-sdk/util-buffer-from": "1.0.0-gamma.3",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~3.9.3"
