@@ -8,7 +8,7 @@ import { IncomingMessage, request, RequestOptions } from "http";
 export function httpRequest(options: RequestOptions): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     const req = request({ method: "GET", ...options });
-    req.on("error", (err) => {
+    req.on("error", () => {
       reject(new ProviderError("Unable to connect to instance metadata service"));
     });
 
