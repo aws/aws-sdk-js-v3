@@ -1,6 +1,6 @@
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 
 import { fromEnv } from "./fromEnv";
 import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";

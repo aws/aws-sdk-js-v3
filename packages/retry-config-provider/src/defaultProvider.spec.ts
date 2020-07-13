@@ -1,5 +1,5 @@
-import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
+import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
 
 import {
   CONFIG_MAX_ATTEMPTS,
