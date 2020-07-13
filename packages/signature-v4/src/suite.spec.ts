@@ -1,7 +1,8 @@
-import { SignatureV4 } from "./SignatureV4";
-import { credentials, region, requests, service, signingDate } from "./suite.fixture";
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { SignatureV4 } from "./SignatureV4";
+import { credentials, region, requests, service, signingDate } from "./suite.fixture";
 
 /**
  * Executes the official AWS Signature Version 4 test suite.

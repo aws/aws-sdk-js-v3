@@ -1,12 +1,12 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
-  BuildMiddleware,
   BuildHandler,
   BuildHandlerArguments,
-  RequestHandler,
   BuildHandlerOptions,
+  BuildMiddleware,
   RelativeLocation,
+  RequestHandler,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 /**
  * Middleware that generates WebSocket URL to TranscribeStreaming service

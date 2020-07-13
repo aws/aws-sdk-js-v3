@@ -1,11 +1,12 @@
+import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
+import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialProvider } from "@aws-sdk/types";
+
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { fromCognitoIdentity } from "./fromCognitoIdentity";
 import { localStorage } from "./localStorage";
 import { resolveLogins } from "./resolveLogins";
 import { Storage } from "./Storage";
-import { ProviderError } from "@aws-sdk/property-provider";
-import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
-import { CredentialProvider } from "@aws-sdk/types";
 
 /**
  * Retrieves or generates a unique identifier using Amazon Cognito's `GetId`

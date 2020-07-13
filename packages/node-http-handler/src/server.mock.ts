@@ -1,19 +1,18 @@
-import { createServer as createHttpServer, Server as HttpServer, IncomingMessage, ServerResponse } from "http";
-import { createServer as createHttpsServer, Server as HttpsServer } from "https";
-import { createServer as createHttp2Server, Http2Server } from "http2";
+import { HttpResponse } from "@aws-sdk/types";
 import { readFileSync } from "fs";
+import { createServer as createHttpServer, IncomingMessage, Server as HttpServer, ServerResponse } from "http";
+import { createServer as createHttp2Server, Http2Server } from "http2";
+import { createServer as createHttpsServer, Server as HttpsServer } from "https";
 import { join } from "path";
 import { Readable } from "stream";
-
-import { HttpResponse } from "@aws-sdk/types";
 
 const fixturesDir = join(__dirname, "../..", "fixtures");
 
 export function createResponseFunction(httpResp: HttpResponse) {
   return function (request: IncomingMessage, response: ServerResponse) {
     response.statusCode = httpResp.statusCode;
-    for (let name of Object.keys(httpResp.headers)) {
-      let values = httpResp.headers[name];
+    for (const name of Object.keys(httpResp.headers)) {
+      const values = httpResp.headers[name];
       response.setHeader(name, values);
     }
     if (httpResp.body instanceof Readable) {

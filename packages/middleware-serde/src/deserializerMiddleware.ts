@@ -1,9 +1,9 @@
 import {
-  ResponseDeserializer,
-  DeserializeMiddleware,
   DeserializeHandler,
   DeserializeHandlerArguments,
   DeserializeHandlerOutput,
+  DeserializeMiddleware,
+  ResponseDeserializer,
 } from "@aws-sdk/types";
 
 export function deserializerMiddleware<Input extends object, Output extends object, RuntimeUtils = any>(

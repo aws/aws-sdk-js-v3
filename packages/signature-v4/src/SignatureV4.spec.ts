@@ -1,4 +1,7 @@
-import { SignatureV4 } from "./SignatureV4";
+import { Sha256 } from "@aws-crypto/sha256-js";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { Credentials } from "@aws-sdk/types";
+
 import {
   ALGORITHM_IDENTIFIER,
   ALGORITHM_QUERY_PARAM,
@@ -14,9 +17,7 @@ import {
   TOKEN_QUERY_PARAM,
   UNSIGNED_PAYLOAD,
 } from "./constants";
-import { Sha256 } from "@aws-crypto/sha256-js";
-import { Credentials } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { SignatureV4 } from "./SignatureV4";
 import { iso8601 } from "./utilDate";
 
 const signer = new SignatureV4({

@@ -1,5 +1,3 @@
-import { chain } from "./chain";
-
 /**
  * An error representing a failure of an individual credential provider.
  *

@@ -1,11 +1,10 @@
-import { connect, constants, ClientHttp2Session } from "http2";
-
+import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { HttpHandlerOptions } from "@aws-sdk/types";
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { ClientHttp2Session, connect, constants } from "http2";
 
-import { writeRequestBody } from "./write-request-body";
 import { getTransformedHeaders } from "./get-transformed-headers";
+import { writeRequestBody } from "./write-request-body";
 
 /**
  * Represents the http2 options that can be passed to a node http2 client.
@@ -34,6 +33,7 @@ export class NodeHttp2Handler implements HttpHandler {
   }
 
   destroy(): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     for (const [_, http2Session] of this.connectionPool) {
       http2Session.destroy();
     }

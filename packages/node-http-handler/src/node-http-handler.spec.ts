@@ -1,13 +1,13 @@
 import { AbortController } from "@aws-sdk/abort-controller";
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import { Server as HttpServer } from "http";
+import * as http from "http";
 import { Server as HttpsServer } from "https";
 import * as https from "https";
-import * as http from "http";
-import { NodeHttpHandler } from "./node-http-handler";
-import { ReadFromBuffers } from "./readable.mock";
-import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
 import { AddressInfo } from "net";
+
+import { NodeHttpHandler } from "./node-http-handler";
+import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
 
 describe("NodeHttpHandler", () => {
   describe("constructor", () => {
@@ -48,7 +48,7 @@ describe("NodeHttpHandler", () => {
       mockHttpServer.addListener("request", createResponseFunction(mockResponse));
       const nodeHttpHandler = new NodeHttpHandler();
 
-      let { response } = await nodeHttpHandler.handle(
+      const { response } = await nodeHttpHandler.handle(
         new HttpRequest({
           hostname: "localhost",
           method: "GET",
@@ -69,7 +69,6 @@ describe("NodeHttpHandler", () => {
 
   describe("https", () => {
     const mockHttpsServer: HttpsServer = createMockHttpsServer().listen(54322);
-    const rejectUnauthorizedEnv = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
 
     /*beforeEach(() => {
       // Setting the NODE_TLS_REJECT_UNAUTHORIZED will allow the unconfigurable
@@ -276,8 +275,8 @@ describe("NodeHttpHandler", () => {
       };
       mockHttpsServer.addListener("request", createResponseFunction(mockResponse));
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
-        let calls = spy.mock.calls;
-        let currentIndex = calls.length - 1;
+        const calls = spy.mock.calls;
+        const currentIndex = calls.length - 1;
         return https.request(calls[currentIndex][0], calls[currentIndex][1]);
       });
       // clear data held from previous tests
@@ -315,8 +314,8 @@ describe("NodeHttpHandler", () => {
       let httpRequest: http.ClientRequest;
       let reqAbortSpy: any;
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
-        let calls = spy.mock.calls;
-        let currentIndex = calls.length - 1;
+        const calls = spy.mock.calls;
+        const currentIndex = calls.length - 1;
         httpRequest = https.request(calls[currentIndex][0], calls[currentIndex][1]);
         reqAbortSpy = jest.spyOn(httpRequest, "abort");
         return httpRequest;

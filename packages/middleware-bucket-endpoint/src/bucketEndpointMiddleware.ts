@@ -1,5 +1,4 @@
-import { bucketHostname } from "./bucketHostname";
-import { BucketEndpointResolvedConfig } from "./configurations";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -10,7 +9,9 @@ import {
   Pluggable,
   RelativeLocation,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { bucketHostname } from "./bucketHostname";
+import { BucketEndpointResolvedConfig } from "./configurations";
 
 export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
@@ -18,7 +19,7 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
   ): Promise<BuildHandlerOutput<Output>> => {
     const { Bucket: bucketName } = args.input;
     let replaceBucketInPath = options.bucketEndpoint;
-    let request = args.request;
+    const request = args.request;
     if (HttpRequest.isInstance(request)) {
       if (options.bucketEndpoint) {
         request.hostname = bucketName;

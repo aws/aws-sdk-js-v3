@@ -1,13 +1,14 @@
-import { BLOCK_SIZE, DIGEST_LENGTH, INIT } from "./constants";
 import { Hash, SourceData } from "@aws-sdk/types";
 import { fromUtf8 } from "@aws-sdk/util-utf8-browser";
+
+import { BLOCK_SIZE, DIGEST_LENGTH, INIT } from "./constants";
 
 export class Md5 implements Hash {
   private state = Uint32Array.from(INIT);
   private buffer: DataView = new DataView(new ArrayBuffer(BLOCK_SIZE));
-  private bufferLength: number = 0;
-  private bytesHashed: number = 0;
-  private finished: boolean = false;
+  private bufferLength = 0;
+  private bytesHashed = 0;
+  private finished = false;
 
   update(sourceData: SourceData): void {
     if (isEmptyData(sourceData)) {

@@ -1,11 +1,7 @@
-import { Buffer } from "buffer";
 import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
+import { Buffer } from "buffer";
 
-export function fromArrayBuffer(
-  input: ArrayBuffer,
-  offset: number = 0,
-  length: number = input.byteLength - offset
-): Buffer {
+export function fromArrayBuffer(input: ArrayBuffer, offset = 0, length: number = input.byteLength - offset): Buffer {
   if (!isArrayBuffer(input)) {
     throw new Error("argument passed to fromArrayBuffer was not an ArrayBuffer");
   }

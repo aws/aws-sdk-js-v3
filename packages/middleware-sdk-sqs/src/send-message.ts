@@ -1,14 +1,15 @@
-import { PreviouslyResolved } from "./configurations";
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+
+import { PreviouslyResolved } from "./configurations";
 
 interface SendMessageResult {
   MD5OfMessageBody?: string;

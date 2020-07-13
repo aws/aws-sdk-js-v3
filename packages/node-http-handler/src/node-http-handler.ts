@@ -1,12 +1,13 @@
-import * as https from "https";
-import * as http from "http";
+import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { HttpHandlerOptions } from "@aws-sdk/types";
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import * as http from "http";
+import * as https from "https";
+
+import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
-import { getTransformedHeaders } from "./get-transformed-headers";
 
 /**
  * Represents the http options that can be passed to a node http client.

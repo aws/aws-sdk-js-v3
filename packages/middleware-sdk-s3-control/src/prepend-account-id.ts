@@ -1,3 +1,4 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -8,13 +9,12 @@ import {
   Pluggable,
   RelativeLocation,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let { request } = args;
+    const { request } = args;
     const { input } = args;
     const accountId = input.AccountId;
     if (typeof accountId !== "string") {
@@ -48,6 +48,7 @@ export const prependAccountIdMiddlewareOptions: BuildHandlerOptions & RelativeLo
   toMiddleware: "hostHeaderMiddleware",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getPrependAccountIdPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.addRelativeTo(prependAccountIdMiddleware(), prependAccountIdMiddlewareOptions);

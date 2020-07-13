@@ -1,5 +1,5 @@
-import { EventSigner, MessageHeaders } from "@aws-sdk/types";
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { EventSigner, MessageHeaders } from "@aws-sdk/types";
 import { Transform, TransformCallback, TransformOptions } from "stream";
 
 export interface EventSigningStreamOptions extends TransformOptions {
@@ -40,7 +40,7 @@ export class EventSigningStream extends Transform {
       const dateHeader: MessageHeaders = {
         ":date": { type: "timestamp", value: now },
       };
-      let signature = await this.eventSigner.sign(
+      const signature = await this.eventSigner.sign(
         {
           payload: chunk,
           headers: this.eventMarshaller.formatHeaders(dateHeader),

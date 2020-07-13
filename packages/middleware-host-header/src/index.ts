@@ -1,5 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { RequestHandler, BuildMiddleware, BuildHandlerOptions, AbsoluteLocation, Pluggable } from "@aws-sdk/types";
+import { AbsoluteLocation, BuildHandlerOptions, BuildMiddleware, Pluggable,RequestHandler } from "@aws-sdk/types";
 
 export interface HostHeaderInputConfig {}
 interface PreviouslyResolved {

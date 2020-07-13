@@ -1,19 +1,20 @@
-import {
-  BuildHandlerArguments,
-  BuildHandler,
-  MetadataBearer,
-  BuildHandlerOutput,
-  Pluggable,
-  BuildHandlerOptions,
-} from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import {
+  BuildHandler,
+  BuildHandlerArguments,
+  BuildHandlerOptions,
+  BuildHandlerOutput,
+  MetadataBearer,
+  Pluggable,
+} from "@aws-sdk/types";
+
 import { UserAgentResolvedConfig } from "./configurations";
 
 export function userAgentMiddleware(options: UserAgentResolvedConfig) {
   return <Output extends MetadataBearer>(next: BuildHandler<any, any>): BuildHandler<any, any> => (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let { request } = args;
+    const { request } = args;
     if (!HttpRequest.isInstance(request)) return next(args);
     const { headers } = request;
     const userAgentHeader = options.runtime === "node" ? "user-agent" : "x-amz-user-agent";

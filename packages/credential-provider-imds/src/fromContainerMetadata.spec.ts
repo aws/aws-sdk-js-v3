@@ -84,7 +84,7 @@ describe("fromContainerMetadata", () => {
     });
 
     it("should retry responses that receive invalid response values", async () => {
-      for (let key of Object.keys(creds)) {
+      for (const key of Object.keys(creds)) {
         const invalidCreds: any = { ...creds };
         delete invalidCreds[key];
         mockHttpRequest.mockReturnValueOnce(Promise.resolve(JSON.stringify(invalidCreds)));

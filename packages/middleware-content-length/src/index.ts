@@ -1,14 +1,14 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
+  BodyLengthCalculator,
   BuildHandler,
   BuildHandlerArguments,
-  BuildMiddleware,
-  BodyLengthCalculator,
-  MetadataBearer,
-  BuildHandlerOutput,
-  Pluggable,
   BuildHandlerOptions,
+  BuildHandlerOutput,
+  BuildMiddleware,
+  MetadataBearer,
+  Pluggable,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 const CONTENT_LENGTH_HEADER = "content-length";
 
@@ -16,7 +16,7 @@ export function contentLengthMiddleware(bodyLengthChecker: BodyLengthCalculator)
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let request = args.request;
+    const request = args.request;
     if (HttpRequest.isInstance(request)) {
       const { body, headers } = request;
       if (

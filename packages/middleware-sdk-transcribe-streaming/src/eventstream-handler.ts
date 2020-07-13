@@ -1,7 +1,7 @@
 import {
-  EventStreamPayloadHandler as IEventStreamPayloadHandler,
   BuildHandler,
   BuildHandlerArguments,
+  EventStreamPayloadHandler as IEventStreamPayloadHandler,
 } from "@aws-sdk/types";
 
 export const eventStreamPayloadHandler: IEventStreamPayloadHandler = {

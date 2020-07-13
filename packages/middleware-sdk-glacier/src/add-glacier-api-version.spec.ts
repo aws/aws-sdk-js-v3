@@ -1,5 +1,6 @@
-import { addGlacierApiVersionMiddleware } from "./add-glacier-api-version";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { addGlacierApiVersionMiddleware } from "./add-glacier-api-version";
 
 describe("addGlacierApiVersion", () => {
   const mockNextHandler = jest.fn();

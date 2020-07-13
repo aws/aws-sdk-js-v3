@@ -1,5 +1,5 @@
-import { localStorage as storage } from "./localStorage";
 import { InMemoryStorage } from "./InMemoryStorage";
+import { localStorage as storage } from "./localStorage";
 
 describe("localStorage", () => {
   // set store and restore indexedDB and localStorage before and after the test

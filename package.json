@@ -20,8 +20,9 @@
     "test:integration-legacy": "cucumber-js --fail-fast",
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
     "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-*'",
+    "local-publish": "node ./scripts/verdaccio-publish/index.js",
     "test:e2e": "node ./tests/e2e/index.js",
-    "local-publish": "node ./scripts/verdaccio-publish/index.js"
+    "lint": "eslint 'packages/**/src/*.ts' --fix"
   },
   "repository": {
     "type": "git",
@@ -43,10 +44,16 @@
     "@types/chai-as-promised": "^7.1.2",
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "^26.0.4",
+    "@typescript-eslint/eslint-plugin": "3.6.0",
+    "@typescript-eslint/parser": "3.6.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "codecov": "^3.4.0",
     "cucumber": "^6.0.5",
+    "eslint": "7.4.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-simple-import-sort": "5.0.3",
     "fs-extra": "^9.0.0",
     "generate-changelog": "^1.7.1",
     "husky": "^4.2.3",

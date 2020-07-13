@@ -13,7 +13,7 @@ export interface RegionResolvedConfig {
   region: Provider<string>;
 }
 export function resolveRegionConfig<T>(input: T & RegionInputConfig & PreviouslyResolved): T & RegionResolvedConfig {
-  let region = input.region || input.regionDefaultProvider(input as any);
+  const region = input.region || input.regionDefaultProvider(input as any);
   return {
     ...input,
     region: normalizeRegion(region),

@@ -1,12 +1,13 @@
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
+
 import { IDENTIFIER_PREFIX_PATTERN } from "./constants";
 
 export interface Change {
@@ -68,6 +69,7 @@ export const changeResourceRecordSetsMiddlewareOptions: InitializeHandlerOptions
   name: "changeResourceRecordSetsMiddleware",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getChangeResourceRecordSetsPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(changeResourceRecordSetsMiddleware(), changeResourceRecordSetsMiddlewareOptions);

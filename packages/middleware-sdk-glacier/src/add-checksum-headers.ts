@@ -1,4 +1,4 @@
-import { ResolvedGlacierMiddlewareConfig } from "./configurations";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -7,13 +7,14 @@ import {
   BuildMiddleware,
   MetadataBearer,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { ResolvedGlacierMiddlewareConfig } from "./configurations";
 
 export function addChecksumHeadersMiddleware(options: ResolvedGlacierMiddlewareConfig): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let request = args.request;
+    const request = args.request;
     if (HttpRequest.isInstance(request)) {
       let headers = request.headers;
       const body = request.body;

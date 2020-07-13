@@ -1,12 +1,13 @@
-import { DEFAULT_RETRY_DELAY_BASE, THROTTLING_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS } from "./constants";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
+import { v4 } from "uuid";
+
+import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
+import { getDefaultRetryQuota } from "./defaultRetryQuota";
+import { RetryQuota, StandardRetryStrategy } from "./defaultStrategy";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
-import { StandardRetryStrategy, RetryQuota } from "./defaultStrategy";
-import { getDefaultRetryQuota } from "./defaultRetryQuota";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { v4 } from "uuid";
-import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 
 jest.mock("@aws-sdk/service-error-classification");
 jest.mock("./delayDecider");

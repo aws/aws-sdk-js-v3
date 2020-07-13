@@ -1,3 +1,4 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -7,13 +8,12 @@ import {
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let { request } = args;
+    const { request } = args;
     if (HttpRequest.isInstance(request)) {
       request.headers = {
         ...request.headers,
@@ -33,6 +33,7 @@ export const acceptHeaderMiddlewareOptions: BuildHandlerOptions = {
   name: "acceptHeaderMiddleware",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getAcceptHeaderPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(acceptHeaderMiddleware(), acceptHeaderMiddlewareOptions);

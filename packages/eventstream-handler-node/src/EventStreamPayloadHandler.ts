@@ -1,18 +1,19 @@
+import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
 import {
+  Decoder,
+  Encoder,
+  EventSigner,
   EventStreamPayloadHandler as IEventStreamPayloadHandler,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput,
+  HandlerExecutionContext,
+  HttpRequest,
   MetadataBearer,
   Provider,
-  EventSigner,
-  Encoder,
-  Decoder,
-  HttpRequest,
-  HandlerExecutionContext,
-  FinalizeHandlerArguments,
-  FinalizeHandler,
-  FinalizeHandlerOutput,
 } from "@aws-sdk/types";
-import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Readable, PassThrough, pipeline } from "stream";
+import { PassThrough, pipeline, Readable } from "stream";
+
 import { EventSigningStream } from "./EventSigningStream";
 
 export interface EventStreamPayloadHandlerOptions {
@@ -39,6 +40,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   async handle<T extends MetadataBearer>(
     next: FinalizeHandler<any, T>,
     args: FinalizeHandlerArguments<any>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     context: HandlerExecutionContext = {} as any
   ): Promise<FinalizeHandlerOutput<T>> {
     const request = args.request as HttpRequest;

@@ -1,6 +1,6 @@
 import {
-  addChecksumHeadersMiddleware,
   accountIdDefaultMiddleware,
+  addChecksumHeadersMiddleware,
   addGlacierApiVersionMiddleware,
   getGlacierPlugin,
   resolveGlacierMiddlewareConfig,

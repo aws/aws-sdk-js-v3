@@ -1,11 +1,12 @@
 import {
-  isRetryableByTrait,
   isClockSkewError,
+  isRetryableByTrait,
   isThrottlingError,
   isTransientError,
 } from "@aws-sdk/service-error-classification";
-import { defaultRetryDecider } from "./retryDecider";
 import { SdkError } from "@aws-sdk/smithy-client";
+
+import { defaultRetryDecider } from "./retryDecider";
 
 jest.mock("@aws-sdk/service-error-classification");
 

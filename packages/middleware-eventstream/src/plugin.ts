@@ -1,4 +1,5 @@
 import { Pluggable } from "@aws-sdk/types";
+
 import { EventStreamResolvedConfig } from "./configuration";
 import { eventStreamHandlingMiddleware, eventStreamHandlingMiddlewareOptions } from "./handling-middleware";
 import { eventStreamHeaderMiddleware, eventStreamHeaderMiddlewareOptions } from "./headers-middleware";

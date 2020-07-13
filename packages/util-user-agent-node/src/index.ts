@@ -1,5 +1,4 @@
 import * as process from "process";
-import { HttpRequest } from "@aws-sdk/types";
 
 export function defaultUserAgent(packageName: string, packageVersion: string): string {
   let engine = `${process.platform}/${process.version}`;

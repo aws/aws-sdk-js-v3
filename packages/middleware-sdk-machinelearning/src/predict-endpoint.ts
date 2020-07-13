@@ -1,3 +1,4 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -7,7 +8,7 @@ import {
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+
 import { ResolvedPredictEndpointMiddlewareConfig } from "./configurations";
 
 export function predictEndpointMiddleware(options: ResolvedPredictEndpointMiddlewareConfig): BuildMiddleware<any, any> {

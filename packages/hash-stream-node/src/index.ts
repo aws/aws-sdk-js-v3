@@ -1,7 +1,8 @@
-import { Hash, HashConstructor, StreamHasher } from "@aws-sdk/types";
-import { HashCalculator } from "./hash-calculator";
+import { HashConstructor, StreamHasher } from "@aws-sdk/types";
 import { createReadStream, ReadStream } from "fs";
 import { Readable } from "stream";
+
+import { HashCalculator } from "./hash-calculator";
 
 export const fileStreamHasher: StreamHasher<Readable> = function fileStreamHasher(
   hashCtor: HashConstructor,

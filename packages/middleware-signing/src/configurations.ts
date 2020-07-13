@@ -1,5 +1,5 @@
-import { RequestSigner, Credentials, Provider, HashConstructor, RegionInfoProvider, RegionInfo } from "@aws-sdk/types";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
+import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
 
 export interface AwsAuthInputConfig {
   /**
@@ -42,7 +42,7 @@ export interface AwsAuthResolvedConfig {
   systemClockOffset: number;
 }
 export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & PreviouslyResolved): T & AwsAuthResolvedConfig {
-  let credentials = input.credentials || input.credentialDefaultProvider(input as any);
+  const credentials = input.credentials || input.credentialDefaultProvider(input as any);
   const normalizedCreds = normalizeProvider(credentials);
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;

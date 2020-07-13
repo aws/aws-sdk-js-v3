@@ -1,5 +1,5 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Message, Encoder } from "@aws-sdk/types";
+import { Encoder, Message } from "@aws-sdk/types";
 
 export type UnmarshalledStreamOptions<T> = {
   eventMarshaller: EventMarshaller;

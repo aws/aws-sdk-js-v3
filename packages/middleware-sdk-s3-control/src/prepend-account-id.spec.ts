@@ -1,5 +1,6 @@
-import { prependAccountIdMiddleware } from "./prepend-account-id";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { prependAccountIdMiddleware } from "./prepend-account-id";
 
 describe("prependAccountIdMiddleware", () => {
   const next = jest.fn();

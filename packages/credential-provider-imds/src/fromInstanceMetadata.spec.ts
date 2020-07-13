@@ -1,9 +1,10 @@
+import { ProviderError } from "@aws-sdk/property-provider";
+
 import { fromInstanceMetadata } from "./fromInstanceMetadata";
 import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
-import { ProviderError } from "@aws-sdk/property-provider";
 
 jest.mock("./remoteProvider/httpRequest");
 jest.mock("./remoteProvider/ImdsCredentials");

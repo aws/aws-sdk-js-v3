@@ -11,7 +11,7 @@ describe("iso8601", () => {
   });
 
   it("should convert parseable date strings to ISO-8601 strings", () => {
-    let date = new Date(toIsoString);
+    const date = new Date(toIsoString);
 
     expect(iso8601(date.toUTCString())).toBe(iso8601String);
     expect(iso8601(date.toISOString())).toBe(iso8601String);

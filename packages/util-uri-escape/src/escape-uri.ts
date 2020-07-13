@@ -1,5 +1,5 @@
 export function escapeUri(uri: string): string {
-  var output = encodeURIComponent(uri);
+  let output = encodeURIComponent(uri);
 
   // AWS percent-encodes some extra non-standard characters in a URI
   output = output.replace(/[!'()*]/g, hexEncode);

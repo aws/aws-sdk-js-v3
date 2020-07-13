@@ -1,12 +1,13 @@
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
+
 import { LocationConstraintResolvedConfig } from "./configuration";
 
 /**

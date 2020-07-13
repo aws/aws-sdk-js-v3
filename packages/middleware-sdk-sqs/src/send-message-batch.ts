@@ -1,14 +1,15 @@
-import { PreviouslyResolved } from "./configurations";
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+
+import { PreviouslyResolved } from "./configurations";
 
 interface SendMessageBatchResult {
   Successful: Array<SendMessageBatchResultEntry> | undefined;
@@ -28,8 +29,8 @@ export function sendMessageBatchMiddleware(options: PreviouslyResolved): Initial
   ): Promise<InitializeHandlerOutput<Output>> => {
     const resp = await next({ ...args });
     const output = (resp.output as unknown) as SendMessageBatchResult;
-    let messageIds = [];
-    let entries: { [index: string]: SendMessageBatchResultEntry } = {};
+    const messageIds = [];
+    const entries: { [index: string]: SendMessageBatchResultEntry } = {};
     if (output.Successful !== undefined) {
       for (const entry of output.Successful) {
         if (entry.Id !== undefined) {

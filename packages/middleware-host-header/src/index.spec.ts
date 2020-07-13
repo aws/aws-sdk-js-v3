@@ -1,5 +1,6 @@
-import { hostHeaderMiddleware } from "./index";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { hostHeaderMiddleware } from "./index";
 describe("hostHeaderMiddleware", () => {
   const mockNextHandler = jest.fn();
 

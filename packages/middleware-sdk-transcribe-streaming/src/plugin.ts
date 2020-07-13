@@ -1,7 +1,8 @@
 import { Pluggable } from "@aws-sdk/types";
+
+import { WebSocketResolvedConfig } from "./configuration";
 import { websocketURLMiddleware, websocketURLMiddlewareOptions } from "./middleware-endpoint";
 import { injectSessionIdMiddleware, injectSessionIdMiddlewareOptions } from "./middleware-session-id";
-import { WebSocketResolvedConfig } from "./configuration";
 
 export const getWebSocketPlugin = (config: WebSocketResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {

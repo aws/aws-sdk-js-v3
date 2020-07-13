@@ -1,7 +1,6 @@
-import { Decoder, Encoder, Provider } from "./util";
-import { Endpoint, HttpRequest } from "./http";
+import { Endpoint } from "./http";
 import { RequestHandler } from "./transfer";
-import { RequestSigner } from "./signature";
+import { Decoder, Encoder, Provider } from "./util";
 
 /**
  * Interface for object requires an Endpoint set.

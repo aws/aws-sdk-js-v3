@@ -1,16 +1,17 @@
-import { MiddlewareStack } from "./MiddlewareStack";
 import {
-  FinalizeHandlerArguments,
-  InitializeMiddleware,
-  FinalizeRequestMiddleware,
   BuildMiddleware,
-  InitializeHandlerOutput,
   DeserializeHandlerArguments,
-  MiddlewareType,
-  Handler,
   DeserializeMiddleware,
+  FinalizeHandlerArguments,
+  FinalizeRequestMiddleware,
+  Handler,
+  InitializeHandlerOutput,
+  InitializeMiddleware,
+  MiddlewareType,
   Pluggable,
 } from "@aws-sdk/types";
+
+import { MiddlewareStack } from "./MiddlewareStack";
 
 type input = Array<string>;
 type output = object;
@@ -154,7 +155,7 @@ describe("MiddlewareStack", () => {
 
     const secondStack = stack.clone();
 
-    let inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
+    const inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "second"]);
       return Promise.resolve({ response: {} });
     });
@@ -191,7 +192,7 @@ describe("MiddlewareStack", () => {
       toMiddleware: "second",
     });
 
-    let inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
+    const inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "second", "third", "fourth"]);
       return Promise.resolve({ response: {} });
     });

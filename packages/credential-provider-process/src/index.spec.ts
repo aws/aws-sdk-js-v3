@@ -1,6 +1,7 @@
-import { join, sep } from "path";
-import { ENV_PROFILE, fromProcess } from "./";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
+import { join, sep } from "path";
+
+import { ENV_PROFILE, fromProcess } from "./";
 
 jest.mock("fs", () => {
   interface FsModule {
@@ -10,7 +11,7 @@ jest.mock("fs", () => {
   }
 
   const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
-  let matchers = new Map<string, string>();
+  const matchers = new Map<string, string>();
 
   function readFile(path: string, encoding: string, callback: (err: Error | null, data?: string) => void): void {
     if (matchers.has(path)) {
@@ -56,7 +57,7 @@ jest.mock("child_process", () => {
   }
 
   const child_process = <ChildProcessModule>jest.genMockFromModule("child_process");
-  let matchers = new Map<string, string>();
+  const matchers = new Map<string, string>();
 
   function exec(command: string, callback: (err: Error | null, stdout?: string) => void): void {
     if (matchers.has(command)) {

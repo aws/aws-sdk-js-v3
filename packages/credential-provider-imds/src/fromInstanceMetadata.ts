@@ -1,9 +1,10 @@
+import { ProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider } from "@aws-sdk/types";
-import { RemoteProviderInit, providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
+
 import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
+import { providerConfigFromInit,RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
-import { ProviderError } from "@aws-sdk/property-provider";
 
 const IMDS_IP = "169.254.169.254";
 const IMDS_PATH = "/latest/meta-data/iam/security-credentials/";

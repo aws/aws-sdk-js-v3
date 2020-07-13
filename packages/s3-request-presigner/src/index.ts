@@ -1,7 +1,8 @@
+import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import { RequestPresigner, RequestPresigningArguments } from "@aws-sdk/types";
-import { SignatureV4, SignatureV4Init, SignatureV4CryptoInit } from "@aws-sdk/signature-v4";
 import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
-import { UNSIGNED_PAYLOAD, SHA256_HEADER } from "./constants";
+
+import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
 
 /**
  * PartialBy<T, K> makes properties specified in K optional in interface T

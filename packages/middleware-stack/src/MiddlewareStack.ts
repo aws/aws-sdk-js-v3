@@ -1,34 +1,35 @@
 import {
-  InitializeHandlerOptions,
+  AbsoluteLocation,
   BuildHandlerOptions,
+  BuildMiddleware,
+  DeserializeHandler,
+  DeserializeHandlerOptions,
+  DeserializeMiddleware,
   FinalizeRequestHandlerOptions,
-  MiddlewareType,
-  SerializeMiddleware,
   FinalizeRequestMiddleware,
+  Handler,
   HandlerExecutionContext,
   HandlerOptions,
+  InitializeHandlerOptions,
   InitializeMiddleware,
   MiddlewareStack as IMiddlewareStack,
-  SerializeHandlerOptions,
-  Step,
-  DeserializeMiddleware,
-  DeserializeHandlerOptions,
-  DeserializeHandler,
+  MiddlewareType,
   Pluggable,
-  BuildMiddleware,
-  Handler,
   Priority,
-  AbsoluteLocation,
   RelativeLocation,
+  SerializeHandlerOptions,
+  SerializeMiddleware,
+  Step,
 } from "@aws-sdk/types";
+
 import {
   MiddlewareEntry,
-  RelativeMiddlewareEntry,
-  NormalizedRelativeEntry,
   NamedMiddlewareEntriesMap,
   NamedRelativeEntriesMap,
-  RelativeMiddlewareAnchor,
+  NormalizedRelativeEntry,
   NormalizingEntryResult,
+  RelativeMiddlewareAnchor,
+  RelativeMiddlewareEntry,
 } from "./types";
 
 export interface MiddlewareStack<Input extends object, Output extends object> extends IMiddlewareStack<Input, Output> {}
@@ -334,7 +335,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
    *     to specific `step` with priority of `normal`
    */
   private getMiddlewareList(): Array<MiddlewareType<Input, Output>> {
-    let middlewareList: Array<MiddlewareType<Input, Output>> = [];
+    const middlewareList: Array<MiddlewareType<Input, Output>> = [];
     const [orphanedRelativeEntries, anchors] = this.normalizeRelativeEntries();
     let entryList = [...this.absoluteEntries, ...orphanedRelativeEntries];
     entryList = this.sort(entryList);

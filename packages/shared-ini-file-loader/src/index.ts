@@ -1,6 +1,6 @@
+import { readFile } from "fs";
 import { homedir } from "os";
 import { join, sep } from "path";
-import { readFile } from "fs";
 
 export const ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
 export const ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
@@ -57,11 +57,12 @@ export function loadSharedConfigFiles(init: SharedConfigInit = {}): Promise<Shar
 const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
 function normalizeConfigFile(data: ParsedIniData): ParsedIniData {
   const map: ParsedIniData = {};
-  for (let key of Object.keys(data)) {
+  for (const key of Object.keys(data)) {
     let matches: Array<string> | null;
     if (key === "default") {
       map.default = data.default;
     } else if ((matches = profileKeyRegex.exec(key))) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const [_1, _2, normalizedKey] = matches;
       if (normalizedKey) {
         map[normalizedKey] = data[key];

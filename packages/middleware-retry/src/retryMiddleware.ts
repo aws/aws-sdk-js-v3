@@ -1,12 +1,13 @@
 import {
+  AbsoluteLocation,
   FinalizeHandler,
   FinalizeHandlerArguments,
-  MetadataBearer,
   FinalizeHandlerOutput,
-  Pluggable,
   FinalizeRequestHandlerOptions,
-  AbsoluteLocation,
+  MetadataBearer,
+  Pluggable,
 } from "@aws-sdk/types";
+
 import { RetryResolvedConfig } from "./configurations";
 
 export const retryMiddleware = (options: RetryResolvedConfig) => <Output extends MetadataBearer = MetadataBearer>(

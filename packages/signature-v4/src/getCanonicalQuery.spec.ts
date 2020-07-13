@@ -1,5 +1,6 @@
-import { getCanonicalQuery } from "./getCanonicalQuery";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { getCanonicalQuery } from "./getCanonicalQuery";
 
 const httpRequestOptions = {
   method: "POST",

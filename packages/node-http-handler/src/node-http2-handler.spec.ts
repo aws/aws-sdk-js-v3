@@ -1,7 +1,7 @@
-import { NodeHttp2Handler } from "./node-http2-handler";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+
+import { NodeHttp2Handler } from "./node-http2-handler";
 import { createMockHttp2Server, createResponseFunction } from "./server.mock";
-import { AbortController } from "@aws-sdk/abort-controller";
 
 describe("NodeHttp2Handler", () => {
   let nodeH2Handler: NodeHttp2Handler;

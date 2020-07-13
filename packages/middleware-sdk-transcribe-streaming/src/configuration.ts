@@ -1,5 +1,6 @@
-import { Provider, RequestSigner, RequestHandler } from "@aws-sdk/types";
 import { SignatureV4 as BaseSignatureV4 } from "@aws-sdk/signature-v4";
+import { Provider, RequestHandler, RequestSigner } from "@aws-sdk/types";
+
 import { SignatureV4 } from "./signer";
 
 export interface WebSocketInputConfig {}

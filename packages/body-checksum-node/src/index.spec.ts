@@ -1,11 +1,12 @@
-import { bodyChecksumGenerator } from ".";
+import { Sha256 } from "@aws-crypto/sha256-js";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { fromUtf8 } from "@aws-sdk/util-utf8-node";
-import { Sha256 } from "@aws-crypto/sha256-js";
-import { join } from "path";
-import { tmpdir } from "os";
 import { createReadStream, mkdtempSync, writeFileSync } from "fs";
+import { tmpdir } from "os";
+import { join } from "path";
 import { Readable } from "stream";
+
+import { bodyChecksumGenerator } from ".";
 
 function createTemporaryFile(contents: string | Buffer): string {
   const folder = mkdtempSync(join(tmpdir(), "add-glacier-checksum-headers-node-"));

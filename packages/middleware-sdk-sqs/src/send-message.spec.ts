@@ -1,5 +1,6 @@
-import { sendMessageMiddleware } from "./send-message";
 import { HashConstructor } from "@aws-sdk/types";
+
+import { sendMessageMiddleware } from "./send-message";
 
 describe("sendMessageMiddleware", () => {
   const mockHashUpdate = jest.fn();

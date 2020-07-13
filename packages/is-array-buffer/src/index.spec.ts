@@ -19,7 +19,7 @@ describe("isArrayBuffer", () => {
   });
 
   it("should return false for scalar values", () => {
-    for (let scalar of ["string", 123.234, true, null, void 0]) {
+    for (const scalar of ["string", 123.234, true, null, void 0]) {
       expect(isArrayBuffer(scalar)).toBe(false);
     }
   });
