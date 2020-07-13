@@ -1,8 +1,8 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../ElasticLoadBalancingv2Client";
+} from "../ElasticLoadBalancingV2Client";
 import { CreateListenerInput, CreateListenerOutput } from "../models/index";
 import {
   deserializeAws_queryCreateListenerCommand,
@@ -27,7 +27,7 @@ export type CreateListenerCommandOutput = CreateListenerOutput & __MetadataBeare
 export class CreateListenerCommand extends $Command<
   CreateListenerCommandInput,
   CreateListenerCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class CreateListenerCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateListenerCommandInput, CreateListenerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

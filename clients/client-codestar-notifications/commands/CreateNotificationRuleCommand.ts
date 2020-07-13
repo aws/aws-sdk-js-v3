@@ -1,8 +1,8 @@
 import {
-  CodestarnotificationsClientResolvedConfig,
+  CodestarNotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../CodestarnotificationsClient";
+} from "../CodestarNotificationsClient";
 import { CreateNotificationRuleRequest, CreateNotificationRuleResult } from "../models/index";
 import {
   deserializeAws_restJson1CreateNotificationRuleCommand,
@@ -27,7 +27,7 @@ export type CreateNotificationRuleCommandOutput = CreateNotificationRuleResult &
 export class CreateNotificationRuleCommand extends $Command<
   CreateNotificationRuleCommandInput,
   CreateNotificationRuleCommandOutput,
-  CodestarnotificationsClientResolvedConfig
+  CodestarNotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class CreateNotificationRuleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodestarnotificationsClientResolvedConfig,
+    configuration: CodestarNotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateNotificationRuleCommandInput, CreateNotificationRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

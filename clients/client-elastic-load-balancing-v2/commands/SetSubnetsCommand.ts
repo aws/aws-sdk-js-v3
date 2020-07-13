@@ -1,8 +1,8 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../ElasticLoadBalancingv2Client";
+} from "../ElasticLoadBalancingV2Client";
 import { SetSubnetsInput, SetSubnetsOutput } from "../models/index";
 import { deserializeAws_querySetSubnetsCommand, serializeAws_querySetSubnetsCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -24,7 +24,7 @@ export type SetSubnetsCommandOutput = SetSubnetsOutput & __MetadataBearer;
 export class SetSubnetsCommand extends $Command<
   SetSubnetsCommandInput,
   SetSubnetsCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -37,7 +37,7 @@ export class SetSubnetsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetSubnetsCommandInput, SetSubnetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

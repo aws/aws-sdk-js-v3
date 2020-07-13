@@ -7,7 +7,7 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
-import { ClientDefaults } from "./CodestarnotificationsClient";
+import { ClientDefaults } from "./CodestarNotificationsClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
 export const ClientDefaultValues: Required<ClientDefaults> = {

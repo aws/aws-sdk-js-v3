@@ -1,5 +1,5 @@
-export * from "./CodestarnotificationsClient";
-export * from "./Codestarnotifications";
+export * from "./CodestarNotificationsClient";
+export * from "./CodestarNotifications";
 export * from "./commands/CreateNotificationRuleCommand";
 export * from "./commands/DeleteNotificationRuleCommand";
 export * from "./commands/DeleteTargetCommand";

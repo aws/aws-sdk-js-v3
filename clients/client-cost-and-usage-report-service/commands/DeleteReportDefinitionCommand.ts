@@ -1,8 +1,8 @@
 import {
-  CostandUsageReportServiceClientResolvedConfig,
+  CostAndUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../CostandUsageReportServiceClient";
+} from "../CostAndUsageReportServiceClient";
 import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteReportDefinitionCommand,
@@ -27,7 +27,7 @@ export type DeleteReportDefinitionCommandOutput = DeleteReportDefinitionResponse
 export class DeleteReportDefinitionCommand extends $Command<
   DeleteReportDefinitionCommandInput,
   DeleteReportDefinitionCommandOutput,
-  CostandUsageReportServiceClientResolvedConfig
+  CostAndUsageReportServiceClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class DeleteReportDefinitionCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostandUsageReportServiceClientResolvedConfig,
+    configuration: CostAndUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteReportDefinitionCommandInput, DeleteReportDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

@@ -1,8 +1,8 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../ElasticLoadBalancingv2Client";
+} from "../ElasticLoadBalancingV2Client";
 import { CreateRuleInput, CreateRuleOutput } from "../models/index";
 import { deserializeAws_queryCreateRuleCommand, serializeAws_queryCreateRuleCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -24,7 +24,7 @@ export type CreateRuleCommandOutput = CreateRuleOutput & __MetadataBearer;
 export class CreateRuleCommand extends $Command<
   CreateRuleCommandInput,
   CreateRuleCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -37,7 +37,7 @@ export class CreateRuleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRuleCommandInput, CreateRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

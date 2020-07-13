@@ -1,8 +1,8 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../ElasticLoadBalancingv2Client";
+} from "../ElasticLoadBalancingV2Client";
 import { ModifyTargetGroupInput, ModifyTargetGroupOutput } from "../models/index";
 import {
   deserializeAws_queryModifyTargetGroupCommand,
@@ -27,7 +27,7 @@ export type ModifyTargetGroupCommandOutput = ModifyTargetGroupOutput & __Metadat
 export class ModifyTargetGroupCommand extends $Command<
   ModifyTargetGroupCommandInput,
   ModifyTargetGroupCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class ModifyTargetGroupCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyTargetGroupCommandInput, ModifyTargetGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

@@ -1,8 +1,8 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../ElasticLoadBalancingv2Client";
+} from "../ElasticLoadBalancingV2Client";
 import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/index";
 import {
   deserializeAws_queryDeregisterTargetsCommand,
@@ -27,7 +27,7 @@ export type DeregisterTargetsCommandOutput = DeregisterTargetsOutput & __Metadat
 export class DeregisterTargetsCommand extends $Command<
   DeregisterTargetsCommandInput,
   DeregisterTargetsCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class DeregisterTargetsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

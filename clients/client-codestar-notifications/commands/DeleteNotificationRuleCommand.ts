@@ -1,8 +1,8 @@
 import {
-  CodestarnotificationsClientResolvedConfig,
+  CodestarNotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../CodestarnotificationsClient";
+} from "../CodestarNotificationsClient";
 import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/index";
 import {
   deserializeAws_restJson1DeleteNotificationRuleCommand,
@@ -27,7 +27,7 @@ export type DeleteNotificationRuleCommandOutput = DeleteNotificationRuleResult &
 export class DeleteNotificationRuleCommand extends $Command<
   DeleteNotificationRuleCommandInput,
   DeleteNotificationRuleCommandOutput,
-  CodestarnotificationsClientResolvedConfig
+  CodestarNotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class DeleteNotificationRuleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodestarnotificationsClientResolvedConfig,
+    configuration: CodestarNotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteNotificationRuleCommandInput, DeleteNotificationRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
