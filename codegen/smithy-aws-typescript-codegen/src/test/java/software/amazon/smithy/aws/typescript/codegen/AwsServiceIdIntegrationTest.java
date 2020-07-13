@@ -19,7 +19,7 @@ public class AwsServiceIdIntegrationTest {
     @Test
     public void testSomeLibraryMethod() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("serviceid.smithy"))
+                .addImport(getClass().getResource("NotSame.smithy"))
                 .discoverModels()
                 .assemble()
                 .unwrap();

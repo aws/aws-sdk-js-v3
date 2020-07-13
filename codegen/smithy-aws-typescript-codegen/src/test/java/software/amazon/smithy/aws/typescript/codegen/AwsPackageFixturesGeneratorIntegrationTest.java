@@ -12,7 +12,7 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
     @Test
     public void expandsPackageFixtureFiles() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("serviceid.smithy"))
+                .addImport(getClass().getResource("NotSame.smithy"))
                 .discoverModels()
                 .assemble()
                 .unwrap();
