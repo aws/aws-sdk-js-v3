@@ -5,7 +5,7 @@ exports.getIntegTestResources = async () => {
   const region = await client.config.region();
 
   const { StackResources: stackResources } = await client.send(
-    new DescribeStackResourcesCommand({ StackName: "IntegTestResourcesStack" })
+    new DescribeStackResourcesCommand({ StackName: "SdkReleaseV3IntegTestResourcesStack" })
   );
 
   const identityPoolId = stackResources.filter((resource) => resource.ResourceType === "AWS::Cognito::IdentityPool")[0]
