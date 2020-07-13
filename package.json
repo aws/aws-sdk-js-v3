@@ -20,8 +20,9 @@
     "test:integration-legacy": "cucumber-js --fail-fast",
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
     "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-*'",
-    "local-publish": "node ./scripts/verdaccio-publish/index.js",
-    "test:e2e": "node ./tests/e2e/index.js"
+    "pretest:e2e": "yarn build:crypto-dependencies && lerna run --scope '{@aws-sdk/client-cloudformation, @aws-sdk/karma-credential-loader}' --include-dependencies pretest",
+    "test:e2e": "node ./tests/e2e/index.js",
+    "local-publish": "node ./scripts/verdaccio-publish/index.js"
   },
   "repository": {
     "type": "git",
