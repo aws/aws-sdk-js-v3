@@ -1,3 +1,4 @@
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
@@ -6,11 +7,9 @@ import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles
 
 export const ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";
 export const CONFIG_MAX_ATTEMPTS = "max_attempts";
-export const DEFAULT_MAX_ATTEMPTS = "3";
 
 export const ENV_RETRY_MODE = "AWS_RETRY_MODE";
 export const CONFIG_RETRY_MODE = "retry_mode";
-export const DEFAULT_RETRY_MODE = "standard";
 
 const defaultProvider = (
   configuration: SharedConfigInit = {},

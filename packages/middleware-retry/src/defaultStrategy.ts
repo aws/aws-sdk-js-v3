@@ -1,5 +1,4 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/smithy-client";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
@@ -9,6 +8,17 @@ import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
+
+/**
+ * The default value for how many HTTP requests an SDK should make for a
+ * single SDK operation invocation before giving up
+ */
+export const DEFAULT_MAX_ATTEMPTS = "3";
+
+/**
+ * The default retry algorithm to use.
+ */
+export const DEFAULT_RETRY_MODE = "standard";
 
 /**
  * Determines whether an error is retryable based on the number of retries
