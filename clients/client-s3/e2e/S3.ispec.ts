@@ -12,7 +12,7 @@ chai.use(chaiAsPromised);
 const { expect } = chai;
 // There will be default values of defaultRegion, credentials, and isBrowser variable in browser tests.
 // Define the values for Node.js tests
-const region: string | undefined = (globalThis as any).defaultRegion || undefined;
+const region: string | undefined = (globalThis as any).defaultRegion || process?.env?.AWS_SMOKE_TEST_REGION;
 const credentials: Credentials | undefined = (globalThis as any).credentials || undefined;
 const isBrowser: boolean | undefined = (globalThis as any).isBrowser || false;
 const Bucket = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_BUCKET || process?.env?.AWS_SMOKE_TEST_BUCKET;

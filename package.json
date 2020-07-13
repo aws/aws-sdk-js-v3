@@ -21,6 +21,7 @@
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
     "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-*'",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
+    "test:e2e": "node ./tests/e2e/index.js",
     "lint": "eslint 'packages/**/src/*.ts' --fix"
   },
   "repository": {
