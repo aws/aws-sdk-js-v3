@@ -21,8 +21,7 @@
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
     "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-*'",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
-    "test:e2e": "node ./tests/e2e/index.js",
-    "lint": "eslint 'packages/**/src/**/*.ts' --fix"
+    "test:e2e": "node ./tests/e2e/index.js"
   },
   "repository": {
     "type": "git",
@@ -103,6 +102,10 @@
     }
   },
   "lint-staged": {
+    "packages/**/src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
     "**/*.{ts,js,md,json}": "prettier --write"
   }
 }
