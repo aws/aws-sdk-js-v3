@@ -1,5 +1,5 @@
-export * from "./imagebuilderClient";
-export * from "./imagebuilder";
+export * from "./ImagebuilderClient";
+export * from "./Imagebuilder";
 export * from "./commands/CancelImageCreationCommand";
 export * from "./commands/CreateComponentCommand";
 export * from "./commands/CreateDistributionConfigurationCommand";

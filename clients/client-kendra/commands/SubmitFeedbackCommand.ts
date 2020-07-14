@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { SubmitFeedbackRequest } from "../models/index";
 import {
   deserializeAws_json1_1SubmitFeedbackCommand,
@@ -23,7 +23,7 @@ export type SubmitFeedbackCommandOutput = __MetadataBearer;
 export class SubmitFeedbackCommand extends $Command<
   SubmitFeedbackCommandInput,
   SubmitFeedbackCommandOutput,
-  kendraClientResolvedConfig
+  KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class SubmitFeedbackCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

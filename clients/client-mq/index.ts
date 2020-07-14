@@ -1,5 +1,5 @@
-export * from "./mqClient";
-export * from "./mq";
+export * from "./MqClient";
+export * from "./Mq";
 export * from "./commands/CreateBrokerCommand";
 export * from "./commands/CreateConfigurationCommand";
 export * from "./commands/CreateTagsCommand";

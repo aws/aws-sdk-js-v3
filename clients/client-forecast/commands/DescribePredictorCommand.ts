@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribePredictorRequest, DescribePredictorResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribePredictorCommand,
@@ -23,7 +23,7 @@ export type DescribePredictorCommandOutput = DescribePredictorResponse & __Metad
 export class DescribePredictorCommand extends $Command<
   DescribePredictorCommandInput,
   DescribePredictorCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class DescribePredictorCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePredictorCommandInput, DescribePredictorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

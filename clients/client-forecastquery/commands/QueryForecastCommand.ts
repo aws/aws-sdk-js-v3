@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, forecastqueryClientResolvedConfig } from "../forecastqueryClient";
+import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
 import { QueryForecastRequest, QueryForecastResponse } from "../models/index";
 import {
   deserializeAws_json1_1QueryForecastCommand,
@@ -23,7 +23,7 @@ export type QueryForecastCommandOutput = QueryForecastResponse & __MetadataBeare
 export class QueryForecastCommand extends $Command<
   QueryForecastCommandInput,
   QueryForecastCommandOutput,
-  forecastqueryClientResolvedConfig
+  ForecastqueryClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class QueryForecastCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastqueryClientResolvedConfig,
+    configuration: ForecastqueryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryForecastCommandInput, QueryForecastCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

@@ -1,8 +1,8 @@
 import {
-  CostandUsageReportServiceClientResolvedConfig,
+  CostAndUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../CostandUsageReportServiceClient";
+} from "../CostAndUsageReportServiceClient";
 import { PutReportDefinitionRequest, PutReportDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutReportDefinitionCommand,
@@ -27,7 +27,7 @@ export type PutReportDefinitionCommandOutput = PutReportDefinitionResponse & __M
 export class PutReportDefinitionCommand extends $Command<
   PutReportDefinitionCommandInput,
   PutReportDefinitionCommandOutput,
-  CostandUsageReportServiceClientResolvedConfig
+  CostAndUsageReportServiceClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class PutReportDefinitionCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostandUsageReportServiceClientResolvedConfig,
+    configuration: CostAndUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutReportDefinitionCommandInput, PutReportDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

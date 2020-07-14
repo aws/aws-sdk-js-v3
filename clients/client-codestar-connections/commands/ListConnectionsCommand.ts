@@ -1,8 +1,8 @@
 import {
-  CodeStarconnectionsClientResolvedConfig,
+  CodeStarConnectionsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../CodeStarconnectionsClient";
+} from "../CodeStarConnectionsClient";
 import { ListConnectionsInput, ListConnectionsOutput } from "../models/index";
 import {
   deserializeAws_json1_0ListConnectionsCommand,
@@ -27,7 +27,7 @@ export type ListConnectionsCommandOutput = ListConnectionsOutput & __MetadataBea
 export class ListConnectionsCommand extends $Command<
   ListConnectionsCommandInput,
   ListConnectionsCommandOutput,
-  CodeStarconnectionsClientResolvedConfig
+  CodeStarConnectionsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class ListConnectionsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeStarconnectionsClientResolvedConfig,
+    configuration: CodeStarConnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListConnectionsCommandInput, ListConnectionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

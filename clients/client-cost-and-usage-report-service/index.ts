@@ -1,5 +1,5 @@
-export * from "./CostandUsageReportServiceClient";
-export * from "./CostandUsageReportService";
+export * from "./CostAndUsageReportServiceClient";
+export * from "./CostAndUsageReportService";
 export * from "./commands/DeleteReportDefinitionCommand";
 export * from "./commands/DescribeReportDefinitionsCommand";
 export * from "./commands/ModifyReportDefinitionCommand";

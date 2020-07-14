@@ -1,9 +1,9 @@
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 import { UnlockServiceLinkedRoleRequest, UnlockServiceLinkedRoleResponse } from "../models/index";
 import {
   deserializeAws_restJson1UnlockServiceLinkedRoleCommand,
   serializeAws_restJson1UnlockServiceLinkedRoleCommand,
 } from "../protocols/Aws_restJson1";
-import { ServiceInputTypes, ServiceOutputTypes, schemasClientResolvedConfig } from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +23,7 @@ export type UnlockServiceLinkedRoleCommandOutput = UnlockServiceLinkedRoleRespon
 export class UnlockServiceLinkedRoleCommand extends $Command<
   UnlockServiceLinkedRoleCommandInput,
   UnlockServiceLinkedRoleCommandOutput,
-  schemasClientResolvedConfig
+  SchemasClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class UnlockServiceLinkedRoleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: schemasClientResolvedConfig,
+    configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnlockServiceLinkedRoleCommandInput, UnlockServiceLinkedRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

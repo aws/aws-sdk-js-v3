@@ -1,5 +1,5 @@
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { UpdateBrokerRequest, UpdateBrokerResponse } from "../models/index";
-import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1UpdateBrokerCommand,
   serializeAws_restJson1UpdateBrokerCommand,
@@ -23,7 +23,7 @@ export type UpdateBrokerCommandOutput = UpdateBrokerResponse & __MetadataBearer;
 export class UpdateBrokerCommand extends $Command<
   UpdateBrokerCommandInput,
   UpdateBrokerCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class UpdateBrokerCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateBrokerCommandInput, UpdateBrokerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

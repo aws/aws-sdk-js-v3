@@ -1,5 +1,5 @@
-export * from "./kendraClient";
-export * from "./kendra";
+export * from "./KendraClient";
+export * from "./Kendra";
 export * from "./commands/BatchDeleteDocumentCommand";
 export * from "./commands/BatchPutDocumentCommand";
 export * from "./commands/CreateDataSourceCommand";
