@@ -40,6 +40,7 @@ const run = async () => {
     ["test", "--configuration", "ios", "--loglevel", "verbose"],
     { cwd: __dirname }
   );
+  localRegistry.kill(9);
 };
 
 (async () => {

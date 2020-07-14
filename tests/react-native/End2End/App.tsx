@@ -9,14 +9,7 @@
  */
 
 import React, { Fragment, useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  StatusBar,
-  Button,
-  Text
-} from "react-native";
+import { SafeAreaView, StyleSheet, ScrollView, StatusBar, Button, Text } from "react-native";
 import { S3 } from "@aws-sdk/client-s3";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
@@ -26,23 +19,21 @@ import {
   //@ts-ignore
   AWS_SMOKE_TEST_REGION,
   //@ts-ignore
-  AWS_SMOKE_TEST_BUCKET
+  AWS_SMOKE_TEST_BUCKET,
 } from "react-native-dotenv";
 
 const App = () => {
   const [responseContent, setResponseContent] = useState("");
   const [uploadId, setUploadId] = useState("");
-  const [uploadParts, setUploadParts] = useState<
-    Array<{ ETag: string; PartNumber: number }>
-  >([]);
+  const [uploadParts, setUploadParts] = useState<Array<{ ETag: string; PartNumber: number }>>([]);
   const s3 = new S3({
     credentials: fromCognitoIdentityPool({
       identityPoolId: AWS_SMOKE_TEST_IDENTITY_POOL_ID,
       client: new CognitoIdentityClient({
-        region: AWS_SMOKE_TEST_REGION
-      })
+        region: AWS_SMOKE_TEST_REGION,
+      }),
     }),
-    region: AWS_SMOKE_TEST_REGION
+    region: AWS_SMOKE_TEST_REGION,
   });
   const Key = `smoke-test-rn`;
 
@@ -50,10 +41,7 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          contentContainerStyle={styles.scrollViewContainer}
-        >
+        <ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={styles.scrollViewContainer}>
           <Fragment>
             <Button
               title="S3.PutObject"
@@ -62,7 +50,7 @@ const App = () => {
                 const res = await s3.putObject({
                   Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key,
-                  Body: "this a test payload from RN end-to-end test."
+                  Body: "this is a test payload from RN end-to-end test.",
                 });
                 setResponseContent(JSON.stringify(res));
               }}
@@ -73,14 +61,12 @@ const App = () => {
               onPress={async () => {
                 const res = await s3.getObject({
                   Bucket: AWS_SMOKE_TEST_BUCKET,
-                  Key
+                  Key,
                 });
                 if (!(res.Body instanceof Blob))
-                  throw new Error(
-                    `Expected Blob payload but got ${res.Body.constructor}`
-                  );
+                  throw new Error(`Expected Blob payload but got ${res.Body.constructor}`);
                 const reader = new FileReader();
-                reader.addEventListener("loadend", data => {
+                reader.addEventListener("loadend", (data) => {
                   setResponseContent(reader.result as string);
                 });
                 reader.readAsText(res.Body);
@@ -91,7 +77,7 @@ const App = () => {
               testID="s3ListObjects"
               onPress={async () => {
                 const res = await s3.listObjects({
-                  Bucket: AWS_SMOKE_TEST_BUCKET
+                  Bucket: AWS_SMOKE_TEST_BUCKET,
                 });
                 setResponseContent(JSON.stringify(res));
               }}
@@ -102,7 +88,7 @@ const App = () => {
               onPress={async () => {
                 const res = await s3.createMultipartUpload({
                   Bucket: AWS_SMOKE_TEST_BUCKET,
-                  Key: `${Key}-multipart`
+                  Key: `${Key}-multipart`,
                 });
                 setUploadId(res.UploadId);
                 setResponseContent(JSON.stringify(res));
@@ -110,7 +96,7 @@ const App = () => {
             />
             <Button
               title="S3.uploadPart"
-              testID="s3uploadPart"
+              testID="s3UploadPart"
               onPress={async () => {
                 console.log("uploadId ", uploadId);
                 const res = await s3.uploadPart({
@@ -118,7 +104,7 @@ const App = () => {
                   Key: `${Key}-multipart`,
                   PartNumber: 1,
                   UploadId: uploadId,
-                  Body: new Blob(new Array(1024).fill("x"))
+                  Body: new Blob(new Array(1024).fill("x")),
                 });
                 uploadParts.push({ PartNumber: 1, ETag: res.ETag });
                 setUploadParts(uploadParts);
@@ -132,7 +118,7 @@ const App = () => {
                 const res = await s3.listParts({
                   Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key: `${Key}-multipart`,
-                  UploadId: uploadId
+                  UploadId: uploadId,
                 });
                 setResponseContent(JSON.stringify(res));
               }}
@@ -145,7 +131,7 @@ const App = () => {
                   Bucket: AWS_SMOKE_TEST_BUCKET,
                   Key: `${Key}-multipart`,
                   UploadId: uploadId,
-                  MultipartUpload: { Parts: uploadParts }
+                  MultipartUpload: { Parts: uploadParts },
                 });
                 setResponseContent(JSON.stringify(res));
               }}
@@ -156,7 +142,7 @@ const App = () => {
               onPress={async () => {
                 const res = await s3.headObject({
                   Bucket: AWS_SMOKE_TEST_BUCKET,
-                  Key: `${Key}-multipart`
+                  Key: `${Key}-multipart`,
                 });
                 setResponseContent(JSON.stringify(res));
               }}
@@ -167,15 +153,13 @@ const App = () => {
               onPress={async () => {
                 const res0 = await s3.deleteObject({
                   Bucket: AWS_SMOKE_TEST_BUCKET,
-                  Key
+                  Key,
                 });
                 const res1 = await s3.deleteObject({
                   Bucket: AWS_SMOKE_TEST_BUCKET,
-                  Key: `${Key}-multipart`
+                  Key: `${Key}-multipart`,
                 });
-                setResponseContent(
-                  `${JSON.stringify(res0)}\n${JSON.stringify(res1)}`
-                );
+                setResponseContent(`${JSON.stringify(res0)}\n${JSON.stringify(res1)}`);
               }}
             />
             <Text testID="responseContent">{responseContent}</Text>
@@ -189,13 +173,13 @@ const App = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flexGrow: 1,
-    paddingTop: StatusBar.currentHeight
+    paddingTop: StatusBar.currentHeight,
   },
   scrollViewContainer: {
     flexGrow: 1,
     alignItems: "center",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 });
 
 export default App;
