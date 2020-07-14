@@ -14,7 +14,7 @@ public class AddAwsRuntimeConfigTest {
     @Test
     public void addsAwsRuntimeConfigSettings() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("serviceid.smithy"))
+                .addImport(getClass().getResource("NotSame.smithy"))
                 .discoverModels()
                 .assemble()
                 .unwrap();
