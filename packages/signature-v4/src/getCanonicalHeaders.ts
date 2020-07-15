@@ -1,4 +1,4 @@
-import { HeaderBag,HttpRequest } from "@aws-sdk/types";
+import { HeaderBag, HttpRequest } from "@aws-sdk/types";
 
 import { ALWAYS_UNSIGNABLE_HEADERS, PROXY_HEADER_PATTERN, SEC_HEADER_PATTERN } from "./constants";
 

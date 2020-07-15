@@ -1,5 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { RequestPresigningArguments,RequestSigningArguments } from "@aws-sdk/types";
+import { RequestPresigningArguments, RequestSigningArguments } from "@aws-sdk/types";
 
 import { SignatureV4 } from "./signer";
 
