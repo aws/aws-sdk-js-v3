@@ -60,3 +60,6 @@ buck-out/
 
 .env
 junit.xml
+
+# No need to track package SHA because of the testing local packages
+yarn.lock

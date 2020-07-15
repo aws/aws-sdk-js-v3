@@ -13,7 +13,10 @@ const run = async () => {
     // Publish all the packages locally before running test
     console.log("Please make sure you have compiled the service clients you want to test!");
     console.log(figlet.textSync("Publishing Packages..."));
-    await spawnPromise("yarn", ["local-publish"], { cwd: projectRoot, stdio: "inherit" });
+    await spawnPromise("yarn", ["local-publish"], {
+      cwd: projectRoot,
+      stdio: "inherit",
+    });
   }
 
   console.log(figlet.textSync("Starting Local Registry..."));
