@@ -2,13 +2,17 @@ import { StreamCollector } from "@aws-sdk/types";
 import { fromBase64 } from "@aws-sdk/util-base64-browser";
 
 //reference: https://snack.expo.io/r1JCSWRGU
-export const streamCollector: StreamCollector = (stream: Blob | ReadableStream): Promise<Uint8Array> => {
-  if (stream instanceof Blob) {
-    return collectBlob(stream);
-  }
+export const streamCollector: StreamCollector =
+  // `Blob` does not exist on Cloudflare Workers.
+  typeof Blob === "undefined"
+    ? collectStream
+    : (stream: Blob | ReadableStream): Promise<Uint8Array> => {
+        if (stream instanceof Blob) {
+          return collectBlob(stream);
+        }
 
-  return collectStream(stream);
-};
+        return collectStream(stream);
+      };
 
 async function collectBlob(blob: Blob): Promise<Uint8Array> {
   const base64 = await readToBase64(blob);
