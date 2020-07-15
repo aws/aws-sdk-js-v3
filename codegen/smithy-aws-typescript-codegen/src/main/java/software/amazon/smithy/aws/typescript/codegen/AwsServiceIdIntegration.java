@@ -18,7 +18,6 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Arrays;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -58,13 +57,9 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
     }
 
     private static Symbol updateServiceSymbol(Symbol symbol, String serviceId) {
-        String name = String.join("", Arrays.asList(
-            serviceId
-                .split(" "))
-                .stream()
+        String name = Arrays.asList(serviceId.split(" ")).stream()
                 .map(StringUtils::capitalize)
-                .collect(Collectors.toList()
-        )) + "Client";
+                .collect(Collectors.joining("")) + "Client";
         return symbol.toBuilder()
                 .name(name)
                 .namespace("./" + name, "/")
