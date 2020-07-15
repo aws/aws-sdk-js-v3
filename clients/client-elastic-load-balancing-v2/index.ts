@@ -1,5 +1,5 @@
-export * from "./ElasticLoadBalancingv2Client";
-export * from "./ElasticLoadBalancingv2";
+export * from "./ElasticLoadBalancingV2Client";
+export * from "./ElasticLoadBalancingV2";
 export * from "./commands/AddListenerCertificatesCommand";
 export * from "./commands/AddTagsCommand";
 export * from "./commands/CreateListenerCommand";

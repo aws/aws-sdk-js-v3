@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DeleteFaqRequest } from "../models/index";
 import { deserializeAws_json1_1DeleteFaqCommand, serializeAws_json1_1DeleteFaqCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -20,7 +20,7 @@ export type DeleteFaqCommandOutput = __MetadataBearer;
 export class DeleteFaqCommand extends $Command<
   DeleteFaqCommandInput,
   DeleteFaqCommandOutput,
-  kendraClientResolvedConfig
+  KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -33,7 +33,7 @@ export class DeleteFaqCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFaqCommandInput, DeleteFaqCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

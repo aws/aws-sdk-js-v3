@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { ListDatasetGroupsRequest, ListDatasetGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListDatasetGroupsCommand,
@@ -23,7 +23,7 @@ export type ListDatasetGroupsCommandOutput = ListDatasetGroupsResponse & __Metad
 export class ListDatasetGroupsCommand extends $Command<
   ListDatasetGroupsCommandInput,
   ListDatasetGroupsCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class ListDatasetGroupsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

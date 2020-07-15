@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DescribeIndexRequest, DescribeIndexResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeIndexCommand,
@@ -23,7 +23,7 @@ export type DescribeIndexCommandOutput = DescribeIndexResponse & __MetadataBeare
 export class DescribeIndexCommand extends $Command<
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput,
-  kendraClientResolvedConfig
+  KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class DescribeIndexCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeIndexCommandInput, DescribeIndexCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

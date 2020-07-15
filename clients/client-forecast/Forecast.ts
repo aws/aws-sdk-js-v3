@@ -1,3 +1,4 @@
+import { ForecastClient } from "./ForecastClient";
 import {
   CreateDatasetCommand,
   CreateDatasetCommandInput,
@@ -128,13 +129,12 @@ import {
   UpdateDatasetGroupCommandInput,
   UpdateDatasetGroupCommandOutput,
 } from "./commands/UpdateDatasetGroupCommand";
-import { forecastClient } from "./forecastClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
  */
-export class forecast extends forecastClient {
+export class Forecast extends ForecastClient {
   /**
    * <p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
    *       Forecast understand how to consume the data for model training. This includes the

@@ -327,7 +327,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type imagebuilderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ImagebuilderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -336,7 +336,7 @@ export type imagebuilderClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type imagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ImagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -348,15 +348,15 @@ export type imagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<__H
 /**
  * <p> Amazon Elastic Compute Cloud Image Builder provides a one-stop-shop to automate the image management processes. You configure an automated pipeline that creates images for use on AWS. As software updates become available, Image Builder automatically produces a new image based on a customizable schedule and distributes it to stipulated AWS Regions after running tests on it. With the Image Builder, organizations can capture their internal or industry-specific compliance policies as a vetted template that can be consistently applied to every new image. Built-in integration with AWS Organizations provides customers with a centralized way to enforce image distribution and access policies across their AWS accounts and Regions. Image Builder supports multiple image format AMIs on AWS.</p>
  */
-export class imagebuilderClient extends __Client<
+export class ImagebuilderClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
-  readonly config: imagebuilderClientResolvedConfig;
+  readonly config: ImagebuilderClientResolvedConfig;
 
-  constructor(configuration: imagebuilderClientConfig) {
+  constructor(configuration: ImagebuilderClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

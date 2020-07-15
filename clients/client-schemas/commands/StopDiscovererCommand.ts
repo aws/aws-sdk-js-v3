@@ -1,9 +1,9 @@
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 import { StopDiscovererRequest, StopDiscovererResponse } from "../models/index";
 import {
   deserializeAws_restJson1StopDiscovererCommand,
   serializeAws_restJson1StopDiscovererCommand,
 } from "../protocols/Aws_restJson1";
-import { ServiceInputTypes, ServiceOutputTypes, schemasClientResolvedConfig } from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +23,7 @@ export type StopDiscovererCommandOutput = StopDiscovererResponse & __MetadataBea
 export class StopDiscovererCommand extends $Command<
   StopDiscovererCommandInput,
   StopDiscovererCommandOutput,
-  schemasClientResolvedConfig
+  SchemasClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class StopDiscovererCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: schemasClientResolvedConfig,
+    configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopDiscovererCommandInput, StopDiscovererCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

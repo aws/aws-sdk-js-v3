@@ -1,5 +1,5 @@
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { ListBrokersRequest, ListBrokersResponse } from "../models/index";
-import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1ListBrokersCommand,
   serializeAws_restJson1ListBrokersCommand,
@@ -23,7 +23,7 @@ export type ListBrokersCommandOutput = ListBrokersResponse & __MetadataBearer;
 export class ListBrokersCommand extends $Command<
   ListBrokersCommandInput,
   ListBrokersCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class ListBrokersCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBrokersCommandInput, ListBrokersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

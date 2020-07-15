@@ -1,4 +1,4 @@
-import { codestarnotificationsClient } from "./codestarnotificationsClient";
+import { CodestarNotificationsClient } from "./CodestarNotificationsClient";
 import {
   CreateNotificationRuleCommand,
   CreateNotificationRuleCommandInput,
@@ -136,7 +136,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p> For information about how to use AWS CodeStar Notifications, see link in the CodeStarNotifications User Guide.
  *     </p>
  */
-export class codestarnotifications extends codestarnotificationsClient {
+export class CodestarNotifications extends CodestarNotificationsClient {
   /**
    * <p>Creates a notification rule for a resource. The rule specifies the events you want
    *             notifications about and the targets (such as SNS topics) where you want to receive

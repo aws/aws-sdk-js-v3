@@ -1,4 +1,4 @@
-import { CodeStarconnectionsClient } from "./CodeStarconnectionsClient";
+import { CodeStarConnectionsClient } from "./CodeStarConnectionsClient";
 import {
   CreateConnectionCommand,
   CreateConnectionCommandInput,
@@ -61,7 +61,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>For information about how to use AWS CodeStar Connections, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS CodePipeline User
  *         Guide</a>.</p>
  */
-export class CodeStarconnections extends CodeStarconnectionsClient {
+export class CodeStarConnections extends CodeStarConnectionsClient {
   /**
    * <p>Creates a connection that can then be given to other AWS services like CodePipeline so
    *       that it can access third-party code repositories. The connection is in pending status until

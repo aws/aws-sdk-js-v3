@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeleteDatasetGroupRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDatasetGroupCommand,
@@ -23,7 +23,7 @@ export type DeleteDatasetGroupCommandOutput = __MetadataBearer;
 export class DeleteDatasetGroupCommand extends $Command<
   DeleteDatasetGroupCommandInput,
   DeleteDatasetGroupCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class DeleteDatasetGroupCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

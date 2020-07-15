@@ -19,7 +19,7 @@ public class AwsServiceIdIntegrationTest {
     @Test
     public void testSomeLibraryMethod() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("serviceid.smithy"))
+                .addImport(getClass().getResource("NotSame.smithy"))
                 .discoverModels()
                 .assemble()
                 .unwrap();
@@ -33,5 +33,43 @@ public class AwsServiceIdIntegrationTest {
         assertThat(symbol.getName(), equalTo("NotSameClient"));
         assertThat(symbol.getNamespace(), equalTo("./NotSameClient"));
         assertThat(symbol.getDefinitionFile(), equalTo("NotSameClient.ts"));
+    }
+
+    @Test
+    public void testFirstNotCapitalizedServiceId() {
+        Model model = Model.assembler()
+                .addImport(getClass().getResource("firstNotCapitalized.smithy"))
+                .discoverModels()
+                .assemble()
+                .unwrap();
+        Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
+        AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
+        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
+        SymbolProvider decorated = integration.decorateSymbolProvider(
+                new TypeScriptSettings(), model, provider);
+        Symbol symbol = decorated.toSymbol(service);
+
+        assertThat(symbol.getName(), equalTo("FirstNotCapitalizedClient"));
+        assertThat(symbol.getNamespace(), equalTo("./FirstNotCapitalizedClient"));
+        assertThat(symbol.getDefinitionFile(), equalTo("FirstNotCapitalizedClient.ts"));
+    }
+
+    @Test
+    public void testRestNotCapitalizedServiceId() {
+        Model model = Model.assembler()
+                .addImport(getClass().getResource("Restnotcapitalized.smithy"))
+                .discoverModels()
+                .assemble()
+                .unwrap();
+        Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
+        AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
+        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
+        SymbolProvider decorated = integration.decorateSymbolProvider(
+                new TypeScriptSettings(), model, provider);
+        Symbol symbol = decorated.toSymbol(service);
+
+        assertThat(symbol.getName(), equalTo("RestNotCapitalizedClient"));
+        assertThat(symbol.getNamespace(), equalTo("./RestNotCapitalizedClient"));
+        assertThat(symbol.getDefinitionFile(), equalTo("RestNotCapitalizedClient.ts"));
     }
 }

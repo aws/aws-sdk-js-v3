@@ -1,3 +1,4 @@
+import { SignerClient } from "./SignerClient";
 import {
   CancelSigningProfileCommand,
   CancelSigningProfileCommandInput,
@@ -54,7 +55,6 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { signerClient } from "./signerClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -64,7 +64,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 			certificate with ACM that is used to sign updates in Amazon FreeRTOS and AWS IoT Device Management. For
  * 			general information about using code signing, see the <a href="http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">Code Signing for IoT Developer Guide</a>.</p>
  */
-export class signer extends signerClient {
+export class Signer extends SignerClient {
   /**
    * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
    * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>

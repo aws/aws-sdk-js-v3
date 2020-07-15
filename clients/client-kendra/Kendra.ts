@@ -1,3 +1,4 @@
+import { KendraClient } from "./KendraClient";
 import {
   BatchDeleteDocumentCommand,
   BatchDeleteDocumentCommandInput,
@@ -62,13 +63,12 @@ import {
   UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
-import { kendraClient } from "./kendraClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Amazon Kendra is a service for indexing large document sets.</p>
  */
-export class kendra extends kendraClient {
+export class Kendra extends KendraClient {
   /**
    * <p>Removes one or more documents from an index. The documents must have been added with the
    *         <a>BatchPutDocument</a> operation.</p>

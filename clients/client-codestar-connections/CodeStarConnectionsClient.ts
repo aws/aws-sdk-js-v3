@@ -150,7 +150,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeStarconnectionsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type CodeStarConnectionsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -159,7 +159,7 @@ export type CodeStarconnectionsClientConfig = Partial<__SmithyConfiguration<__Ht
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeStarconnectionsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type CodeStarConnectionsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -208,15 +208,15 @@ export type CodeStarconnectionsClientResolvedConfig = __SmithyResolvedConfigurat
  *          <p>For information about how to use AWS CodeStar Connections, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS CodePipeline User
  *         Guide</a>.</p>
  */
-export class CodeStarconnectionsClient extends __Client<
+export class CodeStarConnectionsClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  CodeStarconnectionsClientResolvedConfig
+  CodeStarConnectionsClientResolvedConfig
 > {
-  readonly config: CodeStarconnectionsClientResolvedConfig;
+  readonly config: CodeStarConnectionsClientResolvedConfig;
 
-  constructor(configuration: CodeStarconnectionsClientConfig) {
+  constructor(configuration: CodeStarConnectionsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

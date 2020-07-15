@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { DeleteImagePipelineRequest, DeleteImagePipelineResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeleteImagePipelineCommand,
@@ -23,7 +23,7 @@ export type DeleteImagePipelineCommandOutput = DeleteImagePipelineResponse & __M
 export class DeleteImagePipelineCommand extends $Command<
   DeleteImagePipelineCommandInput,
   DeleteImagePipelineCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class DeleteImagePipelineCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteImagePipelineCommandInput, DeleteImagePipelineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

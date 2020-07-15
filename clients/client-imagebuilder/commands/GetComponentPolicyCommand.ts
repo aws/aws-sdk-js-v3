@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { GetComponentPolicyRequest, GetComponentPolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetComponentPolicyCommand,
@@ -23,7 +23,7 @@ export type GetComponentPolicyCommandOutput = GetComponentPolicyResponse & __Met
 export class GetComponentPolicyCommand extends $Command<
   GetComponentPolicyCommandInput,
   GetComponentPolicyCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class GetComponentPolicyCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

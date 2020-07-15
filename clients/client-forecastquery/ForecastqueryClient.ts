@@ -1,46 +1,4 @@
-import { CreateBrokerCommandInput, CreateBrokerCommandOutput } from "./commands/CreateBrokerCommand";
-import {
-  CreateConfigurationCommandInput,
-  CreateConfigurationCommandOutput,
-} from "./commands/CreateConfigurationCommand";
-import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
-import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
-import { DeleteBrokerCommandInput, DeleteBrokerCommandOutput } from "./commands/DeleteBrokerCommand";
-import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
-import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
-import { DescribeBrokerCommandInput, DescribeBrokerCommandOutput } from "./commands/DescribeBrokerCommand";
-import {
-  DescribeBrokerEngineTypesCommandInput,
-  DescribeBrokerEngineTypesCommandOutput,
-} from "./commands/DescribeBrokerEngineTypesCommand";
-import {
-  DescribeBrokerInstanceOptionsCommandInput,
-  DescribeBrokerInstanceOptionsCommandOutput,
-} from "./commands/DescribeBrokerInstanceOptionsCommand";
-import {
-  DescribeConfigurationCommandInput,
-  DescribeConfigurationCommandOutput,
-} from "./commands/DescribeConfigurationCommand";
-import {
-  DescribeConfigurationRevisionCommandInput,
-  DescribeConfigurationRevisionCommandOutput,
-} from "./commands/DescribeConfigurationRevisionCommand";
-import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
-import { ListBrokersCommandInput, ListBrokersCommandOutput } from "./commands/ListBrokersCommand";
-import {
-  ListConfigurationRevisionsCommandInput,
-  ListConfigurationRevisionsCommandOutput,
-} from "./commands/ListConfigurationRevisionsCommand";
-import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
-import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
-import { UpdateBrokerCommandInput, UpdateBrokerCommandOutput } from "./commands/UpdateBrokerCommand";
-import {
-  UpdateConfigurationCommandInput,
-  UpdateConfigurationCommandOutput,
-} from "./commands/UpdateConfigurationCommand";
-import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import { QueryForecastCommandInput, QueryForecastCommandOutput } from "./commands/QueryForecastCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -88,53 +46,9 @@ import {
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes =
-  | CreateBrokerCommandInput
-  | CreateConfigurationCommandInput
-  | CreateTagsCommandInput
-  | CreateUserCommandInput
-  | DeleteBrokerCommandInput
-  | DeleteTagsCommandInput
-  | DeleteUserCommandInput
-  | DescribeBrokerCommandInput
-  | DescribeBrokerEngineTypesCommandInput
-  | DescribeBrokerInstanceOptionsCommandInput
-  | DescribeConfigurationCommandInput
-  | DescribeConfigurationRevisionCommandInput
-  | DescribeUserCommandInput
-  | ListBrokersCommandInput
-  | ListConfigurationRevisionsCommandInput
-  | ListConfigurationsCommandInput
-  | ListTagsCommandInput
-  | ListUsersCommandInput
-  | RebootBrokerCommandInput
-  | UpdateBrokerCommandInput
-  | UpdateConfigurationCommandInput
-  | UpdateUserCommandInput;
+export type ServiceInputTypes = QueryForecastCommandInput;
 
-export type ServiceOutputTypes =
-  | CreateBrokerCommandOutput
-  | CreateConfigurationCommandOutput
-  | CreateTagsCommandOutput
-  | CreateUserCommandOutput
-  | DeleteBrokerCommandOutput
-  | DeleteTagsCommandOutput
-  | DeleteUserCommandOutput
-  | DescribeBrokerCommandOutput
-  | DescribeBrokerEngineTypesCommandOutput
-  | DescribeBrokerInstanceOptionsCommandOutput
-  | DescribeConfigurationCommandOutput
-  | DescribeConfigurationRevisionCommandOutput
-  | DescribeUserCommandOutput
-  | ListBrokersCommandOutput
-  | ListConfigurationRevisionsCommandOutput
-  | ListConfigurationsCommandOutput
-  | ListTagsCommandOutput
-  | ListUsersCommandOutput
-  | RebootBrokerCommandOutput
-  | UpdateBrokerCommandOutput
-  | UpdateConfigurationCommandOutput
-  | UpdateUserCommandOutput;
+export type ServiceOutputTypes = QueryForecastCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -225,7 +139,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type mqClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ForecastqueryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -234,7 +148,7 @@ export type mqClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type mqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ForecastqueryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -244,17 +158,17 @@ export type mqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   HostHeaderResolvedConfig;
 
 /**
- * Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.
+ * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
  */
-export class mqClient extends __Client<
+export class ForecastqueryClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  mqClientResolvedConfig
+  ForecastqueryClientResolvedConfig
 > {
-  readonly config: mqClientResolvedConfig;
+  readonly config: ForecastqueryClientResolvedConfig;
 
-  constructor(configuration: mqClientConfig) {
+  constructor(configuration: ForecastqueryClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

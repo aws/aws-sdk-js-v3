@@ -195,7 +195,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type codestarnotificationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type CodestarNotificationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -204,7 +204,7 @@ export type codestarnotificationsClientConfig = Partial<__SmithyConfiguration<__
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type codestarnotificationsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type CodestarNotificationsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -299,15 +299,15 @@ export type codestarnotificationsClientResolvedConfig = __SmithyResolvedConfigur
  *          <p> For information about how to use AWS CodeStar Notifications, see link in the CodeStarNotifications User Guide.
  *     </p>
  */
-export class codestarnotificationsClient extends __Client<
+export class CodestarNotificationsClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig
+  CodestarNotificationsClientResolvedConfig
 > {
-  readonly config: codestarnotificationsClientResolvedConfig;
+  readonly config: CodestarNotificationsClientResolvedConfig;
 
-  constructor(configuration: codestarnotificationsClientConfig) {
+  constructor(configuration: CodestarNotificationsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

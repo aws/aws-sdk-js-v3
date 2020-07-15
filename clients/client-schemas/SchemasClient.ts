@@ -1,27 +1,53 @@
+import { CreateDiscovererCommandInput, CreateDiscovererCommandOutput } from "./commands/CreateDiscovererCommand";
+import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand";
+import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
+import { DeleteDiscovererCommandInput, DeleteDiscovererCommandOutput } from "./commands/DeleteDiscovererCommand";
+import { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
+import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
 import {
-  CancelSigningProfileCommandInput,
-  CancelSigningProfileCommandOutput,
-} from "./commands/CancelSigningProfileCommand";
-import { DescribeSigningJobCommandInput, DescribeSigningJobCommandOutput } from "./commands/DescribeSigningJobCommand";
-import { GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput } from "./commands/GetSigningPlatformCommand";
-import { GetSigningProfileCommandInput, GetSigningProfileCommandOutput } from "./commands/GetSigningProfileCommand";
-import { ListSigningJobsCommandInput, ListSigningJobsCommandOutput } from "./commands/ListSigningJobsCommand";
+  DeleteSchemaVersionCommandInput,
+  DeleteSchemaVersionCommandOutput,
+} from "./commands/DeleteSchemaVersionCommand";
 import {
-  ListSigningPlatformsCommandInput,
-  ListSigningPlatformsCommandOutput,
-} from "./commands/ListSigningPlatformsCommand";
+  DescribeCodeBindingCommandInput,
+  DescribeCodeBindingCommandOutput,
+} from "./commands/DescribeCodeBindingCommand";
+import { DescribeDiscovererCommandInput, DescribeDiscovererCommandOutput } from "./commands/DescribeDiscovererCommand";
+import { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand";
+import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand";
 import {
-  ListSigningProfilesCommandInput,
-  ListSigningProfilesCommandOutput,
-} from "./commands/ListSigningProfilesCommand";
+  GetCodeBindingSourceCommandInput,
+  GetCodeBindingSourceCommandOutput,
+} from "./commands/GetCodeBindingSourceCommand";
+import {
+  GetDiscoveredSchemaCommandInput,
+  GetDiscoveredSchemaCommandOutput,
+} from "./commands/GetDiscoveredSchemaCommand";
+import { ListDiscoverersCommandInput, ListDiscoverersCommandOutput } from "./commands/ListDiscoverersCommand";
+import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
+import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
+import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { PutSigningProfileCommandInput, PutSigningProfileCommandOutput } from "./commands/PutSigningProfileCommand";
-import { StartSigningJobCommandInput, StartSigningJobCommandOutput } from "./commands/StartSigningJobCommand";
+import {
+  LockServiceLinkedRoleCommandInput,
+  LockServiceLinkedRoleCommandOutput,
+} from "./commands/LockServiceLinkedRoleCommand";
+import { PutCodeBindingCommandInput, PutCodeBindingCommandOutput } from "./commands/PutCodeBindingCommand";
+import { SearchSchemasCommandInput, SearchSchemasCommandOutput } from "./commands/SearchSchemasCommand";
+import { StartDiscovererCommandInput, StartDiscovererCommandOutput } from "./commands/StartDiscovererCommand";
+import { StopDiscovererCommandInput, StopDiscovererCommandOutput } from "./commands/StopDiscovererCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UnlockServiceLinkedRoleCommandInput,
+  UnlockServiceLinkedRoleCommandOutput,
+} from "./commands/UnlockServiceLinkedRoleCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDiscovererCommandInput, UpdateDiscovererCommandOutput } from "./commands/UpdateDiscovererCommand";
+import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
+import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -70,32 +96,66 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelSigningProfileCommandInput
-  | DescribeSigningJobCommandInput
-  | GetSigningPlatformCommandInput
-  | GetSigningProfileCommandInput
-  | ListSigningJobsCommandInput
-  | ListSigningPlatformsCommandInput
-  | ListSigningProfilesCommandInput
+  | CreateDiscovererCommandInput
+  | CreateRegistryCommandInput
+  | CreateSchemaCommandInput
+  | DeleteDiscovererCommandInput
+  | DeleteRegistryCommandInput
+  | DeleteSchemaCommandInput
+  | DeleteSchemaVersionCommandInput
+  | DescribeCodeBindingCommandInput
+  | DescribeDiscovererCommandInput
+  | DescribeRegistryCommandInput
+  | DescribeSchemaCommandInput
+  | GetCodeBindingSourceCommandInput
+  | GetDiscoveredSchemaCommandInput
+  | ListDiscoverersCommandInput
+  | ListRegistriesCommandInput
+  | ListSchemaVersionsCommandInput
+  | ListSchemasCommandInput
   | ListTagsForResourceCommandInput
-  | PutSigningProfileCommandInput
-  | StartSigningJobCommandInput
+  | LockServiceLinkedRoleCommandInput
+  | PutCodeBindingCommandInput
+  | SearchSchemasCommandInput
+  | StartDiscovererCommandInput
+  | StopDiscovererCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UnlockServiceLinkedRoleCommandInput
+  | UntagResourceCommandInput
+  | UpdateDiscovererCommandInput
+  | UpdateRegistryCommandInput
+  | UpdateSchemaCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelSigningProfileCommandOutput
-  | DescribeSigningJobCommandOutput
-  | GetSigningPlatformCommandOutput
-  | GetSigningProfileCommandOutput
-  | ListSigningJobsCommandOutput
-  | ListSigningPlatformsCommandOutput
-  | ListSigningProfilesCommandOutput
+  | CreateDiscovererCommandOutput
+  | CreateRegistryCommandOutput
+  | CreateSchemaCommandOutput
+  | DeleteDiscovererCommandOutput
+  | DeleteRegistryCommandOutput
+  | DeleteSchemaCommandOutput
+  | DeleteSchemaVersionCommandOutput
+  | DescribeCodeBindingCommandOutput
+  | DescribeDiscovererCommandOutput
+  | DescribeRegistryCommandOutput
+  | DescribeSchemaCommandOutput
+  | GetCodeBindingSourceCommandOutput
+  | GetDiscoveredSchemaCommandOutput
+  | ListDiscoverersCommandOutput
+  | ListRegistriesCommandOutput
+  | ListSchemaVersionsCommandOutput
+  | ListSchemasCommandOutput
   | ListTagsForResourceCommandOutput
-  | PutSigningProfileCommandOutput
-  | StartSigningJobCommandOutput
+  | LockServiceLinkedRoleCommandOutput
+  | PutCodeBindingCommandOutput
+  | SearchSchemasCommandOutput
+  | StartDiscovererCommandOutput
+  | StopDiscovererCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UnlockServiceLinkedRoleCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDiscovererCommandOutput
+  | UpdateRegistryCommandOutput
+  | UpdateSchemaCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -186,7 +246,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type signerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type SchemasClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -195,7 +255,7 @@ export type signerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type signerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type SchemasClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -205,21 +265,17 @@ export type signerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig;
 
 /**
- * <p>With code signing for IoT, you can sign code that you create for any IoT device that is
- * 			supported by Amazon Web Services (AWS). Code signing is available through <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
- * 				(ACM)</a>. In order to sign code, you import a third-party code signing
- * 			certificate with ACM that is used to sign updates in Amazon FreeRTOS and AWS IoT Device Management. For
- * 			general information about using code signing, see the <a href="http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">Code Signing for IoT Developer Guide</a>.</p>
+ * <p>AWS EventBridge Schemas</p>
  */
-export class signerClient extends __Client<
+export class SchemasClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  signerClientResolvedConfig
+  SchemasClientResolvedConfig
 > {
-  readonly config: signerClientResolvedConfig;
+  readonly config: SchemasClientResolvedConfig;
 
-  constructor(configuration: signerClientConfig) {
+  constructor(configuration: SchemasClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

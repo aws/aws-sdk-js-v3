@@ -1,26 +1,35 @@
-import { CreateSavingsPlanCommandInput, CreateSavingsPlanCommandOutput } from "./commands/CreateSavingsPlanCommand";
 import {
-  DescribeSavingsPlanRatesCommandInput,
-  DescribeSavingsPlanRatesCommandOutput,
-} from "./commands/DescribeSavingsPlanRatesCommand";
+  BatchDeleteDocumentCommandInput,
+  BatchDeleteDocumentCommandOutput,
+} from "./commands/BatchDeleteDocumentCommand";
+import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
+import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
+import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
+import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
+import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
+import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
 import {
-  DescribeSavingsPlansCommandInput,
-  DescribeSavingsPlansCommandOutput,
-} from "./commands/DescribeSavingsPlansCommand";
+  ListDataSourceSyncJobsCommandInput,
+  ListDataSourceSyncJobsCommandOutput,
+} from "./commands/ListDataSourceSyncJobsCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
+import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
+import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
-  DescribeSavingsPlansOfferingRatesCommandInput,
-  DescribeSavingsPlansOfferingRatesCommandOutput,
-} from "./commands/DescribeSavingsPlansOfferingRatesCommand";
+  StartDataSourceSyncJobCommandInput,
+  StartDataSourceSyncJobCommandOutput,
+} from "./commands/StartDataSourceSyncJobCommand";
 import {
-  DescribeSavingsPlansOfferingsCommandInput,
-  DescribeSavingsPlansOfferingsCommandOutput,
-} from "./commands/DescribeSavingsPlansOfferingsCommand";
-import {
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
-} from "./commands/ListTagsForResourceCommand";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+  StopDataSourceSyncJobCommandInput,
+  StopDataSourceSyncJobCommandOutput,
+} from "./commands/StopDataSourceSyncJobCommand";
+import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -69,24 +78,48 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateSavingsPlanCommandInput
-  | DescribeSavingsPlanRatesCommandInput
-  | DescribeSavingsPlansCommandInput
-  | DescribeSavingsPlansOfferingRatesCommandInput
-  | DescribeSavingsPlansOfferingsCommandInput
-  | ListTagsForResourceCommandInput
-  | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | BatchDeleteDocumentCommandInput
+  | BatchPutDocumentCommandInput
+  | CreateDataSourceCommandInput
+  | CreateFaqCommandInput
+  | CreateIndexCommandInput
+  | DeleteFaqCommandInput
+  | DeleteIndexCommandInput
+  | DescribeDataSourceCommandInput
+  | DescribeFaqCommandInput
+  | DescribeIndexCommandInput
+  | ListDataSourceSyncJobsCommandInput
+  | ListDataSourcesCommandInput
+  | ListFaqsCommandInput
+  | ListIndicesCommandInput
+  | QueryCommandInput
+  | StartDataSourceSyncJobCommandInput
+  | StopDataSourceSyncJobCommandInput
+  | SubmitFeedbackCommandInput
+  | UpdateDataSourceCommandInput
+  | UpdateIndexCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateSavingsPlanCommandOutput
-  | DescribeSavingsPlanRatesCommandOutput
-  | DescribeSavingsPlansCommandOutput
-  | DescribeSavingsPlansOfferingRatesCommandOutput
-  | DescribeSavingsPlansOfferingsCommandOutput
-  | ListTagsForResourceCommandOutput
-  | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | BatchDeleteDocumentCommandOutput
+  | BatchPutDocumentCommandOutput
+  | CreateDataSourceCommandOutput
+  | CreateFaqCommandOutput
+  | CreateIndexCommandOutput
+  | DeleteFaqCommandOutput
+  | DeleteIndexCommandOutput
+  | DescribeDataSourceCommandOutput
+  | DescribeFaqCommandOutput
+  | DescribeIndexCommandOutput
+  | ListDataSourceSyncJobsCommandOutput
+  | ListDataSourcesCommandOutput
+  | ListFaqsCommandOutput
+  | ListIndicesCommandOutput
+  | QueryCommandOutput
+  | StartDataSourceSyncJobCommandOutput
+  | StopDataSourceSyncJobCommandOutput
+  | SubmitFeedbackCommandOutput
+  | UpdateDataSourceCommandOutput
+  | UpdateIndexCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -177,7 +210,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type savingsplansClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type KendraClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -186,7 +219,7 @@ export type savingsplansClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type savingsplansClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type KendraClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -196,20 +229,17 @@ export type savingsplansClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig;
 
 /**
- * <p>Savings Plans are a pricing model that offer significant savings on AWS usage (for
- *         example, on Amazon EC2 instances). You commit to a consistent amount of usage, in USD
- *         per hour, for a term of 1 or 3 years, and receive a lower price for that usage. For
- *         more information, see the <a href="https://docs.aws.amazon.com/savingsplans/latest/userguide/">AWS Savings Plans User Guide</a>.</p>
+ * <p>Amazon Kendra is a service for indexing large document sets.</p>
  */
-export class savingsplansClient extends __Client<
+export class KendraClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  savingsplansClientResolvedConfig
+  KendraClientResolvedConfig
 > {
-  readonly config: savingsplansClientResolvedConfig;
+  readonly config: KendraClientResolvedConfig;
 
-  constructor(configuration: savingsplansClientConfig) {
+  constructor(configuration: KendraClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

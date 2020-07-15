@@ -1,5 +1,5 @@
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { DeleteTagsRequest } from "../models/index";
-import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1DeleteTagsCommand,
   serializeAws_restJson1DeleteTagsCommand,
@@ -23,7 +23,7 @@ export type DeleteTagsCommandOutput = __MetadataBearer;
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class DeleteTagsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTagsCommandInput, DeleteTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

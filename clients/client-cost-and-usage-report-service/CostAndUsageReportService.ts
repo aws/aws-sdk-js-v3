@@ -1,4 +1,4 @@
-import { CostandUsageReportServiceClient } from "./CostandUsageReportServiceClient";
+import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClient";
 import {
   DeleteReportDefinitionCommand,
   DeleteReportDefinitionCommandInput,
@@ -42,7 +42,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *          </ul>
  */
-export class CostandUsageReportService extends CostandUsageReportServiceClient {
+export class CostAndUsageReportService extends CostAndUsageReportServiceClient {
   /**
    * <p>Deletes the specified report.</p>
    */

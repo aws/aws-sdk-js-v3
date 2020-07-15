@@ -1,9 +1,9 @@
+import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,
 } from "../protocols/Aws_restJson1";
-import { ServiceInputTypes, ServiceOutputTypes, savingsplansClientResolvedConfig } from "../savingsplansClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +23,7 @@ export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __M
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
-  savingsplansClientResolvedConfig
+  SavingsplansClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class ListTagsForResourceCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: savingsplansClientResolvedConfig,
+    configuration: SavingsplansClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

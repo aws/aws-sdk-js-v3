@@ -1,8 +1,8 @@
 import {
-  CodeStarconnectionsClientResolvedConfig,
+  CodeStarConnectionsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../CodeStarconnectionsClient";
+} from "../CodeStarConnectionsClient";
 import { CreateConnectionInput, CreateConnectionOutput } from "../models/index";
 import {
   deserializeAws_json1_0CreateConnectionCommand,
@@ -27,7 +27,7 @@ export type CreateConnectionCommandOutput = CreateConnectionOutput & __MetadataB
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,
   CreateConnectionCommandOutput,
-  CodeStarconnectionsClientResolvedConfig
+  CodeStarConnectionsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class CreateConnectionCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeStarconnectionsClientResolvedConfig,
+    configuration: CodeStarConnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateConnectionCommandInput, CreateConnectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

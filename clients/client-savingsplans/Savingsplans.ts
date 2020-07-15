@@ -1,3 +1,4 @@
+import { SavingsplansClient } from "./SavingsplansClient";
 import {
   CreateSavingsPlanCommand,
   CreateSavingsPlanCommandInput,
@@ -34,7 +35,6 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { savingsplansClient } from "./savingsplansClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -43,7 +43,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         per hour, for a term of 1 or 3 years, and receive a lower price for that usage. For
  *         more information, see the <a href="https://docs.aws.amazon.com/savingsplans/latest/userguide/">AWS Savings Plans User Guide</a>.</p>
  */
-export class savingsplans extends savingsplansClient {
+export class Savingsplans extends SavingsplansClient {
   /**
    * <p>Creates a Savings Plan.</p>
    */

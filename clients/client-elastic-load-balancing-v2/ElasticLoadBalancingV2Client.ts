@@ -276,7 +276,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElasticLoadBalancingv2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ElasticLoadBalancingV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -285,7 +285,7 @@ export type ElasticLoadBalancingv2ClientConfig = Partial<__SmithyConfiguration<_
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElasticLoadBalancingv2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ElasticLoadBalancingV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -325,15 +325,15 @@ export type ElasticLoadBalancingv2ClientResolvedConfig = __SmithyResolvedConfigu
  *          <p>All Elastic Load Balancing operations are idempotent, which means that they complete at
  *       most one time. If you repeat an operation, it succeeds.</p>
  */
-export class ElasticLoadBalancingv2Client extends __Client<
+export class ElasticLoadBalancingV2Client extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
-  readonly config: ElasticLoadBalancingv2ClientResolvedConfig;
+  readonly config: ElasticLoadBalancingV2ClientResolvedConfig;
 
-  constructor(configuration: ElasticLoadBalancingv2ClientConfig) {
+  constructor(configuration: ElasticLoadBalancingV2ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

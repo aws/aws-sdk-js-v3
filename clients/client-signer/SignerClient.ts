@@ -1,4 +1,27 @@
-import { QueryForecastCommandInput, QueryForecastCommandOutput } from "./commands/QueryForecastCommand";
+import {
+  CancelSigningProfileCommandInput,
+  CancelSigningProfileCommandOutput,
+} from "./commands/CancelSigningProfileCommand";
+import { DescribeSigningJobCommandInput, DescribeSigningJobCommandOutput } from "./commands/DescribeSigningJobCommand";
+import { GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput } from "./commands/GetSigningPlatformCommand";
+import { GetSigningProfileCommandInput, GetSigningProfileCommandOutput } from "./commands/GetSigningProfileCommand";
+import { ListSigningJobsCommandInput, ListSigningJobsCommandOutput } from "./commands/ListSigningJobsCommand";
+import {
+  ListSigningPlatformsCommandInput,
+  ListSigningPlatformsCommandOutput,
+} from "./commands/ListSigningPlatformsCommand";
+import {
+  ListSigningProfilesCommandInput,
+  ListSigningProfilesCommandOutput,
+} from "./commands/ListSigningProfilesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { PutSigningProfileCommandInput, PutSigningProfileCommandOutput } from "./commands/PutSigningProfileCommand";
+import { StartSigningJobCommandInput, StartSigningJobCommandOutput } from "./commands/StartSigningJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -46,9 +69,33 @@ import {
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = QueryForecastCommandInput;
+export type ServiceInputTypes =
+  | CancelSigningProfileCommandInput
+  | DescribeSigningJobCommandInput
+  | GetSigningPlatformCommandInput
+  | GetSigningProfileCommandInput
+  | ListSigningJobsCommandInput
+  | ListSigningPlatformsCommandInput
+  | ListSigningProfilesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutSigningProfileCommandInput
+  | StartSigningJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
-export type ServiceOutputTypes = QueryForecastCommandOutput;
+export type ServiceOutputTypes =
+  | CancelSigningProfileCommandOutput
+  | DescribeSigningJobCommandOutput
+  | GetSigningPlatformCommandOutput
+  | GetSigningProfileCommandOutput
+  | ListSigningJobsCommandOutput
+  | ListSigningPlatformsCommandOutput
+  | ListSigningProfilesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutSigningProfileCommandOutput
+  | StartSigningJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -139,7 +186,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type forecastqueryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type SignerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -148,7 +195,7 @@ export type forecastqueryClientConfig = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type forecastqueryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type SignerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -158,17 +205,21 @@ export type forecastqueryClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig;
 
 /**
- * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
+ * <p>With code signing for IoT, you can sign code that you create for any IoT device that is
+ * 			supported by Amazon Web Services (AWS). Code signing is available through <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
+ * 				(ACM)</a>. In order to sign code, you import a third-party code signing
+ * 			certificate with ACM that is used to sign updates in Amazon FreeRTOS and AWS IoT Device Management. For
+ * 			general information about using code signing, see the <a href="http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">Code Signing for IoT Developer Guide</a>.</p>
  */
-export class forecastqueryClient extends __Client<
+export class SignerClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  forecastqueryClientResolvedConfig
+  SignerClientResolvedConfig
 > {
-  readonly config: forecastqueryClientResolvedConfig;
+  readonly config: SignerClientResolvedConfig;
 
-  constructor(configuration: forecastqueryClientConfig) {
+  constructor(configuration: SignerClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

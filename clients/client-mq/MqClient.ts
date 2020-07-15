@@ -1,35 +1,46 @@
+import { CreateBrokerCommandInput, CreateBrokerCommandOutput } from "./commands/CreateBrokerCommand";
 import {
-  BatchDeleteDocumentCommandInput,
-  BatchDeleteDocumentCommandOutput,
-} from "./commands/BatchDeleteDocumentCommand";
-import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
-import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
-import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
-import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
-import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
-import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
-import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
-import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
-import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
+  CreateConfigurationCommandInput,
+  CreateConfigurationCommandOutput,
+} from "./commands/CreateConfigurationCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteBrokerCommandInput, DeleteBrokerCommandOutput } from "./commands/DeleteBrokerCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DescribeBrokerCommandInput, DescribeBrokerCommandOutput } from "./commands/DescribeBrokerCommand";
 import {
-  ListDataSourceSyncJobsCommandInput,
-  ListDataSourceSyncJobsCommandOutput,
-} from "./commands/ListDataSourceSyncJobsCommand";
-import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
-import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
-import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
-import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+  DescribeBrokerEngineTypesCommandInput,
+  DescribeBrokerEngineTypesCommandOutput,
+} from "./commands/DescribeBrokerEngineTypesCommand";
 import {
-  StartDataSourceSyncJobCommandInput,
-  StartDataSourceSyncJobCommandOutput,
-} from "./commands/StartDataSourceSyncJobCommand";
+  DescribeBrokerInstanceOptionsCommandInput,
+  DescribeBrokerInstanceOptionsCommandOutput,
+} from "./commands/DescribeBrokerInstanceOptionsCommand";
 import {
-  StopDataSourceSyncJobCommandInput,
-  StopDataSourceSyncJobCommandOutput,
-} from "./commands/StopDataSourceSyncJobCommand";
-import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
-import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
-import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+  DescribeConfigurationCommandInput,
+  DescribeConfigurationCommandOutput,
+} from "./commands/DescribeConfigurationCommand";
+import {
+  DescribeConfigurationRevisionCommandInput,
+  DescribeConfigurationRevisionCommandOutput,
+} from "./commands/DescribeConfigurationRevisionCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import { ListBrokersCommandInput, ListBrokersCommandOutput } from "./commands/ListBrokersCommand";
+import {
+  ListConfigurationRevisionsCommandInput,
+  ListConfigurationRevisionsCommandOutput,
+} from "./commands/ListConfigurationRevisionsCommand";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
+import { UpdateBrokerCommandInput, UpdateBrokerCommandOutput } from "./commands/UpdateBrokerCommand";
+import {
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput,
+} from "./commands/UpdateConfigurationCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -78,48 +89,52 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchDeleteDocumentCommandInput
-  | BatchPutDocumentCommandInput
-  | CreateDataSourceCommandInput
-  | CreateFaqCommandInput
-  | CreateIndexCommandInput
-  | DeleteFaqCommandInput
-  | DeleteIndexCommandInput
-  | DescribeDataSourceCommandInput
-  | DescribeFaqCommandInput
-  | DescribeIndexCommandInput
-  | ListDataSourceSyncJobsCommandInput
-  | ListDataSourcesCommandInput
-  | ListFaqsCommandInput
-  | ListIndicesCommandInput
-  | QueryCommandInput
-  | StartDataSourceSyncJobCommandInput
-  | StopDataSourceSyncJobCommandInput
-  | SubmitFeedbackCommandInput
-  | UpdateDataSourceCommandInput
-  | UpdateIndexCommandInput;
+  | CreateBrokerCommandInput
+  | CreateConfigurationCommandInput
+  | CreateTagsCommandInput
+  | CreateUserCommandInput
+  | DeleteBrokerCommandInput
+  | DeleteTagsCommandInput
+  | DeleteUserCommandInput
+  | DescribeBrokerCommandInput
+  | DescribeBrokerEngineTypesCommandInput
+  | DescribeBrokerInstanceOptionsCommandInput
+  | DescribeConfigurationCommandInput
+  | DescribeConfigurationRevisionCommandInput
+  | DescribeUserCommandInput
+  | ListBrokersCommandInput
+  | ListConfigurationRevisionsCommandInput
+  | ListConfigurationsCommandInput
+  | ListTagsCommandInput
+  | ListUsersCommandInput
+  | RebootBrokerCommandInput
+  | UpdateBrokerCommandInput
+  | UpdateConfigurationCommandInput
+  | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchDeleteDocumentCommandOutput
-  | BatchPutDocumentCommandOutput
-  | CreateDataSourceCommandOutput
-  | CreateFaqCommandOutput
-  | CreateIndexCommandOutput
-  | DeleteFaqCommandOutput
-  | DeleteIndexCommandOutput
-  | DescribeDataSourceCommandOutput
-  | DescribeFaqCommandOutput
-  | DescribeIndexCommandOutput
-  | ListDataSourceSyncJobsCommandOutput
-  | ListDataSourcesCommandOutput
-  | ListFaqsCommandOutput
-  | ListIndicesCommandOutput
-  | QueryCommandOutput
-  | StartDataSourceSyncJobCommandOutput
-  | StopDataSourceSyncJobCommandOutput
-  | SubmitFeedbackCommandOutput
-  | UpdateDataSourceCommandOutput
-  | UpdateIndexCommandOutput;
+  | CreateBrokerCommandOutput
+  | CreateConfigurationCommandOutput
+  | CreateTagsCommandOutput
+  | CreateUserCommandOutput
+  | DeleteBrokerCommandOutput
+  | DeleteTagsCommandOutput
+  | DeleteUserCommandOutput
+  | DescribeBrokerCommandOutput
+  | DescribeBrokerEngineTypesCommandOutput
+  | DescribeBrokerInstanceOptionsCommandOutput
+  | DescribeConfigurationCommandOutput
+  | DescribeConfigurationRevisionCommandOutput
+  | DescribeUserCommandOutput
+  | ListBrokersCommandOutput
+  | ListConfigurationRevisionsCommandOutput
+  | ListConfigurationsCommandOutput
+  | ListTagsCommandOutput
+  | ListUsersCommandOutput
+  | RebootBrokerCommandOutput
+  | UpdateBrokerCommandOutput
+  | UpdateConfigurationCommandOutput
+  | UpdateUserCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -210,7 +225,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type kendraClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type MqClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -219,7 +234,7 @@ export type kendraClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type kendraClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type MqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -229,17 +244,17 @@ export type kendraClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon Kendra is a service for indexing large document sets.</p>
+ * Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.
  */
-export class kendraClient extends __Client<
+export class MqClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  kendraClientResolvedConfig
+  MqClientResolvedConfig
 > {
-  readonly config: kendraClientResolvedConfig;
+  readonly config: MqClientResolvedConfig;
 
-  constructor(configuration: kendraClientConfig) {
+  constructor(configuration: MqClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

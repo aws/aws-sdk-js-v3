@@ -1,8 +1,8 @@
 import {
-  CostandUsageReportServiceClientResolvedConfig,
+  CostAndUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../CostandUsageReportServiceClient";
+} from "../CostAndUsageReportServiceClient";
 import { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1ModifyReportDefinitionCommand,
@@ -27,7 +27,7 @@ export type ModifyReportDefinitionCommandOutput = ModifyReportDefinitionResponse
 export class ModifyReportDefinitionCommand extends $Command<
   ModifyReportDefinitionCommandInput,
   ModifyReportDefinitionCommandOutput,
-  CostandUsageReportServiceClientResolvedConfig
+  CostAndUsageReportServiceClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class ModifyReportDefinitionCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostandUsageReportServiceClientResolvedConfig,
+    configuration: CostAndUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyReportDefinitionCommandInput, ModifyReportDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

@@ -1,4 +1,4 @@
-import { ElasticLoadBalancingv2Client } from "./ElasticLoadBalancingv2Client";
+import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
 import {
   AddListenerCertificatesCommand,
   AddListenerCertificatesCommandInput,
@@ -178,7 +178,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>All Elastic Load Balancing operations are idempotent, which means that they complete at
  *       most one time. If you repeat an operation, it succeeds.</p>
  */
-export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
+export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS or TLS listener.</p>
    *          <p>If the certificate in already in the certificate list, the call is successful but the certificate

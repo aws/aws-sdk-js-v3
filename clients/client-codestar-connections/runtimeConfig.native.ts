@@ -1,7 +1,7 @@
 import { name, version } from "./package.json";
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { parseUrl } from "@aws-sdk/url-parser-node";
-import { ClientDefaults } from "./CodeStarconnectionsClient";
+import { ClientDefaults } from "./CodeStarConnectionsClient";
 import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
 
 export const ClientDefaultValues: Required<ClientDefaults> = {

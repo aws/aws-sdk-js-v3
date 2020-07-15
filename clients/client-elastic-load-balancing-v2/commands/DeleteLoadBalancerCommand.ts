@@ -1,8 +1,8 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-} from "../ElasticLoadBalancingv2Client";
+} from "../ElasticLoadBalancingV2Client";
 import { DeleteLoadBalancerInput, DeleteLoadBalancerOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteLoadBalancerCommand,
@@ -27,7 +27,7 @@ export type DeleteLoadBalancerCommandOutput = DeleteLoadBalancerOutput & __Metad
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,
   DeleteLoadBalancerCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -40,7 +40,7 @@ export class DeleteLoadBalancerCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

@@ -1,15 +1,15 @@
+import { ForecastqueryClient } from "./ForecastqueryClient";
 import {
   QueryForecastCommand,
   QueryForecastCommandInput,
   QueryForecastCommandOutput,
 } from "./commands/QueryForecastCommand";
-import { forecastqueryClient } from "./forecastqueryClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
  */
-export class forecastquery extends forecastqueryClient {
+export class Forecastquery extends ForecastqueryClient {
   /**
    * <p>Retrieves a forecast for a single item, filtered by the supplied criteria.</p>
    *          <p>The criteria is a key-value pair. The key is either <code>item_id</code> (or the

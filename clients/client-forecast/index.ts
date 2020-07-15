@@ -1,5 +1,5 @@
-export * from "./forecastClient";
-export * from "./forecast";
+export * from "./ForecastClient";
+export * from "./Forecast";
 export * from "./commands/CreateDatasetCommand";
 export * from "./commands/CreateDatasetGroupCommand";
 export * from "./commands/CreateDatasetImportJobCommand";

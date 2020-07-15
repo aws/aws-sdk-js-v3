@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { GetAccuracyMetricsRequest, GetAccuracyMetricsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAccuracyMetricsCommand,
@@ -23,7 +23,7 @@ export type GetAccuracyMetricsCommandOutput = GetAccuracyMetricsResponse & __Met
 export class GetAccuracyMetricsCommand extends $Command<
   GetAccuracyMetricsCommandInput,
   GetAccuracyMetricsCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class GetAccuracyMetricsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccuracyMetricsCommandInput, GetAccuracyMetricsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

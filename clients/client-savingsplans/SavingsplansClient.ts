@@ -1,19 +1,26 @@
+import { CreateSavingsPlanCommandInput, CreateSavingsPlanCommandOutput } from "./commands/CreateSavingsPlanCommand";
 import {
-  DeleteReportDefinitionCommandInput,
-  DeleteReportDefinitionCommandOutput,
-} from "./commands/DeleteReportDefinitionCommand";
+  DescribeSavingsPlanRatesCommandInput,
+  DescribeSavingsPlanRatesCommandOutput,
+} from "./commands/DescribeSavingsPlanRatesCommand";
 import {
-  DescribeReportDefinitionsCommandInput,
-  DescribeReportDefinitionsCommandOutput,
-} from "./commands/DescribeReportDefinitionsCommand";
+  DescribeSavingsPlansCommandInput,
+  DescribeSavingsPlansCommandOutput,
+} from "./commands/DescribeSavingsPlansCommand";
 import {
-  ModifyReportDefinitionCommandInput,
-  ModifyReportDefinitionCommandOutput,
-} from "./commands/ModifyReportDefinitionCommand";
+  DescribeSavingsPlansOfferingRatesCommandInput,
+  DescribeSavingsPlansOfferingRatesCommandOutput,
+} from "./commands/DescribeSavingsPlansOfferingRatesCommand";
 import {
-  PutReportDefinitionCommandInput,
-  PutReportDefinitionCommandOutput,
-} from "./commands/PutReportDefinitionCommand";
+  DescribeSavingsPlansOfferingsCommandInput,
+  DescribeSavingsPlansOfferingsCommandOutput,
+} from "./commands/DescribeSavingsPlansOfferingsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -62,16 +69,24 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteReportDefinitionCommandInput
-  | DescribeReportDefinitionsCommandInput
-  | ModifyReportDefinitionCommandInput
-  | PutReportDefinitionCommandInput;
+  | CreateSavingsPlanCommandInput
+  | DescribeSavingsPlanRatesCommandInput
+  | DescribeSavingsPlansCommandInput
+  | DescribeSavingsPlansOfferingRatesCommandInput
+  | DescribeSavingsPlansOfferingsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | DeleteReportDefinitionCommandOutput
-  | DescribeReportDefinitionsCommandOutput
-  | ModifyReportDefinitionCommandOutput
-  | PutReportDefinitionCommandOutput;
+  | CreateSavingsPlanCommandOutput
+  | DescribeSavingsPlanRatesCommandOutput
+  | DescribeSavingsPlansCommandOutput
+  | DescribeSavingsPlansOfferingRatesCommandOutput
+  | DescribeSavingsPlansOfferingsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -162,7 +177,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CostandUsageReportServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type SavingsplansClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -171,7 +186,7 @@ export type CostandUsageReportServiceClientConfig = Partial<__SmithyConfiguratio
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CostandUsageReportServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type SavingsplansClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -181,35 +196,20 @@ export type CostandUsageReportServiceClientResolvedConfig = __SmithyResolvedConf
   HostHeaderResolvedConfig;
 
 /**
- * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
- *         AWS Cost and Usage report definitions.</p>
- *          <p>AWS Cost and Usage reports track the monthly AWS costs and usage
- *    associated with your AWS account.
- *
- *         The report contains line items for each unique combination of AWS product,
- *         usage type, and operation that your AWS account uses.
- *
- *         You can configure the AWS Cost and Usage report to show only the data that you want, using the
- *         AWS Cost and Usage API.</p>
- *
- *
- *          <p>Service Endpoint</p>
- *          <p>The AWS Cost and Usage Report API provides the following endpoint:</p>
- *          <ul>
- *             <li>
- *                <p>cur.us-east-1.amazonaws.com</p>
- *             </li>
- *          </ul>
+ * <p>Savings Plans are a pricing model that offer significant savings on AWS usage (for
+ *         example, on Amazon EC2 instances). You commit to a consistent amount of usage, in USD
+ *         per hour, for a term of 1 or 3 years, and receive a lower price for that usage. For
+ *         more information, see the <a href="https://docs.aws.amazon.com/savingsplans/latest/userguide/">AWS Savings Plans User Guide</a>.</p>
  */
-export class CostandUsageReportServiceClient extends __Client<
+export class SavingsplansClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  CostandUsageReportServiceClientResolvedConfig
+  SavingsplansClientResolvedConfig
 > {
-  readonly config: CostandUsageReportServiceClientResolvedConfig;
+  readonly config: SavingsplansClientResolvedConfig;
 
-  constructor(configuration: CostandUsageReportServiceClientConfig) {
+  constructor(configuration: SavingsplansClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { QueryRequest, QueryResult } from "../models/index";
 import { deserializeAws_json1_1QueryCommand, serializeAws_json1_1QueryCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -17,7 +17,7 @@ import {
 export type QueryCommandInput = QueryRequest;
 export type QueryCommandOutput = QueryResult & __MetadataBearer;
 
-export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, kendraClientResolvedConfig> {
+export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, KendraClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -29,7 +29,7 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));

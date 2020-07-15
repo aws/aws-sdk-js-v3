@@ -243,7 +243,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type forecastClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ForecastClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -252,7 +252,7 @@ export type forecastClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type forecastClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ForecastClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -264,15 +264,15 @@ export type forecastClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
 /**
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
  */
-export class forecastClient extends __Client<
+export class ForecastClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
-  readonly config: forecastClientResolvedConfig;
+  readonly config: ForecastClientResolvedConfig;
 
-  constructor(configuration: forecastClientConfig) {
+  constructor(configuration: ForecastClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration,

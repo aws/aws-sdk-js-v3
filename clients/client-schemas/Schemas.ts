@@ -1,3 +1,4 @@
+import { SchemasClient } from "./SchemasClient";
 import {
   CreateDiscovererCommand,
   CreateDiscovererCommandInput,
@@ -135,13 +136,12 @@ import {
   UpdateSchemaCommandInput,
   UpdateSchemaCommandOutput,
 } from "./commands/UpdateSchemaCommand";
-import { schemasClient } from "./schemasClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>AWS EventBridge Schemas</p>
  */
-export class schemas extends schemasClient {
+export class Schemas extends SchemasClient {
   /**
    * <p>Creates a discoverer.</p>
    */

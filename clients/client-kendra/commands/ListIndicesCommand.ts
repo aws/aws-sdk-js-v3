@@ -1,4 +1,4 @@
-import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListIndicesRequest, ListIndicesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListIndicesCommand,
@@ -23,7 +23,7 @@ export type ListIndicesCommandOutput = ListIndicesResponse & __MetadataBearer;
 export class ListIndicesCommand extends $Command<
   ListIndicesCommandInput,
   ListIndicesCommandOutput,
-  kendraClientResolvedConfig
+  KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -36,7 +36,7 @@ export class ListIndicesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListIndicesCommandInput, ListIndicesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
