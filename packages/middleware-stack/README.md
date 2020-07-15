@@ -29,7 +29,7 @@ You can add middleware to specified step with:
 
 ```javascript
 stack.add(middleware, {
-  step: "finalizeRequest"
+  step: "finalizeRequest",
 });
 ```
 
@@ -38,7 +38,7 @@ This approach works for most cases. Sometimes you want your middleware to be exe
 ```javascript
 stack.add(middleware, {
   step: "finalizeRequest",
-  priority: "high"
+  priority: "high",
 });
 ```
 
@@ -51,12 +51,12 @@ In some cases, you might want to execute your middleware before some other known
 ```javascript
 stack.add(middleware, {
   step: "finalizeRequest",
-  name: "myMiddleware"
+  name: "myMiddleware",
 });
 stack.addRelativeTo(anotherMiddleware, {
   step: "finalizeRequest",
   relation: "before", //or 'after'
-  toMiddleware: "myMiddleware"
+  toMiddleware: "myMiddleware",
 });
 ```
 
@@ -92,7 +92,7 @@ If you specify tags for middleware, you can remove multiple middleware at a time
 ```javascript
 stack.add(middleware, {
   step: "finalizeRequest",
-  tags: ["final"]
+  tags: ["final"],
 });
 stack.removeByTag("final");
 ```

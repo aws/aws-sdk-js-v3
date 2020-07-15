@@ -14,7 +14,7 @@ const nodeSha256 = require("@aws-sdk/hash-node").Hash;
 const signer = new S3Presigner({
   region: regionProvider,
   credentials: credentialsProvider,
-  sha256: nodeSha256 //if the signer is used in browser, use `browserSha256` then
+  sha256: nodeSha256, //if the signer is used in browser, use `browserSha256` then
 });
 const url = await signer.presign(request);
 ```
@@ -28,7 +28,7 @@ import { Hash as nodeSha256 } from "@aws-sdk/hash-node";
 const signer = new S3RequestPresigner({
   region: regionProvider,
   credentials: credentialsProvider,
-  sha256: nodeSha256 //if the signer is used in browser, use `browserSha256` then
+  sha256: nodeSha256, //if the signer is used in browser, use `browserSha256` then
 });
 const url = await signer.presign(request);
 ```
@@ -40,6 +40,6 @@ the presigner's constructor.
 ```javascript
 //s3 is instantiated from S3Client from @aws-sdk/client-s3-* packages
 const signer = new S3RequestPresigner({
-  ...s3.config
+  ...s3.config,
 });
 ```
