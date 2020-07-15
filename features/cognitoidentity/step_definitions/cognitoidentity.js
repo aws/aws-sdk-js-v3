@@ -6,33 +6,20 @@ Before({ tags: "@cognitoidentity" }, function (scenario, callback) {
   callback();
 });
 
-Given("I create a Cognito identity pool with prefix {string}", function (
-  prefix,
-  callback
-) {
+Given("I create a Cognito identity pool with prefix {string}", function (prefix, callback) {
   const expectError = prefix === "" ? false : undefined;
   const params = {
     IdentityPoolName: this.uniqueName(prefix, ""),
-    AllowUnauthenticatedIdentities: true
+    AllowUnauthenticatedIdentities: true,
   };
   this.request(null, "createIdentityPool", params, callback, expectError);
 });
 
 Given("I describe the Cognito identity pool ID", function (callback) {
   this.identityPoolId = this.data.IdentityPoolId;
-  this.request(
-    null,
-    "describeIdentityPool",
-    { IdentityPoolId: this.data.IdentityPoolId },
-    callback
-  );
+  this.request(null, "describeIdentityPool", { IdentityPoolId: this.data.IdentityPoolId }, callback);
 });
 
 Then("I delete the Cognito identity pool", function (callback) {
-  this.request(
-    null,
-    "deleteIdentityPool",
-    { IdentityPoolId: this.identityPoolId },
-    callback
-  );
+  this.request(null, "deleteIdentityPool", { IdentityPoolId: this.identityPoolId }, callback);
 });

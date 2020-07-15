@@ -9,11 +9,7 @@ const pipeStdIo = { stdio: [process.stdin, process.stdout, process.stderr] };
 execSync("rm -rf verdaccio/storage/@aws-sdk");
 
 // Start verdaccio in the background
-const verdaccio = spawn(
-  "npx",
-  ["verdaccio", "-c", "verdaccio/config.yaml"],
-  pipeStdIo
-).on("error", e => {
+const verdaccio = spawn("npx", ["verdaccio", "-c", "verdaccio/config.yaml"], pipeStdIo).on("error", (e) => {
   throw e;
 });
 
@@ -36,9 +32,9 @@ const args = [
   "--ignore-scripts",
   "--no-verify-access",
   "--dist-tag",
-  "ci"
+  "ci",
 ];
-spawn("npx", args, pipeStdIo).on("close", code => {
+spawn("npx", args, pipeStdIo).on("close", (code) => {
   // Rollback the changes caused by the version bumping
   execSync("git checkout -- clients/*/package.json");
   execSync("git checkout -- packages/*/package.json");

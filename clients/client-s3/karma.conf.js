@@ -4,14 +4,14 @@ module.exports = function (config) {
     frameworks: ["mocha", "chai"],
     files: ["e2e/**/*.ispec.ts"],
     preprocessors: {
-      "e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"]
+      "e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"],
     },
     webpackMiddleware: {
-      stats: "minimal"
+      stats: "minimal",
     },
     webpack: {
       resolve: {
-        extensions: [".ts", ".js"]
+        extensions: [".ts", ".js"],
       },
       mode: "development",
       module: {
@@ -24,16 +24,16 @@ module.exports = function (config) {
                 options: {
                   configFile: "tsconfig.json",
                   compilerOptions: {
-                    rootDir: "./"
-                  }
-                }
-              }
+                    rootDir: "./",
+                  },
+                },
+              },
             ],
-            exclude: /node_modules/
-          }
-        ]
+            exclude: /node_modules/,
+          },
+        ],
       },
-      devtool: "inline-source-map"
+      devtool: "inline-source-map",
     },
     envPreprocessor: ["AWS_SMOKE_TEST_REGION", "AWS_SMOKE_TEST_BUCKET"],
     plugins: [
@@ -45,7 +45,7 @@ module.exports = function (config) {
       "karma-webpack",
       "karma-coverage",
       "karma-sourcemap-loader",
-      "karma-env-preprocessor"
+      "karma-env-preprocessor",
     ],
     reporters: ["progress"],
     port: 9876,
@@ -56,11 +56,11 @@ module.exports = function (config) {
     customLaunchers: {
       FirefoxHeadless: {
         base: "Firefox",
-        flags: ["-headless"]
-      }
+        flags: ["-headless"],
+      },
     },
     singleRun: true,
     concurrency: Infinity,
-    exclude: ["**/*.d.ts", "*.spec.ts"]
+    exclude: ["**/*.d.ts", "*.spec.ts"],
   });
 };

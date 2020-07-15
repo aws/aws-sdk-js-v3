@@ -8,6 +8,6 @@ module.exports = {
     "/node_modules/",
     "/commands/",
     "/protocols/", // protocols tested in protocol protocol_tests folder
-    "endpoints" // endpoint tested in tests/functional/endpoints
-  ]
+    "endpoints", // endpoint tested in tests/functional/endpoints
+  ],
 };

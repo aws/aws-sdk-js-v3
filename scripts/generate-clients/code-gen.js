@@ -2,14 +2,10 @@ const path = require("path");
 const { emptyDirSync } = require("fs-extra");
 const { copyFileSync, readdirSync, lstatSync } = require("fs");
 const { spawnProcess } = require("./spawn-process");
-const {
-  CODE_GEN_ROOT,
-  CODE_GEN_SDK_ROOT,
-  TEMP_CODE_GEN_INPUT_DIR
-} = require("./code-gen-dir");
+const { CODE_GEN_ROOT, CODE_GEN_SDK_ROOT, TEMP_CODE_GEN_INPUT_DIR } = require("./code-gen-dir");
 const Glob = require("glob");
 
-const generateClients = async models => {
+const generateClients = async (models) => {
   let designatedModels = false;
   if (typeof models === "string") {
     //`models` is a folder path
@@ -20,21 +16,18 @@ const generateClients = async models => {
       const modelPath = path.join(models, modelFileName);
       if (!lstatSync(modelPath).isFile()) continue;
       console.log(`copying model ${modelFileName}...`);
-      copyFileSync(
-        modelPath,
-        path.join(TEMP_CODE_GEN_INPUT_DIR, modelFileName)
-      );
+      copyFileSync(modelPath, path.join(TEMP_CODE_GEN_INPUT_DIR, modelFileName));
     }
   } else if (Array.isArray(models)) {
     //`models` is a list of globs
     designatedModels = true;
     emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
-    models.forEach(pattern => {
+    models.forEach((pattern) => {
       const files = Glob.sync(pattern, {
         realpath: true,
-        absolute: true
+        absolute: true,
       });
-      files.forEach(file => {
+      files.forEach((file) => {
         if (!lstatSync(file).isFile()) return;
         const name = path.basename(file);
         console.log(`copying model ${name}...`);
@@ -46,30 +39,21 @@ const generateClients = async models => {
   }
   const options = [":sdk-codegen:clean", ":sdk-codegen:build"];
   if (designatedModels) {
-    options.push(
-      `-PmodelsDirProp=${path.relative(
-        CODE_GEN_SDK_ROOT,
-        TEMP_CODE_GEN_INPUT_DIR
-      )}`
-    );
+    options.push(`-PmodelsDirProp=${path.relative(CODE_GEN_SDK_ROOT, TEMP_CODE_GEN_INPUT_DIR)}`);
   }
 
   await spawnProcess("./gradlew", options, {
-    cwd: CODE_GEN_ROOT
+    cwd: CODE_GEN_ROOT,
   });
 };
 
 const generateProtocolTests = async () => {
-  await spawnProcess(
-    "./gradlew",
-    [":protocol-test-codegen:clean", ":protocol-test-codegen:build"],
-    {
-      cwd: CODE_GEN_ROOT
-    }
-  );
+  await spawnProcess("./gradlew", [":protocol-test-codegen:clean", ":protocol-test-codegen:build"], {
+    cwd: CODE_GEN_ROOT,
+  });
 };
 
 module.exports = {
   generateClients,
-  generateProtocolTests
+  generateProtocolTests,
 };

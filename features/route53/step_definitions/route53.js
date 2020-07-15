@@ -6,17 +6,14 @@ Before({ tags: "@route53" }, function (scenario, callback) {
   callback();
 });
 
-When("I create a Route53 hosted zone with name prefix {string}", function (
-  prefix,
-  callback
-) {
+When("I create a Route53 hosted zone with name prefix {string}", function (prefix, callback) {
   this.zoneName = "zone1.example.com";
   const params = {
     Name: this.zoneName,
     CallerReference: this.uniqueName(prefix),
     HostedZoneConfig: {
-      Comment: "A comment about the zone"
-    }
+      Comment: "A comment about the zone",
+    },
   };
   this.request(null, "createHostedZone", params, callback, false);
 });
@@ -41,7 +38,7 @@ When("I get information about the Route53 change ID", function (callback) {
     null,
     "getChange",
     {
-      Id: this.changeInfoId
+      Id: this.changeInfoId,
     },
     callback
   );
@@ -57,7 +54,7 @@ When("I get information about the Route53 hosted zone ID", function (callback) {
     null,
     "getHostedZone",
     {
-      Id: this.hostedZoneId
+      Id: this.hostedZoneId,
     },
     callback
   );
@@ -74,23 +71,20 @@ Then("I delete the Route53 hosted zone", function (callback) {
     null,
     "deleteHostedZone",
     {
-      Id: this.hostedZoneId
+      Id: this.hostedZoneId,
     },
     callback
   );
 });
 
-When("I create a Route53 TCP health check with name prefix {string}", function (
-  prefix,
-  callback
-) {
+When("I create a Route53 TCP health check with name prefix {string}", function (prefix, callback) {
   const params = {
     CallerReference: this.uniqueName(prefix),
     HealthCheckConfig: {
       IPAddress: "192.0.43.10", // example.com
       Port: 80,
-      Type: "TCP"
-    }
+      Type: "TCP",
+    },
   };
   this.request(null, "createHealthCheck", params, callback);
 });
@@ -107,22 +101,19 @@ Then("the result should contain the health check ID", function (callback) {
 
 When("I get information about the health check ID", function (callback) {
   const params = {
-    HealthCheckId: this.healthCheckId
+    HealthCheckId: this.healthCheckId,
   };
   this.request(null, "getHealthCheck", params, callback);
 });
 
-Then(
-  "the result should contain the previous health check information",
-  function (callback) {
-    this.assert.deepEqual(this.data.HealthCheck, this.healthCheckInfo);
-    callback();
-  }
-);
+Then("the result should contain the previous health check information", function (callback) {
+  this.assert.deepEqual(this.data.HealthCheck, this.healthCheckInfo);
+  callback();
+});
 
 Then("I delete the Route53 TCP health check", function (callback) {
   const params = {
-    HealthCheckId: this.healthCheckId
+    HealthCheckId: this.healthCheckId,
   };
   this.request(null, "deleteHealthCheck", params, callback);
 });

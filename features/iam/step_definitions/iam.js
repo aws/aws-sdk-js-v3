@@ -24,7 +24,7 @@ Given("I create an IAM user with the username", function (callback) {
     "iam",
     "createUser",
     {
-      UserName: this.iamUser
+      UserName: this.iamUser,
     },
     next,
     false
@@ -48,16 +48,13 @@ Then("I delete the IAM user", function (callback) {
     "iam",
     "deleteUser",
     {
-      UserName: this.iamUser
+      UserName: this.iamUser,
     },
     callback
   );
 });
 
-Given("I create an IAM role with name prefix {string}", function (
-  name,
-  callback
-) {
+Given("I create an IAM role with name prefix {string}", function (name, callback) {
   this.iamRoleName = this.uniqueName(name);
 
   const world = this;
@@ -67,7 +64,7 @@ Given("I create an IAM role with name prefix {string}", function (
     '"Action":["sts:AssumeRole"]}]}';
   const params = {
     RoleName: this.iamRoleName,
-    AssumeRolePolicyDocument: assumeRolePolicyDocument
+    AssumeRolePolicyDocument: assumeRolePolicyDocument,
   };
   const next = function () {
     world.iamRoleArn = world.data.Role.Arn;
@@ -88,7 +85,7 @@ Then("I delete the IAM role", function (callback) {
     "iam",
     "deleteRole",
     {
-      RoleName: this.iamRoleName
+      RoleName: this.iamRoleName,
     },
     callback
   );

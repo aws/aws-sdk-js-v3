@@ -4,5 +4,5 @@ module.exports = {
   ...base,
   projects: ["<rootDir>/clients/*/jest.integ.config.js"],
   testPathIgnorePatterns: ["/node_modules/"],
-  coveragePathIgnorePatterns: ["/node_modules/", "/__fixtures__/"]
+  coveragePathIgnorePatterns: ["/node_modules/", "/__fixtures__/"],
 };

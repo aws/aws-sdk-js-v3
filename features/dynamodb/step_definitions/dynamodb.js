@@ -7,7 +7,7 @@ const { DynamoDB } = require("../../../clients/client-dynamodb");
  */
 function waitForTableExists(world, callback) {
   const params = {
-    TableName: world.tableName
+    TableName: world.tableName,
   };
 
   const maxAttempts = 25;
@@ -37,7 +37,7 @@ function waitForTableExists(world, callback) {
  */
 function waitForTableNotExists(world, callback) {
   const params = {
-    TableName: world.tableName
+    TableName: world.tableName,
   };
 
   const maxAttempts = 25;
@@ -64,7 +64,7 @@ const { Before, Given, Then, When } = require("cucumber");
 
 Before({ tags: "@dynamodb" }, function (scenario, next) {
   this.service = new DynamoDB({
-    maxRetries: 2
+    maxRetries: 2,
   });
   next();
 });
@@ -74,7 +74,7 @@ function createTable(world, callback) {
     TableName: world.tableName,
     AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
     KeySchema: [{ AttributeName: "id", KeyType: "HASH" }],
-    BillingMode: "PAY_PER_REQUEST"
+    BillingMode: "PAY_PER_REQUEST",
   };
 
   world.service.createTable(params, function (err, data) {
@@ -126,19 +126,14 @@ When("I put a recursive item", function (next) {
       data: {
         M: {
           attr1: {
-            L: [{ S: "value1" }, { L: [{ M: { attr12: { S: "value2" } } }] }]
+            L: [{ S: "value1" }, { L: [{ M: { attr12: { S: "value2" } } }] }],
           },
           attr2: {
-            L: [
-              { B: new Uint8Array([0]) },
-              { B: new Uint8Array([1]) },
-              { NULL: true },
-              { BOOL: true }
-            ]
-          }
-        }
-      }
-    }
+            L: [{ B: new Uint8Array([0]) }, { B: new Uint8Array([1]) }, { NULL: true }, { BOOL: true }],
+          },
+        },
+      },
+    },
   };
   this.request(null, "putItem", params, next);
 });
@@ -148,11 +143,7 @@ Then("the item with id {string} should exist", function (key, next) {
   this.request(null, "getItem", params, next);
 });
 
-Then("it should have attribute {string} containing {string}", function (
-  attr,
-  value,
-  next
-) {
+Then("it should have attribute {string} containing {string}", function (attr, value, next) {
   this.assert.equal(jmespath.search(this.data.Item, attr), value);
   next();
 });
@@ -170,10 +161,7 @@ Then("the table should eventually not exist", function (callback) {
   waitForTableNotExists(this, callback);
 });
 
-Given("my first request is corrupted with CRC checking (ON|OFF)", function (
-  toggle,
-  callback
-) {
+Given("my first request is corrupted with CRC checking (ON|OFF)", function (toggle, callback) {
   const world = this;
   this.service.config.dynamoDbCrc32 = toggle == "ON" ? true : false;
   const req = this.service.listTables();
@@ -196,16 +184,12 @@ Given("my first request is corrupted with CRC checking (ON|OFF)", function (
 });
 
 Then("the request should( not)? be retried", function (retry, callback) {
-  if (retry && this.data.$metadata.retries > 0)
-    callback(new Error("Request was incorrectly retried"));
-  if (!retry && this.data.$metadata.retries == 0)
-    callback(new Error("Request was incorrectly retried"));
+  if (retry && this.data.$metadata.retries > 0) callback(new Error("Request was incorrectly retried"));
+  if (!retry && this.data.$metadata.retries == 0) callback(new Error("Request was incorrectly retried"));
   callback();
 });
 
-Given("all of my requests are corrupted with CRC checking ON", function (
-  callback
-) {
+Given("all of my requests are corrupted with CRC checking ON", function (callback) {
   const world = this;
   const req = this.service.listTables();
   req.removeAllListeners("httpData");
@@ -221,31 +205,21 @@ Given("all of my requests are corrupted with CRC checking ON", function (
 });
 
 When("the request is retried the maximum number of times", function (callback) {
-  if (this.data.$metadata.retries != 2)
-    callback(new Error("Incorrect retry count"));
+  if (this.data.$metadata.retries != 2) callback(new Error("Incorrect retry count"));
   callback();
 });
 
-Then("the request should( not)? fail with a CRC checking error", function (
-  failed,
-  callback
-) {
+Then("the request should( not)? fail with a CRC checking error", function (failed, callback) {
   if (failed && this.error) callback(this.error);
-  if (!failed && !this.error)
-    callback(new Error("Did not fail when should have"));
+  if (!failed && !this.error) callback(new Error("Did not fail when should have"));
   callback();
 });
 
-Given(
-  "I try to delete an item with key {string} from table {string}",
-  function (key, table, callback) {
-    const params = { TableName: table, Key: { id: { S: key } } };
-    this.request(null, "deleteItem", params, callback, false);
-  }
-);
+Given("I try to delete an item with key {string} from table {string}", function (key, table, callback) {
+  const params = { TableName: table, Key: { id: { S: key } } };
+  this.request(null, "deleteItem", params, callback, false);
+});
 
-Given("I try to delete a table with an empty table parameter", function (
-  callback
-) {
+Given("I try to delete a table with an empty table parameter", function (callback) {
   this.request(null, "deleteTable", { TableName: "" }, callback, false);
 });

@@ -1,14 +1,8 @@
 const { join } = require("path");
 const { copySync, ensureDirSync } = require("fs-extra");
-const {
-  readdirSync,
-  lstatSync,
-  readFileSync,
-  existsSync,
-  writeFileSync
-} = require("fs");
+const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
-const getOverwritablePredicate = packageName => pathName => {
+const getOverwritablePredicate = (packageName) => (pathName) => {
   const overwritablePathnames = [
     "commands",
     "models",
@@ -19,17 +13,13 @@ const getOverwritablePredicate = packageName => pathName => {
     "runtimeConfig.shared.ts",
     "runtimeConfig.native.ts",
     "index.ts",
-    "endpoints.ts"
+    "endpoints.ts",
   ];
   return (
     pathName
       .toLowerCase()
       .startsWith(
-        packageName
-          .toLowerCase()
-          .replace("@aws-sdk/client-", "")
-          .replace("@aws-sdk/aws-", "")
-          .replace(/-/g, "")
+        packageName.toLowerCase().replace("@aws-sdk/client-", "").replace("@aws-sdk/aws-", "").replace(/-/g, "")
       ) || overwritablePathnames.indexOf(pathName) >= 0
   );
 };
@@ -73,17 +63,11 @@ const mergeManifest = (fromContent = {}, toContent) => {
  * e.g. "@aws-sdk/config-resolver": "^1.0.0-gamma.0"
  *      => "@aws-sdk/config-resolver": "1.0.0-gamma.0"
  */
-const pinDependencies = manifest => {
+const pinDependencies = (manifest) => {
   const removeRangeVersion = ([name, version]) =>
-    name.indexOf("@aws-sdk/") === 0
-      ? [name, version.replace("^", "")]
-      : [name, version];
-  manifest.dependencies = Object.fromEntries(
-    Object.entries(manifest.dependencies).map(removeRangeVersion)
-  );
-  manifest.devDependencies = Object.fromEntries(
-    Object.entries(manifest.devDependencies).map(removeRangeVersion)
-  );
+    name.indexOf("@aws-sdk/") === 0 ? [name, version.replace("^", "")] : [name, version];
+  manifest.dependencies = Object.fromEntries(Object.entries(manifest.dependencies).map(removeRangeVersion));
+  manifest.devDependencies = Object.fromEntries(Object.entries(manifest.devDependencies).map(removeRangeVersion));
 };
 
 const copyToClients = async (sourceDir, destinationDir) => {
@@ -96,13 +80,9 @@ const copyToClients = async (sourceDir, destinationDir) => {
       continue;
     }
 
-    const packageManifest = JSON.parse(
-      readFileSync(packageManifestPath).toString()
-    );
+    const packageManifest = JSON.parse(readFileSync(packageManifestPath).toString());
     const packageName = packageManifest.name;
-    console.log(
-      `copying ${packageName} from ${artifactPath} to ${destinationDir}`
-    );
+    console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
     const destPath = join(destinationDir, packageName.replace("@aws-sdk/", ""));
     const overwritablePredicate = getOverwritablePredicate(packageName);
     for (const packageSub of readdirSync(artifactPath)) {
@@ -110,23 +90,15 @@ const copyToClients = async (sourceDir, destinationDir) => {
       const destSubPath = join(destPath, packageSub);
       if (packageSub === "package.json") {
         //copy manifest file
-        const destManifest = existsSync(destSubPath)
-          ? JSON.parse(readFileSync(destSubPath).toString())
-          : {};
+        const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
         const mergedManifest = mergeManifest(packageManifest, destManifest);
         pinDependencies(mergedManifest);
-        writeFileSync(
-          destSubPath,
-          JSON.stringify(mergedManifest, null, 2).concat(`\n`)
-        );
-      } else if (
-        overwritablePredicate(packageSub) ||
-        !existsSync(destSubPath)
-      ) {
+        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
+      } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
         //Overwrite the directories and files that are overwritable, or not yet exists
         if (lstatSync(packageSubPath).isDirectory()) ensureDirSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
-          overwrite: true
+          overwrite: true,
         });
       }
     }
@@ -134,5 +106,5 @@ const copyToClients = async (sourceDir, destinationDir) => {
 };
 
 module.exports = {
-  copyToClients
+  copyToClients,
 };

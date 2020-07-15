@@ -5,22 +5,22 @@ module.exports = function (config) {
     files: ["src/**/*.ts"],
     exclude: ["**/*.d.ts"],
     preprocessors: {
-      "**/*.ts": "karma-typescript"
+      "**/*.ts": "karma-typescript",
     },
     reporters: ["progress", "karma-typescript"],
     browsers: ["ChromeHeadlessNoSandbox"],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: "ChromeHeadless",
-        flags: ["--no-sandbox"]
-      }
+        flags: ["--no-sandbox"],
+      },
     },
     karmaTypescriptConfig: {
       tsconfig: "./tsconfig.json",
       bundlerOptions: {
-        addNodeGlobals: false
-      }
+        addNodeGlobals: false,
+      },
     },
-    singleRun: true
+    singleRun: true,
   });
 };

@@ -12,7 +12,7 @@ Given("I create an SNS topic with name {string}", function (name, callback) {
     null,
     "createTopic",
     {
-      Name: name
+      Name: name,
     },
     callback,
     function (data) {
@@ -38,7 +38,7 @@ Then("I delete the SNS topic", function (callback) {
     null,
     "deleteTopic",
     {
-      TopicArn: this.topicArn
+      TopicArn: this.topicArn,
     },
     callback
   );
@@ -49,7 +49,7 @@ Given("I get SNS topic attributes with an invalid ARN", function (callback) {
     null,
     "getTopicAttributes",
     {
-      TopicArn: "INVALID"
+      TopicArn: "INVALID",
     },
     callback,
     false

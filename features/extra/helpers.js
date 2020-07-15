@@ -85,13 +85,7 @@ module.exports = {
           extra.call(world, world.data);
           next.call(world);
         } else if (extra !== false && err) {
-          world.unexpectedError(
-            svc.config.signingName,
-            operation,
-            world.error.name,
-            world.error.message,
-            next
-          );
+          world.unexpectedError(svc.config.signingName, operation, world.error.name, world.error.message, next);
         } else {
           next.call(world);
         }
@@ -107,9 +101,7 @@ module.exports = {
    * operation failed.
    */
   unexpectedError: function unexpectedError(svc, op, name, msg, next) {
-    next.fail(
-      new Error(`Received unexpected error from ${svc}.${op}, ${name}: ${msg}`)
-    );
+    next.fail(new Error(`Received unexpected error from ${svc}.${op}, ${name}: ${msg}`));
   },
 
   /**
@@ -247,5 +239,5 @@ module.exports = {
       });
     };
     checkForBucketNotExists();
-  }
+  },
 };

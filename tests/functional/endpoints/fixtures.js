@@ -41,7 +41,7 @@ module.exports.KNOWN_REGIONS = {
     // sts: "sts.amazonaws.com",
     swf: "swf.ap-northeast-1.amazonaws.com",
     workspaces: "workspaces.ap-northeast-1.amazonaws.com",
-    "rds-data": "rds-data.ap-northeast-1.amazonaws.com"
+    "rds-data": "rds-data.ap-northeast-1.amazonaws.com",
   },
   "ap-southeast-1": {
     //autoscaling: "autoscaling.ap-southeast-1.amazonaws.com",
@@ -74,7 +74,7 @@ module.exports.KNOWN_REGIONS = {
     // sts: "sts.amazonaws.com",
     swf: "swf.ap-southeast-1.amazonaws.com",
     workspaces: "workspaces.ap-southeast-1.amazonaws.com",
-    "rds-data": "rds-data.ap-southeast-1.amazonaws.com"
+    "rds-data": "rds-data.ap-southeast-1.amazonaws.com",
   },
   "ap-southeast-2": {
     //autoscaling: "autoscaling.ap-southeast-2.amazonaws.com",
@@ -110,7 +110,7 @@ module.exports.KNOWN_REGIONS = {
     // sts: "sts.amazonaws.com",
     swf: "swf.ap-southeast-2.amazonaws.com",
     workspaces: "workspaces.ap-southeast-2.amazonaws.com",
-    "rds-data": "rds-data.ap-southeast-2.amazonaws.com"
+    "rds-data": "rds-data.ap-southeast-2.amazonaws.com",
   },
   "aws-us-gov-global": {
     //iam: "iam.us-gov.amazonaws.com"
@@ -138,7 +138,7 @@ module.exports.KNOWN_REGIONS = {
     "dynamodb-streams": "streams.dynamodb.cn-north-1.amazonaws.com.cn",
     // sts: "sts.cn-north-1.amazonaws.com.cn",
     swf: "swf.cn-north-1.amazonaws.com.cn",
-    "rds-data": "rds-data.cn-north-1.amazonaws.com.cn"
+    "rds-data": "rds-data.cn-north-1.amazonaws.com.cn",
   },
   "eu-central-1": {
     //autoscaling: "autoscaling.eu-central-1.amazonaws.com",
@@ -168,7 +168,7 @@ module.exports.KNOWN_REGIONS = {
     "storage-gateway": "storagegateway.eu-central-1.amazonaws.com",
     "dynamodb-streams": "streams.dynamodb.eu-central-1.amazonaws.com",
     // sts: "sts.amazonaws.com",
-    swf: "swf.eu-central-1.amazonaws.com"
+    swf: "swf.eu-central-1.amazonaws.com",
   },
   "eu-west-1": {
     "api-gateway": "apigateway.eu-west-1.amazonaws.com",
@@ -212,7 +212,7 @@ module.exports.KNOWN_REGIONS = {
     "dynamodb-streams": "streams.dynamodb.eu-west-1.amazonaws.com",
     // sts: "sts.amazonaws.com",
     swf: "swf.eu-west-1.amazonaws.com",
-    workspaces: "workspaces.eu-west-1.amazonaws.com"
+    workspaces: "workspaces.eu-west-1.amazonaws.com",
   },
   "fips-us-gov-west-1": {
     //s3: "s3-fips-us-gov-west-1.amazonaws.com"
@@ -243,7 +243,7 @@ module.exports.KNOWN_REGIONS = {
     "storage-gateway": "storagegateway.sa-east-1.amazonaws.com",
     "dynamodb-streams": "streams.dynamodb.sa-east-1.amazonaws.com",
     // sts: "sts.amazonaws.com",
-    swf: "swf.sa-east-1.amazonaws.com"
+    swf: "swf.sa-east-1.amazonaws.com",
   },
   "us-east-1": {
     "api-gateway": "apigateway.us-east-1.amazonaws.com",
@@ -299,7 +299,7 @@ module.exports.KNOWN_REGIONS = {
     support: "support.us-east-1.amazonaws.com",
     swf: "swf.us-east-1.amazonaws.com",
     workspaces: "workspaces.us-east-1.amazonaws.com",
-    waf: "waf.amazonaws.com"
+    waf: "waf.amazonaws.com",
   },
   "us-gov-west-1": {
     //autoscaling: "autoscaling.us-gov-west-1.amazonaws.com",
@@ -321,7 +321,7 @@ module.exports.KNOWN_REGIONS = {
     //sns: "sns.us-gov-west-1.amazonaws.com",
     // sqs: "us-gov-west-1.queue.amazonaws.com",
     // sts: "sts.us-gov-west-1.amazonaws.com",
-    swf: "swf.us-gov-west-1.amazonaws.com"
+    swf: "swf.us-gov-west-1.amazonaws.com",
   },
   "us-west-1": {
     //autoscaling: "autoscaling.us-west-1.amazonaws.com",
@@ -351,7 +351,7 @@ module.exports.KNOWN_REGIONS = {
     "storage-gateway": "storagegateway.us-west-1.amazonaws.com",
     "dynamodb-streams": "streams.dynamodb.us-west-1.amazonaws.com",
     // sts: "sts.amazonaws.com",
-    swf: "swf.us-west-1.amazonaws.com"
+    swf: "swf.us-west-1.amazonaws.com",
   },
   "us-west-2": {
     "api-gateway": "apigateway.us-west-2.amazonaws.com",
@@ -395,6 +395,6 @@ module.exports.KNOWN_REGIONS = {
     "dynamodb-streams": "streams.dynamodb.us-west-2.amazonaws.com",
     // sts: "sts.amazonaws.com",
     swf: "swf.us-west-2.amazonaws.com",
-    workspaces: "workspaces.us-west-2.amazonaws.com"
-  }
+    workspaces: "workspaces.us-west-2.amazonaws.com",
+  },
 };

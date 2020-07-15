@@ -6,14 +6,11 @@ Before({ tags: "@autoscaling" }, function (scenario, callback) {
   callback();
 });
 
-Given("I create a launch configuration with name {string}", function (
-  name,
-  callback
-) {
+Given("I create a launch configuration with name {string}", function (name, callback) {
   const params = {
     ImageId: "ami-1624987f",
     InstanceType: "m1.small",
-    LaunchConfigurationName: name
+    LaunchConfigurationName: name,
   };
   this.request(null, "createLaunchConfiguration", params, callback, false);
 });
@@ -22,13 +19,8 @@ Given("I describe launch configurations", function (callback) {
   this.request(null, "describeLaunchConfigurations", {}, callback);
 });
 
-Then("the list should contain the launch configuration {string}", function (
-  name,
-  callback
-) {
-  this.assert.contains(this.data.LaunchConfigurations, function (
-    configuration
-  ) {
+Then("the list should contain the launch configuration {string}", function (name, callback) {
+  this.assert.contains(this.data.LaunchConfigurations, function (configuration) {
     return configuration.LaunchConfigurationName === name;
   });
   callback();

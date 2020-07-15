@@ -1,6 +1,4 @@
-const {
-  ElasticLoadBalancing
-} = require("../../../clients/client-elastic-load-balancing");
+const { ElasticLoadBalancing } = require("../../../clients/client-elastic-load-balancing");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@elb" }, function (scenario, callback) {
@@ -8,10 +6,7 @@ Before({ tags: "@elb" }, function (scenario, callback) {
   callback();
 });
 
-Given("I create a load balancer with name prefix {string}", function (
-  prefix,
-  callback
-) {
+Given("I create a load balancer with name prefix {string}", function (prefix, callback) {
   this.loadBalancerName = prefix + "-" + new Date().getTime();
 
   const params = {
@@ -20,19 +15,17 @@ Given("I create a load balancer with name prefix {string}", function (
       {
         Protocol: "TCP",
         LoadBalancerPort: 80,
-        InstancePort: 80
-      }
+        InstancePort: 80,
+      },
     ],
-    AvailabilityZones: ["us-east-1a"]
+    AvailabilityZones: ["us-east-1a"],
   };
   this.request(null, "createLoadBalancer", params, callback, false);
 });
 
-Given("I describe load balancers with the load balancer name", function (
-  callback
-) {
+Given("I describe load balancers with the load balancer name", function (callback) {
   const params = {
-    LoadBalancerNames: [this.loadBalancerName]
+    LoadBalancerNames: [this.loadBalancerName],
   };
   this.request(null, "describeLoadBalancers", params, callback);
 });
@@ -45,7 +38,7 @@ Then("the load balancer should be in the list", function (callback) {
 
 Then("I delete the load balancer", function (callback) {
   const params = {
-    LoadBalancerName: this.loadBalancerName
+    LoadBalancerName: this.loadBalancerName,
   };
   this.request(null, "deleteLoadBalancer", params, callback);
 });

@@ -6,16 +6,13 @@ Before({ tags: "@cloudformation" }, function (scenario, callback) {
   callback();
 });
 
-Given("I create a CloudFormation stack with name prefix {string}", function (
-  prefix,
-  callback
-) {
+Given("I create a CloudFormation stack with name prefix {string}", function (prefix, callback) {
   this.stackName = this.uniqueName(prefix);
   this.templateBody = '{"Resources":{"member":{"Type":"AWS::SQS::Queue"}}}';
   const params = {
     TemplateBody: this.templateBody,
     StackName: this.stackName,
-    EnableTerminationProtection: true
+    EnableTerminationProtection: true,
   };
   this.request(null, "createStack", params, callback, false);
 });

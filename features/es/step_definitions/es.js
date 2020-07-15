@@ -1,6 +1,4 @@
-const {
-  ElasticsearchService
-} = require("../../../clients/client-elasticsearch-service");
+const { ElasticsearchService } = require("../../../clients/client-elasticsearch-service");
 const { Before } = require("cucumber");
 
 Before({ tags: "@es" }, function (scenario, callback) {

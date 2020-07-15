@@ -8,8 +8,8 @@ Before({ tags: "@s3 or @proxy" }, function (scenario, callback) {
 
   this.service = this.s3 = new S3({
     httpOptions: {
-      proxy: "http://localhost:" + this.proxyPort
-    }
+      proxy: "http://localhost:" + this.proxyPort,
+    },
   });
 
   callback();
@@ -30,7 +30,7 @@ function setupProxyServer() {
       port: uri.port || 80,
       method: req.method,
       path: uri.path,
-      headers: req.headers
+      headers: req.headers,
     };
     options.headers.host = uri.hostname;
 

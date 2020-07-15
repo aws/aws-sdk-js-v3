@@ -12,7 +12,7 @@ const HEADER_TYPES = [
   "binary",
   "string",
   "timestamp",
-  "uuid"
+  "uuid",
 ];
 
 const vectorsDir = join(dirname(__dirname), "test_vectors");
@@ -25,20 +25,16 @@ for (const dirName of ["positive", "negative"]) {
   for (const vectorName of readdirSync(encodedVectorsDir)) {
     vectors += `    ${vectorName}: {
         expectation: '${dirName === "positive" ? "success" : "failure"}',
-        encoded: Uint8Array.from([${readFileSync(
-          join(encodedVectorsDir, vectorName)
-        )
-          .map(byte => byte.toString(10))
+        encoded: Uint8Array.from([${readFileSync(join(encodedVectorsDir, vectorName))
+          .map((byte) => byte.toString(10))
           .join(", ")}]),
 `;
 
     if (dirName === "positive") {
-      const decoded = JSON.parse(
-        readFileSync(join(decodedVectorsDir, vectorName))
-      );
+      const decoded = JSON.parse(readFileSync(join(decodedVectorsDir, vectorName)));
       const headers = decoded.headers
         .map(
-          declaration =>
+          (declaration) =>
             `               '${declaration.name}': {
                     type: '${HEADER_TYPES[declaration.type]}',
                     value: ${headerValue(declaration.type, declaration.value)},
@@ -84,17 +80,12 @@ function headerValue(type, vectorRepresentation) {
       return `new Date(${vectorRepresentation})`;
     case 9:
       const hex = Buffer.from(vectorRepresentation, "base64").toString("hex");
-      return `'${hex.substr(0, 8)}-${hex.substr(8, 4)}-${hex.substr(
-        12,
-        4
-      )}-${hex.substr(16, 4)}-${hex.substr(20)}'`;
+      return `'${hex.substr(0, 8)}-${hex.substr(8, 4)}-${hex.substr(12, 4)}-${hex.substr(16, 4)}-${hex.substr(20)}'`;
     default:
       return vectorRepresentation;
   }
 }
 
 function writeBuffer(buffer) {
-  return `Uint8Array.from([${buffer
-    .map(byte => byte.toString(10))
-    .join(", ")}])`;
+  return `Uint8Array.from([${buffer.map((byte) => byte.toString(10)).join(", ")}])`;
 }

@@ -1,9 +1,6 @@
 const { Given, Then } = require("cucumber");
 
-Given("I create a queue with the prefix name {string}", function (
-  prefix,
-  callback
-) {
+Given("I create a queue with the prefix name {string}", function (prefix, callback) {
   const name = this.uniqueName(prefix);
   this.request(null, "createQueue", { QueueName: name }, callback, function () {
     this.queueUrl = this.data.QueueUrl;
@@ -11,9 +8,7 @@ Given("I create a queue with the prefix name {string}", function (
   });
 });
 
-Then("list queues should eventually return the queue urls", function (
-  callback
-) {
+Then("list queues should eventually return the queue urls", function (callback) {
   this.eventually(
     callback,
     function (next) {
