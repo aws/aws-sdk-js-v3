@@ -1,3 +1,4 @@
+// @ts-check
 const { join } = require("path");
 const { copySync, ensureDirSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");

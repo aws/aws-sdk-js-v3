@@ -1,3 +1,4 @@
+// @ts-check
 const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");

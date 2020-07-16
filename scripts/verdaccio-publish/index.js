@@ -3,6 +3,8 @@
 
 // Reference: https://github.com/aws/aws-encryption-sdk-javascript/pull/276
 
+// @ts-check
+
 const { spawn, execSync } = require("child_process");
 const pipeStdIo = { stdio: [process.stdin, process.stdout, process.stderr] };
 
