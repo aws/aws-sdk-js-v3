@@ -2,18 +2,10 @@ export function calculateBodyLength(body: any): number | undefined {
   if (typeof body === "string") {
     let len = body.length;
 
-    // Source: https://github.com/DylanPiercey/byte-length
-    for (let i = len; i--; ) {
+    for (let i = len - 1; i >= 0; i--) {
       const code = body.charCodeAt(i);
-      if (0xdc00 <= code && code <= 0xdfff) {
-        i--;
-      }
-
-      if (0x7f < code && code <= 0x7ff) {
-        len++;
-      } else if (0x7ff < code && code <= 0xffff) {
-        len += 2;
-      }
+      if (code > 0x7f && code <= 0x7ff) len++;
+      else if (code > 0x7ff && code <= 0xffff) len += 2;
     }
 
     return len;
