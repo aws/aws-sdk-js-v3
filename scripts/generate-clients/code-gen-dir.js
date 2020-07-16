@@ -1,3 +1,4 @@
+// @ts-check
 const { join, normalize } = require("path");
 
 const CODE_GEN_ROOT = normalize(join(__dirname, "..", "..", "codegen"));

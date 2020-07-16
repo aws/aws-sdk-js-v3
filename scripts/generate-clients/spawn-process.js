@@ -1,3 +1,4 @@
+// @ts-check
 const { spawn } = require("child_process");
 
 const spawnProcess = (command, args = [], options = {}) =>

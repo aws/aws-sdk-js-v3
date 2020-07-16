@@ -1,3 +1,4 @@
+// @ts-check
 const path = require("path");
 const { emptyDirSync } = require("fs-extra");
 const { copyFileSync, readdirSync, lstatSync } = require("fs");

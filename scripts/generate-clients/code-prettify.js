@@ -1,3 +1,4 @@
+// @ts-check
 const { spawnProcess } = require("./spawn-process");
 
 const prettifyCode = async (dir) => {
