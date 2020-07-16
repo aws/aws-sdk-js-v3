@@ -25,10 +25,7 @@ Let’s walk through setting up a project that depends on DynamoDB from the SDK 
 3. Create a new file called index.js, create a DynamoDB service client and send a request.
 
 ```javascript
-const {
-  DynamoDBClient,
-  ListTablesCommand
-} = require("@aws-sdk/client-dynamodb");
+const { DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb");
 
 (async () => {
   const client = new DynamoDBClient({ region: "us-west-2" });
@@ -109,13 +106,13 @@ Here’s an example of adding a custom header using middleware:
 ```javascript
 const client = new DynamoDB({ region: "us-west-2" });
 client.middlewareStack.add(
-  (next, context) => args => {
+  (next, context) => (args) => {
     args.request.headers["Custom-Header"] = "value";
     console.log("\n -- printed from inside middleware -- \n");
     return next(args);
   },
   {
-    step: "build"
+    step: "build",
   }
 );
 await client.listTables({});

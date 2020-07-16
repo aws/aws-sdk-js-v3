@@ -26,14 +26,13 @@ JavaScript usage examples:
 
 ```javascript
 const S3Client = require("@aws-sdk/client-s3-node/S3Client").S3Client;
-const GetObject = require("@aws-sdk/client-s3-node/commands/GetObjectCommand")
-  .GetObjectCommand;
+const GetObject = require("@aws-sdk/client-s3-node/commands/GetObjectCommand").GetObjectCommand;
 
 const request = await createRequest(
   new S3Client({}),
   new GetObject({
     Bucket: "bucket",
-    Key: "key"
+    Key: "key",
   })
 );
 /**
@@ -61,7 +60,7 @@ const request = await createRequest<InputTypesUnion, GetObjectInput, Readable>(
   new S3Client({}),
   new GetObjectCommand({
     Bucket: "bucket",
-    Key: "key"
+    Key: "key",
   })
 );
 ```
@@ -78,7 +77,7 @@ const request = await createRequest(
   new DynamoDBClient({}),
   new GetObjectCommand({
     Bucket: "bucket",
-    Key: "key"
+    Key: "key",
   })
 );
 ```
