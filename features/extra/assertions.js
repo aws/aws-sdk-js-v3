@@ -1,10 +1,7 @@
 const assert = require("assert");
 
 assert.match = function assertMatches(string, matcher, message) {
-  assert.ok(
-    string.match(matcher),
-    message || "Expected " + string + " to match " + matcher
-  );
+  assert.ok(string.match(matcher), message || "Expected " + string + " to match " + matcher);
 };
 
 assert.contains = function assertContains(list, matcher, message) {
@@ -21,16 +18,11 @@ assert.contains = function assertContains(list, matcher, message) {
   assert.fail(list, matcher, message, "does not contain");
 };
 
-assert.compare = function assertComparison(
-  actual,
-  operator,
-  expected,
-  message
-) {
+assert.compare = function assertComparison(actual, operator, expected, message) {
   const compare = actual + " " + operator + " " + expected;
   assert.ok(eval(compare), message || compare);
 };
 
 module.exports = {
-  assert: assert
+  assert: assert,
 };

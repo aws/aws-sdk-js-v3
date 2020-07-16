@@ -9,8 +9,8 @@ Before({ tags: "@pinpoint" }, function (scenario, callback) {
 Given("I create an application", function (callback) {
   const params = {
     CreateApplicationRequest: {
-      Name: this.uniqueName("aws-sdk-js-integration")
-    }
+      Name: this.uniqueName("aws-sdk-js-integration"),
+    },
   };
   this.request(null, "createApp", params, function (err, data) {
     if (err) {
@@ -21,16 +21,13 @@ Given("I create an application", function (callback) {
   });
 });
 
-Given('I run the "putEvents" operation with EventsRequest:', function (
-  eventsRequest,
-  callback
-) {
+Given('I run the "putEvents" operation with EventsRequest:', function (eventsRequest, callback) {
   this.request(
     null,
     "putEvents",
     {
       ApplicationId: this.applicationId,
-      EventsRequest: JSON.parse(eventsRequest)
+      EventsRequest: JSON.parse(eventsRequest),
     },
     callback,
     false
@@ -42,7 +39,7 @@ Given("I delete the application", function (callback) {
     null,
     "deleteApp",
     {
-      ApplicationId: this.applicationId
+      ApplicationId: this.applicationId,
     },
     callback,
     false

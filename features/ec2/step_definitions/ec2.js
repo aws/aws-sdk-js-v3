@@ -19,11 +19,7 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
         if (data.Volumes[0].State === "available") {
           callback();
         } else if (data.Volumes[0].State === "deleted") {
-          callback(
-            new Error(
-              `VolumeId ${data.Volumes[i].VolumeId} is in failure state`
-            )
-          );
+          callback(new Error(`VolumeId ${data.Volumes[i].VolumeId} is in failure state`));
         } else {
           setTimeout(function () {
             checkForVolumeAvailable();
@@ -49,11 +45,7 @@ Given("I describe EC2 regions {string}", function (regions, callback) {
   this.request(null, "describeRegions", { RegionNames: regions }, callback);
 });
 
-Then("the EC2 endpoint for {string} should be {string}", function (
-  region,
-  endpoint,
-  callback
-) {
+Then("the EC2 endpoint for {string} should be {string}", function (region, endpoint, callback) {
   this.assert.contains(this.data.Regions, function (region) {
     return region.Endpoint === endpoint;
   });
@@ -61,18 +53,10 @@ Then("the EC2 endpoint for {string} should be {string}", function (
 });
 
 Given("I describe the EC2 instance {string}", function (instanceId, callback) {
-  this.request(
-    null,
-    "describeInstances",
-    { InstanceIds: [instanceId] },
-    callback,
-    false
-  );
+  this.request(null, "describeInstances", { InstanceIds: [instanceId] }, callback, false);
 });
 
-Given("I attempt to copy an encrypted snapshot across regions", function (
-  callback
-) {
+Given("I attempt to copy an encrypted snapshot across regions", function (callback) {
   const self = this;
   let volId, srcSnapId, dstSnapId, params;
   const sourceRegion = "us-west-2";
@@ -89,7 +73,7 @@ Given("I attempt to copy an encrypted snapshot across regions", function (
   params = {
     AvailabilityZone: sourceRegion + "a",
     Size: 10,
-    Encrypted: true
+    Encrypted: true,
   };
   srcEc2.createVolume(params, function (err, data) {
     if (err) {
@@ -114,7 +98,7 @@ Given("I attempt to copy an encrypted snapshot across regions", function (
         setTimeout(function () {
           params = {
             SourceRegion: sourceRegion,
-            SourceSnapshotId: srcSnapId
+            SourceSnapshotId: srcSnapId,
           };
           dstEc2.copySnapshot(params, function (err, data) {
             if (data) dstSnapId = data.SnapshotId;

@@ -6,16 +6,12 @@ const { copyToClients } = require("./copy-to-clients");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
   CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
-  TEMP_CODE_GEN_INPUT_DIR
+  TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
 
-const SDK_CLIENTS_DIR = path.normalize(
-  path.join(__dirname, "..", "..", "clients")
-);
-const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(
-  path.join(__dirname, "..", "..", "protocol_tests")
-);
+const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
+const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "protocol_tests"));
 
 const { models, globs, output: clientsDir } = yargs
   .alias("m", "models")
@@ -40,10 +36,7 @@ const { models, globs, output: clientsDir } = yargs
     await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
-    await copyToClients(
-      CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
-      PROTOCOL_TESTS_CLIENTS_DIR
-    );
+    await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
     emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);

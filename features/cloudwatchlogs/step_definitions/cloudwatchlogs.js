@@ -6,19 +6,10 @@ Before({ tags: "@cloudwatchlogs" }, function (scenario, callback) {
   callback();
 });
 
-Given("I create a CloudWatch logGroup with prefix {string}", function (
-  prefix,
-  callback
-) {
+Given("I create a CloudWatch logGroup with prefix {string}", function (prefix, callback) {
   const expectErr = prefix === "" ? false : undefined;
   this.logGroupName = this.uniqueName(prefix);
-  this.request(
-    null,
-    "createLogGroup",
-    { logGroupName: this.logGroupName },
-    callback,
-    expectErr
-  );
+  this.request(null, "createLogGroup", { logGroupName: this.logGroupName }, callback, expectErr);
 });
 
 Given("I list the CloudWatch logGroups", function (callback) {
@@ -34,10 +25,5 @@ Then("the list should contain the CloudWatch logGroup", function (callback) {
 });
 
 Then("I delete the CloudWatch logGroup", function (callback) {
-  this.request(
-    null,
-    "deleteLogGroup",
-    { logGroupName: this.logGroupName },
-    callback
-  );
+  this.request(null, "deleteLogGroup", { logGroupName: this.logGroupName }, callback);
 });

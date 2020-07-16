@@ -7,11 +7,5 @@ Before({ tags: "@kinesis" }, function (scenario, callback) {
 });
 
 Given("I try to describe a stream in Kinesis", function (callback) {
-  this.request(
-    null,
-    "describeStream",
-    { StreamName: "XXINVALIDXX" },
-    callback,
-    false
-  );
+  this.request(null, "describeStream", { StreamName: "XXINVALIDXX" }, callback, false);
 });

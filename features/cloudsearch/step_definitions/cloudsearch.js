@@ -6,16 +6,7 @@ Before({ tags: "@cloudsearch" }, function (scenario, callback) {
   callback();
 });
 
-Given("I create a domain with name prefix {string}", function (
-  prefix,
-  callback
-) {
+Given("I create a domain with name prefix {string}", function (prefix, callback) {
   this.domainName = this.uniqueName(prefix);
-  this.request(
-    null,
-    "createDomain",
-    { DomainName: this.domainName },
-    callback,
-    false
-  );
+  this.request(null, "createDomain", { DomainName: this.domainName }, callback, false);
 });

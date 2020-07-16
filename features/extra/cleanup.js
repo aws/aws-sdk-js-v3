@@ -50,7 +50,7 @@ const deleteFixtures = function () {
 /*
  * Delete objects and then bucket.
  */
-const cleanBucket = async bucket => {
+const cleanBucket = async (bucket) => {
   await deleteObjects(bucket);
   await deleteBucket(bucket);
 };
@@ -58,7 +58,7 @@ const cleanBucket = async bucket => {
 /*
  * Delete bucket
  */
-const deleteBucket = async bucket => {
+const deleteBucket = async (bucket) => {
   const s3 = new S3({ maxRetries: 100 });
   return s3.deleteBucket({ Bucket: bucket });
 };
@@ -66,10 +66,10 @@ const deleteBucket = async bucket => {
 /**
  * Delete objects.
  */
-const deleteObjects = async bucket => {
+const deleteObjects = async (bucket) => {
   const s3 = new S3({ maxRetries: 100 });
   const params = {
-    Bucket: bucket
+    Bucket: bucket,
   };
 
   const data = await s3.listObjects(params);

@@ -6,13 +6,10 @@ Before({ tags: "@datapipeline" }, function (scenario, callback) {
   callback();
 });
 
-Given("I create a Data Pipeline with name prefix {string}", function (
-  prefix,
-  callback
-) {
+Given("I create a Data Pipeline with name prefix {string}", function (prefix, callback) {
   const params = {
     name: this.uniqueName(prefix),
-    uniqueId: this.uniqueName("aws-js-sdk")
+    uniqueId: this.uniqueName("aws-js-sdk"),
   };
   this.request(null, "createPipeline", params, callback, false);
 });

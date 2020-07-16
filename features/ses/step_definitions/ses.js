@@ -21,7 +21,7 @@ When("I ask to verify the email address {string}", function (email, next) {
     null,
     "verifyEmailAddress",
     {
-      EmailAddress: email
+      EmailAddress: email,
     },
     next,
     function () {

@@ -11,11 +11,5 @@ Given("I describe trails", function (callback) {
 });
 
 Given("I create a trail with an invalid name", function (callback) {
-  this.request(
-    null,
-    "createTrail",
-    { Name: "", S3BucketName: "" },
-    callback,
-    false
-  );
+  this.request(null, "createTrail", { Name: "", S3BucketName: "" }, callback, false);
 });
