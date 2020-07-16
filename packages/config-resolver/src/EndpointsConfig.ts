@@ -1,4 +1,4 @@
-import { Endpoint, Provider, RegionInfo,RegionInfoProvider, UrlParser } from "@aws-sdk/types";
+import { Endpoint, Provider, RegionInfo, RegionInfoProvider, UrlParser } from "@aws-sdk/types";
 
 export function normalizeEndpoint(
   endpoint?: string | Endpoint | Provider<Endpoint>,

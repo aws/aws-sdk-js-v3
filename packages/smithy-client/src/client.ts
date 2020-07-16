@@ -1,5 +1,5 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Client as IClient,Command, MetadataBearer, RequestHandler } from "@aws-sdk/types";
+import { Client as IClient, Command, MetadataBearer, RequestHandler } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;

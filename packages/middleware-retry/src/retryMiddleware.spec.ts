@@ -1,4 +1,4 @@
-import { FinalizeHandlerArguments,MiddlewareStack, RetryStrategy } from "@aws-sdk/types";
+import { FinalizeHandlerArguments, MiddlewareStack, RetryStrategy } from "@aws-sdk/types";
 
 import { getRetryPlugin, retryMiddleware, retryMiddlewareOptions } from "./retryMiddleware";
 
