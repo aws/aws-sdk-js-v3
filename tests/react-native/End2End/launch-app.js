@@ -1,3 +1,4 @@
+// @ts-check
 const { writeFileSync, unlinkSync } = require("fs");
 const { join, normalize } = require("path");
 const { spawn } = require("child_process");
@@ -35,6 +36,9 @@ const run = async () => {
   writeFileSync(".env", envFile);
 
   console.log(figlet.textSync("Building App..."));
+  console.log("installing pods...");
+  await spawnPromise("pod", ["install"], { cwd: join(__dirname, "ios") });
+  console.log("building detox App...");
   await spawnPromise(join("node_modules", ".bin", "detox"), ["build", "--configuration", "ios"], { cwd: __dirname });
 
   console.log(figlet.textSync("Lauching Tests..."));
