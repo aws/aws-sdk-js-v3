@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Amazon Transcribe streaming transcription enables you to send an audio stream and receive a stream of text in real time.
+Amazon Transcribe streaming enables you to send an audio stream and receive back a stream of text in real time.
 The API makes it easy for developers to add real-time speech-to-text capability to their applications. It can be used
 for a variety of purposes. For example:
 
@@ -64,7 +64,7 @@ const audioStream = async function* () {
 };
 ```
 
-Then you need to construct the binary chunk into the audio chunk shape that can be recognized by the SDK:
+Then you need to construct the binary chunk into an audio chunk shape that can be recognized by the SDK:
 
 ```javascript
 const audioStream = async function* () {
@@ -77,7 +77,7 @@ const audioStream = async function* () {
 ### Acquire from Node.js Stream API
 
 In Node.js you will mostly acquire the speech in [Stream API], from HTTP request or devices. Stream API in Node.js (>=
-10.0.0) itself is an async iterable. You can supply the the streaming into the SDK input without explicit convert. You
+10.0.0) itself is an async iterable. You can supply the streaming into the SDK input without explicit convert. You
 only need to construct the audio chunk shape that can be recognized by the SDK:
 
 ```javascript
@@ -192,7 +192,7 @@ for await (const event of response.TranscriptResultStream) {
 
 ### Pipe Transcripts Stream
 
-In Node.js, you can pipe this `TranscriptResultStream` other destination easily with the [`from` API][readable.from]:
+In Node.js, you can pipe this `TranscriptResultStream` to other destinations easily with the [`from` API][readable.from]:
 
 ```javascript
 const { Readable } = require("stream");
@@ -203,12 +203,17 @@ transcriptsStream.pipe(/* some destinations */);
 ## Error Handling
 
 If you are using `async...await` style code, you are able to catch the errors with `try...catch` block. There are 2
-categories of exceptions can be thrown: Immediate exceptions thrown before transcription is started, like signature
-exceptions, invalid parameters exceptions, and network errors; Streaming exceptions that happens after transcription is
+categories of exceptions can be thrown:
+
+- Immediate exceptions thrown before transcription is started, like signature
+exceptions, invalid parameters exceptions, and network errors;
+- Streaming exceptions that happens after transcription is
 started, like `InternalFailureException` or `ConflictException`.
 
-For the first category, the SDK client will retry the request if the error is retryable, like network errors. You can
-config the client to behave as you intend to. For the second category, because the streaming transcription is already
+For immediate exceptions, the SDK client will retry the request if the error is retryable, like network errors. You can
+config the client to behave as you intend to.
+
+For streaming exceptions, because the streaming transcription is already
 started, client cannot retry the request automatically. The client will throw these exceptions and users can handle the
 stream behavior accordingly.
 
@@ -234,10 +239,10 @@ try {
 
 This package is compatible with React Native (>= 0.60). However, it is not tested with any React Native libraries that
 converts microphone record into streaming data. Community input for integrating streaming microphone record data is
-welcome
+welcome.
 
 Thank you for reading this guide. If you want to know more about how streams are encoded, how connection is established,
-please refer to the [Service API guide][service api guide]
+please refer to the [Service API guide][service api guide].
 
 [async iterable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
 [stream api]: https://nodejs.org/docs/latest-v12.x/api/stream.html
