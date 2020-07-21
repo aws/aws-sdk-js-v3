@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-node",
-  "version": "1.0.0-gamma.3",
+  "version": "1.0.0-gamma.4",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@aws-sdk/types": "1.0.0-gamma.3",
-    "@aws-sdk/util-buffer-from": "1.0.0-gamma.3",
+    "@aws-sdk/util-buffer-from": "1.0.0-gamma.4",
     "tslib": "^1.8.0"
   }
 }

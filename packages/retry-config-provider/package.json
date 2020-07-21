@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/retry-config-provider",
-  "version": "1.0.0-gamma.2",
+  "version": "1.0.0-gamma.3",
   "description": "AWS retry configuration provider for Node.JS. Will determine the default retry configuration to use for AWS clients by checking known environment variables and shared configuration files",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -22,9 +22,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-retry": "1.0.0-gamma.3",
-    "@aws-sdk/property-provider": "1.0.0-gamma.3",
-    "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.3",
+    "@aws-sdk/middleware-retry": "1.0.0-gamma.4",
+    "@aws-sdk/property-provider": "1.0.0-gamma.4",
+    "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.4",
     "@aws-sdk/types": "1.0.0-gamma.3",
     "tslib": "^1.8.0"
   },

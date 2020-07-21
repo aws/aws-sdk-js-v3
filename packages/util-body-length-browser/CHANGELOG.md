@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/util-body-length-browser@1.0.0-gamma.3...@aws-sdk/util-body-length-browser@1.0.0-gamma.4) (2020-07-21)
+
+
+### Bug Fixes
+
+* remove `Blob` usage ([#1384](https://github.com/aws/aws-sdk-js-v3/issues/1384)) ([bcb5503](https://github.com/aws/aws-sdk-js-v3/commit/bcb5503c85b8d95c6ae47b553dab01d20851dbf8))
+
+
+
+
+
 # [1.0.0-gamma.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/util-body-length-browser@1.0.0-gamma.2...@aws-sdk/util-body-length-browser@1.0.0-gamma.3) (2020-07-13)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/querystring-builder",
-  "version": "1.0.0-gamma.3",
+  "version": "1.0.0-gamma.4",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,7 +18,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "1.0.0-gamma.3",
-    "@aws-sdk/util-uri-escape": "1.0.0-gamma.3",
+    "@aws-sdk/util-uri-escape": "1.0.0-gamma.4",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
