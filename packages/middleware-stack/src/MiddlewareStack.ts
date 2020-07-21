@@ -1,24 +1,14 @@
 import {
   AbsoluteLocation,
-  BuildHandlerOptions,
-  BuildMiddleware,
   DeserializeHandler,
-  DeserializeHandlerOptions,
-  DeserializeMiddleware,
-  FinalizeRequestHandlerOptions,
-  FinalizeRequestMiddleware,
   Handler,
   HandlerExecutionContext,
   HandlerOptions,
-  InitializeHandlerOptions,
-  InitializeMiddleware,
   MiddlewareStack as IMiddlewareStack,
   MiddlewareType,
   Pluggable,
   Priority,
   RelativeLocation,
-  SerializeHandlerOptions,
-  SerializeMiddleware,
   Step,
 } from "@aws-sdk/types";
 
@@ -32,200 +22,76 @@ import {
   RelativeMiddlewareEntry,
 } from "./types";
 
-export interface MiddlewareStack<Input extends object, Output extends object> extends IMiddlewareStack<Input, Output> {}
-
-export class MiddlewareStack<Input extends object, Output extends object> {
-  private readonly absoluteEntries: Array<MiddlewareEntry<Input, Output>> = [];
-  private readonly relativeEntries: Array<RelativeMiddlewareEntry<Input, Output>> = [];
-  private entriesNameMap: {
+export function constructStack<Input extends object, Output extends object>(): IMiddlewareStack<Input, Output> {
+  const absoluteEntries: Array<MiddlewareEntry<Input, Output>> = [];
+  const relativeEntries: Array<RelativeMiddlewareEntry<Input, Output>> = [];
+  const entriesNameMap: {
     [middlewareName: string]: MiddlewareEntry<Input, Output> | RelativeMiddlewareEntry<Input, Output>;
   } = {};
 
-  add(middleware: InitializeMiddleware<Input, Output>, options?: InitializeHandlerOptions & AbsoluteLocation): void;
-
-  add(middleware: SerializeMiddleware<Input, Output>, options: SerializeHandlerOptions & AbsoluteLocation): void;
-
-  add(middleware: BuildMiddleware<Input, Output>, options: BuildHandlerOptions & AbsoluteLocation): void;
-
-  add(
-    middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerOptions & AbsoluteLocation
-  ): void;
-
-  add(middleware: DeserializeMiddleware<Input, Output>, options: DeserializeHandlerOptions & AbsoluteLocation): void;
-
-  add(middleware: MiddlewareType<Input, Output>, options: HandlerOptions & AbsoluteLocation = {}): void {
-    const { name, step = "initialize", tags, priority = "normal" } = options;
-    const entry: MiddlewareEntry<Input, Output> = {
-      name,
-      step,
-      tags,
-      priority,
-      middleware,
-    };
-    if (name) {
-      if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
-        throw new Error(`Duplicated middleware name '${name}'`);
-      }
-      this.entriesNameMap[name] = entry;
-    }
-    this.absoluteEntries.push(entry);
-  }
-
-  addRelativeTo(
-    middleware: InitializeMiddleware<Input, Output>,
-    options: InitializeHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  addRelativeTo(
-    middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  addRelativeTo(
-    middleware: BuildMiddleware<Input, Output>,
-    options: BuildHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  addRelativeTo(
-    middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  addRelativeTo(
-    middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  addRelativeTo(
-    middleware: MiddlewareType<Input, Output>,
-    options: HandlerOptions & RelativeLocation<Input, Output>
-  ): void {
-    const { step = "initialize", name, tags, relation, toMiddleware } = options;
-    const entry: RelativeMiddlewareEntry<Input, Output> = {
-      middleware,
-      step,
-      name,
-      tags,
-      next: relation === "before" ? toMiddleware : undefined,
-      prev: relation === "after" ? toMiddleware : undefined,
-    };
-    if (name) {
-      if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
-        throw new Error(`Duplicated middleware name '${name}'`);
-      }
-      this.entriesNameMap[name] = entry;
-    }
-    this.relativeEntries.push(entry);
-  }
-
-  private sort(
+  const sort = (
     entries: Array<MiddlewareEntry<Input, Output> | NormalizedRelativeEntry<Input, Output>>
-  ): Array<MiddlewareEntry<Input, Output> | NormalizedRelativeEntry<Input, Output>> {
+  ): Array<MiddlewareEntry<Input, Output> | NormalizedRelativeEntry<Input, Output>> =>
     //reverse before sorting so that middleware of same step will execute in
     //the order of being added
-    return entries.sort(
+    entries.sort(
       (a, b) =>
         stepWeights[b.step] - stepWeights[a.step] ||
         priorityWeights[b.priority || "normal"] - priorityWeights[a.priority || "normal"]
     );
-  }
 
-  clone(): IMiddlewareStack<Input, Output> {
-    const clone = new MiddlewareStack<Input, Output>();
-    clone.absoluteEntries.push(...this.absoluteEntries);
-    clone.relativeEntries.push(...this.relativeEntries);
-    clone.entriesNameMap = { ...this.entriesNameMap };
-    return clone;
-  }
-
-  concat<InputType extends Input, OutputType extends Output>(
-    from: IMiddlewareStack<InputType, OutputType>
-  ): MiddlewareStack<InputType, OutputType> {
-    const clone = new MiddlewareStack<InputType, OutputType>();
-    clone.entriesNameMap = { ...(this.entriesNameMap as any) };
-    // IMiddlewareStack interface doesn't contain private members variables
-    // like `entriesNameMap`, but in fact the function expects `MiddlewareStack`
-    // class instance. So here we cast it.
-    const _from = from as MiddlewareStack<InputType, OutputType>;
-    for (const name in _from.entriesNameMap) {
-      if (clone.entriesNameMap[name]) {
-        throw new Error(`Duplicated middleware name '${name}'`);
-      }
-      clone.entriesNameMap[name] = _from.entriesNameMap[name];
-    }
-    clone.absoluteEntries.push(...(this.absoluteEntries as any), ..._from.absoluteEntries);
-    clone.relativeEntries.push(...(this.relativeEntries as any), ..._from.relativeEntries);
-    return clone;
-  }
-
-  remove(toRemove: MiddlewareType<Input, Output> | string): boolean {
-    if (typeof toRemove === "string") return this.removeByName(toRemove);
-    else return this.removeByReference(toRemove);
-  }
-
-  private removeByName(toRemove: string): boolean {
-    for (let i = this.absoluteEntries.length - 1; i >= 0; i--) {
-      if (this.absoluteEntries[i].name && this.absoluteEntries[i].name === toRemove) {
-        this.absoluteEntries.splice(i, 1);
-        delete this.entriesNameMap[toRemove];
+  const removeByName = (toRemove: string): boolean => {
+    for (let i = absoluteEntries.length - 1; i >= 0; i--) {
+      if (absoluteEntries[i].name && absoluteEntries[i].name === toRemove) {
+        absoluteEntries.splice(i, 1);
+        delete entriesNameMap[toRemove];
         return true;
       }
     }
-    for (let i = this.relativeEntries.length - 1; i >= 0; i--) {
-      if (this.relativeEntries[i].name && this.relativeEntries[i].name === toRemove) {
-        this.relativeEntries.splice(i, 1);
-        delete this.entriesNameMap[toRemove];
+    for (let i = relativeEntries.length - 1; i >= 0; i--) {
+      if (relativeEntries[i].name && relativeEntries[i].name === toRemove) {
+        relativeEntries.splice(i, 1);
+        delete entriesNameMap[toRemove];
         return true;
       }
     }
     return false;
-  }
+  };
 
-  private removeByReference(toRemove: MiddlewareType<Input, Output>): boolean {
-    for (let i = this.absoluteEntries.length - 1; i >= 0; i--) {
-      if (this.absoluteEntries[i].middleware === toRemove) {
-        const { name } = this.absoluteEntries[i];
-        if (name) delete this.entriesNameMap[name];
-        this.absoluteEntries.splice(i, 1);
+  const removeByReference = (toRemove: MiddlewareType<Input, Output>): boolean => {
+    for (let i = absoluteEntries.length - 1; i >= 0; i--) {
+      if (absoluteEntries[i].middleware === toRemove) {
+        const { name } = absoluteEntries[i];
+        if (name) delete entriesNameMap[name];
+        absoluteEntries.splice(i, 1);
         return true;
       }
     }
-    for (let i = this.relativeEntries.length - 1; i >= 0; i--) {
-      if (this.relativeEntries[i].middleware === toRemove) {
-        const { name } = this.relativeEntries[i];
-        if (name) delete this.entriesNameMap[name];
-        this.relativeEntries.splice(i, 1);
+    for (let i = relativeEntries.length - 1; i >= 0; i--) {
+      if (relativeEntries[i].middleware === toRemove) {
+        const { name } = relativeEntries[i];
+        if (name) delete entriesNameMap[name];
+        relativeEntries.splice(i, 1);
         return true;
       }
     }
     return false;
-  }
+  };
 
-  removeByTag(toRemove: string): boolean {
-    let removed = false;
-    for (let i = this.absoluteEntries.length - 1; i >= 0; i--) {
-      const { tags, name } = this.absoluteEntries[i];
-      if (tags && tags.indexOf(toRemove) > -1) {
-        this.absoluteEntries.splice(i, 1);
-        if (name) delete this.entriesNameMap[name];
-        removed = true;
-      }
-    }
-    for (let i = this.relativeEntries.length - 1; i >= 0; i--) {
-      const { tags, name } = this.relativeEntries[i];
-      if (tags && tags.indexOf(toRemove) > -1) {
-        this.relativeEntries.splice(i, 1);
-        if (name) delete this.entriesNameMap[name];
-        removed = true;
-      }
-    }
-    return removed;
-  }
-
-  use(plugin: Pluggable<Input, Output>) {
-    plugin.applyToStack(this);
-  }
+  const cloneTo = <InputType extends Input, OutputType extends Output>(
+    toStack: IMiddlewareStack<InputType, OutputType>
+  ): IMiddlewareStack<InputType, OutputType> => {
+    const clone = toStack || constructStack<InputType, OutputType>();
+    absoluteEntries.forEach((entry) => {
+      //@ts-ignore
+      clone.add(entry.middleware, { ...entry });
+    });
+    relativeEntries.forEach((entry) => {
+      //@ts-ignore
+      clone.addRelativeTo(entry.middleware, { ...entry });
+    });
+    return clone;
+  };
 
   /**
    * Resolve relative middleware entries to multiple double linked lists
@@ -240,14 +106,14 @@ export class MiddlewareStack<Input extends object, Output extends object> {
    *
    * The 2 types of linked list will return as a tuple
    */
-  private normalizeRelativeEntries(): NormalizingEntryResult<Input, Output> {
-    const absoluteMiddlewareNamesMap = this.absoluteEntries
+  const normalizeRelativeEntries = (): NormalizingEntryResult<Input, Output> => {
+    const absoluteMiddlewareNamesMap = absoluteEntries
       .filter((entry) => entry.name)
       .reduce((accumulator, entry) => {
         accumulator[entry.name!] = entry;
         return accumulator;
       }, {} as NamedMiddlewareEntriesMap<Input, Output>);
-    const normalized = this.relativeEntries.map(
+    const normalized = relativeEntries.map(
       (entry) =>
         ({
           ...entry,
@@ -264,8 +130,8 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       }, {} as NamedRelativeEntriesMap<Input, Output>);
 
     const anchors: RelativeMiddlewareAnchor<Input, Output> = {};
-    for (let i = 0; i < this.relativeEntries.length; i++) {
-      const { prev, next } = this.relativeEntries[i];
+    for (let i = 0; i < relativeEntries.length; i++) {
+      const { prev, next } = relativeEntries[i];
       const resolvedCurr = normalized[i];
       //either prev or next is set
       if (prev) {
@@ -323,7 +189,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       }
     }
     return [orphanedRelativeEntries, anchors];
-  }
+  };
 
   /**
    * Get a final list of middleware in the order of being executed in the resolved handler.
@@ -334,11 +200,11 @@ export class MiddlewareStack<Input extends object, Output extends object> {
    * 2. if `toMiddleware` doesn't exist in the specific `step`, the middleware will be appended
    *     to specific `step` with priority of `normal`
    */
-  private getMiddlewareList(): Array<MiddlewareType<Input, Output>> {
+  const getMiddlewareList = (): Array<MiddlewareType<Input, Output>> => {
     const middlewareList: Array<MiddlewareType<Input, Output>> = [];
-    const [orphanedRelativeEntries, anchors] = this.normalizeRelativeEntries();
-    let entryList = [...this.absoluteEntries, ...orphanedRelativeEntries];
-    entryList = this.sort(entryList);
+    const [orphanedRelativeEntries, anchors] = normalizeRelativeEntries();
+    let entryList = [...absoluteEntries, ...orphanedRelativeEntries];
+    entryList = sort(entryList);
     for (const entry of entryList) {
       const defaultAnchorValue = { prev: undefined, next: undefined };
       const { prev, next } = entry.name ? anchors[entry.name] || defaultAnchorValue : defaultAnchorValue;
@@ -364,18 +230,89 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       }
     }
     return middlewareList.reverse();
-  }
+  };
 
-  resolve<InputType extends Input, OutputType extends Output>(
-    handler: DeserializeHandler<InputType, OutputType>,
-    context: HandlerExecutionContext
-  ): Handler<InputType, OutputType> {
-    for (const middleware of this.getMiddlewareList()) {
-      handler = middleware(handler as Handler<Input, OutputType>, context) as any;
-    }
-
-    return handler as Handler<InputType, OutputType>;
-  }
+  const stack = {
+    add: (middleware: MiddlewareType<Input, Output>, options: HandlerOptions & AbsoluteLocation = {}) => {
+      const { name, step = "initialize", tags, priority = "normal" } = options;
+      const entry: MiddlewareEntry<Input, Output> = {
+        name,
+        step,
+        tags,
+        priority,
+        middleware,
+      };
+      if (name) {
+        if (Object.prototype.hasOwnProperty.call(entriesNameMap, name)) {
+          throw new Error(`Duplicated middleware name '${name}'`);
+        }
+        entriesNameMap[name] = entry;
+      }
+      absoluteEntries.push(entry);
+    },
+    addRelativeTo: (
+      middleware: MiddlewareType<Input, Output>,
+      options: HandlerOptions & RelativeLocation<Input, Output>
+    ) => {
+      const { step = "initialize", name, tags, relation, toMiddleware } = options;
+      const entry: RelativeMiddlewareEntry<Input, Output> = {
+        middleware,
+        step,
+        name,
+        tags,
+        next: relation === "before" ? toMiddleware : undefined,
+        prev: relation === "after" ? toMiddleware : undefined,
+      };
+      if (name) {
+        if (Object.prototype.hasOwnProperty.call(entriesNameMap, name)) {
+          throw new Error(`Duplicated middleware name '${name}'`);
+        }
+        entriesNameMap[name] = entry;
+      }
+      relativeEntries.push(entry);
+    },
+    clone: (): IMiddlewareStack<Input, Output> => cloneTo(constructStack<Input, Output>()),
+    use: (plugin: Pluggable<Input, Output>) => {
+      plugin.applyToStack(stack);
+    },
+    remove: (toRemove: MiddlewareType<Input, Output> | string): boolean => {
+      if (typeof toRemove === "string") return removeByName(toRemove);
+      else return removeByReference(toRemove);
+    },
+    removeByTag: (toRemove: string): boolean => {
+      let removed = false;
+      for (let i = absoluteEntries.length - 1; i >= 0; i--) {
+        const { tags, name } = absoluteEntries[i];
+        if (tags && tags.indexOf(toRemove) > -1) {
+          absoluteEntries.splice(i, 1);
+          if (name) delete entriesNameMap[name];
+          removed = true;
+        }
+      }
+      for (let i = relativeEntries.length - 1; i >= 0; i--) {
+        const { tags, name } = relativeEntries[i];
+        if (tags && tags.indexOf(toRemove) > -1) {
+          relativeEntries.splice(i, 1);
+          if (name) delete entriesNameMap[name];
+          removed = true;
+        }
+      }
+      return removed;
+    },
+    concat: <InputType extends Input, OutputType extends Output>(
+      from: IMiddlewareStack<InputType, OutputType>
+    ): IMiddlewareStack<InputType, OutputType> => cloneTo(from.clone()),
+    resolve: <InputType extends Input, OutputType extends Output>(
+      handler: DeserializeHandler<InputType, OutputType>,
+      context: HandlerExecutionContext
+    ): Handler<InputType, OutputType> => {
+      for (const middleware of getMiddlewareList()) {
+        handler = middleware(handler as Handler<Input, OutputType>, context) as any;
+      }
+      return handler as Handler<InputType, OutputType>;
+    },
+  };
+  return stack;
 }
 
 const stepWeights: { [key in Step]: number } = {

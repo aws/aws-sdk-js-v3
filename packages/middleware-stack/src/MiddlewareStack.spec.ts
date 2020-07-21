@@ -11,7 +11,7 @@ import {
   Pluggable,
 } from "@aws-sdk/types";
 
-import { MiddlewareStack } from "./MiddlewareStack";
+import { constructStack } from "./MiddlewareStack";
 
 type input = Array<string>;
 type output = object;
@@ -29,7 +29,7 @@ function getConcatMiddleware(message: string): MiddlewareType<input, output> {
 
 describe("MiddlewareStack", () => {
   it("should resolve the stack into a composed handler", async () => {
-    const stack = new MiddlewareStack<input, output>();
+    const stack = constructStack<input, output>();
     const secondMW = getConcatMiddleware("second") as InitializeMiddleware<input, output>;
     stack.add(secondMW, { name: "second" });
     stack.addRelativeTo(getConcatMiddleware("first") as InitializeMiddleware<input, output>, {
@@ -75,7 +75,7 @@ describe("MiddlewareStack", () => {
   });
 
   it("should allow adding middleware relatively", async () => {
-    const stack = new MiddlewareStack<input, output>();
+    const stack = constructStack<input, output>();
     type MW = InitializeMiddleware<input, output>;
     stack.addRelativeTo(getConcatMiddleware("H") as MW, {
       name: "H",
@@ -145,7 +145,7 @@ describe("MiddlewareStack", () => {
   });
 
   it("should allow cloning", async () => {
-    const stack = new MiddlewareStack<input, output>();
+    const stack = constructStack<input, output>();
     const secondMiddleware = getConcatMiddleware("second") as InitializeMiddleware<input, output>;
     stack.add(secondMiddleware);
     stack.add(getConcatMiddleware("first") as InitializeMiddleware<input, output>, {
@@ -174,14 +174,14 @@ describe("MiddlewareStack", () => {
   });
 
   it("should allow combining stacks", async () => {
-    const stack = new MiddlewareStack<input, output>();
+    const stack = constructStack<input, output>();
     stack.add(getConcatMiddleware("first") as InitializeMiddleware<input, output>);
     stack.add(getConcatMiddleware("second") as InitializeMiddleware<input, output>, {
       name: "second",
       priority: "low",
     });
 
-    const secondStack = new MiddlewareStack<input, output>();
+    const secondStack = constructStack<input, output>();
     secondStack.add(getConcatMiddleware("fourth") as FinalizeRequestMiddleware<input, output>, {
       step: "build",
       priority: "low",
@@ -209,7 +209,7 @@ describe("MiddlewareStack", () => {
   });
 
   it("should allow the removal of middleware by constructor identity", async () => {
-    const stack = new MiddlewareStack<input, output>();
+    const stack = constructStack<input, output>();
     stack.add(getConcatMiddleware("don't remove me") as InitializeMiddleware<input, output>, { name: "notRemove" });
     stack.addRelativeTo(getConcatMiddleware("remove me!") as InitializeMiddleware<input, output>, {
       relation: "after",
@@ -231,7 +231,7 @@ describe("MiddlewareStack", () => {
   });
 
   it("should allow the removal of middleware by tag", async () => {
-    const stack = new MiddlewareStack<input, output>();
+    const stack = constructStack<input, output>();
     stack.add(getConcatMiddleware("not removed") as InitializeMiddleware<input, output>, {
       name: "not removed",
       tags: ["foo", "bar"],
@@ -256,7 +256,7 @@ describe("MiddlewareStack", () => {
   });
 
   it("should apply customizations from pluggables", async () => {
-    const stack = new MiddlewareStack<input, output>();
+    const stack = constructStack<input, output>();
     const plugin: Pluggable<input, output> = {
       applyToStack: (stack) => {
         stack.addRelativeTo(getConcatMiddleware("second") as InitializeMiddleware<input, output>, {
