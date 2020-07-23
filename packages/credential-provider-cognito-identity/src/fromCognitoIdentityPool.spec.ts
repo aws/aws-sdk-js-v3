@@ -56,7 +56,10 @@ describe("fromCognitoIdentityPool", () => {
     });
 
     expect(send.mock.calls.length).toBe(1);
-    expect(send.mock.calls[0][0]).toEqual(new GetIdCommand({ IdentityPoolId: identityPoolId }));
+    expect(send.mock.calls[0][0]).toEqual(expect.any(GetIdCommand));
+    expect(send.mock.calls[0][0].input).toEqual({
+      IdentityPoolId: identityPoolId,
+    });
 
     expect((fromCognitoIdentity as any).mock.calls.length).toBe(1);
     expect((fromCognitoIdentity as any).mock.calls[0][0]).toEqual({
@@ -76,15 +79,14 @@ describe("fromCognitoIdentityPool", () => {
       },
     })();
 
-    expect(send.mock.calls[0][0]).toEqual(
-      new GetIdCommand({
-        IdentityPoolId: identityPoolId,
-        Logins: {
-          myDomain: "token",
-          "www.amazon.com": "expiring nonce",
-        },
-      })
-    );
+    expect(send.mock.calls[0][0]).toEqual(expect.any(GetIdCommand));
+    expect(send.mock.calls[0][0].input).toEqual({
+      IdentityPoolId: identityPoolId,
+      Logins: {
+        myDomain: "token",
+        "www.amazon.com": "expiring nonce",
+      },
+    });
   });
 
   it("should not invoke GetId a second time once an identityID has been fetched", async () => {
