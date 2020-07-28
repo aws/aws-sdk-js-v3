@@ -49,5 +49,43 @@ describe("EndpointsConfig", () => {
         expect(urlParser).not.toHaveBeenCalled();
       });
     });
+
+    describe("if not defined in input.endpoint", () => {
+      describe("returns endpoint", () => {
+        const mockRegion = "mockRegion";
+        const mockHostname = "mockHostname";
+        const mockEndpoint: Endpoint = { protocol: "protocol", hostname: "hostname", path: "path" };
+
+        beforeEach(() => {
+          region.mockResolvedValueOnce(mockRegion);
+          regionInfoProvider.mockResolvedValueOnce({ hostname: mockHostname });
+          urlParser.mockReturnValueOnce(mockEndpoint);
+        });
+
+        it("passes http in urlParser if tls is false", async () => {
+          const endpoint = await resolveEndpointsConfig({ ...input, tls: false }).endpoint();
+          expect(endpoint).toStrictEqual(mockEndpoint);
+          expect(urlParser).toHaveBeenCalledTimes(1);
+          expect(urlParser).toHaveBeenCalledWith(`http://${mockHostname}`);
+        });
+
+        [true, undefined].forEach((tls) => {
+          it(`passes https in urlParser if tls is ${tls}`, async () => {
+            const endpoint = await resolveEndpointsConfig({ ...input, tls }).endpoint();
+            expect(endpoint).toStrictEqual(mockEndpoint);
+            expect(urlParser).toHaveBeenCalledTimes(1);
+            expect(urlParser).toHaveBeenCalledWith(`https://${mockHostname}`);
+          });
+        });
+      });
+
+      describe("throws error", () => {
+        it("if region throws error", () => {});
+
+        it("if regionInfoProvider throws error", () => {});
+
+        it("if regionInfoProvider returns undefined", () => {});
+      });
+    });
   });
 });
