@@ -29,33 +29,36 @@ describe("EndpointsConfig", () => {
     describe("if defined in input.endpoint", () => {
       const mockEndpoint: Endpoint = { protocol: "protocol", hostname: "hostname", path: "path" };
 
-      it("returns output of urlParser if endpoint if of type string", () => {
+      it("returns output of urlParser if endpoint is of type string", async () => {
         const endpoint = "endpoint";
         urlParser.mockReturnValueOnce(mockEndpoint);
-        expect(resolveEndpointsConfig({ ...input, endpoint }).endpoint()).resolves.toBe(mockEndpoint);
+        const endpointOutput = await resolveEndpointsConfig({ ...input, endpoint }).endpoint();
+        expect(endpointOutput).toStrictEqual(mockEndpoint);
         expect(urlParser).toHaveBeenCalledTimes(1);
         expect(urlParser).toHaveBeenCalledWith(endpoint);
       });
 
-      it("returns promisified endpoint if it's of type object", () => {
+      it("returns promisified endpoint if it's of type object", async () => {
         const endpoint = mockEndpoint;
-        expect(resolveEndpointsConfig({ ...input, endpoint }).endpoint()).resolves.toBe(endpoint);
+        const endpointOutput = await resolveEndpointsConfig({ ...input, endpoint }).endpoint();
+        expect(endpointOutput).toStrictEqual(endpoint);
         expect(urlParser).not.toHaveBeenCalled();
       });
 
-      it("returns endpoint if it's already Provider<Endpoint>", () => {
+      it("returns endpoint if it's already Provider<Endpoint>", async () => {
         const endpoint = () => Promise.resolve(mockEndpoint);
-        expect(resolveEndpointsConfig({ ...input, endpoint }).endpoint()).resolves.toBe(mockEndpoint);
+        const endpointOutput = await resolveEndpointsConfig({ ...input, endpoint }).endpoint();
+        expect(endpointOutput).toStrictEqual(mockEndpoint);
         expect(urlParser).not.toHaveBeenCalled();
       });
     });
 
     describe("if not defined in input.endpoint", () => {
-      describe("returns endpoint", () => {
-        const mockRegion = "mockRegion";
-        const mockHostname = "mockHostname";
-        const mockEndpoint: Endpoint = { protocol: "protocol", hostname: "hostname", path: "path" };
+      const mockRegion = "mockRegion";
+      const mockHostname = "mockHostname";
+      const mockEndpoint: Endpoint = { protocol: "protocol", hostname: "hostname", path: "path" };
 
+      describe("returns endpoint", () => {
         beforeEach(() => {
           region.mockResolvedValueOnce(mockRegion);
           regionInfoProvider.mockResolvedValueOnce({ hostname: mockHostname });
@@ -80,11 +83,30 @@ describe("EndpointsConfig", () => {
       });
 
       describe("throws error", () => {
-        it("if region throws error", () => {});
+        const error = new Error("error");
 
-        it("if regionInfoProvider throws error", () => {});
+        it("if region throws error", () => {
+          region.mockRejectedValueOnce(error);
+          return expect(resolveEndpointsConfig(input).endpoint()).rejects.toStrictEqual(error);
+        });
 
-        it("if regionInfoProvider returns undefined", () => {});
+        describe("if regionInfoProvider", () => {
+          beforeEach(() => {
+            region.mockResolvedValueOnce(mockRegion);
+          });
+
+          it("throws error", () => {
+            regionInfoProvider.mockRejectedValueOnce(error);
+            return expect(resolveEndpointsConfig(input).endpoint()).rejects.toStrictEqual(error);
+          });
+
+          it("returns undefined", () => {
+            regionInfoProvider.mockResolvedValueOnce(undefined);
+            return expect(resolveEndpointsConfig(input).endpoint()).rejects.toStrictEqual(
+              new Error("Cannot resolve hostname from client config")
+            );
+          });
+        });
       });
     });
   });
