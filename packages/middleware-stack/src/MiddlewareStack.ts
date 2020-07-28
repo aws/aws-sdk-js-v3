@@ -14,7 +14,7 @@ import {
 
 import { AbsoluteMiddlewareEntry, MiddlewareEntry, Normalized, RelativeMiddlewareEntry } from "./types";
 
-export function constructStack<Input extends object, Output extends object>(): MiddlewareStack<Input, Output> {
+export const constructStack = <Input extends object, Output extends object>(): MiddlewareStack<Input, Output> => {
   let absoluteEntries: AbsoluteMiddlewareEntry<Input, Output>[] = [];
   let relativeEntries: RelativeMiddlewareEntry<Input, Output>[] = [];
   const entriesNameSet: Set<string> = new Set();
@@ -30,7 +30,7 @@ export function constructStack<Input extends object, Output extends object>(): M
     let isRemoved = false;
     const filterCb = (entry: MiddlewareEntry<Input, Output>): boolean => {
       if (entry.name && entry.name === toRemove) {
-        isRemoved = false;
+        isRemoved = true;
         entriesNameSet.delete(toRemove);
         return false;
       }
@@ -56,57 +56,40 @@ export function constructStack<Input extends object, Output extends object>(): M
     return isRemoved;
   };
 
-  const removeByTag = (toRemove: string): boolean => {
-    let isRemoved = false;
-    const filterCb = (entry: MiddlewareEntry<Input, Output>): boolean => {
-      const { tags, name } = entry;
-      if (tags && tags.includes(toRemove)) {
-        if (name) entriesNameSet.delete(name);
-        isRemoved = true;
-        return false;
-      }
-      return true;
-    };
-    absoluteEntries = absoluteEntries.filter(filterCb);
-    relativeEntries = relativeEntries.filter(filterCb);
-    return isRemoved;
-  };
-
   const cloneTo = <InputType extends Input, OutputType extends Output>(
     toStack: MiddlewareStack<InputType, OutputType>
   ): MiddlewareStack<InputType, OutputType> => {
-    const clone = toStack;
     absoluteEntries.forEach((entry) => {
       //@ts-ignore
-      clone.add(entry.middleware, { ...entry });
+      toStack.add(entry.middleware, { ...entry });
     });
     relativeEntries.forEach((entry) => {
       //@ts-ignore
-      clone.addRelativeTo(entry.middleware, { ...entry });
+      toStack.addRelativeTo(entry.middleware, { ...entry });
     });
-    return clone;
+    return toStack;
   };
 
   const expandRelativeMiddlewareList = (
     from: Normalized<MiddlewareEntry<Input, Output>, Input, Output>
   ): MiddlewareEntry<Input, Output>[] => {
-    const expandedMiddleareList: MiddlewareEntry<Input, Output>[] = [];
+    const expandedMiddlewareList: MiddlewareEntry<Input, Output>[] = [];
     from.before.forEach((entry) => {
       if (entry.before.length === 0 && entry.after.length === 0) {
-        expandedMiddleareList.push(entry);
+        expandedMiddlewareList.push(entry);
       } else {
-        expandedMiddleareList.push(...expandRelativeMiddlewareList(entry));
+        expandedMiddlewareList.push(...expandRelativeMiddlewareList(entry));
       }
     });
-    expandedMiddleareList.push(from);
+    expandedMiddlewareList.push(from);
     from.after.reverse().forEach((entry) => {
       if (entry.before.length === 0 && entry.after.length === 0) {
-        expandedMiddleareList.push(entry);
+        expandedMiddlewareList.push(entry);
       } else {
-        expandedMiddleareList.push(...expandRelativeMiddlewareList(entry));
+        expandedMiddlewareList.push(...expandRelativeMiddlewareList(entry));
       }
     });
-    return expandedMiddleareList;
+    return expandedMiddlewareList;
   };
 
   /**
@@ -118,6 +101,7 @@ export function constructStack<Input extends object, Output extends object>(): M
     const normalizedEntriesNameMap: {
       [middlewareName: string]: Normalized<MiddlewareEntry<Input, Output>, Input, Output>;
     } = {};
+
     absoluteEntries.forEach((entry) => {
       const normalizedEntry = {
         ...entry,
@@ -127,6 +111,7 @@ export function constructStack<Input extends object, Output extends object>(): M
       if (normalizedEntry.name) normalizedEntriesNameMap[normalizedEntry.name] = normalizedEntry;
       normalizedAbsoluteEntries.push(normalizedEntry);
     });
+
     relativeEntries.forEach((entry) => {
       const normalizedEntry = {
         ...entry,
@@ -136,6 +121,7 @@ export function constructStack<Input extends object, Output extends object>(): M
       if (normalizedEntry.name) normalizedEntriesNameMap[normalizedEntry.name] = normalizedEntry;
       normalizedRelativeEntries.push(normalizedEntry);
     });
+
     normalizedRelativeEntries.forEach((entry) => {
       if (entry.toMiddleware) {
         const toMiddleware = normalizedEntriesNameMap[entry.toMiddleware];
@@ -154,6 +140,7 @@ export function constructStack<Input extends object, Output extends object>(): M
         }
       }
     });
+
     const mainChain = sort(normalizedAbsoluteEntries)
       .map(expandRelativeMiddlewareList)
       .reduce((wholeList, expendedMiddlewareList) => {
@@ -166,31 +153,27 @@ export function constructStack<Input extends object, Output extends object>(): M
 
   const stack = {
     add: (middleware: MiddlewareType<Input, Output>, options: HandlerOptions & AbsoluteLocation = {}) => {
-      const { name, step = "initialize", tags, priority = "normal" } = options;
+      const { name } = options;
       const entry: AbsoluteMiddlewareEntry<Input, Output> = {
-        name,
-        step,
-        tags,
-        priority,
+        step: "initialize",
+        priority: "normal",
         middleware,
+        ...options,
       };
       if (name) {
         if (entriesNameSet.has(name)) {
-          throw new Error(`Duplicated middleware name '${name}'`);
+          throw new Error(`Duplicate middleware name '${name}'`);
         }
         entriesNameSet.add(name);
       }
       absoluteEntries.push(entry);
     },
+
     addRelativeTo: (middleware: MiddlewareType<Input, Output>, options: HandlerOptions & RelativeLocation) => {
-      const { step = "initialize", name, tags, relation, toMiddleware } = options;
+      const { name } = options;
       const entry: RelativeMiddlewareEntry<Input, Output> = {
         middleware,
-        step,
-        name,
-        tags,
-        relation,
-        toMiddleware,
+        ...options,
       };
       if (name) {
         if (entriesNameSet.has(name)) {
@@ -200,18 +183,44 @@ export function constructStack<Input extends object, Output extends object>(): M
       }
       relativeEntries.push(entry);
     },
-    clone: (base?: MiddlewareStack<Input, Output>) => cloneTo(base || constructStack<Input, Output>()),
+
+    clone: () => cloneTo(constructStack<Input, Output>()),
+
     use: (plugin: Pluggable<Input, Output>) => {
       plugin.applyToStack(stack);
     },
+
     remove: (toRemove: MiddlewareType<Input, Output> | string): boolean => {
       if (typeof toRemove === "string") return removeByName(toRemove);
       else return removeByReference(toRemove);
     },
-    removeByTag,
+
+    removeByTag: (toRemove: string): boolean => {
+      let isRemoved = false;
+      const filterCb = (entry: MiddlewareEntry<Input, Output>): boolean => {
+        const { tags, name } = entry;
+        if (tags && tags.includes(toRemove)) {
+          if (name) entriesNameSet.delete(name);
+          isRemoved = true;
+          return false;
+        }
+        return true;
+      };
+      absoluteEntries = absoluteEntries.filter(filterCb);
+      relativeEntries = relativeEntries.filter(filterCb);
+      return isRemoved;
+    },
+
     concat: <InputType extends Input, OutputType extends Output>(
       from: MiddlewareStack<InputType, OutputType>
-    ): MiddlewareStack<InputType, OutputType> => from.clone(cloneTo(constructStack<InputType, OutputType>())),
+    ): MiddlewareStack<InputType, OutputType> => {
+      const cloned = cloneTo(constructStack<InputType, OutputType>());
+      cloned.use(from);
+      return cloned;
+    },
+
+    applyToStack: cloneTo,
+
     resolve: <InputType extends Input, OutputType extends Output>(
       handler: DeserializeHandler<InputType, OutputType>,
       context: HandlerExecutionContext
@@ -223,7 +232,7 @@ export function constructStack<Input extends object, Output extends object>(): M
     },
   };
   return stack;
-}
+};
 
 const stepWeights: { [key in Step]: number } = {
   initialize: 5,

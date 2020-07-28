@@ -267,7 +267,7 @@ export interface DeserializeHandlerOptions extends HandlerOptions {
  *    with absolute `step` and `priority`. This mothod will throw if specified
  *    `toMiddleware` is not found.
  */
-export interface MiddlewareStack<Input extends object, Output extends object> {
+export interface MiddlewareStack<Input extends object, Output extends object> extends Pluggable<Input, Output> {
   /**
    * Add middleware to the stack to be executed during the "initialize" step,
    * optionally specifying a priority, tags and name
@@ -316,10 +316,8 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
   /**
    * Create a shallow clone of this stack. Step bindings and handler priorities
    * and tags are preserved in the copy.
-   * Users can optionally supply a base stack that will be merged into the clone
-   * output but its middleware will take preference.
    */
-  clone(base?: MiddlewareStack<Input, Output>): MiddlewareStack<Input, Output>;
+  clone(): MiddlewareStack<Input, Output>;
 
   /**
    * Removes middleware from the stack.
