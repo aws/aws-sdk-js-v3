@@ -1,4 +1,4 @@
-import { MiddlewareStack } from "@aws-sdk/middleware-stack";
+import { constructStack } from "@aws-sdk/middleware-stack";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 import { bucketEndpointMiddleware, bucketEndpointMiddlewareOptions } from "./bucketEndpointMiddleware";
@@ -130,7 +130,7 @@ describe("bucketEndpointMiddleware", () => {
   });
 
   it("should be inserted before 'hostheaderMiddleware' if exists", async () => {
-    const stack = new MiddlewareStack();
+    const stack = constructStack();
     const mockHostheaderMiddleware = (next: any) => (args: any) => {
       args.request.arr.push("two");
       return next(args);

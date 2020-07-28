@@ -218,7 +218,7 @@ export interface AbsoluteLocation {
 
 export type Relation = "before" | "after";
 
-export interface RelativeLocation<Input extends object, Output extends object> {
+export interface RelativeLocation {
   /**
    * Specify the relation to be before or after a know middleware.
    */
@@ -229,6 +229,8 @@ export interface RelativeLocation<Input extends object, Output extends object> {
    */
   toMiddleware: string;
 }
+
+export type RelativeMiddlewareOptions = RelativeLocation & Omit<HandlerOptions, "step">;
 
 export interface InitializeHandlerOptions extends HandlerOptions {
   step?: "initialize";
@@ -259,32 +261,33 @@ export interface DeserializeHandlerOptions extends HandlerOptions {
  *    `priority` options to `high` or `low`.
  * 2. Adding middleware to location relative to known middleware with `addRelativeTo()`.
  *    This is useful when given middleware must be executed before or after specific
- *    middleware(`toMiddleware`). If specified `toMiddleware` is not found, given
- *    middleware will be added to given step with normal priority.
- *    Note `toMiddleware` can only be added to middleware stack staticly using
- *    `add()` API.
+ *    middleware(`toMiddleware`). You can add a middleware relatively to another
+ *    middleware which also added relatively. But eventually, this relative middleware
+ *    chain **must** be 'anchored' by a middleware that added using `add()` API
+ *    with absolute `step` and `priority`. This mothod will throw if specified
+ *    `toMiddleware` is not found.
  */
-export interface MiddlewareStack<Input extends object, Output extends object> {
+export interface MiddlewareStack<Input extends object, Output extends object> extends Pluggable<Input, Output> {
   /**
-   * Add middleware to the list to be executed during the "initialize" step,
+   * Add middleware to the stack to be executed during the "initialize" step,
    * optionally specifying a priority, tags and name
    */
   add(middleware: InitializeMiddleware<Input, Output>, options?: InitializeHandlerOptions & AbsoluteLocation): void;
 
   /**
-   * Add middleware to the list to be executed during the "serialize" step,
+   * Add middleware to the stack to be executed during the "serialize" step,
    * optionally specifying a priority, tags and name
    */
   add(middleware: SerializeMiddleware<Input, Output>, options: SerializeHandlerOptions & AbsoluteLocation): void;
 
   /**
-   * Add middleware to the list to be executed during the "build" step,
+   * Add middleware to the stack to be executed during the "build" step,
    * optionally specifying a priority, tags and name
    */
   add(middleware: BuildMiddleware<Input, Output>, options: BuildHandlerOptions & AbsoluteLocation): void;
 
   /**
-   * Add middleware to the list to be executed during the "finalizeRequest" step,
+   * Add middleware to the stack to be executed during the "finalizeRequest" step,
    * optionally specifying a priority, tags and name
    */
   add(
@@ -293,65 +296,16 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
   ): void;
 
   /**
-   * Add middleware to the list to be executed during the "deserialize" step,
+   * Add middleware to the stack to be executed during the "deserialize" step,
    * optionally specifying a priority, tags and name
    */
   add(middleware: DeserializeMiddleware<Input, Output>, options: DeserializeHandlerOptions & AbsoluteLocation): void;
 
   /**
-   * Add middleware to location relative to a known middleware in 'initialize' step.
-   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
-   * identify the location of inserted middleware
-   * optionally specifying tags and name
+   * Add middleware to a stack position before or after a known middleware，optionally
+   * specifying name and tags.
    */
-  addRelativeTo(
-    middleware: InitializeMiddleware<Input, Output>,
-    options: InitializeHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  /**
-   * Add middleware to location relative to a known middleware in 'serialize' step.
-   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
-   * identify the location of inserted middleware
-   * optionally specifying tags and name
-   */
-  addRelativeTo(
-    middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  /**
-   * Add middleware to location relative to a known middleware in 'build' step.
-   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
-   * identify the location of inserted middleware
-   * optionally specifying tags and name
-   */
-  addRelativeTo(
-    middleware: BuildMiddleware<Input, Output>,
-    options: BuildHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  /**
-   * Add middleware to location relative to a known middleware in 'finalizeRequest' step.
-   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
-   * identify the location of inserted middleware
-   * optionally specifying tags and name
-   */
-  addRelativeTo(
-    middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
-
-  /**
-   * Add middleware to location relative to a known middleware in 'deserialize' step.
-   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
-   * identify the location of inserted middleware
-   * optionally specifying tags and name
-   */
-  addRelativeTo(
-    middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerOptions & RelativeLocation<Input, Output>
-  ): void;
+  addRelativeTo(middleware: MiddlewareType<Input, Output>, options: RelativeMiddlewareOptions): void;
 
   /**
    * Apply a customization function to mutate the middleware stack, often
@@ -360,7 +314,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
   use(pluggable: Pluggable<Input, Output>): void;
 
   /**
-   * Create a shallow clone of this list. Step bindings and handler priorities
+   * Create a shallow clone of this stack. Step bindings and handler priorities
    * and tags are preserved in the copy.
    */
   clone(): MiddlewareStack<Input, Output>;
@@ -383,8 +337,8 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
   removeByTag(toRemove: string): boolean;
 
   /**
-   * Create a list containing the middlewares in this list as well as the
-   * middlewares in the `from` list. Neither source is modified, and step
+   * Create a stack containing the middlewares in this stack as well as the
+   * middlewares in the `from` stack. Neither source is modified, and step
    * bindings and handler priorities and tags are preserved in the copy.
    */
   concat<InputType extends Input, OutputType extends Output>(

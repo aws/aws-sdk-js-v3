@@ -2,12 +2,11 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
-  BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
-  RelativeLocation,
+  RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
 
 export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
@@ -40,8 +39,7 @@ export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
   };
 }
 
-export const prependAccountIdMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
-  step: "build",
+export const prependAccountIdMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["PREPEND_ACCOUNT_ID_MIDDLEWARE"],
   name: "prependAccountIdMiddleware",
   relation: "before",

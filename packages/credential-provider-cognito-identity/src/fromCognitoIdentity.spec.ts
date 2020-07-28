@@ -35,12 +35,12 @@ describe("fromCognitoIdentity", () => {
       expiration,
     });
 
-    expect(send.mock.calls[0][0]).toEqual(
-      new GetCredentialsForIdentityCommand({
-        IdentityId: identityId,
-        CustomRoleArn: "myArn",
-      })
-    );
+    const sendParam = send.mock.calls[0][0];
+    expect(sendParam).toEqual(expect.any(GetCredentialsForIdentityCommand));
+    expect(sendParam.input).toEqual({
+      IdentityId: identityId,
+      CustomRoleArn: "myArn",
+    });
   });
 
   it("should resolve logins to string tokens and pass them to the service", async () => {
@@ -54,16 +54,16 @@ describe("fromCognitoIdentity", () => {
       },
     })();
 
-    expect(send.mock.calls[0][0]).toEqual(
-      new GetCredentialsForIdentityCommand({
-        IdentityId: identityId,
-        CustomRoleArn: "myArn",
-        Logins: {
-          myDomain: "token",
-          "www.amazon.com": "expiring nonce",
-        },
-      })
-    );
+    const sendParam = send.mock.calls[0][0];
+    expect(sendParam).toEqual(expect.any(GetCredentialsForIdentityCommand));
+    expect(sendParam.input).toMatchObject({
+      IdentityId: identityId,
+      CustomRoleArn: "myArn",
+      Logins: {
+        myDomain: "token",
+        "www.amazon.com": "expiring nonce",
+      },
+    });
   });
 
   it("should convert a GetCredentialsForIdentity response without credentials to a provider error", async () => {

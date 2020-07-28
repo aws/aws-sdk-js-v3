@@ -1,4 +1,3 @@
-import { MiddlewareStack } from "@aws-sdk/middleware-stack";
 import { Client, Command } from "@aws-sdk/smithy-client";
 import { BuildMiddleware, HttpRequest, MetadataBearer } from "@aws-sdk/types";
 
@@ -22,7 +21,7 @@ export async function createRequest<
     priority: "low",
   });
 
-  const handler = command.resolveMiddleware(clientStack as MiddlewareStack<any, any>, client.config, undefined);
+  const handler = command.resolveMiddleware(clientStack, client.config, undefined);
 
   //@ts-ignore
   return await handler(command).then((output) => output.output.request);

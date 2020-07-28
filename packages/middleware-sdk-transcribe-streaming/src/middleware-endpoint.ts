@@ -2,9 +2,8 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
-  BuildHandlerOptions,
   BuildMiddleware,
-  RelativeLocation,
+  RelativeMiddlewareOptions,
   RequestHandler,
 } from "@aws-sdk/types";
 
@@ -54,8 +53,7 @@ export const websocketURLMiddleware = (options: {
   return next(args);
 };
 
-export const websocketURLMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
-  step: "build",
+export const websocketURLMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "websocketURLMiddleware",
   tags: ["WEBSOCKET", "EVENT_STREAM"],
   relation: "after",

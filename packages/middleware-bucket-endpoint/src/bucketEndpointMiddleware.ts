@@ -2,12 +2,11 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
-  BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
-  RelativeLocation,
+  RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
 
 import { bucketHostname } from "./bucketHostname";
@@ -49,8 +48,7 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
   };
 }
 
-export const bucketEndpointMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
-  step: "build",
+export const bucketEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["BUCKET_ENDPOINT"],
   name: "bucketEndpointMiddleware",
   relation: "before",
