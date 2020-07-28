@@ -85,9 +85,29 @@ describe("EndpointsConfig", () => {
       describe("throws error", () => {
         const error = new Error("error");
 
-        it("if region throws error", () => {
-          region.mockRejectedValueOnce(error);
-          return expect(resolveEndpointsConfig(input).endpoint()).rejects.toStrictEqual(error);
+        describe("if region", () => {
+          it("throws error", () => {
+            region.mockRejectedValueOnce(error);
+            return expect(resolveEndpointsConfig(input).endpoint()).rejects.toStrictEqual(error);
+          });
+
+          it("is invalid", () => {
+            [
+              "",
+              "has_underscore",
+              "-starts-with-dash",
+              "ends-with-dash-",
+              "-starts-and-ends-with-dash-",
+              "-",
+              "c0nt@in$-$ymb01$",
+              "0123456789012345678901234567890123456789012345678901234567890123", // 64 characters
+            ].forEach((invalidRegion) => {
+              region.mockResolvedValueOnce(invalidRegion);
+              return expect(resolveEndpointsConfig(input).endpoint()).rejects.toStrictEqual(
+                new Error("Invalid region in client config")
+              );
+            });
+          });
         });
 
         describe("if regionInfoProvider", () => {
