@@ -6,15 +6,16 @@
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
     "prepublishOnly": "yarn build",
-    "pretest": "tsc",
+    "pretest": "yarn build:cjs",
     "remove-definitions": "rimraf ./types",
     "remove-dist": "rimraf ./dist",
     "remove-documentation": "rimraf ./docs",
     "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
     "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map",
     "test": "exit 0",
+    "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn pretest && yarn build:es"
+    "build": "yarn build:cjs && yarn build:es"
   },
   "main": "./dist/cjs/index.js",
   "types": "./types/index.d.ts",
