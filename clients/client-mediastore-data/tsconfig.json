@@ -12,6 +12,7 @@
     "incremental": true,
     "resolveJsonModule": true,
     "declarationDir": "./types",
+    "rootDir": "src",
     "outDir": "dist/cjs",
     "types": ["mocha"]
   },
