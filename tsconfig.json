@@ -19,8 +19,8 @@
     "baseUrl": ".",
     "paths": {
       "@aws-sdk/*": ["packages/*/src"],
-      "@aws-sdk/client-*": ["clients/client-*/"],
-      "@aws-sdk/aws-*": ["protocol_tests/aws-*/"]
+      "@aws-sdk/client-*": ["clients/client-*/src"],
+      "@aws-sdk/aws-*": ["protocol_tests/aws-*/src"]
     }
   },
   "include": ["packages/"],
