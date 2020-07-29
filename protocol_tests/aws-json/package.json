@@ -3,15 +3,13 @@
   "description": "@aws-sdk/aws-json client",
   "version": "1.0.0-gamma.4",
   "scripts": {
-    "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
+    "clean": "npm run remove-definitions && npm run remove-dist",
     "build-documentation": "npm run clean && typedoc ./",
     "prepublishOnly": "yarn build",
     "pretest": "tsc",
     "remove-definitions": "rimraf ./types",
     "remove-dist": "rimraf ./dist",
     "remove-documentation": "rimraf ./docs",
-    "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
-    "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map",
     "test": "yarn build && jest --coverage --passWithNoTests",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn pretest && yarn build:es"
@@ -20,10 +18,10 @@
   "types": "./types/index.d.ts",
   "module": "./dist/es/index.js",
   "browser": {
-    "./runtimeConfig": "./runtimeConfig.browser"
+    "./runtimeConfig": "./src/runtimeConfig.browser"
   },
   "react-native": {
-    "./runtimeConfig": "./runtimeConfig.native"
+    "./runtimeConfig": "./src/runtimeConfig.native"
   },
   "sideEffects": false,
   "dependencies": {

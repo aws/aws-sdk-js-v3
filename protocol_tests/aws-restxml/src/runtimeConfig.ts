@@ -1,4 +1,5 @@
-import { name, version } from "./package.json";
+// @ts-ignore
+import { name, version } from "../package.json";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { Hash } from "@aws-sdk/hash-node";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
@@ -9,7 +10,7 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
-import { ClientDefaults } from "./JsonProtocolClient";
+import { ClientDefaults } from "./RestXmlProtocolClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
 export const ClientDefaultValues: Required<ClientDefaults> = {
