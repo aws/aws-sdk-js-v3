@@ -1,3 +1,4 @@
+// @ts-ignore
 import { name, version } from "../package.json";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { Hash } from "@aws-sdk/hash-node";
