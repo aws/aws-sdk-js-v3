@@ -6,6 +6,7 @@
     "pretest": "yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
+    "build": "yarn build:es && yarn build:cjs",
     "test": "karma start karma.conf.js"
   },
   "main": "./dist/cjs/index.js",
