@@ -1,4 +1,4 @@
-import { name, version } from "./package.json";
+import { name, version } from "../package.json";
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-node";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { Hash } from "@aws-sdk/hash-node";

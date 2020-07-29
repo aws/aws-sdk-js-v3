@@ -1,4 +1,4 @@
-import { name, version } from "./package.json";
+import { name, version } from "../package.json";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";

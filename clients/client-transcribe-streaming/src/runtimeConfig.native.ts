@@ -1,4 +1,4 @@
-import { name, version } from "./package.json";
+import { name, version } from "../package.json";
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { parseUrl } from "@aws-sdk/url-parser-node";
