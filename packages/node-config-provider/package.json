@@ -1,0 +1,33 @@
+{
+  "name": "@aws-sdk/node-config-provider",
+  "version": "1.0.0-gamma.0",
+  "description": "Load config default values from ini config files and environmental variable",
+  "scripts": {
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
+    "test": "jest --coverage --passWithNoTests"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "dependencies": {
+    "@aws-sdk/property-provider": "1.0.0-gamma.4",
+    "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.4",
+    "@aws-sdk/types": "1.0.0-gamma.3",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "@types/node": "^10.0.0",
+    "jest": "^26.1.0",
+    "typescript": "~3.9.3"
+  }
+}
