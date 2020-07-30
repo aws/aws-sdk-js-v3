@@ -25,7 +25,7 @@ export const parse = (arn: string): ARN => {
   };
 };
 
-const isNonEmptyString = (str: any): boolean => typeof str === "string" && str !== "";
+const isEmptyString = (str: string): boolean => str === "";
 
 type buildOptions = Omit<ARN, "partition"> & { partition?: string };
 
@@ -33,15 +33,9 @@ type buildOptions = Omit<ARN, "partition"> & { partition?: string };
  * Build an ARN with service, partition, region, accountId, and resources strings
  */
 export const build = (arnObject: buildOptions): string => {
-  if (
-    !isNonEmptyString(arnObject.service) ||
-    !isNonEmptyString(arnObject.region) ||
-    !isNonEmptyString(arnObject.accountId) ||
-    !isNonEmptyString(arnObject.resource)
-  ) {
+  const { partition = "aws", service, region, accountId, resource } = arnObject;
+  if ([service, region, accountId, resource].some(isEmptyString)) {
     throw new Error("Input ARN object is invalid");
   }
-  return `arn:${arnObject.partition || "aws"}:${arnObject.service}:${arnObject.region}:${arnObject.accountId}:${
-    arnObject.resource
-  }`;
+  return `arn:${partition}:${service}:${region}:${accountId}:${resource}`;
 };
