@@ -1,4 +1,4 @@
-import { build, parse, validate } from "./index";
+import { ARN, build, parse, validate } from "./index";
 
 describe("validate", () => {
   it("should validate whether input is a qualified resource ARN", () => {
@@ -41,31 +41,38 @@ describe("parser", () => {
       accountId: "123456789012",
       resource: "myTopic",
     });
+    expect(parse("arn:aws:sns:::myTopic")).toEqual({
+      partition: "aws",
+      service: "sns",
+      region: "",
+      accountId: "",
+      resource: "myTopic",
+    });
+  });
+
+  it("should throw at invalid ARN strings", () => {
+    const invalidArns = ["some:random:string:separated:by:colons", "arn:aws:too:short"];
+    invalidArns.forEach((arn) => {
+      expect(() => parse(arn)).toThrow("Malformed ARN");
+    });
   });
 });
 
 describe("builder", () => {
+  const builderArn = {
+    service: "s3",
+    region: "us-east-1",
+    accountId: "123456789012",
+    resource: "accesspoint:myendpoint",
+  };
+
   it("should build valid ARN object to string", () => {
-    expect(
-      build({
-        service: "s3",
-        region: "us-east-1",
-        accountId: "123456789012",
-        resource: "accesspoint:myendpoint",
-      })
-    ).toBe("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint");
+    expect(build(builderArn)).toBe("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint");
   });
 
-  it("should throw if required ARN component is missing", () => {
-    expect.assertions(1);
-    try {
-      build({
-        service: "s3",
-        region: "us-east-1",
-        resource: "accesspoint:myendpoint",
-      } as any);
-    } catch (e) {
-      expect(e.message).toBe("Input ARN object is invalid");
-    }
+  ["service", "region", "accountId", "resource"].forEach((option) => {
+    it(`should throw if "${option}" is missing`, () => {
+      expect(() => build({ ...builderArn, [option]: undefined })).toThrow(new Error("Input ARN object is invalid"));
+    });
   });
 });

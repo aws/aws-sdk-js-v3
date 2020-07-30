@@ -15,17 +15,26 @@ export const validate = (str: any): boolean =>
  * Parse an ARN string into structure with partition, service, region, accountId and resource values
  */
 export const parse = (arn: string): ARN => {
-  const matched = arn.split(":");
+  const segments = arn.split(":");
+  if (segments.length < 6 || segments[0] !== "arn") throw new Error("Malformed ARN");
+  const [
+    ,
+    //Skip "arn" literal
+    partition,
+    service,
+    region,
+    accountId,
+    ...resource
+  ] = segments;
+
   return {
-    partition: matched[1],
-    service: matched[2],
-    region: matched[3],
-    accountId: matched[4],
-    resource: matched.slice(5).join(":"),
+    partition,
+    service,
+    region,
+    accountId,
+    resource: resource.join(":"),
   };
 };
-
-const isEmptyString = (str: string): boolean => str === "";
 
 type buildOptions = Omit<ARN, "partition"> & { partition?: string };
 
@@ -34,7 +43,7 @@ type buildOptions = Omit<ARN, "partition"> & { partition?: string };
  */
 export const build = (arnObject: buildOptions): string => {
   const { partition = "aws", service, region, accountId, resource } = arnObject;
-  if ([service, region, accountId, resource].some(isEmptyString)) {
+  if ([service, region, accountId, resource].some((segment) => typeof segment !== "string")) {
     throw new Error("Input ARN object is invalid");
   }
   return `arn:${partition}:${service}:${region}:${accountId}:${resource}`;
