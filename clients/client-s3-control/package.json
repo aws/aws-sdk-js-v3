@@ -63,6 +63,7 @@
     "uuid": "^3.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-documentation-generator": "1.0.0-gamma.3",
     "@types/node": "^12.7.5",
     "@types/uuid": "^3.0.0",
     "jest": "^26.1.0",
