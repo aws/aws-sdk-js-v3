@@ -13,6 +13,7 @@
     "test": "jest --coverage --passWithNoTests",
     "test:integration": "jest --config jest.integ.config.js",
     "build:cjs": "tsc",
+    "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es",
     "postbuild": "cp test/speech.wav dist/cjs/test"
