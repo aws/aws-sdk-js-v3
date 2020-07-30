@@ -13,7 +13,8 @@
     "pretty": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "target": "ES2015"
   },
   "extends": "../../tsconfig.cjs.json",
   "include": ["src/"]
