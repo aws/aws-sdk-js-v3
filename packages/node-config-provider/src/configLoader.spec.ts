@@ -1,8 +1,8 @@
 import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
 
+import { loadConfig } from "./configLoader";
 import { fromEnv } from "./fromEnv";
 import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
-import { loadConfig } from "./index";
 
 jest.mock("./fromEnv");
 jest.mock("./fromSharedConfigFiles");

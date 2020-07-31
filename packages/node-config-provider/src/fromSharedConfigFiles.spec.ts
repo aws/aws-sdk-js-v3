@@ -121,12 +121,20 @@ describe("fromSharedConfigFiles", () => {
   describe("profile", () => {
     const loadedConfigData = {
       configFile: {
-        default: { [configKey]: "credentialsFileDefault" },
-        foo: { [configKey]: "credentialsFileDefault" },
+        default: { [configKey]: "configFileDefault" },
+        foo: { [configKey]: "configFileFoo" },
       },
-      credentialsFile: {},
+      credentialsFile: {
+        default: { [configKey]: "credentialsFileDefault" },
+      },
     };
     const loadedConfig = Promise.resolve(loadedConfigData);
+
+    it("returns configValue from preferred config file", () => {
+      expect(fromSharedConfigFiles(configKey, { loadedConfig, preferredFile: "credentials" })()).resolves.toBe(
+        loadedConfigData.credentialsFile.default[configKey]
+      );
+    });
 
     it("returns configValue from designated profile when profile is defined", () => {
       const profile = "foo";
