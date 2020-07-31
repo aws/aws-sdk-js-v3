@@ -17,6 +17,13 @@ export interface SharedConfigInit extends BaseSharedConfigInit {
   profile?: string;
 
   /**
+   * The preferred shared ini file to load the config. "config" option refers to
+   * the shared config file(defaults to `~/.aws/config`). "credentials" option
+   * refers to the shared credentials file(defaults to `~/.aws/credentials`)
+   */
+  preferredFile?: "config" | "credentials";
+
+  /**
    * A promise that will be resolved with loaded and parsed credentials files.
    * Used to avoid loading shared config files multiple times.
    */
@@ -36,17 +43,22 @@ export const fromSharedConfigFiles = <T = string>(
   //TODO: type should be SharedConfigSelector<T> but doesn't work well when T is
   //boolean, because of TS limitation: https://github.com/microsoft/TypeScript/issues/19360
   configSelector: string | GetterFromConfig<T>,
-  init: SharedConfigInit = {}
+  { preferredFile = "config", ...init }: SharedConfigInit = {}
 ): Provider<T> => async () => {
   const { loadedConfig = loadSharedConfigFiles(init), profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE } = init;
 
-  const { configFile } = await loadedConfig;
+  const { configFile, credentialsFile } = await loadedConfig;
+
+  const profileFromCredentials = credentialsFile[profile] || {};
+  const profileFromConfig = configFile[profile] || {};
+  const mergedProfile =
+    preferredFile === "config"
+      ? { ...profileFromCredentials, ...profileFromConfig }
+      : { ...profileFromConfig, ...profileFromCredentials };
 
   try {
     const configValue: T | string | undefined =
-      typeof configSelector === "string"
-        ? configFile?.[profile]?.[configSelector]
-        : configSelector(configFile[profile] || {});
+      typeof configSelector === "string" ? mergedProfile[configSelector] : configSelector(mergedProfile);
     if (configValue === undefined) {
       throw new Error();
     }
