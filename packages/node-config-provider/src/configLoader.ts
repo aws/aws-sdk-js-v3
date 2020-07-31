@@ -1,8 +1,9 @@
-import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
+import { chain, memoize } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
 import { fromEnv, GetterFromEnv } from "./fromEnv";
 import { fromSharedConfigFiles, GetterFromConfig, SharedConfigInit } from "./fromSharedConfigFiles";
+import { fromStatic, FromStaticOptions } from "./fromStatic";
 
 export type LocalConfigOptions = SharedConfigInit;
 
@@ -27,7 +28,7 @@ export interface LoadedConfigSelectors<T> {
   /**
    * Default value or getter
    */
-  default: T;
+  default: FromStaticOptions<T>;
 }
 
 export const loadConfig = <T = string>(
