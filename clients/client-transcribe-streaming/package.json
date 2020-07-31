@@ -12,7 +12,6 @@
     "remove-documentation": "rimraf ./docs",
     "test": "jest --coverage --passWithNoTests",
     "test:integration": "jest --config jest.integ.config.js",
-    "build:cjs": "tsc",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es",
@@ -72,7 +71,6 @@
     "@types/node": "^12.7.5",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
-    "tslib": "^1.8.0",
     "typedoc": "^0.17.8",
     "typescript": "~3.9.3"
   },
