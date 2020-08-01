@@ -3,32 +3,25 @@ import { Provider } from "@aws-sdk/types";
 
 import { fromEnv, GetterFromEnv } from "./fromEnv";
 import { fromSharedConfigFiles, GetterFromConfig, SharedConfigInit } from "./fromSharedConfigFiles";
-import { fromStatic, FromStaticOptions } from "./fromStatic";
+import { fromStatic, FromStaticConfig } from "./fromStatic";
 
 export type LocalConfigOptions = SharedConfigInit;
 
 export interface LoadedConfigSelectors<T> {
   /**
-   * Environment variable name to load the config string or a getter getting the
-   * config values from all the environment variables. If you want to load a
-   * non-string config value, you **must** use a getter.
-   *
-   * TODO: use EnvConfigSelector<T> when https://github.com/microsoft/TypeScript/issues/19360 is fixed
+   * A getter function getting the config values from all the environment
+   * variables.
    */
-  environmentVariableSelector: string | GetterFromEnv<T>;
+  environmentVariableSelector: GetterFromEnv<T>;
   /**
-   * Config name contained in shared config file or credential file to load the
-   * config string or a getter getting values from all the shared configs
-   * associated with the profile. If you want to load a non-string config value,
-   * you **must** use a getter.
-   *
-   * TODO: use SharedConfigSelector<T> when https://github.com/microsoft/TypeScript/issues/19360 is fixed
+   * A getter function getting config values associated with the inferred
+   * profile from shared INI files
    */
-  configFileSelector: string | GetterFromConfig<T>;
+  configFileSelector: GetterFromConfig<T>;
   /**
    * Default value or getter
    */
-  default: FromStaticOptions<T>;
+  default: FromStaticConfig<T>;
 }
 
 export const loadConfig = <T = string>(

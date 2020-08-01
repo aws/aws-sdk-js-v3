@@ -1,7 +1,7 @@
 import { ProviderError } from "@aws-sdk/property-provider";
 import { loadSharedConfigFiles, ParsedIniData, Profile } from "@aws-sdk/shared-ini-file-loader";
 
-import { ENV_PROFILE, fromSharedConfigFiles } from "./fromSharedConfigFiles";
+import { ENV_PROFILE, fromSharedConfigFiles, GetterFromConfig, SharedConfigInit } from "./fromSharedConfigFiles";
 
 jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
   loadSharedConfigFiles: jest.fn(),
@@ -10,6 +10,7 @@ jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
 describe("fromSharedConfigFiles", () => {
   const envProfile = process.env[ENV_PROFILE];
   const configKey = "config_key";
+  const configGetter: GetterFromConfig<string> = (profile: Profile) => profile[configKey];
 
   beforeEach(() => {
     delete process.env[ENV_PROFILE];
@@ -19,102 +20,164 @@ describe("fromSharedConfigFiles", () => {
     process.env[ENV_PROFILE] = envProfile;
   });
 
-  const getProviderError = (profile: string) =>
-    new ProviderError(`No ${configKey} found for profile ${profile} in SDK configuration files`);
+  const getProviderError = (profile: string, getter: GetterFromConfig<string>) =>
+    new ProviderError(`Cannot load config for profile ${profile} in SDK configuration files with getter: ${getter}`);
 
   describe("loadedConfig", () => {
     const mockConfigAnswer = "mockConfigAnswer";
     const mockConfigNotAnswer = "mockConfigNotAnswer";
+    const mockCredentialsAnswer = "mockCredentialsAnswer";
+    const mockCredentialsNotAnswer = "mockCredentialsNotAnswer";
 
-    type loadedConfigTestData = {
+    type LoadedConfigTestData = {
       message: string;
-      iniDataToReturn: ParsedIniData;
-      profile?: string;
-    };
+      iniDataInConfig: ParsedIniData;
+      iniDataInCredentials: ParsedIniData;
+    } & SharedConfigInit;
 
-    const loadedConfigResolves: (loadedConfigTestData & {
+    const loadedConfigResolves: (LoadedConfigTestData & {
       configValueToVerify: string;
     })[] = [
       {
         message: "returns configValue from default profile",
-        iniDataToReturn: {
+        iniDataInConfig: {
           default: { [configKey]: mockConfigAnswer },
+        },
+        iniDataInCredentials: {
+          default: { [configKey]: mockCredentialsNotAnswer },
         },
         configValueToVerify: mockConfigAnswer,
       },
       {
         message: "returns configValue from designated profile",
-        iniDataToReturn: {
+        iniDataInConfig: {
           default: { [configKey]: mockConfigNotAnswer },
           foo: { [configKey]: mockConfigAnswer },
         },
+        iniDataInCredentials: {
+          foo: { [configKey]: mockCredentialsNotAnswer },
+        },
+        profile: "foo",
         configValueToVerify: mockConfigAnswer,
+      },
+      {
+        message: "returns configValue from credentials file if preferred",
+        iniDataInConfig: {
+          default: { [configKey]: mockConfigNotAnswer },
+          foo: { [configKey]: mockConfigNotAnswer },
+        },
+        iniDataInCredentials: {
+          foo: { [configKey]: mockCredentialsAnswer },
+        },
+        profile: "foo",
+        preferredFile: "credentials",
+        configValueToVerify: mockCredentialsAnswer,
+      },
+      {
+        message: "returns configValue from config file if preferred credentials file doesn't contain config",
+        iniDataInConfig: {
+          foo: { [configKey]: mockConfigAnswer },
+        },
+        iniDataInCredentials: {},
+        configValueToVerify: mockConfigAnswer,
+        preferredFile: "credentials",
+        profile: "foo",
+      },
+      {
+        message: "returns configValue from credential file if preferred config file doesn't contain config",
+        iniDataInConfig: {},
+        iniDataInCredentials: {
+          foo: { [configKey]: mockCredentialsAnswer },
+        },
+        configValueToVerify: mockCredentialsAnswer,
         profile: "foo",
       },
     ];
 
-    const loadedConfigRejects: loadedConfigTestData[] = [
+    const loadedConfigRejects: LoadedConfigTestData[] = [
       {
         message: "rejects if default profile is not present and profile value is not passed",
-        iniDataToReturn: {
+        iniDataInConfig: {
           foo: { [configKey]: mockConfigNotAnswer },
         },
+        iniDataInCredentials: {},
       },
       {
         message: "rejects if designated profile is not present",
-        iniDataToReturn: {
+        iniDataInConfig: {
           default: { [configKey]: mockConfigNotAnswer },
         },
+        iniDataInCredentials: {},
         profile: "foo",
       },
     ];
 
     describe("uses the shared ini file loader if pre-loaded config is not supplied", () => {
-      loadedConfigResolves.forEach(({ message, iniDataToReturn, configValueToVerify, profile }) => {
-        it(`${message} from config file`, () => {
-          (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
-            configFile: iniDataToReturn,
-            credentialsFile: {},
+      loadedConfigResolves.forEach(
+        ({ message, iniDataInConfig, iniDataInCredentials, configValueToVerify, profile, preferredFile }) => {
+          it(message, () => {
+            (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
+              configFile: iniDataInConfig,
+              credentialsFile: iniDataInCredentials,
+            });
+            return expect(fromSharedConfigFiles(configGetter, { profile, preferredFile })()).resolves.toBe(
+              configValueToVerify
+            );
           });
-          expect(fromSharedConfigFiles(configKey, { profile })()).resolves.toBe(configValueToVerify);
-        });
-      });
+        }
+      );
 
-      loadedConfigRejects.forEach(({ message, iniDataToReturn, profile }) => {
+      loadedConfigRejects.forEach(({ message, iniDataInConfig, iniDataInCredentials, profile, preferredFile }) => {
         it(message, () => {
           (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
-            configFile: iniDataToReturn,
-            credentialsFile: {},
+            configFile: iniDataInConfig,
+            credentialsFile: iniDataInCredentials,
           });
-          expect(fromSharedConfigFiles(configKey, { profile })()).rejects.toMatchObject(
-            getProviderError(profile ?? "default")
+          return expect(fromSharedConfigFiles(configGetter, { profile, preferredFile })()).rejects.toMatchObject(
+            getProviderError(profile ?? "default", configGetter)
           );
         });
       });
     });
 
     describe("uses pre-loaded config if supplied", () => {
-      loadedConfigResolves.forEach(({ message, iniDataToReturn, configValueToVerify, profile }) => {
-        it(`${message} from config file`, () => {
-          const loadedConfig = Promise.resolve({
-            configFile: iniDataToReturn,
-            credentialsFile: {},
+      loadedConfigResolves.forEach(
+        ({ message, iniDataInConfig, iniDataInCredentials, configValueToVerify, profile, preferredFile }) => {
+          it(`${message} from config file`, () => {
+            const loadedConfig = Promise.resolve({
+              configFile: iniDataInConfig,
+              credentialsFile: iniDataInCredentials,
+            });
+            return expect(
+              fromSharedConfigFiles(configGetter, { loadedConfig, profile, preferredFile })()
+            ).resolves.toBe(configValueToVerify);
           });
-          expect(fromSharedConfigFiles(configKey, { loadedConfig, profile })()).resolves.toBe(configValueToVerify);
-        });
-      });
+        }
+      );
 
-      loadedConfigRejects.forEach(({ message, iniDataToReturn, profile }) => {
+      loadedConfigRejects.forEach(({ message, iniDataInConfig, iniDataInCredentials, profile, preferredFile }) => {
         it(message, () => {
           const loadedConfig = Promise.resolve({
-            configFile: {},
-            credentialsFile: iniDataToReturn,
+            configFile: iniDataInConfig,
+            credentialsFile: iniDataInCredentials,
           });
-          expect(fromSharedConfigFiles(configKey, { loadedConfig, profile })()).rejects.toMatchObject(
-            getProviderError(profile ?? "default")
-          );
+          return expect(
+            fromSharedConfigFiles(configGetter, { loadedConfig, profile, preferredFile })()
+          ).rejects.toMatchObject(getProviderError(profile ?? "default", configGetter));
         });
       });
+    });
+
+    it("rejects if getter throws", () => {
+      const message = "Cannot load config";
+      const failGetter = () => {
+        throw new Error(message);
+      };
+      (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce({
+        configFile: {},
+        credentialsFile: {},
+      });
+      return expect(fromSharedConfigFiles(failGetter)()).rejects.toMatchObject(new ProviderError(message));
     });
   });
 
@@ -130,57 +193,20 @@ describe("fromSharedConfigFiles", () => {
     };
     const loadedConfig = Promise.resolve(loadedConfigData);
 
-    it("returns configValue from preferred config file", () => {
-      expect(fromSharedConfigFiles(configKey, { loadedConfig, preferredFile: "credentials" })()).resolves.toBe(
-        loadedConfigData.credentialsFile.default[configKey]
-      );
-    });
-
-    it("returns configValue from designated profile when profile is defined", () => {
-      const profile = "foo";
-      expect(fromSharedConfigFiles(configKey, { loadedConfig, profile })()).resolves.toBe(
-        loadedConfigData.configFile[profile][configKey]
-      );
-    });
-
     describe("when profile is not defined", () => {
       it(`returns configValue from value in '${ENV_PROFILE}' env var if it is set`, () => {
         const profile = "foo";
         process.env[ENV_PROFILE] = profile;
-        expect(fromSharedConfigFiles(configKey, { loadedConfig })()).resolves.toBe(
+        return expect(fromSharedConfigFiles(configGetter, { loadedConfig })()).resolves.toBe(
           loadedConfigData.configFile[profile][configKey]
         );
       });
 
       it(`returns configValue from default profile if '${ENV_PROFILE}' env var is not set`, () => {
-        expect(fromSharedConfigFiles(configKey, { loadedConfig })()).resolves.toBe(
+        return expect(fromSharedConfigFiles(configGetter, { loadedConfig })()).resolves.toBe(
           loadedConfigData.configFile.default[configKey]
         );
       });
-    });
-  });
-
-  describe("config getter", () => {
-    const loadedConfigData = {
-      configFile: {
-        default: { [configKey]: "1111111" },
-      },
-      credentialsFile: {},
-    };
-    const loadedConfig = Promise.resolve(loadedConfigData);
-
-    it("should be called when getting the config", async () => {
-      const configGetter: (profile: Profile) => number = jest.fn().mockImplementation((profile: Profile) => {
-        return parseInt(profile[configKey]!);
-      });
-      expect(await fromSharedConfigFiles(configGetter, { loadedConfig })()).toBe(1111111);
-      expect(configGetter).toBeCalled();
-    });
-
-    it("loader should throw when the getter throws", () => {
-      const exception = new Error("Exception when getting the config");
-      const configGetter: (profile: Profile) => number = jest.fn().mockRejectedValue(exception);
-      expect(fromSharedConfigFiles(configGetter, { loadedConfig })()).rejects.toEqual(exception);
     });
   });
 });
