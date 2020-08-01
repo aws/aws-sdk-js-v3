@@ -1,4 +1,5 @@
 import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
+import { Profile } from "@aws-sdk/shared-ini-file-loader/src";
 
 import { loadConfig } from "./configLoader";
 import { fromEnv } from "./fromEnv";
@@ -24,19 +25,19 @@ describe("loadConfig", () => {
     (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(mockFromSharedConfigFilesReturn);
     const mockFromStatic = "mockFromStatic";
     (fromStatic as jest.Mock).mockReturnValueOnce(mockFromStatic);
-    const envVarName = "AWS_CONFIG_FOO";
-    const configKey = "aws_config_foo";
+    const envVarSelector = (env: NodeJS.ProcessEnv) => env["AWS_CONFIG_FOO"];
+    const configKey = (profile: Profile) => profile["aws_config_foo"];
     const defaultValue = "foo-value";
     loadConfig(
       {
-        environmentVariableSelector: envVarName,
+        environmentVariableSelector: envVarSelector,
         configFileSelector: configKey,
         default: defaultValue,
       },
       configuration
     );
     expect(fromEnv).toHaveBeenCalledTimes(1);
-    expect(fromEnv).toHaveBeenCalledWith(envVarName);
+    expect(fromEnv).toHaveBeenCalledWith(envVarSelector);
     expect(fromSharedConfigFiles).toHaveBeenCalledTimes(1);
     expect(fromSharedConfigFiles).toHaveBeenCalledWith(configKey, configuration);
     expect(fromStatic).toHaveBeenCalledTimes(1);
