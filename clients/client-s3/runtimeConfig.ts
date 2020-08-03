@@ -3,6 +3,8 @@ import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credentia
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
 import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
+import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
+import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
 import { maxAttemptsProvider as maxAttemptsDefaultProvider } from "@aws-sdk/retry-config-provider";
@@ -32,6 +34,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   streamCollector,
   streamHasher,
   urlParser: parseUrl,
+  useArnRegion: loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS),
   utf8Decoder: fromUtf8,
   utf8Encoder: toUtf8,
 };

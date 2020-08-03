@@ -6,4 +6,5 @@ export const ClientSharedValues = {
   regionInfoProvider: defaultRegionInfoProvider,
   signingEscapePath: false,
   signingName: "s3",
+  useArnRegion: false,
 };

@@ -15,7 +15,9 @@
     "test": "yarn test:unit",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es"
+    "build": "yarn build:cjs && yarn build:es",
+    "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
+    "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map"
   },
   "main": "./dist/cjs/index.js",
   "types": "./types/index.d.ts",
@@ -71,6 +73,7 @@
     "@aws-sdk/util-utf8-browser": "1.0.0-gamma.5",
     "@aws-sdk/util-utf8-node": "1.0.0-gamma.5",
     "@aws-sdk/xml-builder": "1.0.0-gamma.5",
+    "@aws-sdk/node-config-provider": "1.0.0-gamma.0",
     "fast-xml-parser": "^3.16.0",
     "tslib": "^2.0.0"
   },

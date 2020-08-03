@@ -259,6 +259,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
+  Provider,
   RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
@@ -550,6 +551,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    */
   signingEscapePath?: boolean;
 
+  /**
+   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
+   */
+  useArnRegion?: boolean | Provider<boolean>;
   /**
    * The function that provides necessary utilities for generating and parsing event stream
    */
