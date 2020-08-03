@@ -15,7 +15,9 @@
     "test": "yarn test:unit",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es"
+    "build": "yarn build:cjs && yarn build:es",
+    "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
+    "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map"
   },
   "main": "./dist/cjs/index.js",
   "types": "./types/index.d.ts",
@@ -54,6 +56,7 @@
     "@aws-sdk/middleware-ssec": "1.0.0-gamma.4",
     "@aws-sdk/middleware-stack": "1.0.0-gamma.4",
     "@aws-sdk/middleware-user-agent": "1.0.0-gamma.4",
+    "@aws-sdk/node-config-provider": "1.0.0-gamma.0",
     "@aws-sdk/node-http-handler": "1.0.0-gamma.4",
     "@aws-sdk/protocol-http": "1.0.0-gamma.4",
     "@aws-sdk/region-provider": "1.0.0-gamma.4",
@@ -81,6 +84,7 @@
     "@types/node": "^12.7.5",
     "jest": "^25.1.0",
     "rimraf": "^3.0.0",
+    "tslib": "^1.8.0",
     "typedoc": "^0.17.8",
     "typescript": "~3.9.3"
   },
