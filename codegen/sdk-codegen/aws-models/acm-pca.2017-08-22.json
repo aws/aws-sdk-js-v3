@@ -118,16 +118,22 @@
             "smithy.api#documentation": "<p>Fully qualified domain name (FQDN) associated with the certificate subject.</p>"
           }
         },
+        "Pseudonym": {
+          "target": "com.amazonaws.acmpca#String128",
+          "traits": {
+            "smithy.api#documentation": "<p>Typically a shortened version of a longer <b>GivenName</b>.\n\t\t\tFor example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth,\n\t\t\tLiz, or Eliza.</p>"
+          }
+        },
+        "Initials": {
+          "target": "com.amazonaws.acmpca#String5",
+          "traits": {
+            "smithy.api#documentation": "<p>Concatenation that typically contains the first letter of the <b>GivenName</b>, the first letter of the middle name if one exists, and the\n\t\t\tfirst letter of the <b>SurName</b>.</p>"
+          }
+        },
         "Country": {
           "target": "com.amazonaws.acmpca#CountryCodeString",
           "traits": {
             "smithy.api#documentation": "<p>Two-digit code that specifies the country in which the certificate subject\n\t\t\tlocated.</p>"
-          }
-        },
-        "DistinguishedNameQualifier": {
-          "target": "com.amazonaws.acmpca#DistinguishedNameQualifierString",
-          "traits": {
-            "smithy.api#documentation": "<p>Disambiguating information for the certificate subject.</p>"
           }
         },
         "GenerationQualifier": {
@@ -136,16 +142,22 @@
             "smithy.api#documentation": "<p>Typically a qualifier appended to the name of an individual. Examples include Jr. for\n\t\t\tjunior, Sr. for senior, and III for third.</p>"
           }
         },
+        "SerialNumber": {
+          "target": "com.amazonaws.acmpca#String64",
+          "traits": {
+            "smithy.api#documentation": "<p>The certificate serial number.</p>"
+          }
+        },
+        "Title": {
+          "target": "com.amazonaws.acmpca#String64",
+          "traits": {
+            "smithy.api#documentation": "<p>A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the\n\t\t\tcertificate subject.</p>"
+          }
+        },
         "GivenName": {
           "target": "com.amazonaws.acmpca#String16",
           "traits": {
             "smithy.api#documentation": "<p>First name.</p>"
-          }
-        },
-        "Initials": {
-          "target": "com.amazonaws.acmpca#String5",
-          "traits": {
-            "smithy.api#documentation": "<p>Concatenation that typically contains the first letter of the <b>GivenName</b>, the first letter of the middle name if one exists, and the\n\t\t\tfirst letter of the <b>SurName</b>.</p>"
           }
         },
         "Locality": {
@@ -166,34 +178,22 @@
             "smithy.api#documentation": "<p>A subdivision or unit of the organization (such as sales or finance) with which the\n\t\t\tcertificate subject is affiliated.</p>"
           }
         },
-        "Pseudonym": {
-          "target": "com.amazonaws.acmpca#String128",
-          "traits": {
-            "smithy.api#documentation": "<p>Typically a shortened version of a longer <b>GivenName</b>.\n\t\t\tFor example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth,\n\t\t\tLiz, or Eliza.</p>"
-          }
-        },
-        "SerialNumber": {
-          "target": "com.amazonaws.acmpca#String64",
-          "traits": {
-            "smithy.api#documentation": "<p>The certificate serial number.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.acmpca#String128",
-          "traits": {
-            "smithy.api#documentation": "<p>State in which the subject of the certificate is located.</p>"
-          }
-        },
         "Surname": {
           "target": "com.amazonaws.acmpca#String40",
           "traits": {
             "smithy.api#documentation": "<p>Family name. In the US and the UK, for example, the surname of an individual is\n\t\t\tordered last. In Asian cultures the surname is typically ordered first.</p>"
           }
         },
-        "Title": {
-          "target": "com.amazonaws.acmpca#String64",
+        "DistinguishedNameQualifier": {
+          "target": "com.amazonaws.acmpca#DistinguishedNameQualifierString",
           "traits": {
-            "smithy.api#documentation": "<p>A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the\n\t\t\tcertificate subject.</p>"
+            "smithy.api#documentation": "<p>Disambiguating information for the certificate subject.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.acmpca#String128",
+          "traits": {
+            "smithy.api#documentation": "<p>State in which the subject of the certificate is located.</p>"
           }
         }
       },
@@ -308,10 +308,28 @@
     "com.amazonaws.acmpca#CertificateAuthority": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.acmpca#Arn",
+        "Status": {
+          "target": "com.amazonaws.acmpca#CertificateAuthorityStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) for your private certificate authority (CA). The format is\n\t\t\t\t\t<code>\n               <i>12345678-1234-1234-1234-123456789012</i>\n            </code>.</p>"
+            "smithy.api#documentation": "<p>Status of your private CA.</p>"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.acmpca#TStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Date and time at which your private CA was created.</p>"
+          }
+        },
+        "RestorableUntil": {
+          "target": "com.amazonaws.acmpca#TStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The period during which a deleted CA can be restored. For more information, see the\n\t\t\t\t<code>PermanentDeletionTimeInDays</code> parameter of the <a>DeleteCertificateAuthorityRequest</a> action. </p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.acmpca#CertificateAuthorityType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of your private CA.</p>"
           }
         },
         "CertificateAuthorityConfiguration": {
@@ -320,10 +338,16 @@
             "smithy.api#documentation": "<p>Your private CA configuration.</p>"
           }
         },
-        "CreatedAt": {
-          "target": "com.amazonaws.acmpca#TStamp",
+        "Serial": {
+          "target": "com.amazonaws.acmpca#String",
           "traits": {
-            "smithy.api#documentation": "<p>Date and time at which your private CA was created.</p>"
+            "smithy.api#documentation": "<p>Serial number of your private CA.</p>"
+          }
+        },
+        "RevocationConfiguration": {
+          "target": "com.amazonaws.acmpca#RevocationConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the certificate revocation list (CRL) created and maintained by your\n\t\t\tprivate CA. </p>"
           }
         },
         "FailureReason": {
@@ -350,34 +374,10 @@
             "smithy.api#documentation": "<p>Date and time before which your private CA certificate is not valid.</p>"
           }
         },
-        "RestorableUntil": {
-          "target": "com.amazonaws.acmpca#TStamp",
+        "Arn": {
+          "target": "com.amazonaws.acmpca#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The period during which a deleted CA can be restored. For more information, see the\n\t\t\t\t<code>PermanentDeletionTimeInDays</code> parameter of the <a>DeleteCertificateAuthorityRequest</a> action. </p>"
-          }
-        },
-        "RevocationConfiguration": {
-          "target": "com.amazonaws.acmpca#RevocationConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the certificate revocation list (CRL) created and maintained by your\n\t\t\tprivate CA. </p>"
-          }
-        },
-        "Serial": {
-          "target": "com.amazonaws.acmpca#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Serial number of your private CA.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.acmpca#CertificateAuthorityStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Status of your private CA.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.acmpca#CertificateAuthorityType",
-          "traits": {
-            "smithy.api#documentation": "<p>Type of your private CA.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) for your private certificate authority (CA). The format is\n\t\t\t\t\t<code>\n               <i>12345678-1234-1234-1234-123456789012</i>\n            </code>.</p>"
           }
         }
       },
@@ -388,10 +388,10 @@
     "com.amazonaws.acmpca#CertificateAuthorityConfiguration": {
       "type": "structure",
       "members": {
-        "KeyAlgorithm": {
-          "target": "com.amazonaws.acmpca#KeyAlgorithm",
+        "Subject": {
+          "target": "com.amazonaws.acmpca#ASN1Subject",
           "traits": {
-            "smithy.api#documentation": "<p>Type of the public key algorithm and size, in bits, of the key pair that your CA creates\n\t\t\twhen it issues a certificate. When you create a subordinate CA, you must use a key\n\t\t\talgorithm supported by the parent CA.</p>",
+            "smithy.api#documentation": "<p>Structure that contains X.500 distinguished name information for your private\n\t\t\tCA.</p>",
             "smithy.api#required": {}
           }
         },
@@ -402,10 +402,10 @@
             "smithy.api#required": {}
           }
         },
-        "Subject": {
-          "target": "com.amazonaws.acmpca#ASN1Subject",
+        "KeyAlgorithm": {
+          "target": "com.amazonaws.acmpca#KeyAlgorithm",
           "traits": {
-            "smithy.api#documentation": "<p>Structure that contains X.500 distinguished name information for your private\n\t\t\tCA.</p>",
+            "smithy.api#documentation": "<p>Type of the public key algorithm and size, in bits, of the key pair that your CA creates\n\t\t\twhen it issues a certificate. When you create a subordinate CA, you must use a key\n\t\t\talgorithm supported by the parent CA.</p>",
             "smithy.api#required": {}
           }
         }
@@ -581,17 +581,17 @@
     "com.amazonaws.acmpca#CreateCertificateAuthorityAuditReportRequest": {
       "type": "structure",
       "members": {
-        "AuditReportResponseFormat": {
-          "target": "com.amazonaws.acmpca#AuditReportResponseFormat",
-          "traits": {
-            "smithy.api#documentation": "<p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "CertificateAuthorityArn": {
           "target": "com.amazonaws.acmpca#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:</p>\n\t\t       <p>\n            <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AuditReportResponseFormat": {
+          "target": "com.amazonaws.acmpca#AuditReportResponseFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -607,16 +607,16 @@
     "com.amazonaws.acmpca#CreateCertificateAuthorityAuditReportResponse": {
       "type": "structure",
       "members": {
-        "AuditReportId": {
-          "target": "com.amazonaws.acmpca#AuditReportId",
-          "traits": {
-            "smithy.api#documentation": "<p>An alphanumeric string that contains a report identifier.</p>"
-          }
-        },
         "S3Key": {
           "target": "com.amazonaws.acmpca#String",
           "traits": {
             "smithy.api#documentation": "<p>The <b>key</b> that uniquely identifies the report file in\n\t\t\tyour S3 bucket.</p>"
+          }
+        },
+        "AuditReportId": {
+          "target": "com.amazonaws.acmpca#AuditReportId",
+          "traits": {
+            "smithy.api#documentation": "<p>An alphanumeric string that contains a report identifier.</p>"
           }
         }
       }
@@ -624,6 +624,24 @@
     "com.amazonaws.acmpca#CreateCertificateAuthorityRequest": {
       "type": "structure",
       "members": {
+        "RevocationConfiguration": {
+          "target": "com.amazonaws.acmpca#RevocationConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains a Boolean value that you can use to enable a certification revocation list\n\t\t\t(CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an\n\t\t\toptional CNAME alias that you can use to hide the name of your bucket in the <b>CRL Distribution Points</b> extension of your CA certificate. For\n\t\t\tmore information, see the <a>CrlConfiguration</a> structure. </p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.acmpca#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>Key-value pairs that will be attached to the new private CA. You can associate up to\n\t\t\t50 tags with a private CA. For information using tags with </p>\n\t\t       <p>IAM to manage permissions, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM Tags</a>.</p>"
+          }
+        },
+        "IdempotencyToken": {
+          "target": "com.amazonaws.acmpca#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Alphanumeric string that can be used to distinguish between calls to <b>CreateCertificateAuthority</b>. Idempotency tokens time out after\n\t\t\tfive minutes. Therefore, if you call <b>CreateCertificateAuthority</b> multiple times with the same idempotency\n\t\t\ttoken within a five minute period, ACM Private CA recognizes that you are requesting only one\n\t\t\tcertificate. As a result, ACM Private CA issues only one. If you change the idempotency token for\n\t\t\teach call, however, ACM Private CA recognizes that you are requesting multiple\n\t\t\tcertificates.</p>"
+          }
+        },
         "CertificateAuthorityConfiguration": {
           "target": "com.amazonaws.acmpca#CertificateAuthorityConfiguration",
           "traits": {
@@ -636,24 +654,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of the certificate authority.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "IdempotencyToken": {
-          "target": "com.amazonaws.acmpca#IdempotencyToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Alphanumeric string that can be used to distinguish between calls to <b>CreateCertificateAuthority</b>. Idempotency tokens time out after\n\t\t\tfive minutes. Therefore, if you call <b>CreateCertificateAuthority</b> multiple times with the same idempotency\n\t\t\ttoken within a five minute period, ACM Private CA recognizes that you are requesting only one\n\t\t\tcertificate. As a result, ACM Private CA issues only one. If you change the idempotency token for\n\t\t\teach call, however, ACM Private CA recognizes that you are requesting multiple\n\t\t\tcertificates.</p>"
-          }
-        },
-        "RevocationConfiguration": {
-          "target": "com.amazonaws.acmpca#RevocationConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains a Boolean value that you can use to enable a certification revocation list\n\t\t\t(CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an\n\t\t\toptional CNAME alias that you can use to hide the name of your bucket in the <b>CRL Distribution Points</b> extension of your CA certificate. For\n\t\t\tmore information, see the <a>CrlConfiguration</a> structure. </p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.acmpca#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>Key-value pairs that will be attached to the new private CA. You can associate up to\n\t\t\t50 tags with a private CA. For information using tags with </p>\n\t\t       <p>IAM to manage permissions, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM Tags</a>.</p>"
           }
         }
       }
@@ -701,17 +701,23 @@
     "com.amazonaws.acmpca#CreatePermissionRequest": {
       "type": "structure",
       "members": {
-        "Actions": {
-          "target": "com.amazonaws.acmpca#ActionList",
-          "traits": {
-            "smithy.api#documentation": "<p>The actions that the specified AWS service principal can use. These include\n\t\t\t\t<code>IssueCertificate</code>, <code>GetCertificate</code>, and\n\t\t\t\t<code>ListPermissions</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "CertificateAuthorityArn": {
           "target": "com.amazonaws.acmpca#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN\n\t\t\tby calling the <a>ListCertificateAuthorities</a> action. This must have the\n\t\t\tfollowing form: </p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>.\n\t\t</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceAccount": {
+          "target": "com.amazonaws.acmpca#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the calling account.</p>"
+          }
+        },
+        "Actions": {
+          "target": "com.amazonaws.acmpca#ActionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The actions that the specified AWS service principal can use. These include\n\t\t\t\t<code>IssueCertificate</code>, <code>GetCertificate</code>, and\n\t\t\t\t<code>ListPermissions</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -720,12 +726,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The AWS service or identity that receives the permission. At this time, the only\n\t\t\tvalid principal is <code>acm.amazonaws.com</code>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "SourceAccount": {
-          "target": "com.amazonaws.acmpca#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the calling account.</p>"
           }
         }
       }
@@ -737,6 +737,12 @@
           "target": "com.amazonaws.acmpca#String253",
           "traits": {
             "smithy.api#documentation": "<p>Name inserted into the certificate <b>CRL Distribution\n\t\t\t\tPoints</b> extension that enables the use of an alias for the CRL\n\t\t\tdistribution point. Use this value if you don't want the name of your S3 bucket to be\n\t\t\tpublic.</p>"
+          }
+        },
+        "S3BucketName": {
+          "target": "com.amazonaws.acmpca#String3To255",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the S3 bucket that contains the CRL. If you do not provide a value for the\n\t\t\t\t<b>CustomCname</b> argument, the name of your S3 bucket\n\t\t\tis placed into the <b>CRL Distribution Points</b> extension of\n\t\t\tthe issued certificate. You can change the name of your bucket by calling the <a>UpdateCertificateAuthority</a> action. You must specify a bucket policy that\n\t\t\tallows ACM Private CA to write the CRL to your bucket.</p>"
           }
         },
         "Enabled": {
@@ -752,12 +758,6 @@
           "traits": {
             "smithy.api#box": {},
             "smithy.api#documentation": "<p>Number of days until a certificate expires.</p>"
-          }
-        },
-        "S3BucketName": {
-          "target": "com.amazonaws.acmpca#String3To255",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the S3 bucket that contains the CRL. If you do not provide a value for the\n\t\t\t\t<b>CustomCname</b> argument, the name of your S3 bucket\n\t\t\tis placed into the <b>CRL Distribution Points</b> extension of\n\t\t\tthe issued certificate. You can change the name of your bucket by calling the <a>UpdateCertificateAuthority</a> action. You must specify a bucket policy that\n\t\t\tallows ACM Private CA to write the CRL to your bucket.</p>"
           }
         }
       },
@@ -803,17 +803,17 @@
     "com.amazonaws.acmpca#DeleteCertificateAuthorityRequest": {
       "type": "structure",
       "members": {
+        "PermanentDeletionTimeInDays": {
+          "target": "com.amazonaws.acmpca#PermanentDeletionTimeInDays",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of days to make a CA restorable after it has been deleted. This can be\n\t\t\tanywhere from 7 to 30 days, with 30 being the default.</p>"
+          }
+        },
         "CertificateAuthorityArn": {
           "target": "com.amazonaws.acmpca#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>. This must have the following form: </p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>.\n\t\t</p>",
             "smithy.api#required": {}
-          }
-        },
-        "PermanentDeletionTimeInDays": {
-          "target": "com.amazonaws.acmpca#PermanentDeletionTimeInDays",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of days to make a CA restorable after it has been deleted. This can be\n\t\t\tanywhere from 7 to 30 days, with 30 being the default.</p>"
           }
         }
       }
@@ -931,10 +931,10 @@
     "com.amazonaws.acmpca#DescribeCertificateAuthorityAuditReportResponse": {
       "type": "structure",
       "members": {
-        "AuditReportStatus": {
-          "target": "com.amazonaws.acmpca#AuditReportStatus",
+        "S3Key": {
+          "target": "com.amazonaws.acmpca#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether report creation is in progress, has succeeded, or has failed.</p>"
+            "smithy.api#documentation": "<p>S3 <b>key</b> that uniquely identifies the report file in\n\t\t\tyour S3 bucket.</p>"
           }
         },
         "CreatedAt": {
@@ -949,10 +949,10 @@
             "smithy.api#documentation": "<p>Name of the S3 bucket that contains the report.</p>"
           }
         },
-        "S3Key": {
-          "target": "com.amazonaws.acmpca#String",
+        "AuditReportStatus": {
+          "target": "com.amazonaws.acmpca#AuditReportStatus",
           "traits": {
-            "smithy.api#documentation": "<p>S3 <b>key</b> that uniquely identifies the report file in\n\t\t\tyour S3 bucket.</p>"
+            "smithy.api#documentation": "<p>Specifies whether report creation is in progress, has succeeded, or has failed.</p>"
           }
         }
       }
@@ -1145,17 +1145,17 @@
     "com.amazonaws.acmpca#GetCertificateRequest": {
       "type": "structure",
       "members": {
-        "CertificateArn": {
-          "target": "com.amazonaws.acmpca#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the issued certificate. The ARN contains the certificate serial number and\n\t\t\tmust be in the following form: </p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>/certificate/<i>286535153982981100925020015808220737245</i>\n            </code>\n\t\t       </p>",
-            "smithy.api#required": {}
-          }
-        },
         "CertificateAuthorityArn": {
           "target": "com.amazonaws.acmpca#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>. This must be of the form: </p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>.\n\t\t</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CertificateArn": {
+          "target": "com.amazonaws.acmpca#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the issued certificate. The ARN contains the certificate serial number and\n\t\t\tmust be in the following form: </p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>/certificate/<i>286535153982981100925020015808220737245</i>\n            </code>\n\t\t       </p>",
             "smithy.api#required": {}
           }
         }
@@ -1229,11 +1229,10 @@
     "com.amazonaws.acmpca#ImportCertificateAuthorityCertificateRequest": {
       "type": "structure",
       "members": {
-        "Certificate": {
-          "target": "com.amazonaws.acmpca#CertificateBodyBlob",
+        "CertificateChain": {
+          "target": "com.amazonaws.acmpca#CertificateChainBlob",
           "traits": {
-            "smithy.api#documentation": "<p>The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the\n\t\t\tcase of a root CA, or it may be signed by another CA that you control.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A PEM-encoded file that contains all of your certificates, other than the certificate you're\n\t\t\timporting, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root\n\t\t\tcertificate is the last in the chain, and each certificate in the chain signs the one\n\t\t\tpreceding. </p>\n\t\t       <p>This parameter must be supplied when you import a subordinate CA. When you import a\n\t\t\troot CA, there is no chain.</p>"
           }
         },
         "CertificateAuthorityArn": {
@@ -1243,10 +1242,11 @@
             "smithy.api#required": {}
           }
         },
-        "CertificateChain": {
-          "target": "com.amazonaws.acmpca#CertificateChainBlob",
+        "Certificate": {
+          "target": "com.amazonaws.acmpca#CertificateBodyBlob",
           "traits": {
-            "smithy.api#documentation": "<p>A PEM-encoded file that contains all of your certificates, other than the certificate you're\n\t\t\timporting, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root\n\t\t\tcertificate is the last in the chain, and each certificate in the chain signs the one\n\t\t\tpreceding. </p>\n\t\t       <p>This parameter must be supplied when you import a subordinate CA. When you import a\n\t\t\troot CA, there is no chain.</p>"
+            "smithy.api#documentation": "<p>The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the\n\t\t\tcase of a root CA, or it may be signed by another CA that you control.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1388,10 +1388,10 @@
             "smithy.api#required": {}
           }
         },
-        "Csr": {
-          "target": "com.amazonaws.acmpca#CsrBlob",
+        "Validity": {
+          "target": "com.amazonaws.acmpca#Validity",
           "traits": {
-            "smithy.api#documentation": "<p>The certificate signing request (CSR) for the certificate you want to issue. You can\n\t\t\tuse the following OpenSSL command to create the CSR and a 2048 bit RSA private key. </p>\n\t\t       <p>\n\t\t\t         <code>openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem\n\t\t\t\t-out csr/test_cert_.csr</code>\n\t\t       </p>\n\t\t       <p>If you have a configuration file, you can use the following OpenSSL command. The\n\t\t\t\t<code>usr_cert</code> block in the configuration file contains your X509 version 3\n\t\t\textensions. </p>\n\t\t       <p>\n            <code>openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048\n\t\t\t\t-days -365 -keyout private/test_cert_priv_key.pem -out\n\t\t\tcsr/test_cert_.csr</code>\n         </p>",
+            "smithy.api#documentation": "<p>The type of the validity period.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1401,6 +1401,12 @@
             "smithy.api#documentation": "<p>Custom string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens time out after one hour.\n\t\t\tTherefore, if you call <b>IssueCertificate</b> multiple times\n\t\t\twith the same idempotency token within 5 minutes, ACM Private CA recognizes that you are\n\t\t\trequesting only one certificate and will issue only one. If you change the idempotency\n\t\t\ttoken for each call, PCA recognizes that you are requesting multiple\n\t\t\tcertificates.</p>"
           }
         },
+        "TemplateArn": {
+          "target": "com.amazonaws.acmpca#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a custom configuration template to use when issuing a certificate. If this\n\t\t\tparameter is not provided, ACM Private CA defaults to the <code>EndEntityCertificate/V1</code>\n\t\t\ttemplate.</p>\n\t\t       <p>The following service-owned <code>TemplateArn</code> values are supported by ACM Private CA: </p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/EndEntityCertificate/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen0/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen1/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/RootCACertificate/V1</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html\">Using\n\t\t\t\tTemplates</a>.</p>"
+          }
+        },
         "SigningAlgorithm": {
           "target": "com.amazonaws.acmpca#SigningAlgorithm",
           "traits": {
@@ -1408,16 +1414,10 @@
             "smithy.api#required": {}
           }
         },
-        "TemplateArn": {
-          "target": "com.amazonaws.acmpca#Arn",
+        "Csr": {
+          "target": "com.amazonaws.acmpca#CsrBlob",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies a custom configuration template to use when issuing a certificate. If this\n\t\t\tparameter is not provided, ACM Private CA defaults to the <code>EndEntityCertificate/V1</code>\n\t\t\ttemplate.</p>\n\t\t       <p>The following service-owned <code>TemplateArn</code> values are supported by ACM Private CA: </p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/EndEntityCertificate/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen0/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen1/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>arn:aws:acm-pca:::template/RootCACertificate/V1</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html\">Using\n\t\t\t\tTemplates</a>.</p>"
-          }
-        },
-        "Validity": {
-          "target": "com.amazonaws.acmpca#Validity",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the validity period.</p>",
+            "smithy.api#documentation": "<p>The certificate signing request (CSR) for the certificate you want to issue. You can\n\t\t\tuse the following OpenSSL command to create the CSR and a 2048 bit RSA private key. </p>\n\t\t       <p>\n\t\t\t         <code>openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem\n\t\t\t\t-out csr/test_cert_.csr</code>\n\t\t       </p>\n\t\t       <p>If you have a configuration file, you can use the following OpenSSL command. The\n\t\t\t\t<code>usr_cert</code> block in the configuration file contains your X509 version 3\n\t\t\textensions. </p>\n\t\t       <p>\n            <code>openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048\n\t\t\t\t-days -365 -keyout private/test_cert_priv_key.pem -out\n\t\t\tcsr/test_cert_.csr</code>\n         </p>",
             "smithy.api#required": {}
           }
         }
@@ -1495,16 +1495,16 @@
     "com.amazonaws.acmpca#ListCertificateAuthoritiesRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.acmpca#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>Use this parameter when paginating results to specify the maximum number of items to\n\t\t\treturn in the response on each page. If additional items exist beyond the number you\n\t\t\tspecify, the <code>NextToken</code> element is sent in the response. Use this\n\t\t\t\t<code>NextToken</code> value in a subsequent request to retrieve additional\n\t\t\titems.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.acmpca#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Use this parameter when paginating results in a subsequent request after you receive a\n\t\t\tresponse with truncated results. Set it to the value of the <code>NextToken</code>\n\t\t\tparameter from the response you just received.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.acmpca#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this parameter when paginating results to specify the maximum number of items to\n\t\t\treturn in the response on each page. If additional items exist beyond the number you\n\t\t\tspecify, the <code>NextToken</code> element is sent in the response. Use this\n\t\t\t\t<code>NextToken</code> value in a subsequent request to retrieve additional\n\t\t\titems.</p>"
           }
         }
       }
@@ -1588,16 +1588,16 @@
     "com.amazonaws.acmpca#ListPermissionsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.acmpca#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.\n\t\t</p>"
-          }
-        },
         "Permissions": {
           "target": "com.amazonaws.acmpca#PermissionList",
           "traits": {
             "smithy.api#documentation": "<p>Summary information about each permission assigned by the specified private CA,\n\t\t\tincluding the action enabled, the policy provided, and the time of creation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.acmpca#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.\n\t\t</p>"
           }
         }
       }
@@ -1634,17 +1634,17 @@
     "com.amazonaws.acmpca#ListTagsRequest": {
       "type": "structure",
       "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.acmpca#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this parameter when paginating results to specify the maximum number of items to\n\t\t\treturn in the response. If additional items exist beyond the number you specify, the\n\t\t\t\t<b>NextToken</b> element is sent in the response. Use this\n\t\t\t\t<b>NextToken</b> value in a subsequent request to retrieve\n\t\t\tadditional items.</p>"
+          }
+        },
         "CertificateAuthorityArn": {
           "target": "com.amazonaws.acmpca#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that was returned when you called the <a>CreateCertificateAuthority</a> action. This must be of the form: </p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>\n\t\t       </p>",
             "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.acmpca#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>Use this parameter when paginating results to specify the maximum number of items to\n\t\t\treturn in the response. If additional items exist beyond the number you specify, the\n\t\t\t\t<b>NextToken</b> element is sent in the response. Use this\n\t\t\t\t<b>NextToken</b> value in a subsequent request to retrieve\n\t\t\tadditional items.</p>"
           }
         },
         "NextToken": {
@@ -1728,22 +1728,28 @@
     "com.amazonaws.acmpca#Permission": {
       "type": "structure",
       "members": {
+        "SourceAccount": {
+          "target": "com.amazonaws.acmpca#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the account that assigned the permission.</p>"
+          }
+        },
         "Actions": {
           "target": "com.amazonaws.acmpca#ActionList",
           "traits": {
             "smithy.api#documentation": "<p>The private CA actions that can be performed by the designated AWS service.</p>"
           }
         },
-        "CertificateAuthorityArn": {
-          "target": "com.amazonaws.acmpca#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the private CA from which the permission was\n\t\t\tissued.</p>"
-          }
-        },
         "CreatedAt": {
           "target": "com.amazonaws.acmpca#TStamp",
           "traits": {
             "smithy.api#documentation": "<p>The time at which the permission was created.</p>"
+          }
+        },
+        "CertificateAuthorityArn": {
+          "target": "com.amazonaws.acmpca#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the private CA from which the permission was\n\t\t\tissued.</p>"
           }
         },
         "Policy": {
@@ -1756,12 +1762,6 @@
           "target": "com.amazonaws.acmpca#String",
           "traits": {
             "smithy.api#documentation": "<p>The AWS service or entity that holds the permission. At this time, the only valid\n\t\t\tprincipal is <code>acm.amazonaws.com</code>.</p>"
-          }
-        },
-        "SourceAccount": {
-          "target": "com.amazonaws.acmpca#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the account that assigned the permission.</p>"
           }
         }
       },
@@ -2120,17 +2120,17 @@
     "com.amazonaws.acmpca#Tag": {
       "type": "structure",
       "members": {
+        "Value": {
+          "target": "com.amazonaws.acmpca#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Value of the tag.</p>"
+          }
+        },
         "Key": {
           "target": "com.amazonaws.acmpca#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>Key (name) of the tag.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Value": {
-          "target": "com.amazonaws.acmpca#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>Value of the tag.</p>"
           }
         }
       },
@@ -2253,17 +2253,17 @@
     "com.amazonaws.acmpca#UntagCertificateAuthorityRequest": {
       "type": "structure",
       "members": {
-        "CertificateAuthorityArn": {
-          "target": "com.amazonaws.acmpca#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>. This must be of the form: </p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>\n\t\t       </p>",
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.acmpca#TagList",
           "traits": {
             "smithy.api#documentation": "<p>List of tags to be removed from the CA.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CertificateAuthorityArn": {
+          "target": "com.amazonaws.acmpca#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>. This must be of the form: </p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>\n\t\t       </p>",
             "smithy.api#required": {}
           }
         }
@@ -2301,17 +2301,17 @@
     "com.amazonaws.acmpca#UpdateCertificateAuthorityRequest": {
       "type": "structure",
       "members": {
+        "RevocationConfiguration": {
+          "target": "com.amazonaws.acmpca#RevocationConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Revocation information for your private CA.</p>"
+          }
+        },
         "CertificateAuthorityArn": {
           "target": "com.amazonaws.acmpca#Arn",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be\n\t\t\trevoked. This must be of the form:</p>\n\t\t       <p>\n\t\t\t         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>\n            </code>\n\t\t       </p>",
             "smithy.api#required": {}
-          }
-        },
-        "RevocationConfiguration": {
-          "target": "com.amazonaws.acmpca#RevocationConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Revocation information for your private CA.</p>"
           }
         },
         "Status": {

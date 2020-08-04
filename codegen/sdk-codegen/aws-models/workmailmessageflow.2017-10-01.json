@@ -1,0 +1,4315 @@
+{
+  "smithy": "1.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "PaginatedTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.workmailmessageflow#AccessControlRule": {
+      "type": "structure",
+      "members": {
+        "Description": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The rule description.</p>"
+          }
+        },
+        "NotIpRanges": {
+          "target": "com.amazonaws.workmailmessageflow#IpRangeList",
+          "traits": {
+            "smithy.api#documentation": "<p>IPv4 CIDR ranges to exclude from the rule.</p>"
+          }
+        },
+        "DateCreated": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date that the rule was created.</p>"
+          }
+        },
+        "DateModified": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date that the rule was modified.</p>"
+          }
+        },
+        "UserIds": {
+          "target": "com.amazonaws.workmailmessageflow#UserIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>User IDs to include in the rule.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleName",
+          "traits": {
+            "smithy.api#documentation": "<p>The rule name.</p>"
+          }
+        },
+        "Actions": {
+          "target": "com.amazonaws.workmailmessageflow#ActionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Access protocol actions to include in the rule. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>"
+          }
+        },
+        "IpRanges": {
+          "target": "com.amazonaws.workmailmessageflow#IpRangeList",
+          "traits": {
+            "smithy.api#documentation": "<p>IPv4 CIDR ranges to include in the rule.</p>"
+          }
+        },
+        "NotUserIds": {
+          "target": "com.amazonaws.workmailmessageflow#UserIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>User IDs to exclude from the rule.</p>"
+          }
+        },
+        "Effect": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleEffect",
+          "traits": {
+            "smithy.api#documentation": "<p>The rule effect.</p>"
+          }
+        },
+        "NotActions": {
+          "target": "com.amazonaws.workmailmessageflow#ActionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Access protocol actions to exclude from the rule. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A rule that controls access to an Amazon WorkMail organization.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AccessControlRuleAction": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[a-zA-Z]+"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AccessControlRuleDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        },
+        "smithy.api#pattern": "[\\u0020-\\u00FF]+"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AccessControlRuleEffect": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ALLOW",
+            "name": "ALLOW"
+          },
+          {
+            "value": "DENY",
+            "name": "DENY"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AccessControlRuleName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9_-]+"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AccessControlRuleNameList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#AccessControlRuleName"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AccessControlRulesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#AccessControlRule"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ActionsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#AccessControlRuleAction"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Aliases": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#EmailAddress"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AmazonResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1011
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AssociateDelegateToResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#AssociateDelegateToResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#AssociateDelegateToResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds a member (user or group) to the resource's set of delegates.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AssociateDelegateToResourceRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization under which the resource exists.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource for which members (users or groups) are associated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The member (user or group) to associate to the resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AssociateDelegateToResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#AssociateMemberToGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#AssociateMemberToGroupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#AssociateMemberToGroupResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds a member (user or group) to the group's set.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AssociateMemberToGroupRequest": {
+      "type": "structure",
+      "members": {
+        "GroupId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The group to which the member (user or group) is associated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MemberId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The member (user or group) to associate to the group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization under which the group exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#AssociateMemberToGroupResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#BookingOptions": {
+      "type": "structure",
+      "members": {
+        "AutoDeclineRecurringRequests": {
+          "target": "com.amazonaws.workmailmessageflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource's ability to automatically decline any recurring requests.</p>"
+          }
+        },
+        "AutoDeclineConflictingRequests": {
+          "target": "com.amazonaws.workmailmessageflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource's ability to automatically decline any conflicting requests.</p>"
+          }
+        },
+        "AutoAcceptRequests": {
+          "target": "com.amazonaws.workmailmessageflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>At least one delegate must be associated to the resource to disable automatic replies\n         from the resource.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Boolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.workmailmessageflow#CreateAlias": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#CreateAliasRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#CreateAliasResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddressInUseException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#MailDomainNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#MailDomainStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds an alias to the set of a given member (user or group) of Amazon WorkMail.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateAliasRequest": {
+      "type": "structure",
+      "members": {
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The member (user or group) to which this alias is added.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Alias": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The alias to add to the member set.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization under which the member (user or group) exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateAliasResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#CreateGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#CreateGroupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#CreateGroupResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#NameAvailabilityException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ReservedNameException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a>\n         operation.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateGroupRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization under which the group is to be created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#GroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the group.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateGroupResponse": {
+      "type": "structure",
+      "members": {
+        "GroupId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the group.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#CreateResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#CreateResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#NameAvailabilityException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ReservedNameException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a new Amazon WorkMail resource. </p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateResourceRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier associated with the organization for which the resource is\n         created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the new resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the new resource. The available types are <code>equipment</code> and\n            <code>room</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateResourceResponse": {
+      "type": "structure",
+      "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the new resource.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#CreateUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#CreateUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidPasswordException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#NameAvailabilityException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ReservedNameException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a user who can be used in Amazon WorkMail by calling the\n            <a>RegisterToWorkMail</a> operation.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateUserRequest": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name for the new user. Simple AD or AD Connector user names have a maximum length of 20. All others have a maximum length of 64.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the organization for which the user is created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The display name for the new user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Password": {
+          "target": "com.amazonaws.workmailmessageflow#Password",
+          "traits": {
+            "smithy.api#documentation": "<p>The password for the new user.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#CreateUserResponse": {
+      "type": "structure",
+      "members": {
+        "UserId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the new user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Delegate": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.workmailmessageflow#MemberType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the delegate: user or group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the user or group associated as the resource's delegate.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The name of the attribute, which is one of the values defined in the UserAttribute\n         enumeration.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteAccessControlRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteAccessControlRuleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteAccessControlRuleResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes an access control rule for the specified WorkMail organization.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteAccessControlRuleRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the access control rule.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteAccessControlRuleResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DeleteAlias": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteAliasRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteAliasResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Remove one or more specified aliases from a set of aliases for a given\n         user.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteAliasRequest": {
+      "type": "structure",
+      "members": {
+        "Alias": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The aliases to be removed from the user's set of aliases. Duplicate entries in the\n         list are collapsed into single entries (the list is transformed into a set).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the member (user or group) from which to have the aliases\n         removed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the user exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteAliasResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DeleteGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteGroupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteGroupResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a group from Amazon WorkMail.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteGroupRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization that contains the group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GroupId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the group to be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteGroupResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DeleteMailboxPermissions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteMailboxPermissionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteMailboxPermissionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes permissions granted to a member (user or group).</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteMailboxPermissionsRequest": {
+      "type": "structure",
+      "members": {
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the member (user or group)that owns the mailbox.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GranteeId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the member (user or group) for which to delete granted\n         permissions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the organization under which the member (user or group)\n         exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteMailboxPermissionsResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DeleteResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified resource. </p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteResourceRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier associated with the organization from which the resource is\n         deleted.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the resource to be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DeleteRetentionPolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteRetentionPolicyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteRetentionPolicyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified retention policy from the specified organization.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteRetentionPolicyRequest": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.workmailmessageflow#ShortString",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteRetentionPolicyResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DeleteUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DeleteUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a user from Amazon WorkMail and all subsequent systems. Before you can delete a user, the\n         user state must be <code>DISABLED</code>. Use the <a>DescribeUser</a> action to\n         confirm the user state.</p> \n         <p>Deleting a user is permanent and cannot be undone.\n         WorkMail archives user mailboxes for 30 days before they are permanently removed.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteUserRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization that contains the user to be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UserId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user to be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeleteUserResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DeregisterFromWorkMail": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DeregisterFromWorkMailRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DeregisterFromWorkMailResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Mark a user, group, or resource as no longer used in Amazon WorkMail. This action\n         disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes\n         for 30 days before they are permanently removed. The functionality in the console is\n            <i>Disable</i>.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeregisterFromWorkMailRequest": {
+      "type": "structure",
+      "members": {
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the member (user or group) to be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the Amazon WorkMail entity\n         exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DeregisterFromWorkMailResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DescribeGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DescribeGroupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DescribeGroupResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the data available for the group.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeGroupRequest": {
+      "type": "structure",
+      "members": {
+        "GroupId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the group to be described.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the group exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeGroupResponse": {
+      "type": "structure",
+      "members": {
+        "GroupId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the described group.</p>"
+          }
+        },
+        "DisabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when a user was deregistered from WorkMail, in UNIX epoch time\n         format.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#EntityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the user: enabled (registered to Amazon WorkMail) or disabled\n         (deregistered or never registered to WorkMail).</p>"
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The email of the described group.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#GroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the described group.</p>"
+          }
+        },
+        "EnabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when a user was registered to WorkMail, in UNIX epoch time\n         format.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeOrganization": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DescribeOrganizationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DescribeOrganizationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Provides more information regarding a given organization based on its identifier.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeOrganizationRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization to be described.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeOrganizationResponse": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the directory associated with an Amazon WorkMail\n         organization.</p>"
+          }
+        },
+        "ARN": {
+          "target": "com.amazonaws.workmailmessageflow#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the organization.</p>"
+          }
+        },
+        "DefaultMailDomain": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The default mail domain associated with the organization.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>(Optional) The error message indicating if unexpected behavior was encountered with\n         regards to the organization.</p>"
+          }
+        },
+        "Alias": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The alias for an organization.</p>"
+          }
+        },
+        "DirectoryType": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of directory associated with the WorkMail organization.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of an organization.</p>"
+          }
+        },
+        "CompletedDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date at which the organization became usable in the WorkMail context, in UNIX epoch\n         time format.</p>"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of an organization.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DescribeResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DescribeResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the data available for the resource.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeResourceRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier associated with the organization for which the resource is\n         described.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the resource to be described.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the described resource.</p>"
+          }
+        },
+        "DisabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when a resource was disabled from WorkMail, in UNIX epoch time\n         format.</p>"
+          }
+        },
+        "EnabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when a resource was enabled for WorkMail, in UNIX epoch time\n         format.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the described resource.</p>"
+          }
+        },
+        "BookingOptions": {
+          "target": "com.amazonaws.workmailmessageflow#BookingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The booking options for the described resource.</p>"
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The email of the described resource.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#EntityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the resource: enabled (registered to Amazon WorkMail), disabled\n         (deregistered or never registered to WorkMail), or deleted.</p>"
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the described resource.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DescribeUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DescribeUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Provides information regarding the user.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeUserRequest": {
+      "type": "structure",
+      "members": {
+        "UserId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the user to be described.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the user exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DescribeUserResponse": {
+      "type": "structure",
+      "members": {
+        "DisabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.</p>"
+          }
+        },
+        "UserId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the described user.</p>"
+          }
+        },
+        "UserRole": {
+          "target": "com.amazonaws.workmailmessageflow#UserRole",
+          "traits": {
+            "smithy.api#documentation": "<p>In certain cases, other entities are modeled as users. If interoperability is\n         enabled, resources are imported into Amazon WorkMail as users. Because different \n         WorkMail organizations rely on different directory types, administrators can distinguish\n         between an unregistered user (account is disabled and has a user role) and the directory\n         administrators. The values are USER, RESOURCE, and SYSTEM_USER.</p>"
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The display name of the user.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#EntityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of a user: enabled (registered to Amazon WorkMail) or disabled\n         (deregistered or never registered to WorkMail).</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name for the user.</p>"
+          }
+        },
+        "EnabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.</p>"
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The email of the user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The directory service doesn't recognize the credentials supplied by \n         WorkMail.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DirectoryUnavailableException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The directory on which you are trying to perform operations isn't\n         available.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DisassociateDelegateFromResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DisassociateDelegateFromResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DisassociateDelegateFromResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes a member from the resource's set of delegates.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DisassociateDelegateFromResourceRequest": {
+      "type": "structure",
+      "members": {
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the member (user, group) to be removed from the resource's delegates.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the resource exists.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the resource from which delegates' set members are removed. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DisassociateDelegateFromResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#DisassociateMemberFromGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#DisassociateMemberFromGroupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#DisassociateMemberFromGroupResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes a member from a group.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DisassociateMemberFromGroupRequest": {
+      "type": "structure",
+      "members": {
+        "GroupId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the group from which members are removed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the group exists.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MemberId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the member to be removed to the group.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#DisassociateMemberFromGroupResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#EmailAddress": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 254
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#EmailAddressInUseException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The email address that you're trying to assign is already created for a different\n         user, group, or resource.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#EntityAlreadyRegisteredException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The user, group, or resource that you're trying to register is already registered.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#EntityNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The identifier supplied for the user, group, or resource does not\n         exist in your organization.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#EntityState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
+            "name": "ENABLED"
+          },
+          {
+            "value": "DISABLED",
+            "name": "DISABLED"
+          },
+          {
+            "value": "DELETED",
+            "name": "DELETED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.workmailmessageflow#EntityStateException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You are performing an operation on a user, group, or resource that isn't in the\n         expected state, such as trying to delete an active user.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#FolderConfiguration": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#FolderName",
+          "traits": {
+            "smithy.api#documentation": "<p>The folder name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Period": {
+          "target": "com.amazonaws.workmailmessageflow#RetentionPeriod",
+          "traits": {
+            "smithy.api#documentation": "<p>The period of time at which the folder configuration action is applied.</p>"
+          }
+        },
+        "Action": {
+          "target": "com.amazonaws.workmailmessageflow#RetentionAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The action to take on the folder contents at the end of the folder configuration period.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration applied to an organization's folders by its retention policy.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#FolderConfigurations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#FolderConfiguration"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#FolderName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "INBOX",
+            "name": "INBOX"
+          },
+          {
+            "value": "DELETED_ITEMS",
+            "name": "DELETED_ITEMS"
+          },
+          {
+            "value": "SENT_ITEMS",
+            "name": "SENT_ITEMS"
+          },
+          {
+            "value": "DRAFTS",
+            "name": "DRAFTS"
+          },
+          {
+            "value": "JUNK_EMAIL",
+            "name": "JUNK_EMAIL"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetAccessControlEffect": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#GetAccessControlEffectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#GetAccessControlEffectResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the effects of an organization's access control rules as they apply to a specified IPv4 address, access protocol action, or user ID. </p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetAccessControlEffectRequest": {
+      "type": "structure",
+      "members": {
+        "UserId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The user ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IpAddress": {
+          "target": "com.amazonaws.workmailmessageflow#IpAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IPv4 address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Action": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The access protocol action. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetAccessControlEffectResponse": {
+      "type": "structure",
+      "members": {
+        "Effect": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleEffect",
+          "traits": {
+            "smithy.api#documentation": "<p>The rule effect.</p>"
+          }
+        },
+        "MatchedRules": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>The rules that match the given parameters, resulting in an effect.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetDefaultRetentionPolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#GetDefaultRetentionPolicyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#GetDefaultRetentionPolicyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the default retention policy details for the specified organization.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetDefaultRetentionPolicyRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetDefaultRetentionPolicyResponse": {
+      "type": "structure",
+      "members": {
+        "FolderConfigurations": {
+          "target": "com.amazonaws.workmailmessageflow#FolderConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy folder configurations.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy description.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workmailmessageflow#ShortString",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy ID.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#ShortString",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy name.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetMailboxDetails": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#GetMailboxDetailsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#GetMailboxDetailsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Requests a user's mailbox details for a specified organization and user.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetMailboxDetailsRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization that contains the user whose mailbox details are\n         being requested.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UserId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the user whose mailbox details are being requested.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GetMailboxDetailsResponse": {
+      "type": "structure",
+      "members": {
+        "MailboxSize": {
+          "target": "com.amazonaws.workmailmessageflow#MailboxSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The current mailbox size, in MB, for the specified user.</p>"
+          }
+        },
+        "MailboxQuota": {
+          "target": "com.amazonaws.workmailmessageflow#MailboxQuota",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum allowed mailbox size, in MB, for the specified user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Group": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#GroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the group.</p>"
+          }
+        },
+        "DisabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date indicating when the group was disabled from Amazon WorkMail use.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#EntityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>"
+          }
+        },
+        "EnabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date indicating when the group was enabled for Amazon WorkMail use.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the group.</p>"
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The email of the group.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The representation of an Amazon WorkMail group.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#GroupName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "[\\u0020-\\u00FF]+"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Groups": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#Group"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#InvalidConfigurationException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for a resource isn't valid. A resource must either be able to\n         auto-respond to requests or have at least one delegate associated that can do so on its\n         behalf.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#InvalidParameterException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>One or more of the input parameters don't match the service's restrictions.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#InvalidPasswordException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The supplied password doesn't match the minimum security constraints, such as length\n         or use of special characters.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#IpAddress": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 15
+        },
+        "smithy.api#pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#IpRange": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 18
+        },
+        "smithy.api#pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])/([0-9]|[12][0-9]|3[0-2])$"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#IpRangeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#IpRange"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request exceeds the limit of the resource.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListAccessControlRules": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListAccessControlRulesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListAccessControlRulesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the access control rules for the specified organization.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListAccessControlRulesRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListAccessControlRulesResponse": {
+      "type": "structure",
+      "members": {
+        "Rules": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRulesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The access control rules.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListAliases": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListAliasesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListAliasesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a paginated call to list the aliases associated with a given entity.</p>",
+        "smithy.api#idempotent": {},
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListAliasesRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the entity exists.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the entity for which to list the aliases.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workmailmessageflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The first call does not\n         contain any tokens.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListAliasesResponse": {
+      "type": "structure",
+      "members": {
+        "Aliases": {
+          "target": "com.amazonaws.workmailmessageflow#Aliases",
+          "traits": {
+            "smithy.api#documentation": "<p>The entity's paginated aliases.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The value is \"null\" when there\n         are no more results to return.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListGroupMembers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListGroupMembersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListGroupMembersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns an overview of the members\n         of a group. Users and groups can be members of a group.</p>",
+        "smithy.api#idempotent": {},
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListGroupMembersRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p> The token to use to retrieve the next page of results. The first call does not\n         contain any tokens.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workmailmessageflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the group exists.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GroupId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the group to which the members (users or groups) are associated.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListGroupMembersResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The first call does not\n         contain any tokens.</p>"
+          }
+        },
+        "Members": {
+          "target": "com.amazonaws.workmailmessageflow#Members",
+          "traits": {
+            "smithy.api#documentation": "<p>The members associated to the group.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListGroups": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListGroupsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListGroupsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns summaries of the organization's groups.</p>",
+        "smithy.api#idempotent": {},
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListGroupsRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The first call does not\n         contain any tokens.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workmailmessageflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the groups exist.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListGroupsResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The value is \"null\" when there\n         are no more results to return.</p>"
+          }
+        },
+        "Groups": {
+          "target": "com.amazonaws.workmailmessageflow#Groups",
+          "traits": {
+            "smithy.api#documentation": "<p>The overview of groups for an organization.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListMailboxPermissions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListMailboxPermissionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListMailboxPermissionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the mailbox permissions associated with a user, group, or resource\n         mailbox.</p>",
+        "smithy.api#idempotent": {},
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListMailboxPermissionsRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>"
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user, group, or resource for which to list mailbox\n         permissions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workmailmessageflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the organization under which the user, group, or resource\n         exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListMailboxPermissionsResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The value is \"null\" when there are no more results to return.</p>"
+          }
+        },
+        "Permissions": {
+          "target": "com.amazonaws.workmailmessageflow#Permissions",
+          "traits": {
+            "smithy.api#documentation": "<p>One page of the user, group, or resource mailbox permissions.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListOrganizations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListOrganizationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListOrganizationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns summaries of the customer's organizations.</p>",
+        "smithy.api#idempotent": {},
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListOrganizationsRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The first call does not\n         contain any tokens.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workmailmessageflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListOrganizationsResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The value is \"null\" when there\n         are no more results to return.</p>"
+          }
+        },
+        "OrganizationSummaries": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>The overview of owned organizations presented as a list of organization summaries.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListResourceDelegates": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListResourceDelegatesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListResourceDelegatesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the delegates associated with a resource. Users and groups can be resource\n         delegates and answer requests on behalf of the resource.</p>",
+        "smithy.api#idempotent": {},
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListResourceDelegatesRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the resource whose delegates are listed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization that contains the resource for which delegates\n         are listed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token used to paginate through the delegates associated with a resource.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workmailmessageflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of maximum results in a page.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListResourceDelegatesResponse": {
+      "type": "structure",
+      "members": {
+        "Delegates": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceDelegates",
+          "traits": {
+            "smithy.api#documentation": "<p>One page of the resource's delegates.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token used to paginate through the delegates associated with a resource. While\n         results are still available, it has an associated value. When the last page is reached, the\n         token is empty. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListResources": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListResourcesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListResourcesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns summaries of the organization's resources.</p>",
+        "smithy.api#idempotent": {},
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListResourcesRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The first call does not\n         contain any tokens.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workmailmessageflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the resources exist.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListResourcesResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p> The token used to paginate through all the organization's resources. While results\n         are still available, it has an associated value. When the last page is reached, the token\n         is empty.</p>"
+          }
+        },
+        "Resources": {
+          "target": "com.amazonaws.workmailmessageflow#Resources",
+          "traits": {
+            "smithy.api#documentation": "<p>One page of the organization's resource representation.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the tags applied to an Amazon WorkMail organization resource.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.workmailmessageflow#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource ARN.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.workmailmessageflow#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tag key-value pairs.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListUsers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ListUsersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ListUsersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns summaries of the organization's users.</p>",
+        "smithy.api#idempotent": {},
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListUsersRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the users exist.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workmailmessageflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ListUsersResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workmailmessageflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p> The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.</p>"
+          }
+        },
+        "Users": {
+          "target": "com.amazonaws.workmailmessageflow#Users",
+          "traits": {
+            "smithy.api#documentation": "<p>The overview of users for an organization.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#MailDomainNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>For an email or alias to be created in Amazon WorkMail, the included domain must be\n         defined in the organization.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#MailDomainStateException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>After a domain has been added to the organization, it must be verified. The domain is\n         not yet verified.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#MailboxQuota": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#MailboxSize": {
+      "type": "double",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Member": {
+      "type": "structure",
+      "members": {
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#EntityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the member, which can be ENABLED, DISABLED, or DELETED.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the member.</p>"
+          }
+        },
+        "DisabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date indicating when the member was disabled from Amazon WorkMail\n         use.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.workmailmessageflow#MemberType",
+          "traits": {
+            "smithy.api#documentation": "<p>A member can be a user or group.</p>"
+          }
+        },
+        "EnabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date indicating when the member was enabled for Amazon WorkMail\n         use.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the member.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The representation of a user or group.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#MemberType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "GROUP",
+            "name": "GROUP"
+          },
+          {
+            "value": "USER",
+            "name": "USER"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Members": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#Member"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#NameAvailabilityException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The user, group, or resource name isn't unique in Amazon WorkMail.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#OrganizationId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^m-[0-9a-f]{32}$"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#OrganizationName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 62
+        },
+        "smithy.api#pattern": "^(?!d-)([\\da-zA-Z]+)([-]*[\\da-zA-Z])*"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#OrganizationNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An operation received a valid organization identifier that either doesn't belong or\n         exist in the system.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#OrganizationStateException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The organization must have a valid state (Active or Synchronizing) to perform certain\n         operations on the organization or its members.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#OrganizationSummaries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#OrganizationSummary"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#OrganizationSummary": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier associated with the organization.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message associated with the organization. It is only  present if unexpected\n         behavior has occurred with regards to the organization. It provides insight or solutions\n         regarding unexpected behavior.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The state associated with the organization.</p>"
+          }
+        },
+        "Alias": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The alias associated with the organization.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The representation of an organization.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Password": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "[\\u0020-\\u00FF]+",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Permission": {
+      "type": "structure",
+      "members": {
+        "GranteeType": {
+          "target": "com.amazonaws.workmailmessageflow#MemberType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of user, group, or resource referred to in GranteeId.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GranteeId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user, group, or resource to which the permissions are\n         granted.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PermissionValues": {
+          "target": "com.amazonaws.workmailmessageflow#PermissionValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Permission granted to a user, group, or resource to access a certain aspect of\n         another user, group, or resource mailbox.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PermissionType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "FULL_ACCESS",
+            "name": "FULL_ACCESS"
+          },
+          {
+            "value": "SEND_AS",
+            "name": "SEND_AS"
+          },
+          {
+            "value": "SEND_ON_BEHALF",
+            "name": "SEND_ON_BEHALF"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PermissionValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#PermissionType"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Permissions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#Permission"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PolicyDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "[\\w\\d\\s\\S\\-!?=,.;:'_]+"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PutAccessControlRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#PutAccessControlRuleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#PutAccessControlRuleResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds a new access control rule for the specified organization. The rule allows or\n         denies access to the organization for the specified IPv4 addresses, access protocol actions, and\n         user IDs. Adding a new rule with the same name as an existing rule replaces the older\n         rule.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PutAccessControlRuleRequest": {
+      "type": "structure",
+      "members": {
+        "Description": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The rule description.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NotActions": {
+          "target": "com.amazonaws.workmailmessageflow#ActionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Access protocol actions to exclude from the rule. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>"
+          }
+        },
+        "NotIpRanges": {
+          "target": "com.amazonaws.workmailmessageflow#IpRangeList",
+          "traits": {
+            "smithy.api#documentation": "<p>IPv4 CIDR ranges to exclude from the rule.</p>"
+          }
+        },
+        "NotUserIds": {
+          "target": "com.amazonaws.workmailmessageflow#UserIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>User IDs to exclude from the rule.</p>"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the organization.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Actions": {
+          "target": "com.amazonaws.workmailmessageflow#ActionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Access protocol actions to include in the rule. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleName",
+          "traits": {
+            "smithy.api#documentation": "<p>The rule name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IpRanges": {
+          "target": "com.amazonaws.workmailmessageflow#IpRangeList",
+          "traits": {
+            "smithy.api#documentation": "<p>IPv4 CIDR ranges to include in the rule.</p>"
+          }
+        },
+        "UserIds": {
+          "target": "com.amazonaws.workmailmessageflow#UserIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>User IDs to include in the rule.</p>"
+          }
+        },
+        "Effect": {
+          "target": "com.amazonaws.workmailmessageflow#AccessControlRuleEffect",
+          "traits": {
+            "smithy.api#documentation": "<p>The rule effect.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PutAccessControlRuleResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#PutMailboxPermissions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#PutMailboxPermissionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#PutMailboxPermissionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sets permissions for a user, group, or resource. This replaces any pre-existing\n         permissions.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PutMailboxPermissionsRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the organization under which the user, group, or resource\n         exists.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PermissionValues": {
+          "target": "com.amazonaws.workmailmessageflow#PermissionValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user, group, or resource for which to update mailbox\n         permissions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GranteeId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user, group, or resource to which to grant the\n         permissions.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PutMailboxPermissionsResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#PutRetentionPolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#PutRetentionPolicyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#PutRetentionPolicyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Puts a retention policy to the specified organization.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PutRetentionPolicyRequest": {
+      "type": "structure",
+      "members": {
+        "FolderConfigurations": {
+          "target": "com.amazonaws.workmailmessageflow#FolderConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy folder configurations.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workmailmessageflow#ShortString",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy ID.</p>"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.workmailmessageflow#PolicyDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy description.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#ShortString",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention policy name.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#PutRetentionPolicyResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#RegisterToWorkMail": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#RegisterToWorkMailRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#RegisterToWorkMailResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddressInUseException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityAlreadyRegisteredException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#MailDomainNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#MailDomainStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Registers an existing and disabled user, group, or resource for Amazon WorkMail use by\n         associating a mailbox and calendaring capabilities. It performs no change if the user,\n         group, or resource is enabled and fails if the user, group, or resource is deleted. This\n         operation results in the accumulation of costs. For more information, see <a href=\"https://aws.amazon.com/workmail/pricing\">Pricing</a>. The equivalent console\n         functionality for this operation is <i>Enable</i>. </p>\n         <p>Users can either be created by calling the <a>CreateUser</a> API operation or\n         they can be synchronized from your directory. For more information, see <a>DeregisterFromWorkMail</a>.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#RegisterToWorkMailRequest": {
+      "type": "structure",
+      "members": {
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the user, group, or resource to be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The email for the user, group, or resource to be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization under which the user, group, or resource\n         exists.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#RegisterToWorkMailResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#ReservedNameException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This user, group, or resource name is not allowed in Amazon WorkMail.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ResetPassword": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#ResetPasswordRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#ResetPasswordResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidPasswordException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Allows the administrator to reset the password for a user.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ResetPasswordRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the organization that contains the user for which the password is\n         reset.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Password": {
+          "target": "com.amazonaws.workmailmessageflow#Password",
+          "traits": {
+            "smithy.api#documentation": "<p>The new password for the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UserId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user for whom the password is reset.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ResetPasswordResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#Resource": {
+      "type": "structure",
+      "members": {
+        "EnabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date indicating when the resource was enabled for Amazon WorkMail use.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the resource.</p>"
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The email of the resource.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#EntityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the resource, which can be ENABLED, DISABLED, or DELETED.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource.</p>"
+          }
+        },
+        "DisabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date indicating when the resource was disabled from Amazon WorkMail\n         use.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the resource: equipment or room.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The representation of a resource.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ResourceDelegates": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#Delegate"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ResourceId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^r-[0-9a-f]{32}$"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        },
+        "smithy.api#pattern": "[\\w\\-.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z0-9]{2,})?"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The resource cannot be found.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ROOM",
+            "name": "ROOM"
+          },
+          {
+            "value": "EQUIPMENT",
+            "name": "EQUIPMENT"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Resources": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#Resource"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#RetentionAction": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
+            "name": "NONE"
+          },
+          {
+            "value": "DELETE",
+            "name": "DELETE"
+          },
+          {
+            "value": "PERMANENTLY_DELETE",
+            "name": "PERMANENTLY_DELETE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.workmailmessageflow#RetentionPeriod": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 730
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#ShortString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9_-]+"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#String": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Tag": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.workmailmessageflow#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The key of the tag.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.workmailmessageflow#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the tag.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a tag applied to a resource.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#TagList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#Tag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#TooManyTagsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Applies the specified tags to the specified Amazon WorkMail organization resource.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.workmailmessageflow#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag key-value pairs.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.workmailmessageflow#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource ARN.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#TagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Timestamp": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.workmailmessageflow#TooManyTagsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The resource can have up to 50 user-applied tags.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UnsupportedOperationException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.workmailmessageflow#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You can't perform a write operation against a read-only directory.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Untags the specified tags from the specified Amazon WorkMail organization resource.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.workmailmessageflow#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource ARN.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.workmailmessageflow#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag keys.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UntagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#UpdateMailboxQuota": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#UpdateMailboxQuotaRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#UpdateMailboxQuotaResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates a user's current mailbox quota for a specified organization and user.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UpdateMailboxQuotaRequest": {
+      "type": "structure",
+      "members": {
+        "MailboxQuota": {
+          "target": "com.amazonaws.workmailmessageflow#MailboxQuota",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated mailbox quota, in MB, for the specified user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the organization that contains the user for whom to update the mailbox quota.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UserId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifer for the user for whom to update the mailbox quota.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UpdateMailboxQuotaResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#UpdatePrimaryEmailAddress": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#UpdatePrimaryEmailAddressRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#UpdatePrimaryEmailAddressResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryServiceAuthenticationFailedException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddressInUseException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#MailDomainNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#MailDomainStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the primary email for a user, group, or resource. The current email is moved\n         into the list of aliases (or swapped between an existing alias and the current primary\n         email), and the email provided in the input is promoted as the primary.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UpdatePrimaryEmailAddressRequest": {
+      "type": "structure",
+      "members": {
+        "Email": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the email to be updated as primary.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization that contains the user, group, or resource to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The user, group, or resource to update.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UpdatePrimaryEmailAddressResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#UpdateResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workmailmessageflow#UpdateResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workmailmessageflow#UpdateResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddressInUseException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#EntityStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#InvalidConfigurationException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#MailDomainNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#MailDomainStateException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#NameAvailabilityException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationStateException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates data for the resource. To have the latest information, it must be preceded by\n         a <a>DescribeResource</a> call. The dataset in the request should be the one\n         expected when performing another <code>DescribeResource</code> call.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UpdateResourceRequest": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workmailmessageflow#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier associated with the organization for which the resource is\n         updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource to be updated.</p>"
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workmailmessageflow#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the resource to be updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BookingOptions": {
+          "target": "com.amazonaws.workmailmessageflow#BookingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource's booking options to be updated.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UpdateResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workmailmessageflow#User": {
+      "type": "structure",
+      "members": {
+        "DisplayName": {
+          "target": "com.amazonaws.workmailmessageflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The display name of the user.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user.</p>"
+          }
+        },
+        "UserRole": {
+          "target": "com.amazonaws.workmailmessageflow#UserRole",
+          "traits": {
+            "smithy.api#documentation": "<p>The role of the user.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workmailmessageflow#EntityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>"
+          }
+        },
+        "DisabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date indicating when the user was disabled from Amazon WorkMail use.</p>"
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.workmailmessageflow#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The email of the user.</p>"
+          }
+        },
+        "EnabledDate": {
+          "target": "com.amazonaws.workmailmessageflow#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date indicating when the user was enabled for Amazon WorkMail use.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workmailmessageflow#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The representation of an Amazon WorkMail user.</p>"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UserIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#WorkMailIdentifier"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UserName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[\\w\\-.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z0-9]{2,})?"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#UserRole": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "USER",
+            "name": "USER"
+          },
+          {
+            "value": "RESOURCE",
+            "name": "RESOURCE"
+          },
+          {
+            "value": "SYSTEM_USER",
+            "name": "SYSTEM_USER"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.workmailmessageflow#Users": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workmailmessageflow#User"
+      }
+    },
+    "com.amazonaws.workmailmessageflow#WorkMailIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 12,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.workmailmessageflow#WorkMailService": {
+      "type": "service",
+      "version": "2017-10-01",
+      "operations": [
+        {
+          "target": "com.amazonaws.workmailmessageflow#AssociateDelegateToResource"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#AssociateMemberToGroup"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#CreateAlias"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#CreateGroup"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#CreateResource"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#CreateUser"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DeleteAccessControlRule"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DeleteAlias"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DeleteGroup"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DeleteMailboxPermissions"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DeleteResource"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DeleteRetentionPolicy"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DeleteUser"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DeregisterFromWorkMail"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DescribeGroup"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DescribeOrganization"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DescribeResource"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DescribeUser"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DisassociateDelegateFromResource"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#DisassociateMemberFromGroup"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#GetAccessControlEffect"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#GetDefaultRetentionPolicy"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#GetMailboxDetails"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListAccessControlRules"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListAliases"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListGroupMembers"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListGroups"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListMailboxPermissions"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListOrganizations"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListResourceDelegates"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListResources"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ListUsers"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#PutAccessControlRule"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#PutMailboxPermissions"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#PutRetentionPolicy"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#RegisterToWorkMail"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#ResetPassword"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#TagResource"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UntagResource"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UpdateMailboxQuota"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UpdatePrimaryEmailAddress"
+        },
+        {
+          "target": "com.amazonaws.workmailmessageflow#UpdateResource"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "WorkMail",
+          "arnNamespace": "workmail",
+          "cloudFormationName": "WorkMail",
+          "cloudTrailEventSource": "service.workmail.amazonaws.com"
+        },
+        "aws.auth#sigv4": {
+          "name": "workmail"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<p>Amazon WorkMail is a secure, managed business email and calendaring service with support for\n         existing desktop and mobile email clients. You can access your email, contacts, and\n         calendars using Microsoft Outlook, your browser, or other native iOS and Android email\n         applications. You can integrate WorkMail with your existing corporate directory and control\n         both the keys that encrypt your data and the location in which your data is\n         stored.</p>\n         <p>The WorkMail API is designed for the following scenarios:</p>\n         <ul>\n            <li>\n               <p>Listing and describing organizations</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>Managing users</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>Managing groups</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>Managing resources</p>\n            </li>\n         </ul>\n         <p>All WorkMail API operations are Amazon-authenticated and certificate-signed. They not only\n         require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management users and roles\n         to help facilitate access, trust, and permission policies. By creating a role and allowing\n         an IAM user to access the WorkMail site, the IAM user gains full administrative visibility into\n         the entire WorkMail organization (or as set in the IAM policy). This includes, but is not\n         limited to, the ability to create, update, and delete users, groups, and resources. This\n         allows developers to perform the scenarios listed above, as well as give users the ability\n         to grant access on a selective basis using the IAM model.</p>",
+        "smithy.api#title": "Amazon WorkMail"
+      }
+    }
+  }
+}

@@ -55,17 +55,17 @@
     "com.amazonaws.kinesis#AddTagsToStreamInput": {
       "type": "structure",
       "members": {
-        "StreamName": {
-          "target": "com.amazonaws.kinesis#StreamName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the stream.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.kinesis#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A set of up to 10 key-value pairs to use to create the tags.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamName": {
+          "target": "com.amazonaws.kinesis#StreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the stream.</p>",
             "smithy.api#required": {}
           }
         }
@@ -90,6 +90,13 @@
             "smithy.api#required": {}
           }
         },
+        "ConsumerStatus": {
+          "target": "com.amazonaws.kinesis#ConsumerStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code> states.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ConsumerCreationTimestamp": {
           "target": "com.amazonaws.kinesis#Timestamp",
           "traits": {
@@ -101,13 +108,6 @@
           "target": "com.amazonaws.kinesis#ConsumerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the consumer is something you choose when you register the consumer.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ConsumerStatus": {
-          "target": "com.amazonaws.kinesis#ConsumerStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code> states.</p>",
             "smithy.api#required": {}
           }
         }
@@ -146,17 +146,17 @@
             "smithy.api#required": {}
           }
         },
-        "ConsumerCreationTimestamp": {
-          "target": "com.amazonaws.kinesis#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p></p>",
-            "smithy.api#required": {}
-          }
-        },
         "ConsumerName": {
           "target": "com.amazonaws.kinesis#ConsumerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the consumer is something you choose when you register the consumer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamARN": {
+          "target": "com.amazonaws.kinesis#StreamARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the stream with which you registered the consumer.</p>",
             "smithy.api#required": {}
           }
         },
@@ -167,10 +167,10 @@
             "smithy.api#required": {}
           }
         },
-        "StreamARN": {
-          "target": "com.amazonaws.kinesis#StreamARN",
+        "ConsumerCreationTimestamp": {
+          "target": "com.amazonaws.kinesis#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the stream with which you registered the consumer.</p>",
+            "smithy.api#documentation": "<p></p>",
             "smithy.api#required": {}
           }
         }
@@ -333,17 +333,17 @@
     "com.amazonaws.kinesis#DeleteStreamInput": {
       "type": "structure",
       "members": {
-        "EnforceConsumerDeletion": {
-          "target": "com.amazonaws.kinesis#BooleanObject",
-          "traits": {
-            "smithy.api#documentation": "<p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>,\n            and the stream has registered consumers, the call to <code>DeleteStream</code> fails\n            with a <code>ResourceInUseException</code>. </p>"
-          }
-        },
         "StreamName": {
           "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream to delete.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "EnforceConsumerDeletion": {
+          "target": "com.amazonaws.kinesis#BooleanObject",
+          "traits": {
+            "smithy.api#documentation": "<p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>,\n            and the stream has registered consumers, the call to <code>DeleteStream</code> fails\n            with a <code>ResourceInUseException</code>. </p>"
           }
         }
       },
@@ -380,16 +380,16 @@
             "smithy.api#documentation": "<p>The ARN returned by Kinesis Data Streams when you registered the consumer. If you\n            don't know the ARN of the consumer that you want to deregister, you can use the\n            ListStreamConsumers operation to get a list of the descriptions of all the consumers\n            that are currently registered with a given data stream. The description of a consumer\n            contains its ARN.</p>"
           }
         },
-        "ConsumerName": {
-          "target": "com.amazonaws.kinesis#ConsumerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that you gave to the consumer.</p>"
-          }
-        },
         "StreamARN": {
           "target": "com.amazonaws.kinesis#StreamARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Kinesis data stream that the consumer is registered with. For more\n            information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>"
+          }
+        },
+        "ConsumerName": {
+          "target": "com.amazonaws.kinesis#ConsumerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that you gave to the consumer.</p>"
           }
         }
       }
@@ -480,6 +480,12 @@
     "com.amazonaws.kinesis#DescribeStreamConsumerInput": {
       "type": "structure",
       "members": {
+        "StreamARN": {
+          "target": "com.amazonaws.kinesis#StreamARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Kinesis data stream that the consumer is registered with. For more\n            information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>"
+          }
+        },
         "ConsumerARN": {
           "target": "com.amazonaws.kinesis#ConsumerARN",
           "traits": {
@@ -490,12 +496,6 @@
           "target": "com.amazonaws.kinesis#ConsumerName",
           "traits": {
             "smithy.api#documentation": "<p>The name that you gave to the consumer.</p>"
-          }
-        },
-        "StreamARN": {
-          "target": "com.amazonaws.kinesis#StreamARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the Kinesis data stream that the consumer is registered with. For more\n            information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>"
           }
         }
       }
@@ -515,16 +515,16 @@
     "com.amazonaws.kinesis#DescribeStreamInput": {
       "type": "structure",
       "members": {
-        "ExclusiveStartShardId": {
-          "target": "com.amazonaws.kinesis#ShardId",
-          "traits": {
-            "smithy.api#documentation": "<p>The shard ID of the shard to start with.</p>"
-          }
-        },
         "Limit": {
           "target": "com.amazonaws.kinesis#DescribeStreamInputLimit",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of shards to return in a single call. The default value is 100. \n            If you specify a value greater than 100, at most 100 shards are returned.</p>"
+          }
+        },
+        "ExclusiveStartShardId": {
+          "target": "com.amazonaws.kinesis#ShardId",
+          "traits": {
+            "smithy.api#documentation": "<p>The shard ID of the shard to start with.</p>"
           }
         },
         "StreamName": {
@@ -637,17 +637,17 @@
     "com.amazonaws.kinesis#DisableEnhancedMonitoringInput": {
       "type": "structure",
       "members": {
-        "ShardLevelMetrics": {
-          "target": "com.amazonaws.kinesis#MetricsNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of shard-level metrics to disable.</p>\n        <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" disables\n            every metric.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>IncomingBytes</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>IncomingRecords</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>OutgoingBytes</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>OutgoingRecords</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>WriteProvisionedThroughputExceeded</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>ReadProvisionedThroughputExceeded</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>IteratorAgeMilliseconds</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>ALL</code>\n               </p>\n            </li>\n         </ul>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon\n                Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon\n                Kinesis Data Streams Developer Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "StreamName": {
           "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Kinesis data stream for which to disable enhanced\n            monitoring.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ShardLevelMetrics": {
+          "target": "com.amazonaws.kinesis#MetricsNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of shard-level metrics to disable.</p>\n        <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" disables\n            every metric.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>IncomingBytes</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>IncomingRecords</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>OutgoingBytes</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>OutgoingRecords</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>WriteProvisionedThroughputExceeded</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>ReadProvisionedThroughputExceeded</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>IteratorAgeMilliseconds</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>ALL</code>\n               </p>\n            </li>\n         </ul>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon\n                Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon\n                Kinesis Data Streams Developer Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -685,17 +685,17 @@
     "com.amazonaws.kinesis#EnableEnhancedMonitoringInput": {
       "type": "structure",
       "members": {
-        "ShardLevelMetrics": {
-          "target": "com.amazonaws.kinesis#MetricsNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of shard-level metrics to enable.</p>\n        <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" enables\n            every metric.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>IncomingBytes</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>IncomingRecords</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>OutgoingBytes</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>OutgoingRecords</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>WriteProvisionedThroughputExceeded</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>ReadProvisionedThroughputExceeded</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>IteratorAgeMilliseconds</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>ALL</code>\n               </p>\n            </li>\n         </ul>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon\n                Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon\n                Kinesis Data Streams Developer Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "StreamName": {
           "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream for which to enable enhanced monitoring.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ShardLevelMetrics": {
+          "target": "com.amazonaws.kinesis#MetricsNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of shard-level metrics to enable.</p>\n        <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" enables\n            every metric.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>IncomingBytes</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>IncomingRecords</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>OutgoingBytes</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>OutgoingRecords</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>WriteProvisionedThroughputExceeded</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>ReadProvisionedThroughputExceeded</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>IteratorAgeMilliseconds</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>ALL</code>\n               </p>\n            </li>\n         </ul>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon\n                Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon\n                Kinesis Data Streams Developer Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -742,10 +742,10 @@
     "com.amazonaws.kinesis#EnhancedMonitoringOutput": {
       "type": "structure",
       "members": {
-        "CurrentShardLevelMetrics": {
-          "target": "com.amazonaws.kinesis#MetricsNameList",
+        "StreamName": {
+          "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
-            "smithy.api#documentation": "<p>Represents the current state of the metrics that are in the enhanced state before the operation.</p>"
+            "smithy.api#documentation": "<p>The name of the Kinesis data stream.</p>"
           }
         },
         "DesiredShardLevelMetrics": {
@@ -754,10 +754,10 @@
             "smithy.api#documentation": "<p>Represents the list of all the metrics that would be in the enhanced state after the operation.</p>"
           }
         },
-        "StreamName": {
-          "target": "com.amazonaws.kinesis#StreamName",
+        "CurrentShardLevelMetrics": {
+          "target": "com.amazonaws.kinesis#MetricsNameList",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Kinesis data stream.</p>"
+            "smithy.api#documentation": "<p>Represents the current state of the metrics that are in the enhanced state before the operation.</p>"
           }
         }
       },
@@ -845,17 +845,17 @@
     "com.amazonaws.kinesis#GetRecordsInput": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.kinesis#GetRecordsInputLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of records to return. Specify a value of up to 10,000. If you specify\n            a value that is greater than 10,000, <a>GetRecords</a> throws\n            <code>InvalidArgumentException</code>.</p>"
-          }
-        },
         "ShardIterator": {
           "target": "com.amazonaws.kinesis#ShardIterator",
           "traits": {
             "smithy.api#documentation": "<p>The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.kinesis#GetRecordsInputLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of records to return. Specify a value of up to 10,000. If you specify\n            a value that is greater than 10,000, <a>GetRecords</a> throws\n            <code>InvalidArgumentException</code>.</p>"
           }
         }
       },
@@ -876,12 +876,6 @@
     "com.amazonaws.kinesis#GetRecordsOutput": {
       "type": "structure",
       "members": {
-        "MillisBehindLatest": {
-          "target": "com.amazonaws.kinesis#MillisBehindLatest",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of milliseconds the <a>GetRecords</a> response is from the\n            tip of the stream, indicating how far behind current time the consumer is. A value of\n            zero indicates that record processing is caught up, and there are no new records to\n            process at this moment.</p>"
-          }
-        },
         "NextShardIterator": {
           "target": "com.amazonaws.kinesis#ShardIterator",
           "traits": {
@@ -893,6 +887,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The data records retrieved from the shard.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "MillisBehindLatest": {
+          "target": "com.amazonaws.kinesis#MillisBehindLatest",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of milliseconds the <a>GetRecords</a> response is from the\n            tip of the stream, indicating how far behind current time the consumer is. A value of\n            zero indicates that record processing is caught up, and there are no new records to\n            process at this moment.</p>"
           }
         }
       },
@@ -926,10 +926,10 @@
     "com.amazonaws.kinesis#GetShardIteratorInput": {
       "type": "structure",
       "members": {
-        "ShardId": {
-          "target": "com.amazonaws.kinesis#ShardId",
+        "StreamName": {
+          "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
-            "smithy.api#documentation": "<p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>",
+            "smithy.api#documentation": "<p>The name of the Amazon Kinesis data stream.</p>",
             "smithy.api#required": {}
           }
         },
@@ -946,10 +946,10 @@
             "smithy.api#documentation": "<p>The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.</p>"
           }
         },
-        "StreamName": {
-          "target": "com.amazonaws.kinesis#StreamName",
+        "ShardId": {
+          "target": "com.amazonaws.kinesis#ShardId",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Amazon Kinesis data stream.</p>",
+            "smithy.api#documentation": "<p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>",
             "smithy.api#required": {}
           }
         },
@@ -987,17 +987,17 @@
     "com.amazonaws.kinesis#HashKeyRange": {
       "type": "structure",
       "members": {
-        "EndingHashKey": {
-          "target": "com.amazonaws.kinesis#HashKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The ending hash key of the hash key range.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "StartingHashKey": {
           "target": "com.amazonaws.kinesis#HashKey",
           "traits": {
             "smithy.api#documentation": "<p>The starting hash key of the hash key range.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndingHashKey": {
+          "target": "com.amazonaws.kinesis#HashKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The ending hash key of the hash key range.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1330,22 +1330,16 @@
     "com.amazonaws.kinesis#ListShardsInput": {
       "type": "structure",
       "members": {
-        "ExclusiveStartShardId": {
-          "target": "com.amazonaws.kinesis#ShardId",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify this parameter to indicate that you want to list the shards starting with\n            the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p>\n        <p>If you don't specify this parameter, the default behavior is for <code>ListShards</code> to list the shards starting with the first one in the stream.</p>\n        <p>You cannot specify this parameter if you specify <code>NextToken</code>.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.kinesis#ListShardsInputLimit",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of shards to return in a single call to <code>ListShards</code>.\n            The minimum value you can specify for this parameter is 1, and the maximum is 1,000,\n            which is also the default.</p>\n        <p>When the number of shards to be listed is greater than the value of\n                <code>MaxResults</code>, the response contains a <code>NextToken</code> value that\n            you can use in a subsequent call to <code>ListShards</code> to list the next set of\n            shards.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.kinesis#NextToken",
+        "ExclusiveStartShardId": {
+          "target": "com.amazonaws.kinesis#ShardId",
           "traits": {
-            "smithy.api#documentation": "<p>When the number of shards in the data stream is greater than the default value for\n            the <code>MaxResults</code> parameter, or if you explicitly specify a value for\n                <code>MaxResults</code> that is less than the number of shards in the data stream,\n            the response includes a pagination token named <code>NextToken</code>. You can specify\n            this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to\n            list the next set of shards.</p>\n        <p>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if\n            you specify <code>NextToken</code> because the latter unambiguously identifies the\n            stream.</p>\n        <p>You can optionally specify a value for the <code>MaxResults</code> parameter when\n            you specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value that\n            is less than the number of shards that the operation returns if you don't specify\n                <code>MaxResults</code>, the response will contain a new <code>NextToken</code>\n            value. You can use the new <code>NextToken</code> value in a subsequent call to the\n                <code>ListShards</code> operation.</p>\n        <important>\n            <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the\n                response to a call to <code>ListShards</code>, you have 300 seconds to use that\n                value. If you specify an expired token in a call to <code>ListShards</code>, you get\n                    <code>ExpiredNextTokenException</code>.</p>\n         </important>"
+            "smithy.api#documentation": "<p>Specify this parameter to indicate that you want to list the shards starting with\n            the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p>\n        <p>If you don't specify this parameter, the default behavior is for <code>ListShards</code> to list the shards starting with the first one in the stream.</p>\n        <p>You cannot specify this parameter if you specify <code>NextToken</code>.</p>"
           }
         },
         "StreamCreationTimestamp": {
@@ -1358,6 +1352,12 @@
           "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the data stream whose shards you want to list. </p>\n        <p>You cannot specify this parameter if you specify the <code>NextToken</code>\n            parameter.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.kinesis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>When the number of shards in the data stream is greater than the default value for\n            the <code>MaxResults</code> parameter, or if you explicitly specify a value for\n                <code>MaxResults</code> that is less than the number of shards in the data stream,\n            the response includes a pagination token named <code>NextToken</code>. You can specify\n            this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to\n            list the next set of shards.</p>\n        <p>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if\n            you specify <code>NextToken</code> because the latter unambiguously identifies the\n            stream.</p>\n        <p>You can optionally specify a value for the <code>MaxResults</code> parameter when\n            you specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value that\n            is less than the number of shards that the operation returns if you don't specify\n                <code>MaxResults</code>, the response will contain a new <code>NextToken</code>\n            value. You can use the new <code>NextToken</code> value in a subsequent call to the\n                <code>ListShards</code> operation.</p>\n        <important>\n            <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the\n                response to a call to <code>ListShards</code>, you have 300 seconds to use that\n                value. If you specify an expired token in a call to <code>ListShards</code>, you get\n                    <code>ExpiredNextTokenException</code>.</p>\n         </important>"
           }
         }
       }
@@ -1426,10 +1426,10 @@
     "com.amazonaws.kinesis#ListStreamConsumersInput": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.kinesis#ListStreamConsumersInputLimit",
+        "StreamCreationTimestamp": {
+          "target": "com.amazonaws.kinesis#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of consumers that you want a single call of\n                <code>ListStreamConsumers</code> to return.</p>"
+            "smithy.api#documentation": "<p>Specify this input parameter to distinguish data streams that have the same name. For\n            example, if you create a data stream and then delete it, and you later create another\n            data stream with the same name, you can use this input parameter to specify which of the\n            two streams you want to list the consumers for. </p>\n        <p>You can't specify this parameter if you specify the NextToken parameter. </p>"
           }
         },
         "NextToken": {
@@ -1445,10 +1445,10 @@
             "smithy.api#required": {}
           }
         },
-        "StreamCreationTimestamp": {
-          "target": "com.amazonaws.kinesis#Timestamp",
+        "MaxResults": {
+          "target": "com.amazonaws.kinesis#ListStreamConsumersInputLimit",
           "traits": {
-            "smithy.api#documentation": "<p>Specify this input parameter to distinguish data streams that have the same name. For\n            example, if you create a data stream and then delete it, and you later create another\n            data stream with the same name, you can use this input parameter to specify which of the\n            two streams you want to list the consumers for. </p>\n        <p>You can't specify this parameter if you specify the NextToken parameter. </p>"
+            "smithy.api#documentation": "<p>The maximum number of consumers that you want a single call of\n                <code>ListStreamConsumers</code> to return.</p>"
           }
         }
       }
@@ -1612,17 +1612,17 @@
     "com.amazonaws.kinesis#ListTagsForStreamOutput": {
       "type": "structure",
       "members": {
-        "HasMoreTags": {
-          "target": "com.amazonaws.kinesis#BooleanObject",
-          "traits": {
-            "smithy.api#documentation": "<p>If set to <code>true</code>, more tags are available. To request additional tags, set\n                <code>ExclusiveStartTagKey</code> to the key of the last tag returned.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.kinesis#TagList",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags associated with <code>StreamName</code>, starting with the first tag after\n                <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "HasMoreTags": {
+          "target": "com.amazonaws.kinesis#BooleanObject",
+          "traits": {
+            "smithy.api#documentation": "<p>If set to <code>true</code>, more tags are available. To request additional tags, set\n                <code>ExclusiveStartTagKey</code> to the key of the last tag returned.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1657,10 +1657,10 @@
     "com.amazonaws.kinesis#MergeShardsInput": {
       "type": "structure",
       "members": {
-        "AdjacentShardToMerge": {
-          "target": "com.amazonaws.kinesis#ShardId",
+        "StreamName": {
+          "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
-            "smithy.api#documentation": "<p>The shard ID of the adjacent shard for the merge.</p>",
+            "smithy.api#documentation": "<p>The name of the stream for the merge.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1671,10 +1671,10 @@
             "smithy.api#required": {}
           }
         },
-        "StreamName": {
-          "target": "com.amazonaws.kinesis#StreamName",
+        "AdjacentShardToMerge": {
+          "target": "com.amazonaws.kinesis#ShardId",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the stream for the merge.</p>",
+            "smithy.api#documentation": "<p>The shard ID of the adjacent shard for the merge.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1830,26 +1830,6 @@
     "com.amazonaws.kinesis#PutRecordInput": {
       "type": "structure",
       "members": {
-        "Data": {
-          "target": "com.amazonaws.kinesis#Data",
-          "traits": {
-            "smithy.api#documentation": "<p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ExplicitHashKey": {
-          "target": "com.amazonaws.kinesis#HashKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.</p>"
-          }
-        },
-        "PartitionKey": {
-          "target": "com.amazonaws.kinesis#PartitionKey",
-          "traits": {
-            "smithy.api#documentation": "<p>Determines which shard in the stream the data record is assigned to. Partition keys\n            are Unicode strings with a maximum length limit of 256 characters for each key. Amazon\n            Kinesis Data Streams uses the partition key as input to a hash function that maps the\n            partition key and associated data to a specific shard. Specifically, an MD5 hash\n            function is used to map partition keys to 128-bit integer values and to map associated\n            data records to shards. As a result of this hashing mechanism, all data records with the\n            same partition key map to the same shard within the stream.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SequenceNumberForOrdering": {
           "target": "com.amazonaws.kinesis#SequenceNumber",
           "traits": {
@@ -1862,6 +1842,26 @@
             "smithy.api#documentation": "<p>The name of the stream to put the data record into.</p>",
             "smithy.api#required": {}
           }
+        },
+        "PartitionKey": {
+          "target": "com.amazonaws.kinesis#PartitionKey",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines which shard in the stream the data record is assigned to. Partition keys\n            are Unicode strings with a maximum length limit of 256 characters for each key. Amazon\n            Kinesis Data Streams uses the partition key as input to a hash function that maps the\n            partition key and associated data to a specific shard. Specifically, an MD5 hash\n            function is used to map partition keys to 128-bit integer values and to map associated\n            data records to shards. As a result of this hashing mechanism, all data records with the\n            same partition key map to the same shard within the stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExplicitHashKey": {
+          "target": "com.amazonaws.kinesis#HashKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.</p>"
+          }
+        },
+        "Data": {
+          "target": "com.amazonaws.kinesis#Data",
+          "traits": {
+            "smithy.api#documentation": "<p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>",
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {
@@ -1871,10 +1871,11 @@
     "com.amazonaws.kinesis#PutRecordOutput": {
       "type": "structure",
       "members": {
-        "EncryptionType": {
-          "target": "com.amazonaws.kinesis#EncryptionType",
+        "ShardId": {
+          "target": "com.amazonaws.kinesis#ShardId",
           "traits": {
-            "smithy.api#documentation": "<p>The encryption type to use on the record. This parameter can be one of the following values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>NONE</code>: Do not encrypt the records in the stream.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KMS</code>: Use server-side encryption on the records in the stream using a\n                    customer-managed AWS KMS key.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The shard ID of the shard where the data record was placed.</p>",
+            "smithy.api#required": {}
           }
         },
         "SequenceNumber": {
@@ -1884,11 +1885,10 @@
             "smithy.api#required": {}
           }
         },
-        "ShardId": {
-          "target": "com.amazonaws.kinesis#ShardId",
+        "EncryptionType": {
+          "target": "com.amazonaws.kinesis#EncryptionType",
           "traits": {
-            "smithy.api#documentation": "<p>The shard ID of the shard where the data record was placed.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The encryption type to use on the record. This parameter can be one of the following values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>NONE</code>: Do not encrypt the records in the stream.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KMS</code>: Use server-side encryption on the records in the stream using a\n                    customer-managed AWS KMS key.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -1962,16 +1962,16 @@
     "com.amazonaws.kinesis#PutRecordsOutput": {
       "type": "structure",
       "members": {
-        "EncryptionType": {
-          "target": "com.amazonaws.kinesis#EncryptionType",
-          "traits": {
-            "smithy.api#documentation": "<p>The encryption type used on the records. This parameter can be one of the following values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>NONE</code>: Do not encrypt the records.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KMS</code>: Use server-side encryption on the records using a customer-managed AWS\n                    KMS key.</p>\n            </li>\n         </ul>"
-          }
-        },
         "FailedRecordCount": {
           "target": "com.amazonaws.kinesis#PositiveIntegerObject",
           "traits": {
             "smithy.api#documentation": "<p>The number of unsuccessfully processed records in a <code>PutRecords</code> request.</p>"
+          }
+        },
+        "EncryptionType": {
+          "target": "com.amazonaws.kinesis#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The encryption type used on the records. This parameter can be one of the following values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>NONE</code>: Do not encrypt the records.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KMS</code>: Use server-side encryption on the records using a customer-managed AWS\n                    KMS key.</p>\n            </li>\n         </ul>"
           }
         },
         "Records": {
@@ -1989,13 +1989,6 @@
     "com.amazonaws.kinesis#PutRecordsRequestEntry": {
       "type": "structure",
       "members": {
-        "Data": {
-          "target": "com.amazonaws.kinesis#Data",
-          "traits": {
-            "smithy.api#documentation": "<p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ExplicitHashKey": {
           "target": "com.amazonaws.kinesis#HashKey",
           "traits": {
@@ -2006,6 +1999,13 @@
           "target": "com.amazonaws.kinesis#PartitionKey",
           "traits": {
             "smithy.api#documentation": "<p>Determines which shard in the stream the data record is assigned to. Partition keys\n            are Unicode strings with a maximum length limit of 256 characters for each key. Amazon\n            Kinesis Data Streams uses the partition key as input to a hash function that maps the\n            partition key and associated data to a specific shard. Specifically, an MD5 hash\n            function is used to map partition keys to 128-bit integer values and to map associated\n            data records to shards. As a result of this hashing mechanism, all data records with the\n            same partition key map to the same shard within the stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Data": {
+          "target": "com.amazonaws.kinesis#Data",
+          "traits": {
+            "smithy.api#documentation": "<p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>",
             "smithy.api#required": {}
           }
         }
@@ -2029,28 +2029,28 @@
     "com.amazonaws.kinesis#PutRecordsResultEntry": {
       "type": "structure",
       "members": {
-        "ErrorCode": {
-          "target": "com.amazonaws.kinesis#ErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The error code for an individual record result. <code>ErrorCodes</code> can be either\n                <code>ProvisionedThroughputExceededException</code> or\n            <code>InternalFailure</code>.</p>"
-          }
-        },
         "ErrorMessage": {
           "target": "com.amazonaws.kinesis#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The error message for an individual record result. An <code>ErrorCode</code> value of\n                <code>ProvisionedThroughputExceededException</code> has an error message that\n            includes the account ID, stream name, and shard ID. An <code>ErrorCode</code> value of\n                <code>InternalFailure</code> has the error message <code>\"Internal Service\n                Failure\"</code>.</p>"
           }
         },
-        "SequenceNumber": {
-          "target": "com.amazonaws.kinesis#SequenceNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The sequence number for an individual record result.</p>"
-          }
-        },
         "ShardId": {
           "target": "com.amazonaws.kinesis#ShardId",
           "traits": {
             "smithy.api#documentation": "<p>The shard ID for an individual record result.</p>"
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.kinesis#ErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code for an individual record result. <code>ErrorCodes</code> can be either\n                <code>ProvisionedThroughputExceededException</code> or\n            <code>InternalFailure</code>.</p>"
+          }
+        },
+        "SequenceNumber": {
+          "target": "com.amazonaws.kinesis#SequenceNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The sequence number for an individual record result.</p>"
           }
         }
       },
@@ -2073,10 +2073,18 @@
     "com.amazonaws.kinesis#Record": {
       "type": "structure",
       "members": {
-        "ApproximateArrivalTimestamp": {
-          "target": "com.amazonaws.kinesis#Timestamp",
+        "PartitionKey": {
+          "target": "com.amazonaws.kinesis#PartitionKey",
           "traits": {
-            "smithy.api#documentation": "<p>The approximate time that the record was inserted into the stream.</p>"
+            "smithy.api#documentation": "<p>Identifies which shard in the stream the data record is assigned to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SequenceNumber": {
+          "target": "com.amazonaws.kinesis#SequenceNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the record within its shard.</p>",
+            "smithy.api#required": {}
           }
         },
         "Data": {
@@ -2092,18 +2100,10 @@
             "smithy.api#documentation": "<p>The encryption type used on the record. This parameter can be one of the following values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>NONE</code>: Do not encrypt the records in the stream.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KMS</code>: Use server-side encryption on the records in the stream using a\n                    customer-managed AWS KMS key.</p>\n            </li>\n         </ul>"
           }
         },
-        "PartitionKey": {
-          "target": "com.amazonaws.kinesis#PartitionKey",
+        "ApproximateArrivalTimestamp": {
+          "target": "com.amazonaws.kinesis#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies which shard in the stream the data record is assigned to.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "SequenceNumber": {
-          "target": "com.amazonaws.kinesis#SequenceNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the record within its shard.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The approximate time that the record was inserted into the stream.</p>"
           }
         }
       },
@@ -2146,17 +2146,17 @@
     "com.amazonaws.kinesis#RegisterStreamConsumerInput": {
       "type": "structure",
       "members": {
-        "ConsumerName": {
-          "target": "com.amazonaws.kinesis#ConsumerName",
-          "traits": {
-            "smithy.api#documentation": "<p>For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "StreamARN": {
           "target": "com.amazonaws.kinesis#StreamARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Kinesis data stream that you want to register the consumer with. \n            For more info, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ConsumerName": {
+          "target": "com.amazonaws.kinesis#ConsumerName",
+          "traits": {
+            "smithy.api#documentation": "<p>For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2279,17 +2279,17 @@
     "com.amazonaws.kinesis#SequenceNumberRange": {
       "type": "structure",
       "members": {
-        "EndingSequenceNumber": {
-          "target": "com.amazonaws.kinesis#SequenceNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The ending sequence number for the range. Shards that are in the OPEN state have an\n            ending sequence number of <code>null</code>.</p>"
-          }
-        },
         "StartingSequenceNumber": {
           "target": "com.amazonaws.kinesis#SequenceNumber",
           "traits": {
             "smithy.api#documentation": "<p>The starting sequence number for the range.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "EndingSequenceNumber": {
+          "target": "com.amazonaws.kinesis#SequenceNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The ending sequence number for the range. Shards that are in the OPEN state have an\n            ending sequence number of <code>null</code>.</p>"
           }
         }
       },
@@ -2300,6 +2300,26 @@
     "com.amazonaws.kinesis#Shard": {
       "type": "structure",
       "members": {
+        "ParentShardId": {
+          "target": "com.amazonaws.kinesis#ShardId",
+          "traits": {
+            "smithy.api#documentation": "<p>The shard ID of the shard's parent.</p>"
+          }
+        },
+        "ShardId": {
+          "target": "com.amazonaws.kinesis#ShardId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the shard within the stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SequenceNumberRange": {
+          "target": "com.amazonaws.kinesis#SequenceNumberRange",
+          "traits": {
+            "smithy.api#documentation": "<p>The range of possible sequence numbers for the shard.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AdjacentParentShardId": {
           "target": "com.amazonaws.kinesis#ShardId",
           "traits": {
@@ -2310,26 +2330,6 @@
           "target": "com.amazonaws.kinesis#HashKeyRange",
           "traits": {
             "smithy.api#documentation": "<p>The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ParentShardId": {
-          "target": "com.amazonaws.kinesis#ShardId",
-          "traits": {
-            "smithy.api#documentation": "<p>The shard ID of the shard's parent.</p>"
-          }
-        },
-        "SequenceNumberRange": {
-          "target": "com.amazonaws.kinesis#SequenceNumberRange",
-          "traits": {
-            "smithy.api#documentation": "<p>The range of possible sequence numbers for the shard.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ShardId": {
-          "target": "com.amazonaws.kinesis#ShardId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the shard within the stream.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2433,17 +2433,17 @@
             "smithy.api#required": {}
           }
         },
-        "ShardToSplit": {
-          "target": "com.amazonaws.kinesis#ShardId",
-          "traits": {
-            "smithy.api#documentation": "<p>The shard ID of the shard to split.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "StreamName": {
           "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream for the shard split.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ShardToSplit": {
+          "target": "com.amazonaws.kinesis#ShardId",
+          "traits": {
+            "smithy.api#documentation": "<p>The shard ID of the shard to split.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2496,6 +2496,13 @@
     "com.amazonaws.kinesis#StartStreamEncryptionInput": {
       "type": "structure",
       "members": {
+        "StreamName": {
+          "target": "com.amazonaws.kinesis#StreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the stream for which to start encrypting records.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "EncryptionType": {
           "target": "com.amazonaws.kinesis#EncryptionType",
           "traits": {
@@ -2509,13 +2516,6 @@
             "smithy.api#documentation": "<p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can\n            be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either\n            an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key\n            owned by Kinesis Data Streams by specifying the alias\n            <code>aws/kinesis</code>.</p>\n        <ul>\n            <li>\n               <p>Key ARN example:\n                        <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias ARN example:\n                    <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias name example: <code>alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
-        },
-        "StreamName": {
-          "target": "com.amazonaws.kinesis#StreamName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the stream for which to start encrypting records.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
@@ -2525,14 +2525,14 @@
         "SequenceNumber": {
           "target": "com.amazonaws.kinesis#SequenceNumber"
         },
-        "Timestamp": {
-          "target": "com.amazonaws.kinesis#Timestamp"
-        },
         "Type": {
           "target": "com.amazonaws.kinesis#ShardIteratorType",
           "traits": {
             "smithy.api#required": {}
           }
+        },
+        "Timestamp": {
+          "target": "com.amazonaws.kinesis#Timestamp"
         }
       }
     },
@@ -2562,13 +2562,6 @@
     "com.amazonaws.kinesis#StopStreamEncryptionInput": {
       "type": "structure",
       "members": {
-        "EncryptionType": {
-          "target": "com.amazonaws.kinesis#EncryptionType",
-          "traits": {
-            "smithy.api#documentation": "<p>The encryption type. The only valid value is <code>KMS</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "KeyId": {
           "target": "com.amazonaws.kinesis#KeyId",
           "traits": {
@@ -2580,6 +2573,13 @@
           "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream on which to stop encrypting records.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EncryptionType": {
+          "target": "com.amazonaws.kinesis#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The encryption type. The only valid value is <code>KMS</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2598,10 +2598,18 @@
     "com.amazonaws.kinesis#StreamDescription": {
       "type": "structure",
       "members": {
-        "EncryptionType": {
-          "target": "com.amazonaws.kinesis#EncryptionType",
+        "StreamARN": {
+          "target": "com.amazonaws.kinesis#StreamARN",
           "traits": {
-            "smithy.api#documentation": "<p>The server-side encryption type used on the stream. This parameter can be one of the following values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>NONE</code>: Do not encrypt the records in the stream.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KMS</code>: Use server-side encryption on the records in the stream using a\n                    customer-managed AWS KMS key.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the stream being described.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Shards": {
+          "target": "com.amazonaws.kinesis#ShardList",
+          "traits": {
+            "smithy.api#documentation": "<p>The shards that comprise the stream.</p>",
+            "smithy.api#required": {}
           }
         },
         "EnhancedMonitoring": {
@@ -2618,37 +2626,17 @@
             "smithy.api#required": {}
           }
         },
-        "KeyId": {
-          "target": "com.amazonaws.kinesis#KeyId",
+        "StreamCreationTimestamp": {
+          "target": "com.amazonaws.kinesis#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can\n            be a globally unique identifier, a fully specified ARN to either an alias or a key, or\n            an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data\n            Streams by specifying the alias <code>aws/kinesis</code>.</p>\n        <ul>\n            <li>\n               <p>Key ARN example:\n                        <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias ARN example:\n                    <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias name example: <code>alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code>\n               </p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The approximate time that the stream was created.</p>",
+            "smithy.api#required": {}
           }
         },
         "RetentionPeriodHours": {
           "target": "com.amazonaws.kinesis#RetentionPeriodHours",
           "traits": {
             "smithy.api#documentation": "<p>The current retention period, in hours.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Shards": {
-          "target": "com.amazonaws.kinesis#ShardList",
-          "traits": {
-            "smithy.api#documentation": "<p>The shards that comprise the stream.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "StreamARN": {
-          "target": "com.amazonaws.kinesis#StreamARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the stream being described.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "StreamCreationTimestamp": {
-          "target": "com.amazonaws.kinesis#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The approximate time that the stream was created.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2665,6 +2653,18 @@
             "smithy.api#documentation": "<p>The current status of the stream being described. The stream status is one of the following states:</p>\n        <ul>\n            <li>\n               <p>\n                    <code>CREATING</code> - The stream is being created. Kinesis Data Streams\n                    immediately returns and sets <code>StreamStatus</code> to\n                    <code>CREATING</code>.</p>\n            </li>\n            <li>\n               <p>\n                    <code>DELETING</code> - The stream is being deleted. The specified stream is in\n                    the <code>DELETING</code> state until Kinesis Data Streams completes the\n                    deletion.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTIVE</code> - The stream exists and is ready for read and write\n                    operations or deletion. You should perform read and write operations only on an\n                        <code>ACTIVE</code> stream.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UPDATING</code> - Shards in the stream are being merged or split. Read and\n                    write operations continue to work while the stream is in the\n                        <code>UPDATING</code> state.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
+        },
+        "EncryptionType": {
+          "target": "com.amazonaws.kinesis#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The server-side encryption type used on the stream. This parameter can be one of the following values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>NONE</code>: Do not encrypt the records in the stream.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KMS</code>: Use server-side encryption on the records in the stream using a\n                    customer-managed AWS KMS key.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "KeyId": {
+          "target": "com.amazonaws.kinesis#KeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can\n            be a globally unique identifier, a fully specified ARN to either an alias or a key, or\n            an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data\n            Streams by specifying the alias <code>aws/kinesis</code>.</p>\n        <ul>\n            <li>\n               <p>Key ARN example:\n                        <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias ARN example:\n                    <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias name example: <code>alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code>\n               </p>\n            </li>\n         </ul>"
+          }
         }
       },
       "traits": {
@@ -2674,16 +2674,37 @@
     "com.amazonaws.kinesis#StreamDescriptionSummary": {
       "type": "structure",
       "members": {
-        "ConsumerCount": {
-          "target": "com.amazonaws.kinesis#ConsumerCountObject",
+        "RetentionPeriodHours": {
+          "target": "com.amazonaws.kinesis#PositiveIntegerObject",
           "traits": {
-            "smithy.api#documentation": "<p>The number of enhanced fan-out consumers registered with the stream.</p>"
+            "smithy.api#documentation": "<p>The current retention period, in hours.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamStatus": {
+          "target": "com.amazonaws.kinesis#StreamStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the stream being described. The stream status is one of the following states:</p>\n            <ul>\n            <li>\n                    <p>\n                    <code>CREATING</code> - The stream is being created. Kinesis Data Streams\n                    immediately returns and sets <code>StreamStatus</code> to\n                    <code>CREATING</code>.</p>\n                </li>\n            <li>\n                    <p>\n                    <code>DELETING</code> - The stream is being deleted. The specified stream is in\n                    the <code>DELETING</code> state until Kinesis Data Streams completes the\n                    deletion.</p>\n                </li>\n            <li>\n                    <p>\n                        <code>ACTIVE</code> - The stream exists and is ready for read and write\n                        operations or deletion. You should perform read and write operations only on an\n                        <code>ACTIVE</code> stream.</p>\n                </li>\n            <li>\n                    <p>\n                        <code>UPDATING</code> - Shards in the stream are being merged or split. Read and\n                        write operations continue to work while the stream is in the\n                        <code>UPDATING</code> state.</p>\n                </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         },
         "EncryptionType": {
           "target": "com.amazonaws.kinesis#EncryptionType",
           "traits": {
             "smithy.api#documentation": "<p>The encryption type used. This value is one of the following:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>KMS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>NONE</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "KeyId": {
+          "target": "com.amazonaws.kinesis#KeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can\n            be a globally unique identifier, a fully specified ARN to either an alias or a key, or\n            an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data\n            Streams by specifying the alias <code>aws/kinesis</code>.</p>\n        <ul>\n            <li>\n               <p>Key ARN example:\n                        <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias ARN example: <code>\n                    arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias name example: <code>alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "StreamCreationTimestamp": {
+          "target": "com.amazonaws.kinesis#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The approximate time that the stream was created.</p>",
+            "smithy.api#required": {}
           }
         },
         "EnhancedMonitoring": {
@@ -2693,23 +2714,10 @@
             "smithy.api#required": {}
           }
         },
-        "KeyId": {
-          "target": "com.amazonaws.kinesis#KeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can\n            be a globally unique identifier, a fully specified ARN to either an alias or a key, or\n            an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data\n            Streams by specifying the alias <code>aws/kinesis</code>.</p>\n        <ul>\n            <li>\n               <p>Key ARN example:\n                        <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias ARN example: <code>\n                    arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code>\n               </p>\n            </li>\n            <li>\n               <p>Alias name example: <code>alias/MyAliasName</code>\n               </p>\n            </li>\n            <li>\n               <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code>\n               </p>\n            </li>\n         </ul>"
-          }
-        },
         "OpenShardCount": {
           "target": "com.amazonaws.kinesis#ShardCountObject",
           "traits": {
             "smithy.api#documentation": "<p>The number of open shards in the stream.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "RetentionPeriodHours": {
-          "target": "com.amazonaws.kinesis#PositiveIntegerObject",
-          "traits": {
-            "smithy.api#documentation": "<p>The current retention period, in hours.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2720,24 +2728,16 @@
             "smithy.api#required": {}
           }
         },
-        "StreamCreationTimestamp": {
-          "target": "com.amazonaws.kinesis#Timestamp",
+        "ConsumerCount": {
+          "target": "com.amazonaws.kinesis#ConsumerCountObject",
           "traits": {
-            "smithy.api#documentation": "<p>The approximate time that the stream was created.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The number of enhanced fan-out consumers registered with the stream.</p>"
           }
         },
         "StreamName": {
           "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream being described.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "StreamStatus": {
-          "target": "com.amazonaws.kinesis#StreamStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the stream being described. The stream status is one of the following states:</p>\n            <ul>\n            <li>\n                    <p>\n                    <code>CREATING</code> - The stream is being created. Kinesis Data Streams\n                    immediately returns and sets <code>StreamStatus</code> to\n                    <code>CREATING</code>.</p>\n                </li>\n            <li>\n                    <p>\n                    <code>DELETING</code> - The stream is being deleted. The specified stream is in\n                    the <code>DELETING</code> state until Kinesis Data Streams completes the\n                    deletion.</p>\n                </li>\n            <li>\n                    <p>\n                        <code>ACTIVE</code> - The stream exists and is ready for read and write\n                        operations or deletion. You should perform read and write operations only on an\n                        <code>ACTIVE</code> stream.</p>\n                </li>\n            <li>\n                    <p>\n                        <code>UPDATING</code> - Shards in the stream are being merged or split. Read and\n                        write operations continue to work while the stream is in the\n                        <code>UPDATING</code> state.</p>\n                </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -2814,17 +2814,17 @@
     "com.amazonaws.kinesis#SubscribeToShardEvent": {
       "type": "structure",
       "members": {
-        "ContinuationSequenceNumber": {
-          "target": "com.amazonaws.kinesis#SequenceNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>Use this as <code>StartingSequenceNumber</code> in the next call to <a>SubscribeToShard</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "MillisBehindLatest": {
           "target": "com.amazonaws.kinesis#MillisBehindLatest",
           "traits": {
             "smithy.api#documentation": "<p>The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is. \n            A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ContinuationSequenceNumber": {
+          "target": "com.amazonaws.kinesis#SequenceNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this as <code>StartingSequenceNumber</code> in the next call to <a>SubscribeToShard</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2843,35 +2843,35 @@
     "com.amazonaws.kinesis#SubscribeToShardEventStream": {
       "type": "union",
       "members": {
+        "KMSInvalidStateException": {
+          "target": "com.amazonaws.kinesis#KMSInvalidStateException"
+        },
+        "KMSDisabledException": {
+          "target": "com.amazonaws.kinesis#KMSDisabledException"
+        },
+        "KMSOptInRequired": {
+          "target": "com.amazonaws.kinesis#KMSOptInRequired"
+        },
+        "ResourceInUseException": {
+          "target": "com.amazonaws.kinesis#ResourceInUseException"
+        },
+        "SubscribeToShardEvent": {
+          "target": "com.amazonaws.kinesis#SubscribeToShardEvent"
+        },
+        "KMSNotFoundException": {
+          "target": "com.amazonaws.kinesis#KMSNotFoundException"
+        },
         "InternalFailureException": {
           "target": "com.amazonaws.kinesis#InternalFailureException"
         },
         "KMSAccessDeniedException": {
           "target": "com.amazonaws.kinesis#KMSAccessDeniedException"
         },
-        "KMSDisabledException": {
-          "target": "com.amazonaws.kinesis#KMSDisabledException"
-        },
-        "KMSInvalidStateException": {
-          "target": "com.amazonaws.kinesis#KMSInvalidStateException"
-        },
-        "KMSNotFoundException": {
-          "target": "com.amazonaws.kinesis#KMSNotFoundException"
-        },
-        "KMSOptInRequired": {
-          "target": "com.amazonaws.kinesis#KMSOptInRequired"
-        },
         "KMSThrottlingException": {
           "target": "com.amazonaws.kinesis#KMSThrottlingException"
         },
-        "ResourceInUseException": {
-          "target": "com.amazonaws.kinesis#ResourceInUseException"
-        },
         "ResourceNotFoundException": {
           "target": "com.amazonaws.kinesis#ResourceNotFoundException"
-        },
-        "SubscribeToShardEvent": {
-          "target": "com.amazonaws.kinesis#SubscribeToShardEvent"
         }
       },
       "traits": {
@@ -2881,10 +2881,9 @@
     "com.amazonaws.kinesis#SubscribeToShardInput": {
       "type": "structure",
       "members": {
-        "ConsumerARN": {
-          "target": "com.amazonaws.kinesis#ConsumerARN",
+        "StartingPosition": {
+          "target": "com.amazonaws.kinesis#StartingPosition",
           "traits": {
-            "smithy.api#documentation": "<p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2895,9 +2894,10 @@
             "smithy.api#required": {}
           }
         },
-        "StartingPosition": {
-          "target": "com.amazonaws.kinesis#StartingPosition",
+        "ConsumerARN": {
+          "target": "com.amazonaws.kinesis#ConsumerARN",
           "traits": {
+            "smithy.api#documentation": "<p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2918,17 +2918,17 @@
     "com.amazonaws.kinesis#Tag": {
       "type": "structure",
       "members": {
+        "Value": {
+          "target": "com.amazonaws.kinesis#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>"
+          }
+        },
         "Key": {
           "target": "com.amazonaws.kinesis#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Value": {
-          "target": "com.amazonaws.kinesis#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>"
           }
         }
       },

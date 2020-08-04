@@ -262,18 +262,6 @@
     "com.amazonaws.kinesisvideomedia#StartSelector": {
       "type": "structure",
       "members": {
-        "AfterFragmentNumber": {
-          "target": "com.amazonaws.kinesisvideomedia#FragmentNumberString",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the fragment number from where you want the <code>GetMedia</code> API to\n      start returning the fragments. </p>"
-          }
-        },
-        "ContinuationToken": {
-          "target": "com.amazonaws.kinesisvideomedia#ContinuationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Continuation token that Kinesis Video Streams returned in the previous\n        <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk\n      identified by the continuation token.</p>"
-          }
-        },
         "StartSelectorType": {
           "target": "com.amazonaws.kinesisvideomedia#StartSelectorType",
           "traits": {
@@ -281,10 +269,22 @@
             "smithy.api#required": {}
           }
         },
+        "AfterFragmentNumber": {
+          "target": "com.amazonaws.kinesisvideomedia#FragmentNumberString",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the fragment number from where you want the <code>GetMedia</code> API to\n      start returning the fragments. </p>"
+          }
+        },
         "StartTimestamp": {
           "target": "com.amazonaws.kinesisvideomedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the\n      SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then\n      starts with the chunk containing the fragment that has the specified timestamp.</p>"
+          }
+        },
+        "ContinuationToken": {
+          "target": "com.amazonaws.kinesisvideomedia#ContinuationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Continuation token that Kinesis Video Streams returned in the previous\n        <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk\n      identified by the continuation token.</p>"
           }
         }
       },

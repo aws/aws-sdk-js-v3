@@ -61,7 +61,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "Adds outputs to an existing flow. You can create up to 20 outputs per flow.",
+        "smithy.api#documentation": "Adds outputs to an existing flow. You can create up to 50 outputs per flow.",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v1/flows/{FlowArn}/outputs",
@@ -115,18 +115,180 @@
     "com.amazonaws.mediaconnect#AddFlowOutputsResponse": {
       "type": "structure",
       "members": {
+        "Outputs": {
+          "target": "com.amazonaws.mediaconnect#__listOfOutput",
+          "traits": {
+            "smithy.api#documentation": "The details of the newly added outputs.",
+            "smithy.api#jsonName": "outputs"
+          }
+        },
         "FlowArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the flow that these outputs were added to.",
             "smithy.api#jsonName": "flowArn"
           }
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#AddFlowSources": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediaconnect#AddFlowSourcesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediaconnect#AddFlowSourcesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediaconnect#BadRequestException"
         },
-        "Outputs": {
-          "target": "com.amazonaws.mediaconnect#__listOfOutput",
+        {
+          "target": "com.amazonaws.mediaconnect#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Adds Sources to flow",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/flows/{FlowArn}/source",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#AddFlowSourcesRequest": {
+      "type": "structure",
+      "members": {
+        "Sources": {
+          "target": "com.amazonaws.mediaconnect#__listOfSetSourceRequest",
           "traits": {
-            "smithy.api#documentation": "The details of the newly added outputs.",
-            "smithy.api#jsonName": "outputs"
+            "smithy.api#documentation": "A list of sources that you want to add.",
+            "smithy.api#jsonName": "sources",
+            "smithy.api#required": {}
+          }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The flow that you want to mutate.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#pattern": "^arn:.*",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "A request to add sources to the flow."
+      }
+    },
+    "com.amazonaws.mediaconnect#AddFlowSourcesResponse": {
+      "type": "structure",
+      "members": {
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the flow that these sources were added to.",
+            "smithy.api#jsonName": "flowArn"
+          }
+        },
+        "Sources": {
+          "target": "com.amazonaws.mediaconnect#__listOfSource",
+          "traits": {
+            "smithy.api#documentation": "The details of the newly added sources.",
+            "smithy.api#jsonName": "sources"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#AddFlowVpcInterfaces": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediaconnect#AddFlowVpcInterfacesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediaconnect#AddFlowVpcInterfacesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediaconnect#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Adds VPC interfaces to flow",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/flows/{FlowArn}/vpcInterfaces",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#AddFlowVpcInterfacesRequest": {
+      "type": "structure",
+      "members": {
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The flow that you want to mutate.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#pattern": "^arn:.*",
+            "smithy.api#required": {}
+          }
+        },
+        "VpcInterfaces": {
+          "target": "com.amazonaws.mediaconnect#__listOfVpcInterfaceRequest",
+          "traits": {
+            "smithy.api#documentation": "A list of VPC interfaces that you want to add.",
+            "smithy.api#jsonName": "vpcInterfaces",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "A request to add VPC interfaces to the flow."
+      }
+    },
+    "com.amazonaws.mediaconnect#AddFlowVpcInterfacesResponse": {
+      "type": "structure",
+      "members": {
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the flow that these VPC interfaces were added to.",
+            "smithy.api#jsonName": "flowArn"
+          }
+        },
+        "VpcInterfaces": {
+          "target": "com.amazonaws.mediaconnect#__listOfVpcInterface",
+          "traits": {
+            "smithy.api#documentation": "The details of the newly added VPC interfaces.",
+            "smithy.api#jsonName": "vpcInterfaces"
           }
         }
       }
@@ -134,13 +296,6 @@
     "com.amazonaws.mediaconnect#AddOutputRequest": {
       "type": "structure",
       "members": {
-        "CidrAllowList": {
-          "target": "com.amazonaws.mediaconnect#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
-            "smithy.api#jsonName": "cidrAllowList"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
@@ -148,11 +303,18 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "Destination": {
-          "target": "com.amazonaws.mediaconnect#__string",
+        "Port": {
+          "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
-            "smithy.api#documentation": "The IP address from which video will be sent to output destinations.",
-            "smithy.api#jsonName": "destination"
+            "smithy.api#documentation": "The port to use when content is distributed to this output.",
+            "smithy.api#jsonName": "port"
+          }
+        },
+        "VpcInterfaceAttachment": {
+          "target": "com.amazonaws.mediaconnect#VpcInterfaceAttachment",
+          "traits": {
+            "smithy.api#documentation": "The name of the VPC interface attachment to use for this output.",
+            "smithy.api#jsonName": "vpcInterfaceAttachment"
           }
         },
         "Encryption": {
@@ -162,11 +324,25 @@
             "smithy.api#jsonName": "encryption"
           }
         },
-        "MaxLatency": {
+        "Destination": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The IP address from which video will be sent to output destinations.",
+            "smithy.api#jsonName": "destination"
+          }
+        },
+        "SmoothingLatency": {
           "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
-            "smithy.api#documentation": "The maximum latency in milliseconds for Zixi-based streams.",
-            "smithy.api#jsonName": "maxLatency"
+            "smithy.api#documentation": "The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.",
+            "smithy.api#jsonName": "smoothingLatency"
+          }
+        },
+        "CidrAllowList": {
+          "target": "com.amazonaws.mediaconnect#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
+            "smithy.api#jsonName": "cidrAllowList"
           }
         },
         "Name": {
@@ -176,11 +352,11 @@
             "smithy.api#jsonName": "name"
           }
         },
-        "Port": {
+        "MaxLatency": {
           "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
-            "smithy.api#documentation": "The port to use when content is distributed to this output.",
-            "smithy.api#jsonName": "port"
+            "smithy.api#documentation": "The maximum latency in milliseconds for Zixi-based streams.",
+            "smithy.api#jsonName": "maxLatency"
           }
         },
         "Protocol": {
@@ -191,25 +367,18 @@
             "smithy.api#required": {}
           }
         },
-        "RemoteId": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The remote ID for the Zixi-pull output stream.",
-            "smithy.api#jsonName": "remoteId"
-          }
-        },
-        "SmoothingLatency": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.",
-            "smithy.api#jsonName": "smoothingLatency"
-          }
-        },
         "StreamId": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
             "smithy.api#jsonName": "streamId"
+          }
+        },
+        "RemoteId": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The remote ID for the Zixi-pull output stream.",
+            "smithy.api#jsonName": "remoteId"
           }
         }
       },
@@ -283,7 +452,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50).",
+        "smithy.api#documentation": "Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v1/flows",
@@ -312,18 +481,11 @@
     "com.amazonaws.mediaconnect#CreateFlowRequest": {
       "type": "structure",
       "members": {
-        "AvailabilityZone": {
-          "target": "com.amazonaws.mediaconnect#__string",
+        "VpcInterfaces": {
+          "target": "com.amazonaws.mediaconnect#__listOfVpcInterfaceRequest",
           "traits": {
-            "smithy.api#documentation": "The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS Region.",
-            "smithy.api#jsonName": "availabilityZone"
-          }
-        },
-        "Entitlements": {
-          "target": "com.amazonaws.mediaconnect#__listOfGrantEntitlementRequest",
-          "traits": {
-            "smithy.api#documentation": "The entitlements that you want to grant on a flow.",
-            "smithy.api#jsonName": "entitlements"
+            "smithy.api#documentation": "The VPC interfaces you want on the flow.",
+            "smithy.api#jsonName": "vpcInterfaces"
           }
         },
         "Name": {
@@ -334,6 +496,31 @@
             "smithy.api#required": {}
           }
         },
+        "Source": {
+          "target": "com.amazonaws.mediaconnect#SetSourceRequest",
+          "traits": {
+            "smithy.api#jsonName": "source"
+          }
+        },
+        "SourceFailoverConfig": {
+          "target": "com.amazonaws.mediaconnect#FailoverConfig",
+          "traits": {
+            "smithy.api#jsonName": "sourceFailoverConfig"
+          }
+        },
+        "Entitlements": {
+          "target": "com.amazonaws.mediaconnect#__listOfGrantEntitlementRequest",
+          "traits": {
+            "smithy.api#documentation": "The entitlements that you want to grant on a flow.",
+            "smithy.api#jsonName": "entitlements"
+          }
+        },
+        "Sources": {
+          "target": "com.amazonaws.mediaconnect#__listOfSetSourceRequest",
+          "traits": {
+            "smithy.api#jsonName": "sources"
+          }
+        },
         "Outputs": {
           "target": "com.amazonaws.mediaconnect#__listOfAddOutputRequest",
           "traits": {
@@ -341,16 +528,16 @@
             "smithy.api#jsonName": "outputs"
           }
         },
-        "Source": {
-          "target": "com.amazonaws.mediaconnect#SetSourceRequest",
+        "AvailabilityZone": {
+          "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#jsonName": "source",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS Region.",
+            "smithy.api#jsonName": "availabilityZone"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50)."
+        "smithy.api#documentation": "Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50)."
       }
     },
     "com.amazonaws.mediaconnect#CreateFlowResponse": {
@@ -503,12 +690,11 @@
     "com.amazonaws.mediaconnect#Encryption": {
       "type": "structure",
       "members": {
-        "Algorithm": {
-          "target": "com.amazonaws.mediaconnect#Algorithm",
+        "ResourceId": {
+          "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).",
-            "smithy.api#jsonName": "algorithm",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
+            "smithy.api#jsonName": "resourceId"
           }
         },
         "ConstantInitializationVector": {
@@ -516,34 +702,6 @@
           "traits": {
             "smithy.api#documentation": "A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.",
             "smithy.api#jsonName": "constantInitializationVector"
-          }
-        },
-        "DeviceId": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
-            "smithy.api#jsonName": "deviceId"
-          }
-        },
-        "KeyType": {
-          "target": "com.amazonaws.mediaconnect#KeyType",
-          "traits": {
-            "smithy.api#documentation": "The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).",
-            "smithy.api#jsonName": "keyType"
-          }
-        },
-        "Region": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
-            "smithy.api#jsonName": "region"
-          }
-        },
-        "ResourceId": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
-            "smithy.api#jsonName": "resourceId"
           }
         },
         "RoleArn": {
@@ -554,18 +712,47 @@
             "smithy.api#required": {}
           }
         },
-        "SecretArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.",
-            "smithy.api#jsonName": "secretArn"
-          }
-        },
         "Url": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
             "smithy.api#jsonName": "url"
+          }
+        },
+        "Algorithm": {
+          "target": "com.amazonaws.mediaconnect#Algorithm",
+          "traits": {
+            "smithy.api#documentation": "The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).",
+            "smithy.api#jsonName": "algorithm",
+            "smithy.api#required": {}
+          }
+        },
+        "Region": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
+            "smithy.api#jsonName": "region"
+          }
+        },
+        "KeyType": {
+          "target": "com.amazonaws.mediaconnect#KeyType",
+          "traits": {
+            "smithy.api#documentation": "The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).",
+            "smithy.api#jsonName": "keyType"
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
+            "smithy.api#jsonName": "deviceId"
+          }
+        },
+        "SecretArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.",
+            "smithy.api#jsonName": "secretArn"
           }
         }
       },
@@ -576,6 +763,21 @@
     "com.amazonaws.mediaconnect#Entitlement": {
       "type": "structure",
       "members": {
+        "EntitlementArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the entitlement.",
+            "smithy.api#jsonName": "entitlementArn",
+            "smithy.api#required": {}
+          }
+        },
+        "EntitlementStatus": {
+          "target": "com.amazonaws.mediaconnect#EntitlementStatus",
+          "traits": {
+            "smithy.api#documentation": "An indication of whether the entitlement is enabled.",
+            "smithy.api#jsonName": "entitlementStatus"
+          }
+        },
         "DataTransferSubscriberFeePercent": {
           "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
@@ -595,14 +797,6 @@
           "traits": {
             "smithy.api#documentation": "The type of encryption that will be used on the output that is associated with this entitlement.",
             "smithy.api#jsonName": "encryption"
-          }
-        },
-        "EntitlementArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the entitlement.",
-            "smithy.api#jsonName": "entitlementArn",
-            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -626,9 +820,82 @@
         "smithy.api#documentation": "The settings for a flow entitlement."
       }
     },
+    "com.amazonaws.mediaconnect#EntitlementStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
+            "name": "ENABLED"
+          },
+          {
+            "value": "DISABLED",
+            "name": "DISABLED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mediaconnect#FailoverConfig": {
+      "type": "structure",
+      "members": {
+        "State": {
+          "target": "com.amazonaws.mediaconnect#State",
+          "traits": {
+            "smithy.api#jsonName": "state"
+          }
+        },
+        "RecoveryWindow": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "Search window time to look for dash-7 packets",
+            "smithy.api#jsonName": "recoveryWindow"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The settings for source failover"
+      }
+    },
     "com.amazonaws.mediaconnect#Flow": {
       "type": "structure",
       "members": {
+        "Source": {
+          "target": "com.amazonaws.mediaconnect#Source",
+          "traits": {
+            "smithy.api#jsonName": "source",
+            "smithy.api#required": {}
+          }
+        },
+        "Entitlements": {
+          "target": "com.amazonaws.mediaconnect#__listOfEntitlement",
+          "traits": {
+            "smithy.api#documentation": "The entitlements in this flow.",
+            "smithy.api#jsonName": "entitlements",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the flow.",
+            "smithy.api#jsonName": "name",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceFailoverConfig": {
+          "target": "com.amazonaws.mediaconnect#FailoverConfig",
+          "traits": {
+            "smithy.api#jsonName": "sourceFailoverConfig"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.mediaconnect#Status",
+          "traits": {
+            "smithy.api#documentation": "The current status of the flow.",
+            "smithy.api#jsonName": "status",
+            "smithy.api#required": {}
+          }
+        },
         "AvailabilityZone": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
@@ -644,19 +911,11 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "EgressIp": {
-          "target": "com.amazonaws.mediaconnect#__string",
+        "VpcInterfaces": {
+          "target": "com.amazonaws.mediaconnect#__listOfVpcInterface",
           "traits": {
-            "smithy.api#documentation": "The IP address from which video will be sent to output destinations.",
-            "smithy.api#jsonName": "egressIp"
-          }
-        },
-        "Entitlements": {
-          "target": "com.amazonaws.mediaconnect#__listOfEntitlement",
-          "traits": {
-            "smithy.api#documentation": "The entitlements in this flow.",
-            "smithy.api#jsonName": "entitlements",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "The VPC Interfaces for this flow.",
+            "smithy.api#jsonName": "vpcInterfaces"
           }
         },
         "FlowArn": {
@@ -664,14 +923,6 @@
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.",
             "smithy.api#jsonName": "flowArn",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the flow.",
-            "smithy.api#jsonName": "name",
             "smithy.api#required": {}
           }
         },
@@ -683,19 +934,17 @@
             "smithy.api#required": {}
           }
         },
-        "Source": {
-          "target": "com.amazonaws.mediaconnect#Source",
+        "EgressIp": {
+          "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#jsonName": "source",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "The IP address from which video will be sent to output destinations.",
+            "smithy.api#jsonName": "egressIp"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.mediaconnect#Status",
+        "Sources": {
+          "target": "com.amazonaws.mediaconnect#__listOfSource",
           "traits": {
-            "smithy.api#documentation": "The current status of the flow.",
-            "smithy.api#jsonName": "status",
-            "smithy.api#required": {}
+            "smithy.api#jsonName": "sources"
           }
         }
       },
@@ -724,27 +973,6 @@
     "com.amazonaws.mediaconnect#GrantEntitlementRequest": {
       "type": "structure",
       "members": {
-        "DataTransferSubscriberFeePercent": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "Percentage from 0-100 of the data transfer cost to be billed to the subscriber.",
-            "smithy.api#jsonName": "dataTransferSubscriberFeePercent"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.",
-            "smithy.api#jsonName": "description"
-          }
-        },
-        "Encryption": {
-          "target": "com.amazonaws.mediaconnect#Encryption",
-          "traits": {
-            "smithy.api#documentation": "The type of encryption that will be used on the output that is associated with this entitlement.",
-            "smithy.api#jsonName": "encryption"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
@@ -758,6 +986,34 @@
             "smithy.api#documentation": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.",
             "smithy.api#jsonName": "subscribers",
             "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "DataTransferSubscriberFeePercent": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "Percentage from 0-100 of the data transfer cost to be billed to the subscriber.",
+            "smithy.api#jsonName": "dataTransferSubscriberFeePercent"
+          }
+        },
+        "EntitlementStatus": {
+          "target": "com.amazonaws.mediaconnect#EntitlementStatus",
+          "traits": {
+            "smithy.api#documentation": "An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.",
+            "smithy.api#jsonName": "entitlementStatus"
+          }
+        },
+        "Encryption": {
+          "target": "com.amazonaws.mediaconnect#Encryption",
+          "traits": {
+            "smithy.api#documentation": "The type of encryption that will be used on the output that is associated with this entitlement.",
+            "smithy.api#jsonName": "encryption"
           }
         }
       },
@@ -826,20 +1082,20 @@
     "com.amazonaws.mediaconnect#GrantFlowEntitlementsRequest": {
       "type": "structure",
       "members": {
-        "Entitlements": {
-          "target": "com.amazonaws.mediaconnect#__listOfGrantEntitlementRequest",
-          "traits": {
-            "smithy.api#documentation": "The list of entitlements that you want to grant.",
-            "smithy.api#jsonName": "entitlements",
-            "smithy.api#required": {}
-          }
-        },
         "FlowArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The flow that you want to grant entitlements on.",
             "smithy.api#httpLabel": {},
             "smithy.api#pattern": "^arn:.*",
+            "smithy.api#required": {}
+          }
+        },
+        "Entitlements": {
+          "target": "com.amazonaws.mediaconnect#__listOfGrantEntitlementRequest",
+          "traits": {
+            "smithy.api#documentation": "The list of entitlements that you want to grant.",
+            "smithy.api#jsonName": "entitlements",
             "smithy.api#required": {}
           }
         }
@@ -1003,18 +1259,18 @@
     "com.amazonaws.mediaconnect#ListFlowsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.mediaconnect#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to return per API request. For example, you submit a ListFlows request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.mediaconnect#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to return per API request. For example, you submit a ListFlows request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -1094,13 +1350,6 @@
     "com.amazonaws.mediaconnect#ListedEntitlement": {
       "type": "structure",
       "members": {
-        "DataTransferSubscriberFeePercent": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "Percentage from 0-100 of the data transfer cost to be billed to the subscriber.",
-            "smithy.api#jsonName": "dataTransferSubscriberFeePercent"
-          }
-        },
         "EntitlementArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
@@ -1115,6 +1364,13 @@
             "smithy.api#documentation": "The name of the entitlement.",
             "smithy.api#jsonName": "entitlementName",
             "smithy.api#required": {}
+          }
+        },
+        "DataTransferSubscriberFeePercent": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "Percentage from 0-100 of the data transfer cost to be billed to the subscriber.",
+            "smithy.api#jsonName": "dataTransferSubscriberFeePercent"
           }
         }
       },
@@ -1141,22 +1397,6 @@
             "smithy.api#required": {}
           }
         },
-        "FlowArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the flow.",
-            "smithy.api#jsonName": "flowArn",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the flow.",
-            "smithy.api#jsonName": "name",
-            "smithy.api#required": {}
-          }
-        },
         "SourceType": {
           "target": "com.amazonaws.mediaconnect#SourceType",
           "traits": {
@@ -1170,6 +1410,22 @@
           "traits": {
             "smithy.api#documentation": "The current status of the flow.",
             "smithy.api#jsonName": "status",
+            "smithy.api#required": {}
+          }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the flow.",
+            "smithy.api#jsonName": "flowArn",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the flow.",
+            "smithy.api#jsonName": "name",
             "smithy.api#required": {}
           }
         }
@@ -1193,6 +1449,12 @@
       "operations": [
         {
           "target": "com.amazonaws.mediaconnect#AddFlowOutputs"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#AddFlowSources"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#AddFlowVpcInterfaces"
         },
         {
           "target": "com.amazonaws.mediaconnect#CreateFlow"
@@ -1219,6 +1481,12 @@
           "target": "com.amazonaws.mediaconnect#RemoveFlowOutput"
         },
         {
+          "target": "com.amazonaws.mediaconnect#RemoveFlowSource"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#RemoveFlowVpcInterface"
+        },
+        {
           "target": "com.amazonaws.mediaconnect#RevokeFlowEntitlement"
         },
         {
@@ -1232,6 +1500,9 @@
         },
         {
           "target": "com.amazonaws.mediaconnect#UntagResource"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#UpdateFlow"
         },
         {
           "target": "com.amazonaws.mediaconnect#UpdateFlowEntitlement"
@@ -1295,32 +1566,11 @@
     "com.amazonaws.mediaconnect#Output": {
       "type": "structure",
       "members": {
-        "DataTransferSubscriberFeePercent": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "Percentage from 0-100 of the data transfer cost to be billed to the subscriber.",
-            "smithy.api#jsonName": "dataTransferSubscriberFeePercent"
-          }
-        },
-        "Description": {
+        "MediaLiveInputArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "A description of the output.",
-            "smithy.api#jsonName": "description"
-          }
-        },
-        "Destination": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The address where you want to send the output.",
-            "smithy.api#jsonName": "destination"
-          }
-        },
-        "Encryption": {
-          "target": "com.amazonaws.mediaconnect#Encryption",
-          "traits": {
-            "smithy.api#documentation": "The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).",
-            "smithy.api#jsonName": "encryption"
+            "smithy.api#documentation": "The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.",
+            "smithy.api#jsonName": "mediaLiveInputArn"
           }
         },
         "EntitlementArn": {
@@ -1330,11 +1580,11 @@
             "smithy.api#jsonName": "entitlementArn"
           }
         },
-        "MediaLiveInputArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
+        "Port": {
+          "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
-            "smithy.api#documentation": "The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.",
-            "smithy.api#jsonName": "mediaLiveInputArn"
+            "smithy.api#documentation": "The port to use when content is distributed to this output.",
+            "smithy.api#jsonName": "port"
           }
         },
         "Name": {
@@ -1353,18 +1603,46 @@
             "smithy.api#required": {}
           }
         },
-        "Port": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "The port to use when content is distributed to this output.",
-            "smithy.api#jsonName": "port"
-          }
-        },
         "Transport": {
           "target": "com.amazonaws.mediaconnect#Transport",
           "traits": {
             "smithy.api#documentation": "Attributes related to the transport stream that are used in the output.",
             "smithy.api#jsonName": "transport"
+          }
+        },
+        "DataTransferSubscriberFeePercent": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "Percentage from 0-100 of the data transfer cost to be billed to the subscriber.",
+            "smithy.api#jsonName": "dataTransferSubscriberFeePercent"
+          }
+        },
+        "VpcInterfaceAttachment": {
+          "target": "com.amazonaws.mediaconnect#VpcInterfaceAttachment",
+          "traits": {
+            "smithy.api#documentation": "The name of the VPC interface attachment to use for this output.",
+            "smithy.api#jsonName": "vpcInterfaceAttachment"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "A description of the output.",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "Encryption": {
+          "target": "com.amazonaws.mediaconnect#Encryption",
+          "traits": {
+            "smithy.api#documentation": "The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).",
+            "smithy.api#jsonName": "encryption"
+          }
+        },
+        "Destination": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The address where you want to send the output.",
+            "smithy.api#jsonName": "destination"
           }
         }
       },
@@ -1439,18 +1717,18 @@
     "com.amazonaws.mediaconnect#RemoveFlowOutputRequest": {
       "type": "structure",
       "members": {
-        "FlowArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The flow that you want to remove an output from.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "OutputArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the output that you want to remove.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The flow that you want to remove an output from.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1460,18 +1738,179 @@
     "com.amazonaws.mediaconnect#RemoveFlowOutputResponse": {
       "type": "structure",
       "members": {
+        "OutputArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the output that was removed.",
+            "smithy.api#jsonName": "outputArn"
+          }
+        },
         "FlowArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the flow that is associated with the output you removed.",
             "smithy.api#jsonName": "flowArn"
           }
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#RemoveFlowSource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediaconnect#RemoveFlowSourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediaconnect#RemoveFlowSourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediaconnect#BadRequestException"
         },
-        "OutputArn": {
+        {
+          "target": "com.amazonaws.mediaconnect#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Removes a source from an existing flow. This request can be made only if there is more than one source on the flow.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/v1/flows/{FlowArn}/source/{SourceArn}",
+          "code": 202
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#RemoveFlowSourceRequest": {
+      "type": "structure",
+      "members": {
+        "SourceArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the output that was removed.",
-            "smithy.api#jsonName": "outputArn"
+            "smithy.api#documentation": "The ARN of the source that you want to remove.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The flow that you want to remove a source from.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#RemoveFlowSourceResponse": {
+      "type": "structure",
+      "members": {
+        "SourceArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the source that was removed.",
+            "smithy.api#jsonName": "sourceArn"
+          }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the flow that is associated with the source you removed.",
+            "smithy.api#jsonName": "flowArn"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#RemoveFlowVpcInterface": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediaconnect#RemoveFlowVpcInterfaceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediaconnect#RemoveFlowVpcInterfaceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediaconnect#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Removes a VPC Interface from an existing flow. This request can be made only on a VPC interface that does not have a Source or Output associated with it. If the VPC interface is referenced by a Source or Output, you must first delete or update the Source or Output to no longer reference the VPC interface.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/v1/flows/{FlowArn}/vpcInterfaces/{VpcInterfaceName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#RemoveFlowVpcInterfaceRequest": {
+      "type": "structure",
+      "members": {
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The flow that you want to remove a VPC interface from.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "VpcInterfaceName": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the VPC interface that you want to remove.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#RemoveFlowVpcInterfaceResponse": {
+      "type": "structure",
+      "members": {
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the flow that is associated with the VPC interface you removed.",
+            "smithy.api#jsonName": "flowArn"
+          }
+        },
+        "NonDeletedNetworkInterfaceIds": {
+          "target": "com.amazonaws.mediaconnect#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "IDs of network interfaces associated with the removed VPC interface that Media Connect was unable to remove.",
+            "smithy.api#jsonName": "nonDeletedNetworkInterfaceIds"
+          }
+        },
+        "VpcInterfaceName": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the VPC interface that was removed.",
+            "smithy.api#jsonName": "vpcInterfaceName"
           }
         }
       }
@@ -1574,39 +2013,18 @@
     "com.amazonaws.mediaconnect#SetSourceRequest": {
       "type": "structure",
       "members": {
-        "Decryption": {
-          "target": "com.amazonaws.mediaconnect#Encryption",
-          "traits": {
-            "smithy.api#documentation": "The type of encryption that is used on the content ingested from this source.",
-            "smithy.api#jsonName": "decryption"
-          }
-        },
-        "Description": {
+        "VpcInterfaceName": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.",
-            "smithy.api#jsonName": "description"
+            "smithy.api#documentation": "The name of the VPC interface to use for this source.",
+            "smithy.api#jsonName": "vpcInterfaceName"
           }
         },
-        "EntitlementArn": {
+        "WhitelistCidr": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.",
-            "smithy.api#jsonName": "entitlementArn"
-          }
-        },
-        "IngestPort": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "The port that the flow will be listening on for incoming content.",
-            "smithy.api#jsonName": "ingestPort"
-          }
-        },
-        "MaxBitrate": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.",
-            "smithy.api#jsonName": "maxBitrate"
+            "smithy.api#documentation": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
+            "smithy.api#jsonName": "whitelistCidr"
           }
         },
         "MaxLatency": {
@@ -1616,18 +2034,18 @@
             "smithy.api#jsonName": "maxLatency"
           }
         },
-        "Name": {
+        "Description": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The name of the source.",
-            "smithy.api#jsonName": "name"
+            "smithy.api#documentation": "A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.",
+            "smithy.api#jsonName": "description"
           }
         },
-        "Protocol": {
-          "target": "com.amazonaws.mediaconnect#Protocol",
+        "MaxBitrate": {
+          "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
-            "smithy.api#documentation": "The protocol that is used by the source.",
-            "smithy.api#jsonName": "protocol"
+            "smithy.api#documentation": "The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.",
+            "smithy.api#jsonName": "maxBitrate"
           }
         },
         "StreamId": {
@@ -1637,11 +2055,39 @@
             "smithy.api#jsonName": "streamId"
           }
         },
-        "WhitelistCidr": {
+        "Protocol": {
+          "target": "com.amazonaws.mediaconnect#Protocol",
+          "traits": {
+            "smithy.api#documentation": "The protocol that is used by the source.",
+            "smithy.api#jsonName": "protocol"
+          }
+        },
+        "Name": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
-            "smithy.api#jsonName": "whitelistCidr"
+            "smithy.api#documentation": "The name of the source.",
+            "smithy.api#jsonName": "name"
+          }
+        },
+        "Decryption": {
+          "target": "com.amazonaws.mediaconnect#Encryption",
+          "traits": {
+            "smithy.api#documentation": "The type of encryption that is used on the content ingested from this source.",
+            "smithy.api#jsonName": "decryption"
+          }
+        },
+        "IngestPort": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "The port that the flow will be listening on for incoming content.",
+            "smithy.api#jsonName": "ingestPort"
+          }
+        },
+        "EntitlementArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.",
+            "smithy.api#jsonName": "entitlementArn"
           }
         }
       },
@@ -1652,6 +2098,13 @@
     "com.amazonaws.mediaconnect#Source": {
       "type": "structure",
       "members": {
+        "VpcInterfaceName": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the VPC Interface this Source is configured with.",
+            "smithy.api#jsonName": "vpcInterfaceName"
+          }
+        },
         "DataTransferSubscriberFeePercent": {
           "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
@@ -1659,11 +2112,11 @@
             "smithy.api#jsonName": "dataTransferSubscriberFeePercent"
           }
         },
-        "Decryption": {
-          "target": "com.amazonaws.mediaconnect#Encryption",
+        "IngestPort": {
+          "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
-            "smithy.api#documentation": "The type of encryption that is used on the content ingested from this source.",
-            "smithy.api#jsonName": "decryption"
+            "smithy.api#documentation": "The port that the flow will be listening on for incoming content.",
+            "smithy.api#jsonName": "ingestPort"
           }
         },
         "Description": {
@@ -1673,11 +2126,12 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "EntitlementArn": {
+        "SourceArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.",
-            "smithy.api#jsonName": "entitlementArn"
+            "smithy.api#documentation": "The ARN of the source.",
+            "smithy.api#jsonName": "sourceArn",
+            "smithy.api#required": {}
           }
         },
         "IngestIp": {
@@ -1687,11 +2141,11 @@
             "smithy.api#jsonName": "ingestIp"
           }
         },
-        "IngestPort": {
-          "target": "com.amazonaws.mediaconnect#__integer",
+        "Decryption": {
+          "target": "com.amazonaws.mediaconnect#Encryption",
           "traits": {
-            "smithy.api#documentation": "The port that the flow will be listening on for incoming content.",
-            "smithy.api#jsonName": "ingestPort"
+            "smithy.api#documentation": "The type of encryption that is used on the content ingested from this source.",
+            "smithy.api#jsonName": "decryption"
           }
         },
         "Name": {
@@ -1702,12 +2156,11 @@
             "smithy.api#required": {}
           }
         },
-        "SourceArn": {
+        "EntitlementArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the source.",
-            "smithy.api#jsonName": "sourceArn",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.",
+            "smithy.api#jsonName": "entitlementArn"
           }
         },
         "Transport": {
@@ -1798,20 +2251,35 @@
     "com.amazonaws.mediaconnect#StartFlowResponse": {
       "type": "structure",
       "members": {
-        "FlowArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the flow that you started.",
-            "smithy.api#jsonName": "flowArn"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.mediaconnect#Status",
           "traits": {
             "smithy.api#documentation": "The status of the flow when the StartFlow process begins.",
             "smithy.api#jsonName": "status"
           }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the flow that you started.",
+            "smithy.api#jsonName": "flowArn"
+          }
         }
+      }
+    },
+    "com.amazonaws.mediaconnect#State": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
+            "name": "ENABLED"
+          },
+          {
+            "value": "DISABLED",
+            "name": "DISABLED"
+          }
+        ]
       }
     },
     "com.amazonaws.mediaconnect#Status": {
@@ -1903,18 +2371,18 @@
     "com.amazonaws.mediaconnect#StopFlowResponse": {
       "type": "structure",
       "members": {
-        "FlowArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the flow that you stopped.",
-            "smithy.api#jsonName": "flowArn"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.mediaconnect#Status",
           "traits": {
             "smithy.api#documentation": "The status of the flow when the StopFlow process begins.",
             "smithy.api#jsonName": "status"
+          }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the flow that you stopped.",
+            "smithy.api#jsonName": "flowArn"
           }
         }
       }
@@ -1989,11 +2457,11 @@
     "com.amazonaws.mediaconnect#Transport": {
       "type": "structure",
       "members": {
-        "CidrAllowList": {
-          "target": "com.amazonaws.mediaconnect#__listOf__string",
+        "RemoteId": {
+          "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
-            "smithy.api#jsonName": "cidrAllowList"
+            "smithy.api#documentation": "The remote ID for the Zixi-pull stream.",
+            "smithy.api#jsonName": "remoteId"
           }
         },
         "MaxBitrate": {
@@ -2001,6 +2469,13 @@
           "traits": {
             "smithy.api#documentation": "The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.",
             "smithy.api#jsonName": "maxBitrate"
+          }
+        },
+        "CidrAllowList": {
+          "target": "com.amazonaws.mediaconnect#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
+            "smithy.api#jsonName": "cidrAllowList"
           }
         },
         "MaxLatency": {
@@ -2018,11 +2493,11 @@
             "smithy.api#required": {}
           }
         },
-        "RemoteId": {
+        "StreamId": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The remote ID for the Zixi-pull stream.",
-            "smithy.api#jsonName": "remoteId"
+            "smithy.api#documentation": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
+            "smithy.api#jsonName": "streamId"
           }
         },
         "SmoothingLatency": {
@@ -2030,13 +2505,6 @@
           "traits": {
             "smithy.api#documentation": "The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.",
             "smithy.api#jsonName": "smoothingLatency"
-          }
-        },
-        "StreamId": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
-            "smithy.api#jsonName": "streamId"
           }
         }
       },
@@ -2072,19 +2540,19 @@
     "com.amazonaws.mediaconnect#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "ResourceArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "TagKeys": {
           "target": "com.amazonaws.mediaconnect#__listOf__string",
           "traits": {
             "smithy.api#documentation": "The keys of the tags to be removed.",
             "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -2093,25 +2561,11 @@
     "com.amazonaws.mediaconnect#UpdateEncryption": {
       "type": "structure",
       "members": {
-        "Algorithm": {
-          "target": "com.amazonaws.mediaconnect#Algorithm",
-          "traits": {
-            "smithy.api#documentation": "The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).",
-            "smithy.api#jsonName": "algorithm"
-          }
-        },
-        "ConstantInitializationVector": {
+        "SecretArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.",
-            "smithy.api#jsonName": "constantInitializationVector"
-          }
-        },
-        "DeviceId": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
-            "smithy.api#jsonName": "deviceId"
+            "smithy.api#documentation": "The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.",
+            "smithy.api#jsonName": "secretArn"
           }
         },
         "KeyType": {
@@ -2121,6 +2575,13 @@
             "smithy.api#jsonName": "keyType"
           }
         },
+        "Algorithm": {
+          "target": "com.amazonaws.mediaconnect#Algorithm",
+          "traits": {
+            "smithy.api#documentation": "The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).",
+            "smithy.api#jsonName": "algorithm"
+          }
+        },
         "Region": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
@@ -2128,11 +2589,18 @@
             "smithy.api#jsonName": "region"
           }
         },
-        "ResourceId": {
+        "Url": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
-            "smithy.api#jsonName": "resourceId"
+            "smithy.api#documentation": "The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
+            "smithy.api#jsonName": "url"
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
+            "smithy.api#jsonName": "deviceId"
           }
         },
         "RoleArn": {
@@ -2142,23 +2610,81 @@
             "smithy.api#jsonName": "roleArn"
           }
         },
-        "SecretArn": {
+        "ResourceId": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.",
-            "smithy.api#jsonName": "secretArn"
+            "smithy.api#documentation": "An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
+            "smithy.api#jsonName": "resourceId"
           }
         },
-        "Url": {
+        "ConstantInitializationVector": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.",
-            "smithy.api#jsonName": "url"
+            "smithy.api#documentation": "A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.",
+            "smithy.api#jsonName": "constantInitializationVector"
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "Information about the encryption of the flow."
+      }
+    },
+    "com.amazonaws.mediaconnect#UpdateFailoverConfig": {
+      "type": "structure",
+      "members": {
+        "State": {
+          "target": "com.amazonaws.mediaconnect#State",
+          "traits": {
+            "smithy.api#jsonName": "state"
+          }
+        },
+        "RecoveryWindow": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "Recovery window time to look for dash-7 packets",
+            "smithy.api#jsonName": "recoveryWindow"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The settings for source failover"
+      }
+    },
+    "com.amazonaws.mediaconnect#UpdateFlow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediaconnect#UpdateFlowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediaconnect#UpdateFlowResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediaconnect#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.mediaconnect#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Updates flow",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/v1/flows/{FlowArn}",
+          "code": 202
+        }
       }
     },
     "com.amazonaws.mediaconnect#UpdateFlowEntitlement": {
@@ -2201,18 +2727,11 @@
     "com.amazonaws.mediaconnect#UpdateFlowEntitlementRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.mediaconnect#__string",
+        "EntitlementStatus": {
+          "target": "com.amazonaws.mediaconnect#EntitlementStatus",
           "traits": {
-            "smithy.api#documentation": "A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.",
-            "smithy.api#jsonName": "description"
-          }
-        },
-        "Encryption": {
-          "target": "com.amazonaws.mediaconnect#UpdateEncryption",
-          "traits": {
-            "smithy.api#documentation": "The type of encryption that will be used on the output associated with this entitlement.",
-            "smithy.api#jsonName": "encryption"
+            "smithy.api#documentation": "An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field in your request, MediaConnect leaves the value unchanged.",
+            "smithy.api#jsonName": "entitlementStatus"
           }
         },
         "EntitlementArn": {
@@ -2237,6 +2756,20 @@
             "smithy.api#documentation": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.",
             "smithy.api#jsonName": "subscribers"
           }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "Encryption": {
+          "target": "com.amazonaws.mediaconnect#UpdateEncryption",
+          "traits": {
+            "smithy.api#documentation": "The type of encryption that will be used on the output associated with this entitlement.",
+            "smithy.api#jsonName": "encryption"
+          }
         }
       },
       "traits": {
@@ -2246,17 +2779,17 @@
     "com.amazonaws.mediaconnect#UpdateFlowEntitlementResponse": {
       "type": "structure",
       "members": {
-        "Entitlement": {
-          "target": "com.amazonaws.mediaconnect#Entitlement",
-          "traits": {
-            "smithy.api#jsonName": "entitlement"
-          }
-        },
         "FlowArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the flow that this entitlement was granted on.",
             "smithy.api#jsonName": "flowArn"
+          }
+        },
+        "Entitlement": {
+          "target": "com.amazonaws.mediaconnect#Entitlement",
+          "traits": {
+            "smithy.api#jsonName": "entitlement"
           }
         }
       }
@@ -2301,25 +2834,25 @@
     "com.amazonaws.mediaconnect#UpdateFlowOutputRequest": {
       "type": "structure",
       "members": {
-        "CidrAllowList": {
-          "target": "com.amazonaws.mediaconnect#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
-            "smithy.api#jsonName": "cidrAllowList"
-          }
-        },
-        "Description": {
+        "StreamId": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.",
-            "smithy.api#jsonName": "description"
+            "smithy.api#documentation": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
+            "smithy.api#jsonName": "streamId"
           }
         },
-        "Destination": {
-          "target": "com.amazonaws.mediaconnect#__string",
+        "SmoothingLatency": {
+          "target": "com.amazonaws.mediaconnect#__integer",
           "traits": {
-            "smithy.api#documentation": "The IP address where you want to send the output.",
-            "smithy.api#jsonName": "destination"
+            "smithy.api#documentation": "The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.",
+            "smithy.api#jsonName": "smoothingLatency"
+          }
+        },
+        "Port": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "The port to use when content is distributed to this output.",
+            "smithy.api#jsonName": "port"
           }
         },
         "Encryption": {
@@ -2329,10 +2862,38 @@
             "smithy.api#jsonName": "encryption"
           }
         },
-        "FlowArn": {
+        "RemoteId": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The flow that is associated with the output that you want to update.",
+            "smithy.api#documentation": "The remote ID for the Zixi-pull stream.",
+            "smithy.api#jsonName": "remoteId"
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.mediaconnect#Protocol",
+          "traits": {
+            "smithy.api#documentation": "The protocol to use for the output.",
+            "smithy.api#jsonName": "protocol"
+          }
+        },
+        "VpcInterfaceAttachment": {
+          "target": "com.amazonaws.mediaconnect#VpcInterfaceAttachment",
+          "traits": {
+            "smithy.api#documentation": "The name of the VPC interface attachment to use for this output.",
+            "smithy.api#jsonName": "vpcInterfaceAttachment"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "OutputArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the output that you want to update.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2344,47 +2905,26 @@
             "smithy.api#jsonName": "maxLatency"
           }
         },
-        "OutputArn": {
+        "Destination": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the output that you want to update.",
+            "smithy.api#documentation": "The IP address where you want to send the output.",
+            "smithy.api#jsonName": "destination"
+          }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The flow that is associated with the output that you want to update.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         },
-        "Port": {
-          "target": "com.amazonaws.mediaconnect#__integer",
+        "CidrAllowList": {
+          "target": "com.amazonaws.mediaconnect#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "The port to use when content is distributed to this output.",
-            "smithy.api#jsonName": "port"
-          }
-        },
-        "Protocol": {
-          "target": "com.amazonaws.mediaconnect#Protocol",
-          "traits": {
-            "smithy.api#documentation": "The protocol to use for the output.",
-            "smithy.api#jsonName": "protocol"
-          }
-        },
-        "RemoteId": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The remote ID for the Zixi-pull stream.",
-            "smithy.api#jsonName": "remoteId"
-          }
-        },
-        "SmoothingLatency": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.",
-            "smithy.api#jsonName": "smoothingLatency"
-          }
-        },
-        "StreamId": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
-            "smithy.api#jsonName": "streamId"
+            "smithy.api#documentation": "The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
+            "smithy.api#jsonName": "cidrAllowList"
           }
         }
       },
@@ -2406,6 +2946,39 @@
           "target": "com.amazonaws.mediaconnect#Output",
           "traits": {
             "smithy.api#jsonName": "output"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#UpdateFlowRequest": {
+      "type": "structure",
+      "members": {
+        "SourceFailoverConfig": {
+          "target": "com.amazonaws.mediaconnect#UpdateFailoverConfig",
+          "traits": {
+            "smithy.api#jsonName": "sourceFailoverConfig"
+          }
+        },
+        "FlowArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The flow that you want to update.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "A request to update flow."
+      }
+    },
+    "com.amazonaws.mediaconnect#UpdateFlowResponse": {
+      "type": "structure",
+      "members": {
+        "Flow": {
+          "target": "com.amazonaws.mediaconnect#Flow",
+          "traits": {
+            "smithy.api#jsonName": "flow"
           }
         }
       }
@@ -2450,18 +3023,26 @@
     "com.amazonaws.mediaconnect#UpdateFlowSourceRequest": {
       "type": "structure",
       "members": {
-        "Decryption": {
-          "target": "com.amazonaws.mediaconnect#UpdateEncryption",
-          "traits": {
-            "smithy.api#documentation": "The type of encryption used on the content ingested from this source.",
-            "smithy.api#jsonName": "decryption"
-          }
-        },
-        "Description": {
+        "VpcInterfaceName": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.",
-            "smithy.api#jsonName": "description"
+            "smithy.api#documentation": "The name of the VPC Interface to configure this Source with.",
+            "smithy.api#jsonName": "vpcInterfaceName"
+          }
+        },
+        "SourceArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the source that you want to update.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "WhitelistCidr": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
+            "smithy.api#jsonName": "whitelistCidr"
           }
         },
         "EntitlementArn": {
@@ -2486,18 +3067,11 @@
             "smithy.api#jsonName": "ingestPort"
           }
         },
-        "MaxBitrate": {
-          "target": "com.amazonaws.mediaconnect#__integer",
+        "Decryption": {
+          "target": "com.amazonaws.mediaconnect#UpdateEncryption",
           "traits": {
-            "smithy.api#documentation": "The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.",
-            "smithy.api#jsonName": "maxBitrate"
-          }
-        },
-        "MaxLatency": {
-          "target": "com.amazonaws.mediaconnect#__integer",
-          "traits": {
-            "smithy.api#documentation": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.",
-            "smithy.api#jsonName": "maxLatency"
+            "smithy.api#documentation": "The type of encryption used on the content ingested from this source.",
+            "smithy.api#jsonName": "decryption"
           }
         },
         "Protocol": {
@@ -2507,14 +3081,6 @@
             "smithy.api#jsonName": "protocol"
           }
         },
-        "SourceArn": {
-          "target": "com.amazonaws.mediaconnect#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the source that you want to update.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "StreamId": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
@@ -2522,11 +3088,25 @@
             "smithy.api#jsonName": "streamId"
           }
         },
-        "WhitelistCidr": {
+        "MaxLatency": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.",
+            "smithy.api#jsonName": "maxLatency"
+          }
+        },
+        "MaxBitrate": {
+          "target": "com.amazonaws.mediaconnect#__integer",
+          "traits": {
+            "smithy.api#documentation": "The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.",
+            "smithy.api#jsonName": "maxBitrate"
+          }
+        },
+        "Description": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
-            "smithy.api#documentation": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
-            "smithy.api#jsonName": "whitelistCidr"
+            "smithy.api#documentation": "A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.",
+            "smithy.api#jsonName": "description"
           }
         }
       },
@@ -2551,6 +3131,109 @@
             "smithy.api#jsonName": "source"
           }
         }
+      }
+    },
+    "com.amazonaws.mediaconnect#VpcInterface": {
+      "type": "structure",
+      "members": {
+        "NetworkInterfaceIds": {
+          "target": "com.amazonaws.mediaconnect#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "IDs of the network interfaces created in customer's account by MediaConnect.",
+            "smithy.api#jsonName": "networkInterfaceIds",
+            "smithy.api#required": {}
+          }
+        },
+        "SubnetId": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "Subnet must be in the AZ of the Flow",
+            "smithy.api#jsonName": "subnetId",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "Immutable and has to be a unique against other VpcInterfaces in this Flow",
+            "smithy.api#jsonName": "name",
+            "smithy.api#required": {}
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.mediaconnect#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "Security Group IDs to be used on ENI.",
+            "smithy.api#jsonName": "securityGroupIds",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "Role Arn MediaConnect can assumes to create ENIs in customer's account",
+            "smithy.api#jsonName": "roleArn",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The settings for a VPC Source."
+      }
+    },
+    "com.amazonaws.mediaconnect#VpcInterfaceAttachment": {
+      "type": "structure",
+      "members": {
+        "VpcInterfaceName": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the VPC interface to use for this output.",
+            "smithy.api#jsonName": "vpcInterfaceName"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The settings for attaching a VPC interface to an output."
+      }
+    },
+    "com.amazonaws.mediaconnect#VpcInterfaceRequest": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the VPC Interface. This value must be unique within the current flow.",
+            "smithy.api#jsonName": "name",
+            "smithy.api#required": {}
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.mediaconnect#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "Security Group IDs to be used on ENI.",
+            "smithy.api#jsonName": "securityGroupIds",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "Role Arn MediaConnect can assumes to create ENIs in customer's account",
+            "smithy.api#jsonName": "roleArn",
+            "smithy.api#required": {}
+          }
+        },
+        "SubnetId": {
+          "target": "com.amazonaws.mediaconnect#__string",
+          "traits": {
+            "smithy.api#documentation": "Subnet must be in the AZ of the Flow",
+            "smithy.api#jsonName": "subnetId",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Desired VPC Interface for a Flow"
       }
     },
     "com.amazonaws.mediaconnect#__integer": {
@@ -2590,6 +3273,30 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.mediaconnect#Output"
+      }
+    },
+    "com.amazonaws.mediaconnect#__listOfSetSourceRequest": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediaconnect#SetSourceRequest"
+      }
+    },
+    "com.amazonaws.mediaconnect#__listOfSource": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediaconnect#Source"
+      }
+    },
+    "com.amazonaws.mediaconnect#__listOfVpcInterface": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediaconnect#VpcInterface"
+      }
+    },
+    "com.amazonaws.mediaconnect#__listOfVpcInterfaceRequest": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediaconnect#VpcInterfaceRequest"
       }
     },
     "com.amazonaws.mediaconnect#__listOf__string": {

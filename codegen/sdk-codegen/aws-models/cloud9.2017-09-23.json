@@ -58,6 +58,15 @@
           "target": "com.amazonaws.cloud9#ListEnvironments"
         },
         {
+          "target": "com.amazonaws.cloud9#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TagResource"
+        },
+        {
+          "target": "com.amazonaws.cloud9#UntagResource"
+        },
+        {
           "target": "com.amazonaws.cloud9#UpdateEnvironment"
         },
         {
@@ -75,7 +84,7 @@
           "name": "cloud9"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname>AWS Cloud9</fullname>\n         <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p>\n         <p>For more information about AWS Cloud9, see the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide\">AWS Cloud9 User Guide</a>.</p>\n         <p>AWS Cloud9 supports these operations:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironments</code>: Gets information about environments.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListEnvironments</code>: Gets a list of environment identifiers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<fullname>AWS Cloud9</fullname>\n         <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p>\n         <p>For more information about AWS Cloud9, see the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide\">AWS Cloud9 User Guide</a>.</p>\n         <p>AWS Cloud9 supports these operations:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironments</code>: Gets information about environments.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListEnvironments</code>: Gets a list of environment identifiers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListTagsForResource</code>: Gets the tags for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TagResource</code>: Adds tags to an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UntagResource</code>: Removes tags from an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p>\n            </li>\n         </ul>",
         "smithy.api#title": "AWS Cloud9"
       }
     },
@@ -91,13 +100,13 @@
     "com.amazonaws.cloud9#BadRequestException": {
       "type": "structure",
       "members": {
-        "className": {
+        "message": {
           "target": "com.amazonaws.cloud9#String"
         },
         "code": {
           "target": "com.amazonaws.cloud9#Integer"
         },
-        "message": {
+        "className": {
           "target": "com.amazonaws.cloud9#String"
         }
       },
@@ -181,22 +190,16 @@
     "com.amazonaws.cloud9#CreateEnvironmentEC2Request": {
       "type": "structure",
       "members": {
-        "automaticStopTimeMinutes": {
-          "target": "com.amazonaws.cloud9#AutomaticStopTimeMinutes",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>"
-          }
-        },
         "clientRequestToken": {
           "target": "com.amazonaws.cloud9#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p>\n         <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>"
           }
         },
-        "description": {
-          "target": "com.amazonaws.cloud9#EnvironmentDescription",
+        "automaticStopTimeMinutes": {
+          "target": "com.amazonaws.cloud9#AutomaticStopTimeMinutes",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the environment to create.</p>"
+            "smithy.api#documentation": "<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>"
           }
         },
         "instanceType": {
@@ -206,6 +209,12 @@
             "smithy.api#required": {}
           }
         },
+        "ownerArn": {
+          "target": "com.amazonaws.cloud9#UserArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>"
+          }
+        },
         "name": {
           "target": "com.amazonaws.cloud9#EnvironmentName",
           "traits": {
@@ -213,16 +222,22 @@
             "smithy.api#required": {}
           }
         },
-        "ownerArn": {
-          "target": "com.amazonaws.cloud9#UserArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>"
-          }
-        },
         "subnetId": {
           "target": "com.amazonaws.cloud9#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.cloud9#EnvironmentDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the environment to create.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.cloud9#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.</p>"
           }
         }
       }
@@ -277,17 +292,17 @@
     "com.amazonaws.cloud9#CreateEnvironmentMembershipRequest": {
       "type": "structure",
       "members": {
-        "environmentId": {
-          "target": "com.amazonaws.cloud9#EnvironmentId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the environment that contains the environment member you want to add.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "permissions": {
           "target": "com.amazonaws.cloud9#MemberPermissions",
           "traits": {
             "smithy.api#documentation": "<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment that contains the environment member you want to add.</p>",
             "smithy.api#required": {}
           }
         },
@@ -465,22 +480,10 @@
     "com.amazonaws.cloud9#DescribeEnvironmentMembershipsRequest": {
       "type": "structure",
       "members": {
-        "environmentId": {
-          "target": "com.amazonaws.cloud9#EnvironmentId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the environment to get environment member information about.</p>"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.cloud9#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of environment members to get information about.</p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.cloud9#String",
-          "traits": {
-            "smithy.api#documentation": "<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>"
           }
         },
         "permissions": {
@@ -489,10 +492,22 @@
             "smithy.api#documentation": "<p>The type of environment member permissions to get information about. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>owner</code>: Owns the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>\n         <p>If no value is specified, information about all environment members are returned.</p>"
           }
         },
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment to get environment member information about.</p>"
+          }
+        },
         "userArn": {
           "target": "com.amazonaws.cloud9#UserArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>"
           }
         }
       }
@@ -645,10 +660,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment.</p>"
           }
         },
-        "description": {
-          "target": "com.amazonaws.cloud9#EnvironmentDescription",
+        "ownerArn": {
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
-            "smithy.api#documentation": "<p>The description for the environment.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment owner.</p>"
           }
         },
         "id": {
@@ -657,10 +672,16 @@
             "smithy.api#documentation": "<p>The ID of the environment.</p>"
           }
         },
-        "lifecycle": {
-          "target": "com.amazonaws.cloud9#EnvironmentLifecycle",
+        "description": {
+          "target": "com.amazonaws.cloud9#EnvironmentDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the environment in its creation or deletion lifecycle.</p>"
+            "smithy.api#documentation": "<p>The description for the environment.</p>"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.cloud9#EnvironmentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of environment. Valid values include the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ssh</code>: Your own server connects to the environment.</p>\n            </li>\n         </ul>"
           }
         },
         "name": {
@@ -669,21 +690,21 @@
             "smithy.api#documentation": "<p>The name of the environment.</p>"
           }
         },
-        "ownerArn": {
-          "target": "com.amazonaws.cloud9#String",
+        "lifecycle": {
+          "target": "com.amazonaws.cloud9#EnvironmentLifecycle",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment owner.</p>"
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.cloud9#EnvironmentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of environment. Valid values include the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ssh</code>: Your own server connects to the environment.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The state of the environment in its creation or deletion lifecycle.</p>"
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about an AWS Cloud9 development environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "arn:aws:cloud9:([a-z]{2}-[a-z]+-\\d{1}):[0-9]{12}:environment:[a-zA-Z0-9]{8,32}"
       }
     },
     "com.amazonaws.cloud9#EnvironmentDescription": {
@@ -711,16 +732,16 @@
     "com.amazonaws.cloud9#EnvironmentLifecycle": {
       "type": "structure",
       "members": {
-        "failureResource": {
-          "target": "com.amazonaws.cloud9#String",
-          "traits": {
-            "smithy.api#documentation": "<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>"
-          }
-        },
         "reason": {
           "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>Any informational message about the lifecycle state of the environment.</p>"
+          }
+        },
+        "failureResource": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>"
           }
         },
         "status": {
@@ -873,13 +894,13 @@
     "com.amazonaws.cloud9#ForbiddenException": {
       "type": "structure",
       "members": {
-        "className": {
-          "target": "com.amazonaws.cloud9#String"
-        },
         "code": {
           "target": "com.amazonaws.cloud9#Integer"
         },
         "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
           "target": "com.amazonaws.cloud9#String"
         }
       },
@@ -904,13 +925,13 @@
     "com.amazonaws.cloud9#InternalServerErrorException": {
       "type": "structure",
       "members": {
-        "className": {
+        "message": {
           "target": "com.amazonaws.cloud9#String"
         },
         "code": {
           "target": "com.amazonaws.cloud9#Integer"
         },
-        "message": {
+        "className": {
           "target": "com.amazonaws.cloud9#String"
         }
       },
@@ -922,13 +943,13 @@
     "com.amazonaws.cloud9#LimitExceededException": {
       "type": "structure",
       "members": {
-        "className": {
+        "message": {
           "target": "com.amazonaws.cloud9#String"
         },
         "code": {
           "target": "com.amazonaws.cloud9#Integer"
         },
-        "message": {
+        "className": {
           "target": "com.amazonaws.cloud9#String"
         }
       },
@@ -1011,6 +1032,52 @@
         }
       }
     },
+    "com.amazonaws.cloud9#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets a list of the tags associated with an AWS Cloud9 development environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.cloud9#EnvironmentArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to get the tags for.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.cloud9#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of tags associated with the AWS Cloud9 development environment.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.cloud9#MaxResults": {
       "type": "integer",
       "traits": {
@@ -1042,11 +1109,11 @@
         "className": {
           "target": "com.amazonaws.cloud9#String"
         },
-        "code": {
-          "target": "com.amazonaws.cloud9#Integer"
-        },
         "message": {
           "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer"
         }
       },
       "traits": {
@@ -1091,17 +1158,127 @@
         }
       }
     },
+    "com.amazonaws.cloud9#Tag": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "target": "com.amazonaws.cloud9#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The <b>value</b> part of a tag.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.cloud9#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The <b>name</b> part of a tag.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Metadata that is associated with AWS resources. In particular, a name-value pair that can be associated with an AWS Cloud9 development environment. There are two types of tags: <i>user tags</i> and <i>system tags</i>. A user tag is created by the user. A system tag is automatically created by AWS services. A system tag is prefixed with \"aws:\" and cannot be modified by the user.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazonaws.cloud9#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.cloud9#TagList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#Tag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.cloud9#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds tags to an AWS Cloud9 development environment.</p>\n         <important>\n            <p>Tags that you add to an AWS Cloud9 environment by using this method will NOT be automatically propagated to underlying resources.</p>\n         </important>"
+      }
+    },
+    "com.amazonaws.cloud9#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.cloud9#EnvironmentArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to add tags to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.cloud9#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of tags to add to the given AWS Cloud9 development environment.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#TagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.cloud9#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
     "com.amazonaws.cloud9#Timestamp": {
       "type": "timestamp"
     },
     "com.amazonaws.cloud9#TooManyRequestsException": {
       "type": "structure",
       "members": {
-        "className": {
-          "target": "com.amazonaws.cloud9#String"
-        },
         "code": {
           "target": "com.amazonaws.cloud9#Integer"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
         },
         "message": {
           "target": "com.amazonaws.cloud9#String"
@@ -1111,6 +1288,52 @@
         "smithy.api#documentation": "<p>Too many service requests were made over the given time period.</p>",
         "smithy.api#error": "client"
       }
+    },
+    "com.amazonaws.cloud9#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes tags from an AWS Cloud9 development environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.cloud9#EnvironmentArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to remove tags from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.cloud9#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag names of the tags to remove from the given AWS Cloud9 development environment.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#UntagResourceResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.cloud9#UpdateEnvironment": {
       "type": "operation",
@@ -1187,6 +1410,13 @@
     "com.amazonaws.cloud9#UpdateEnvironmentMembershipRequest": {
       "type": "structure",
       "members": {
+        "userArn": {
+          "target": "com.amazonaws.cloud9#UserArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "environmentId": {
           "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
@@ -1198,13 +1428,6 @@
           "target": "com.amazonaws.cloud9#MemberPermissions",
           "traits": {
             "smithy.api#documentation": "<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p>    \n         <ul>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
-        "userArn": {
-          "target": "com.amazonaws.cloud9#UserArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1230,17 +1453,17 @@
             "smithy.api#documentation": "<p>Any new or replacement description for the environment.</p>"
           }
         },
+        "name": {
+          "target": "com.amazonaws.cloud9#EnvironmentName",
+          "traits": {
+            "smithy.api#documentation": "<p>A replacement name for the environment.</p>"
+          }
+        },
         "environmentId": {
           "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment to change settings.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.cloud9#EnvironmentName",
-          "traits": {
-            "smithy.api#documentation": "<p>A replacement name for the environment.</p>"
           }
         }
       }
@@ -1252,7 +1475,7 @@
     "com.amazonaws.cloud9#UserArn": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^arn:aws:(iam|sts)::\\d+:(root|(user\\/[\\w+=/:,.@-]{1,64}|federated-user\\/[\\w+=/:,.@-]{2,32}|assumed-role\\/[\\w+=/:,.@-]{1,64}\\/[\\w+=/:,.@-]{1,64}))$"
+        "smithy.api#pattern": "^arn:aws:(iam|sts)::\\d+:(root|(user\\/[\\w+=/:,.@-]{1,64}|federated-user\\/[\\w+=/:,.@-]{2,32}|assumed-role\\/[\\w+=:,.@-]{1,64}\\/[\\w+=,.@-]{1,64}))$"
       }
     }
   }

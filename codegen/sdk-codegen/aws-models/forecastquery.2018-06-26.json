@@ -134,7 +134,7 @@
         "Predictions": {
           "target": "com.amazonaws.forecastquery#Predictions",
           "traits": {
-            "smithy.api#documentation": "<p>The forecast.</p>\n         <p>The <i>string</i> of the string-to-array map is one of the following\n      values:</p>\n         <ul>\n            <li>\n               <p>p10</p>\n            </li>\n            <li>\n               <p>p50</p>\n            </li>\n            <li>\n               <p>p90</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The forecast.</p>\n         <p>The <i>string</i> of the string-to-array map is one of the following\n      values:</p>\n         <ul>\n            <li>\n               <p>p10</p>\n            </li>\n            <li>\n               <p>p50</p>\n            </li>\n            <li>\n               <p>p90</p>\n            </li>\n         </ul>\n         <p>The default setting is <code>[\"0.1\", \"0.5\", \"0.9\"]</code>. Use the optional <code>ForecastTypes</code> parameter of the <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecast.html\">CreateForecast</a> operation to change the values. The values will vary depending on how this is set, with a minimum of <code>1</code> and a maximum of <code>5.</code>\n         </p>"
           }
         }
       },
@@ -231,12 +231,6 @@
     "com.amazonaws.forecastquery#QueryForecastRequest": {
       "type": "structure",
       "members": {
-        "EndDate": {
-          "target": "com.amazonaws.forecastquery#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>"
-          }
-        },
         "Filters": {
           "target": "com.amazonaws.forecastquery#Filters",
           "traits": {
@@ -244,17 +238,23 @@
             "smithy.api#required": {}
           }
         },
-        "ForecastArn": {
-          "target": "com.amazonaws.forecastquery#Arn",
+        "EndDate": {
+          "target": "com.amazonaws.forecastquery#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the forecast to query.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.forecastquery#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>If the result of the previous request was truncated, the response includes a\n        <code>NextToken</code>. To retrieve the next set of results, use the token in the next\n      request. Tokens expire after 24 hours.</p>"
+          }
+        },
+        "ForecastArn": {
+          "target": "com.amazonaws.forecastquery#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the forecast to query.</p>",
+            "smithy.api#required": {}
           }
         },
         "StartDate": {

@@ -191,19 +191,19 @@
     "com.amazonaws.apigatewaymanagementapi#Identity": {
       "type": "structure",
       "members": {
-        "SourceIp": {
-          "target": "com.amazonaws.apigatewaymanagementapi#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The source IP address of the TCP connection making the request to API Gateway.</p>",
-            "smithy.api#jsonName": "sourceIp",
-            "smithy.api#required": {}
-          }
-        },
         "UserAgent": {
           "target": "com.amazonaws.apigatewaymanagementapi#__string",
           "traits": {
             "smithy.api#documentation": "<p>The User Agent of the API caller.</p>",
             "smithy.api#jsonName": "userAgent",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceIp": {
+          "target": "com.amazonaws.apigatewaymanagementapi#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The source IP address of the TCP connection making the request to API Gateway.</p>",
+            "smithy.api#jsonName": "sourceIp",
             "smithy.api#required": {}
           }
         }
