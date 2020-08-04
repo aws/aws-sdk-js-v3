@@ -3,9 +3,9 @@
 1.  You have a CloudFormation stack called `SdkReleaseV3IntegTestResourcesStack` in the AWS account you used to run the
     integration test. If not you can deploy the stack with:
 
-        ```console
-        aws cloudformation deploy --stack-name SdkReleaseV3IntegTestResourcesStack --template-file ./IntegTestResourcesStack.template.json --capabilities CAPABILITY_IAM
-        ```
+    ```console
+    aws cloudformation deploy --stack-name SdkReleaseV3IntegTestResourcesStack --template-file ./IntegTestResourcesStack.template.json --capabilities CAPABILITY_IAM
+    ```
 
 1.  You have `ubuntu/standard/4.0` docker image built. If not, please follow [the guide to build the image](https://github.com/aws/aws-codebuild-docker-images#how-to-build-docker-images).
 
