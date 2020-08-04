@@ -5,18 +5,14 @@ import {
 } from "./configurations";
 describe("Node useArnRegion config loader", () => {
   describe("environment variable selector", () => {
-    const originalConfig = process.env[NODE_USE_ARN_REGION_ENV_NAME];
+    const env: { [NODE_USE_ARN_REGION_ENV_NAME]: any } = {} as any;
 
     beforeEach(() => {
-      delete process.env[NODE_USE_ARN_REGION_ENV_NAME];
-    });
-
-    afterAll(() => {
-      process.env[NODE_USE_ARN_REGION_ENV_NAME] = originalConfig;
+      delete env[NODE_USE_ARN_REGION_ENV_NAME];
     });
 
     it(`should return undefined if the environment variable doesn't have ${NODE_USE_ARN_REGION_ENV_NAME}`, () => {
-      expect(loadOptions.environmentVariableSelector(process.env)).toBeUndefined();
+      expect(loadOptions.environmentVariableSelector(env)).toBeUndefined();
     });
 
     [
@@ -24,15 +20,15 @@ describe("Node useArnRegion config loader", () => {
       { envValue: "false", parsed: false },
     ].forEach(({ envValue, parsed }) => {
       it(`should return boolean if the environment variable ${NODE_USE_ARN_REGION_ENV_NAME} is ${envValue}`, () => {
-        process.env[NODE_USE_ARN_REGION_ENV_NAME] = envValue;
-        expect(loadOptions.environmentVariableSelector(process.env)).toBe(parsed);
+        env[NODE_USE_ARN_REGION_ENV_NAME] = envValue;
+        expect(loadOptions.environmentVariableSelector(env)).toBe(parsed);
       });
     });
 
     ["0", "1", "yes", "no", undefined, null, void 0, ""].forEach((envValue) => {
       it(`should throw if the environment variable ${NODE_USE_ARN_REGION_ENV_NAME} is ${envValue}`, () => {
-        process.env[NODE_USE_ARN_REGION_ENV_NAME] = envValue as any;
-        expect(() => loadOptions.environmentVariableSelector(process.env)).toThrow(
+        env[NODE_USE_ARN_REGION_ENV_NAME] = envValue as any;
+        expect(() => loadOptions.environmentVariableSelector(env)).toThrow(
           `Cannot load env ${NODE_USE_ARN_REGION_ENV_NAME}. Expected "true" or "false", got ${envValue}.`
         );
       });
@@ -47,7 +43,7 @@ describe("Node useArnRegion config loader", () => {
     });
 
     it(`should return undefined if shared config profile doesn't have ${NODE_USE_ARN_REGION_INI_NAME}`, () => {
-      expect(loadOptions.configFileSelector(process.env)).toBeUndefined();
+      expect(loadOptions.configFileSelector(profileContent)).toBeUndefined();
     });
 
     [
