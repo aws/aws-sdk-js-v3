@@ -28,7 +28,7 @@ const run = async () => {
   await new Promise((resolve) => {
     setTimeout(resolve, 5000);
   });
-  await spawnPromise("yarn", ["--registry", "http://localhost:4873"], { cwd: __dirname });
+  await spawnPromise("yarn", ["--no-lockfile", "--registry", "http://localhost:4873"], { cwd: __dirname });
   const integTestResourcesEnv = await getIntegTestResources();
   const envFile = Object.entries(integTestResourcesEnv)
     .map(([name, key]) => `${name}=${key}`)
