@@ -74,17 +74,17 @@
     "com.amazonaws.cloudtrail#AddTagsRequest": {
       "type": "structure",
       "members": {
+        "TagsList": {
+          "target": "com.amazonaws.cloudtrail#TagsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains a list of CloudTrail tags, up to a limit of 50</p>"
+          }
+        },
         "ResourceId": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p>",
             "smithy.api#required": {}
-          }
-        },
-        "TagsList": {
-          "target": "com.amazonaws.cloudtrail#TagsList",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains a list of CloudTrail tags, up to a limit of 50</p>"
           }
         }
       },
@@ -332,10 +332,10 @@
     "com.amazonaws.cloudtrail#CreateTrailRequest": {
       "type": "structure",
       "members": {
-        "CloudWatchLogsLogGroupArn": {
-          "target": "com.amazonaws.cloudtrail#String",
+        "IsOrganizationTrail": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group \n         to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. \n      The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in \n      AWS Organizations.</p>"
           }
         },
         "CloudWatchLogsRoleArn": {
@@ -344,41 +344,16 @@
             "smithy.api#documentation": "<p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>"
           }
         },
-        "EnableLogFileValidation": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether log file integrity validation is enabled. The default is false.</p>\n         <note>\n            <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p>\n         </note>"
-          }
-        },
         "IncludeGlobalServiceEvents": {
           "target": "com.amazonaws.cloudtrail#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>"
           }
         },
-        "IsMultiRegionTrail": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail is created in the current region or in all regions. The default is false, which creates a trail only in the region where you are signed in. As a best practice, consider\n      creating trails that log events in all regions.</p>"
-          }
-        },
-        "IsOrganizationTrail": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. \n      The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in \n      AWS Organizations.</p>"
-          }
-        },
-        "KmsKeyId": {
+        "CloudWatchLogsLogGroupArn": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The\n         value can be an alias name prefixed by \"alias/\", a fully specified ARN to an alias, a fully\n         specified ARN to a key, or a globally unique identifier.</p>\n         <p>Examples:</p>\n         <ul>\n            <li>\n               <p>alias/MyAliasName</p>\n            </li>\n            <li>\n               <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>\n            </li>\n            <li>\n               <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>\n            </li>\n            <li>\n               <p>12345678-1234-1234-1234-123456789012</p>\n            </li>\n         </ul>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the name of the trail. The name must meet the following requirements:</p>\n         <ul>\n            <li>\n               <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p>\n            </li>\n            <li>\n               <p>Start with a letter or number, and end with a letter or number</p>\n            </li>\n            <li>\n               <p>Be between 3 and 128 characters</p>\n            </li>\n            <li>\n               <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>\n            and <code>my--namespace</code> are invalid.</p>\n            </li>\n            <li>\n               <p>Not be in IP address format (for example, 192.168.5.4)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group \n         to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>"
           }
         },
         "S3BucketName": {
@@ -388,10 +363,11 @@
             "smithy.api#required": {}
           }
         },
-        "S3KeyPrefix": {
+        "Name": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>. The maximum length is 200 characters.</p>"
+            "smithy.api#documentation": "<p>Specifies the name of the trail. The name must meet the following requirements:</p>\n         <ul>\n            <li>\n               <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p>\n            </li>\n            <li>\n               <p>Start with a letter or number, and end with a letter or number</p>\n            </li>\n            <li>\n               <p>Be between 3 and 128 characters</p>\n            </li>\n            <li>\n               <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>\n            and <code>my--namespace</code> are invalid.</p>\n            </li>\n            <li>\n               <p>Not be in IP address format (for example, 192.168.5.4)</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         },
         "SnsTopicName": {
@@ -402,6 +378,30 @@
         },
         "TagsList": {
           "target": "com.amazonaws.cloudtrail#TagsList"
+        },
+        "KmsKeyId": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The\n         value can be an alias name prefixed by \"alias/\", a fully specified ARN to an alias, a fully\n         specified ARN to a key, or a globally unique identifier.</p>\n         <p>Examples:</p>\n         <ul>\n            <li>\n               <p>alias/MyAliasName</p>\n            </li>\n            <li>\n               <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>\n            </li>\n            <li>\n               <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>\n            </li>\n            <li>\n               <p>12345678-1234-1234-1234-123456789012</p>\n            </li>\n         </ul>"
+          }
+        },
+        "EnableLogFileValidation": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether log file integrity validation is enabled. The default is false.</p>\n         <note>\n            <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p>\n         </note>"
+          }
+        },
+        "S3KeyPrefix": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>. The maximum length is 200 characters.</p>"
+          }
+        },
+        "IsMultiRegionTrail": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail is created in the current region or in all regions. The default is false, which creates a trail only in the region where you are signed in. As a best practice, consider\n      creating trails that log events in all regions.</p>"
+          }
         }
       },
       "traits": {
@@ -411,52 +411,10 @@
     "com.amazonaws.cloudtrail#CreateTrailResponse": {
       "type": "structure",
       "members": {
-        "CloudWatchLogsLogGroupArn": {
+        "SnsTopicARN": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>"
-          }
-        },
-        "CloudWatchLogsRoleArn": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>"
-          }
-        },
-        "IncludeGlobalServiceEvents": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>"
-          }
-        },
-        "IsMultiRegionTrail": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail exists in one region or in all regions.</p>"
-          }
-        },
-        "IsOrganizationTrail": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail is an organization trail.</p>"
-          }
-        },
-        "KmsKeyId": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>\n         <p>\n            <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n         </p>"
-          }
-        },
-        "LogFileValidationEnabled": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether log file integrity validation is enabled.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the name of the trail.</p>"
+            "smithy.api#documentation": "<p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:</p>\n         <p>\n            <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code>\n         </p>"
           }
         },
         "S3BucketName": {
@@ -465,16 +423,46 @@
             "smithy.api#documentation": "<p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>"
           }
         },
-        "S3KeyPrefix": {
+        "Name": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>.</p>"
+            "smithy.api#documentation": "<p>Specifies the name of the trail.</p>"
           }
         },
-        "SnsTopicARN": {
+        "CloudWatchLogsRoleArn": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:</p>\n         <p>\n            <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code>\n         </p>"
+            "smithy.api#documentation": "<p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>"
+          }
+        },
+        "IsOrganizationTrail": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail is an organization trail.</p>"
+          }
+        },
+        "LogFileValidationEnabled": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether log file integrity validation is enabled.</p>"
+          }
+        },
+        "TrailARN": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the ARN of the trail that was created. The format of a trail ARN\n         is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p>"
+          }
+        },
+        "KmsKeyId": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>\n         <p>\n            <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n         </p>"
+          }
+        },
+        "IsMultiRegionTrail": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail exists in one region or in all regions.</p>"
           }
         },
         "SnsTopicName": {
@@ -484,10 +472,22 @@
             "smithy.api#documentation": "<p>This field is no longer in use. Use SnsTopicARN.</p>"
           }
         },
-        "TrailARN": {
+        "CloudWatchLogsLogGroupArn": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the ARN of the trail that was created. The format of a trail ARN\n         is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p>"
+            "smithy.api#documentation": "<p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>"
+          }
+        },
+        "IncludeGlobalServiceEvents": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>"
+          }
+        },
+        "S3KeyPrefix": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>.</p>"
           }
         }
       },
@@ -615,16 +615,16 @@
     "com.amazonaws.cloudtrail#DescribeTrailsRequest": {
       "type": "structure",
       "members": {
-        "includeShadowTrails": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region,\n         or in the case of an organization trail, the replication of an organization trail in member accounts. If you do not include shadow trails, organization trails in a member account\n         and region replication trails will not be returned. The default is true.</p>"
-          }
-        },
         "trailNameList": {
           "target": "com.amazonaws.cloudtrail#TrailNameList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p> \n      \n         <p>If an empty list is specified, information for the trail in the current region is returned.</p>\n         <ul>\n            <li>\n               <p>If an empty list is specified and <code>IncludeShadowTrails</code> is false, then\n            information for all trails in the current region is returned.</p>\n            </li>\n            <li>\n               <p>If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.</p>\n            </li>\n         </ul>\n         <note>\n            <p>If one or more trail names are specified, information is returned only if the names match the names of trails belonging only to the current region. To return information about a trail in another region, you must specify its trail ARN.</p>\n         </note>"
+          }
+        },
+        "includeShadowTrails": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region,\n         or in the case of an organization trail, the replication of an organization trail in member accounts. If you do not include shadow trails, organization trails in a member account\n         and region replication trails will not be returned. The default is true.</p>"
           }
         }
       },
@@ -652,10 +652,10 @@
     "com.amazonaws.cloudtrail#Event": {
       "type": "structure",
       "members": {
-        "AccessKeyId": {
+        "ReadOnly": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS access key ID that was used to sign the request. If the request was made \n         with temporary security credentials, this is the access key ID of the temporary credentials.</p>"
+            "smithy.api#documentation": "<p>Information about whether the event is a write event or a read event. </p>"
           }
         },
         "CloudTrailEvent": {
@@ -664,16 +664,10 @@
             "smithy.api#documentation": "<p>A JSON string that contains a representation of the event returned.</p>"
           }
         },
-        "EventId": {
-          "target": "com.amazonaws.cloudtrail#String",
+        "EventTime": {
+          "target": "com.amazonaws.cloudtrail#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The CloudTrail ID of the event returned.</p>"
-          }
-        },
-        "EventName": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the event returned.</p>"
+            "smithy.api#documentation": "<p>The date and time of the event returned.</p>"
           }
         },
         "EventSource": {
@@ -682,16 +676,16 @@
             "smithy.api#documentation": "<p>The AWS service that the request was made to.</p>"
           }
         },
-        "EventTime": {
-          "target": "com.amazonaws.cloudtrail#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time of the event returned.</p>"
-          }
-        },
-        "ReadOnly": {
+        "Username": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Information about whether the event is a write event or a read event. </p>"
+            "smithy.api#documentation": "<p>A user name or role name of the requester that called the API in the event returned.</p>"
+          }
+        },
+        "AccessKeyId": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS access key ID that was used to sign the request. If the request was made \n         with temporary security credentials, this is the access key ID of the temporary credentials.</p>"
           }
         },
         "Resources": {
@@ -700,10 +694,16 @@
             "smithy.api#documentation": "<p>A list of resources referenced by the event returned.</p>"
           }
         },
-        "Username": {
+        "EventName": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>A user name or role name of the requester that called the API in the event returned.</p>"
+            "smithy.api#documentation": "<p>The name of the event returned.</p>"
+          }
+        },
+        "EventId": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The CloudTrail ID of the event returned.</p>"
           }
         }
       },
@@ -725,18 +725,6 @@
     "com.amazonaws.cloudtrail#EventSelector": {
       "type": "structure",
       "members": {
-        "DataResources": {
-          "target": "com.amazonaws.cloudtrail#DataResources",
-          "traits": {
-            "smithy.api#documentation": "<p>CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify \n         up to 250 resources for an individual event selector, but the total number of data resources cannot exceed \n         250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events\">Data Events</a> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html\">Limits in AWS CloudTrail</a> \n         in the <i>AWS CloudTrail User Guide</i>.</p>"
-          }
-        },
-        "ExcludeManagementEventSources": {
-          "target": "com.amazonaws.cloudtrail#ExcludeManagementEventSources",
-          "traits": {
-            "smithy.api#documentation": "<p>An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by \n         containing <code>\"kms.amazonaws.com\"</code>. By default, <code>ExcludeManagementEventSources</code> is empty, and AWS KMS events are included in events that are logged to your trail. </p>"
-          }
-        },
         "IncludeManagementEvents": {
           "target": "com.amazonaws.cloudtrail#Boolean",
           "traits": {
@@ -747,6 +735,18 @@
           "target": "com.amazonaws.cloudtrail#ReadWriteType",
           "traits": {
             "smithy.api#documentation": "<p>Specify if you want your trail to log read-only events, write-only events, or all. For example,\n         the EC2 <code>GetConsoleOutput</code> is a read-only API operation and\n            <code>RunInstances</code> is a write-only API operation.</p>\n         <p> By default, the value is <code>All</code>.</p>"
+          }
+        },
+        "ExcludeManagementEventSources": {
+          "target": "com.amazonaws.cloudtrail#ExcludeManagementEventSources",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by \n         containing <code>\"kms.amazonaws.com\"</code>. By default, <code>ExcludeManagementEventSources</code> is empty, and AWS KMS events are included in events that are logged to your trail. </p>"
+          }
+        },
+        "DataResources": {
+          "target": "com.amazonaws.cloudtrail#DataResources",
+          "traits": {
+            "smithy.api#documentation": "<p>CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify \n         up to 250 resources for an individual event selector, but the total number of data resources cannot exceed \n         250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events\">Data Events</a> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html\">Limits in AWS CloudTrail</a> \n         in the <i>AWS CloudTrail User Guide</i>.</p>"
           }
         }
       },
@@ -979,76 +979,10 @@
     "com.amazonaws.cloudtrail#GetTrailStatusResponse": {
       "type": "structure",
       "members": {
-        "IsLogging": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the CloudTrail is currently logging AWS API calls.</p>"
-          }
-        },
-        "LatestCloudWatchLogsDeliveryError": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.</p>"
-          }
-        },
-        "LatestCloudWatchLogsDeliveryTime": {
-          "target": "com.amazonaws.cloudtrail#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.</p>"
-          }
-        },
-        "LatestDeliveryAttemptSucceeded": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
-          }
-        },
-        "LatestDeliveryAttemptTime": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
-          }
-        },
-        "LatestDeliveryError": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver log files\n         to the designated bucket. For more information see the topic <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html\">Error\n            Responses</a> in the Amazon S3 API Reference. </p>\n         <note>\n            <p>This error occurs only when there is a problem with the destination S3 bucket and will\n         not occur for timeouts. To resolve the issue, create a new bucket and call\n            <code>UpdateTrail</code> to specify the new bucket, or fix the existing objects so that\n         CloudTrail can again write to the bucket.</p>\n         </note>"
-          }
-        },
-        "LatestDeliveryTime": {
-          "target": "com.amazonaws.cloudtrail#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.</p>"
-          }
-        },
-        "LatestDigestDeliveryError": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver a digest\n         file to the designated bucket. For more information see the topic <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html\">Error\n            Responses</a> in the Amazon S3 API Reference. </p>\n         <note>\n            <p>This error occurs only when there is a problem with the destination S3 bucket and will\n         not occur for timeouts. To resolve the issue, create a new bucket and call\n            <code>UpdateTrail</code> to specify the new bucket, or fix the existing objects so that\n         CloudTrail can again write to the bucket.</p>\n         </note>"
-          }
-        },
         "LatestDigestDeliveryTime": {
           "target": "com.amazonaws.cloudtrail#Date",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the date and time that CloudTrail last delivered a digest file to an account's Amazon S3 bucket.</p>"
-          }
-        },
-        "LatestNotificationAttemptSucceeded": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
-          }
-        },
-        "LatestNotificationAttemptTime": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
-          }
-        },
-        "LatestNotificationError": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Displays any Amazon SNS error that CloudTrail encountered when attempting to send a\n         notification. For more information about Amazon SNS errors, see the <a href=\"https://docs.aws.amazon.com/sns/latest/dg/welcome.html\">Amazon SNS Developer Guide</a>.\n      </p>"
           }
         },
         "LatestNotificationTime": {
@@ -1057,10 +991,52 @@
             "smithy.api#documentation": "<p>Specifies the date and time of the most recent Amazon SNS notification that CloudTrail has written a new log file to an account's Amazon S3 bucket.</p>"
           }
         },
+        "LatestCloudWatchLogsDeliveryError": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.</p>"
+          }
+        },
+        "LatestDeliveryError": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver log files\n         to the designated bucket. For more information see the topic <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html\">Error\n            Responses</a> in the Amazon S3 API Reference. </p>\n         <note>\n            <p>This error occurs only when there is a problem with the destination S3 bucket and will\n         not occur for timeouts. To resolve the issue, create a new bucket and call\n            <code>UpdateTrail</code> to specify the new bucket, or fix the existing objects so that\n         CloudTrail can again write to the bucket.</p>\n         </note>"
+          }
+        },
+        "LatestCloudWatchLogsDeliveryTime": {
+          "target": "com.amazonaws.cloudtrail#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.</p>"
+          }
+        },
+        "TimeLoggingStopped": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
+          }
+        },
+        "IsLogging": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the CloudTrail is currently logging AWS API calls.</p>"
+          }
+        },
+        "LatestNotificationError": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Displays any Amazon SNS error that CloudTrail encountered when attempting to send a\n         notification. For more information about Amazon SNS errors, see the <a href=\"https://docs.aws.amazon.com/sns/latest/dg/welcome.html\">Amazon SNS Developer Guide</a>.\n      </p>"
+          }
+        },
         "StartLoggingTime": {
           "target": "com.amazonaws.cloudtrail#Date",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the most recent date and time when CloudTrail started recording API calls for an AWS account.</p>"
+          }
+        },
+        "LatestDeliveryAttemptTime": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
           }
         },
         "StopLoggingTime": {
@@ -1069,16 +1045,40 @@
             "smithy.api#documentation": "<p>Specifies the most recent date and time when CloudTrail stopped recording API calls for an AWS account.</p>"
           }
         },
+        "LatestNotificationAttemptTime": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
+          }
+        },
+        "LatestDeliveryAttemptSucceeded": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
+          }
+        },
+        "LatestNotificationAttemptSucceeded": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
+          }
+        },
+        "LatestDigestDeliveryError": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver a digest\n         file to the designated bucket. For more information see the topic <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html\">Error\n            Responses</a> in the Amazon S3 API Reference. </p>\n         <note>\n            <p>This error occurs only when there is a problem with the destination S3 bucket and will\n         not occur for timeouts. To resolve the issue, create a new bucket and call\n            <code>UpdateTrail</code> to specify the new bucket, or fix the existing objects so that\n         CloudTrail can again write to the bucket.</p>\n         </note>"
+          }
+        },
         "TimeLoggingStarted": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>This field is no longer in use.</p>"
           }
         },
-        "TimeLoggingStopped": {
-          "target": "com.amazonaws.cloudtrail#String",
+        "LatestDeliveryTime": {
+          "target": "com.amazonaws.cloudtrail#Date",
           "traits": {
-            "smithy.api#documentation": "<p>This field is no longer in use.</p>"
+            "smithy.api#documentation": "<p>Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.</p>"
           }
         }
       },
@@ -1569,12 +1569,6 @@
     "com.amazonaws.cloudtrail#ListPublicKeysRequest": {
       "type": "structure",
       "members": {
-        "EndTime": {
-          "target": "com.amazonaws.cloudtrail#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
@@ -1585,6 +1579,12 @@
           "target": "com.amazonaws.cloudtrail#Date",
           "traits": {
             "smithy.api#documentation": "<p>Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.cloudtrail#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.</p>"
           }
         }
       },
@@ -1677,16 +1677,16 @@
     "com.amazonaws.cloudtrail#ListTagsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Reserved for future use.</p>"
-          }
-        },
         "ResourceTagList": {
           "target": "com.amazonaws.cloudtrail#ResourceTagList",
           "traits": {
             "smithy.api#documentation": "<p>A list of resource tags.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for future use.</p>"
           }
         }
       },
@@ -1734,16 +1734,16 @@
     "com.amazonaws.cloudtrail#ListTrailsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to get the next page of results after a previous API call. If the token does not appear, \n         there are no more results to return. The token must be passed in with the same parameters as the previous call. \n         For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with \n         NextToken should include those same parameters.</p>"
-          }
-        },
         "Trails": {
           "target": "com.amazonaws.cloudtrail#Trails",
           "traits": {
             "smithy.api#documentation": "<p>Returns the name, ARN, and home region of trails in the current account.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to get the next page of results after a previous API call. If the token does not appear, \n         there are no more results to return. The token must be passed in with the same parameters as the previous call. \n         For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with \n         NextToken should include those same parameters.</p>"
           }
         }
       }
@@ -1751,17 +1751,17 @@
     "com.amazonaws.cloudtrail#LookupAttribute": {
       "type": "structure",
       "members": {
-        "AttributeKey": {
-          "target": "com.amazonaws.cloudtrail#LookupAttributeKey",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies an attribute on which to filter the events returned.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "AttributeValue": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies a value for the specified AttributeKey.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttributeKey": {
+          "target": "com.amazonaws.cloudtrail#LookupAttributeKey",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies an attribute on which to filter the events returned.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1860,16 +1860,10 @@
     "com.amazonaws.cloudtrail#LookupEventsRequest": {
       "type": "structure",
       "members": {
-        "EndTime": {
-          "target": "com.amazonaws.cloudtrail#Date",
+        "NextToken": {
+          "target": "com.amazonaws.cloudtrail#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.</p>"
-          }
-        },
-        "EventCategory": {
-          "target": "com.amazonaws.cloudtrail#EventCategory",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the event category. If you do not specify an event category, events of the category are not returned in the response. For example, \n         if you do not specify <code>insight</code> as the value of <code>EventCategory</code>, no Insights events are returned.</p>"
+            "smithy.api#documentation": "<p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. \n         For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>"
           }
         },
         "LookupAttributes": {
@@ -1878,22 +1872,28 @@
             "smithy.api#documentation": "<p>Contains a list of lookup attributes. Currently the list can contain only one item.</p>"
           }
         },
+        "StartTime": {
+          "target": "com.amazonaws.cloudtrail#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.</p>"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.cloudtrail#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The number of events to return. Possible values are 1 through 50. The default is 50.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.cloudtrail#NextToken",
+        "EventCategory": {
+          "target": "com.amazonaws.cloudtrail#EventCategory",
           "traits": {
-            "smithy.api#documentation": "<p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. \n         For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>"
+            "smithy.api#documentation": "<p>Specifies the event category. If you do not specify an event category, events of the category are not returned in the response. For example, \n         if you do not specify <code>insight</code> as the value of <code>EventCategory</code>, no Insights events are returned.</p>"
           }
         },
-        "StartTime": {
+        "EndTime": {
           "target": "com.amazonaws.cloudtrail#Date",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.</p>"
+            "smithy.api#documentation": "<p>Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.</p>"
           }
         }
       },
@@ -1904,16 +1904,16 @@
     "com.amazonaws.cloudtrail#LookupEventsResponse": {
       "type": "structure",
       "members": {
-        "Events": {
-          "target": "com.amazonaws.cloudtrail#EventsList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.cloudtrail#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to get the next page of results after a previous API call. If the token does not appear, \n         there are no more results to return. The token must be passed in with the same parameters as the previous call. \n         For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with \n         NextToken should include those same parameters.</p>"
+          }
+        },
+        "Events": {
+          "target": "com.amazonaws.cloudtrail#EventsList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>"
           }
         }
       },
@@ -2023,6 +2023,12 @@
             "smithy.api#documentation": "<p>The fingerprint of the public key.</p>"
           }
         },
+        "Value": {
+          "target": "com.amazonaws.cloudtrail#ByteBuffer",
+          "traits": {
+            "smithy.api#documentation": "<p>The DER encoded public key value in PKCS#1 format.</p>"
+          }
+        },
         "ValidityEndTime": {
           "target": "com.amazonaws.cloudtrail#Date",
           "traits": {
@@ -2033,12 +2039,6 @@
           "target": "com.amazonaws.cloudtrail#Date",
           "traits": {
             "smithy.api#documentation": "<p>The starting time of validity of the public key.</p>"
-          }
-        },
-        "Value": {
-          "target": "com.amazonaws.cloudtrail#ByteBuffer",
-          "traits": {
-            "smithy.api#documentation": "<p>The DER encoded public key value in PKCS#1 format.</p>"
           }
         }
       },
@@ -2113,16 +2113,16 @@
     "com.amazonaws.cloudtrail#PutEventSelectorsResponse": {
       "type": "structure",
       "members": {
-        "EventSelectors": {
-          "target": "com.amazonaws.cloudtrail#EventSelectors",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the event selectors configured for your trail.</p>"
-          }
-        },
         "TrailARN": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN\n         is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p>"
+          }
+        },
+        "EventSelectors": {
+          "target": "com.amazonaws.cloudtrail#EventSelectors",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the event selectors configured for your trail.</p>"
           }
         }
       }
@@ -2345,16 +2345,16 @@
     "com.amazonaws.cloudtrail#ResourceTag": {
       "type": "structure",
       "members": {
-        "ResourceId": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the ARN of the resource.</p>"
-          }
-        },
         "TagsList": {
           "target": "com.amazonaws.cloudtrail#TagsList",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags.</p>"
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the ARN of the resource.</p>"
           }
         }
       },
@@ -2568,88 +2568,22 @@
     "com.amazonaws.cloudtrail#Trail": {
       "type": "structure",
       "members": {
+        "TrailARN": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the ARN of the trail. The format of a trail ARN is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p>"
+          }
+        },
         "CloudWatchLogsLogGroupArn": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.</p>"
           }
         },
-        "CloudWatchLogsRoleArn": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>"
-          }
-        },
         "HasCustomEventSelectors": {
           "target": "com.amazonaws.cloudtrail#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Specifies if the trail has custom event selectors.</p>"
-          }
-        },
-        "HasInsightSelectors": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether a trail has insight types specified in an <code>InsightSelector</code> list.</p>"
-          }
-        },
-        "HomeRegion": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The region in which the trail was created.</p>"
-          }
-        },
-        "IncludeGlobalServiceEvents": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Set to <b>True</b> to include AWS API calls from AWS global services such as IAM.\n         Otherwise, <b>False</b>.</p>"
-          }
-        },
-        "IsMultiRegionTrail": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail exists only in one region or exists in all regions.</p>"
-          }
-        },
-        "IsOrganizationTrail": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail is an organization trail.</p>"
-          }
-        },
-        "KmsKeyId": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>\n         <p>\n            <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n         </p>"
-          }
-        },
-        "LogFileValidationEnabled": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether log file validation is enabled.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the trail set by calling <a>CreateTrail</a>. The maximum length is 128\n         characters.</p>"
-          }
-        },
-        "S3BucketName": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html\">Amazon S3 Bucket Naming Requirements</a>.</p>"
-          }
-        },
-        "S3KeyPrefix": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>.The maximum length is 200 characters.</p>"
-          }
-        },
-        "SnsTopicARN": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications\n         when log files are delivered. The format of a topic ARN is:</p> \n         <p>\n            <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code>\n         </p>"
           }
         },
         "SnsTopicName": {
@@ -2659,10 +2593,76 @@
             "smithy.api#documentation": "<p>This field is no longer in use. Use SnsTopicARN.</p>"
           }
         },
-        "TrailARN": {
+        "LogFileValidationEnabled": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether log file validation is enabled.</p>"
+          }
+        },
+        "SnsTopicARN": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the ARN of the trail. The format of a trail ARN is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p>"
+            "smithy.api#documentation": "<p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications\n         when log files are delivered. The format of a topic ARN is:</p> \n         <p>\n            <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code>\n         </p>"
+          }
+        },
+        "S3BucketName": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html\">Amazon S3 Bucket Naming Requirements</a>.</p>"
+          }
+        },
+        "CloudWatchLogsRoleArn": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>"
+          }
+        },
+        "IsMultiRegionTrail": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail exists only in one region or exists in all regions.</p>"
+          }
+        },
+        "HomeRegion": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The region in which the trail was created.</p>"
+          }
+        },
+        "S3KeyPrefix": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>.The maximum length is 200 characters.</p>"
+          }
+        },
+        "KmsKeyId": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>\n         <p>\n            <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n         </p>"
+          }
+        },
+        "IncludeGlobalServiceEvents": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to <b>True</b> to include AWS API calls from AWS global services such as IAM.\n         Otherwise, <b>False</b>.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the trail set by calling <a>CreateTrail</a>. The maximum length is 128\n         characters.</p>"
+          }
+        },
+        "HasInsightSelectors": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether a trail has insight types specified in an <code>InsightSelector</code> list.</p>"
+          }
+        },
+        "IsOrganizationTrail": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail is an organization trail.</p>"
           }
         }
       },
@@ -2695,16 +2695,16 @@
             "smithy.api#documentation": "<p>The AWS region in which a trail was created.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of a trail.</p>"
-          }
-        },
         "TrailARN": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of a trail.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of a trail.</p>"
           }
         }
       },
@@ -2877,46 +2877,10 @@
     "com.amazonaws.cloudtrail#UpdateTrailRequest": {
       "type": "structure",
       "members": {
-        "CloudWatchLogsLogGroupArn": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>"
-          }
-        },
         "CloudWatchLogsRoleArn": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>"
-          }
-        },
-        "EnableLogFileValidation": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether log file validation is enabled. The default is false.</p>\n         <note>\n            <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p>\n         </note>"
-          }
-        },
-        "IncludeGlobalServiceEvents": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>"
-          }
-        },
-        "IsMultiRegionTrail": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, \n         shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region \n         where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider\n         using trails that log events in all regions.</p>"
-          }
-        },
-        "IsOrganizationTrail": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail is applied to all accounts in an organization in AWS Organizations, or only for the current AWS account. \n         The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in \n         AWS Organizations. If the trail is not an organization trail and this is set to true, the trail will be created in all AWS accounts that belong\n         to the organization. If the trail is an organization trail and this is set to false, the trail will remain in the current AWS account but be \n         deleted from all member accounts in the organization.</p>"
-          }
-        },
-        "KmsKeyId": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The\n         value can be an alias name prefixed by \"alias/\", a fully specified ARN to an alias, a fully\n         specified ARN to a key, or a globally unique identifier.</p>\n         <p>Examples:</p>\n         <ul>\n            <li>\n               <p>alias/MyAliasName</p>\n            </li>\n            <li>\n               <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>\n            </li>\n            <li>\n               <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>\n            </li>\n            <li>\n               <p>12345678-1234-1234-1234-123456789012</p>\n            </li>\n         </ul>"
           }
         },
         "Name": {
@@ -2926,22 +2890,58 @@
             "smithy.api#required": {}
           }
         },
-        "S3BucketName": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the name of the Amazon S3 bucket designated for publishing log files. See <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html\">Amazon S3 Bucket Naming Requirements</a>.</p>"
-          }
-        },
         "S3KeyPrefix": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>. The maximum length is 200 characters.</p>"
           }
         },
+        "EnableLogFileValidation": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether log file validation is enabled. The default is false.</p>\n         <note>\n            <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p>\n         </note>"
+          }
+        },
+        "KmsKeyId": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The\n         value can be an alias name prefixed by \"alias/\", a fully specified ARN to an alias, a fully\n         specified ARN to a key, or a globally unique identifier.</p>\n         <p>Examples:</p>\n         <ul>\n            <li>\n               <p>alias/MyAliasName</p>\n            </li>\n            <li>\n               <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>\n            </li>\n            <li>\n               <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>\n            </li>\n            <li>\n               <p>12345678-1234-1234-1234-123456789012</p>\n            </li>\n         </ul>"
+          }
+        },
         "SnsTopicName": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.</p>"
+          }
+        },
+        "S3BucketName": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the name of the Amazon S3 bucket designated for publishing log files. See <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html\">Amazon S3 Bucket Naming Requirements</a>.</p>"
+          }
+        },
+        "CloudWatchLogsLogGroupArn": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>"
+          }
+        },
+        "IncludeGlobalServiceEvents": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>"
+          }
+        },
+        "IsOrganizationTrail": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail is applied to all accounts in an organization in AWS Organizations, or only for the current AWS account. \n         The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in \n         AWS Organizations. If the trail is not an organization trail and this is set to true, the trail will be created in all AWS accounts that belong\n         to the organization. If the trail is an organization trail and this is set to false, the trail will remain in the current AWS account but be \n         deleted from all member accounts in the organization.</p>"
+          }
+        },
+        "IsMultiRegionTrail": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, \n         shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region \n         where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider\n         using trails that log events in all regions.</p>"
           }
         }
       },
@@ -2952,22 +2952,22 @@
     "com.amazonaws.cloudtrail#UpdateTrailResponse": {
       "type": "structure",
       "members": {
-        "CloudWatchLogsLogGroupArn": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>"
-          }
-        },
         "CloudWatchLogsRoleArn": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>"
           }
         },
-        "IncludeGlobalServiceEvents": {
-          "target": "com.amazonaws.cloudtrail#Boolean",
+        "S3BucketName": {
+          "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>"
+            "smithy.api#documentation": "<p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the name of the trail.</p>"
           }
         },
         "IsMultiRegionTrail": {
@@ -2982,10 +2982,23 @@
             "smithy.api#documentation": "<p>Specifies whether the trail is an organization trail.</p>"
           }
         },
+        "SnsTopicName": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#deprecated": {},
+            "smithy.api#documentation": "<p>This field is no longer in use. Use SnsTopicARN.</p>"
+          }
+        },
         "KmsKeyId": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>\n      \n         <p>\n            <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>\n         </p>"
+          }
+        },
+        "TrailARN": {
+          "target": "com.amazonaws.cloudtrail#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the ARN of the trail that was updated. The format of a trail ARN\n         is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p>"
           }
         },
         "LogFileValidationEnabled": {
@@ -2994,22 +3007,10 @@
             "smithy.api#documentation": "<p>Specifies whether log file integrity validation is enabled.</p>"
           }
         },
-        "Name": {
+        "CloudWatchLogsLogGroupArn": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the name of the trail.</p>"
-          }
-        },
-        "S3BucketName": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>"
-          }
-        },
-        "S3KeyPrefix": {
-          "target": "com.amazonaws.cloudtrail#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>.</p>"
+            "smithy.api#documentation": "<p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>"
           }
         },
         "SnsTopicARN": {
@@ -3018,17 +3019,16 @@
             "smithy.api#documentation": "<p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications\n         when log files are delivered. The format of a topic ARN is:</p>\n         <p>\n            <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code>\n         </p>"
           }
         },
-        "SnsTopicName": {
+        "S3KeyPrefix": {
           "target": "com.amazonaws.cloudtrail#String",
           "traits": {
-            "smithy.api#deprecated": {},
-            "smithy.api#documentation": "<p>This field is no longer in use. Use SnsTopicARN.</p>"
+            "smithy.api#documentation": "<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated\n         for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html\">Finding Your CloudTrail Log Files</a>.</p>"
           }
         },
-        "TrailARN": {
-          "target": "com.amazonaws.cloudtrail#String",
+        "IncludeGlobalServiceEvents": {
+          "target": "com.amazonaws.cloudtrail#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the ARN of the trail that was updated. The format of a trail ARN\n         is:</p>\n         <p>\n            <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>\n         </p>"
+            "smithy.api#documentation": "<p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>"
           }
         }
       },

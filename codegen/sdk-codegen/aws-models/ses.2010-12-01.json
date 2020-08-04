@@ -76,14 +76,14 @@
     "com.amazonaws.ses#AlreadyExistsException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
+        },
         "Name": {
           "target": "com.amazonaws.ses#RuleOrRuleSetName",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that a resource could not be created because the resource name already\n            exists.</p>"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
         }
       },
       "traits": {
@@ -136,18 +136,10 @@
     "com.amazonaws.ses#BounceAction": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.ses#BounceMessage",
+        "StatusCode": {
+          "target": "com.amazonaws.ses#BounceStatusCode",
           "traits": {
-            "smithy.api#documentation": "<p>Human-readable text to include in the bounce message.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Sender": {
-          "target": "com.amazonaws.ses#Address",
-          "traits": {
-            "smithy.api#documentation": "<p>The email address of the sender of the bounced email. This is the address from which\n            the bounce message will be sent.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The SMTP enhanced status code, as defined by <a href=\"https://tools.ietf.org/html/rfc3463\">RFC 3463</a>.</p>"
           }
         },
         "SmtpReplyCode": {
@@ -157,16 +149,24 @@
             "smithy.api#required": {}
           }
         },
-        "StatusCode": {
-          "target": "com.amazonaws.ses#BounceStatusCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The SMTP enhanced status code, as defined by <a href=\"https://tools.ietf.org/html/rfc3463\">RFC 3463</a>.</p>"
-          }
-        },
         "TopicArn": {
           "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is\n            taken. An example of an Amazon SNS topic ARN is\n                <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about\n            Amazon SNS topics, see the <a href=\"https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html\">Amazon SNS Developer Guide</a>.</p>"
+          }
+        },
+        "Sender": {
+          "target": "com.amazonaws.ses#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address of the sender of the bounced email. This is the address from which\n            the bounce message will be sent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.ses#BounceMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>Human-readable text to include in the bounce message.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -217,6 +217,18 @@
     "com.amazonaws.ses#BouncedRecipientInfo": {
       "type": "structure",
       "members": {
+        "RecipientArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to receive\n            email for the recipient of the bounced email. For more information about sending\n            authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
+          }
+        },
+        "RecipientDsnFields": {
+          "target": "com.amazonaws.ses#RecipientDsnFields",
+          "traits": {
+            "smithy.api#documentation": "<p>Recipient-related DSN fields, most of which would normally be filled in automatically\n            when provided with a <code>BounceType</code>. You must provide either this parameter or\n                <code>BounceType</code>.</p>"
+          }
+        },
         "BounceType": {
           "target": "com.amazonaws.ses#BounceType",
           "traits": {
@@ -228,18 +240,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The email address of the recipient of the bounced email.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "RecipientArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to receive\n            email for the recipient of the bounced email. For more information about sending\n            authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
-          }
-        },
-        "RecipientDsnFields": {
-          "target": "com.amazonaws.ses#RecipientDsnFields",
-          "traits": {
-            "smithy.api#documentation": "<p>Recipient-related DSN fields, most of which would normally be filled in automatically\n            when provided with a <code>BounceType</code>. You must provide either this parameter or\n                <code>BounceType</code>.</p>"
           }
         }
       },
@@ -256,16 +256,16 @@
     "com.amazonaws.ses#BulkEmailDestination": {
       "type": "structure",
       "members": {
-        "Destination": {
-          "target": "com.amazonaws.ses#Destination",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "ReplacementTags": {
           "target": "com.amazonaws.ses#MessageTagList",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags, in the form of name/value pairs, to apply to an email that you send\n            using <code>SendBulkTemplatedEmail</code>. Tags correspond to characteristics of the\n            email that you define, so that you can publish email sending events.</p>"
+          }
+        },
+        "Destination": {
+          "target": "com.amazonaws.ses#Destination",
+          "traits": {
+            "smithy.api#required": {}
           }
         },
         "ReplacementTemplateData": {
@@ -294,16 +294,16 @@
             "smithy.api#documentation": "<p>A description of an error that prevented a message being sent using the\n                <code>SendBulkTemplatedEmail</code> operation.</p>"
           }
         },
-        "MessageId": {
-          "target": "com.amazonaws.ses#MessageId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>\n            operation.</p>"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.ses#BulkEmailStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of a message sent using the <code>SendBulkTemplatedEmail</code>\n            operation.</p>\n        <p>Possible values for this parameter include:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>Success</code>: Amazon SES accepted the message, and will attempt to deliver\n                    it to the recipients.</p>\n            </li>\n            <li>\n                <p>\n                  <code>MessageRejected</code>: The message was rejected because it contained a\n                    virus.</p>\n            </li>\n            <li>\n                <p>\n                  <code>MailFromDomainNotVerified</code>: The sender's email address or domain\n                    was not verified.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ConfigurationSetDoesNotExist</code>: The configuration set you specified\n                    does not exist.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TemplateDoesNotExist</code>: The template you specified does not\n                    exist.</p>\n            </li>\n            <li>\n                <p>\n                  <code>AccountSuspended</code>: Your account has been shut down because of\n                    issues related to your email sending practices.</p>\n            </li>\n            <li>\n                <p>\n                  <code>AccountThrottled</code>: The number of emails you can send has been\n                    reduced because your account has exceeded its allocated sending limit.</p>\n            </li>\n            <li>\n                <p>\n                  <code>AccountDailyQuotaExceeded</code>: You have reached or exceeded the\n                    maximum number of emails you can send from your account in a 24-hour\n                    period.</p>\n            </li>\n            <li>\n                <p>\n                  <code>InvalidSendingPoolName</code>: The configuration set you specified\n                    refers to an IP pool that does not exist.</p>\n            </li>\n            <li>\n                <p>\n                  <code>AccountSendingPaused</code>: Email sending for the Amazon SES account was\n                    disabled using the <a>UpdateAccountSendingEnabled</a>\n                    operation.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ConfigurationSetSendingPaused</code>: Email sending for this\n                    configuration set was disabled using the <a>UpdateConfigurationSetSendingEnabled</a> operation.</p>\n            </li>\n            <li>\n                <p>\n                  <code>InvalidParameterValue</code>: One or more of the parameters you\n                    specified when calling this operation was invalid. See the error message for\n                    additional information.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TransientFailure</code>: Amazon SES was unable to process your request\n                    because of a temporary issue.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Failed</code>: Amazon SES was unable to process your request. See the error\n                    message for additional information.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.ses#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>\n            operation.</p>"
           }
         }
       },
@@ -431,17 +431,17 @@
     "com.amazonaws.ses#CloneReceiptRuleSetRequest": {
       "type": "structure",
       "members": {
-        "OriginalRuleSetName": {
-          "target": "com.amazonaws.ses#ReceiptRuleSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the rule set to clone.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RuleSetName": {
           "target": "com.amazonaws.ses#ReceiptRuleSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule set to create. The name must:</p>\n        <ul>\n            <li>\n                <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>Start and end with a letter or number.</p>\n            </li>\n            <li>\n                <p>Contain less than 64 characters.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "OriginalRuleSetName": {
+          "target": "com.amazonaws.ses#ReceiptRuleSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the rule set to clone.</p>",
             "smithy.api#required": {}
           }
         }
@@ -475,13 +475,6 @@
     "com.amazonaws.ses#CloudWatchDimensionConfiguration": {
       "type": "structure",
       "members": {
-        "DefaultDimensionValue": {
-          "target": "com.amazonaws.ses#DefaultDimensionValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide\n            the value of the dimension when you send an email. The default value must:</p>\n        <ul>\n            <li>\n                <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>Contain less than 256 characters.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "DimensionName": {
           "target": "com.amazonaws.ses#DimensionName",
           "traits": {
@@ -493,6 +486,13 @@
           "target": "com.amazonaws.ses#DimensionValueSource",
           "traits": {
             "smithy.api#documentation": "<p>The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you\n            want Amazon SES to use the message tags that you specify using an\n                <code>X-SES-MESSAGE-TAGS</code> header or a parameter to the\n                <code>SendEmail</code>/<code>SendRawEmail</code> API, choose\n            <code>messageTag</code>. If you want Amazon SES to use your own email headers, choose\n                <code>emailHeader</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DefaultDimensionValue": {
+          "target": "com.amazonaws.ses#DefaultDimensionValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide\n            the value of the dimension when you send an email. The default value must:</p>\n        <ul>\n            <li>\n                <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>Contain less than 256 characters.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -525,14 +525,14 @@
     "com.amazonaws.ses#ConfigurationSetAlreadyExistsException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
+        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the configuration set does not exist.</p>"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
         }
       },
       "traits": {
@@ -595,14 +595,14 @@
     "com.amazonaws.ses#ConfigurationSetSendingPausedException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
+        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set for which email sending is disabled.</p>"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
         }
       },
       "traits": {
@@ -699,17 +699,17 @@
     "com.amazonaws.ses#CreateConfigurationSetEventDestinationRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set that the event destination should be associated\n            with.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "EventDestination": {
           "target": "com.amazonaws.ses#EventDestination",
           "traits": {
             "smithy.api#documentation": "<p>An object that describes the AWS service that email sending event information will\n            be published to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the configuration set that the event destination should be associated\n            with.</p>",
             "smithy.api#required": {}
           }
         }
@@ -773,16 +773,16 @@
     "com.amazonaws.ses#CreateConfigurationSetTrackingOptionsRequest": {
       "type": "structure",
       "members": {
+        "TrackingOptions": {
+          "target": "com.amazonaws.ses#TrackingOptions",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set that the tracking options should be associated\n            with.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TrackingOptions": {
-          "target": "com.amazonaws.ses#TrackingOptions",
-          "traits": {
             "smithy.api#required": {}
           }
         }
@@ -824,13 +824,6 @@
     "com.amazonaws.ses#CreateCustomVerificationEmailTemplateRequest": {
       "type": "structure",
       "members": {
-        "FailureRedirectionURL": {
-          "target": "com.amazonaws.ses#FailureRedirectionURL",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is not successfully verified.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FromEmailAddress": {
           "target": "com.amazonaws.ses#FromAddress",
           "traits": {
@@ -852,10 +845,10 @@
             "smithy.api#required": {}
           }
         },
-        "TemplateName": {
-          "target": "com.amazonaws.ses#TemplateName",
+        "FailureRedirectionURL": {
+          "target": "com.amazonaws.ses#FailureRedirectionURL",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the custom verification email template.</p>",
+            "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is not successfully verified.</p>",
             "smithy.api#required": {}
           }
         },
@@ -863,6 +856,13 @@
           "target": "com.amazonaws.ses#Subject",
           "traits": {
             "smithy.api#documentation": "<p>The subject line of the custom verification email.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TemplateName": {
+          "target": "com.amazonaws.ses#TemplateName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the custom verification email template.</p>",
             "smithy.api#required": {}
           }
         }
@@ -951,12 +951,6 @@
     "com.amazonaws.ses#CreateReceiptRuleRequest": {
       "type": "structure",
       "members": {
-        "After": {
-          "target": "com.amazonaws.ses#ReceiptRuleName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of an existing rule after which the new rule will be placed. If this\n            parameter is null, the new rule will be inserted at the beginning of the rule\n            list.</p>"
-          }
-        },
         "Rule": {
           "target": "com.amazonaws.ses#ReceiptRule",
           "traits": {
@@ -969,6 +963,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule set that the receipt rule will be added to.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "After": {
+          "target": "com.amazonaws.ses#ReceiptRuleName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of an existing rule after which the new rule will be placed. If this\n            parameter is null, the new rule will be inserted at the beginning of the rule\n            list.</p>"
           }
         }
       },
@@ -1109,16 +1109,16 @@
     "com.amazonaws.ses#CustomVerificationEmailTemplate": {
       "type": "structure",
       "members": {
-        "FailureRedirectionURL": {
-          "target": "com.amazonaws.ses#FailureRedirectionURL",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is not successfully verified.</p>"
-          }
-        },
         "FromEmailAddress": {
           "target": "com.amazonaws.ses#FromAddress",
           "traits": {
             "smithy.api#documentation": "<p>The email address that the custom verification email is sent from.</p>"
+          }
+        },
+        "TemplateName": {
+          "target": "com.amazonaws.ses#TemplateName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the custom verification email template.</p>"
           }
         },
         "SuccessRedirectionURL": {
@@ -1127,10 +1127,10 @@
             "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is successfully verified.</p>"
           }
         },
-        "TemplateName": {
-          "target": "com.amazonaws.ses#TemplateName",
+        "FailureRedirectionURL": {
+          "target": "com.amazonaws.ses#FailureRedirectionURL",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the custom verification email template.</p>"
+            "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is not successfully verified.</p>"
           }
         },
         "TemplateSubject": {
@@ -1231,17 +1231,17 @@
     "com.amazonaws.ses#DeleteConfigurationSetEventDestinationRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set from which to delete the event destination.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "EventDestinationName": {
           "target": "com.amazonaws.ses#EventDestinationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event destination to delete.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the configuration set from which to delete the event destination.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1667,17 +1667,17 @@
     "com.amazonaws.ses#DescribeConfigurationSetRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetAttributeNames": {
-          "target": "com.amazonaws.ses#ConfigurationSetAttributeList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of configuration set attributes to return.</p>"
-          }
-        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set to describe.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ConfigurationSetAttributeNames": {
+          "target": "com.amazonaws.ses#ConfigurationSetAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of configuration set attributes to return.</p>"
           }
         }
       },
@@ -1688,6 +1688,18 @@
     "com.amazonaws.ses#DescribeConfigurationSetResponse": {
       "type": "structure",
       "members": {
+        "TrackingOptions": {
+          "target": "com.amazonaws.ses#TrackingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the custom open and click tracking domain associated with the\n            configuration set.</p>"
+          }
+        },
+        "ReputationOptions": {
+          "target": "com.amazonaws.ses#ReputationOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents the reputation settings for the configuration set. </p>"
+          }
+        },
         "ConfigurationSet": {
           "target": "com.amazonaws.ses#ConfigurationSet",
           "traits": {
@@ -1701,18 +1713,6 @@
           "target": "com.amazonaws.ses#EventDestinations",
           "traits": {
             "smithy.api#documentation": "<p>A list of event destinations associated with the configuration set. </p>"
-          }
-        },
-        "ReputationOptions": {
-          "target": "com.amazonaws.ses#ReputationOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that represents the reputation settings for the configuration set. </p>"
-          }
-        },
-        "TrackingOptions": {
-          "target": "com.amazonaws.ses#TrackingOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the custom open and click tracking domain associated with the\n            configuration set.</p>"
           }
         }
       },
@@ -1743,17 +1743,17 @@
     "com.amazonaws.ses#DescribeReceiptRuleRequest": {
       "type": "structure",
       "members": {
-        "RuleName": {
-          "target": "com.amazonaws.ses#ReceiptRuleName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the receipt rule.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RuleSetName": {
           "target": "com.amazonaws.ses#ReceiptRuleSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the receipt rule set that the receipt rule belongs to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RuleName": {
+          "target": "com.amazonaws.ses#ReceiptRuleName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the receipt rule.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1831,10 +1831,10 @@
     "com.amazonaws.ses#Destination": {
       "type": "structure",
       "members": {
-        "BccAddresses": {
+        "ToAddresses": {
           "target": "com.amazonaws.ses#AddressList",
           "traits": {
-            "smithy.api#documentation": "<p>The recipients to place on the BCC: line of the message.</p>"
+            "smithy.api#documentation": "<p>The recipients to place on the To: line of the message.</p>"
           }
         },
         "CcAddresses": {
@@ -1843,10 +1843,10 @@
             "smithy.api#documentation": "<p>The recipients to place on the CC: line of the message.</p>"
           }
         },
-        "ToAddresses": {
+        "BccAddresses": {
           "target": "com.amazonaws.ses#AddressList",
           "traits": {
-            "smithy.api#documentation": "<p>The recipients to place on the To: line of the message.</p>"
+            "smithy.api#documentation": "<p>The recipients to place on the BCC: line of the message.</p>"
           }
         }
       },
@@ -1933,18 +1933,6 @@
     "com.amazonaws.ses#EventDestination": {
       "type": "structure",
       "members": {
-        "CloudWatchDestination": {
-          "target": "com.amazonaws.ses#CloudWatchDestination",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that contains the names, default values, and sources of the dimensions\n            associated with an Amazon CloudWatch event destination.</p>"
-          }
-        },
-        "Enabled": {
-          "target": "com.amazonaws.ses#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets whether Amazon SES publishes events to this destination when you send an email with\n            the associated configuration set. Set to <code>true</code> to enable publishing to this\n            destination; set to <code>false</code> to prevent publishing to this destination. The\n            default value is <code>false</code>.</p>"
-          }
-        },
         "KinesisFirehoseDestination": {
           "target": "com.amazonaws.ses#KinesisFirehoseDestination",
           "traits": {
@@ -1958,6 +1946,18 @@
             "smithy.api#required": {}
           }
         },
+        "CloudWatchDestination": {
+          "target": "com.amazonaws.ses#CloudWatchDestination",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains the names, default values, and sources of the dimensions\n            associated with an Amazon CloudWatch event destination.</p>"
+          }
+        },
+        "SNSDestination": {
+          "target": "com.amazonaws.ses#SNSDestination",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event\n            destination.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.ses#EventDestinationName",
           "traits": {
@@ -1965,10 +1965,10 @@
             "smithy.api#required": {}
           }
         },
-        "SNSDestination": {
-          "target": "com.amazonaws.ses#SNSDestination",
+        "Enabled": {
+          "target": "com.amazonaws.ses#Enabled",
           "traits": {
-            "smithy.api#documentation": "<p>An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event\n            destination.</p>"
+            "smithy.api#documentation": "<p>Sets whether Amazon SES publishes events to this destination when you send an email with\n            the associated configuration set. Set to <code>true</code> to enable publishing to this\n            destination; set to <code>false</code> to prevent publishing to this destination. The\n            default value is <code>false</code>.</p>"
           }
         }
       },
@@ -1979,6 +1979,9 @@
     "com.amazonaws.ses#EventDestinationAlreadyExistsException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
+        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
@@ -1990,9 +1993,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the event destination does not exist.</p>"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
         }
       },
       "traits": {
@@ -2004,6 +2004,9 @@
     "com.amazonaws.ses#EventDestinationDoesNotExistException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
+        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
@@ -2015,9 +2018,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the event destination does not exist.</p>"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
         }
       },
       "traits": {
@@ -2126,14 +2126,14 @@
     "com.amazonaws.ses#FromEmailAddressNotVerifiedException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
+        },
         "FromEmailAddress": {
           "target": "com.amazonaws.ses#FromAddress",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the from email address associated with the custom verification email\n            template is not verified.</p>"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
         }
       },
       "traits": {
@@ -2200,10 +2200,10 @@
     "com.amazonaws.ses#GetCustomVerificationEmailTemplateResponse": {
       "type": "structure",
       "members": {
-        "FailureRedirectionURL": {
-          "target": "com.amazonaws.ses#FailureRedirectionURL",
+        "SuccessRedirectionURL": {
+          "target": "com.amazonaws.ses#SuccessRedirectionURL",
           "traits": {
-            "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is not successfully verified.</p>"
+            "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is successfully verified.</p>"
           }
         },
         "FromEmailAddress": {
@@ -2212,10 +2212,10 @@
             "smithy.api#documentation": "<p>The email address that the custom verification email is sent from.</p>"
           }
         },
-        "SuccessRedirectionURL": {
-          "target": "com.amazonaws.ses#SuccessRedirectionURL",
+        "TemplateSubject": {
+          "target": "com.amazonaws.ses#Subject",
           "traits": {
-            "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is successfully verified.</p>"
+            "smithy.api#documentation": "<p>The subject line of the custom verification email.</p>"
           }
         },
         "TemplateContent": {
@@ -2230,10 +2230,10 @@
             "smithy.api#documentation": "<p>The name of the custom verification email template.</p>"
           }
         },
-        "TemplateSubject": {
-          "target": "com.amazonaws.ses#Subject",
+        "FailureRedirectionURL": {
+          "target": "com.amazonaws.ses#FailureRedirectionURL",
           "traits": {
-            "smithy.api#documentation": "<p>The subject line of the custom verification email.</p>"
+            "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is not successfully verified.</p>"
           }
         }
       },
@@ -2470,16 +2470,16 @@
     "com.amazonaws.ses#GetSendQuotaResponse": {
       "type": "structure",
       "members": {
-        "Max24HourSend": {
-          "target": "com.amazonaws.ses#Max24HourSend",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of emails the user is allowed to send in a 24-hour interval. A\n            value of -1 signifies an unlimited quota.</p>"
-          }
-        },
         "MaxSendRate": {
           "target": "com.amazonaws.ses#MaxSendRate",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of emails that Amazon SES can accept from the user's account per\n            second.</p>\n        <note>\n            <p>The rate at which Amazon SES accepts the user's messages might be less than the maximum\n                send rate.</p>\n        </note>"
+          }
+        },
+        "Max24HourSend": {
+          "target": "com.amazonaws.ses#Max24HourSend",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of emails the user is allowed to send in a 24-hour interval. A\n            value of -1 signifies an unlimited quota.</p>"
           }
         },
         "SentLast24Hours": {
@@ -2568,17 +2568,17 @@
     "com.amazonaws.ses#IdentityDkimAttributes": {
       "type": "structure",
       "members": {
+        "DkimTokens": {
+          "target": "com.amazonaws.ses#VerificationTokenList",
+          "traits": {
+            "smithy.api#documentation": "<p>A set of character strings that represent the domain's identity. Using these tokens,\n            you need to create DNS CNAME records that point to DKIM public keys that are hosted by\n            Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection\n            process might take up to 72 hours. After successful detection, Amazon SES is able to\n            DKIM-sign email originating from that domain. (This only applies to domain identities,\n            not email address identities.)</p>\n        <p>For more information about creating DNS records using DKIM tokens, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Amazon SES Developer\n                Guide</a>.</p>"
+          }
+        },
         "DkimEnabled": {
           "target": "com.amazonaws.ses#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Is true if DKIM signing is enabled for email sent from the identity. It's false\n            otherwise. The default value is true.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "DkimTokens": {
-          "target": "com.amazonaws.ses#VerificationTokenList",
-          "traits": {
-            "smithy.api#documentation": "<p>A set of character strings that represent the domain's identity. Using these tokens,\n            you need to create DNS CNAME records that point to DKIM public keys that are hosted by\n            Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection\n            process might take up to 72 hours. After successful detection, Amazon SES is able to\n            DKIM-sign email originating from that domain. (This only applies to domain identities,\n            not email address identities.)</p>\n        <p>For more information about creating DNS records using DKIM tokens, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Amazon SES Developer\n                Guide</a>.</p>"
           }
         },
         "DkimVerificationStatus": {
@@ -2631,10 +2631,10 @@
     "com.amazonaws.ses#IdentityNotificationAttributes": {
       "type": "structure",
       "members": {
-        "BounceTopic": {
-          "target": "com.amazonaws.ses#NotificationTopic",
+        "ForwardingEnabled": {
+          "target": "com.amazonaws.ses#Enabled",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce\n            notifications.</p>",
+            "smithy.api#documentation": "<p>Describes whether Amazon SES will forward bounce and complaint notifications as email.\n                <code>true</code> indicates that Amazon SES will forward bounce and complaint\n            notifications as email, while <code>false</code> indicates that bounce and complaint\n            notifications will be published only to the specified bounce and complaint Amazon SNS\n            topics.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2642,20 +2642,6 @@
           "target": "com.amazonaws.ses#NotificationTopic",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint\n            notifications.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "DeliveryTopic": {
-          "target": "com.amazonaws.ses#NotificationTopic",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery\n            notifications.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ForwardingEnabled": {
-          "target": "com.amazonaws.ses#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes whether Amazon SES will forward bounce and complaint notifications as email.\n                <code>true</code> indicates that Amazon SES will forward bounce and complaint\n            notifications as email, while <code>false</code> indicates that bounce and complaint\n            notifications will be published only to the specified bounce and complaint Amazon SNS\n            topics.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2671,10 +2657,24 @@
             "smithy.api#documentation": "<p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of\n            type <code>Complaint</code>. A value of <code>true</code> specifies that Amazon SES will\n            include headers in complaint notifications, and a value of <code>false</code> specifies\n            that Amazon SES will not include headers in complaint notifications.</p>"
           }
         },
+        "BounceTopic": {
+          "target": "com.amazonaws.ses#NotificationTopic",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce\n            notifications.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "HeadersInDeliveryNotificationsEnabled": {
           "target": "com.amazonaws.ses#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of\n            type <code>Delivery</code>. A value of <code>true</code> specifies that Amazon SES will\n            include headers in delivery notifications, and a value of <code>false</code> specifies\n            that Amazon SES will not include headers in delivery notifications.</p>"
+          }
+        },
+        "DeliveryTopic": {
+          "target": "com.amazonaws.ses#NotificationTopic",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery\n            notifications.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2719,16 +2719,16 @@
     "com.amazonaws.ses#InvalidCloudWatchDestinationException": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates that the configuration set does not exist.</p>"
-          }
-        },
         "EventDestinationName": {
           "target": "com.amazonaws.ses#EventDestinationName",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the event destination does not exist.</p>"
+          }
+        },
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates that the configuration set does not exist.</p>"
           }
         },
         "message": {
@@ -2827,11 +2827,11 @@
     "com.amazonaws.ses#InvalidRenderingParameterException": {
       "type": "structure",
       "members": {
-        "TemplateName": {
-          "target": "com.amazonaws.ses#TemplateName"
-        },
         "message": {
           "target": "com.amazonaws.ses#ErrorMessage"
+        },
+        "TemplateName": {
+          "target": "com.amazonaws.ses#TemplateName"
         }
       },
       "traits": {
@@ -2862,11 +2862,8 @@
     "com.amazonaws.ses#InvalidSNSDestinationException": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates that the configuration set does not exist.</p>"
-          }
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
         },
         "EventDestinationName": {
           "target": "com.amazonaws.ses#EventDestinationName",
@@ -2874,8 +2871,11 @@
             "smithy.api#documentation": "<p>Indicates that the event destination does not exist.</p>"
           }
         },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates that the configuration set does not exist.</p>"
+          }
         }
       },
       "traits": {
@@ -2948,17 +2948,17 @@
     "com.amazonaws.ses#KinesisFirehoseDestination": {
       "type": "structure",
       "members": {
-        "DeliveryStreamARN": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "IAMRoleARN": {
           "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose\n            stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeliveryStreamARN": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2970,13 +2970,6 @@
     "com.amazonaws.ses#LambdaAction": {
       "type": "structure",
       "members": {
-        "FunctionArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda\n            function ARN is <code>arn:aws:lambda:us-west-2:account-id:function:MyFunction</code>.\n            For more information about AWS Lambda, see the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">AWS Lambda Developer Guide</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "InvocationType": {
           "target": "com.amazonaws.ses#InvocationType",
           "traits": {
@@ -2987,6 +2980,13 @@
           "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is\n            taken. An example of an Amazon SNS topic ARN is\n                <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about\n            Amazon SNS topics, see the <a href=\"https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html\">Amazon SNS Developer Guide</a>.</p>"
+          }
+        },
+        "FunctionArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda\n            function ARN is <code>arn:aws:lambda:us-west-2:account-id:function:MyFunction</code>.\n            For more information about AWS Lambda, see the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">AWS Lambda Developer Guide</a>.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3048,16 +3048,16 @@
     "com.amazonaws.ses#ListConfigurationSetsResponse": {
       "type": "structure",
       "members": {
-        "ConfigurationSets": {
-          "target": "com.amazonaws.ses#ConfigurationSets",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of configuration sets.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.ses#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token indicating that there are additional configuration sets available to be\n            listed. Pass this token to successive calls of <code>ListConfigurationSets</code>.\n        </p>"
+          }
+        },
+        "ConfigurationSets": {
+          "target": "com.amazonaws.ses#ConfigurationSets",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of configuration sets.</p>"
           }
         }
       },
@@ -3085,16 +3085,16 @@
     "com.amazonaws.ses#ListCustomVerificationEmailTemplatesRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.ses#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of custom verification email templates to return. This value must\n            be at least 1 and less than or equal to 50. If you do not specify a value, or if you\n            specify a value less than 1 or greater than 50, the operation will return up to 50\n            results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.ses#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>An array the contains the name and creation time stamp for each template in your Amazon SES\n            account.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ses#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of custom verification email templates to return. This value must\n            be at least 1 and less than or equal to 50. If you do not specify a value, or if you\n            specify a value less than 1 or greater than 50, the operation will return up to 50\n            results.</p>"
           }
         }
       },
@@ -3143,6 +3143,12 @@
     "com.amazonaws.ses#ListIdentitiesRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.ses#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use for pagination.</p>"
+          }
+        },
         "IdentityType": {
           "target": "com.amazonaws.ses#IdentityType",
           "traits": {
@@ -3154,12 +3160,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of identities per page. Possible values are 1-1000\n            inclusive.</p>"
           }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.ses#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use for pagination.</p>"
-          }
         }
       },
       "traits": {
@@ -3169,17 +3169,17 @@
     "com.amazonaws.ses#ListIdentitiesResponse": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.ses#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token used for pagination.</p>"
+          }
+        },
         "Identities": {
           "target": "com.amazonaws.ses#IdentityList",
           "traits": {
             "smithy.api#documentation": "<p>A list of identities.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.ses#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token used for pagination.</p>"
           }
         }
       },
@@ -3323,16 +3323,16 @@
     "com.amazonaws.ses#ListTemplatesRequest": {
       "type": "structure",
       "members": {
-        "MaxItems": {
-          "target": "com.amazonaws.ses#MaxItems",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of templates to return. This value must be at least 1 and less than\n            or equal to 10. If you do not specify a value, or if you specify a value less than 1 or\n            greater than 10, the operation will return up to 10 results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.ses#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token returned from a previous call to <code>ListTemplates</code> to indicate the\n            position in the list of email templates.</p>"
+          }
+        },
+        "MaxItems": {
+          "target": "com.amazonaws.ses#MaxItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of templates to return. This value must be at least 1 and less than\n            or equal to 10. If you do not specify a value, or if you specify a value less than 1 or\n            greater than 10, the operation will return up to 10 results.</p>"
           }
         }
       }
@@ -3340,16 +3340,16 @@
     "com.amazonaws.ses#ListTemplatesResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.ses#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token indicating that there are additional email templates available to be listed.\n            Pass this token to a subsequent call to <code>ListTemplates</code> to retrieve the next\n            50 email templates.</p>"
-          }
-        },
         "TemplatesMetadata": {
           "target": "com.amazonaws.ses#TemplateMetadataList",
           "traits": {
             "smithy.api#documentation": "<p>An array the contains the name and creation time stamp for each template in your Amazon SES\n            account.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ses#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token indicating that there are additional email templates available to be listed.\n            Pass this token to a subsequent call to <code>ListTemplates</code> to retrieve the next\n            50 email templates.</p>"
           }
         }
       }
@@ -3427,17 +3427,17 @@
     "com.amazonaws.ses#Message": {
       "type": "structure",
       "members": {
-        "Body": {
-          "target": "com.amazonaws.ses#Body",
-          "traits": {
-            "smithy.api#documentation": "<p>The message body.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Subject": {
           "target": "com.amazonaws.ses#Content",
           "traits": {
             "smithy.api#documentation": "<p>The subject of the message: A short summary of the content, which will appear in the\n            recipient's inbox.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Body": {
+          "target": "com.amazonaws.ses#Body",
+          "traits": {
+            "smithy.api#documentation": "<p>The message body.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3452,10 +3452,11 @@
     "com.amazonaws.ses#MessageDsn": {
       "type": "structure",
       "members": {
-        "ArrivalDate": {
-          "target": "com.amazonaws.ses#ArrivalDate",
+        "ReportingMta": {
+          "target": "com.amazonaws.ses#ReportingMta",
           "traits": {
-            "smithy.api#documentation": "<p>When the message was received by the reporting mail transfer agent (MTA), in <a href=\"https://www.ietf.org/rfc/rfc0822.txt\">RFC 822</a> date-time format.</p>"
+            "smithy.api#documentation": "<p>The reporting MTA that attempted to deliver the message, formatted as specified in\n                <a href=\"https://tools.ietf.org/html/rfc3464\">RFC 3464</a>\n                (<code>mta-name-type; mta-name</code>). The default value is <code>dns;\n                inbound-smtp.[region].amazonaws.com</code>.</p>",
+            "smithy.api#required": {}
           }
         },
         "ExtensionFields": {
@@ -3464,11 +3465,10 @@
             "smithy.api#documentation": "<p>Additional X-headers to include in the DSN.</p>"
           }
         },
-        "ReportingMta": {
-          "target": "com.amazonaws.ses#ReportingMta",
+        "ArrivalDate": {
+          "target": "com.amazonaws.ses#ArrivalDate",
           "traits": {
-            "smithy.api#documentation": "<p>The reporting MTA that attempted to deliver the message, formatted as specified in\n                <a href=\"https://tools.ietf.org/html/rfc3464\">RFC 3464</a>\n                (<code>mta-name-type; mta-name</code>). The default value is <code>dns;\n                inbound-smtp.[region].amazonaws.com</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>When the message was received by the reporting mail transfer agent (MTA), in <a href=\"https://www.ietf.org/rfc/rfc0822.txt\">RFC 822</a> date-time format.</p>"
           }
         }
       },
@@ -3495,17 +3495,17 @@
     "com.amazonaws.ses#MessageTag": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.ses#MessageTagName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the tag. The name must:</p>\n        <ul>\n            <li>\n                <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>Contain less than 256 characters.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "Value": {
           "target": "com.amazonaws.ses#MessageTagValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the tag. The value must:</p>\n        <ul>\n            <li>\n                <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>Contain less than 256 characters.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.ses#MessageTagName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the tag. The name must:</p>\n        <ul>\n            <li>\n                <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>Contain less than 256 characters.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -3529,11 +3529,11 @@
     "com.amazonaws.ses#MissingRenderingAttributeException": {
       "type": "structure",
       "members": {
-        "TemplateName": {
-          "target": "com.amazonaws.ses#TemplateName"
-        },
         "message": {
           "target": "com.amazonaws.ses#ErrorMessage"
+        },
+        "TemplateName": {
+          "target": "com.amazonaws.ses#TemplateName"
         }
       },
       "traits": {
@@ -3641,17 +3641,17 @@
     "com.amazonaws.ses#PutConfigurationSetDeliveryOptionsRequest": {
       "type": "structure",
       "members": {
+        "DeliveryOptions": {
+          "target": "com.amazonaws.ses#DeliveryOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether messages that use the configuration set are required to use\n            Transport Layer Security (TLS).</p>"
+          }
+        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set that you want to specify the delivery options\n            for.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "DeliveryOptions": {
-          "target": "com.amazonaws.ses#DeliveryOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether messages that use the configuration set are required to use\n            Transport Layer Security (TLS).</p>"
           }
         }
       },
@@ -3686,17 +3686,17 @@
     "com.amazonaws.ses#PutIdentityPolicyRequest": {
       "type": "structure",
       "members": {
-        "Identity": {
-          "target": "com.amazonaws.ses#Identity",
-          "traits": {
-            "smithy.api#documentation": "<p>The identity that the policy will apply to. You can specify an identity by using its\n            name or by using its Amazon Resource Name (ARN). Examples:\n            <code>user@example.com</code>, <code>example.com</code>,\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>\n        <p>To successfully call this API, you must own the identity.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Policy": {
           "target": "com.amazonaws.ses#Policy",
           "traits": {
             "smithy.api#documentation": "<p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>\n        <p>For information about the syntax of sending authorization policies, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html\">Amazon SES Developer\n                Guide</a>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identity": {
+          "target": "com.amazonaws.ses#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity that the policy will apply to. You can specify an identity by using its\n            name or by using its Amazon Resource Name (ARN). Examples:\n            <code>user@example.com</code>, <code>example.com</code>,\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>\n        <p>To successfully call this API, you must own the identity.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3740,22 +3740,10 @@
     "com.amazonaws.ses#ReceiptAction": {
       "type": "structure",
       "members": {
-        "AddHeaderAction": {
-          "target": "com.amazonaws.ses#AddHeaderAction",
+        "StopAction": {
+          "target": "com.amazonaws.ses#StopAction",
           "traits": {
-            "smithy.api#documentation": "<p>Adds a header to the received email.</p>"
-          }
-        },
-        "BounceAction": {
-          "target": "com.amazonaws.ses#BounceAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Rejects the received email by returning a bounce response to the sender and,\n            optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>"
-          }
-        },
-        "LambdaAction": {
-          "target": "com.amazonaws.ses#LambdaAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.</p>"
+            "smithy.api#documentation": "<p>Terminates the evaluation of the receipt rule set and optionally publishes a\n            notification to Amazon SNS.</p>"
           }
         },
         "S3Action": {
@@ -3764,22 +3752,34 @@
             "smithy.api#documentation": "<p>Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a\n            notification to Amazon SNS.</p>"
           }
         },
-        "SNSAction": {
-          "target": "com.amazonaws.ses#SNSAction",
+        "BounceAction": {
+          "target": "com.amazonaws.ses#BounceAction",
           "traits": {
-            "smithy.api#documentation": "<p>Publishes the email content within a notification to Amazon SNS.</p>"
+            "smithy.api#documentation": "<p>Rejects the received email by returning a bounce response to the sender and,\n            optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>"
           }
         },
-        "StopAction": {
-          "target": "com.amazonaws.ses#StopAction",
+        "AddHeaderAction": {
+          "target": "com.amazonaws.ses#AddHeaderAction",
           "traits": {
-            "smithy.api#documentation": "<p>Terminates the evaluation of the receipt rule set and optionally publishes a\n            notification to Amazon SNS.</p>"
+            "smithy.api#documentation": "<p>Adds a header to the received email.</p>"
+          }
+        },
+        "LambdaAction": {
+          "target": "com.amazonaws.ses#LambdaAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.</p>"
           }
         },
         "WorkmailAction": {
           "target": "com.amazonaws.ses#WorkmailAction",
           "traits": {
             "smithy.api#documentation": "<p>Calls Amazon WorkMail and, optionally, publishes a notification to Amazon\n            Amazon SNS.</p>"
+          }
+        },
+        "SNSAction": {
+          "target": "com.amazonaws.ses#SNSAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Publishes the email content within a notification to Amazon SNS.</p>"
           }
         }
       },
@@ -3870,12 +3870,6 @@
             "smithy.api#documentation": "<p>An ordered list of actions to perform on messages that match at least one of the\n            recipient email addresses or domains specified in the receipt rule.</p>"
           }
         },
-        "Enabled": {
-          "target": "com.amazonaws.ses#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>If <code>true</code>, the receipt rule is active. The default value is\n                <code>false</code>.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.ses#ReceiptRuleName",
           "traits": {
@@ -3883,10 +3877,10 @@
             "smithy.api#required": {}
           }
         },
-        "Recipients": {
-          "target": "com.amazonaws.ses#RecipientsList",
+        "TlsPolicy": {
+          "target": "com.amazonaws.ses#TlsPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The recipient domains and email addresses that the receipt rule applies to. If this\n            field is not specified, this rule will match all recipients under all verified\n            domains.</p>"
+            "smithy.api#documentation": "<p>Specifies whether Amazon SES should require that incoming email is delivered over a\n            connection encrypted with Transport Layer Security (TLS). If this parameter is set to\n                <code>Require</code>, Amazon SES will bounce emails that are not received over TLS. The\n            default is <code>Optional</code>.</p>"
           }
         },
         "ScanEnabled": {
@@ -3895,10 +3889,16 @@
             "smithy.api#documentation": "<p>If <code>true</code>, then messages that this receipt rule applies to are scanned for\n            spam and viruses. The default value is <code>false</code>.</p>"
           }
         },
-        "TlsPolicy": {
-          "target": "com.amazonaws.ses#TlsPolicy",
+        "Enabled": {
+          "target": "com.amazonaws.ses#Enabled",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether Amazon SES should require that incoming email is delivered over a\n            connection encrypted with Transport Layer Security (TLS). If this parameter is set to\n                <code>Require</code>, Amazon SES will bounce emails that are not received over TLS. The\n            default is <code>Optional</code>.</p>"
+            "smithy.api#documentation": "<p>If <code>true</code>, the receipt rule is active. The default value is\n                <code>false</code>.</p>"
+          }
+        },
+        "Recipients": {
+          "target": "com.amazonaws.ses#RecipientsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The recipient domains and email addresses that the receipt rule applies to. If this\n            field is not specified, this rule will match all recipients under all verified\n            domains.</p>"
           }
         }
       },
@@ -3918,16 +3918,16 @@
     "com.amazonaws.ses#ReceiptRuleSetMetadata": {
       "type": "structure",
       "members": {
-        "CreatedTimestamp": {
-          "target": "com.amazonaws.ses#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time the receipt rule set was created.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.ses#ReceiptRuleSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the receipt rule set. The name must:</p>\n        <ul>\n            <li>\n                <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>Start and end with a letter or number.</p>\n            </li>\n            <li>\n                <p>Contain less than 64 characters.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.ses#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the receipt rule set was created.</p>"
           }
         }
       },
@@ -3956,23 +3956,17 @@
     "com.amazonaws.ses#RecipientDsnFields": {
       "type": "structure",
       "members": {
+        "LastAttemptDate": {
+          "target": "com.amazonaws.ses#LastAttemptDate",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the final delivery attempt was made, in <a href=\"https://www.ietf.org/rfc/rfc0822.txt\">RFC 822</a> date-time format.</p>"
+          }
+        },
         "Action": {
           "target": "com.amazonaws.ses#DsnAction",
           "traits": {
             "smithy.api#documentation": "<p>The action performed by the reporting mail transfer agent (MTA) as a result of its\n            attempt to deliver the message to the recipient address. This is required by <a href=\"https://tools.ietf.org/html/rfc3464\">RFC 3464</a>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "DiagnosticCode": {
-          "target": "com.amazonaws.ses#DiagnosticCode",
-          "traits": {
-            "smithy.api#documentation": "<p>An extended explanation of what went wrong; this is usually an SMTP response. See\n                <a href=\"https://tools.ietf.org/html/rfc3463\">RFC 3463</a> for the correct\n            formatting of this parameter.</p>"
-          }
-        },
-        "ExtensionFields": {
-          "target": "com.amazonaws.ses#ExtensionFieldList",
-          "traits": {
-            "smithy.api#documentation": "<p>Additional X-headers to include in the DSN.</p>"
           }
         },
         "FinalRecipient": {
@@ -3981,16 +3975,22 @@
             "smithy.api#documentation": "<p>The email address that the message was ultimately delivered to. This corresponds to\n            the <code>Final-Recipient</code> in the DSN. If not specified,\n                <code>FinalRecipient</code> will be set to the <code>Recipient</code> specified in\n            the <code>BouncedRecipientInfo</code> structure. Either <code>FinalRecipient</code> or\n            the recipient in <code>BouncedRecipientInfo</code> must be a recipient of the original\n            bounced message.</p>\n        <note>\n            <p>Do not prepend the <code>FinalRecipient</code> email address with <code>rfc\n                    822;</code>, as described in <a href=\"https://tools.ietf.org/html/rfc3798\">RFC 3798</a>.</p>\n        </note>"
           }
         },
-        "LastAttemptDate": {
-          "target": "com.amazonaws.ses#LastAttemptDate",
-          "traits": {
-            "smithy.api#documentation": "<p>The time the final delivery attempt was made, in <a href=\"https://www.ietf.org/rfc/rfc0822.txt\">RFC 822</a> date-time format.</p>"
-          }
-        },
         "RemoteMta": {
           "target": "com.amazonaws.ses#RemoteMta",
           "traits": {
             "smithy.api#documentation": "<p>The MTA to which the remote MTA attempted to deliver the message, formatted as\n            specified in <a href=\"https://tools.ietf.org/html/rfc3464\">RFC 3464</a>\n                (<code>mta-name-type; mta-name</code>). This parameter typically applies only to\n            propagating synchronous bounces.</p>"
+          }
+        },
+        "ExtensionFields": {
+          "target": "com.amazonaws.ses#ExtensionFieldList",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional X-headers to include in the DSN.</p>"
+          }
+        },
+        "DiagnosticCode": {
+          "target": "com.amazonaws.ses#DiagnosticCode",
+          "traits": {
+            "smithy.api#documentation": "<p>An extended explanation of what went wrong; this is usually an SMTP response. See\n                <a href=\"https://tools.ietf.org/html/rfc3463\">RFC 3463</a> for the correct\n            formatting of this parameter.</p>"
           }
         },
         "Status": {
@@ -4040,17 +4040,17 @@
     "com.amazonaws.ses#ReorderReceiptRuleSetRequest": {
       "type": "structure",
       "members": {
-        "RuleNames": {
-          "target": "com.amazonaws.ses#ReceiptRuleNamesList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of the specified receipt rule set's receipt rules in the order that you want to\n            put them.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RuleSetName": {
           "target": "com.amazonaws.ses#ReceiptRuleSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the receipt rule set to reorder.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RuleNames": {
+          "target": "com.amazonaws.ses#ReceiptRuleNamesList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the specified receipt rule set's receipt rules in the order that you want to\n            put them.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4072,10 +4072,10 @@
     "com.amazonaws.ses#ReputationOptions": {
       "type": "structure",
       "members": {
-        "LastFreshStart": {
-          "target": "com.amazonaws.ses#LastFreshStart",
+        "SendingEnabled": {
+          "target": "com.amazonaws.ses#Enabled",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time at which the reputation metrics for the configuration set were last\n            reset. Resetting these metrics is known as a <i>fresh start</i>.</p>\n        <p>When you disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a> and later re-enable it, the\n            reputation metrics for the configuration set (but not for the entire Amazon SES account) are\n            reset.</p>\n        <p>If email sending for the configuration set has never been disabled and later\n            re-enabled, the value of this attribute is <code>null</code>.</p>"
+            "smithy.api#documentation": "<p>Describes whether email sending is enabled or disabled for the configuration set. If\n            the value is <code>true</code>, then Amazon SES will send emails that use the configuration\n            set. If the value is <code>false</code>, Amazon SES will not send emails that use the\n            configuration set. The default value is <code>true</code>. You can change this setting\n            using <a>UpdateConfigurationSetSendingEnabled</a>.</p>"
           }
         },
         "ReputationMetricsEnabled": {
@@ -4084,10 +4084,10 @@
             "smithy.api#documentation": "<p>Describes whether or not Amazon SES publishes reputation metrics for the configuration set,\n            such as bounce and complaint rates, to Amazon CloudWatch.</p>\n        <p>If the value is <code>true</code>, reputation metrics are published. If the value is\n                <code>false</code>, reputation metrics are not published. The default value is\n                <code>false</code>.</p>"
           }
         },
-        "SendingEnabled": {
-          "target": "com.amazonaws.ses#Enabled",
+        "LastFreshStart": {
+          "target": "com.amazonaws.ses#LastFreshStart",
           "traits": {
-            "smithy.api#documentation": "<p>Describes whether email sending is enabled or disabled for the configuration set. If\n            the value is <code>true</code>, then Amazon SES will send emails that use the configuration\n            set. If the value is <code>false</code>, Amazon SES will not send emails that use the\n            configuration set. The default value is <code>true</code>. You can change this setting\n            using <a>UpdateConfigurationSetSendingEnabled</a>.</p>"
+            "smithy.api#documentation": "<p>The date and time at which the reputation metrics for the configuration set were last\n            reset. Resetting these metrics is known as a <i>fresh start</i>.</p>\n        <p>When you disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a> and later re-enable it, the\n            reputation metrics for the configuration set (but not for the entire Amazon SES account) are\n            reset.</p>\n        <p>If email sending for the configuration set has never been disabled and later\n            re-enabled, the value of this attribute is <code>null</code>.</p>"
           }
         }
       },
@@ -4098,14 +4098,14 @@
     "com.amazonaws.ses#RuleDoesNotExistException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
+        },
         "Name": {
           "target": "com.amazonaws.ses#RuleOrRuleSetName",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the named receipt rule does not exist.</p>"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
         }
       },
       "traits": {
@@ -4120,14 +4120,14 @@
     "com.amazonaws.ses#RuleSetDoesNotExistException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.ses#ErrorMessage"
+        },
         "Name": {
           "target": "com.amazonaws.ses#RuleOrRuleSetName",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the named receipt rule set does not exist.</p>"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.ses#ErrorMessage"
         }
       },
       "traits": {
@@ -4139,19 +4139,6 @@
     "com.amazonaws.ses#S3Action": {
       "type": "structure",
       "members": {
-        "BucketName": {
-          "target": "com.amazonaws.ses#S3BucketName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket that incoming email will be saved to.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "KmsKeyArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The customer master key that Amazon SES should use to encrypt your emails before saving\n            them to the Amazon S3 bucket. You can use the default master key or a custom master key you\n            created in AWS KMS as follows:</p>\n        <ul>\n            <li>\n                <p>To use the default master key, provide an ARN in the form of\n                        <code>arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses</code>.\n                    For example, if your AWS account ID is 123456789012 and you want to use the\n                    default master key in the US West (Oregon) region, the ARN of the default master\n                    key would be <code>arn:aws:kms:us-west-2:123456789012:alias/aws/ses</code>. If\n                    you use the default master key, you don't need to perform any extra steps to\n                    give Amazon SES permission to use the key.</p>\n            </li>\n            <li>\n                <p>To use a custom master key you created in AWS KMS, provide the ARN of the\n                    master key and ensure that you add a statement to your key's policy to give\n                    Amazon SES permission to use it. For more information about giving permissions, see\n                    the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES\n                        Developer Guide</a>.</p>\n            </li>\n         </ul>\n        <p>For more information about key policies, see the <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html\">AWS KMS Developer Guide</a>. If\n            you do not specify a master key, Amazon SES will not encrypt your emails.</p>\n        <important>\n            <p>Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail\n                is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side\n                encryption. This means that you must use the Amazon S3 encryption client to decrypt the\n                email after retrieving it from Amazon S3, as the service has no access to use your AWS\n                KMS keys for decryption. This encryption client is currently available with the\n                    <a href=\"http://aws.amazon.com/sdk-for-java/\">AWS SDK for Java</a> and <a href=\"http://aws.amazon.com/sdk-for-ruby/\">AWS SDK for Ruby</a> only. For more\n                information about client-side encryption using AWS KMS master keys, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html\">Amazon S3 Developer Guide</a>.</p>\n        </important>"
-          }
-        },
         "ObjectKeyPrefix": {
           "target": "com.amazonaws.ses#S3KeyPrefix",
           "traits": {
@@ -4162,6 +4149,19 @@
           "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An\n            example of an Amazon SNS topic ARN is\n            <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about\n            Amazon SNS topics, see the <a href=\"https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html\">Amazon SNS Developer Guide</a>.</p>"
+          }
+        },
+        "KmsKeyArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The customer master key that Amazon SES should use to encrypt your emails before saving\n            them to the Amazon S3 bucket. You can use the default master key or a custom master key you\n            created in AWS KMS as follows:</p>\n        <ul>\n            <li>\n                <p>To use the default master key, provide an ARN in the form of\n                        <code>arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses</code>.\n                    For example, if your AWS account ID is 123456789012 and you want to use the\n                    default master key in the US West (Oregon) region, the ARN of the default master\n                    key would be <code>arn:aws:kms:us-west-2:123456789012:alias/aws/ses</code>. If\n                    you use the default master key, you don't need to perform any extra steps to\n                    give Amazon SES permission to use the key.</p>\n            </li>\n            <li>\n                <p>To use a custom master key you created in AWS KMS, provide the ARN of the\n                    master key and ensure that you add a statement to your key's policy to give\n                    Amazon SES permission to use it. For more information about giving permissions, see\n                    the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES\n                        Developer Guide</a>.</p>\n            </li>\n         </ul>\n        <p>For more information about key policies, see the <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html\">AWS KMS Developer Guide</a>. If\n            you do not specify a master key, Amazon SES will not encrypt your emails.</p>\n        <important>\n            <p>Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail\n                is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side\n                encryption. This means that you must use the Amazon S3 encryption client to decrypt the\n                email after retrieving it from Amazon S3, as the service has no access to use your AWS\n                KMS keys for decryption. This encryption client is currently available with the\n                    <a href=\"http://aws.amazon.com/sdk-for-java/\">AWS SDK for Java</a> and <a href=\"http://aws.amazon.com/sdk-for-ruby/\">AWS SDK for Ruby</a> only. For more\n                information about client-side encryption using AWS KMS master keys, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html\">Amazon S3 Developer Guide</a>.</p>\n        </important>"
+          }
+        },
+        "BucketName": {
+          "target": "com.amazonaws.ses#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket that incoming email will be saved to.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4246,6 +4246,13 @@
     "com.amazonaws.ses#SendBounceRequest": {
       "type": "structure",
       "members": {
+        "OriginalMessageId": {
+          "target": "com.amazonaws.ses#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The message ID of the message to be bounced.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "BounceSender": {
           "target": "com.amazonaws.ses#Address",
           "traits": {
@@ -4259,6 +4266,12 @@
             "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to use the\n            address in the \"From\" header of the bounce. For more information about sending\n            authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
           }
         },
+        "Explanation": {
+          "target": "com.amazonaws.ses#Explanation",
+          "traits": {
+            "smithy.api#documentation": "<p>Human-readable text for the bounce message to explain the failure. If not specified,\n            the text will be auto-generated based on the bounced recipient information.</p>"
+          }
+        },
         "BouncedRecipientInfoList": {
           "target": "com.amazonaws.ses#BouncedRecipientInfoList",
           "traits": {
@@ -4266,23 +4279,10 @@
             "smithy.api#required": {}
           }
         },
-        "Explanation": {
-          "target": "com.amazonaws.ses#Explanation",
-          "traits": {
-            "smithy.api#documentation": "<p>Human-readable text for the bounce message to explain the failure. If not specified,\n            the text will be auto-generated based on the bounced recipient information.</p>"
-          }
-        },
         "MessageDsn": {
           "target": "com.amazonaws.ses#MessageDsn",
           "traits": {
             "smithy.api#documentation": "<p>Message-related DSN fields. If not specified, Amazon SES will choose the values.</p>"
-          }
-        },
-        "OriginalMessageId": {
-          "target": "com.amazonaws.ses#MessageId",
-          "traits": {
-            "smithy.api#documentation": "<p>The message ID of the message to be bounced.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -4339,10 +4339,16 @@
     "com.amazonaws.ses#SendBulkTemplatedEmailRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
+        "ReturnPath": {
+          "target": "com.amazonaws.ses#Address",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set to use when you send an email using\n                <code>SendBulkTemplatedEmail</code>.</p>"
+            "smithy.api#documentation": "<p>The email address that bounces and complaints will be forwarded to when feedback\n            forwarding is enabled. If the message cannot be delivered to the recipient, then an\n            error message will be returned from the recipient's ISP; this message will then be\n            forwarded to the email address specified by the <code>ReturnPath</code> parameter. The\n                <code>ReturnPath</code> parameter is never overwritten. This email address must be\n            either individually verified with Amazon SES, or from a domain that has been verified with\n            Amazon SES. </p>"
+          }
+        },
+        "SourceArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to send for\n            the email address specified in the <code>Source</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to send from <code>user@example.com</code>, then you\n            would specify the <code>SourceArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>Source</code> to be <code>user@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
           }
         },
         "DefaultTags": {
@@ -4357,11 +4363,16 @@
             "smithy.api#documentation": "<p>A list of replacement values to apply to the template when replacement data is not\n            specified in a Destination object. These values act as a default or fallback option when\n            no other data is available.</p>\n        <p>The template data is a JSON object, typically consisting of key-value pairs in which\n            the keys correspond to replacement tags in the email template.</p>"
           }
         },
-        "Destinations": {
-          "target": "com.amazonaws.ses#BulkEmailDestinationList",
+        "TemplateArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>One or more <code>Destination</code> objects. All of the recipients in a\n                <code>Destination</code> will receive the same version of the email. You can specify\n            up to 50 <code>Destination</code> objects within a <code>Destinations</code>\n            array.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The ARN of the template to use when sending this email.</p>"
+          }
+        },
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the configuration set to use when you send an email using\n                <code>SendBulkTemplatedEmail</code>.</p>"
           }
         },
         "ReplyToAddresses": {
@@ -4370,29 +4381,11 @@
             "smithy.api#documentation": "<p>The reply-to email address(es) for the message. If the recipient replies to the\n            message, each reply-to address will receive the reply.</p>"
           }
         },
-        "ReturnPath": {
-          "target": "com.amazonaws.ses#Address",
+        "Destinations": {
+          "target": "com.amazonaws.ses#BulkEmailDestinationList",
           "traits": {
-            "smithy.api#documentation": "<p>The email address that bounces and complaints will be forwarded to when feedback\n            forwarding is enabled. If the message cannot be delivered to the recipient, then an\n            error message will be returned from the recipient's ISP; this message will then be\n            forwarded to the email address specified by the <code>ReturnPath</code> parameter. The\n                <code>ReturnPath</code> parameter is never overwritten. This email address must be\n            either individually verified with Amazon SES, or from a domain that has been verified with\n            Amazon SES. </p>"
-          }
-        },
-        "ReturnPathArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to use the\n            email address specified in the <code>ReturnPath</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to use <code>feedback@example.com</code>, then you\n            would specify the <code>ReturnPathArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
-          }
-        },
-        "Source": {
-          "target": "com.amazonaws.ses#Address",
-          "traits": {
-            "smithy.api#documentation": "<p>The email address that is sending the email. This email address must be either\n            individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.\n            For information about verifying identities, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer\n                Guide</a>.</p>\n        <p>If you are sending on behalf of another user and have been permitted to do so by a\n            sending authorization policy, then you must also specify the <code>SourceArn</code>\n            parameter. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>\n        <note>\n            <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the\n                    <i>local part</i> of a source email address (the part of the email\n                address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII\n                    characters</a>. If the <i>domain part</i> of an address (the\n                part after the @ sign) contains non-ASCII characters, they must be encoded using\n                Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly\n                    name</i>) may contain non-ASCII characters. These characters must be\n                encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word\n                syntax uses the following form:\n                <code>=?charset?encoding?encoded-text?=</code>.</p>\n        </note>",
+            "smithy.api#documentation": "<p>One or more <code>Destination</code> objects. All of the recipients in a\n                <code>Destination</code> will receive the same version of the email. You can specify\n            up to 50 <code>Destination</code> objects within a <code>Destinations</code>\n            array.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "SourceArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to send for\n            the email address specified in the <code>Source</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to send from <code>user@example.com</code>, then you\n            would specify the <code>SourceArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>Source</code> to be <code>user@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
           }
         },
         "Template": {
@@ -4402,10 +4395,17 @@
             "smithy.api#required": {}
           }
         },
-        "TemplateArn": {
+        "Source": {
+          "target": "com.amazonaws.ses#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address that is sending the email. This email address must be either\n            individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.\n            For information about verifying identities, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer\n                Guide</a>.</p>\n        <p>If you are sending on behalf of another user and have been permitted to do so by a\n            sending authorization policy, then you must also specify the <code>SourceArn</code>\n            parameter. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>\n        <note>\n            <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the\n                    <i>local part</i> of a source email address (the part of the email\n                address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII\n                    characters</a>. If the <i>domain part</i> of an address (the\n                part after the @ sign) contains non-ASCII characters, they must be encoded using\n                Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly\n                    name</i>) may contain non-ASCII characters. These characters must be\n                encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word\n                syntax uses the following form:\n                <code>=?charset?encoding?encoded-text?=</code>.</p>\n        </note>",
+            "smithy.api#required": {}
+          }
+        },
+        "ReturnPathArn": {
           "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the template to use when sending this email.</p>"
+            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to use the\n            email address specified in the <code>ReturnPath</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to use <code>feedback@example.com</code>, then you\n            would specify the <code>ReturnPathArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
           }
         }
       },
@@ -4457,17 +4457,17 @@
     "com.amazonaws.ses#SendCustomVerificationEmailRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of a configuration set to use when sending the verification email.</p>"
-          }
-        },
         "EmailAddress": {
           "target": "com.amazonaws.ses#Address",
           "traits": {
             "smithy.api#documentation": "<p>The email address to verify.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of a configuration set to use when sending the verification email.</p>"
           }
         },
         "TemplateName": {
@@ -4499,22 +4499,10 @@
     "com.amazonaws.ses#SendDataPoint": {
       "type": "structure",
       "members": {
-        "Bounces": {
-          "target": "com.amazonaws.ses#Counter",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of emails that have bounced.</p>"
-          }
-        },
         "Complaints": {
           "target": "com.amazonaws.ses#Counter",
           "traits": {
             "smithy.api#documentation": "<p>Number of unwanted emails that were rejected by recipients.</p>"
-          }
-        },
-        "DeliveryAttempts": {
-          "target": "com.amazonaws.ses#Counter",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of emails that have been sent.</p>"
           }
         },
         "Rejects": {
@@ -4527,6 +4515,18 @@
           "target": "com.amazonaws.ses#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Time of the data point.</p>"
+          }
+        },
+        "Bounces": {
+          "target": "com.amazonaws.ses#Counter",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of emails that have bounced.</p>"
+          }
+        },
+        "DeliveryAttempts": {
+          "target": "com.amazonaws.ses#Counter",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of emails that have been sent.</p>"
           }
         }
       },
@@ -4572,10 +4572,35 @@
     "com.amazonaws.ses#SendEmailRequest": {
       "type": "structure",
       "members": {
+        "ReplyToAddresses": {
+          "target": "com.amazonaws.ses#AddressList",
+          "traits": {
+            "smithy.api#documentation": "<p>The reply-to email address(es) for the message. If the recipient replies to the\n            message, each reply-to address will receive the reply.</p>"
+          }
+        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set to use when you send an email using\n                <code>SendEmail</code>.</p>"
+          }
+        },
+        "ReturnPathArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to use the\n            email address specified in the <code>ReturnPath</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to use <code>feedback@example.com</code>, then you\n            would specify the <code>ReturnPathArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ses#MessageTagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tags, in the form of name/value pairs, to apply to an email that you send\n            using <code>SendEmail</code>. Tags correspond to characteristics of the email that you\n            define, so that you can publish email sending events.</p>"
+          }
+        },
+        "Source": {
+          "target": "com.amazonaws.ses#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address that is sending the email. This email address must be either\n            individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.\n            For information about verifying identities, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer\n                Guide</a>.</p>\n        <p>If you are sending on behalf of another user and have been permitted to do so by a\n            sending authorization policy, then you must also specify the <code>SourceArn</code>\n            parameter. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>\n        <note>\n            <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the\n                    <i>local part</i> of a source email address (the part of the email\n                address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII\n                    characters</a>. If the <i>domain part</i> of an address (the\n                part after the @ sign) contains non-ASCII characters, they must be encoded using\n                Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly\n                    name</i>) may contain non-ASCII characters. These characters must be\n                encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word\n                syntax uses the following form:\n                <code>=?charset?encoding?encoded-text?=</code>.</p>\n        </note>",
+            "smithy.api#required": {}
           }
         },
         "Destination": {
@@ -4592,41 +4617,16 @@
             "smithy.api#required": {}
           }
         },
-        "ReplyToAddresses": {
-          "target": "com.amazonaws.ses#AddressList",
-          "traits": {
-            "smithy.api#documentation": "<p>The reply-to email address(es) for the message. If the recipient replies to the\n            message, each reply-to address will receive the reply.</p>"
-          }
-        },
         "ReturnPath": {
           "target": "com.amazonaws.ses#Address",
           "traits": {
             "smithy.api#documentation": "<p>The email address that bounces and complaints will be forwarded to when feedback\n            forwarding is enabled. If the message cannot be delivered to the recipient, then an\n            error message will be returned from the recipient's ISP; this message will then be\n            forwarded to the email address specified by the <code>ReturnPath</code> parameter. The\n                <code>ReturnPath</code> parameter is never overwritten. This email address must be\n            either individually verified with Amazon SES, or from a domain that has been verified with\n            Amazon SES. </p>"
           }
         },
-        "ReturnPathArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to use the\n            email address specified in the <code>ReturnPath</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to use <code>feedback@example.com</code>, then you\n            would specify the <code>ReturnPathArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
-          }
-        },
-        "Source": {
-          "target": "com.amazonaws.ses#Address",
-          "traits": {
-            "smithy.api#documentation": "<p>The email address that is sending the email. This email address must be either\n            individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.\n            For information about verifying identities, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer\n                Guide</a>.</p>\n        <p>If you are sending on behalf of another user and have been permitted to do so by a\n            sending authorization policy, then you must also specify the <code>SourceArn</code>\n            parameter. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>\n        <note>\n            <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the\n                    <i>local part</i> of a source email address (the part of the email\n                address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII\n                    characters</a>. If the <i>domain part</i> of an address (the\n                part after the @ sign) contains non-ASCII characters, they must be encoded using\n                Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly\n                    name</i>) may contain non-ASCII characters. These characters must be\n                encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word\n                syntax uses the following form:\n                <code>=?charset?encoding?encoded-text?=</code>.</p>\n        </note>",
-            "smithy.api#required": {}
-          }
-        },
         "SourceArn": {
           "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to send for\n            the email address specified in the <code>Source</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to send from <code>user@example.com</code>, then you\n            would specify the <code>SourceArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>Source</code> to be <code>user@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.ses#MessageTagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags, in the form of name/value pairs, to apply to an email that you send\n            using <code>SendEmail</code>. Tags correspond to characteristics of the email that you\n            define, so that you can publish email sending events.</p>"
           }
         }
       },
@@ -4681,16 +4681,10 @@
     "com.amazonaws.ses#SendRawEmailRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
+        "SourceArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set to use when you send an email using\n                <code>SendRawEmail</code>.</p>"
-          }
-        },
-        "Destinations": {
-          "target": "com.amazonaws.ses#AddressList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of destinations for the message, consisting of To:, CC:, and BCC:\n            addresses.</p>"
+            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to send for\n            the email address specified in the <code>Source</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to send from <code>user@example.com</code>, then you\n            would specify the <code>SourceArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>Source</code> to be <code>user@example.com</code>.</p>\n        <p>Instead of using this parameter, you can use the X-header\n                <code>X-SES-SOURCE-ARN</code> in the raw message of the email. If you use both the\n                <code>SourceArn</code> parameter and the corresponding X-header, Amazon SES uses the\n            value of the <code>SourceArn</code> parameter.</p>\n        <note>\n            <p>For information about when to use this parameter, see the description of\n                    <code>SendRawEmail</code> in this guide, or see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html\">Amazon SES Developer Guide</a>.</p>\n        </note>"
           }
         },
         "FromArn": {
@@ -4699,11 +4693,16 @@
             "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to specify a\n            particular \"From\" address in the header of the raw email.</p>\n        <p>Instead of using this parameter, you can use the X-header <code>X-SES-FROM-ARN</code>\n            in the raw message of the email. If you use both the <code>FromArn</code> parameter and\n            the corresponding X-header, Amazon SES uses the value of the <code>FromArn</code>\n            parameter.</p>\n        <note>\n            <p>For information about when to use this parameter, see the description of\n                    <code>SendRawEmail</code> in this guide, or see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html\">Amazon SES Developer Guide</a>.</p>\n        </note>"
           }
         },
-        "RawMessage": {
-          "target": "com.amazonaws.ses#RawMessage",
+        "Source": {
+          "target": "com.amazonaws.ses#Address",
           "traits": {
-            "smithy.api#documentation": "<p>The raw email message itself. The message has to meet the following criteria:</p>\n        <ul>\n            <li>\n                <p>The message has to contain a header and a body, separated by a blank\n                    line.</p>\n            </li>\n            <li>\n                <p>All of the required header fields must be present in the message.</p>\n            </li>\n            <li>\n                <p>Each part of a multipart MIME message must be formatted properly.</p>\n            </li>\n            <li>\n                <p>Attachments must be of a content type that Amazon SES supports. For a list on\n                    unsupported content types, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html\">Unsupported Attachment\n                        Types</a> in the <i>Amazon SES Developer Guide</i>.</p>\n            </li>\n            <li>\n                <p>The entire message must be base64-encoded.</p>\n            </li>\n            <li>\n                <p>If any of the MIME parts in your message contain content that is outside of\n                    the 7-bit ASCII character range, we highly recommend that you encode that\n                    content. For more information, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html\">Sending Raw Email</a> in the <i>Amazon SES Developer\n                    Guide</i>.</p>\n            </li>\n            <li>\n                <p>Per <a href=\"https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6\">RFC\n                        5321</a>, the maximum length of each line of text, including the\n                    <CRLF>, must not exceed 1,000 characters.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The identity's email address. If you do not provide a value for this parameter, you\n            must specify a \"From\" address in the raw text of the message. (You can also specify\n            both.)</p>\n        <note>\n            <p>Amazon SES does not support the SMTPUTF8 extension, as described in<a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the\n                    <i>local part</i> of a source email address (the part of the email\n                address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII\n                    characters</a>. If the <i>domain part</i> of an address (the\n                part after the @ sign) contains non-ASCII characters, they must be encoded using\n                Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly\n                    name</i>) may contain non-ASCII characters. These characters must be\n                encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word\n                syntax uses the following form:\n                <code>=?charset?encoding?encoded-text?=</code>.</p>\n        </note>\n\n        <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled,\n            then bounces and complaints will be sent to this email address. This takes precedence\n            over any Return-Path header that you might include in the raw text of the\n            message.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ses#MessageTagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tags, in the form of name/value pairs, to apply to an email that you send\n            using <code>SendRawEmail</code>. Tags correspond to characteristics of the email that\n            you define, so that you can publish email sending events.</p>"
           }
         },
         "ReturnPathArn": {
@@ -4712,22 +4711,23 @@
             "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to use the\n            email address specified in the <code>ReturnPath</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to use <code>feedback@example.com</code>, then you\n            would specify the <code>ReturnPathArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>\n        <p>Instead of using this parameter, you can use the X-header\n                <code>X-SES-RETURN-PATH-ARN</code> in the raw message of the email. If you use both\n            the <code>ReturnPathArn</code> parameter and the corresponding X-header, Amazon SES uses the\n            value of the <code>ReturnPathArn</code> parameter.</p>\n        <note>\n            <p>For information about when to use this parameter, see the description of\n                    <code>SendRawEmail</code> in this guide, or see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html\">Amazon SES Developer Guide</a>.</p>\n        </note>"
           }
         },
-        "Source": {
-          "target": "com.amazonaws.ses#Address",
+        "Destinations": {
+          "target": "com.amazonaws.ses#AddressList",
           "traits": {
-            "smithy.api#documentation": "<p>The identity's email address. If you do not provide a value for this parameter, you\n            must specify a \"From\" address in the raw text of the message. (You can also specify\n            both.)</p>\n        <note>\n            <p>Amazon SES does not support the SMTPUTF8 extension, as described in<a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the\n                    <i>local part</i> of a source email address (the part of the email\n                address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII\n                    characters</a>. If the <i>domain part</i> of an address (the\n                part after the @ sign) contains non-ASCII characters, they must be encoded using\n                Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly\n                    name</i>) may contain non-ASCII characters. These characters must be\n                encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word\n                syntax uses the following form:\n                <code>=?charset?encoding?encoded-text?=</code>.</p>\n        </note>\n\n        <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled,\n            then bounces and complaints will be sent to this email address. This takes precedence\n            over any Return-Path header that you might include in the raw text of the\n            message.</p>"
+            "smithy.api#documentation": "<p>A list of destinations for the message, consisting of To:, CC:, and BCC:\n            addresses.</p>"
           }
         },
-        "SourceArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
-            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to send for\n            the email address specified in the <code>Source</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to send from <code>user@example.com</code>, then you\n            would specify the <code>SourceArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>Source</code> to be <code>user@example.com</code>.</p>\n        <p>Instead of using this parameter, you can use the X-header\n                <code>X-SES-SOURCE-ARN</code> in the raw message of the email. If you use both the\n                <code>SourceArn</code> parameter and the corresponding X-header, Amazon SES uses the\n            value of the <code>SourceArn</code> parameter.</p>\n        <note>\n            <p>For information about when to use this parameter, see the description of\n                    <code>SendRawEmail</code> in this guide, or see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html\">Amazon SES Developer Guide</a>.</p>\n        </note>"
+            "smithy.api#documentation": "<p>The name of the configuration set to use when you send an email using\n                <code>SendRawEmail</code>.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.ses#MessageTagList",
+        "RawMessage": {
+          "target": "com.amazonaws.ses#RawMessage",
           "traits": {
-            "smithy.api#documentation": "<p>A list of tags, in the form of name/value pairs, to apply to an email that you send\n            using <code>SendRawEmail</code>. Tags correspond to characteristics of the email that\n            you define, so that you can publish email sending events.</p>"
+            "smithy.api#documentation": "<p>The raw email message itself. The message has to meet the following criteria:</p>\n        <ul>\n            <li>\n                <p>The message has to contain a header and a body, separated by a blank\n                    line.</p>\n            </li>\n            <li>\n                <p>All of the required header fields must be present in the message.</p>\n            </li>\n            <li>\n                <p>Each part of a multipart MIME message must be formatted properly.</p>\n            </li>\n            <li>\n                <p>Attachments must be of a content type that Amazon SES supports. For a list on\n                    unsupported content types, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html\">Unsupported Attachment\n                        Types</a> in the <i>Amazon SES Developer Guide</i>.</p>\n            </li>\n            <li>\n                <p>The entire message must be base64-encoded.</p>\n            </li>\n            <li>\n                <p>If any of the MIME parts in your message contain content that is outside of\n                    the 7-bit ASCII character range, we highly recommend that you encode that\n                    content. For more information, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html\">Sending Raw Email</a> in the <i>Amazon SES Developer\n                    Guide</i>.</p>\n            </li>\n            <li>\n                <p>Per <a href=\"https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6\">RFC\n                        5321</a>, the maximum length of each line of text, including the\n                    <CRLF>, must not exceed 1,000 characters.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4785,54 +4785,16 @@
     "com.amazonaws.ses#SendTemplatedEmailRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set to use when you send an email using\n                <code>SendTemplatedEmail</code>.</p>"
-          }
-        },
-        "Destination": {
-          "target": "com.amazonaws.ses#Destination",
-          "traits": {
-            "smithy.api#documentation": "<p>The destination for this email, composed of To:, CC:, and BCC: fields. A Destination\n            can include up to 50 recipients across these three fields.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ReplyToAddresses": {
           "target": "com.amazonaws.ses#AddressList",
           "traits": {
             "smithy.api#documentation": "<p>The reply-to email address(es) for the message. If the recipient replies to the\n            message, each reply-to address will receive the reply.</p>"
           }
         },
-        "ReturnPath": {
-          "target": "com.amazonaws.ses#Address",
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
           "traits": {
-            "smithy.api#documentation": "<p>The email address that bounces and complaints will be forwarded to when feedback\n            forwarding is enabled. If the message cannot be delivered to the recipient, then an\n            error message will be returned from the recipient's ISP; this message will then be\n            forwarded to the email address specified by the <code>ReturnPath</code> parameter. The\n                <code>ReturnPath</code> parameter is never overwritten. This email address must be\n            either individually verified with Amazon SES, or from a domain that has been verified with\n            Amazon SES. </p>"
-          }
-        },
-        "ReturnPathArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to use the\n            email address specified in the <code>ReturnPath</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to use <code>feedback@example.com</code>, then you\n            would specify the <code>ReturnPathArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
-          }
-        },
-        "Source": {
-          "target": "com.amazonaws.ses#Address",
-          "traits": {
-            "smithy.api#documentation": "<p>The email address that is sending the email. This email address must be either\n            individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.\n            For information about verifying identities, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer\n                Guide</a>.</p>\n        <p>If you are sending on behalf of another user and have been permitted to do so by a\n            sending authorization policy, then you must also specify the <code>SourceArn</code>\n            parameter. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>\n        <note>\n            <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the\n                    <i>local part</i> of a source email address (the part of the email\n                address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII\n                    characters</a>. If the <i>domain part</i> of an address (the\n                part after the @ sign) contains non-ASCII characters, they must be encoded using\n                Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly\n                    name</i>) may contain non-ASCII characters. These characters must be\n                encoded using MIME encoded-word syntax, as described in<a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word\n                syntax uses the following form:\n                <code>=?charset?encoding?encoded-text?=</code>.</p>\n        </note>",
-            "smithy.api#required": {}
-          }
-        },
-        "SourceArn": {
-          "target": "com.amazonaws.ses#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to send for\n            the email address specified in the <code>Source</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to send from <code>user@example.com</code>, then you\n            would specify the <code>SourceArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>Source</code> to be <code>user@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.ses#MessageTagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags, in the form of name/value pairs, to apply to an email that you send\n            using <code>SendTemplatedEmail</code>. Tags correspond to characteristics of the email\n            that you define, so that you can publish email sending events.</p>"
+            "smithy.api#documentation": "<p>The name of the configuration set to use when you send an email using\n                <code>SendTemplatedEmail</code>.</p>"
           }
         },
         "Template": {
@@ -4842,10 +4804,17 @@
             "smithy.api#required": {}
           }
         },
-        "TemplateArn": {
+        "Source": {
+          "target": "com.amazonaws.ses#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address that is sending the email. This email address must be either\n            individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.\n            For information about verifying identities, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer\n                Guide</a>.</p>\n        <p>If you are sending on behalf of another user and have been permitted to do so by a\n            sending authorization policy, then you must also specify the <code>SourceArn</code>\n            parameter. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>\n        <note>\n            <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the\n                    <i>local part</i> of a source email address (the part of the email\n                address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII\n                    characters</a>. If the <i>domain part</i> of an address (the\n                part after the @ sign) contains non-ASCII characters, they must be encoded using\n                Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly\n                    name</i>) may contain non-ASCII characters. These characters must be\n                encoded using MIME encoded-word syntax, as described in<a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word\n                syntax uses the following form:\n                <code>=?charset?encoding?encoded-text?=</code>.</p>\n        </note>",
+            "smithy.api#required": {}
+          }
+        },
+        "ReturnPathArn": {
           "target": "com.amazonaws.ses#AmazonResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the template to use when sending this email.</p>"
+            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to use the\n            email address specified in the <code>ReturnPath</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to use <code>feedback@example.com</code>, then you\n            would specify the <code>ReturnPathArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
           }
         },
         "TemplateData": {
@@ -4853,6 +4822,37 @@
           "traits": {
             "smithy.api#documentation": "<p>A list of replacement values to apply to the template. This parameter is a JSON\n            object, typically consisting of key-value pairs in which the keys correspond to\n            replacement tags in the email template.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "TemplateArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the template to use when sending this email.</p>"
+          }
+        },
+        "Destination": {
+          "target": "com.amazonaws.ses#Destination",
+          "traits": {
+            "smithy.api#documentation": "<p>The destination for this email, composed of To:, CC:, and BCC: fields. A Destination\n            can include up to 50 recipients across these three fields.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ReturnPath": {
+          "target": "com.amazonaws.ses#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address that bounces and complaints will be forwarded to when feedback\n            forwarding is enabled. If the message cannot be delivered to the recipient, then an\n            error message will be returned from the recipient's ISP; this message will then be\n            forwarded to the email address specified by the <code>ReturnPath</code> parameter. The\n                <code>ReturnPath</code> parameter is never overwritten. This email address must be\n            either individually verified with Amazon SES, or from a domain that has been verified with\n            Amazon SES. </p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ses#MessageTagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tags, in the form of name/value pairs, to apply to an email that you send\n            using <code>SendTemplatedEmail</code>. Tags correspond to characteristics of the email\n            that you define, so that you can publish email sending events.</p>"
+          }
+        },
+        "SourceArn": {
+          "target": "com.amazonaws.ses#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>This parameter is used only for sending authorization. It is the ARN of the identity\n            that is associated with the sending authorization policy that permits you to send for\n            the email address specified in the <code>Source</code> parameter.</p>\n        <p>For example, if the owner of <code>example.com</code> (which has ARN\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a\n            policy to it that authorizes you to send from <code>user@example.com</code>, then you\n            would specify the <code>SourceArn</code> to be\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the\n                <code>Source</code> to be <code>user@example.com</code>.</p>\n        <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer\n                Guide</a>.</p>"
           }
         }
       },
@@ -4928,17 +4928,17 @@
     "com.amazonaws.ses#SetIdentityDkimEnabledRequest": {
       "type": "structure",
       "members": {
-        "DkimEnabled": {
-          "target": "com.amazonaws.ses#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to\n            enable DKIM signing for this identity; <code>false</code> to disable it. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "Identity": {
           "target": "com.amazonaws.ses#Identity",
           "traits": {
             "smithy.api#documentation": "<p>The identity for which DKIM signing should be enabled or disabled.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DkimEnabled": {
+          "target": "com.amazonaws.ses#Enabled",
+          "traits": {
+            "smithy.api#documentation": "<p>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to\n            enable DKIM signing for this identity; <code>false</code> to disable it. </p>",
             "smithy.api#required": {}
           }
         }
@@ -5058,6 +5058,12 @@
     "com.amazonaws.ses#SetIdentityMailFromDomainRequest": {
       "type": "structure",
       "members": {
+        "MailFromDomain": {
+          "target": "com.amazonaws.ses#MailFromDomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM\n            domain must 1) be a subdomain of the verified identity, 2) not be used in a \"From\"\n            address if the MAIL FROM domain is the destination of email feedback forwarding (for\n            more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html\">Amazon SES Developer Guide</a>), and\n            3) not be used to receive emails. A value of <code>null</code> disables the custom MAIL\n            FROM setting for the identity.</p>"
+          }
+        },
         "BehaviorOnMXFailure": {
           "target": "com.amazonaws.ses#BehaviorOnMXFailure",
           "traits": {
@@ -5069,12 +5075,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The verified identity for which you want to enable or disable the specified custom\n            MAIL FROM domain.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "MailFromDomain": {
-          "target": "com.amazonaws.ses#MailFromDomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM\n            domain must 1) be a subdomain of the verified identity, 2) not be used in a \"From\"\n            address if the MAIL FROM domain is the destination of email feedback forwarding (for\n            more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html\">Amazon SES Developer Guide</a>), and\n            3) not be used to receive emails. A value of <code>null</code> disables the custom MAIL\n            FROM setting for the identity.</p>"
           }
         }
       },
@@ -5104,11 +5104,10 @@
     "com.amazonaws.ses#SetIdentityNotificationTopicRequest": {
       "type": "structure",
       "members": {
-        "Identity": {
-          "target": "com.amazonaws.ses#Identity",
+        "SnsTopic": {
+          "target": "com.amazonaws.ses#NotificationTopic",
           "traits": {
-            "smithy.api#documentation": "<p>The identity (email address or domain) that you want to set the Amazon SNS topic\n            for.</p>\n        <important>\n            <p>You can only specify a verified identity for this parameter.</p>\n        </important>\n        <p>You can specify an identity by using its name or by using its Amazon Resource Name\n            (ARN). The following examples are all valid identities: <code>sender@example.com</code>,\n                <code>example.com</code>,\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from\n            the request or a null value is passed, <code>SnsTopic</code> is cleared and publishing\n            is disabled.</p>"
           }
         },
         "NotificationType": {
@@ -5118,10 +5117,11 @@
             "smithy.api#required": {}
           }
         },
-        "SnsTopic": {
-          "target": "com.amazonaws.ses#NotificationTopic",
+        "Identity": {
+          "target": "com.amazonaws.ses#Identity",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from\n            the request or a null value is passed, <code>SnsTopic</code> is cleared and publishing\n            is disabled.</p>"
+            "smithy.api#documentation": "<p>The identity (email address or domain) that you want to set the Amazon SNS topic\n            for.</p>\n        <important>\n            <p>You can only specify a verified identity for this parameter.</p>\n        </important>\n        <p>You can specify an identity by using its name or by using its Amazon Resource Name\n            (ARN). The following examples are all valid identities: <code>sender@example.com</code>,\n                <code>example.com</code>,\n                <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5159,6 +5159,13 @@
     "com.amazonaws.ses#SetReceiptRulePositionRequest": {
       "type": "structure",
       "members": {
+        "RuleSetName": {
+          "target": "com.amazonaws.ses#ReceiptRuleSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the receipt rule set that contains the receipt rule to reposition.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "After": {
           "target": "com.amazonaws.ses#ReceiptRuleName",
           "traits": {
@@ -5169,13 +5176,6 @@
           "target": "com.amazonaws.ses#ReceiptRuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the receipt rule to reposition.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "RuleSetName": {
-          "target": "com.amazonaws.ses#ReceiptRuleSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the receipt rule set that contains the receipt rule to reposition.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5471,16 +5471,10 @@
     "com.amazonaws.ses#Template": {
       "type": "structure",
       "members": {
-        "HtmlPart": {
-          "target": "com.amazonaws.ses#HtmlPart",
+        "TextPart": {
+          "target": "com.amazonaws.ses#TextPart",
           "traits": {
-            "smithy.api#documentation": "<p>The HTML body of the email.</p>"
-          }
-        },
-        "SubjectPart": {
-          "target": "com.amazonaws.ses#SubjectPart",
-          "traits": {
-            "smithy.api#documentation": "<p>The subject line of the email.</p>"
+            "smithy.api#documentation": "<p>The email body that will be visible to recipients whose email clients do not display\n            HTML.</p>"
           }
         },
         "TemplateName": {
@@ -5490,10 +5484,16 @@
             "smithy.api#required": {}
           }
         },
-        "TextPart": {
-          "target": "com.amazonaws.ses#TextPart",
+        "SubjectPart": {
+          "target": "com.amazonaws.ses#SubjectPart",
           "traits": {
-            "smithy.api#documentation": "<p>The email body that will be visible to recipients whose email clients do not display\n            HTML.</p>"
+            "smithy.api#documentation": "<p>The subject line of the email.</p>"
+          }
+        },
+        "HtmlPart": {
+          "target": "com.amazonaws.ses#HtmlPart",
+          "traits": {
+            "smithy.api#documentation": "<p>The HTML body of the email.</p>"
           }
         }
       },
@@ -5584,17 +5584,17 @@
     "com.amazonaws.ses#TestRenderTemplateRequest": {
       "type": "structure",
       "members": {
-        "TemplateData": {
-          "target": "com.amazonaws.ses#TemplateData",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of replacement values to apply to the template. This parameter is a JSON\n            object, typically consisting of key-value pairs in which the keys correspond to\n            replacement tags in the email template.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TemplateName": {
           "target": "com.amazonaws.ses#TemplateName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the template that you want to render.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TemplateData": {
+          "target": "com.amazonaws.ses#TemplateData",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of replacement values to apply to the template. This parameter is a JSON\n            object, typically consisting of key-value pairs in which the keys correspond to\n            replacement tags in the email template.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5782,17 +5782,17 @@
     "com.amazonaws.ses#UpdateConfigurationSetReputationMetricsEnabledRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set that you want to update.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Enabled": {
           "target": "com.amazonaws.ses#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Describes whether or not Amazon SES will publish reputation metrics for the configuration\n            set, such as bounce and complaint rates, to Amazon CloudWatch.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the configuration set that you want to update.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5818,17 +5818,17 @@
     "com.amazonaws.ses#UpdateConfigurationSetSendingEnabledRequest": {
       "type": "structure",
       "members": {
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.ses#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set that you want to update.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Enabled": {
           "target": "com.amazonaws.ses#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Describes whether email sending is enabled or disabled for the configuration set.\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.ses#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the configuration set that you want to update.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5911,10 +5911,29 @@
     "com.amazonaws.ses#UpdateCustomVerificationEmailTemplateRequest": {
       "type": "structure",
       "members": {
+        "TemplateSubject": {
+          "target": "com.amazonaws.ses#Subject",
+          "traits": {
+            "smithy.api#documentation": "<p>The subject line of the custom verification email.</p>"
+          }
+        },
         "FailureRedirectionURL": {
           "target": "com.amazonaws.ses#FailureRedirectionURL",
           "traits": {
             "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is not successfully verified.</p>"
+          }
+        },
+        "TemplateName": {
+          "target": "com.amazonaws.ses#TemplateName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the custom verification email template that you want to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TemplateContent": {
+          "target": "com.amazonaws.ses#TemplateContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the custom verification email. The total size of the email must be less\n            than 10 MB. The message body may contain HTML, with some limitations. For more\n            information, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq\">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES\n                Developer Guide</i>.</p>"
           }
         },
         "FromEmailAddress": {
@@ -5927,25 +5946,6 @@
           "target": "com.amazonaws.ses#SuccessRedirectionURL",
           "traits": {
             "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is successfully verified.</p>"
-          }
-        },
-        "TemplateContent": {
-          "target": "com.amazonaws.ses#TemplateContent",
-          "traits": {
-            "smithy.api#documentation": "<p>The content of the custom verification email. The total size of the email must be less\n            than 10 MB. The message body may contain HTML, with some limitations. For more\n            information, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq\">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES\n                Developer Guide</i>.</p>"
-          }
-        },
-        "TemplateName": {
-          "target": "com.amazonaws.ses#TemplateName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the custom verification email template that you want to update.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TemplateSubject": {
-          "target": "com.amazonaws.ses#Subject",
-          "traits": {
-            "smithy.api#documentation": "<p>The subject line of the custom verification email.</p>"
           }
         }
       },

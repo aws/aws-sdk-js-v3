@@ -207,14 +207,7 @@
         "dataSetPublicationDate": {
           "target": "com.amazonaws.marketplacecommerceanalytics#DataSetPublicationDate",
           "traits": {
-            "smithy.api#documentation": "The date a data set was published.\n        For daily data sets, provide a date with day-level granularity for the desired day.\n        For weekly data sets, provide a date with day-level granularity within the desired week (the day value will be ignored).\n        For monthly data sets, provide a date with month-level granularity for the desired month (the day value will be ignored).",
-            "smithy.api#required": {}
-          }
-        },
-        "dataSetType": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#DataSetType",
-          "traits": {
-            "smithy.api#documentation": "<p>The desired data set type.</p>\n        <p>\n            <ul>\n                <li>\n                    <strong>customer_subscriber_hourly_monthly_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>customer_subscriber_annual_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_usage_by_instance_type</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_fees</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_free_trial_conversions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_new_instances</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_new_product_subscribers</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_canceled_product_subscribers</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_billing_and_revenue_data</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes metered transactions (e.g. hourly) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_annual_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes up-front software charges (e.g. annual) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_field_demonstration_usage</strong>\n                    <p>From 2018-03-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_flexible_payment_schedule</strong>\n                    <p>From 2018-11-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_product</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_instance_hours</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_customer_geo</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_uncollected_funds</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_disbursed_funds</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_past_due_funds</strong>\n                    <p>From 2018-04-07 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_uncollected_funds_breakdown</strong>\n                    <p>From 2019-10-04 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>sales_compensation_billed_revenue</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes metered transactions (e.g. hourly) from one month prior, and up-front software charges (e.g. annual) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>us_sales_and_use_tax_records</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n            </ul>\n        </p>",
+            "smithy.api#documentation": "The date a data set was published.\n        For daily data sets, provide a date with day-level granularity for the desired day.\n        For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).\n        For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).",
             "smithy.api#required": {}
           }
         },
@@ -223,12 +216,6 @@
           "traits": {
             "smithy.api#documentation": "The name (friendly name, not ARN) of the destination S3 bucket.",
             "smithy.api#required": {}
-          }
-        },
-        "destinationS3Prefix": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix",
-          "traits": {
-            "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
           }
         },
         "roleNameArn": {
@@ -242,6 +229,19 @@
           "target": "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn",
           "traits": {
             "smithy.api#documentation": "Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an\n        error has occurred.",
+            "smithy.api#required": {}
+          }
+        },
+        "destinationS3Prefix": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix",
+          "traits": {
+            "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
+          }
+        },
+        "dataSetType": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#DataSetType",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired data set type.</p>\n        <p>\n            <ul>\n                <li>\n                    <strong>customer_subscriber_hourly_monthly_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>customer_subscriber_annual_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_usage_by_instance_type</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_fees</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_free_trial_conversions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_new_instances</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_new_product_subscribers</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_canceled_product_subscribers</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_billing_and_revenue_data</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes metered transactions (e.g. hourly) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_annual_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes up-front software charges (e.g. annual) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_field_demonstration_usage</strong>\n                    <p>From 2018-03-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_flexible_payment_schedule</strong>\n                    <p>From 2018-11-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_product</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_instance_hours</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_customer_geo</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_uncollected_funds</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_disbursed_funds</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_past_due_funds</strong>\n                    <p>From 2018-04-07 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_uncollected_funds_breakdown</strong>\n                    <p>From 2019-10-04 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>sales_compensation_billed_revenue</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes metered transactions (e.g. hourly) from one month prior, and up-front software charges (e.g. annual) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>us_sales_and_use_tax_records</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n            </ul>\n        </p>",
             "smithy.api#required": {}
           }
         }
@@ -359,36 +359,23 @@
     "com.amazonaws.marketplacecommerceanalytics#StartSupportDataExportRequest": {
       "type": "structure",
       "members": {
+        "fromDate": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#FromDate",
+          "traits": {
+            "smithy.api#documentation": "The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.",
+            "smithy.api#required": {}
+          }
+        },
         "customerDefinedValues": {
           "target": "com.amazonaws.marketplacecommerceanalytics#CustomerDefinedValues",
           "traits": {
             "smithy.api#documentation": "(Optional) Key-value pairs which will be returned, unmodified, in the\n        Amazon SNS notification message and the data set metadata file."
           }
         },
-        "dataSetType": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#SupportDataSetType",
-          "traits": {
-            "smithy.api#documentation": "<p>\n           Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and\n           test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid,\n           Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title,\n           Country Code, ZIP Code, Operation Type, and Operation Time.\n        </p>\n        <p>\n            <ul>\n                <li><i>customer_support_contacts_data</i> Customer support contact data. The data set will contain all changes (Creates, Updates, and Deletes) to customer support contact data from the date specified in the from_date parameter.</li>\n                <li><i>test_customer_support_contacts_data</i> An example data set containing static test data in the same format as customer_support_contacts_data</li>\n            </ul>\n        </p>",
-            "smithy.api#required": {}
-          }
-        },
         "destinationS3BucketName": {
           "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3BucketName",
           "traits": {
             "smithy.api#documentation": "The name (friendly name, not ARN) of the destination S3 bucket.",
-            "smithy.api#required": {}
-          }
-        },
-        "destinationS3Prefix": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix",
-          "traits": {
-            "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
-          }
-        },
-        "fromDate": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#FromDate",
-          "traits": {
-            "smithy.api#documentation": "The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.",
             "smithy.api#required": {}
           }
         },
@@ -403,6 +390,19 @@
           "target": "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn",
           "traits": {
             "smithy.api#documentation": "Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an\n        error has occurred.",
+            "smithy.api#required": {}
+          }
+        },
+        "destinationS3Prefix": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix",
+          "traits": {
+            "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
+          }
+        },
+        "dataSetType": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#SupportDataSetType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n           Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and\n           test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid,\n           Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title,\n           Country Code, ZIP Code, Operation Type, and Operation Time.\n        </p>\n        <p>\n            <ul>\n                <li><i>customer_support_contacts_data</i> Customer support contact data. The data set will contain all changes (Creates, Updates, and Deletes) to customer support contact data from the date specified in the from_date parameter.</li>\n                <li><i>test_customer_support_contacts_data</i> An example data set containing static test data in the same format as customer_support_contacts_data</li>\n            </ul>\n        </p>",
             "smithy.api#required": {}
           }
         }

@@ -142,7 +142,7 @@
         "context": {
           "target": "com.amazonaws.personalizeruntime#Context",
           "traits": {
-            "smithy.api#documentation": "<p>The contextual metadata to use when getting recommendations. Contextual metadata includes\n      any interaction information that might be relevant when getting a user's recommendations, such\n      as the user's current location or device type. For more information, see Contextual\n      Metadata.</p>"
+            "smithy.api#documentation": "<p>The contextual metadata to use when getting recommendations. Contextual metadata includes\n      any interaction information that might be relevant when getting a user's recommendations, such\n      as the user's current location or device type.</p>"
           }
         },
         "inputList": {
@@ -201,17 +201,22 @@
     "com.amazonaws.personalizeruntime#GetRecommendationsRequest": {
       "type": "structure",
       "members": {
-        "campaignArn": {
-          "target": "com.amazonaws.personalizeruntime#Arn",
+        "numResults": {
+          "target": "com.amazonaws.personalizeruntime#NumResults",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The number of results to return. The default is 25. The maximum is 500.</p>"
           }
         },
         "context": {
           "target": "com.amazonaws.personalizeruntime#Context",
           "traits": {
-            "smithy.api#documentation": "<p>The contextual metadata to use when getting recommendations. Contextual metadata includes\n      any interaction information that might be relevant when getting a user's recommendations, such\n      as the user's current location or device type. For more information, see Contextual\n      Metadata.</p>"
+            "smithy.api#documentation": "<p>The contextual metadata to use when getting recommendations. Contextual metadata includes\n      any interaction information that might be relevant when getting a user's recommendations, such\n      as the user's current location or device type.</p>"
+          }
+        },
+        "filterArn": {
+          "target": "com.amazonaws.personalizeruntime#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the filter to apply to the returned recommendations. For more information, see\n      Using Filters with Amazon Personalize.</p>"
           }
         },
         "itemId": {
@@ -220,10 +225,11 @@
             "smithy.api#documentation": "<p>The item ID to provide recommendations for.</p>\n         <p>Required for <code>RELATED_ITEMS</code> recipe type.</p>"
           }
         },
-        "numResults": {
-          "target": "com.amazonaws.personalizeruntime#NumResults",
+        "campaignArn": {
+          "target": "com.amazonaws.personalizeruntime#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The number of results to return. The default is 25. The maximum is 500.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>",
+            "smithy.api#required": {}
           }
         },
         "userId": {
@@ -290,6 +296,12 @@
     "com.amazonaws.personalizeruntime#PredictedItem": {
       "type": "structure",
       "members": {
+        "score": {
+          "target": "com.amazonaws.personalizeruntime#Score",
+          "traits": {
+            "smithy.api#documentation": "<p>A numeric representation of the model's certainty that the item will be the next user\n      selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>"
+          }
+        },
         "itemId": {
           "target": "com.amazonaws.personalizeruntime#ItemID",
           "traits": {
@@ -312,6 +324,12 @@
         "smithy.api#documentation": "<p>The specified resource does not exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.personalizeruntime#Score": {
+      "type": "double",
+      "traits": {
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.personalizeruntime#UserID": {

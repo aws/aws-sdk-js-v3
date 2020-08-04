@@ -58,12 +58,6 @@
     "com.amazonaws.datapipeline#ActivatePipelineInput": {
       "type": "structure",
       "members": {
-        "parameterValues": {
-          "target": "com.amazonaws.datapipeline#ParameterValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of parameter values to pass to the pipeline at activation.</p>"
-          }
-        },
         "pipelineId": {
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
@@ -75,6 +69,12 @@
           "target": "com.amazonaws.datapipeline#timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.</p>"
+          }
+        },
+        "parameterValues": {
+          "target": "com.amazonaws.datapipeline#ParameterValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of parameter values to pass to the pipeline at activation.</p>"
           }
         }
       },
@@ -167,10 +167,10 @@
     "com.amazonaws.datapipeline#CreatePipelineInput": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.datapipeline#string",
+        "tags": {
+          "target": "com.amazonaws.datapipeline#tagList",
           "traits": {
-            "smithy.api#documentation": "<p>The description for the pipeline.</p>"
+            "smithy.api#documentation": "<p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> \n            in the <i>AWS Data Pipeline Developer Guide</i>.</p>"
           }
         },
         "name": {
@@ -180,17 +180,17 @@
             "smithy.api#required": {}
           }
         },
-        "tags": {
-          "target": "com.amazonaws.datapipeline#tagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> \n            in the <i>AWS Data Pipeline Developer Guide</i>.</p>"
-          }
-        },
         "uniqueId": {
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. \n            You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this \n            parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the \n            first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and \n            pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> \n            ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not \n            created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the \n            name and unique identifier combination is scoped to the AWS account or IAM user credentials.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.datapipeline#string",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for the pipeline.</p>"
           }
         }
       },
@@ -416,16 +416,16 @@
     "com.amazonaws.datapipeline#DescribeObjectsInput": {
       "type": "structure",
       "members": {
-        "evaluateExpressions": {
-          "target": "com.amazonaws.datapipeline#boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.</p>"
-          }
-        },
         "marker": {
           "target": "com.amazonaws.datapipeline#string",
           "traits": {
             "smithy.api#documentation": "<p>The starting point for the results to be returned. For the first call, this value should be empty. \n           As long as there are more results, continue to call <code>DescribeObjects</code> with\n           the marker value from the previous call to retrieve the next set of results.</p>"
+          }
+        },
+        "evaluateExpressions": {
+          "target": "com.amazonaws.datapipeline#boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.</p>"
           }
         },
         "objectIds": {
@@ -450,10 +450,11 @@
     "com.amazonaws.datapipeline#DescribeObjectsOutput": {
       "type": "structure",
       "members": {
-        "hasMoreResults": {
-          "target": "com.amazonaws.datapipeline#boolean",
+        "pipelineObjects": {
+          "target": "com.amazonaws.datapipeline#PipelineObjectList",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether there are more results to return.</p>"
+            "smithy.api#documentation": "<p>An array of object definitions.</p>",
+            "smithy.api#required": {}
           }
         },
         "marker": {
@@ -462,11 +463,10 @@
             "smithy.api#documentation": "<p>The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code> \n           again with this marker value. If the value is null, there are no more results.</p>"
           }
         },
-        "pipelineObjects": {
-          "target": "com.amazonaws.datapipeline#PipelineObjectList",
+        "hasMoreResults": {
+          "target": "com.amazonaws.datapipeline#boolean",
           "traits": {
-            "smithy.api#documentation": "<p>An array of object definitions.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Indicates whether there are more results to return.</p>"
           }
         }
       },
@@ -562,17 +562,17 @@
     "com.amazonaws.datapipeline#EvaluateExpressionInput": {
       "type": "structure",
       "members": {
-        "expression": {
-          "target": "com.amazonaws.datapipeline#longString",
-          "traits": {
-            "smithy.api#documentation": "<p>The expression to evaluate.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "objectId": {
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the object.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "expression": {
+          "target": "com.amazonaws.datapipeline#longString",
+          "traits": {
+            "smithy.api#documentation": "<p>The expression to evaluate.</p>",
             "smithy.api#required": {}
           }
         },
@@ -613,16 +613,16 @@
             "smithy.api#required": {}
           }
         },
-        "refValue": {
-          "target": "com.amazonaws.datapipeline#fieldNameString",
-          "traits": {
-            "smithy.api#documentation": "<p>The field value, expressed as the identifier of another object.</p>"
-          }
-        },
         "stringValue": {
           "target": "com.amazonaws.datapipeline#fieldStringValue",
           "traits": {
             "smithy.api#documentation": "<p>The field value, expressed as a String.</p>"
+          }
+        },
+        "refValue": {
+          "target": "com.amazonaws.datapipeline#fieldNameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The field value, expressed as the identifier of another object.</p>"
           }
         }
       },
@@ -659,17 +659,17 @@
     "com.amazonaws.datapipeline#GetPipelineDefinitionInput": {
       "type": "structure",
       "members": {
+        "version": {
+          "target": "com.amazonaws.datapipeline#string",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) \n            to use the last definition saved to the pipeline or <code>active</code> to use the last definition  \n            that was activated.</p>"
+          }
+        },
         "pipelineId": {
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the pipeline.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.datapipeline#string",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) \n            to use the last definition saved to the pipeline or <code>active</code> to use the last definition  \n            that was activated.</p>"
           }
         }
       },
@@ -680,10 +680,10 @@
     "com.amazonaws.datapipeline#GetPipelineDefinitionOutput": {
       "type": "structure",
       "members": {
-        "parameterObjects": {
-          "target": "com.amazonaws.datapipeline#ParameterObjectList",
+        "pipelineObjects": {
+          "target": "com.amazonaws.datapipeline#PipelineObjectList",
           "traits": {
-            "smithy.api#documentation": "<p>The parameter objects used in the pipeline definition.</p>"
+            "smithy.api#documentation": "<p>The objects defined in the pipeline.</p>"
           }
         },
         "parameterValues": {
@@ -692,10 +692,10 @@
             "smithy.api#documentation": "<p>The parameter values used in the pipeline definition.</p>"
           }
         },
-        "pipelineObjects": {
-          "target": "com.amazonaws.datapipeline#PipelineObjectList",
+        "parameterObjects": {
+          "target": "com.amazonaws.datapipeline#ParameterObjectList",
           "traits": {
-            "smithy.api#documentation": "<p>The objects defined in the pipeline.</p>"
+            "smithy.api#documentation": "<p>The parameter objects used in the pipeline definition.</p>"
           }
         }
       },
@@ -795,6 +795,13 @@
     "com.amazonaws.datapipeline#ListPipelinesOutput": {
       "type": "structure",
       "members": {
+        "pipelineIdList": {
+          "target": "com.amazonaws.datapipeline#pipelineList",
+          "traits": {
+            "smithy.api#documentation": "<p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call \n            <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "hasMoreResults": {
           "target": "com.amazonaws.datapipeline#boolean",
           "traits": {
@@ -806,13 +813,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code> \n           again with this marker value. If the value is null, there are no more results.</p>"
           }
-        },
-        "pipelineIdList": {
-          "target": "com.amazonaws.datapipeline#pipelineList",
-          "traits": {
-            "smithy.api#documentation": "<p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call \n            <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p>",
-            "smithy.api#required": {}
-          }
         }
       },
       "traits": {
@@ -822,16 +822,16 @@
     "com.amazonaws.datapipeline#Operator": {
       "type": "structure",
       "members": {
-        "type": {
-          "target": "com.amazonaws.datapipeline#OperatorType",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.  \n        </p>\n        <p>The comparison operators EQ and REF_EQ act on the following fields:</p>\n        <ul>\n            <li>\n               <p>name</p>\n            </li>\n            <li>\n               <p>@sphere</p>\n            </li>\n            <li>\n               <p>parent</p>\n            </li>\n            <li>\n               <p>@componentParent</p>\n            </li>\n            <li>\n               <p>@instanceParent</p>\n            </li>\n            <li>\n               <p>@status</p>\n            </li>\n            <li>\n               <p>@scheduledStartTime</p>\n            </li>\n            <li>\n               <p>@scheduledEndTime</p>\n            </li>\n            <li>\n               <p>@actualStartTime</p>\n            </li>\n            <li>\n               <p>@actualEndTime</p>\n            </li>\n         </ul>\n        \n        <p>\n            The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields:\n        </p>\n        <ul>\n            <li>\n               <p>@scheduledStartTime</p>\n            </li>\n            <li>\n               <p>@scheduledEndTime</p>\n            </li>\n            <li>\n               <p>@actualStartTime</p>\n            </li>\n            <li>\n               <p>@actualEndTime</p>\n            </li>\n         </ul>\n        <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".</p>"
-          }
-        },
         "values": {
           "target": "com.amazonaws.datapipeline#stringList",
           "traits": {
             "smithy.api#documentation": "<p>The value that the actual field value will be compared with.</p>"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.datapipeline#OperatorType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.  \n        </p>\n        <p>The comparison operators EQ and REF_EQ act on the following fields:</p>\n        <ul>\n            <li>\n               <p>name</p>\n            </li>\n            <li>\n               <p>@sphere</p>\n            </li>\n            <li>\n               <p>parent</p>\n            </li>\n            <li>\n               <p>@componentParent</p>\n            </li>\n            <li>\n               <p>@instanceParent</p>\n            </li>\n            <li>\n               <p>@status</p>\n            </li>\n            <li>\n               <p>@scheduledStartTime</p>\n            </li>\n            <li>\n               <p>@scheduledEndTime</p>\n            </li>\n            <li>\n               <p>@actualStartTime</p>\n            </li>\n            <li>\n               <p>@actualEndTime</p>\n            </li>\n         </ul>\n        \n        <p>\n            The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields:\n        </p>\n        <ul>\n            <li>\n               <p>@scheduledStartTime</p>\n            </li>\n            <li>\n               <p>@scheduledEndTime</p>\n            </li>\n            <li>\n               <p>@actualStartTime</p>\n            </li>\n            <li>\n               <p>@actualEndTime</p>\n            </li>\n         </ul>\n        <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".</p>"
           }
         }
       },
@@ -968,26 +968,6 @@
     "com.amazonaws.datapipeline#PipelineDescription": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.datapipeline#string",
-          "traits": {
-            "smithy.api#documentation": "<p>Description of the pipeline.</p>"
-          }
-        },
-        "fields": {
-          "target": "com.amazonaws.datapipeline#fieldList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.datapipeline#id",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the pipeline.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "pipelineId": {
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
@@ -999,6 +979,26 @@
           "target": "com.amazonaws.datapipeline#tagList",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags to associated with a pipeline. Tags let you control access to pipelines. \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>"
+          }
+        },
+        "fields": {
+          "target": "com.amazonaws.datapipeline#fieldList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.datapipeline#string",
+          "traits": {
+            "smithy.api#documentation": "<p>Description of the pipeline.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.datapipeline#id",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the pipeline.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1015,16 +1015,16 @@
     "com.amazonaws.datapipeline#PipelineIdName": {
       "type": "structure",
       "members": {
-        "id": {
-          "target": "com.amazonaws.datapipeline#id",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
             "smithy.api#documentation": "<p>The name of the pipeline.</p>"
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.datapipeline#id",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>"
           }
         }
       },
@@ -1050,6 +1050,13 @@
     "com.amazonaws.datapipeline#PipelineObject": {
       "type": "structure",
       "members": {
+        "name": {
+          "target": "com.amazonaws.datapipeline#id",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the object.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "fields": {
           "target": "com.amazonaws.datapipeline#fieldList",
           "traits": {
@@ -1061,13 +1068,6 @@
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the object.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.datapipeline#id",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the object.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1117,12 +1117,6 @@
     "com.amazonaws.datapipeline#PollForTaskInput": {
       "type": "structure",
       "members": {
-        "hostname": {
-          "target": "com.amazonaws.datapipeline#id",
-          "traits": {
-            "smithy.api#documentation": "<p>The public DNS name of the calling task runner.</p>"
-          }
-        },
         "instanceIdentity": {
           "target": "com.amazonaws.datapipeline#InstanceIdentity",
           "traits": {
@@ -1134,6 +1128,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. \n            You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in \n            <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "hostname": {
+          "target": "com.amazonaws.datapipeline#id",
+          "traits": {
+            "smithy.api#documentation": "<p>The public DNS name of the calling task runner.</p>"
           }
         }
       },
@@ -1184,16 +1184,11 @@
     "com.amazonaws.datapipeline#PutPipelineDefinitionInput": {
       "type": "structure",
       "members": {
-        "parameterObjects": {
-          "target": "com.amazonaws.datapipeline#ParameterObjectList",
+        "pipelineObjects": {
+          "target": "com.amazonaws.datapipeline#PipelineObjectList",
           "traits": {
-            "smithy.api#documentation": "<p>The parameter objects used with the pipeline.</p>"
-          }
-        },
-        "parameterValues": {
-          "target": "com.amazonaws.datapipeline#ParameterValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>The parameter values used with the pipeline.</p>"
+            "smithy.api#documentation": "<p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>",
+            "smithy.api#required": {}
           }
         },
         "pipelineId": {
@@ -1203,11 +1198,16 @@
             "smithy.api#required": {}
           }
         },
-        "pipelineObjects": {
-          "target": "com.amazonaws.datapipeline#PipelineObjectList",
+        "parameterValues": {
+          "target": "com.amazonaws.datapipeline#ParameterValueList",
           "traits": {
-            "smithy.api#documentation": "<p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The parameter values used with the pipeline.</p>"
+          }
+        },
+        "parameterObjects": {
+          "target": "com.amazonaws.datapipeline#ParameterObjectList",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter objects used with the pipeline.</p>"
           }
         }
       },
@@ -1291,10 +1291,17 @@
     "com.amazonaws.datapipeline#QueryObjectsInput": {
       "type": "structure",
       "members": {
-        "limit": {
-          "target": "com.amazonaws.datapipeline#int",
+        "query": {
+          "target": "com.amazonaws.datapipeline#Query",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. </p>"
+            "smithy.api#documentation": "<p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. \n            The conditions in the query are limited to top-level String fields in the object. \n            These filters can be applied to components, instances, and attempts.</p>"
+          }
+        },
+        "sphere": {
+          "target": "com.amazonaws.datapipeline#string",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the query applies to components or instances. The possible values are:\t\n            <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>",
+            "smithy.api#required": {}
           }
         },
         "marker": {
@@ -1310,17 +1317,10 @@
             "smithy.api#required": {}
           }
         },
-        "query": {
-          "target": "com.amazonaws.datapipeline#Query",
+        "limit": {
+          "target": "com.amazonaws.datapipeline#int",
           "traits": {
-            "smithy.api#documentation": "<p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. \n            The conditions in the query are limited to top-level String fields in the object. \n            These filters can be applied to components, instances, and attempts.</p>"
-          }
-        },
-        "sphere": {
-          "target": "com.amazonaws.datapipeline#string",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the query applies to components or instances. The possible values are:\t\n            <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. </p>"
           }
         }
       },
@@ -1441,17 +1441,17 @@
     "com.amazonaws.datapipeline#ReportTaskProgressInput": {
       "type": "structure",
       "members": {
-        "fields": {
-          "target": "com.amazonaws.datapipeline#fieldList",
-          "traits": {
-            "smithy.api#documentation": "<p>Key-value pairs that define the properties of the ReportTaskProgressInput object.</p>"
-          }
-        },
         "taskId": {
           "target": "com.amazonaws.datapipeline#taskId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "fields": {
+          "target": "com.amazonaws.datapipeline#fieldList",
+          "traits": {
+            "smithy.api#documentation": "<p>Key-value pairs that define the properties of the ReportTaskProgressInput object.</p>"
           }
         }
       },
@@ -1497,12 +1497,6 @@
     "com.amazonaws.datapipeline#ReportTaskRunnerHeartbeatInput": {
       "type": "structure",
       "members": {
-        "hostname": {
-          "target": "com.amazonaws.datapipeline#id",
-          "traits": {
-            "smithy.api#documentation": "<p>The public DNS name of the task runner.</p>"
-          }
-        },
         "taskrunnerId": {
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
@@ -1514,6 +1508,12 @@
           "target": "com.amazonaws.datapipeline#string",
           "traits": {
             "smithy.api#documentation": "<p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. \n            You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string \n            must be an exact, case-sensitive, match.</p>"
+          }
+        },
+        "hostname": {
+          "target": "com.amazonaws.datapipeline#id",
+          "traits": {
+            "smithy.api#documentation": "<p>The public DNS name of the task runner.</p>"
           }
         }
       },
@@ -1591,6 +1591,13 @@
     "com.amazonaws.datapipeline#SetStatusInput": {
       "type": "structure",
       "members": {
+        "status": {
+          "target": "com.amazonaws.datapipeline#string",
+          "traits": {
+            "smithy.api#documentation": "<p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. \n            For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "objectIds": {
           "target": "com.amazonaws.datapipeline#idList",
           "traits": {
@@ -1602,13 +1609,6 @@
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the pipeline that contains the objects.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.datapipeline#string",
-          "traits": {
-            "smithy.api#documentation": "<p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. \n            For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1649,16 +1649,11 @@
     "com.amazonaws.datapipeline#SetTaskStatusInput": {
       "type": "structure",
       "members": {
-        "errorId": {
-          "target": "com.amazonaws.datapipeline#string",
+        "taskStatus": {
+          "target": "com.amazonaws.datapipeline#TaskStatus",
           "traits": {
-            "smithy.api#documentation": "<p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.</p>"
-          }
-        },
-        "errorMessage": {
-          "target": "com.amazonaws.datapipeline#errorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>"
+            "smithy.api#documentation": "<p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>",
+            "smithy.api#required": {}
           }
         },
         "errorStackTrace": {
@@ -1667,17 +1662,22 @@
             "smithy.api#documentation": "<p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>"
           }
         },
+        "errorMessage": {
+          "target": "com.amazonaws.datapipeline#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>"
+          }
+        },
+        "errorId": {
+          "target": "com.amazonaws.datapipeline#string",
+          "traits": {
+            "smithy.api#documentation": "<p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.</p>"
+          }
+        },
         "taskId": {
           "target": "com.amazonaws.datapipeline#taskId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "taskStatus": {
-          "target": "com.amazonaws.datapipeline#TaskStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1696,17 +1696,17 @@
     "com.amazonaws.datapipeline#Tag": {
       "type": "structure",
       "members": {
-        "key": {
-          "target": "com.amazonaws.datapipeline#tagKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The key name of a tag defined by a user.  \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "value": {
           "target": "com.amazonaws.datapipeline#tagValue",
           "traits": {
             "smithy.api#documentation": "<p>The optional value portion of a tag defined by a user.    \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.datapipeline#tagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The key name of a tag defined by a user.  \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1739,6 +1739,12 @@
             "smithy.api#documentation": "<p>The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.</p>"
           }
         },
+        "taskId": {
+          "target": "com.amazonaws.datapipeline#taskId",
+          "traits": {
+            "smithy.api#documentation": "<p>An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.</p>"
+          }
+        },
         "objects": {
           "target": "com.amazonaws.datapipeline#PipelineObjectMap",
           "traits": {
@@ -1749,12 +1755,6 @@
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the pipeline that provided the task.</p>"
-          }
-        },
-        "taskId": {
-          "target": "com.amazonaws.datapipeline#taskId",
-          "traits": {
-            "smithy.api#documentation": "<p>An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.</p>"
           }
         }
       },
@@ -1844,6 +1844,12 @@
     "com.amazonaws.datapipeline#ValidatePipelineDefinitionOutput": {
       "type": "structure",
       "members": {
+        "validationWarnings": {
+          "target": "com.amazonaws.datapipeline#ValidationWarnings",
+          "traits": {
+            "smithy.api#documentation": "<p>Any validation warnings that were found.</p>"
+          }
+        },
         "errored": {
           "target": "com.amazonaws.datapipeline#boolean",
           "traits": {
@@ -1856,12 +1862,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Any validation errors that were found.</p>"
           }
-        },
-        "validationWarnings": {
-          "target": "com.amazonaws.datapipeline#ValidationWarnings",
-          "traits": {
-            "smithy.api#documentation": "<p>Any validation warnings that were found.</p>"
-          }
         }
       },
       "traits": {
@@ -1871,16 +1871,16 @@
     "com.amazonaws.datapipeline#ValidationError": {
       "type": "structure",
       "members": {
-        "errors": {
-          "target": "com.amazonaws.datapipeline#validationMessages",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the validation error.</p>"
-          }
-        },
         "id": {
           "target": "com.amazonaws.datapipeline#id",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the object that contains the validation error.</p>"
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.datapipeline#validationMessages",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the validation error.</p>"
           }
         }
       },

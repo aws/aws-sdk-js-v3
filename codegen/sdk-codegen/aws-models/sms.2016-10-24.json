@@ -327,76 +327,10 @@
     "com.amazonaws.sms#AppSummary": {
       "type": "structure",
       "members": {
-        "appId": {
-          "target": "com.amazonaws.sms#AppId",
-          "traits": {
-            "smithy.api#documentation": "<p>Unique ID of the application.</p>"
-          }
-        },
-        "creationTime": {
-          "target": "com.amazonaws.sms#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Time of creation of this application.</p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.sms#AppDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>Description of the application.</p>"
-          }
-        },
-        "lastModified": {
-          "target": "com.amazonaws.sms#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Timestamp of the application's creation.</p>"
-          }
-        },
-        "latestReplicationTime": {
-          "target": "com.amazonaws.sms#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Timestamp of the application's most recent successful replication.</p>"
-          }
-        },
         "launchDetails": {
           "target": "com.amazonaws.sms#LaunchDetails",
           "traits": {
             "smithy.api#documentation": "<p>Details about the latest launch of the application.</p>"
-          }
-        },
-        "launchStatus": {
-          "target": "com.amazonaws.sms#AppLaunchStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Launch status of the application.</p>"
-          }
-        },
-        "launchStatusMessage": {
-          "target": "com.amazonaws.sms#AppLaunchStatusMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>A message related to the launch status of the application.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.sms#AppName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the application.</p>"
-          }
-        },
-        "replicationStatus": {
-          "target": "com.amazonaws.sms#AppReplicationStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Replication status of the application.</p>"
-          }
-        },
-        "replicationStatusMessage": {
-          "target": "com.amazonaws.sms#AppReplicationStatusMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>A message related to the replication status of the application.</p>"
-          }
-        },
-        "roleName": {
-          "target": "com.amazonaws.sms#RoleName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the service role in the customer's account used by AWS SMS.</p>"
           }
         },
         "status": {
@@ -405,10 +339,52 @@
             "smithy.api#documentation": "<p>Status of the application.</p>"
           }
         },
+        "latestReplicationTime": {
+          "target": "com.amazonaws.sms#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp of the application's most recent successful replication.</p>"
+          }
+        },
+        "replicationStatus": {
+          "target": "com.amazonaws.sms#AppReplicationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Replication status of the application.</p>"
+          }
+        },
         "statusMessage": {
           "target": "com.amazonaws.sms#AppStatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message related to the status of the application</p>"
+          }
+        },
+        "replicationStatusMessage": {
+          "target": "com.amazonaws.sms#AppReplicationStatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>A message related to the replication status of the application.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.sms#AppDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Description of the application.</p>"
+          }
+        },
+        "roleName": {
+          "target": "com.amazonaws.sms#RoleName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the service role in the customer's account used by AWS SMS.</p>"
+          }
+        },
+        "creationTime": {
+          "target": "com.amazonaws.sms#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Time of creation of this application.</p>"
+          }
+        },
+        "appId": {
+          "target": "com.amazonaws.sms#AppId",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique ID of the application.</p>"
           }
         },
         "totalServerGroups": {
@@ -417,10 +393,34 @@
             "smithy.api#documentation": "<p>Number of server groups present in the application.</p>"
           }
         },
+        "name": {
+          "target": "com.amazonaws.sms#AppName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the application.</p>"
+          }
+        },
+        "lastModified": {
+          "target": "com.amazonaws.sms#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp of the application's creation.</p>"
+          }
+        },
+        "launchStatusMessage": {
+          "target": "com.amazonaws.sms#AppLaunchStatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>A message related to the launch status of the application.</p>"
+          }
+        },
         "totalServers": {
           "target": "com.amazonaws.sms#TotalServers",
           "traits": {
             "smithy.api#documentation": "<p>Number of servers present in the application.</p>"
+          }
+        },
+        "launchStatus": {
+          "target": "com.amazonaws.sms#AppLaunchStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch status of the application.</p>"
           }
         }
       },
@@ -449,16 +449,16 @@
     "com.amazonaws.sms#Connector": {
       "type": "structure",
       "members": {
-        "associatedOn": {
-          "target": "com.amazonaws.sms#Timestamp",
+        "vmManagerName": {
+          "target": "com.amazonaws.sms#VmManagerName",
           "traits": {
-            "smithy.api#documentation": "<p>The time the connector was associated.</p>"
+            "smithy.api#documentation": "<p>The name of the VM manager.</p>"
           }
         },
-        "capabilityList": {
-          "target": "com.amazonaws.sms#ConnectorCapabilityList",
+        "vmManagerId": {
+          "target": "com.amazonaws.sms#VmManagerId",
           "traits": {
-            "smithy.api#documentation": "<p>The capabilities of the connector.</p>"
+            "smithy.api#documentation": "<p>The identifier of the VM manager.</p>"
           }
         },
         "connectorId": {
@@ -473,16 +473,10 @@
             "smithy.api#documentation": "<p>The IP address of the connector.</p>"
           }
         },
-        "macAddress": {
-          "target": "com.amazonaws.sms#MacAddress",
+        "associatedOn": {
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The MAC address of the connector.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.sms#ConnectorStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the connector.</p>"
+            "smithy.api#documentation": "<p>The time the connector was associated.</p>"
           }
         },
         "version": {
@@ -491,22 +485,28 @@
             "smithy.api#documentation": "<p>The connector version.</p>"
           }
         },
-        "vmManagerId": {
-          "target": "com.amazonaws.sms#VmManagerId",
+        "status": {
+          "target": "com.amazonaws.sms#ConnectorStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the VM manager.</p>"
-          }
-        },
-        "vmManagerName": {
-          "target": "com.amazonaws.sms#VmManagerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the VM manager.</p>"
+            "smithy.api#documentation": "<p>The status of the connector.</p>"
           }
         },
         "vmManagerType": {
           "target": "com.amazonaws.sms#VmManagerType",
           "traits": {
             "smithy.api#documentation": "<p>The VM management product.</p>"
+          }
+        },
+        "capabilityList": {
+          "target": "com.amazonaws.sms#ConnectorCapabilityList",
+          "traits": {
+            "smithy.api#documentation": "<p>The capabilities of the connector.</p>"
+          }
+        },
+        "macAddress": {
+          "target": "com.amazonaws.sms#MacAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The MAC address of the connector.</p>"
           }
         }
       },
@@ -608,16 +608,10 @@
     "com.amazonaws.sms#CreateAppRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.sms#ClientToken",
+        "roleName": {
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier you provide to ensure idempotency of application\n            creation.</p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.sms#AppDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>Description of the new application</p>"
+            "smithy.api#documentation": "<p>Name of service role in customer's account to be used by AWS SMS.</p>"
           }
         },
         "name": {
@@ -626,10 +620,10 @@
             "smithy.api#documentation": "<p>Name of the new application.</p>"
           }
         },
-        "roleName": {
-          "target": "com.amazonaws.sms#RoleName",
+        "description": {
+          "target": "com.amazonaws.sms#AppDescription",
           "traits": {
-            "smithy.api#documentation": "<p>Name of service role in customer's account to be used by AWS SMS.</p>"
+            "smithy.api#documentation": "<p>Description of the new application</p>"
           }
         },
         "serverGroups": {
@@ -643,18 +637,18 @@
           "traits": {
             "smithy.api#documentation": "<p>List of tags to be associated with the application.</p>"
           }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.sms#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier you provide to ensure idempotency of application\n            creation.</p>"
+          }
         }
       }
     },
     "com.amazonaws.sms#CreateAppResponse": {
       "type": "structure",
       "members": {
-        "appSummary": {
-          "target": "com.amazonaws.sms#AppSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>Summary description of the application.</p>"
-          }
-        },
         "serverGroups": {
           "target": "com.amazonaws.sms#ServerGroups",
           "traits": {
@@ -665,6 +659,12 @@
           "target": "com.amazonaws.sms#Tags",
           "traits": {
             "smithy.api#documentation": "<p>List of taags associated with the application.</p>"
+          }
+        },
+        "appSummary": {
+          "target": "com.amazonaws.sms#AppSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Summary description of the application.</p>"
           }
         }
       }
@@ -719,22 +719,16 @@
             "smithy.api#documentation": "<p>The description of the replication job.</p>"
           }
         },
-        "encrypted": {
-          "target": "com.amazonaws.sms#Encrypted",
-          "traits": {
-            "smithy.api#documentation": "<p>When <i>true</i>, the replication job produces encrypted AMIs. See also\n                <code>KmsKeyId</code> below.</p>"
-          }
-        },
-        "frequency": {
-          "target": "com.amazonaws.sms#Frequency",
-          "traits": {
-            "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
-          }
-        },
         "kmsKeyId": {
           "target": "com.amazonaws.sms#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
+          }
+        },
+        "roleName": {
+          "target": "com.amazonaws.sms#RoleName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the IAM role to be used by the AWS SMS.</p>"
           }
         },
         "licenseType": {
@@ -749,10 +743,17 @@
             "smithy.api#documentation": "<p>The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the\n            maximum number is reached and a new AMI is created.</p>"
           }
         },
-        "roleName": {
-          "target": "com.amazonaws.sms#RoleName",
+        "encrypted": {
+          "target": "com.amazonaws.sms#Encrypted",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the IAM role to be used by the AWS SMS.</p>"
+            "smithy.api#documentation": "<p>When <i>true</i>, the replication job produces encrypted AMIs. See also\n                <code>KmsKeyId</code> below.</p>"
+          }
+        },
+        "serverId": {
+          "target": "com.amazonaws.sms#ServerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the server.</p>",
+            "smithy.api#required": {}
           }
         },
         "runOnce": {
@@ -768,11 +769,10 @@
             "smithy.api#required": {}
           }
         },
-        "serverId": {
-          "target": "com.amazonaws.sms#ServerId",
+        "frequency": {
+          "target": "com.amazonaws.sms#Frequency",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the server.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
           }
         }
       }
@@ -908,10 +908,10 @@
     "com.amazonaws.sms#DeleteAppRequest": {
       "type": "structure",
       "members": {
-        "appId": {
-          "target": "com.amazonaws.sms#AppId",
+        "forceTerminateApp": {
+          "target": "com.amazonaws.sms#ForceTerminateApp",
           "traits": {
-            "smithy.api#documentation": "<p>ID of the application to delete.</p>"
+            "smithy.api#documentation": "<p>While deleting the application, terminate the stack corresponding to the\n            application.</p>"
           }
         },
         "forceStopAppReplication": {
@@ -920,10 +920,10 @@
             "smithy.api#documentation": "<p>While deleting the application, stop all replication jobs corresponding to the servers\n            in the application.</p>"
           }
         },
-        "forceTerminateApp": {
-          "target": "com.amazonaws.sms#ForceTerminateApp",
+        "appId": {
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
-            "smithy.api#documentation": "<p>While deleting the application, terminate the stack corresponding to the\n            application.</p>"
+            "smithy.api#documentation": "<p>ID of the application to delete.</p>"
           }
         }
       }
@@ -1118,16 +1118,16 @@
     "com.amazonaws.sms#GenerateChangeSetRequest": {
       "type": "structure",
       "members": {
-        "appId": {
-          "target": "com.amazonaws.sms#AppId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID of the application associated with the change set.</p>"
-          }
-        },
         "changesetFormat": {
           "target": "com.amazonaws.sms#OutputFormat",
           "traits": {
             "smithy.api#documentation": "<p>Format for the change set.</p>"
+          }
+        },
+        "appId": {
+          "target": "com.amazonaws.sms#AppId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of the application associated with the change set.</p>"
           }
         }
       }
@@ -1175,16 +1175,16 @@
     "com.amazonaws.sms#GenerateTemplateRequest": {
       "type": "structure",
       "members": {
-        "appId": {
-          "target": "com.amazonaws.sms#AppId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID of the application associated with the Amazon CloudFormation template.</p>"
-          }
-        },
         "templateFormat": {
           "target": "com.amazonaws.sms#OutputFormat",
           "traits": {
             "smithy.api#documentation": "<p>Format for generating the Amazon CloudFormation template.</p>"
+          }
+        },
+        "appId": {
+          "target": "com.amazonaws.sms#AppId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of the application associated with the Amazon CloudFormation template.</p>"
           }
         }
       }
@@ -1272,10 +1272,10 @@
     "com.amazonaws.sms#GetAppLaunchConfigurationResponse": {
       "type": "structure",
       "members": {
-        "appId": {
-          "target": "com.amazonaws.sms#AppId",
+        "serverGroupLaunchConfigurations": {
+          "target": "com.amazonaws.sms#ServerGroupLaunchConfigurations",
           "traits": {
-            "smithy.api#documentation": "<p>ID of the application associated with the launch configuration.</p>"
+            "smithy.api#documentation": "<p>List of launch configurations for server groups in this application.</p>"
           }
         },
         "roleName": {
@@ -1284,10 +1284,10 @@
             "smithy.api#documentation": "<p>Name of the service role in the customer's account that Amazon CloudFormation uses to launch the\n            application.</p>"
           }
         },
-        "serverGroupLaunchConfigurations": {
-          "target": "com.amazonaws.sms#ServerGroupLaunchConfigurations",
+        "appId": {
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
-            "smithy.api#documentation": "<p>List of launch configurations for server groups in this application.</p>"
+            "smithy.api#documentation": "<p>ID of the application associated with the launch configuration.</p>"
           }
         }
       }
@@ -1357,10 +1357,10 @@
     "com.amazonaws.sms#GetAppResponse": {
       "type": "structure",
       "members": {
-        "appSummary": {
-          "target": "com.amazonaws.sms#AppSummary",
+        "tags": {
+          "target": "com.amazonaws.sms#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the application.</p>"
+            "smithy.api#documentation": "<p>List of tags associated with the application.</p>"
           }
         },
         "serverGroups": {
@@ -1369,10 +1369,10 @@
             "smithy.api#documentation": "<p>List of server groups belonging to the application.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.sms#Tags",
+        "appSummary": {
+          "target": "com.amazonaws.sms#AppSummary",
           "traits": {
-            "smithy.api#documentation": "<p>List of tags associated with the application.</p>"
+            "smithy.api#documentation": "<p>Information about the application.</p>"
           }
         }
       }
@@ -1403,16 +1403,16 @@
     "com.amazonaws.sms#GetConnectorsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.sms#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is 50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.sms#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is 50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value.</p>"
           }
         }
       }
@@ -1420,16 +1420,16 @@
     "com.amazonaws.sms#GetConnectorsResponse": {
       "type": "structure",
       "members": {
-        "connectorList": {
-          "target": "com.amazonaws.sms#ConnectorList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the registered connectors.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
+          }
+        },
+        "connectorList": {
+          "target": "com.amazonaws.sms#ConnectorList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the registered connectors.</p>"
           }
         }
       }
@@ -1466,16 +1466,16 @@
     "com.amazonaws.sms#GetReplicationJobsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.sms#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is 50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.sms#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is 50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value.</p>"
           }
         },
         "replicationJobId": {
@@ -1489,16 +1489,16 @@
     "com.amazonaws.sms#GetReplicationJobsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.sms#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
-          }
-        },
         "replicationJobList": {
           "target": "com.amazonaws.sms#ReplicationJobList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the replication jobs.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.sms#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
           }
         }
       }
@@ -1535,6 +1535,13 @@
     "com.amazonaws.sms#GetReplicationRunsRequest": {
       "type": "structure",
       "members": {
+        "replicationJobId": {
+          "target": "com.amazonaws.sms#ReplicationJobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the replication job.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "maxResults": {
           "target": "com.amazonaws.sms#MaxResults",
           "traits": {
@@ -1546,19 +1553,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>"
           }
-        },
-        "replicationJobId": {
-          "target": "com.amazonaws.sms#ReplicationJobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the replication job.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.sms#GetReplicationRunsResponse": {
       "type": "structure",
       "members": {
+        "replicationRunList": {
+          "target": "com.amazonaws.sms#ReplicationRunList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the replication runs.</p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.sms#NextToken",
           "traits": {
@@ -1569,12 +1575,6 @@
           "target": "com.amazonaws.sms#ReplicationJob",
           "traits": {
             "smithy.api#documentation": "<p>Information about the replication job.</p>"
-          }
-        },
-        "replicationRunList": {
-          "target": "com.amazonaws.sms#ReplicationRunList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the replication runs.</p>"
           }
         }
       }
@@ -1628,28 +1628,28 @@
     "com.amazonaws.sms#GetServersResponse": {
       "type": "structure",
       "members": {
-        "lastModifiedOn": {
-          "target": "com.amazonaws.sms#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the server was last modified.</p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.sms#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
-          }
-        },
         "serverCatalogStatus": {
           "target": "com.amazonaws.sms#ServerCatalogStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the server catalog.</p>"
           }
         },
+        "lastModifiedOn": {
+          "target": "com.amazonaws.sms#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the server was last modified.</p>"
+          }
+        },
         "serverList": {
           "target": "com.amazonaws.sms#ServerList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the servers.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.sms#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
           }
         }
       }
@@ -1776,16 +1776,16 @@
     "com.amazonaws.sms#LaunchDetails": {
       "type": "structure",
       "members": {
-        "latestLaunchTime": {
-          "target": "com.amazonaws.sms#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Latest time this application was launched successfully.</p>"
-          }
-        },
         "stackId": {
           "target": "com.amazonaws.sms#StackId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the latest stack launched for this application.</p>"
+          }
+        },
+        "latestLaunchTime": {
+          "target": "com.amazonaws.sms#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Latest time this application was launched successfully.</p>"
           }
         },
         "stackName": {
@@ -1852,10 +1852,10 @@
     "com.amazonaws.sms#ListAppsRequest": {
       "type": "structure",
       "members": {
-        "appIds": {
-          "target": "com.amazonaws.sms#AppIds",
+        "nextToken": {
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p></p>"
+            "smithy.api#documentation": "<p>The token for the next set of results.</p>"
           }
         },
         "maxResults": {
@@ -1864,10 +1864,10 @@
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is\n            50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value. </p>"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.sms#NextToken",
+        "appIds": {
+          "target": "com.amazonaws.sms#AppIds",
           "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results.</p>"
+            "smithy.api#documentation": "<p></p>"
           }
         }
       }
@@ -1875,16 +1875,16 @@
     "com.amazonaws.sms#ListAppsResponse": {
       "type": "structure",
       "members": {
-        "apps": {
-          "target": "com.amazonaws.sms#Apps",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of application summaries.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when there\n            are no more results to return.</p>"
+          }
+        },
+        "apps": {
+          "target": "com.amazonaws.sms#Apps",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of application summaries.</p>"
           }
         }
       }
@@ -2073,28 +2073,10 @@
     "com.amazonaws.sms#ReplicationJob": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.sms#Description",
+        "state": {
+          "target": "com.amazonaws.sms#ReplicationJobState",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the replication job.</p>"
-          }
-        },
-        "encrypted": {
-          "target": "com.amazonaws.sms#Encrypted",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the replication job should produce encrypted AMIs or not. See also\n                <code>KmsKeyId</code> below.</p>"
-          }
-        },
-        "frequency": {
-          "target": "com.amazonaws.sms#Frequency",
-          "traits": {
-            "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
-          }
-        },
-        "kmsKeyId": {
-          "target": "com.amazonaws.sms#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
+            "smithy.api#documentation": "<p>The state of the replication job.</p>"
           }
         },
         "latestAmiId": {
@@ -2103,22 +2085,16 @@
             "smithy.api#documentation": "<p>The ID of the latest Amazon Machine Image (AMI).</p>"
           }
         },
-        "licenseType": {
-          "target": "com.amazonaws.sms#LicenseType",
+        "vmServer": {
+          "target": "com.amazonaws.sms#VmServer",
           "traits": {
-            "smithy.api#documentation": "<p>The license type to be used for the AMI created by a successful replication\n            run.</p>"
+            "smithy.api#documentation": "<p>Information about the VM server.</p>"
           }
         },
-        "nextReplicationRunStartTime": {
-          "target": "com.amazonaws.sms#Timestamp",
+        "frequency": {
+          "target": "com.amazonaws.sms#Frequency",
           "traits": {
-            "smithy.api#documentation": "<p>The start time of the next replication run.</p>"
-          }
-        },
-        "numberOfRecentAmisToKeep": {
-          "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of recent AMIs to keep in the customer's account for a replication job. By\n            default the value is set to zero, meaning that all AMIs are kept.</p>"
+            "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
           }
         },
         "replicationJobId": {
@@ -2133,10 +2109,58 @@
             "smithy.api#documentation": "<p>Information about the replication runs.</p>"
           }
         },
+        "serverId": {
+          "target": "com.amazonaws.sms#ServerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the server.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.sms#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the replication job.</p>"
+          }
+        },
+        "nextReplicationRunStartTime": {
+          "target": "com.amazonaws.sms#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of the next replication run.</p>"
+          }
+        },
         "roleName": {
           "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the IAM role to be used by the Server Migration Service.</p>"
+          }
+        },
+        "kmsKeyId": {
+          "target": "com.amazonaws.sms#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
+          }
+        },
+        "encrypted": {
+          "target": "com.amazonaws.sms#Encrypted",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the replication job should produce encrypted AMIs or not. See also\n                <code>KmsKeyId</code> below.</p>"
+          }
+        },
+        "licenseType": {
+          "target": "com.amazonaws.sms#LicenseType",
+          "traits": {
+            "smithy.api#documentation": "<p>The license type to be used for the AMI created by a successful replication\n            run.</p>"
+          }
+        },
+        "numberOfRecentAmisToKeep": {
+          "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of recent AMIs to keep in the customer's account for a replication job. By\n            default the value is set to zero, meaning that all AMIs are kept.</p>"
+          }
+        },
+        "statusMessage": {
+          "target": "com.amazonaws.sms#ReplicationJobStatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the current status of the replication job.</p>"
           }
         },
         "runOnce": {
@@ -2151,34 +2175,10 @@
             "smithy.api#documentation": "<p>The seed replication time.</p>"
           }
         },
-        "serverId": {
-          "target": "com.amazonaws.sms#ServerId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the server.</p>"
-          }
-        },
         "serverType": {
           "target": "com.amazonaws.sms#ServerType",
           "traits": {
             "smithy.api#documentation": "<p>The type of server.</p>"
-          }
-        },
-        "state": {
-          "target": "com.amazonaws.sms#ReplicationJobState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the replication job.</p>"
-          }
-        },
-        "statusMessage": {
-          "target": "com.amazonaws.sms#ReplicationJobStatusMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the current status of the replication job.</p>"
-          }
-        },
-        "vmServer": {
-          "target": "com.amazonaws.sms#VmServer",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the VM server.</p>"
           }
         }
       },
@@ -2275,58 +2275,10 @@
     "com.amazonaws.sms#ReplicationRun": {
       "type": "structure",
       "members": {
-        "amiId": {
-          "target": "com.amazonaws.sms#AmiId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Machine Image (AMI) from the replication\n            run.</p>"
-          }
-        },
         "completedTime": {
           "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The completion time of the last replication run.</p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.sms#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the replication run.</p>"
-          }
-        },
-        "encrypted": {
-          "target": "com.amazonaws.sms#Encrypted",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the replication run should produce encrypted AMI or not. See also\n                <code>KmsKeyId</code> below.</p>"
-          }
-        },
-        "kmsKeyId": {
-          "target": "com.amazonaws.sms#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
-          }
-        },
-        "replicationRunId": {
-          "target": "com.amazonaws.sms#ReplicationRunId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the replication run.</p>"
-          }
-        },
-        "scheduledStartTime": {
-          "target": "com.amazonaws.sms#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The start time of the next replication run.</p>"
-          }
-        },
-        "stageDetails": {
-          "target": "com.amazonaws.sms#ReplicationRunStageDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>Details of the current stage of the replication run.</p>"
-          }
-        },
-        "state": {
-          "target": "com.amazonaws.sms#ReplicationRunState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the replication run.</p>"
           }
         },
         "statusMessage": {
@@ -2335,10 +2287,58 @@
             "smithy.api#documentation": "<p>The description of the current status of the replication job.</p>"
           }
         },
+        "encrypted": {
+          "target": "com.amazonaws.sms#Encrypted",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the replication run should produce encrypted AMI or not. See also\n                <code>KmsKeyId</code> below.</p>"
+          }
+        },
         "type": {
           "target": "com.amazonaws.sms#ReplicationRunType",
           "traits": {
             "smithy.api#documentation": "<p>The type of replication run.</p>"
+          }
+        },
+        "replicationRunId": {
+          "target": "com.amazonaws.sms#ReplicationRunId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the replication run.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.sms#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the replication run.</p>"
+          }
+        },
+        "amiId": {
+          "target": "com.amazonaws.sms#AmiId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Machine Image (AMI) from the replication\n            run.</p>"
+          }
+        },
+        "stageDetails": {
+          "target": "com.amazonaws.sms#ReplicationRunStageDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Details of the current stage of the replication run.</p>"
+          }
+        },
+        "scheduledStartTime": {
+          "target": "com.amazonaws.sms#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of the next replication run.</p>"
+          }
+        },
+        "kmsKeyId": {
+          "target": "com.amazonaws.sms#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.sms#ReplicationRunState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the replication run.</p>"
           }
         }
       },
@@ -2377,16 +2377,16 @@
     "com.amazonaws.sms#ReplicationRunStageDetails": {
       "type": "structure",
       "members": {
-        "stage": {
-          "target": "com.amazonaws.sms#ReplicationRunStage",
-          "traits": {
-            "smithy.api#documentation": "<p>String describing the current stage of a replication run.</p>"
-          }
-        },
         "stageProgress": {
           "target": "com.amazonaws.sms#ReplicationRunStageProgress",
           "traits": {
             "smithy.api#documentation": "<p>String describing the progress of the current stage of a replication run.</p>"
+          }
+        },
+        "stage": {
+          "target": "com.amazonaws.sms#ReplicationRunStage",
+          "traits": {
+            "smithy.api#documentation": "<p>String describing the current stage of a replication run.</p>"
           }
         }
       },
@@ -2485,6 +2485,24 @@
     "com.amazonaws.sms#Server": {
       "type": "structure",
       "members": {
+        "serverType": {
+          "target": "com.amazonaws.sms#ServerType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of server.</p>"
+          }
+        },
+        "serverId": {
+          "target": "com.amazonaws.sms#ServerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the server.</p>"
+          }
+        },
+        "vmServer": {
+          "target": "com.amazonaws.sms#VmServer",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the VM server.</p>"
+          }
+        },
         "replicationJobId": {
           "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
@@ -2495,24 +2513,6 @@
           "target": "com.amazonaws.sms#ReplicationJobTerminated",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the replication job is deleted or failed.</p>"
-          }
-        },
-        "serverId": {
-          "target": "com.amazonaws.sms#ServerId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the server.</p>"
-          }
-        },
-        "serverType": {
-          "target": "com.amazonaws.sms#ServerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of server.</p>"
-          }
-        },
-        "vmServer": {
-          "target": "com.amazonaws.sms#VmServer",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the VM server.</p>"
           }
         }
       },
@@ -2563,16 +2563,16 @@
     "com.amazonaws.sms#ServerGroup": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.sms#ServerGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of a server group.</p>"
-          }
-        },
         "serverGroupId": {
           "target": "com.amazonaws.sms#ServerGroupId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of a server group.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.sms#ServerGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of a server group.</p>"
           }
         },
         "serverList": {
@@ -2598,16 +2598,16 @@
             "smithy.api#documentation": "<p>Launch order of servers in the server group.</p>"
           }
         },
-        "serverGroupId": {
-          "target": "com.amazonaws.sms#ServerGroupId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier of the server group the launch configuration is associated with.</p>"
-          }
-        },
         "serverLaunchConfigurations": {
           "target": "com.amazonaws.sms#ServerLaunchConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Launch configuration for servers in the server group.</p>"
+          }
+        },
+        "serverGroupId": {
+          "target": "com.amazonaws.sms#ServerGroupId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier of the server group the launch configuration is associated with.</p>"
           }
         }
       },
@@ -2627,16 +2627,16 @@
     "com.amazonaws.sms#ServerGroupReplicationConfiguration": {
       "type": "structure",
       "members": {
-        "serverGroupId": {
-          "target": "com.amazonaws.sms#ServerGroupId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier of the server group this replication configuration is associated\n            with.</p>"
-          }
-        },
         "serverReplicationConfigurations": {
           "target": "com.amazonaws.sms#ServerReplicationConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Replication configuration for servers in the server group.</p>"
+          }
+        },
+        "serverGroupId": {
+          "target": "com.amazonaws.sms#ServerGroupId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier of the server group this replication configuration is associated\n            with.</p>"
           }
         }
       },
@@ -2662,28 +2662,16 @@
     "com.amazonaws.sms#ServerLaunchConfiguration": {
       "type": "structure",
       "members": {
+        "vpc": {
+          "target": "com.amazonaws.sms#VPC",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier of the VPC the server should be launched into.</p>"
+          }
+        },
         "associatePublicIpAddress": {
           "target": "com.amazonaws.sms#AssociatePublicIpAddress",
           "traits": {
             "smithy.api#documentation": "<p>If true, a publicly accessible IP address is created when launching the server.</p>"
-          }
-        },
-        "ec2KeyName": {
-          "target": "com.amazonaws.sms#EC2KeyName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the EC2 SSH Key to be used for connecting to the launched server.</p>"
-          }
-        },
-        "instanceType": {
-          "target": "com.amazonaws.sms#InstanceType",
-          "traits": {
-            "smithy.api#documentation": "<p>Instance type to be used for launching the server.</p>"
-          }
-        },
-        "logicalId": {
-          "target": "com.amazonaws.sms#LogicalId",
-          "traits": {
-            "smithy.api#documentation": "<p>Logical ID of the server in the Amazon CloudFormation template.</p>"
           }
         },
         "securityGroup": {
@@ -2710,10 +2698,22 @@
             "smithy.api#documentation": "<p>Location of the user-data script to be executed when launching the server.</p>"
           }
         },
-        "vpc": {
-          "target": "com.amazonaws.sms#VPC",
+        "logicalId": {
+          "target": "com.amazonaws.sms#LogicalId",
           "traits": {
-            "smithy.api#documentation": "<p>Identifier of the VPC the server should be launched into.</p>"
+            "smithy.api#documentation": "<p>Logical ID of the server in the Amazon CloudFormation template.</p>"
+          }
+        },
+        "ec2KeyName": {
+          "target": "com.amazonaws.sms#EC2KeyName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the EC2 SSH Key to be used for connecting to the launched server.</p>"
+          }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.sms#InstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Instance type to be used for launching the server.</p>"
           }
         }
       },
@@ -2765,16 +2765,16 @@
     "com.amazonaws.sms#ServerReplicationParameters": {
       "type": "structure",
       "members": {
-        "encrypted": {
-          "target": "com.amazonaws.sms#Encrypted",
-          "traits": {
-            "smithy.api#documentation": "<p>When true, the replication job produces encrypted AMIs. See also <code>KmsKeyId</code>\n            below.</p>"
-          }
-        },
         "frequency": {
           "target": "com.amazonaws.sms#Frequency",
           "traits": {
             "smithy.api#documentation": "<p>Frequency of creating replication jobs for the server.</p>"
+          }
+        },
+        "runOnce": {
+          "target": "com.amazonaws.sms#RunOnce",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
           }
         },
         "kmsKeyId": {
@@ -2789,22 +2789,22 @@
             "smithy.api#documentation": "<p>License type for creating a replication job for the server.</p>"
           }
         },
+        "seedTime": {
+          "target": "com.amazonaws.sms#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Seed time for creating a replication job for the server.</p>"
+          }
+        },
         "numberOfRecentAmisToKeep": {
           "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
           "traits": {
             "smithy.api#documentation": "<p>Number of recent AMIs to keep when creating a replication job for this server.</p>"
           }
         },
-        "runOnce": {
-          "target": "com.amazonaws.sms#RunOnce",
+        "encrypted": {
+          "target": "com.amazonaws.sms#Encrypted",
           "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "seedTime": {
-          "target": "com.amazonaws.sms#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Seed time for creating a replication job for the server.</p>"
+            "smithy.api#documentation": "<p>When true, the replication job produces encrypted AMIs. See also <code>KmsKeyId</code>\n            below.</p>"
           }
         }
       },
@@ -2981,16 +2981,16 @@
     "com.amazonaws.sms#Tag": {
       "type": "structure",
       "members": {
-        "key": {
-          "target": "com.amazonaws.sms#TagKey",
-          "traits": {
-            "smithy.api#documentation": "<p>Tag key.</p>"
-          }
-        },
         "value": {
           "target": "com.amazonaws.sms#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>Tag value.</p>"
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.sms#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>Tag key.</p>"
           }
         }
       },
@@ -3123,10 +3123,10 @@
     "com.amazonaws.sms#UpdateAppRequest": {
       "type": "structure",
       "members": {
-        "appId": {
-          "target": "com.amazonaws.sms#AppId",
+        "name": {
+          "target": "com.amazonaws.sms#AppName",
           "traits": {
-            "smithy.api#documentation": "<p>ID of the application to update.</p>"
+            "smithy.api#documentation": "<p>New name of the application.</p>"
           }
         },
         "description": {
@@ -3135,22 +3135,16 @@
             "smithy.api#documentation": "<p>New description of the application.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.sms#AppName",
-          "traits": {
-            "smithy.api#documentation": "<p>New name of the application.</p>"
-          }
-        },
-        "roleName": {
-          "target": "com.amazonaws.sms#RoleName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the service role in the customer's account used by AWS SMS.</p>"
-          }
-        },
         "serverGroups": {
           "target": "com.amazonaws.sms#ServerGroups",
           "traits": {
             "smithy.api#documentation": "<p>List of server groups in the application to update.</p>"
+          }
+        },
+        "appId": {
+          "target": "com.amazonaws.sms#AppId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of the application to update.</p>"
           }
         },
         "tags": {
@@ -3158,22 +3152,28 @@
           "traits": {
             "smithy.api#documentation": "<p>List of tags to associate with the application.</p>"
           }
+        },
+        "roleName": {
+          "target": "com.amazonaws.sms#RoleName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the service role in the customer's account used by AWS SMS.</p>"
+          }
         }
       }
     },
     "com.amazonaws.sms#UpdateAppResponse": {
       "type": "structure",
       "members": {
-        "appSummary": {
-          "target": "com.amazonaws.sms#AppSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>Summary description of the application.</p>"
-          }
-        },
         "serverGroups": {
           "target": "com.amazonaws.sms#ServerGroups",
           "traits": {
             "smithy.api#documentation": "<p>List of updated server groups in the application.</p>"
+          }
+        },
+        "appSummary": {
+          "target": "com.amazonaws.sms#AppSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Summary description of the application.</p>"
           }
         },
         "tags": {
@@ -3225,22 +3225,10 @@
     "com.amazonaws.sms#UpdateReplicationJobRequest": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.sms#Description",
+        "numberOfRecentAmisToKeep": {
+          "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the replication job.</p>"
-          }
-        },
-        "encrypted": {
-          "target": "com.amazonaws.sms#Encrypted",
-          "traits": {
-            "smithy.api#documentation": "<p>When true, the replication job produces encrypted AMIs . See also\n                <code>KmsKeyId</code> below.</p>"
-          }
-        },
-        "frequency": {
-          "target": "com.amazonaws.sms#Frequency",
-          "traits": {
-            "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
+            "smithy.api#documentation": "<p>The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the\n            maximum number is reached and a new AMI is created.</p>"
           }
         },
         "kmsKeyId": {
@@ -3261,10 +3249,16 @@
             "smithy.api#documentation": "<p>The start time of the next replication run.</p>"
           }
         },
-        "numberOfRecentAmisToKeep": {
-          "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
+        "roleName": {
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the\n            maximum number is reached and a new AMI is created.</p>"
+            "smithy.api#documentation": "<p>The name of the IAM role to be used by AWS SMS.</p>"
+          }
+        },
+        "frequency": {
+          "target": "com.amazonaws.sms#Frequency",
+          "traits": {
+            "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
           }
         },
         "replicationJobId": {
@@ -3274,10 +3268,16 @@
             "smithy.api#required": {}
           }
         },
-        "roleName": {
-          "target": "com.amazonaws.sms#RoleName",
+        "description": {
+          "target": "com.amazonaws.sms#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the IAM role to be used by AWS SMS.</p>"
+            "smithy.api#documentation": "<p>The description of the replication job.</p>"
+          }
+        },
+        "encrypted": {
+          "target": "com.amazonaws.sms#Encrypted",
+          "traits": {
+            "smithy.api#documentation": "<p>When true, the replication job produces encrypted AMIs . See also\n                <code>KmsKeyId</code> below.</p>"
           }
         }
       }
@@ -3340,6 +3340,12 @@
     "com.amazonaws.sms#VmServer": {
       "type": "structure",
       "members": {
+        "vmPath": {
+          "target": "com.amazonaws.sms#VmPath",
+          "traits": {
+            "smithy.api#documentation": "<p>The VM folder path in the vCenter Server virtual machine inventory tree.</p>"
+          }
+        },
         "vmManagerName": {
           "target": "com.amazonaws.sms#VmManagerName",
           "traits": {
@@ -3352,22 +3358,16 @@
             "smithy.api#documentation": "<p>The type of VM management product.</p>"
           }
         },
-        "vmName": {
-          "target": "com.amazonaws.sms#VmName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the VM.</p>"
-          }
-        },
-        "vmPath": {
-          "target": "com.amazonaws.sms#VmPath",
-          "traits": {
-            "smithy.api#documentation": "<p>The VM folder path in the vCenter Server virtual machine inventory tree.</p>"
-          }
-        },
         "vmServerAddress": {
           "target": "com.amazonaws.sms#VmServerAddress",
           "traits": {
             "smithy.api#documentation": "<p>Information about the VM server location.</p>"
+          }
+        },
+        "vmName": {
+          "target": "com.amazonaws.sms#VmName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the VM.</p>"
           }
         }
       },

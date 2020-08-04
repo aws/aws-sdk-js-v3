@@ -168,17 +168,17 @@
             "smithy.api#required": {}
           }
         },
-        "QuotaCode": {
-          "target": "com.amazonaws.servicequotas#QuotaCode",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the code for the quota that you want to delete.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the code for the service that you want to delete.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the code for the quota that you want to delete.</p>",
             "smithy.api#required": {}
           }
         }
@@ -328,17 +328,17 @@
     "com.amazonaws.servicequotas#GetAWSDefaultServiceQuotaRequest": {
       "type": "structure",
       "members": {
-        "QuotaCode": {
-          "target": "com.amazonaws.servicequotas#QuotaCode",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the service quota you want to select.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the service quota you want to select.</p>",
             "smithy.api#required": {}
           }
         }
@@ -533,17 +533,17 @@
     "com.amazonaws.servicequotas#GetServiceQuotaIncreaseRequestFromTemplateRequest": {
       "type": "structure",
       "members": {
-        "AwsRegion": {
-          "target": "com.amazonaws.servicequotas#AwsRegion",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the AWS Region for the quota that you want to use.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "QuotaCode": {
           "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the quota you want.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AwsRegion": {
+          "target": "com.amazonaws.servicequotas#AwsRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the AWS Region for the quota that you want to use.</p>",
             "smithy.api#required": {}
           }
         },
@@ -570,17 +570,17 @@
     "com.amazonaws.servicequotas#GetServiceQuotaRequest": {
       "type": "structure",
       "members": {
-        "QuotaCode": {
-          "target": "com.amazonaws.servicequotas#QuotaCode",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the service quota you want to select.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the service quota you want to select.</p>",
             "smithy.api#required": {}
           }
         }
@@ -680,10 +680,11 @@
     "com.amazonaws.servicequotas#ListAWSDefaultServiceQuotasRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.servicequotas#MaxResults",
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
-            "smithy.api#documentation": "<p>(Optional) Limits the number of results that you want to include in the response. If you\n      don't include this parameter, the response defaults to a value that's specific to the\n      operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>\n      element is present and has a value (isn't null). Include that value as the\n        <code>NextToken</code> request parameter in the call to the operation to get the next part\n      of the results. You should check <code>NextToken</code> after every operation to ensure that\n      you receive all of the results.</p>"
+            "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -692,11 +693,10 @@
             "smithy.api#documentation": "<p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>\n      response in a previous request that indicates that there's more output available. In a\n      subsequent call, set it to the value of the previous call's <code>NextToken</code> response to\n      indicate where the output should continue from. If additional items exist beyond the specified\n      maximum, the <code>NextToken</code> element is present and has a value (isn't null). Include\n      that value as the <code>NextToken</code> request parameter in the call to the operation to get\n      the next part of the results. You should check <code>NextToken</code> after every operation to\n      ensure that you receive all of the results.</p>"
           }
         },
-        "ServiceCode": {
-          "target": "com.amazonaws.servicequotas#ServiceCode",
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>(Optional) Limits the number of results that you want to include in the response. If you\n      don't include this parameter, the response defaults to a value that's specific to the\n      operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>\n      element is present and has a value (isn't null). Include that value as the\n        <code>NextToken</code> request parameter in the call to the operation to get the next part\n      of the results. You should check <code>NextToken</code> after every operation to ensure that\n      you receive all of the results.</p>"
           }
         }
       }
@@ -797,16 +797,22 @@
     "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuotaRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>\n      response in a previous request that indicates that there's more output available. In a\n      subsequent call, set it to the value of the previous call's <code>NextToken</code> response to\n      indicate where the output should continue from.</p>"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.servicequotas#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Limits the number of results that you want to include in the response. If you\n      don't include this parameter, the response defaults to a value that's specific to the\n      operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>\n      element is present and has a value (isn't null). Include that value as the\n        <code>NextToken</code> request parameter in the call to the operation to get the next part\n      of the results. You should check <code>NextToken</code> after every operation to ensure that\n      you receive all of the results.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.servicequotas#NextToken",
+        "Status": {
+          "target": "com.amazonaws.servicequotas#RequestStatus",
           "traits": {
-            "smithy.api#documentation": "<p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>\n      response in a previous request that indicates that there's more output available. In a\n      subsequent call, set it to the value of the previous call's <code>NextToken</code> response to\n      indicate where the output should continue from.</p>"
+            "smithy.api#documentation": "<p>Specifies the status value of the quota increase request.</p>"
           }
         },
         "QuotaCode": {
@@ -822,28 +828,22 @@
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
             "smithy.api#required": {}
           }
-        },
-        "Status": {
-          "target": "com.amazonaws.servicequotas#RequestStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the status value of the quota increase request.</p>"
-          }
         }
       }
     },
     "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuotaResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.servicequotas#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present in the response, this value indicates there's more output available that what's\n      included in the current response. This can occur even when the response includes no values at\n      all, such as when you ask for a filtered view of a very long list. Use this value in the\n        <code>NextToken</code> request parameter in a subsequent call to the operation to continue\n      processing and get the next part of the output. You should repeat this until the\n        <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>"
-          }
-        },
         "RequestedQuotas": {
           "target": "com.amazonaws.servicequotas#RequestedServiceQuotaChangeHistoryListDefinition",
           "traits": {
             "smithy.api#documentation": "<p>Returns a list of service quota requests.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present in the response, this value indicates there's more output available that what's\n      included in the current response. This can occur even when the response includes no values at\n      all, such as when you ask for a filtered view of a very long list. Use this value in the\n        <code>NextToken</code> request parameter in a subsequent call to the operation to continue\n      processing and get the next part of the output. You should repeat this until the\n        <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>"
           }
         }
       }
@@ -857,10 +857,10 @@
             "smithy.api#documentation": "<p>(Optional) Limits the number of results that you want to include in the response. If you\n      don't include this parameter, the response defaults to a value that's specific to the\n      operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>\n      element is present and has a value (isn't null). Include that value as the\n        <code>NextToken</code> request parameter in the call to the operation to get the next part\n      of the results. You should check <code>NextToken</code> after every operation to ensure that\n      you receive all of the results.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.servicequotas#NextToken",
+        "Status": {
+          "target": "com.amazonaws.servicequotas#RequestStatus",
           "traits": {
-            "smithy.api#documentation": "<p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>\n      response in a previous request that indicates that there's more output available. In a\n      subsequent call, set it to the value of the previous call's <code>NextToken</code> response to\n      indicate where the output should continue from.</p>"
+            "smithy.api#documentation": "<p>Specifies the status value of the quota increase request.</p>"
           }
         },
         "ServiceCode": {
@@ -869,10 +869,10 @@
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.servicequotas#RequestStatus",
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the status value of the quota increase request.</p>"
+            "smithy.api#documentation": "<p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>\n      response in a previous request that indicates that there's more output available. In a\n      subsequent call, set it to the value of the previous call's <code>NextToken</code> response to\n      indicate where the output should continue from.</p>"
           }
         }
       }
@@ -880,16 +880,16 @@
     "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.servicequotas#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present in the response, this value indicates there's more output available that what's\n      included in the current response. This can occur even when the response includes no values at\n      all, such as when you ask for a filtered view of a very long list. Use this value in the\n        <code>NextToken</code> request parameter in a subsequent call to the operation to continue\n      processing and get the next part of the output. You should repeat this until the\n        <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>"
-          }
-        },
         "RequestedQuotas": {
           "target": "com.amazonaws.servicequotas#RequestedServiceQuotaChangeHistoryListDefinition",
           "traits": {
             "smithy.api#documentation": "<p>Returns a list of service quota requests.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present in the response, this value indicates there's more output available that what's\n      included in the current response. This can occur even when the response includes no values at\n      all, such as when you ask for a filtered view of a very long list. Use this value in the\n        <code>NextToken</code> request parameter in a subsequent call to the operation to continue\n      processing and get the next part of the output. You should repeat this until the\n        <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>"
           }
         }
       }
@@ -941,6 +941,12 @@
     "com.amazonaws.servicequotas#ListServiceQuotaIncreaseRequestsInTemplateRequest": {
       "type": "structure",
       "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for a service. When performing an operation, use the\n        <code>ServiceCode</code> to specify a particular service. </p>"
+          }
+        },
         "AwsRegion": {
           "target": "com.amazonaws.servicequotas#AwsRegion",
           "traits": {
@@ -957,12 +963,6 @@
           "target": "com.amazonaws.servicequotas#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>\n      response in a previous request that indicates that there's more output available. In a\n      subsequent call, set it to the value of the previous call's <code>NextToken</code> response to\n      indicate where the output should continue from.</p>"
-          }
-        },
-        "ServiceCode": {
-          "target": "com.amazonaws.servicequotas#ServiceCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier for a service. When performing an operation, use the\n        <code>ServiceCode</code> to specify a particular service. </p>"
           }
         }
       }
@@ -1025,16 +1025,16 @@
     "com.amazonaws.servicequotas#ListServiceQuotasRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.servicequotas#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>(Optional) Limits the number of results that you want to include in the response. If you\n      don't include this parameter, the response defaults to a value that's specific to the\n      operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>\n      element is present and has a value (isn't null). Include that value as the\n        <code>NextToken</code> request parameter in the call to the operation to get the next part\n      of the results. You should check <code>NextToken</code> after every operation to ensure that\n      you receive all of the results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.servicequotas#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>\n      response in a previous request that indicates that there's more output available. In a\n      subsequent call, set it to the value of the previous call's <code>NextToken</code> response to\n      indicate where the output should continue from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>(Optional) Limits the number of results that you want to include in the response. If you\n      don't include this parameter, the response defaults to a value that's specific to the\n      operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>\n      element is present and has a value (isn't null). Include that value as the\n        <code>NextToken</code> request parameter in the call to the operation to get the next part\n      of the results. You should check <code>NextToken</code> after every operation to ensure that\n      you receive all of the results.</p>"
           }
         },
         "ServiceCode": {
@@ -1101,16 +1101,16 @@
     "com.amazonaws.servicequotas#ListServicesRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.servicequotas#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>(Optional) Limits the number of results that you want to include in the response. If you\n      don't include this parameter, the response defaults to a value that's specific to the\n      operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>\n      element is present and has a value (isn't null). Include that value as the\n        <code>NextToken</code> request parameter in the call to the operation to get the next part\n      of the results. You should check <code>NextToken</code> after every operation to ensure that\n      you receive all of the results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.servicequotas#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>\n      response in a previous request that indicates that there's more output available. In a\n      subsequent call, set it to the value of the previous call's <code>NextToken</code> response to\n      indicate where the output should continue from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>(Optional) Limits the number of results that you want to include in the response. If you\n      don't include this parameter, the response defaults to a value that's specific to the\n      operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>\n      element is present and has a value (isn't null). Include that value as the\n        <code>NextToken</code> request parameter in the call to the operation to get the next part\n      of the results. You should check <code>NextToken</code> after every operation to ensure that\n      you receive all of the results.</p>"
           }
         }
       }
@@ -1166,6 +1166,12 @@
     "com.amazonaws.servicequotas#MetricInfo": {
       "type": "structure",
       "members": {
+        "MetricNamespace": {
+          "target": "com.amazonaws.servicequotas#QuotaMetricNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the metric. The namespace is a container for CloudWatch metrics. You can\n      specify a name for the namespace when you create a metric.</p>"
+          }
+        },
         "MetricDimensions": {
           "target": "com.amazonaws.servicequotas#MetricDimensionsMapDefinition",
           "traits": {
@@ -1176,12 +1182,6 @@
           "target": "com.amazonaws.servicequotas#QuotaMetricName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the CloudWatch metric that measures usage of a service quota. This is a\n      required field.</p>"
-          }
-        },
-        "MetricNamespace": {
-          "target": "com.amazonaws.servicequotas#QuotaMetricNamespace",
-          "traits": {
-            "smithy.api#documentation": "<p>The namespace of the metric. The namespace is a container for CloudWatch metrics. You can\n      specify a name for the namespace when you create a metric.</p>"
           }
         },
         "MetricStatisticRecommendation": {
@@ -1332,6 +1332,20 @@
     "com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplateRequest": {
       "type": "structure",
       "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the service quota that you want to use.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AwsRegion": {
           "target": "com.amazonaws.servicequotas#AwsRegion",
           "traits": {
@@ -1343,20 +1357,6 @@
           "target": "com.amazonaws.servicequotas#QuotaValue",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the new, increased value for the quota. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "QuotaCode": {
-          "target": "com.amazonaws.servicequotas#QuotaCode",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the service quota that you want to use.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ServiceCode": {
-          "target": "com.amazonaws.servicequotas#ServiceCode",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1414,16 +1414,16 @@
     "com.amazonaws.servicequotas#QuotaPeriod": {
       "type": "structure",
       "members": {
-        "PeriodUnit": {
-          "target": "com.amazonaws.servicequotas#PeriodUnit",
-          "traits": {
-            "smithy.api#documentation": "<p>The time unit of a period.</p>"
-          }
-        },
         "PeriodValue": {
           "target": "com.amazonaws.servicequotas#PeriodValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of a period.</p>"
+          }
+        },
+        "PeriodUnit": {
+          "target": "com.amazonaws.servicequotas#PeriodUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The time unit of a period.</p>"
           }
         }
       },
@@ -1498,10 +1498,10 @@
     "com.amazonaws.servicequotas#RequestServiceQuotaIncreaseRequest": {
       "type": "structure",
       "members": {
-        "DesiredValue": {
-          "target": "com.amazonaws.servicequotas#QuotaValue",
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the value submitted in the service quota increase request. </p>",
+            "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1512,10 +1512,10 @@
             "smithy.api#required": {}
           }
         },
-        "ServiceCode": {
-          "target": "com.amazonaws.servicequotas#ServiceCode",
+        "DesiredValue": {
+          "target": "com.amazonaws.servicequotas#QuotaValue",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
+            "smithy.api#documentation": "<p>Specifies the value submitted in the service quota increase request. </p>",
             "smithy.api#required": {}
           }
         }
@@ -1562,34 +1562,16 @@
     "com.amazonaws.servicequotas#RequestedServiceQuotaChange": {
       "type": "structure",
       "members": {
+        "Requester": {
+          "target": "com.amazonaws.servicequotas#Requester",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM identity who submitted the service quota increase request.</p>"
+          }
+        },
         "CaseId": {
           "target": "com.amazonaws.servicequotas#CustomerServiceEngagementId",
           "traits": {
             "smithy.api#documentation": "<p>The case Id for the service quota increase request.</p>"
-          }
-        },
-        "Created": {
-          "target": "com.amazonaws.servicequotas#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time when the service quota increase request was received and the case Id was\n      created. </p>"
-          }
-        },
-        "DesiredValue": {
-          "target": "com.amazonaws.servicequotas#QuotaValue",
-          "traits": {
-            "smithy.api#documentation": "<p>New increased value for the service quota.</p>"
-          }
-        },
-        "GlobalQuota": {
-          "target": "com.amazonaws.servicequotas#GlobalQuota",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies if the quota is global.</p>"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.servicequotas#RequestId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of a requested service quota change.</p>"
           }
         },
         "LastUpdated": {
@@ -1598,28 +1580,40 @@
             "smithy.api#documentation": "<p>The date and time of the most recent change in the service quota increase request.</p>"
           }
         },
+        "Status": {
+          "target": "com.amazonaws.servicequotas#RequestStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>State of the service quota increase request.</p>"
+          }
+        },
+        "Created": {
+          "target": "com.amazonaws.servicequotas#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the service quota increase request was received and the case Id was\n      created. </p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.servicequotas#RequestId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of a requested service quota change.</p>"
+          }
+        },
+        "Unit": {
+          "target": "com.amazonaws.servicequotas#QuotaUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the unit used for the quota.</p>"
+          }
+        },
+        "DesiredValue": {
+          "target": "com.amazonaws.servicequotas#QuotaValue",
+          "traits": {
+            "smithy.api#documentation": "<p>New increased value for the service quota.</p>"
+          }
+        },
         "QuotaArn": {
           "target": "com.amazonaws.servicequotas#QuotaArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service quota.</p>"
-          }
-        },
-        "QuotaCode": {
-          "target": "com.amazonaws.servicequotas#QuotaCode",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the service quota that you want to use.</p>"
-          }
-        },
-        "QuotaName": {
-          "target": "com.amazonaws.servicequotas#QuotaName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the service quota.</p>"
-          }
-        },
-        "Requester": {
-          "target": "com.amazonaws.servicequotas#Requester",
-          "traits": {
-            "smithy.api#documentation": "<p>The IAM identity who submitted the service quota increase request.</p>"
           }
         },
         "ServiceCode": {
@@ -1628,22 +1622,28 @@
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>"
           }
         },
+        "QuotaName": {
+          "target": "com.amazonaws.servicequotas#QuotaName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the service quota.</p>"
+          }
+        },
         "ServiceName": {
           "target": "com.amazonaws.servicequotas#ServiceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the AWS service specified in the increase request. </p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.servicequotas#RequestStatus",
+        "GlobalQuota": {
+          "target": "com.amazonaws.servicequotas#GlobalQuota",
           "traits": {
-            "smithy.api#documentation": "<p>State of the service quota increase request.</p>"
+            "smithy.api#documentation": "<p>Identifies if the quota is global.</p>"
           }
         },
-        "Unit": {
-          "target": "com.amazonaws.servicequotas#QuotaUnit",
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the unit used for the quota.</p>"
+            "smithy.api#documentation": "<p>Specifies the service quota that you want to use.</p>"
           }
         }
       },
@@ -1728,46 +1728,10 @@
     "com.amazonaws.servicequotas#ServiceQuota": {
       "type": "structure",
       "members": {
-        "Adjustable": {
-          "target": "com.amazonaws.servicequotas#QuotaAdjustable",
+        "Unit": {
+          "target": "com.amazonaws.servicequotas#QuotaUnit",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies if the quota value can be increased.</p>"
-          }
-        },
-        "ErrorReason": {
-          "target": "com.amazonaws.servicequotas#ErrorReason",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code>ErrorCode</code> and <code>ErrorMessage</code> when success isn't\n      achieved.</p>"
-          }
-        },
-        "GlobalQuota": {
-          "target": "com.amazonaws.servicequotas#GlobalQuota",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies if the quota is global.</p>"
-          }
-        },
-        "Period": {
-          "target": "com.amazonaws.servicequotas#QuotaPeriod",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the unit and value of how time is measured.</p>"
-          }
-        },
-        "QuotaArn": {
-          "target": "com.amazonaws.servicequotas#QuotaArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service quota.</p>"
-          }
-        },
-        "QuotaCode": {
-          "target": "com.amazonaws.servicequotas#QuotaCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The code identifier for the service quota specified.</p>"
-          }
-        },
-        "QuotaName": {
-          "target": "com.amazonaws.servicequotas#QuotaName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name identifier of the service quota.</p>"
+            "smithy.api#documentation": "<p>The unit of measurement for the value of the service quota.</p>"
           }
         },
         "ServiceCode": {
@@ -1782,16 +1746,52 @@
             "smithy.api#documentation": "<p>The name of the AWS service specified in the increase request. </p>"
           }
         },
-        "Unit": {
-          "target": "com.amazonaws.servicequotas#QuotaUnit",
+        "QuotaName": {
+          "target": "com.amazonaws.servicequotas#QuotaName",
           "traits": {
-            "smithy.api#documentation": "<p>The unit of measurement for the value of the service quota.</p>"
+            "smithy.api#documentation": "<p>The name identifier of the service quota.</p>"
+          }
+        },
+        "Period": {
+          "target": "com.amazonaws.servicequotas#QuotaPeriod",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the unit and value of how time is measured.</p>"
           }
         },
         "UsageMetric": {
           "target": "com.amazonaws.servicequotas#MetricInfo",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the details about the measurement. </p>"
+          }
+        },
+        "QuotaArn": {
+          "target": "com.amazonaws.servicequotas#QuotaArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service quota.</p>"
+          }
+        },
+        "Adjustable": {
+          "target": "com.amazonaws.servicequotas#QuotaAdjustable",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies if the quota value can be increased.</p>"
+          }
+        },
+        "ErrorReason": {
+          "target": "com.amazonaws.servicequotas#ErrorReason",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the <code>ErrorCode</code> and <code>ErrorMessage</code> when success isn't\n      achieved.</p>"
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The code identifier for the service quota specified.</p>"
+          }
+        },
+        "GlobalQuota": {
+          "target": "com.amazonaws.servicequotas#GlobalQuota",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies if the quota is global.</p>"
           }
         },
         "Value": {
@@ -1808,34 +1808,10 @@
     "com.amazonaws.servicequotas#ServiceQuotaIncreaseRequestInTemplate": {
       "type": "structure",
       "members": {
-        "AwsRegion": {
-          "target": "com.amazonaws.servicequotas#AwsRegion",
+        "ServiceName": {
+          "target": "com.amazonaws.servicequotas#ServiceName",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Region where the increase request occurs.</p>"
-          }
-        },
-        "DesiredValue": {
-          "target": "com.amazonaws.servicequotas#QuotaValue",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the new, increased value of the service quota in the increase request. </p>"
-          }
-        },
-        "GlobalQuota": {
-          "target": "com.amazonaws.servicequotas#GlobalQuota",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies if the quota is a global quota.</p>"
-          }
-        },
-        "QuotaCode": {
-          "target": "com.amazonaws.servicequotas#QuotaCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The code identifier for the service quota specified in the increase request.</p>"
-          }
-        },
-        "QuotaName": {
-          "target": "com.amazonaws.servicequotas#QuotaName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the service quota in the increase request.</p>"
+            "smithy.api#documentation": "<p>The name of the AWS service specified in the increase request. </p>"
           }
         },
         "ServiceCode": {
@@ -1844,16 +1820,40 @@
             "smithy.api#documentation": "<p>The code identifier for the AWS service specified in the increase request.</p>"
           }
         },
-        "ServiceName": {
-          "target": "com.amazonaws.servicequotas#ServiceName",
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the AWS service specified in the increase request. </p>"
+            "smithy.api#documentation": "<p>The code identifier for the service quota specified in the increase request.</p>"
+          }
+        },
+        "GlobalQuota": {
+          "target": "com.amazonaws.servicequotas#GlobalQuota",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies if the quota is a global quota.</p>"
+          }
+        },
+        "QuotaName": {
+          "target": "com.amazonaws.servicequotas#QuotaName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the service quota in the increase request.</p>"
+          }
+        },
+        "AwsRegion": {
+          "target": "com.amazonaws.servicequotas#AwsRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region where the increase request occurs.</p>"
           }
         },
         "Unit": {
           "target": "com.amazonaws.servicequotas#QuotaUnit",
           "traits": {
             "smithy.api#documentation": "<p>The unit of measure for the increase request.</p>"
+          }
+        },
+        "DesiredValue": {
+          "target": "com.amazonaws.servicequotas#QuotaValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the new, increased value of the service quota in the increase request. </p>"
           }
         }
       },

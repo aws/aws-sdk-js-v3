@@ -137,6 +137,12 @@
             "smithy.api#required": {}
           }
         },
+        "Username": {
+          "target": "com.amazonaws.kinesisvideosignaling#Username",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional user ID to be associated with the credentials.</p>"
+          }
+        },
         "ClientId": {
           "target": "com.amazonaws.kinesisvideosignaling#ClientId",
           "traits": {
@@ -147,12 +153,6 @@
           "target": "com.amazonaws.kinesisvideosignaling#Service",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the desired service. Currently, <code>TURN</code> is the only valid\n            value.</p>"
-          }
-        },
-        "Username": {
-          "target": "com.amazonaws.kinesisvideosignaling#Username",
-          "traits": {
-            "smithy.api#documentation": "<p>An optional user ID to be associated with the credentials.</p>"
           }
         }
       }

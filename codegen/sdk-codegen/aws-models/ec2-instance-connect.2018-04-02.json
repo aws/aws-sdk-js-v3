@@ -165,20 +165,6 @@
     "com.amazonaws.ec2instanceconnect#SendSSHPublicKeyRequest": {
       "type": "structure",
       "members": {
-        "AvailabilityZone": {
-          "target": "com.amazonaws.ec2instanceconnect#AvailabilityZone",
-          "traits": {
-            "smithy.api#documentation": "<p>The availability zone the EC2 instance was launched in.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "InstanceId": {
-          "target": "com.amazonaws.ec2instanceconnect#InstanceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The EC2 instance you wish to publish the SSH key to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "InstanceOSUser": {
           "target": "com.amazonaws.ec2instanceconnect#InstanceOSUser",
           "traits": {
@@ -190,6 +176,20 @@
           "target": "com.amazonaws.ec2instanceconnect#SSHPublicKey",
           "traits": {
             "smithy.api#documentation": "<p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.ec2instanceconnect#AvailabilityZone",
+          "traits": {
+            "smithy.api#documentation": "<p>The availability zone the EC2 instance was launched in.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceId": {
+          "target": "com.amazonaws.ec2instanceconnect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The EC2 instance you wish to publish the SSH key to.</p>",
             "smithy.api#required": {}
           }
         }
