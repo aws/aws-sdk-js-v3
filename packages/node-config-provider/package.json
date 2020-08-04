@@ -7,7 +7,8 @@
     "pretest": "yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "test": "jest --coverage --passWithNoTests"
+    "build": "yarn build:es && yarn build:cjs",
+    "test": "jest --passWithNoTests"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -19,9 +20,9 @@
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",
   "dependencies": {
-    "@aws-sdk/property-provider": "1.0.0-gamma.4",
-    "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.4",
-    "@aws-sdk/types": "1.0.0-gamma.3",
+    "@aws-sdk/property-provider": "1.0.0-gamma.5",
+    "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.5",
+    "@aws-sdk/types": "1.0.0-gamma.4",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
