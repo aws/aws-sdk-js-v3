@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/invalid-dependency@1.0.0-gamma.3...@aws-sdk/invalid-dependency@1.0.0-gamma.4) (2020-08-04)
+
+
+### Features
+
+* build command ([#1407](https://github.com/aws/aws-sdk-js-v3/issues/1407)) ([81b2e87](https://github.com/aws/aws-sdk-js-v3/commit/81b2e87067642a8cea8649cbdb2c342ca9fb6ac6))
+
+
+
+
+
 # [1.0.0-gamma.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/invalid-dependency@1.0.0-gamma.2...@aws-sdk/invalid-dependency@1.0.0-gamma.3) (2020-07-13)
 
 **Note:** Version bump only for package @aws-sdk/invalid-dependency

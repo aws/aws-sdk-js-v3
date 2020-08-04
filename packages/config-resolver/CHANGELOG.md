@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/config-resolver@1.0.0-gamma.4...@aws-sdk/config-resolver@1.0.0-gamma.5) (2020-08-04)
+
+
+### Bug Fixes
+
+* add region validation using DNS Host label regex ([#1402](https://github.com/aws/aws-sdk-js-v3/issues/1402)) ([88e96e6](https://github.com/aws/aws-sdk-js-v3/commit/88e96e621cbcdca3498d98526974154436bd5f58))
+
+
+### Features
+
+* build command ([#1407](https://github.com/aws/aws-sdk-js-v3/issues/1407)) ([81b2e87](https://github.com/aws/aws-sdk-js-v3/commit/81b2e87067642a8cea8649cbdb2c342ca9fb6ac6))
+* simplify and add extensive tests got config-resolver ([#1401](https://github.com/aws/aws-sdk-js-v3/issues/1401)) ([e03c974](https://github.com/aws/aws-sdk-js-v3/commit/e03c974c8f4d083c47b429625958a196ae16d4af))
+
+
+
+
+
 # [1.0.0-gamma.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/config-resolver@1.0.0-gamma.3...@aws-sdk/config-resolver@1.0.0-gamma.4) (2020-07-21)
 
 **Note:** Version bump only for package @aws-sdk/config-resolver

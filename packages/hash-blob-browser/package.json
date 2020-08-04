@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-blob-browser",
-  "version": "1.0.0-gamma.4",
+  "version": "1.0.0-gamma.5",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,14 +18,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/chunked-blob-reader": "1.0.0-gamma.4",
-    "@aws-sdk/chunked-blob-reader-native": "1.0.0-gamma.4",
-    "@aws-sdk/types": "1.0.0-gamma.3",
+    "@aws-sdk/chunked-blob-reader": "1.0.0-gamma.5",
+    "@aws-sdk/chunked-blob-reader-native": "1.0.0-gamma.5",
+    "@aws-sdk/types": "1.0.0-gamma.4",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "^1.0.0-alpha.0",
-    "@aws-sdk/util-hex-encoding": "1.0.0-gamma.4",
+    "@aws-sdk/util-hex-encoding": "1.0.0-gamma.5",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~3.9.3"

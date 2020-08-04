@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-request-presigner",
-  "version": "1.0.0-gamma.4",
+  "version": "1.0.0-gamma.5",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,15 +18,15 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/signature-v4": "1.0.0-gamma.4",
-    "@aws-sdk/types": "1.0.0-gamma.3",
-    "@aws-sdk/util-create-request": "1.0.0-gamma.4",
-    "@aws-sdk/util-format-url": "1.0.0-gamma.4",
+    "@aws-sdk/signature-v4": "1.0.0-gamma.5",
+    "@aws-sdk/types": "1.0.0-gamma.4",
+    "@aws-sdk/util-create-request": "1.0.0-gamma.5",
+    "@aws-sdk/util-format-url": "1.0.0-gamma.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/hash-node": "1.0.0-gamma.4",
-    "@aws-sdk/protocol-http": "1.0.0-gamma.4",
+    "@aws-sdk/hash-node": "1.0.0-gamma.5",
+    "@aws-sdk/protocol-http": "1.0.0-gamma.5",
     "@types/jest": "^26.0.4",
     "@types/node": "^12.0.2",
     "jest": "^26.1.0",
