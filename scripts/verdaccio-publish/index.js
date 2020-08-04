@@ -21,6 +21,7 @@ const args = [
   "lerna",
   "publish",
   "prerelease",
+  "--force-publish",
   "--preid",
   "ci",
   "--exact",
