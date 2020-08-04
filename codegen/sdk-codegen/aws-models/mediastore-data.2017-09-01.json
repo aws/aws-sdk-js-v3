@@ -573,9 +573,7 @@
       ],
       "traits": {
         "aws.auth#unsignedPayload": {},
-        "smithy.api#auth": [
-          "aws.auth#sigv4"
-        ],
+        "smithy.api#auth": ["aws.auth#sigv4"],
         "smithy.api#documentation": "<p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>",
         "smithy.api#http": {
           "method": "PUT",
