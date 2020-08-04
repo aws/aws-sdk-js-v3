@@ -6,9 +6,11 @@ import {
 describe("Node useArnRegion config loader", () => {
   describe("environment variable selector", () => {
     const originalConfig = process.env[NODE_USE_ARN_REGION_ENV_NAME];
+
     beforeEach(() => {
       delete process.env[NODE_USE_ARN_REGION_ENV_NAME];
     });
+
     afterAll(() => {
       process.env[NODE_USE_ARN_REGION_ENV_NAME] = originalConfig;
     });
@@ -39,6 +41,7 @@ describe("Node useArnRegion config loader", () => {
 
   describe("shared INI files selector", () => {
     const profileContent: { [NODE_USE_ARN_REGION_INI_NAME]: any } = {} as any;
+
     beforeEach(() => {
       delete profileContent[NODE_USE_ARN_REGION_INI_NAME];
     });
