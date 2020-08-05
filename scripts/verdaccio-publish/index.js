@@ -8,7 +8,7 @@
 const { spawn, execSync } = require("child_process");
 const pipeStdIo = { stdio: [process.stdin, process.stdout, process.stderr] };
 
-execSync("rm -rf verdaccio/storage/@aws-sdk");
+execSync("rm -rf verdaccio/storage");
 
 // Start verdaccio in the background
 const verdaccio = spawn("npx", ["verdaccio", "-c", "verdaccio/config.yaml"], pipeStdIo).on("error", (e) => {
@@ -21,6 +21,7 @@ const args = [
   "lerna",
   "publish",
   "prerelease",
+  "--force-publish",
   "--preid",
   "ci",
   "--exact",
