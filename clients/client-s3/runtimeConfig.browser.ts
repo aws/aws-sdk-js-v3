@@ -24,7 +24,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   eventStreamSerdeProvider,
   maxAttemptsDefaultProvider: (() => "3") as any,
   md5: Md5,
-  regionDefaultProvider: invalidFunction("Region is missing") as any,
+  region: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,
   streamCollector,
