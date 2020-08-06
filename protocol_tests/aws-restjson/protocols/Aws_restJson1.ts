@@ -113,22 +113,13 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
   };
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
-    ...(input.queryBoolean !== undefined && { Boolean: input.queryBoolean.toString() }),
-    ...(input.queryBooleanList !== undefined && {
-      BooleanList: (input.queryBooleanList || []).map((_entry) => _entry.toString()),
+    ...(input.queryString !== undefined && { String: input.queryString }),
+    ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
+    ...(input.queryStringSet !== undefined && {
+      StringSet: (Array.from(input.queryStringSet.values()) || []).map((_entry) => _entry),
     }),
     ...(input.queryByte !== undefined && { Byte: input.queryByte.toString() }),
-    ...(input.queryDouble !== undefined && {
-      Double: input.queryDouble % 1 == 0 ? input.queryDouble + ".0" : input.queryDouble.toString(),
-    }),
-    ...(input.queryDoubleList !== undefined && {
-      DoubleList: (input.queryDoubleList || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString())),
-    }),
-    ...(input.queryEnum !== undefined && { Enum: input.queryEnum }),
-    ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry) }),
-    ...(input.queryFloat !== undefined && {
-      Float: input.queryFloat % 1 == 0 ? input.queryFloat + ".0" : input.queryFloat.toString(),
-    }),
+    ...(input.queryShort !== undefined && { Short: input.queryShort.toString() }),
     ...(input.queryInteger !== undefined && { Integer: input.queryInteger.toString() }),
     ...(input.queryIntegerList !== undefined && {
       IntegerList: (input.queryIntegerList || []).map((_entry) => _entry.toString()),
@@ -137,11 +128,18 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
       IntegerSet: (Array.from(input.queryIntegerSet.values()) || []).map((_entry) => _entry.toString()),
     }),
     ...(input.queryLong !== undefined && { Long: input.queryLong.toString() }),
-    ...(input.queryShort !== undefined && { Short: input.queryShort.toString() }),
-    ...(input.queryString !== undefined && { String: input.queryString }),
-    ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
-    ...(input.queryStringSet !== undefined && {
-      StringSet: (Array.from(input.queryStringSet.values()) || []).map((_entry) => _entry),
+    ...(input.queryFloat !== undefined && {
+      Float: input.queryFloat % 1 == 0 ? input.queryFloat + ".0" : input.queryFloat.toString(),
+    }),
+    ...(input.queryDouble !== undefined && {
+      Double: input.queryDouble % 1 == 0 ? input.queryDouble + ".0" : input.queryDouble.toString(),
+    }),
+    ...(input.queryDoubleList !== undefined && {
+      DoubleList: (input.queryDoubleList || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString())),
+    }),
+    ...(input.queryBoolean !== undefined && { Boolean: input.queryBoolean.toString() }),
+    ...(input.queryBooleanList !== undefined && {
+      BooleanList: (input.queryBooleanList || []).map((_entry) => _entry.toString()),
     }),
     ...(input.queryTimestamp !== undefined && {
       Timestamp: (input.queryTimestamp.toISOString().split(".")[0] + "Z").toString(),
@@ -151,6 +149,8 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
         (_entry.toISOString().split(".")[0] + "Z").toString()
       ),
     }),
+    ...(input.queryEnum !== undefined && { Enum: input.queryEnum }),
+    ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -385,6 +385,15 @@ export const serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = asy
     "Content-Type": "",
   };
   let resolvedPath = "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
+  if (input.foo !== undefined) {
+    const labelValue: string = input.foo;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: foo.");
+    }
+    resolvedPath = resolvedPath.replace("{foo}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: foo.");
+  }
   if (input.baz !== undefined) {
     const labelValue: string = input.baz;
     if (labelValue.length <= 0) {
@@ -399,15 +408,6 @@ export const serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = asy
     );
   } else {
     throw new Error("No value provided for input HTTP label: baz.");
-  }
-  if (input.foo !== undefined) {
-    const labelValue: string = input.foo;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: foo.");
-    }
-    resolvedPath = resolvedPath.replace("{foo}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: foo.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -430,32 +430,23 @@ export const serializeAws_restJson1HttpRequestWithLabelsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
-  if (input.boolean !== undefined) {
-    const labelValue: string = input.boolean.toString();
+  if (input.string !== undefined) {
+    const labelValue: string = input.string;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: boolean.");
+      throw new Error("Empty value provided for input HTTP label: string.");
     }
-    resolvedPath = resolvedPath.replace("{boolean}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{string}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: boolean.");
+    throw new Error("No value provided for input HTTP label: string.");
   }
-  if (input.double !== undefined) {
-    const labelValue: string = input.double % 1 == 0 ? input.double + ".0" : input.double.toString();
+  if (input.short !== undefined) {
+    const labelValue: string = input.short.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: double.");
+      throw new Error("Empty value provided for input HTTP label: short.");
     }
-    resolvedPath = resolvedPath.replace("{double}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{short}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: double.");
-  }
-  if (input.float !== undefined) {
-    const labelValue: string = input.float % 1 == 0 ? input.float + ".0" : input.float.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: float.");
-    }
-    resolvedPath = resolvedPath.replace("{float}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: float.");
+    throw new Error("No value provided for input HTTP label: short.");
   }
   if (input.integer !== undefined) {
     const labelValue: string = input.integer.toString();
@@ -475,23 +466,32 @@ export const serializeAws_restJson1HttpRequestWithLabelsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: long.");
   }
-  if (input.short !== undefined) {
-    const labelValue: string = input.short.toString();
+  if (input.float !== undefined) {
+    const labelValue: string = input.float % 1 == 0 ? input.float + ".0" : input.float.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: short.");
+      throw new Error("Empty value provided for input HTTP label: float.");
     }
-    resolvedPath = resolvedPath.replace("{short}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{float}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: short.");
+    throw new Error("No value provided for input HTTP label: float.");
   }
-  if (input.string !== undefined) {
-    const labelValue: string = input.string;
+  if (input.double !== undefined) {
+    const labelValue: string = input.double % 1 == 0 ? input.double + ".0" : input.double.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: string.");
+      throw new Error("Empty value provided for input HTTP label: double.");
     }
-    resolvedPath = resolvedPath.replace("{string}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{double}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: string.");
+    throw new Error("No value provided for input HTTP label: double.");
+  }
+  if (input.boolean !== undefined) {
+    const labelValue: string = input.boolean.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: boolean.");
+    }
+    resolvedPath = resolvedPath.replace("{boolean}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: boolean.");
   }
   if (input.timestamp !== undefined) {
     const labelValue: string = (input.timestamp.toISOString().split(".")[0] + "Z").toString();
@@ -524,24 +524,6 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
   };
   let resolvedPath =
     "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
-  if (input.defaultFormat !== undefined) {
-    const labelValue: string = (input.defaultFormat.toISOString().split(".")[0] + "Z").toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: defaultFormat.");
-    }
-    resolvedPath = resolvedPath.replace("{defaultFormat}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: defaultFormat.");
-  }
-  if (input.memberDateTime !== undefined) {
-    const labelValue: string = (input.memberDateTime.toISOString().split(".")[0] + "Z").toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: memberDateTime.");
-    }
-    resolvedPath = resolvedPath.replace("{memberDateTime}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: memberDateTime.");
-  }
   if (input.memberEpochSeconds !== undefined) {
     const labelValue: string = Math.round(input.memberEpochSeconds.getTime() / 1000).toString();
     if (labelValue.length <= 0) {
@@ -560,14 +542,23 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
   } else {
     throw new Error("No value provided for input HTTP label: memberHttpDate.");
   }
-  if (input.targetDateTime !== undefined) {
-    const labelValue: string = (input.targetDateTime.toISOString().split(".")[0] + "Z").toString();
+  if (input.memberDateTime !== undefined) {
+    const labelValue: string = (input.memberDateTime.toISOString().split(".")[0] + "Z").toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: targetDateTime.");
+      throw new Error("Empty value provided for input HTTP label: memberDateTime.");
     }
-    resolvedPath = resolvedPath.replace("{targetDateTime}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{memberDateTime}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: targetDateTime.");
+    throw new Error("No value provided for input HTTP label: memberDateTime.");
+  }
+  if (input.defaultFormat !== undefined) {
+    const labelValue: string = (input.defaultFormat.toISOString().split(".")[0] + "Z").toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: defaultFormat.");
+    }
+    resolvedPath = resolvedPath.replace("{defaultFormat}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: defaultFormat.");
   }
   if (input.targetEpochSeconds !== undefined) {
     const labelValue: string = Math.round(input.targetEpochSeconds.getTime() / 1000).toString();
@@ -586,6 +577,15 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
     resolvedPath = resolvedPath.replace("{targetHttpDate}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: targetHttpDate.");
+  }
+  if (input.targetDateTime !== undefined) {
+    const labelValue: string = (input.targetDateTime.toISOString().split(".")[0] + "Z").toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: targetDateTime.");
+    }
+    resolvedPath = resolvedPath.replace("{targetDateTime}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: targetDateTime.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -628,40 +628,40 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.headerBooleanList) && {
-      "X-BooleanList": (input.headerBooleanList! || []).map((_entry) => _entry.toString()).join(", "),
-    }),
+    ...(isSerializableHeaderValue(input.headerString) && { "X-String": input.headerString! }),
     ...(isSerializableHeaderValue(input.headerByte) && { "X-Byte": input.headerByte!.toString() }),
-    ...(isSerializableHeaderValue(input.headerDouble) && {
-      "X-Double": input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.headerEnum) && { "X-Enum": input.headerEnum! }),
-    ...(isSerializableHeaderValue(input.headerEnumList) && {
-      "X-EnumList": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
-    }),
-    ...(isSerializableHeaderValue(input.headerFalseBool) && { "X-Boolean2": input.headerFalseBool!.toString() }),
+    ...(isSerializableHeaderValue(input.headerShort) && { "X-Short": input.headerShort!.toString() }),
+    ...(isSerializableHeaderValue(input.headerInteger) && { "X-Integer": input.headerInteger!.toString() }),
+    ...(isSerializableHeaderValue(input.headerLong) && { "X-Long": input.headerLong!.toString() }),
     ...(isSerializableHeaderValue(input.headerFloat) && {
       "X-Float": input.headerFloat! % 1 == 0 ? input.headerFloat! + ".0" : input.headerFloat!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.headerInteger) && { "X-Integer": input.headerInteger!.toString() }),
-    ...(isSerializableHeaderValue(input.headerIntegerList) && {
-      "X-IntegerList": (input.headerIntegerList! || []).map((_entry) => _entry.toString()).join(", "),
+    ...(isSerializableHeaderValue(input.headerDouble) && {
+      "X-Double": input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.headerLong) && { "X-Long": input.headerLong!.toString() }),
-    ...(isSerializableHeaderValue(input.headerShort) && { "X-Short": input.headerShort!.toString() }),
-    ...(isSerializableHeaderValue(input.headerString) && { "X-String": input.headerString! }),
+    ...(isSerializableHeaderValue(input.headerTrueBool) && { "X-Boolean1": input.headerTrueBool!.toString() }),
+    ...(isSerializableHeaderValue(input.headerFalseBool) && { "X-Boolean2": input.headerFalseBool!.toString() }),
     ...(isSerializableHeaderValue(input.headerStringList) && {
       "X-StringList": (input.headerStringList! || []).map((_entry) => _entry).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerStringSet) && {
       "X-StringSet": (Array.from(input.headerStringSet!.values()) || []).map((_entry) => _entry).join(", "),
     }),
+    ...(isSerializableHeaderValue(input.headerIntegerList) && {
+      "X-IntegerList": (input.headerIntegerList! || []).map((_entry) => _entry.toString()).join(", "),
+    }),
+    ...(isSerializableHeaderValue(input.headerBooleanList) && {
+      "X-BooleanList": (input.headerBooleanList! || []).map((_entry) => _entry.toString()).join(", "),
+    }),
     ...(isSerializableHeaderValue(input.headerTimestampList) && {
       "X-TimestampList": (input.headerTimestampList! || [])
         .map((_entry) => __dateToUtcString(_entry).toString())
         .join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerTrueBool) && { "X-Boolean1": input.headerTrueBool!.toString() }),
+    ...(isSerializableHeaderValue(input.headerEnum) && { "X-Enum": input.headerEnum! }),
+    ...(isSerializableHeaderValue(input.headerEnumList) && {
+      "X-EnumList": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
+    }),
   };
   let resolvedPath = "/InputAndOutputWithHeaders";
   let body: any;
@@ -925,8 +925,8 @@ export const serializeAws_restJson1OmitsNullSerializesEmptyStringCommand = async
   };
   let resolvedPath = "/OmitsNullSerializesEmptyString";
   const query: any = {
-    ...(input.emptyString !== undefined && { Empty: input.emptyString }),
     ...(input.nullValue !== undefined && { Null: input.nullValue }),
+    ...(input.emptyString !== undefined && { Empty: input.emptyString }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1032,26 +1032,26 @@ export const serializeAws_restJson1TimestampFormatHeadersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.defaultFormat) && {
-      "X-defaultFormat": __dateToUtcString(input.defaultFormat!).toString(),
-    }),
-    ...(isSerializableHeaderValue(input.memberDateTime) && {
-      "X-memberDateTime": (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
-    }),
     ...(isSerializableHeaderValue(input.memberEpochSeconds) && {
       "X-memberEpochSeconds": Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
     }),
     ...(isSerializableHeaderValue(input.memberHttpDate) && {
       "X-memberHttpDate": __dateToUtcString(input.memberHttpDate!).toString(),
     }),
-    ...(isSerializableHeaderValue(input.targetDateTime) && {
-      "X-targetDateTime": (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
+    ...(isSerializableHeaderValue(input.memberDateTime) && {
+      "X-memberDateTime": (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
+    }),
+    ...(isSerializableHeaderValue(input.defaultFormat) && {
+      "X-defaultFormat": __dateToUtcString(input.defaultFormat!).toString(),
     }),
     ...(isSerializableHeaderValue(input.targetEpochSeconds) && {
       "X-targetEpochSeconds": Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
     }),
     ...(isSerializableHeaderValue(input.targetHttpDate) && {
       "X-targetHttpDate": __dateToUtcString(input.targetHttpDate!).toString(),
+    }),
+    ...(isSerializableHeaderValue(input.targetDateTime) && {
+      "X-targetDateTime": (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     }),
   };
   let resolvedPath = "/TimestampFormatHeaders";
@@ -1720,45 +1720,32 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
     headerTimestampList: undefined,
     headerTrueBool: undefined,
   };
-  if (output.headers["x-booleanlist"] !== undefined) {
-    contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
-      .split(",")
-      .map((_entry) => _entry.trim() === "true");
+  if (output.headers["x-string"] !== undefined) {
+    contents.headerString = output.headers["x-string"];
   }
   if (output.headers["x-byte"] !== undefined) {
     contents.headerByte = parseInt(output.headers["x-byte"], 10);
   }
-  if (output.headers["x-double"] !== undefined) {
-    contents.headerDouble = parseFloat(output.headers["x-double"]);
-  }
-  if (output.headers["x-enum"] !== undefined) {
-    contents.headerEnum = output.headers["x-enum"];
-  }
-  if (output.headers["x-enumlist"] !== undefined) {
-    contents.headerEnumList = (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim());
-  }
-  if (output.headers["x-boolean2"] !== undefined) {
-    contents.headerFalseBool = output.headers["x-boolean2"] === "true";
-  }
-  if (output.headers["x-float"] !== undefined) {
-    contents.headerFloat = parseFloat(output.headers["x-float"]);
+  if (output.headers["x-short"] !== undefined) {
+    contents.headerShort = parseInt(output.headers["x-short"], 10);
   }
   if (output.headers["x-integer"] !== undefined) {
     contents.headerInteger = parseInt(output.headers["x-integer"], 10);
   }
-  if (output.headers["x-integerlist"] !== undefined) {
-    contents.headerIntegerList = (output.headers["x-integerlist"] || "")
-      .split(",")
-      .map((_entry) => parseInt(_entry.trim(), 10));
-  }
   if (output.headers["x-long"] !== undefined) {
     contents.headerLong = parseInt(output.headers["x-long"], 10);
   }
-  if (output.headers["x-short"] !== undefined) {
-    contents.headerShort = parseInt(output.headers["x-short"], 10);
+  if (output.headers["x-float"] !== undefined) {
+    contents.headerFloat = parseFloat(output.headers["x-float"]);
   }
-  if (output.headers["x-string"] !== undefined) {
-    contents.headerString = output.headers["x-string"];
+  if (output.headers["x-double"] !== undefined) {
+    contents.headerDouble = parseFloat(output.headers["x-double"]);
+  }
+  if (output.headers["x-boolean1"] !== undefined) {
+    contents.headerTrueBool = output.headers["x-boolean1"] === "true";
+  }
+  if (output.headers["x-boolean2"] !== undefined) {
+    contents.headerFalseBool = output.headers["x-boolean2"] === "true";
   }
   if (output.headers["x-stringlist"] !== undefined) {
     contents.headerStringList = (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim());
@@ -1766,13 +1753,26 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   if (output.headers["x-stringset"] !== undefined) {
     contents.headerStringSet = (output.headers["x-stringset"] || "").split(",").map((_entry) => _entry.trim());
   }
+  if (output.headers["x-integerlist"] !== undefined) {
+    contents.headerIntegerList = (output.headers["x-integerlist"] || "")
+      .split(",")
+      .map((_entry) => parseInt(_entry.trim(), 10));
+  }
+  if (output.headers["x-booleanlist"] !== undefined) {
+    contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
+      .split(",")
+      .map((_entry) => _entry.trim() === "true");
+  }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
       (_entry) => new Date(_entry.trim())
     );
   }
-  if (output.headers["x-boolean1"] !== undefined) {
-    contents.headerTrueBool = output.headers["x-boolean1"] === "true";
+  if (output.headers["x-enum"] !== undefined) {
+    contents.headerEnum = output.headers["x-enum"];
+  }
+  if (output.headers["x-enumlist"] !== undefined) {
+    contents.headerEnumList = (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim());
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2542,26 +2542,26 @@ export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
     targetEpochSeconds: undefined,
     targetHttpDate: undefined,
   };
-  if (output.headers["x-defaultformat"] !== undefined) {
-    contents.defaultFormat = new Date(output.headers["x-defaultformat"]);
-  }
-  if (output.headers["x-memberdatetime"] !== undefined) {
-    contents.memberDateTime = new Date(output.headers["x-memberdatetime"]);
-  }
   if (output.headers["x-memberepochseconds"] !== undefined) {
     contents.memberEpochSeconds = new Date(Math.round(parseInt(output.headers["x-memberepochseconds"], 10) * 1000));
   }
   if (output.headers["x-memberhttpdate"] !== undefined) {
     contents.memberHttpDate = new Date(output.headers["x-memberhttpdate"]);
   }
-  if (output.headers["x-targetdatetime"] !== undefined) {
-    contents.targetDateTime = new Date(output.headers["x-targetdatetime"]);
+  if (output.headers["x-memberdatetime"] !== undefined) {
+    contents.memberDateTime = new Date(output.headers["x-memberdatetime"]);
+  }
+  if (output.headers["x-defaultformat"] !== undefined) {
+    contents.defaultFormat = new Date(output.headers["x-defaultformat"]);
   }
   if (output.headers["x-targetepochseconds"] !== undefined) {
     contents.targetEpochSeconds = new Date(Math.round(parseInt(output.headers["x-targetepochseconds"], 10) * 1000));
   }
   if (output.headers["x-targethttpdate"] !== undefined) {
     contents.targetHttpDate = new Date(output.headers["x-targethttpdate"]);
+  }
+  if (output.headers["x-targetdatetime"] !== undefined) {
+    contents.targetDateTime = new Date(output.headers["x-targetdatetime"]);
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);

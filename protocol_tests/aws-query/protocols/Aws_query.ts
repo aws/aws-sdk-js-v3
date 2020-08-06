@@ -1548,6 +1548,13 @@ const serializeAws_queryQueryIdempotencyTokenAutoFillInput = (
 
 const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ListArg !== undefined) {
+    const memberEntries = serializeAws_queryStringList(input.ListArg, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ListArg.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.ComplexListArg !== undefined) {
     const memberEntries = serializeAws_queryGreetingList(input.ComplexListArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -1562,24 +1569,17 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
       entries[loc] = value;
     });
   }
-  if (input.FlattenedListArgWithXmlName !== undefined) {
-    const memberEntries = serializeAws_queryListWithXmlName(input.FlattenedListArgWithXmlName, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ListArg !== undefined) {
-    const memberEntries = serializeAws_queryStringList(input.ListArg, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ListArg.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.ListArgWithXmlNameMember !== undefined) {
     const memberEntries = serializeAws_queryListWithXmlName(input.ListArgWithXmlNameMember, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArgWithXmlNameMember.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.FlattenedListArgWithXmlName !== undefined) {
+    const memberEntries = serializeAws_queryListWithXmlName(input.FlattenedListArgWithXmlName, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -1588,10 +1588,31 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
 
 const serializeAws_queryQueryMapsInput = (input: QueryMapsInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.MapArg !== undefined) {
+    const memberEntries = serializeAws_queryStringMap(input.MapArg, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MapArg.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.RenamedMapArg !== undefined) {
+    const memberEntries = serializeAws_queryStringMap(input.RenamedMapArg, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Foo.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.ComplexMapArg !== undefined) {
     const memberEntries = serializeAws_queryComplexMap(input.ComplexMapArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexMapArg.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MapWithXmlMemberName !== undefined) {
+    const memberEntries = serializeAws_queryMapWithXmlName(input.MapWithXmlMemberName, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MapWithXmlMemberName.${key}`;
       entries[loc] = value;
     });
   }
@@ -1609,31 +1630,10 @@ const serializeAws_queryQueryMapsInput = (input: QueryMapsInput, context: __Serd
       entries[loc] = value;
     });
   }
-  if (input.MapArg !== undefined) {
-    const memberEntries = serializeAws_queryStringMap(input.MapArg, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `MapArg.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.MapOfLists !== undefined) {
     const memberEntries = serializeAws_queryMapOfLists(input.MapOfLists, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapOfLists.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.MapWithXmlMemberName !== undefined) {
-    const memberEntries = serializeAws_queryMapWithXmlName(input.MapWithXmlMemberName, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `MapWithXmlMemberName.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.RenamedMapArg !== undefined) {
-    const memberEntries = serializeAws_queryStringMap(input.RenamedMapArg, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Foo.${key}`;
       entries[loc] = value;
     });
   }
@@ -1642,22 +1642,22 @@ const serializeAws_queryQueryMapsInput = (input: QueryMapsInput, context: __Serd
 
 const serializeAws_queryQueryTimestampsInput = (input: QueryTimestampsInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.normalFormat !== undefined) {
+    entries["normalFormat"] = input.normalFormat.toISOString().split(".")[0] + "Z";
+  }
   if (input.epochMember !== undefined) {
     entries["epochMember"] = Math.round(input.epochMember.getTime() / 1000);
   }
   if (input.epochTarget !== undefined) {
     entries["epochTarget"] = Math.round(input.epochTarget.getTime() / 1000);
   }
-  if (input.normalFormat !== undefined) {
-    entries["normalFormat"] = input.normalFormat.toISOString().split(".")[0] + "Z";
-  }
   return entries;
 };
 
 const serializeAws_querySimpleInputParamsInput = (input: SimpleInputParamsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Bam !== undefined) {
-    entries["Bam"] = input.Bam;
+  if (input.Foo !== undefined) {
+    entries["Foo"] = input.Foo;
   }
   if (input.Bar !== undefined) {
     entries["Bar"] = input.Bar;
@@ -1665,23 +1665,26 @@ const serializeAws_querySimpleInputParamsInput = (input: SimpleInputParamsInput,
   if (input.Baz !== undefined) {
     entries["Baz"] = input.Baz;
   }
+  if (input.Bam !== undefined) {
+    entries["Bam"] = input.Bam;
+  }
   if (input.Boo !== undefined) {
     entries["Boo"] = input.Boo;
   }
-  if (input.Foo !== undefined) {
-    entries["Foo"] = input.Foo;
+  if (input.Qux !== undefined) {
+    entries["Qux"] = context.base64Encoder(input.Qux);
   }
   if (input.FooEnum !== undefined) {
     entries["FooEnum"] = input.FooEnum;
-  }
-  if (input.Qux !== undefined) {
-    entries["Qux"] = context.base64Encoder(input.Qux);
   }
   return entries;
 };
 
 const serializeAws_queryStructArg = (input: StructArg, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.StringArg !== undefined) {
+    entries["StringArg"] = input.StringArg;
+  }
   if (input.OtherArg !== undefined) {
     entries["OtherArg"] = input.OtherArg;
   }
@@ -1691,9 +1694,6 @@ const serializeAws_queryStructArg = (input: StructArg, context: __SerdeContext):
       const loc = `RecursiveArg.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.StringArg !== undefined) {
-    entries["StringArg"] = input.StringArg;
   }
   return entries;
 };
@@ -1743,14 +1743,14 @@ const serializeAws_queryStringMap = (input: { [key: string]: string }, context: 
 const deserializeAws_queryComplexError = (output: any, context: __SerdeContext): ComplexError => {
   let contents: any = {
     __type: "ComplexError",
-    Nested: undefined,
     TopLevel: undefined,
+    Nested: undefined,
   };
-  if (output["Nested"] !== undefined) {
-    contents.Nested = deserializeAws_queryComplexNestedErrorData(output["Nested"], context);
-  }
   if (output["TopLevel"] !== undefined) {
     contents.TopLevel = output["TopLevel"];
+  }
+  if (output["Nested"] !== undefined) {
+    contents.Nested = deserializeAws_queryComplexNestedErrorData(output["Nested"], context);
   }
   return contents;
 };
@@ -1922,31 +1922,34 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
 ): SimpleScalarXmlPropertiesOutput => {
   let contents: any = {
     __type: "SimpleScalarXmlPropertiesOutput",
-    byteValue: undefined,
-    doubleValue: undefined,
+    stringValue: undefined,
     emptyStringValue: undefined,
+    trueBooleanValue: undefined,
     falseBooleanValue: undefined,
-    floatValue: undefined,
+    byteValue: undefined,
+    shortValue: undefined,
     integerValue: undefined,
     longValue: undefined,
-    shortValue: undefined,
-    stringValue: undefined,
-    trueBooleanValue: undefined,
+    floatValue: undefined,
+    doubleValue: undefined,
   };
-  if (output["byteValue"] !== undefined) {
-    contents.byteValue = parseInt(output["byteValue"]);
-  }
-  if (output["DoubleDribble"] !== undefined) {
-    contents.doubleValue = parseFloat(output["DoubleDribble"]);
+  if (output["stringValue"] !== undefined) {
+    contents.stringValue = output["stringValue"];
   }
   if (output["emptyStringValue"] !== undefined) {
     contents.emptyStringValue = output["emptyStringValue"];
   }
+  if (output["trueBooleanValue"] !== undefined) {
+    contents.trueBooleanValue = output["trueBooleanValue"] == "true";
+  }
   if (output["falseBooleanValue"] !== undefined) {
     contents.falseBooleanValue = output["falseBooleanValue"] == "true";
   }
-  if (output["floatValue"] !== undefined) {
-    contents.floatValue = parseFloat(output["floatValue"]);
+  if (output["byteValue"] !== undefined) {
+    contents.byteValue = parseInt(output["byteValue"]);
+  }
+  if (output["shortValue"] !== undefined) {
+    contents.shortValue = parseInt(output["shortValue"]);
   }
   if (output["integerValue"] !== undefined) {
     contents.integerValue = parseInt(output["integerValue"]);
@@ -1954,14 +1957,11 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
   if (output["longValue"] !== undefined) {
     contents.longValue = parseInt(output["longValue"]);
   }
-  if (output["shortValue"] !== undefined) {
-    contents.shortValue = parseInt(output["shortValue"]);
+  if (output["floatValue"] !== undefined) {
+    contents.floatValue = parseFloat(output["floatValue"]);
   }
-  if (output["stringValue"] !== undefined) {
-    contents.stringValue = output["stringValue"];
-  }
-  if (output["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue = output["trueBooleanValue"] == "true";
+  if (output["DoubleDribble"] !== undefined) {
+    contents.doubleValue = parseFloat(output["DoubleDribble"]);
   }
   return contents;
 };
@@ -2003,8 +2003,8 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
     fooEnum2: undefined,
     fooEnum3: undefined,
     fooEnumList: undefined,
-    fooEnumMap: undefined,
     fooEnumSet: undefined,
+    fooEnumMap: undefined,
   };
   if (output["fooEnum1"] !== undefined) {
     contents.fooEnum1 = output["fooEnum1"];
@@ -2024,15 +2024,6 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
       context
     );
   }
-  if (output.fooEnumMap === "") {
-    contents.fooEnumMap = {};
-  }
-  if (output["fooEnumMap"] !== undefined && output["fooEnumMap"]["entry"] !== undefined) {
-    contents.fooEnumMap = deserializeAws_queryFooEnumMap(
-      __getArrayIfSingleItem(output["fooEnumMap"]["entry"]),
-      context
-    );
-  }
   if (output.fooEnumSet === "") {
     contents.fooEnumSet = [];
   }
@@ -2042,56 +2033,47 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
       context
     );
   }
+  if (output.fooEnumMap === "") {
+    contents.fooEnumMap = {};
+  }
+  if (output["fooEnumMap"] !== undefined && output["fooEnumMap"]["entry"] !== undefined) {
+    contents.fooEnumMap = deserializeAws_queryFooEnumMap(
+      __getArrayIfSingleItem(output["fooEnumMap"]["entry"]),
+      context
+    );
+  }
   return contents;
 };
 
 const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
   let contents: any = {
     __type: "XmlListsOutput",
-    booleanList: undefined,
-    enumList: undefined,
-    flattenedList: undefined,
-    flattenedList2: undefined,
-    integerList: undefined,
-    nestedStringList: undefined,
-    renamedListMembers: undefined,
     stringList: undefined,
     stringSet: undefined,
-    structureList: undefined,
+    integerList: undefined,
+    booleanList: undefined,
     timestampList: undefined,
+    enumList: undefined,
+    nestedStringList: undefined,
+    renamedListMembers: undefined,
+    flattenedList: undefined,
+    flattenedList2: undefined,
+    structureList: undefined,
   };
-  if (output.booleanList === "") {
-    contents.booleanList = [];
+  if (output.stringList === "") {
+    contents.stringList = [];
   }
-  if (output["booleanList"] !== undefined && output["booleanList"]["member"] !== undefined) {
-    contents.booleanList = deserializeAws_queryBooleanList(
-      __getArrayIfSingleItem(output["booleanList"]["member"]),
+  if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
+    contents.stringList = deserializeAws_queryStringList(
+      __getArrayIfSingleItem(output["stringList"]["member"]),
       context
     );
   }
-  if (output.enumList === "") {
-    contents.enumList = [];
+  if (output.stringSet === "") {
+    contents.stringSet = [];
   }
-  if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
-    contents.enumList = deserializeAws_queryFooEnumList(__getArrayIfSingleItem(output["enumList"]["member"]), context);
-  }
-  if (output.flattenedList === "") {
-    contents.flattenedList = [];
-  }
-  if (output["flattenedList"] !== undefined) {
-    contents.flattenedList = deserializeAws_queryRenamedListMembers(
-      __getArrayIfSingleItem(output["flattenedList"]),
-      context
-    );
-  }
-  if (output.customName === "") {
-    contents.flattenedList2 = [];
-  }
-  if (output["customName"] !== undefined) {
-    contents.flattenedList2 = deserializeAws_queryRenamedListMembers(
-      __getArrayIfSingleItem(output["customName"]),
-      context
-    );
+  if (output["stringSet"] !== undefined && output["stringSet"]["member"] !== undefined) {
+    contents.stringSet = deserializeAws_queryStringSet(__getArrayIfSingleItem(output["stringSet"]["member"]), context);
   }
   if (output.integerList === "") {
     contents.integerList = [];
@@ -2101,6 +2083,30 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
       __getArrayIfSingleItem(output["integerList"]["member"]),
       context
     );
+  }
+  if (output.booleanList === "") {
+    contents.booleanList = [];
+  }
+  if (output["booleanList"] !== undefined && output["booleanList"]["member"] !== undefined) {
+    contents.booleanList = deserializeAws_queryBooleanList(
+      __getArrayIfSingleItem(output["booleanList"]["member"]),
+      context
+    );
+  }
+  if (output.timestampList === "") {
+    contents.timestampList = [];
+  }
+  if (output["timestampList"] !== undefined && output["timestampList"]["member"] !== undefined) {
+    contents.timestampList = deserializeAws_queryTimestampList(
+      __getArrayIfSingleItem(output["timestampList"]["member"]),
+      context
+    );
+  }
+  if (output.enumList === "") {
+    contents.enumList = [];
+  }
+  if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
+    contents.enumList = deserializeAws_queryFooEnumList(__getArrayIfSingleItem(output["enumList"]["member"]), context);
   }
   if (output.nestedStringList === "") {
     contents.nestedStringList = [];
@@ -2120,20 +2126,23 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
       context
     );
   }
-  if (output.stringList === "") {
-    contents.stringList = [];
+  if (output.flattenedList === "") {
+    contents.flattenedList = [];
   }
-  if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
-    contents.stringList = deserializeAws_queryStringList(
-      __getArrayIfSingleItem(output["stringList"]["member"]),
+  if (output["flattenedList"] !== undefined) {
+    contents.flattenedList = deserializeAws_queryRenamedListMembers(
+      __getArrayIfSingleItem(output["flattenedList"]),
       context
     );
   }
-  if (output.stringSet === "") {
-    contents.stringSet = [];
+  if (output.customName === "") {
+    contents.flattenedList2 = [];
   }
-  if (output["stringSet"] !== undefined && output["stringSet"]["member"] !== undefined) {
-    contents.stringSet = deserializeAws_queryStringSet(__getArrayIfSingleItem(output["stringSet"]["member"]), context);
+  if (output["customName"] !== undefined) {
+    contents.flattenedList2 = deserializeAws_queryRenamedListMembers(
+      __getArrayIfSingleItem(output["customName"]),
+      context
+    );
   }
   if (output.myStructureList === "") {
     contents.structureList = [];
@@ -2141,15 +2150,6 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   if (output["myStructureList"] !== undefined && output["myStructureList"]["item"] !== undefined) {
     contents.structureList = deserializeAws_queryStructureList(
       __getArrayIfSingleItem(output["myStructureList"]["item"]),
-      context
-    );
-  }
-  if (output.timestampList === "") {
-    contents.timestampList = [];
-  }
-  if (output["timestampList"] !== undefined && output["timestampList"]["member"] !== undefined) {
-    contents.timestampList = deserializeAws_queryTimestampList(
-      __getArrayIfSingleItem(output["timestampList"]["member"]),
       context
     );
   }
@@ -2252,11 +2252,14 @@ const deserializeAws_queryXmlNamespacesOutput = (output: any, context: __SerdeCo
 const deserializeAws_queryXmlTimestampsOutput = (output: any, context: __SerdeContext): XmlTimestampsOutput => {
   let contents: any = {
     __type: "XmlTimestampsOutput",
+    normal: undefined,
     dateTime: undefined,
     epochSeconds: undefined,
     httpDate: undefined,
-    normal: undefined,
   };
+  if (output["normal"] !== undefined) {
+    contents.normal = new Date(output["normal"]);
+  }
   if (output["dateTime"] !== undefined) {
     contents.dateTime = new Date(output["dateTime"]);
   }
@@ -2265,9 +2268,6 @@ const deserializeAws_queryXmlTimestampsOutput = (output: any, context: __SerdeCo
   }
   if (output["httpDate"] !== undefined) {
     contents.httpDate = new Date(output["httpDate"]);
-  }
-  if (output["normal"] !== undefined) {
-    contents.normal = new Date(output["normal"]);
   }
   return contents;
 };

@@ -7,8 +7,8 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface ComplexError extends __SmithyException, $MetadataBearer {
   name: "ComplexError";
   $fault: "client";
-  Nested?: ComplexNestedErrorData;
   TopLevel?: string;
+  Nested?: ComplexNestedErrorData;
 }
 
 export namespace ComplexError {
@@ -130,10 +130,10 @@ export namespace QueryIdempotencyTokenAutoFillInput {
 
 export interface QueryListsInput {
   __type?: "QueryListsInput";
-  ComplexListArg?: GreetingStruct[];
   ListArg?: string[];
-  ListArgWithXmlName?: string[];
+  ComplexListArg?: GreetingStruct[];
   ListArgWithXmlNameMember?: string[];
+  ListArgWithXmlName?: string[];
 }
 
 export namespace QueryListsInput {
@@ -145,9 +145,9 @@ export namespace QueryListsInput {
 
 export interface QueryTimestampsInput {
   __type?: "QueryTimestampsInput";
+  normalFormat?: Date;
   epochMember?: Date;
   epochTarget?: Date;
-  normalFormat?: Date;
 }
 
 export namespace QueryTimestampsInput {
@@ -197,15 +197,15 @@ export namespace RecursiveXmlShapesOutputNested2 {
 
 export interface SimpleInputParamsInput {
   __type?: "SimpleInputParamsInput";
-  Bam?: number;
+  Foo?: string;
   Bar?: string;
   Baz?: boolean;
+  Bam?: number;
   Boo?: number;
-  Foo?: string;
-  FooEnum?: FooEnum | string;
-  HasQueryAndXmlName?: string;
-  HasQueryName?: string;
   Qux?: Uint8Array;
+  FooEnum?: FooEnum | string;
+  HasQueryName?: string;
+  HasQueryAndXmlName?: string;
   UsesXmlName?: string;
 }
 
@@ -218,16 +218,16 @@ export namespace SimpleInputParamsInput {
 
 export interface SimpleScalarXmlPropertiesOutput {
   __type?: "SimpleScalarXmlPropertiesOutput";
-  byteValue?: number;
-  doubleValue?: number;
+  stringValue?: string;
   emptyStringValue?: string;
+  trueBooleanValue?: boolean;
   falseBooleanValue?: boolean;
-  floatValue?: number;
+  byteValue?: number;
+  shortValue?: number;
   integerValue?: number;
   longValue?: number;
-  shortValue?: number;
-  stringValue?: string;
-  trueBooleanValue?: boolean;
+  floatValue?: number;
+  doubleValue?: number;
 }
 
 export namespace SimpleScalarXmlPropertiesOutput {
@@ -239,9 +239,9 @@ export namespace SimpleScalarXmlPropertiesOutput {
 
 export interface StructArg {
   __type?: "StructArg";
+  StringArg?: string;
   OtherArg?: boolean;
   RecursiveArg?: StructArg;
-  StringArg?: string;
 }
 
 export namespace StructArg {
@@ -282,8 +282,8 @@ export interface XmlEnumsOutput {
   fooEnum2?: FooEnum | string;
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
   fooEnumSet?: (FooEnum | string)[];
+  fooEnumMap?: { [key: string]: FooEnum | string };
 }
 
 export namespace XmlEnumsOutput {
@@ -295,21 +295,21 @@ export namespace XmlEnumsOutput {
 
 export interface XmlListsOutput {
   __type?: "XmlListsOutput";
-  booleanList?: boolean[];
-  enumList?: (FooEnum | string)[];
-  flattenedList?: string[];
-  flattenedList2?: string[];
+  stringList?: string[];
+  stringSet?: string[];
   integerList?: number[];
+  booleanList?: boolean[];
+  timestampList?: Date[];
+  enumList?: (FooEnum | string)[];
   /**
    * A list of lists of strings.
    */
   nestedStringList?: string[][];
 
   renamedListMembers?: string[];
-  stringList?: string[];
-  stringSet?: string[];
+  flattenedList?: string[];
+  flattenedList2?: string[];
   structureList?: StructureListMember[];
-  timestampList?: Date[];
 }
 
 export namespace XmlListsOutput {
@@ -346,10 +346,10 @@ export namespace XmlNamespacesOutput {
 
 export interface XmlTimestampsOutput {
   __type?: "XmlTimestampsOutput";
+  normal?: Date;
   dateTime?: Date;
   epochSeconds?: Date;
   httpDate?: Date;
-  normal?: Date;
 }
 
 export namespace XmlTimestampsOutput {
