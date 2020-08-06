@@ -32,7 +32,8 @@
    ```
 
 1. Inside the container, configure the credentials to be the one that has permission to the `SdkReleaseV3IntegTestResourcesStack`
-   stack. You can configure the credentials following [this guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
+   stack. Region also needs to be configured. You can configure the credentials and region following
+   [this guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
 
 1. Change directory to the SDK directory, make sure the clients that contains end-to-end test suites has been built to
    JS files.
