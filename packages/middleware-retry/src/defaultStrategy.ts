@@ -13,7 +13,7 @@ import { defaultRetryDecider } from "./retryDecider";
  * The default value for how many HTTP requests an SDK should make for a
  * single SDK operation invocation before giving up
  */
-export const DEFAULT_MAX_ATTEMPTS = "3";
+export const DEFAULT_MAX_ATTEMPTS = 3;
 
 /**
  * The default retry algorithm to use.
@@ -75,7 +75,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   private delayDecider: DelayDecider;
   private retryQuota: RetryQuota;
 
-  constructor(private readonly maxAttemptsProvider: Provider<string>, options?: StandardRetryStrategyOptions) {
+  constructor(private readonly maxAttemptsProvider: Provider<number>, options?: StandardRetryStrategyOptions) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
     this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
     this.retryQuota = options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
@@ -86,14 +86,13 @@ export class StandardRetryStrategy implements RetryStrategy {
   }
 
   private async getMaxAttempts() {
-    let maxAttemptsStr: string;
+    let maxAttempts: number;
     try {
-      maxAttemptsStr = await this.maxAttemptsProvider();
+      maxAttempts = await this.maxAttemptsProvider();
     } catch (error) {
-      maxAttemptsStr = DEFAULT_MAX_ATTEMPTS;
+      maxAttempts = DEFAULT_MAX_ATTEMPTS;
     }
-    const maxAttempts = parseInt(maxAttemptsStr);
-    return Number.isNaN(maxAttempts) ? parseInt(DEFAULT_MAX_ATTEMPTS) : maxAttempts;
+    return maxAttempts;
   }
 
   async retry<Input extends object, Ouput extends MetadataBearer>(

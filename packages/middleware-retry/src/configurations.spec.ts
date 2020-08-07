@@ -1,11 +1,14 @@
-import { resolveRetryConfig } from "./configurations";
-import { StandardRetryStrategy } from "./defaultStrategy";
+import {
+  CONFIG_MAX_ATTEMPTS,
+  ENV_MAX_ATTEMPTS,
+  NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
+  resolveRetryConfig,
+} from "./configurations";
+import { DEFAULT_MAX_ATTEMPTS, StandardRetryStrategy } from "./defaultStrategy";
 
 jest.mock("./defaultStrategy");
 
 describe("resolveRetryConfig", () => {
-  const maxAttemptsDefaultProvider = jest.fn();
-
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -13,24 +16,9 @@ describe("resolveRetryConfig", () => {
   describe("maxAttempts", () => {
     it("assigns maxAttempts value if present", async () => {
       for (const maxAttempts of [1, 2, 3]) {
-        const output = await resolveRetryConfig({
-          maxAttempts,
-          maxAttemptsDefaultProvider,
-        }).maxAttempts();
-        expect(output).toStrictEqual(maxAttempts.toString());
-        expect(maxAttemptsDefaultProvider).not.toHaveBeenCalled();
+        const output = await resolveRetryConfig({ maxAttempts }).maxAttempts();
+        expect(output).toStrictEqual(maxAttempts);
       }
-    });
-
-    it("assigns maxAttemptsDefaultProvider if maxAttempts not present", () => {
-      const mockMaxAttempts = jest.fn();
-      maxAttemptsDefaultProvider.mockReturnValueOnce(mockMaxAttempts);
-
-      const input = { maxAttemptsDefaultProvider };
-      expect(resolveRetryConfig(input).maxAttempts).toStrictEqual(mockMaxAttempts);
-
-      expect(maxAttemptsDefaultProvider).toHaveBeenCalledTimes(1);
-      expect(maxAttemptsDefaultProvider).toHaveBeenCalledWith(input);
     });
   });
 
@@ -41,7 +29,6 @@ describe("resolveRetryConfig", () => {
       };
       const { retryStrategy } = resolveRetryConfig({
         retryStrategy: mockRetryStrategy,
-        maxAttemptsDefaultProvider,
       });
       expect(retryStrategy).toEqual(mockRetryStrategy);
     });
@@ -50,26 +37,56 @@ describe("resolveRetryConfig", () => {
       describe("passes maxAttempts if present", () => {
         for (const maxAttempts of [1, 2, 3]) {
           it(`when maxAttempts=${maxAttempts}`, async () => {
-            resolveRetryConfig({
-              maxAttempts,
-              maxAttemptsDefaultProvider,
-            });
+            resolveRetryConfig({ maxAttempts });
             expect(StandardRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
             const output = await (StandardRetryStrategy as jest.Mock).mock.calls[0][0]();
-            expect(output).toStrictEqual(maxAttempts.toString());
+            expect(output).toStrictEqual(maxAttempts);
           });
         }
       });
+    });
+  });
 
-      it("passes maxAttemptsDefaultProvider if maxAttempts is not present", () => {
-        const mockMaxAttempts = jest.fn();
-        maxAttemptsDefaultProvider.mockReturnValueOnce(mockMaxAttempts);
+  describe("node maxAttempts config options", () => {
+    describe("environmentVariableSelector", () => {
+      it(`should return value of env ${ENV_MAX_ATTEMPTS} is number`, () => {
+        const value = "3";
+        const env = { [ENV_MAX_ATTEMPTS]: value };
+        expect(NODE_MAX_ATTEMPT_CONFIG_OPTIONS.environmentVariableSelector(env)).toBe(parseInt(value));
+      });
 
-        resolveRetryConfig({
-          maxAttemptsDefaultProvider,
-        });
-        expect(StandardRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
-        expect((StandardRetryStrategy as jest.Mock).mock.calls[0][0]).toEqual(mockMaxAttempts);
+      it(`should return undefined if env ${ENV_MAX_ATTEMPTS} is not set`, () => {
+        expect(NODE_MAX_ATTEMPT_CONFIG_OPTIONS.environmentVariableSelector({})).toBe(undefined);
+      });
+
+      it(`should throw if if value of env ${ENV_MAX_ATTEMPTS} is not a number`, () => {
+        const value = "not a number";
+        const env = { [ENV_MAX_ATTEMPTS]: value };
+        expect(() => NODE_MAX_ATTEMPT_CONFIG_OPTIONS.environmentVariableSelector(env)).toThrow("");
+      });
+    });
+
+    describe("configFileSelector", () => {
+      it(`should return value of shared INI files entry ${CONFIG_MAX_ATTEMPTS} is number`, () => {
+        const value = "3";
+        const profile = { [CONFIG_MAX_ATTEMPTS]: value };
+        expect(NODE_MAX_ATTEMPT_CONFIG_OPTIONS.configFileSelector(profile)).toBe(parseInt(value));
+      });
+
+      it(`should return undefined if shared INI files entry ${CONFIG_MAX_ATTEMPTS} is not set`, () => {
+        expect(NODE_MAX_ATTEMPT_CONFIG_OPTIONS.configFileSelector({})).toBe(undefined);
+      });
+
+      it(`should throw if shared INI files entry ${CONFIG_MAX_ATTEMPTS} is not a number`, () => {
+        const value = "not a number";
+        const profile = { [CONFIG_MAX_ATTEMPTS]: value };
+        expect(() => NODE_MAX_ATTEMPT_CONFIG_OPTIONS.configFileSelector(profile)).toThrow("");
+      });
+    });
+
+    describe("default", () => {
+      it(`should equal to ${DEFAULT_MAX_ATTEMPTS}`, () => {
+        expect(NODE_MAX_ATTEMPT_CONFIG_OPTIONS.default).toBe(DEFAULT_MAX_ATTEMPTS);
       });
     });
   });
