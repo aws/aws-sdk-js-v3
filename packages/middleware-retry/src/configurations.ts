@@ -1,7 +1,7 @@
 import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
 import { Provider, RetryStrategy } from "@aws-sdk/types";
 
-import { DEFAULT_MAX_ATTEMPTS, StandardRetryStrategy } from "./defaultStrategy";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE, StandardRetryStrategy } from "./defaultStrategy";
 
 export const ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";
 export const CONFIG_MAX_ATTEMPTS = "max_attempts";
@@ -60,4 +60,13 @@ const normalizeMaxAttempts = (maxAttempts: number | Provider<number> = DEFAULT_M
     return () => promisified;
   }
   return maxAttempts;
+};
+
+export const ENV_RETRY_MODE = "AWS_RETRY_MODE";
+export const CONFIG_RETRY_MODE = "retry_mode";
+
+export const NODE_RETRY_MODE_CONFIG_OPTIONS: LoadedConfigSelectors<string> = {
+  environmentVariableSelector: (env) => env[ENV_RETRY_MODE],
+  configFileSelector: (profile) => profile[CONFIG_RETRY_MODE],
+  default: DEFAULT_RETRY_MODE,
 };

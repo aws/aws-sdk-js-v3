@@ -3,6 +3,7 @@ import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
+import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
@@ -20,7 +21,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamSerdeProvider,
-  maxAttemptsDefaultProvider: (() => "3") as any,
+  maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,

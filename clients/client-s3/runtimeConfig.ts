@@ -5,9 +5,9 @@ import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
 import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
+import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { maxAttemptsProvider as maxAttemptsDefaultProvider } from "@aws-sdk/retry-config-provider";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
@@ -26,7 +26,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   credentialDefaultProvider,
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamSerdeProvider,
-  maxAttemptsDefaultProvider,
+  maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
   md5: Hash.bind(null, "md5"),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
   requestHandler: new NodeHttpHandler(),
