@@ -8,7 +8,9 @@ import {
   Pluggable,
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
+import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 
+// import { parseArn } from "./bucketArnUtils";
 import { bucketHostname } from "./bucketHostname";
 import { BucketEndpointResolvedConfig } from "./configurations";
 
@@ -24,12 +26,13 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
         request.hostname = bucketName;
       } else {
         const { hostname, bucketEndpoint } = bucketHostname({
-          bucketName,
+          bucketName: validateArn(bucketName) ? parseArn(bucketName) : bucketName,
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint: options.useDualstackEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
+          useArnRegion: await options.useArnRegion(),
         });
 
         request.hostname = hostname;

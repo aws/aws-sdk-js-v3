@@ -1,3 +1,7 @@
+import { ARN } from "@aws-sdk/util-arn-parser";
+
+import { AccessPointArn } from "./bucketArnUtils";
+
 const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;
 const IP_ADDRESS_PATTERN = /(\d+\.){3}\d+/;
 const DOTS_PATTERN = /\.\./;
@@ -9,10 +13,11 @@ const AWS_PARTITION_SUFFIX = "amazonaws.com";
 export interface BucketHostnameParameters {
   accelerateEndpoint?: boolean;
   baseHostname: string;
-  bucketName: string;
+  bucketName: string | ARN;
   dualstackEndpoint?: boolean;
   pathStyleEndpoint?: boolean;
   tlsCompatible?: boolean;
+  useArnRegion?: boolean;
 }
 
 export interface BucketHostname {
@@ -39,23 +44,30 @@ export function bucketHostname({
     ? ["us-east-1", AWS_PARTITION_SUFFIX]
     : partitionSuffix(baseHostname);
 
-  if (pathStyleEndpoint || !isDnsCompatibleBucketName(bucketName) || (tlsCompatible && DOT_PATTERN.test(bucketName))) {
+  if (typeof bucketName === "string") {
+    if (
+      pathStyleEndpoint ||
+      !isDnsCompatibleBucketName(bucketName) ||
+      (tlsCompatible && DOT_PATTERN.test(bucketName))
+    ) {
+      return {
+        bucketEndpoint: false,
+        hostname: dualstackEndpoint ? `s3.dualstack.${region}.${hostnameSuffix}` : baseHostname,
+      };
+    }
+
+    if (accelerateEndpoint) {
+      baseHostname = `s3-accelerate${dualstackEndpoint ? ".dualstack" : ""}.${hostnameSuffix}`;
+    } else if (dualstackEndpoint) {
+      baseHostname = `s3.dualstack.${region}.${hostnameSuffix}`;
+    }
+
     return {
-      bucketEndpoint: false,
-      hostname: dualstackEndpoint ? `s3.dualstack.${region}.${hostnameSuffix}` : baseHostname,
+      bucketEndpoint: true,
+      hostname: `${bucketName}.${baseHostname}`,
     };
+  } else {
   }
-
-  if (accelerateEndpoint) {
-    baseHostname = `s3-accelerate${dualstackEndpoint ? ".dualstack" : ""}.${hostnameSuffix}`;
-  } else if (dualstackEndpoint) {
-    baseHostname = `s3.dualstack.${region}.${hostnameSuffix}`;
-  }
-
-  return {
-    bucketEndpoint: true,
-    hostname: `${bucketName}.${baseHostname}`,
-  };
 }
 
 /**
@@ -70,7 +82,7 @@ function isDnsCompatibleBucketName(bucketName: string): boolean {
 }
 
 function partitionSuffix(hostname: string): [string, string] {
-  const parts = hostname.match(S3_HOSTNAME_PATTERN) as RegExpMatchArray;
+  const parts = hostname.match(S3_HOSTNAME_PATTERN);
 
   return [parts[2], hostname.replace(new RegExp(`^${parts[0]}`), "")];
 }

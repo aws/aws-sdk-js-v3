@@ -20,6 +20,7 @@
   "dependencies": {
     "@aws-sdk/protocol-http": "1.0.0-gamma.5",
     "@aws-sdk/types": "1.0.0-gamma.4",
+    "@aws-sdk/util-arn-parser": "1.0.0-gamma.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
