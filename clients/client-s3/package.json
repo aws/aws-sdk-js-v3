@@ -71,6 +71,7 @@
     "@aws-sdk/util-utf8-browser": "1.0.0-gamma.5",
     "@aws-sdk/util-utf8-node": "1.0.0-gamma.5",
     "@aws-sdk/xml-builder": "1.0.0-gamma.5",
+    "@aws-sdk/node-config-provider": "1.0.0-gamma.0",
     "fast-xml-parser": "^3.16.0",
     "tslib": "^2.0.0"
   },
