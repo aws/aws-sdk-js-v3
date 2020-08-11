@@ -40,6 +40,7 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "us-east-1":
       regionInfo = {
         hostname: "entitlement.marketplace.us-east-1.amazonaws.com",
+        partition: "aws",
         signingService: "aws-marketplace",
       };
       break;
@@ -48,33 +49,39 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
           signingService: "aws-marketplace",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
           signingService: "aws-marketplace",
         };
       }

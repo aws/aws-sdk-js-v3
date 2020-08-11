@@ -40,21 +40,25 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "us-east-1":
       regionInfo = {
         hostname: "health.us-east-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-gov-west-1":
       regionInfo = {
         hostname: "health.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-iso-east-1":
       regionInfo = {
         hostname: "health.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
       };
       break;
     case "us-isob-east-1":
       regionInfo = {
         hostname: "health.us-isob-east-1.sc2s.sgov.gov",
+        partition: "aws-iso-b",
       };
       break;
     // Next, try to match partition endpoints.
@@ -62,32 +66,38 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
   }

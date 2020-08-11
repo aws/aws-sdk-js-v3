@@ -40,24 +40,28 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "aws-cn-global":
       regionInfo = {
         hostname: "support.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
         signingRegion: "cn-north-1",
       };
       break;
     case "aws-global":
       regionInfo = {
         hostname: "support.us-east-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-east-1",
       };
       break;
     case "aws-iso-b-global":
       regionInfo = {
         hostname: "support.us-isob-east-1.sc2s.sgov.gov",
+        partition: "aws-iso-b",
         signingRegion: "us-isob-east-1",
       };
       break;
     case "aws-iso-global":
       regionInfo = {
         hostname: "support.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
         signingRegion: "us-iso-east-1",
       };
       break;
@@ -66,32 +70,38 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
   }

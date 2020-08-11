@@ -40,12 +40,14 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "aws-cn-global":
       regionInfo = {
         hostname: "cloudfront.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
         signingRegion: "cn-northwest-1",
       };
       break;
     case "aws-global":
       regionInfo = {
         hostname: "cloudfront.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-east-1",
       };
       break;
@@ -60,16 +62,19 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
         };
       }
       // Finally, assume it's an AWS partition endpoint.

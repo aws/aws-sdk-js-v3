@@ -40,12 +40,14 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "aws-global":
       regionInfo = {
         hostname: "organizations.us-east-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-east-1",
       };
       break;
     case "aws-us-gov-global":
       regionInfo = {
         hostname: "organizations.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
         signingRegion: "us-gov-west-1",
       };
       break;
@@ -57,16 +59,19 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
