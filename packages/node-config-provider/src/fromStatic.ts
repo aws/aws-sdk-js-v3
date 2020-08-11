@@ -6,8 +6,4 @@ type Getter<T> = () => T;
 const isFunction = <T>(func: FromStaticConfig<T>): func is Getter<T> => typeof func === "function";
 
 export const fromStatic = <T>(defaultValue: FromStaticConfig<T>): Provider<T> =>
-  isFunction(defaultValue)
-    ? async () => {
-        return defaultValue();
-      }
-    : convertToProvider(defaultValue);
+  isFunction(defaultValue) ? async () => defaultValue() : convertToProvider(defaultValue);

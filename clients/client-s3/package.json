@@ -15,9 +15,7 @@
     "test": "yarn test:unit",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es",
-    "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
-    "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map"
+    "build": "yarn build:cjs && yarn build:es"
   },
   "main": "./dist/cjs/index.js",
   "types": "./types/index.d.ts",

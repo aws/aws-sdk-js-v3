@@ -1,5 +1,5 @@
 import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
-import { Provider } from "@aws-sdk/types/src";
+import { Provider } from "@aws-sdk/types";
 
 export interface BucketEndpointInputConfig {
   /**
