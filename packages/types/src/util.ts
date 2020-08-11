@@ -80,6 +80,7 @@ export interface RegionInfo {
   path?: string;
   signingService?: string;
   signingRegion?: string;
+  partition?: string;
 }
 
 /**

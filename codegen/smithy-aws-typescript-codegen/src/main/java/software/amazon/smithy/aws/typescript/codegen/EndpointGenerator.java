@@ -46,6 +46,7 @@ final class EndpointGenerator implements Runnable {
     private final String endpointPrefix;
     private final Map<String, Partition> partitions = new TreeMap<>();
     private final Map<String, ObjectNode> endpoints = new TreeMap<>();
+    private final Map<String, Partition> regionPartitionsMap = new TreeMap<>();
 
     EndpointGenerator(ServiceShape service, TypeScriptWriter writer) {
         this.writer = writer;
@@ -99,6 +100,7 @@ final class EndpointGenerator implements Runnable {
                 hostName = hostName.replace("{region}", entry.getKey());
                 config = config.withMember("hostname", hostName);
                 endpoints.put(entry.getKey(), config);
+                regionPartitionsMap.put(entry.getKey(), partition);
             }
         }
     }
@@ -142,7 +144,7 @@ final class EndpointGenerator implements Runnable {
                 writer.write("// First, try to match exact region names.");
                 for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
                     writer.write("case $S:", entry.getKey()).indent();
-                    writeEndpointSpecificResolver(entry.getValue());
+                    writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
                     writer.write("break;");
                     writer.dedent();
                 }
@@ -170,16 +172,18 @@ final class EndpointGenerator implements Runnable {
                     writer.openBlock("regionInfo = {", "};", () -> {
                         String template = partition.templateVariableName;
                         writer.write("hostname: $L.replace(\"{region}\", region),", template);
+                        writer.write("partition: $S,", partition.ID);
                         writeAdditionalEndpointSettings(partition.getDefaults());
                     });
                 }
         );
     }
 
-    private void writeEndpointSpecificResolver(ObjectNode resolved) {
+    private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
         String hostname = resolved.expectStringMember("hostname").getValue();
         writer.openBlock("regionInfo = {", "};", () -> {
             writer.write("hostname: $S,", hostname);
+            writer.write("partition: $S,", regionPartitionsMap.get(region).ID);
             writeAdditionalEndpointSettings(resolved);
         });
     }
@@ -202,6 +206,7 @@ final class EndpointGenerator implements Runnable {
         final String templateVariableName;
         final String templateValue;
         final String dnsSuffix;
+        final String ID;
         private final ObjectNode config;
 
         private Partition(ObjectNode config, String partition) {
@@ -222,6 +227,7 @@ final class EndpointGenerator implements Runnable {
             regionVariableName = snakePartition + "_REGIONS";
 
             dnsSuffix = config.expectStringMember("dnsSuffix").getValue();
+            ID = partition;
         }
 
         ObjectNode getDefaults() {
