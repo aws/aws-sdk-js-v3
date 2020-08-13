@@ -14,6 +14,10 @@ describe("bucketEndpointMiddleware", () => {
     path: "/bucket",
   };
   const next = jest.fn();
+  const previouslyResolvedConfig = {
+    region: () => Promise.resolve("us-foo-1"),
+    regionInfoProvider: () => Promise.resolve({ hostname: "foo.us-foo-1.amazonaws.com" }),
+  };
 
   beforeEach(() => {
     next.mockClear();
@@ -21,7 +25,10 @@ describe("bucketEndpointMiddleware", () => {
 
   it("should convert the request provided into one directed to a virtual hosted-style endpoint", async () => {
     const request = new HttpRequest(requestInput);
-    const handler = bucketEndpointMiddleware(resolveBucketEndpointConfig({}))(next, {} as any);
+    const handler = bucketEndpointMiddleware(resolveBucketEndpointConfig({ ...previouslyResolvedConfig }))(
+      next,
+      {} as any
+    );
     await handler({ input, request });
 
     const {
@@ -38,6 +45,7 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
+        ...previouslyResolvedConfig,
         forcePathStyle: true,
       })
     )(next, {} as any);
@@ -57,6 +65,7 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
+        ...previouslyResolvedConfig,
         bucketEndpoint: true,
       })
     )(next, {} as any);
@@ -77,6 +86,7 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
+        ...previouslyResolvedConfig,
         useAccelerateEndpoint: true,
       })
     )(next, {} as any);
@@ -96,6 +106,7 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
+        ...previouslyResolvedConfig,
         useDualstackEndpoint: true,
       })
     )(next, {} as any);
@@ -115,6 +126,7 @@ describe("bucketEndpointMiddleware", () => {
     const request = new HttpRequest(requestInput);
     const handler = bucketEndpointMiddleware(
       resolveBucketEndpointConfig({
+        ...previouslyResolvedConfig,
         useAccelerateEndpoint: true,
         useDualstackEndpoint: true,
       })

@@ -1,12 +1,14 @@
 import { ARN } from "@aws-sdk/util-arn-parser";
 
+import { ArnHostnameParameters } from "./bucketHostname";
+
 export interface AccessPointArn extends ARN {
   accessPointName: string;
 }
 
 interface RequestOptions {
   clientRegion: string;
-  requestSuffix: string;
+  clientPartition: string;
   useArnRegion: boolean;
 }
 
@@ -16,16 +18,19 @@ export const parseAccessPointArn = (arn: ARN, requestOptions: RequestOptions): A
     throw new Error("expect 's3' in access point ARN service component");
   }
   validateRegion(region, { ...requestOptions });
+  validatePartition(partition, { ...requestOptions });
   validateAccountId(accountId);
   const [, accessPointName] = parseAccessPointResource(resource);
+  validateDNSHostLabel(`${accessPointName}-${accountId}`);
   return {
     ...arn,
     accessPointName,
   };
 };
 
-const validatePartition = (partition: string, options: { requestSuffix: string }) => {
-  if (options.requestSuffix) {
+const validatePartition = (partition: string, options: { clientPartition: string }) => {
+  if (partition !== options.clientPartition) {
+    throw new Error(`Partition in ARN is incompatible, got ${partition} but expected ${options.clientPartition}`);
   }
 };
 
@@ -39,15 +44,36 @@ const validateRegion = (
   if (region === "") {
     throw new Error("Access point ARN region is empty");
   }
-  if (isFipsPseudoRegion(options.clientRegion) && !options.useArnRegion) {
+  if (!options.useArnRegion && !isEqualRegions(region, options.clientRegion)) {
+    throw new Error(`Region in ARN is incompatible, got ${region} but expected ${options.clientRegion}`);
+  }
+  if (options.useArnRegion && isFipsRegion(region)) {
+    throw new Error("Region in ARN is a FIPS region");
   }
 };
 
-const isFipsPseudoRegion = (region: string) => region.startsWith("fips-") || region.endsWith("-fips");
+const isFipsRegion = (region: string) => region.startsWith("fips-") || region.endsWith("-fips");
+
+const getPseudoRegion = (region: string) => region.replace(/fips-|-fips/, "");
+
+const isEqualRegions = (regionA: string, regionB: string) =>
+  regionA === regionB || getPseudoRegion(regionA) === regionB || regionA === getPseudoRegion(regionB);
 
 const validateAccountId = (accountId: string) => {
   if (!/[0-9]{12}/.exec(accountId)) {
     throw new Error("Access point ARN accountID does not match regex '[0-9]{12}'");
+  }
+};
+
+const validateDNSHostLabel = (label: string) => {
+  // reference: https://tools.ietf.org/html/rfc3986#section-3.2.2
+  if (
+    label.length >= 64 ||
+    !/^[a-z0-9][a-z0-9.-]+[a-z0-9]$/.test(label) ||
+    /(\d+\.){3}\d+/.test(label) ||
+    /[.-]{2}/.test(label)
+  ) {
+    throw new Error(`Invalid DNS label ${label}.`);
   }
 };
 
@@ -62,4 +88,22 @@ const parseAccessPointResource = (resource: string): [string, string] => {
   return parsedResource as [string, string];
 };
 
-//TODO: The SDK must validate that populated {accesspoint-name}-{account-id} endpoint prefix results in a RFC 3986 Host label.
+export const populateAccessPointEndpoint = (
+  arn: AccessPointArn,
+  options: ArnHostnameParameters & { requestSuffix: string }
+): string => {
+  const { pathStyleEndpoint, dualstackEndpoint, accelerateEndpoint, tlsCompatible } = options;
+  if (pathStyleEndpoint) {
+    throw new Error("Path-style S3 endpoint is not supported when bucket is an Access Point ARN");
+  }
+  if (accelerateEndpoint) {
+    throw new Error("Accelerate is not supported when bucket is an Access Point ARN");
+  }
+  if (!tlsCompatible) {
+    throw new Error("Access Point can only be used with https");
+  }
+  const { accessPointName, accountId, region } = arn;
+  return `${accessPointName}-${accountId}.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.${region}.${
+    options.requestSuffix
+  }`;
+};

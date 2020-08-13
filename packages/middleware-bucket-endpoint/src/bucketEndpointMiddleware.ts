@@ -10,7 +10,6 @@ import {
 } from "@aws-sdk/types";
 import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 
-// import { parseArn } from "./bucketArnUtils";
 import { bucketHostname } from "./bucketHostname";
 import { BucketEndpointResolvedConfig } from "./configurations";
 
@@ -25,6 +24,7 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
       if (options.bucketEndpoint) {
         request.hostname = bucketName;
       } else {
+        const clientRegion = await options.region();
         const { hostname, bucketEndpoint } = bucketHostname({
           bucketName: validateArn(bucketName) ? parseArn(bucketName) : bucketName,
           baseHostname: request.hostname,
@@ -33,6 +33,8 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           useArnRegion: await options.useArnRegion(),
+          clientRegion,
+          clientPartition: (await options.regionInfoProvider(clientRegion))?.partition,
         });
 
         request.hostname = hostname;
