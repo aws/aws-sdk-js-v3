@@ -40,18 +40,21 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "eu-west-1":
       regionInfo = {
         hostname: "models.lex.eu-west-1.amazonaws.com",
+        partition: "aws",
         signingService: "lex",
       };
       break;
     case "us-east-1":
       regionInfo = {
         hostname: "models.lex.us-east-1.amazonaws.com",
+        partition: "aws",
         signingService: "lex",
       };
       break;
     case "us-west-2":
       regionInfo = {
         hostname: "models.lex.us-west-2.amazonaws.com",
+        partition: "aws",
         signingService: "lex",
       };
       break;
@@ -60,33 +63,39 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
           signingService: "lex",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
           signingService: "lex",
         };
       }

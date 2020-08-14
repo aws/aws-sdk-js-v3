@@ -40,119 +40,142 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-east-1":
       regionInfo = {
         hostname: "guardduty.ap-east-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "guardduty.ap-northeast-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-northeast-2":
       regionInfo = {
         hostname: "guardduty.ap-northeast-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-south-1":
       regionInfo = {
         hostname: "guardduty.ap-south-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-southeast-1":
       regionInfo = {
         hostname: "guardduty.ap-southeast-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-southeast-2":
       regionInfo = {
         hostname: "guardduty.ap-southeast-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ca-central-1":
       regionInfo = {
         hostname: "guardduty.ca-central-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-central-1":
       regionInfo = {
         hostname: "guardduty.eu-central-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-north-1":
       regionInfo = {
         hostname: "guardduty.eu-north-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-west-1":
       regionInfo = {
         hostname: "guardduty.eu-west-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-west-2":
       regionInfo = {
         hostname: "guardduty.eu-west-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-west-3":
       regionInfo = {
         hostname: "guardduty.eu-west-3.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "me-south-1":
       regionInfo = {
         hostname: "guardduty.me-south-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "sa-east-1":
       regionInfo = {
         hostname: "guardduty.sa-east-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-east-1":
       regionInfo = {
         hostname: "guardduty.us-east-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-east-1-fips":
       regionInfo = {
         hostname: "guardduty-fips.us-east-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-east-1",
       };
       break;
     case "us-east-2":
       regionInfo = {
         hostname: "guardduty.us-east-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-east-2-fips":
       regionInfo = {
         hostname: "guardduty-fips.us-east-2.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-east-2",
       };
       break;
     case "us-gov-west-1":
       regionInfo = {
         hostname: "guardduty.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-west-1":
       regionInfo = {
         hostname: "guardduty.us-west-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-west-1-fips":
       regionInfo = {
         hostname: "guardduty-fips.us-west-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-west-1",
       };
       break;
     case "us-west-2":
       regionInfo = {
         hostname: "guardduty.us-west-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-west-2-fips":
       regionInfo = {
         hostname: "guardduty-fips.us-west-2.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-west-2",
       };
       break;
@@ -161,32 +184,38 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
   }

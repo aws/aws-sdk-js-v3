@@ -40,116 +40,139 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-east-1":
       regionInfo = {
         hostname: "apigateway.ap-east-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "apigateway.ap-northeast-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-northeast-2":
       regionInfo = {
         hostname: "apigateway.ap-northeast-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-south-1":
       regionInfo = {
         hostname: "apigateway.ap-south-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-southeast-1":
       regionInfo = {
         hostname: "apigateway.ap-southeast-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ap-southeast-2":
       regionInfo = {
         hostname: "apigateway.ap-southeast-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "ca-central-1":
       regionInfo = {
         hostname: "apigateway.ca-central-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "cn-north-1":
       regionInfo = {
         hostname: "apigateway.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
       };
       break;
     case "cn-northwest-1":
       regionInfo = {
         hostname: "apigateway.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
       };
       break;
     case "eu-central-1":
       regionInfo = {
         hostname: "apigateway.eu-central-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-north-1":
       regionInfo = {
         hostname: "apigateway.eu-north-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-west-1":
       regionInfo = {
         hostname: "apigateway.eu-west-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-west-2":
       regionInfo = {
         hostname: "apigateway.eu-west-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "eu-west-3":
       regionInfo = {
         hostname: "apigateway.eu-west-3.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "me-south-1":
       regionInfo = {
         hostname: "apigateway.me-south-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "sa-east-1":
       regionInfo = {
         hostname: "apigateway.sa-east-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-east-1":
       regionInfo = {
         hostname: "apigateway.us-east-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-east-2":
       regionInfo = {
         hostname: "apigateway.us-east-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-gov-east-1":
       regionInfo = {
         hostname: "apigateway.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-gov-west-1":
       regionInfo = {
         hostname: "apigateway.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-iso-east-1":
       regionInfo = {
         hostname: "apigateway.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
       };
       break;
     case "us-west-1":
       regionInfo = {
         hostname: "apigateway.us-west-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-west-2":
       regionInfo = {
         hostname: "apigateway.us-west-2.amazonaws.com",
+        partition: "aws",
       };
       break;
     // Next, try to match partition endpoints.
@@ -157,32 +180,38 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
   }

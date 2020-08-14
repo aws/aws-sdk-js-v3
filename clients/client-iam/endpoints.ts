@@ -40,30 +40,35 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "aws-cn-global":
       regionInfo = {
         hostname: "iam.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
         signingRegion: "cn-north-1",
       };
       break;
     case "aws-global":
       regionInfo = {
         hostname: "iam.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-east-1",
       };
       break;
     case "aws-iso-b-global":
       regionInfo = {
         hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
+        partition: "aws-iso-b",
         signingRegion: "us-isob-east-1",
       };
       break;
     case "aws-iso-global":
       regionInfo = {
         hostname: "iam.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
         signingRegion: "us-iso-east-1",
       };
       break;
     case "aws-us-gov-global":
       regionInfo = {
         hostname: "iam.us-gov.amazonaws.com",
+        partition: "aws-us-gov",
         signingRegion: "us-gov-west-1",
       };
       break;

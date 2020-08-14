@@ -40,138 +40,161 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-east-1":
       regionInfo = {
         hostname: "api.ecr.ap-east-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "ap-east-1",
       };
       break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "api.ecr.ap-northeast-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "ap-northeast-1",
       };
       break;
     case "ap-northeast-2":
       regionInfo = {
         hostname: "api.ecr.ap-northeast-2.amazonaws.com",
+        partition: "aws",
         signingRegion: "ap-northeast-2",
       };
       break;
     case "ap-south-1":
       regionInfo = {
         hostname: "api.ecr.ap-south-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "ap-south-1",
       };
       break;
     case "ap-southeast-1":
       regionInfo = {
         hostname: "api.ecr.ap-southeast-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "ap-southeast-1",
       };
       break;
     case "ap-southeast-2":
       regionInfo = {
         hostname: "api.ecr.ap-southeast-2.amazonaws.com",
+        partition: "aws",
         signingRegion: "ap-southeast-2",
       };
       break;
     case "ca-central-1":
       regionInfo = {
         hostname: "api.ecr.ca-central-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "ca-central-1",
       };
       break;
     case "cn-north-1":
       regionInfo = {
         hostname: "api.ecr.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
         signingRegion: "cn-north-1",
       };
       break;
     case "cn-northwest-1":
       regionInfo = {
         hostname: "api.ecr.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
         signingRegion: "cn-northwest-1",
       };
       break;
     case "eu-central-1":
       regionInfo = {
         hostname: "api.ecr.eu-central-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "eu-central-1",
       };
       break;
     case "eu-north-1":
       regionInfo = {
         hostname: "api.ecr.eu-north-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "eu-north-1",
       };
       break;
     case "eu-west-1":
       regionInfo = {
         hostname: "api.ecr.eu-west-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "eu-west-1",
       };
       break;
     case "eu-west-2":
       regionInfo = {
         hostname: "api.ecr.eu-west-2.amazonaws.com",
+        partition: "aws",
         signingRegion: "eu-west-2",
       };
       break;
     case "eu-west-3":
       regionInfo = {
         hostname: "api.ecr.eu-west-3.amazonaws.com",
+        partition: "aws",
         signingRegion: "eu-west-3",
       };
       break;
     case "me-south-1":
       regionInfo = {
         hostname: "api.ecr.me-south-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "me-south-1",
       };
       break;
     case "sa-east-1":
       regionInfo = {
         hostname: "api.ecr.sa-east-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "sa-east-1",
       };
       break;
     case "us-east-1":
       regionInfo = {
         hostname: "api.ecr.us-east-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-east-1",
       };
       break;
     case "us-east-2":
       regionInfo = {
         hostname: "api.ecr.us-east-2.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-east-2",
       };
       break;
     case "us-gov-east-1":
       regionInfo = {
         hostname: "api.ecr.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
         signingRegion: "us-gov-east-1",
       };
       break;
     case "us-gov-west-1":
       regionInfo = {
         hostname: "api.ecr.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
         signingRegion: "us-gov-west-1",
       };
       break;
     case "us-iso-east-1":
       regionInfo = {
         hostname: "api.ecr.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
         signingRegion: "us-iso-east-1",
       };
       break;
     case "us-west-1":
       regionInfo = {
         hostname: "api.ecr.us-west-1.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-west-1",
       };
       break;
     case "us-west-2":
       regionInfo = {
         hostname: "api.ecr.us-west-2.amazonaws.com",
+        partition: "aws",
         signingRegion: "us-west-2",
       };
       break;
@@ -180,32 +203,38 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
         };
       }
   }

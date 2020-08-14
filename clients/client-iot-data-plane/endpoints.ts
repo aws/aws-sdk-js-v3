@@ -40,126 +40,147 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-east-1":
       regionInfo = {
         hostname: "data.iot.ap-east-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "data.iot.ap-northeast-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "ap-northeast-2":
       regionInfo = {
         hostname: "data.iot.ap-northeast-2.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "ap-south-1":
       regionInfo = {
         hostname: "data.iot.ap-south-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "ap-southeast-1":
       regionInfo = {
         hostname: "data.iot.ap-southeast-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "ap-southeast-2":
       regionInfo = {
         hostname: "data.iot.ap-southeast-2.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "ca-central-1":
       regionInfo = {
         hostname: "data.iot.ca-central-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "cn-north-1":
       regionInfo = {
         hostname: "data.iot.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
         signingService: "iotdata",
       };
       break;
     case "cn-northwest-1":
       regionInfo = {
         hostname: "data.iot.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
         signingService: "iotdata",
       };
       break;
     case "eu-central-1":
       regionInfo = {
         hostname: "data.iot.eu-central-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "eu-north-1":
       regionInfo = {
         hostname: "data.iot.eu-north-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "eu-west-1":
       regionInfo = {
         hostname: "data.iot.eu-west-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "eu-west-2":
       regionInfo = {
         hostname: "data.iot.eu-west-2.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "eu-west-3":
       regionInfo = {
         hostname: "data.iot.eu-west-3.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "me-south-1":
       regionInfo = {
         hostname: "data.iot.me-south-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "sa-east-1":
       regionInfo = {
         hostname: "data.iot.sa-east-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "us-east-1":
       regionInfo = {
         hostname: "data.iot.us-east-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "us-east-2":
       regionInfo = {
         hostname: "data.iot.us-east-2.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "us-gov-west-1":
       regionInfo = {
         hostname: "data.iot.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
         signingService: "iotdata",
       };
       break;
     case "us-west-1":
       regionInfo = {
         hostname: "data.iot.us-west-1.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
     case "us-west-2":
       regionInfo = {
         hostname: "data.iot.us-west-2.amazonaws.com",
+        partition: "aws",
         signingService: "iotdata",
       };
       break;
@@ -168,28 +189,33 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
           signingService: "iotdata",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          partition: "aws-cn",
           signingService: "iotdata",
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso",
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          partition: "aws-iso-b",
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          partition: "aws-us-gov",
           signingService: "iotdata",
         };
       }
@@ -197,6 +223,7 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       if (regionInfo === undefined) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
+          partition: "aws",
           signingService: "iotdata",
         };
       }
