@@ -1,8 +1,9 @@
 import { name, version } from "./package.json";
+import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@aws-sdk/config-resolver";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { Hash } from "@aws-sdk/hash-node";
+import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
 import { maxAttemptsProvider as maxAttemptsDefaultProvider } from "@aws-sdk/retry-config-provider";
 import { parseUrl } from "@aws-sdk/url-parser-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
@@ -26,7 +27,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   }) as any,
   defaultUserAgent: defaultUserAgent(name, version),
   maxAttemptsDefaultProvider,
-  regionDefaultProvider,
+  region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
   requestHandler: new NodeHttpHandler(),
   sha256: Hash.bind(null, "sha256"),
   streamCollector,

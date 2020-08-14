@@ -42,8 +42,7 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>signingName: Defines the service name that signs AWS requests.</li>
  *     <li>credentialDefaultProvider: Provides credentials if no credentials
  *     are explicitly provided.</li>
- *     <li>regionDefaultProvider: Provides a region if no region is
- *     explicitly provided</li>
+ *     <li>region: The AWS region to which this client will send requests</li>
  *     <li>maxAttemptsDefaultProvider: Provides value for maxAttempts if no region is
  *     explicitly provided</li>
  * </ul>
@@ -54,8 +53,8 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>signingName: Sets this to the signing name derived from the model.</li>
  *     <li>credentialDefaultProvider: Uses the default credential provider that
  *     checks things like environment variables and the AWS config file.</li>
- *     <li>regionDefaultProvider: Uses the default region provider that
- *     checks things like environment variables and the AWS config file.</li>
+ *     <li>region: Uses the default region provider that checks things like 
+ *      environment variables and the AWS config file.</li>
  *     <li>maxAttemptsDefaultProvider: Uses the default maxAttempts provider that
  *     checks things like environment variables and the AWS config file.</li>
  * </ul>
@@ -67,7 +66,7 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>credentialDefaultProvider: Throws an exception since credentials must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
- *     <li>regionDefaultProvider: Throws an exception since a region must
+ *     <li>region: Throws an exception since a region must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
  *     <li>maxAttemptsDefaultProvider: Returns default value of "3".</li>
@@ -91,8 +90,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 .write("signingName?: string;\n");
         writer.writeDocs("Default credentials provider; Not available in browser runtime")
                 .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
-        writer.writeDocs("Provider function that return promise of a region string")
-                .write("regionDefaultProvider?: (input: any) => __Provider<string>;\n");
+        writer.writeDocs("The AWS region to which this client will send requests")
+                .write("region?: string | __Provider<string>;\n");
         writer.writeDocs("Provider function that return promise of a maxAttempts string")
                 .write("maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;\n");
     }
@@ -143,8 +142,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.write(
                                     "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
                         },
-                        "regionDefaultProvider", writer -> {
-                            writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
+                        "region", writer -> {
+                            writer.write("region: invalidFunction(\"Region is missing\") as any,");
                         },
                         "maxAttemptsDefaultProvider", writer -> {
                             writer.write("maxAttemptsDefaultProvider: (() => '3') as any,");
@@ -158,11 +157,17 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                                     AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
                             writer.write("credentialDefaultProvider,");
                         },
-                        "regionDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.REGION_PROVIDER);
-                            writer.addImport("defaultProvider", "regionDefaultProvider",
-                                    AwsDependency.REGION_PROVIDER.packageName);
-                            writer.write("regionDefaultProvider,");
+                        "region", writer -> {
+                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("loadConfig", "loadNodeConfig", 
+                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS", 
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write(
+                                "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
                         },
                         "maxAttemptsDefaultProvider", writer -> {
                             writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);
@@ -187,11 +192,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         "credentialDefaultProvider", writer -> {
                             writer.write("credentialDefaultProvider: (() => {}) as any,");
                         },
-                        "regionDefaultProvider", writer -> {
+                        "region", writer -> {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                             writer.addImport("invalidFunction", "invalidFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
+                            writer.write("region: invalidFunction(\"Region is missing\") as any,");
                         },
                         "maxAttemptsDefaultProvider", writer -> {
                             writer.write("maxAttemptsDefaultProvider: (() => '3') as any,");
@@ -210,11 +215,17 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                                         writer.write("return {}");
                                     });
                         },
-                        "regionDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.REGION_PROVIDER);
-                            writer.addImport("defaultProvider", "regionDefaultProvider",
-                                    AwsDependency.REGION_PROVIDER.packageName);
-                            writer.write("regionDefaultProvider,");
+                        "region", writer -> {
+                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("loadConfig", "loadNodeConfig", 
+                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS", 
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write(
+                                "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
                         },
                         "maxAttemptsDefaultProvider", writer -> {
                             writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);

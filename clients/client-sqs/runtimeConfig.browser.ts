@@ -21,7 +21,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   maxAttemptsDefaultProvider: (() => "3") as any,
   md5: Md5,
-  regionDefaultProvider: invalidFunction("Region is missing") as any,
+  region: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,
   streamCollector,

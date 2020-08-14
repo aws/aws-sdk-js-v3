@@ -23,7 +23,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,
   eventStreamSerdeProvider,
   maxAttemptsDefaultProvider: (() => "3") as any,
-  regionDefaultProvider: invalidFunction("Region is missing") as any,
+  region: invalidFunction("Region is missing") as any,
   requestHandler: new WebSocketHandler(),
   sha256: Sha256,
   streamCollector,
