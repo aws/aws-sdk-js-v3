@@ -77,10 +77,10 @@ export interface UrlParser {
  */
 export interface RegionInfo {
   hostname: string;
+  partition: string;
   path?: string;
   signingService?: string;
   signingRegion?: string;
-  partition?: string;
 }
 
 /**
