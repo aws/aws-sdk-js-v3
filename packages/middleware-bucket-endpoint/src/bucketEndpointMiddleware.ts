@@ -25,19 +25,15 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
       if (options.bucketEndpoint) {
         request.hostname = bucketName;
       } else {
-        const clientRegion = await options.region();
-        const { partition: clientPartition, signingRegion: clientSigningRegion } =
-          (await options.regionInfoProvider(getPseudoRegion(clientRegion))) || {};
+        const isBucketNameArn = validateArn(bucketName);
         const { hostname, bucketEndpoint } = bucketHostname({
-          bucketName: validateArn(bucketName) ? parseArn(bucketName) : bucketName,
+          bucketName: isBucketNameArn ? parseArn(bucketName) : bucketName,
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint: options.useDualstackEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
-          useArnRegion: await options.useArnRegion(),
-          clientPartition,
-          clientSigningRegion,
+          ...(isBucketNameArn ? await getArnHostnameParameters(options) : {}),
         });
 
         request.hostname = hostname;
@@ -55,6 +51,16 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
     return next({ ...args, request });
   };
 }
+
+const getArnHostnameParameters = async (options: BucketEndpointResolvedConfig) => {
+  const clientRegion = await options.region();
+  const clientRegionInfo = await options.regionInfoProvider(getPseudoRegion(clientRegion));
+  return {
+    useArnRegion: await options.useArnRegion(),
+    clientPartition: clientRegionInfo?.partition,
+    clientSigningRegion: clientRegionInfo?.signingRegion,
+  };
+};
 
 export const bucketEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["BUCKET_ENDPOINT"],

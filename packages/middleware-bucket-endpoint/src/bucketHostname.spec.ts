@@ -312,11 +312,7 @@ describe("bucketHostname", () => {
     });
 
     describe("should validate Access Point ARN", () => {
-      type TestData = {
-        bucketArn: string;
-        message: string;
-      };
-      const testData: TestData[] = [
+      [
         {
           bucketArn: "arn:aws:sqs:us-west-2:123456789012:someresource",
           message: "Expect 's3' in access point ARN service component",
@@ -353,8 +349,7 @@ describe("bucketHostname", () => {
           bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:mybucket:object:foo	",
           message: "Access Point ARN should have one resource accesspoint/{accesspointname}",
         },
-      ];
-      testData.forEach(({ bucketArn, message }) => {
+      ].forEach(({ bucketArn, message }) => {
         it(`should throw "${message}"`, () => {
           expect(() => {
             bucketHostname({

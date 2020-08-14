@@ -55,7 +55,7 @@ export function resolveBucketEndpointConfig<T>(
     forcePathStyle,
     useAccelerateEndpoint,
     useDualstackEndpoint,
-    useArnRegion: typeof useArnRegion === "boolean" ? () => Promise.resolve(useArnRegion) : useArnRegion,
+    useArnRegion: typeof useArnRegion === "function" ? useArnRegion : () => Promise.resolve(useArnRegion),
   };
 }
 
