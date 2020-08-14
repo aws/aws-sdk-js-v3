@@ -11,6 +11,7 @@ import {
 import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 
 import { bucketHostname } from "./bucketHostname";
+import { getPseudoRegion } from "./bucketHostnameUtils";
 import { BucketEndpointResolvedConfig } from "./configurations";
 
 export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> {
@@ -25,6 +26,8 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
         request.hostname = bucketName;
       } else {
         const clientRegion = await options.region();
+        const { partition: clientPartition, signingRegion: clientSigningRegion } =
+          (await options.regionInfoProvider(getPseudoRegion(clientRegion))) || {};
         const { hostname, bucketEndpoint } = bucketHostname({
           bucketName: validateArn(bucketName) ? parseArn(bucketName) : bucketName,
           baseHostname: request.hostname,
@@ -33,8 +36,8 @@ export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig):
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           useArnRegion: await options.useArnRegion(),
-          clientRegion,
-          clientPartition: (await options.regionInfoProvider(clientRegion))?.partition,
+          clientPartition,
+          clientSigningRegion,
         });
 
         request.hostname = hostname;
