@@ -5,7 +5,7 @@ import { awsAuthMiddleware } from "./middleware";
 
 describe("SigningHandler", () => {
   const noOpSigner: RequestSigner = {
-    sign: (request: HttpRequest, options: { signingDate: Date }) =>
+    sign: jest.fn().mockImplementation((request: HttpRequest, options: { signingDate: Date }) =>
       Promise.resolve({
         ...request,
         headers: {
@@ -13,8 +13,9 @@ describe("SigningHandler", () => {
           signed: "true",
           signingDateTime: options.signingDate.getTime(),
         },
-      }),
-  } as any;
+      })
+    ) as any,
+  };
   const noOpNext = jest.fn().mockReturnValue({ response: "" });
 
   beforeEach(() => {
@@ -34,6 +35,27 @@ describe("SigningHandler", () => {
     const { calls } = (noOpNext as any).mock;
     expect(calls.length).toBe(1);
     expect(calls[0][0].request.headers.signed).toBe("true");
+  });
+
+  it("should call the signer with the region and service overrides from context", async () => {
+    (noOpSigner.sign as jest.Mock).mockClear();
+    const handlerContext = {
+      signing_region: "us-foo-1",
+      signing_service: "BAR",
+    };
+    const signingHandler = awsAuthMiddleware({ signer: noOpSigner } as any)(noOpNext, handlerContext as any);
+    await signingHandler({
+      input: {},
+      request: new HttpRequest({
+        headers: {},
+      }),
+    });
+
+    expect(noOpSigner.sign).toBeCalled();
+    expect((noOpSigner.sign as jest.Mock).mock.calls[0][1]).toMatchObject({
+      signingRegion: handlerContext.signing_region,
+      signingService: handlerContext.signing_service,
+    });
   });
 
   it("should add systemClockOffset while signing the request", async () => {

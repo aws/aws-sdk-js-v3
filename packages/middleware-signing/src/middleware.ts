@@ -4,6 +4,7 @@ import {
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestMiddleware,
+  HandlerExecutionContext,
   Pluggable,
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
@@ -18,7 +19,7 @@ const getSkewCorrectedDate = (systemClockOffset: number) => new Date(Date.now() 
 export function awsAuthMiddleware<Input extends object, Output extends object>(
   options: AwsAuthResolvedConfig
 ): FinalizeRequestMiddleware<Input, Output> {
-  return (next: FinalizeHandler<Input, Output>): FinalizeHandler<Input, Output> =>
+  return (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
     async function (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);
       const signer = typeof options.signer === "function" ? await options.signer() : options.signer;
@@ -26,6 +27,8 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
         ...args,
         request: await signer.sign(args.request, {
           signingDate: new Date(Date.now() + options.systemClockOffset),
+          signingRegion: context["signing_region"],
+          signingService: context["signing_service"],
         }),
       });
 
