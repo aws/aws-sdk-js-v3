@@ -163,5 +163,23 @@ describe("bucketEndpointMiddleware", () => {
       expect(mockArnParse).toBeCalled();
       expect(mockArnValidation).toBeCalled();
     });
+
+    it("should set signing_region to middleware context if the request will use region from ARN", async () => {
+      const request = new HttpRequest(requestInput);
+      previouslyResolvedConfig.useArnRegion.mockReturnValue(true);
+      const arnRegion = "us-west-2";
+      mockArnParse.mockReturnValue({ region: arnRegion });
+      const handlerContext = {} as any;
+      const handler = bucketEndpointMiddleware(
+        resolveBucketEndpointConfig({
+          ...previouslyResolvedConfig,
+        })
+      )(next, handlerContext);
+      await handler({
+        input: { Bucket: `myendpoint-123456789012.s3-accesspoint.${arnRegion}.amazonaws.com` },
+        request,
+      });
+      expect(handlerContext).toMatchObject({ signing_region: arnRegion });
+    });
   });
 });
