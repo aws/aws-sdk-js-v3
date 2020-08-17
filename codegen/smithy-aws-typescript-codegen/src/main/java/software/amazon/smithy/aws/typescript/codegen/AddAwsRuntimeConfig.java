@@ -43,8 +43,8 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>credentialDefaultProvider: Provides credentials if no credentials
  *     are explicitly provided.</li>
  *     <li>region: The AWS region to which this client will send requests</li>
- *     <li>maxAttemptsDefaultProvider: Provides value for maxAttempts if no region is
- *     explicitly provided</li>
+ *     <li>maxAttempts: Provides value for how many times a request will be 
+ *     made at most in case of retry.</li>
  * </ul>
  *
  * <p>This plugin adds the following Node runtime specific values:
@@ -55,8 +55,8 @@ import software.amazon.smithy.utils.MapUtils;
  *     checks things like environment variables and the AWS config file.</li>
  *     <li>region: Uses the default region provider that checks things like 
  *      environment variables and the AWS config file.</li>
- *     <li>maxAttemptsDefaultProvider: Uses the default maxAttempts provider that
- *     checks things like environment variables and the AWS config file.</li>
+ *     <li>maxAttempts: Uses the default maxAttempts provider that checks things
+ *     like environment variables and the AWS config file.</li>
  * </ul>
  *
  * <p>This plugin adds the following Browser runtime specific values:
@@ -69,7 +69,7 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>region: Throws an exception since a region must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
- *     <li>maxAttemptsDefaultProvider: Returns default value of "3".</li>
+ *     <li>maxAttempts: Returns default value of 3.</li>
  * </ul>
  */
 public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
@@ -92,8 +92,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         writer.writeDocs("The AWS region to which this client will send requests")
                 .write("region?: string | __Provider<string>;\n");
-        writer.writeDocs("Provider function that return promise of a maxAttempts string")
-                .write("maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;\n");
+        writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
+                .write("maxAttempts?: number | __Provider<number>;\n");
     }
 
     @Override
@@ -145,8 +145,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         "region", writer -> {
                             writer.write("region: invalidFunction(\"Region is missing\") as any,");
                         },
-                        "maxAttemptsDefaultProvider", writer -> {
-                            writer.write("maxAttemptsDefaultProvider: (() => '3') as any,");
+                        "maxAttempts", writer -> {
+                            writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
+                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS", TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
                         }
                 );
             case NODE:
@@ -169,11 +171,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.write(
                                 "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
                         },
-                        "maxAttemptsDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);
-                            writer.addImport("maxAttemptsProvider", "maxAttemptsDefaultProvider",
-                                    AwsDependency.RETRY_CONFIG_PROVIDER.packageName);
-                            writer.write("maxAttemptsDefaultProvider,");
+                        "maxAttempts", writer -> {
+                            writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
+                                TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
                         }
                 );
             default:
@@ -198,8 +199,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
                             writer.write("region: invalidFunction(\"Region is missing\") as any,");
                         },
-                        "maxAttemptsDefaultProvider", writer -> {
-                            writer.write("maxAttemptsDefaultProvider: (() => '3') as any,");
+                        "maxAttempts", writer -> {
+                            writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
+                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS", TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
                         }
                 );
             case NODE:
@@ -227,11 +230,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.write(
                                 "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
                         },
-                        "maxAttemptsDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);
-                            writer.addImport("maxAttemptsProvider", "maxAttemptsDefaultProvider",
-                                    AwsDependency.RETRY_CONFIG_PROVIDER.packageName);
-                            writer.write("maxAttemptsDefaultProvider,");
+                        "maxAttempts", writer -> {
+                            writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
+                                TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
                         }
                 );
             default:

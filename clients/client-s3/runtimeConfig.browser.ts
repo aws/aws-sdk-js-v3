@@ -5,6 +5,7 @@ import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
+import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
@@ -22,7 +23,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamSerdeProvider,
-  maxAttemptsDefaultProvider: (() => "3") as any,
+  maxAttempts: DEFAULT_MAX_ATTEMPTS,
   md5: Md5,
   region: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),

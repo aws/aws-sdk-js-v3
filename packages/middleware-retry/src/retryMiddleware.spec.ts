@@ -15,7 +15,7 @@ describe("getRetryPlugin", () => {
     [1, 2, 3].forEach((maxAttempts) => {
       it(`when maxAttempts=${maxAttempts}`, () => {
         getRetryPlugin({
-          maxAttempts: () => Promise.resolve(maxAttempts.toString()),
+          maxAttempts: () => Promise.resolve(maxAttempts),
           retryStrategy: {} as RetryStrategy,
         }).applyToStack((mockClientStack as unknown) as MiddlewareStack<any, any>);
         expect(mockClientStack.add).toHaveBeenCalledTimes(1);
@@ -42,7 +42,7 @@ describe("retryMiddleware", () => {
     };
 
     await retryMiddleware({
-      maxAttempts: () => Promise.resolve(maxAttempts.toString()),
+      maxAttempts: () => Promise.resolve(maxAttempts),
       retryStrategy: mockRetryStrategy,
     })(next)(args as FinalizeHandlerArguments<any>);
     expect(mockRetryStrategy.retry).toHaveBeenCalledTimes(1);

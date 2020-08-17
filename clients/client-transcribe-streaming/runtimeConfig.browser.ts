@@ -3,6 +3,7 @@ import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
+import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
 import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
@@ -22,7 +23,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,
   eventStreamSerdeProvider,
-  maxAttemptsDefaultProvider: (() => "3") as any,
+  maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidFunction("Region is missing") as any,
   requestHandler: new WebSocketHandler(),
   sha256: Sha256,
