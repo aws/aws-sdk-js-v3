@@ -2280,6 +2280,7 @@ export namespace SubscribeToShardEventStream {
   interface $Base {
     __type?: "SubscribeToShardEventStream";
   }
+
   /**
    * <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the
    *             <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -2297,6 +2298,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was rejected because the specified customer master key (CMK) isn't
    *             enabled.</p>
@@ -2314,6 +2316,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
    */
@@ -2330,6 +2333,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see
    *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the
@@ -2348,6 +2352,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was rejected because the specified entity or resource can't be
    *             found.</p>
@@ -2365,6 +2370,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The requested resource could not be found. The stream might not be specified correctly.</p>
    */
@@ -2381,6 +2387,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events of this type to your consumer. </p>
    */
@@ -2397,6 +2404,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The resource is not available for this operation. For successful operation, the
    *             resource must be in the <code>ACTIVE</code> state.</p>
@@ -2414,6 +2422,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   export interface InternalFailureExceptionMember extends $Base {
     KMSThrottlingException?: never;
     KMSDisabledException?: never;
@@ -2427,6 +2436,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The AWS access key ID needs a subscription for the service.</p>
    */
@@ -2443,6 +2453,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired: KMSOptInRequired;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     KMSThrottlingException?: never;
     KMSDisabledException?: never;
@@ -2456,6 +2467,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     KMSThrottlingException: (value: KMSThrottlingException) => T;
     KMSDisabledException: (value: KMSDisabledException) => T;
@@ -2469,6 +2481,7 @@ export namespace SubscribeToShardEventStream {
     KMSOptInRequired: (value: KMSOptInRequired) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: SubscribeToShardEventStream, visitor: Visitor<T>): T => {
     if (value.KMSThrottlingException !== undefined) return visitor.KMSThrottlingException(value.KMSThrottlingException);
     if (value.KMSDisabledException !== undefined) return visitor.KMSDisabledException(value.KMSDisabledException);
@@ -2485,6 +2498,30 @@ export namespace SubscribeToShardEventStream {
       return visitor.InternalFailureException(value.InternalFailureException);
     if (value.KMSOptInRequired !== undefined) return visitor.KMSOptInRequired(value.KMSOptInRequired);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
+    if (obj.KMSThrottlingException !== undefined)
+      return { KMSThrottlingException: KMSThrottlingException.filterSensitiveLog(obj.KMSThrottlingException) };
+    if (obj.KMSDisabledException !== undefined)
+      return { KMSDisabledException: KMSDisabledException.filterSensitiveLog(obj.KMSDisabledException) };
+    if (obj.KMSAccessDeniedException !== undefined)
+      return { KMSAccessDeniedException: KMSAccessDeniedException.filterSensitiveLog(obj.KMSAccessDeniedException) };
+    if (obj.KMSInvalidStateException !== undefined)
+      return { KMSInvalidStateException: KMSInvalidStateException.filterSensitiveLog(obj.KMSInvalidStateException) };
+    if (obj.KMSNotFoundException !== undefined)
+      return { KMSNotFoundException: KMSNotFoundException.filterSensitiveLog(obj.KMSNotFoundException) };
+    if (obj.ResourceNotFoundException !== undefined)
+      return { ResourceNotFoundException: ResourceNotFoundException.filterSensitiveLog(obj.ResourceNotFoundException) };
+    if (obj.SubscribeToShardEvent !== undefined)
+      return { SubscribeToShardEvent: SubscribeToShardEvent.filterSensitiveLog(obj.SubscribeToShardEvent) };
+    if (obj.ResourceInUseException !== undefined)
+      return { ResourceInUseException: ResourceInUseException.filterSensitiveLog(obj.ResourceInUseException) };
+    if (obj.InternalFailureException !== undefined)
+      return { InternalFailureException: InternalFailureException.filterSensitiveLog(obj.InternalFailureException) };
+    if (obj.KMSOptInRequired !== undefined)
+      return { KMSOptInRequired: KMSOptInRequired.filterSensitiveLog(obj.KMSOptInRequired) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -2522,6 +2559,7 @@ export interface SubscribeToShardOutput {
 export namespace SubscribeToShardOutput {
   export const filterSensitiveLog = (obj: SubscribeToShardOutput): any => ({
     ...obj,
+    ...(obj.EventStream && { EventStream: "STREAMING_CONTENT" }),
   });
   export const isa = (o: any): o is SubscribeToShardOutput => __isa(o, "SubscribeToShardOutput");
 }
