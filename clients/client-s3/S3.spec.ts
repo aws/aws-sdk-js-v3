@@ -1,7 +1,7 @@
 /// <reference types="mocha" />
 import { expect } from "chai";
 import { S3 } from "./S3";
-import { SerializeMiddleware } from "@aws-sdk/types";
+import { SerializeMiddleware, BuildMiddleware } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 describe("endpoint", () => {
@@ -29,5 +29,44 @@ describe("endpoint", () => {
       Key: "key",
       Body: "body",
     });
+  });
+});
+
+describe("Accesspoint ARN", async () => {
+  const endpointValidator: BuildMiddleware<any, any> = (next, context) => (args) => {
+    // middleware intercept the request and return it early
+    const request = args.request as HttpRequest;
+    return Promise.resolve({
+      output: {
+        $metadata: { attempts: 0, httpStatusCode: 200 },
+        request,
+        context,
+      } as any,
+      response: {} as any,
+    });
+  };
+
+  it("should succeed with access point ARN", async () => {
+    const client = new S3({});
+    client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+    const result: any = await client.putObject({
+      Bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+      Key: "key",
+      Body: "body",
+    });
+    expect(result.request.hostname).to.eql("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+  });
+
+  it("should sign request with region from ARN is useArnRegion is set", async () => {
+    const client = new S3({ region: "us-east-1", useArnRegion: true });
+    client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+    const result: any = await client.putObject({
+      Bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+      Key: "key",
+      Body: "body",
+    });
+    expect(result.request.hostname).to.eql("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+    // Sign request with us-west-2 region from bucket access point ARN
+    expect(result.request.headers.authorization).to.contain("/us-west-2/s3/aws4_request, SignedHeaders=");
   });
 });
