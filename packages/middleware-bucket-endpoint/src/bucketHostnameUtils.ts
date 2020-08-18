@@ -12,7 +12,7 @@ export interface AccessPointArn extends ARN {
   accessPointName: string;
 }
 
-export interface BucketHostnameParameters {
+export interface BucketHostnameParams {
   baseHostname: string;
   bucketName: string;
   accelerateEndpoint?: boolean;
@@ -21,7 +21,7 @@ export interface BucketHostnameParameters {
   tlsCompatible?: boolean;
 }
 
-export interface ArnHostnameParameters extends Omit<BucketHostnameParameters, "bucketName"> {
+export interface ArnHostnameParams extends Omit<BucketHostnameParams, "bucketName"> {
   bucketName: ARN;
   clientSigningRegion?: string;
   clientPartition?: string;
@@ -29,8 +29,8 @@ export interface ArnHostnameParameters extends Omit<BucketHostnameParameters, "b
 }
 
 export const isBucketNameOptions = (
-  options: BucketHostnameParameters | ArnHostnameParameters
-): options is BucketHostnameParameters => typeof options.bucketName === "string";
+  options: BucketHostnameParams | ArnHostnameParams
+): options is BucketHostnameParams => typeof options.bucketName === "string";
 
 export const getPseudoRegion = (region: string) => (isFipsRegion(region) ? region.replace(/fips-|-fips/, "") : region);
 
@@ -65,7 +65,7 @@ export const validateService = (service: string) => {
 
 export const validatePartition = (partition: string, options: { clientPartition: string }) => {
   if (partition !== options.clientPartition) {
-    throw new Error(`Partition in ARN is incompatible, got ${partition} but expected ${options.clientPartition}`);
+    throw new Error(`Partition in ARN is incompatible, got "${partition}" but expected "${options.clientPartition}"`);
   }
 };
 
@@ -88,7 +88,7 @@ export const validateRegion = (
     throw new Error(`Region in ARN is incompatible, got ${region} but expected ${options.clientRegion}`);
   }
   if (options.useArnRegion && isFipsRegion(region)) {
-    throw new Error("Region in ARN is a FIPS region");
+    throw new Error("Access point endpoint does not support FIPS region");
   }
 };
 
@@ -116,7 +116,7 @@ export const validateDNSHostLabel = (label: string, options: { tlsCompatible?: b
   }
 };
 
-export const parseAccessPointName = (resource: string): string => {
+export const getAccessPointName = (resource: string): string => {
   if (resource.indexOf("accesspoint:") !== 0 && resource.indexOf("accesspoint/") !== 0) {
     throw new Error("Access point ARN resource should begin with 'accesspoint/'");
   }

@@ -1,12 +1,12 @@
 import {
-  ArnHostnameParameters,
-  BucketHostnameParameters,
+  ArnHostnameParams,
+  BucketHostnameParams,
   DOT_PATTERN,
+  getAccessPointName,
   getSuffix,
   getSuffixForArnEndpoint,
   isBucketNameOptions,
   isDnsCompatibleBucketName,
-  parseAccessPointName,
   S3_HOSTNAME_PATTERN,
   validateAccountId,
   validateDNSHostLabel,
@@ -20,7 +20,7 @@ export interface BucketHostname {
   bucketEndpoint: boolean;
 }
 
-export const bucketHostname = (options: BucketHostnameParameters | ArnHostnameParameters): BucketHostname => {
+export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams): BucketHostname => {
   const { baseHostname } = options;
   if (!S3_HOSTNAME_PATTERN.test(baseHostname)) {
     return {
@@ -40,7 +40,7 @@ export const bucketHostname = (options: BucketHostnameParameters | ArnHostnamePa
   }
 };
 
-const getEndpointFromAccessPoint = (options: ArnHostnameParameters): string => {
+const getEndpointFromAccessPoint = (options: ArnHostnameParams): string => {
   // Infer client region and hostname suffix from hostname from endpoints.json, like `s3.us-west-2.amazonaws.com`
   const [clientRegion, hostnameSuffix] = getSuffixForArnEndpoint(options.baseHostname);
   const {
@@ -69,7 +69,7 @@ const getEndpointFromAccessPoint = (options: ArnHostnameParameters): string => {
   validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion });
   validatePartition(partition, { clientPartition });
   validateAccountId(accountId);
-  const accessPointName = parseAccessPointName(resource);
+  const accessPointName = getAccessPointName(resource);
   validateDNSHostLabel(`${accessPointName}-${accountId}`, { tlsCompatible });
 
   return `${accessPointName}-${accountId}.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.${
@@ -84,7 +84,7 @@ const getEndpointFromBucketName = ({
   dualstackEndpoint = false,
   pathStyleEndpoint = false,
   tlsCompatible = true,
-}: BucketHostnameParameters): BucketHostname => {
+}: BucketHostnameParams): BucketHostname => {
   const [clientRegion, hostnameSuffix] = getSuffix(baseHostname);
   if (pathStyleEndpoint || !isDnsCompatibleBucketName(bucketName) || (tlsCompatible && DOT_PATTERN.test(bucketName))) {
     return {
