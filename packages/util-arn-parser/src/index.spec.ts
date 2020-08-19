@@ -4,6 +4,7 @@ describe("validate", () => {
   it("should validate whether input is a qualified resource ARN", () => {
     expect(validate("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint")).toBe(true);
     expect(validate("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint")).toBe(true);
+    expect(validate("arn:aws:s3:us-east-1:123456789012:accesspoint/myendpoint")).toBe(true);
     expect(validate("arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint")).toBe(true);
     expect(validate("arn:aws:sns:us-west-2:123456789012:myTopic")).toBe(true);
     expect(validate("some:random:string:separated:by:colons")).toBe(false);
