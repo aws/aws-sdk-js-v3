@@ -1,4 +1,4 @@
-import { Client } from "@aws-sdk/types";
+import { Client } from "./client";
 
 /**
  * Expected type definition of a paginator.
