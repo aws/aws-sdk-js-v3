@@ -1,6 +1,6 @@
 // @ts-check
 const { join } = require("path");
-const { copySync, ensureDirSync } = require("fs-extra");
+const { copySync, removeSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
 const getOverwritablePredicate = (packageName) => (pathName) => {
@@ -96,8 +96,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
         pinDependencies(mergedManifest);
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
-        //Overwrite the directories and files that are overwritable, or not yet exists
-        if (lstatSync(packageSubPath).isDirectory()) ensureDirSync(destSubPath);
+        if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
           overwrite: true,
         });
