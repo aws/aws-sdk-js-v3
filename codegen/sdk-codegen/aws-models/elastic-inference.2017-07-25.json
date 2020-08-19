@@ -63,10 +63,10 @@
     "com.amazonaws.elasticinference#AcceleratorType": {
       "type": "structure",
       "members": {
-        "throughputInfo": {
-          "target": "com.amazonaws.elasticinference#ThroughputInfoList",
+        "acceleratorTypeName": {
+          "target": "com.amazonaws.elasticinference#AcceleratorTypeName",
           "traits": {
-            "smithy.api#documentation": "<p>\n            The throughput information of the Elastic Inference Accelerator type.\n        </p>"
+            "smithy.api#documentation": "<p>\n            The name of the Elastic Inference Accelerator type.\n        </p>"
           }
         },
         "memoryInfo": {
@@ -75,10 +75,10 @@
             "smithy.api#documentation": "<p>\n            The memory information of the Elastic Inference Accelerator type.\n        </p>"
           }
         },
-        "acceleratorTypeName": {
-          "target": "com.amazonaws.elasticinference#AcceleratorTypeName",
+        "throughputInfo": {
+          "target": "com.amazonaws.elasticinference#ThroughputInfoList",
           "traits": {
-            "smithy.api#documentation": "<p>\n            The name of the Elastic Inference Accelerator type.\n        </p>"
+            "smithy.api#documentation": "<p>\n            The throughput information of the Elastic Inference Accelerator type.\n        </p>"
           }
         }
       },
@@ -123,6 +123,12 @@
     "com.amazonaws.elasticinference#AcceleratorTypeOffering": {
       "type": "structure",
       "members": {
+        "location": {
+          "target": "com.amazonaws.elasticinference#Location",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The location for the offering.\n            It will return either the region, availability zone or availability zone id for the offering depending on the locationType value.\n        </p>"
+          }
+        },
         "acceleratorType": {
           "target": "com.amazonaws.elasticinference#AcceleratorTypeName",
           "traits": {
@@ -133,12 +139,6 @@
           "target": "com.amazonaws.elasticinference#LocationType",
           "traits": {
             "smithy.api#documentation": "<p>\n            The location type for the offering. It can assume the following values:\n            region: defines that the offering is at the regional level.\n            availability-zone: defines that the offering is at the availability zone level.\n            availability-zone-id: defines that the offering is at the availability zone level, defined by the availability zone id.\n        </p>"
-          }
-        },
-        "location": {
-          "target": "com.amazonaws.elasticinference#Location",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The location for the offering.\n            It will return either the region, availability zone or availability zone id for the offering depending on the locationType value.\n        </p>"
           }
         }
       },
@@ -211,17 +211,17 @@
     "com.amazonaws.elasticinference#DescribeAcceleratorOfferingsRequest": {
       "type": "structure",
       "members": {
-        "acceleratorTypes": {
-          "target": "com.amazonaws.elasticinference#AcceleratorTypeNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The list of accelerator types to describe.\n        </p>"
-          }
-        },
         "locationType": {
           "target": "com.amazonaws.elasticinference#LocationType",
           "traits": {
             "smithy.api#documentation": "<p>\n            The location type that you want to describe accelerator type offerings for. It can assume the following values:\n            region: will return the accelerator type offering at the regional level.\n            availability-zone: will return the accelerator type offering at the availability zone level.\n            availability-zone-id: will return the accelerator type offering at the availability zone level returning the availability zone id.\n        </p>",
             "smithy.api#required": {}
+          }
+        },
+        "acceleratorTypes": {
+          "target": "com.amazonaws.elasticinference#AcceleratorTypeNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The list of accelerator types to describe.\n        </p>"
           }
         }
       }
@@ -310,28 +310,28 @@
     "com.amazonaws.elasticinference#DescribeAcceleratorsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.elasticinference#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The total number of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output.\n            To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command.\n            Do not use the NextToken response element directly outside of the AWS CLI.\n        </p>"
-          }
-        },
         "acceleratorIds": {
           "target": "com.amazonaws.elasticinference#AcceleratorIdList",
           "traits": {
             "smithy.api#documentation": "<p>\n            The IDs of the accelerators to describe.\n        </p>"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.elasticinference#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            A token to specify where to start paginating. This is the NextToken from a previously truncated response.\n        </p>"
-          }
-        },
         "filters": {
           "target": "com.amazonaws.elasticinference#FilterList",
           "traits": {
             "smithy.api#documentation": "<p>\n            One or more filters. Filter names and values are case-sensitive. Valid filter names are:\n            accelerator-types: can provide a list of accelerator type names to filter for.\n            instance-id: can provide a list of EC2 instance ids to filter for.\n        </p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.elasticinference#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The total number of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output.\n            To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command.\n            Do not use the NextToken response element directly outside of the AWS CLI.\n        </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.elasticinference#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            A token to specify where to start paginating. This is the NextToken from a previously truncated response.\n        </p>"
           }
         }
       }
@@ -394,12 +394,6 @@
     "com.amazonaws.elasticinference#ElasticInferenceAccelerator": {
       "type": "structure",
       "members": {
-        "acceleratorType": {
-          "target": "com.amazonaws.elasticinference#AcceleratorTypeName",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The type of the Elastic Inference Accelerator.\n        </p>"
-          }
-        },
         "attachedResource": {
           "target": "com.amazonaws.elasticinference#ResourceARN2",
           "traits": {
@@ -412,16 +406,22 @@
             "smithy.api#documentation": "<p>\n            The health of the Elastic Inference Accelerator.\n        </p>"
           }
         },
+        "acceleratorId": {
+          "target": "com.amazonaws.elasticinference#AcceleratorId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The ID of the Elastic Inference Accelerator.\n        </p>"
+          }
+        },
         "availabilityZone": {
           "target": "com.amazonaws.elasticinference#AvailabilityZone",
           "traits": {
             "smithy.api#documentation": "<p>\n            The availability zone where the Elastic Inference Accelerator is present.\n        </p>"
           }
         },
-        "acceleratorId": {
-          "target": "com.amazonaws.elasticinference#AcceleratorId",
+        "acceleratorType": {
+          "target": "com.amazonaws.elasticinference#AcceleratorTypeName",
           "traits": {
-            "smithy.api#documentation": "<p>\n            The ID of the Elastic Inference Accelerator.\n        </p>"
+            "smithy.api#documentation": "<p>\n            The type of the Elastic Inference Accelerator.\n        </p>"
           }
         }
       },
@@ -455,16 +455,16 @@
     "com.amazonaws.elasticinference#Filter": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.elasticinference#FilterName",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The filter name for the Elastic Inference Accelerator list. It can assume the following values:\n            accelerator-type: the type of Elastic Inference Accelerator to filter for.\n            instance-id: an EC2 instance id to filter for.\n        </p>"
-          }
-        },
         "values": {
           "target": "com.amazonaws.elasticinference#ValueStringList",
           "traits": {
             "smithy.api#documentation": "<p>\n            The values for the filter of the Elastic Inference Accelerator list.\n        </p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.elasticinference#FilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The filter name for the Elastic Inference Accelerator list. It can assume the following values:\n            accelerator-type: the type of Elastic Inference Accelerator to filter for.\n            instance-id: an EC2 instance id to filter for.\n        </p>"
           }
         }
       },
@@ -523,16 +523,16 @@
     "com.amazonaws.elasticinference#KeyValuePair": {
       "type": "structure",
       "members": {
-        "key": {
-          "target": "com.amazonaws.elasticinference#Key",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The throughput value of the Elastic Inference Accelerator type. It can assume the following values:\n            TFLOPS16bit: the throughput expressed in 16bit TeraFLOPS.\n            TFLOPS32bit: the throughput expressed in 32bit TeraFLOPS.\n        </p>"
-          }
-        },
         "value": {
           "target": "com.amazonaws.elasticinference#Value",
           "traits": {
             "smithy.api#documentation": "<p>\n            The throughput value of the Elastic Inference Accelerator type.\n        </p>"
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.elasticinference#Key",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The throughput value of the Elastic Inference Accelerator type. It can assume the following values:\n            TFLOPS16bit: the throughput expressed in 16bit TeraFLOPS.\n            TFLOPS32bit: the throughput expressed in 32bit TeraFLOPS.\n        </p>"
           }
         }
       },
@@ -764,18 +764,18 @@
     "com.amazonaws.elasticinference#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.elasticinference#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The tags to add to the Elastic Inference Accelerator.\n        </p>",
-            "smithy.api#required": {}
-          }
-        },
         "resourceArn": {
           "target": "com.amazonaws.elasticinference#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>\n            The ARN of the Elastic Inference Accelerator to tag.\n        </p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.elasticinference#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The tags to add to the Elastic Inference Accelerator.\n        </p>",
             "smithy.api#required": {}
           }
         }

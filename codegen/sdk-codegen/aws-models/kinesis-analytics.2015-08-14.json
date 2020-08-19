@@ -152,6 +152,20 @@
     "com.amazonaws.kinesisanalytics#AddApplicationInputProcessingConfigurationRequest": {
       "type": "structure",
       "members": {
+        "InputProcessingConfiguration": {
+          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html\">InputProcessingConfiguration</a> to add to the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ApplicationName": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the application to which you want to add the input processing configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "InputId": {
           "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
@@ -165,20 +179,6 @@
             "smithy.api#documentation": "<p>Version of the application to which you want to add the input processing configuration. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> \n            operation to get the current application version.  If the version specified is not the current version, the \n            <code>ConcurrentModificationException</code> is returned.</p>",
             "smithy.api#required": {}
           }
-        },
-        "ApplicationName": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the application to which you want to add the input processing configuration.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "InputProcessingConfiguration": {
-          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html\">InputProcessingConfiguration</a> to add to the application.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
@@ -189,6 +189,13 @@
     "com.amazonaws.kinesisanalytics#AddApplicationInputRequest": {
       "type": "structure",
       "members": {
+        "CurrentApplicationVersionId": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
+          "traits": {
+            "smithy.api#documentation": "<p>Current version of your Amazon Kinesis Analytics application. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation \n            to find the current application version.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Input": {
           "target": "com.amazonaws.kinesisanalytics#Input",
           "traits": {
@@ -200,13 +207,6 @@
           "target": "com.amazonaws.kinesisanalytics#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "CurrentApplicationVersionId": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
-          "traits": {
-            "smithy.api#documentation": "<p>Current version of your Amazon Kinesis Analytics application. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation \n            to find the current application version.</p>",
             "smithy.api#required": {}
           }
         }
@@ -254,13 +254,6 @@
     "com.amazonaws.kinesisanalytics#AddApplicationOutputRequest": {
       "type": "structure",
       "members": {
-        "CurrentApplicationVersionId": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
-          "traits": {
-            "smithy.api#documentation": "<p>Version of the application to which you want to add the output configuration. You\n            can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current\n            application version. If the version specified is not the current version, the\n                <code>ConcurrentModificationException</code> is returned. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "Output": {
           "target": "com.amazonaws.kinesisanalytics#Output",
           "traits": {
@@ -272,6 +265,13 @@
           "target": "com.amazonaws.kinesisanalytics#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the application to which you want to add the output configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CurrentApplicationVersionId": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
+          "traits": {
+            "smithy.api#documentation": "<p>Version of the application to which you want to add the output configuration. You\n            can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current\n            application version. If the version specified is not the current version, the\n                <code>ConcurrentModificationException</code> is returned. </p>",
             "smithy.api#required": {}
           }
         }
@@ -319,10 +319,10 @@
     "com.amazonaws.kinesisanalytics#AddApplicationReferenceDataSourceRequest": {
       "type": "structure",
       "members": {
-        "CurrentApplicationVersionId": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
+        "ReferenceDataSource": {
+          "target": "com.amazonaws.kinesisanalytics#ReferenceDataSource",
           "traits": {
-            "smithy.api#documentation": "<p>Version of the application for which you are adding the reference data source. \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version.\n            If the version specified is not the current version, the \n            <code>ConcurrentModificationException</code> is returned.</p>",
+            "smithy.api#documentation": "<p>The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.</p>",
             "smithy.api#required": {}
           }
         },
@@ -333,10 +333,10 @@
             "smithy.api#required": {}
           }
         },
-        "ReferenceDataSource": {
-          "target": "com.amazonaws.kinesisanalytics#ReferenceDataSource",
+        "CurrentApplicationVersionId": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.</p>",
+            "smithy.api#documentation": "<p>Version of the application for which you are adding the reference data source. \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version.\n            If the version specified is not the current version, the \n            <code>ConcurrentModificationException</code> is returned.</p>",
             "smithy.api#required": {}
           }
         }
@@ -373,49 +373,22 @@
     "com.amazonaws.kinesisanalytics#ApplicationDetail": {
       "type": "structure",
       "members": {
-        "ApplicationName": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
+        "ReferenceDataSourceDescriptions": {
+          "target": "com.amazonaws.kinesisanalytics#ReferenceDataSourceDescriptions",
           "traits": {
-            "smithy.api#documentation": "<p>Name of the application.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Describes reference data sources configured for the application. \n            \n            For more information, \n            see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. \n            \n        </p>"
           }
         },
-        "InputDescriptions": {
-          "target": "com.amazonaws.kinesisanalytics#InputDescriptions",
+        "OutputDescriptions": {
+          "target": "com.amazonaws.kinesisanalytics#OutputDescriptions",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the application input configuration. \n            For more information, \n            see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. \n            \n        </p>"
-          }
-        },
-        "CreateTimestamp": {
-          "target": "com.amazonaws.kinesisanalytics#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Time stamp when the application version was created.</p>"
-          }
-        },
-        "ApplicationVersionId": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides the current application version.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Describes the application output configuration.\n            For more information, \n            see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. \n            \n        </p>"
           }
         },
         "CloudWatchLoggingOptionDescriptions": {
           "target": "com.amazonaws.kinesisanalytics#CloudWatchLoggingOptionDescriptions",
           "traits": {
             "smithy.api#documentation": "<p>Describes the CloudWatch log streams that are configured to receive application\n            messages. For more information about using CloudWatch log streams with Amazon Kinesis\n            Analytics applications, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html\">Working with Amazon\n                CloudWatch Logs</a>. </p>"
-          }
-        },
-        "ApplicationARN": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the application.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ApplicationDescription": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>Description of the application.</p>"
           }
         },
         "ApplicationStatus": {
@@ -425,10 +398,30 @@
             "smithy.api#required": {}
           }
         },
-        "ApplicationCode": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationCode",
+        "ApplicationName": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
           "traits": {
-            "smithy.api#documentation": "<p>Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.</p>"
+            "smithy.api#documentation": "<p>Name of the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ApplicationARN": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CreateTimestamp": {
+          "target": "com.amazonaws.kinesisanalytics#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Time stamp when the application version was created.</p>"
+          }
+        },
+        "ApplicationDescription": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Description of the application.</p>"
           }
         },
         "LastUpdateTimestamp": {
@@ -437,16 +430,23 @@
             "smithy.api#documentation": "<p>Time stamp when the application was last updated.</p>"
           }
         },
-        "OutputDescriptions": {
-          "target": "com.amazonaws.kinesisanalytics#OutputDescriptions",
+        "ApplicationCode": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationCode",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the application output configuration.\n            For more information, \n            see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. \n            \n        </p>"
+            "smithy.api#documentation": "<p>Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.</p>"
           }
         },
-        "ReferenceDataSourceDescriptions": {
-          "target": "com.amazonaws.kinesisanalytics#ReferenceDataSourceDescriptions",
+        "ApplicationVersionId": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>Describes reference data sources configured for the application. \n            \n            For more information, \n            see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. \n            \n        </p>"
+            "smithy.api#documentation": "<p>Provides the current application version.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InputDescriptions": {
+          "target": "com.amazonaws.kinesisanalytics#InputDescriptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the application input configuration. \n            For more information, \n            see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. \n            \n        </p>"
           }
         }
       },
@@ -504,10 +504,10 @@
     "com.amazonaws.kinesisanalytics#ApplicationSummary": {
       "type": "structure",
       "members": {
-        "ApplicationARN": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+        "ApplicationName": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
           "traits": {
-            "smithy.api#documentation": "<p>ARN of the application.</p>",
+            "smithy.api#documentation": "<p>Name of the application.</p>",
             "smithy.api#required": {}
           }
         },
@@ -518,10 +518,10 @@
             "smithy.api#required": {}
           }
         },
-        "ApplicationName": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
+        "ApplicationARN": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
           "traits": {
-            "smithy.api#documentation": "<p>Name of the application.</p>",
+            "smithy.api#documentation": "<p>ARN of the application.</p>",
             "smithy.api#required": {}
           }
         }
@@ -533,10 +533,16 @@
     "com.amazonaws.kinesisanalytics#ApplicationUpdate": {
       "type": "structure",
       "members": {
-        "InputUpdates": {
-          "target": "com.amazonaws.kinesisanalytics#InputUpdates",
+        "OutputUpdates": {
+          "target": "com.amazonaws.kinesisanalytics#OutputUpdates",
           "traits": {
-            "smithy.api#documentation": "<p>Describes application input configuration updates.</p>"
+            "smithy.api#documentation": "<p>Describes application output configuration updates.</p>"
+          }
+        },
+        "ApplicationCodeUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes application code updates.</p>"
           }
         },
         "ReferenceDataSourceUpdates": {
@@ -545,22 +551,16 @@
             "smithy.api#documentation": "<p>Describes application reference data source updates.</p>"
           }
         },
-        "OutputUpdates": {
-          "target": "com.amazonaws.kinesisanalytics#OutputUpdates",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes application output configuration updates.</p>"
-          }
-        },
         "CloudWatchLoggingOptionUpdates": {
           "target": "com.amazonaws.kinesisanalytics#CloudWatchLoggingOptionUpdates",
           "traits": {
             "smithy.api#documentation": "<p>Describes application CloudWatch logging option updates.</p>"
           }
         },
-        "ApplicationCodeUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationCode",
+        "InputUpdates": {
+          "target": "com.amazonaws.kinesisanalytics#InputUpdates",
           "traits": {
-            "smithy.api#documentation": "<p>Describes application code updates.</p>"
+            "smithy.api#documentation": "<p>Describes application input configuration updates.</p>"
           }
         }
       },
@@ -619,17 +619,17 @@
     "com.amazonaws.kinesisanalytics#CloudWatchLoggingOption": {
       "type": "structure",
       "members": {
-        "LogStreamARN": {
-          "target": "com.amazonaws.kinesisanalytics#LogStreamARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the CloudWatch log to receive application messages.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RoleARN": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>IAM ARN of the role to use to send application messages. Note: To write application\n            messages to CloudWatch, the IAM role that is used must have the\n            <code>PutLogEvents</code> policy action enabled.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LogStreamARN": {
+          "target": "com.amazonaws.kinesisanalytics#LogStreamARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the CloudWatch log to receive application messages.</p>",
             "smithy.api#required": {}
           }
         }
@@ -648,17 +648,17 @@
             "smithy.api#required": {}
           }
         },
-        "CloudWatchLoggingOptionId": {
-          "target": "com.amazonaws.kinesisanalytics#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>ID of the CloudWatch logging option description.</p>"
-          }
-        },
         "LogStreamARN": {
           "target": "com.amazonaws.kinesisanalytics#LogStreamARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN of the CloudWatch log to receive application messages.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "CloudWatchLoggingOptionId": {
+          "target": "com.amazonaws.kinesisanalytics#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of the CloudWatch logging option description.</p>"
           }
         }
       },
@@ -675,10 +675,11 @@
     "com.amazonaws.kinesisanalytics#CloudWatchLoggingOptionUpdate": {
       "type": "structure",
       "members": {
-        "RoleARNUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#RoleARN",
+        "CloudWatchLoggingOptionId": {
+          "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
-            "smithy.api#documentation": "<p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>"
+            "smithy.api#documentation": "<p>ID of the CloudWatch logging option to update</p>",
+            "smithy.api#required": {}
           }
         },
         "LogStreamARNUpdate": {
@@ -687,11 +688,10 @@
             "smithy.api#documentation": "<p>ARN of the CloudWatch log to receive application messages.</p>"
           }
         },
-        "CloudWatchLoggingOptionId": {
-          "target": "com.amazonaws.kinesisanalytics#Id",
+        "RoleARNUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
-            "smithy.api#documentation": "<p>ID of the CloudWatch logging option to update</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>"
           }
         }
       },
@@ -777,24 +777,6 @@
     "com.amazonaws.kinesisanalytics#CreateApplicationRequest": {
       "type": "structure",
       "members": {
-        "ApplicationDescription": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>Summary description of the application.</p>"
-          }
-        },
-        "ApplicationCode": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationCode",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more SQL statements that read input data, transform it, and generate output.\n            For example, you can write a SQL statement that reads data from one in-application\n            stream, generates a running average of the number of advertisement clicks by vendor, and\n            insert resulting rows in another in-application stream using pumps. For more information\n            about the typical pattern, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html\">Application\n                Code</a>. </p>\n        \n        <p>You can provide such series of SQL statements, \n            where output of one statement can be\n            used as the input for the next statement. You store \n            intermediate results by creating in-application streams and pumps.</p>\n        \n        <p>Note that the application code must create the streams with names \n            specified in the <code>Outputs</code>. For example, \n            if your <code>Outputs</code> defines output streams named \n            <code>ExampleOutputStream1</code> and <code>ExampleOutputStream2</code>,\n            then your application code must create these streams. </p>"
-          }
-        },
-        "Outputs": {
-          "target": "com.amazonaws.kinesisanalytics#Outputs",
-          "traits": {
-            "smithy.api#documentation": "<p>You can configure application output to write data from any of the in-application streams to up to three destinations.</p>\n        <p>These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery\n            streams, AWS Lambda destinations, or any combination of the three.</p>\n        <p>In the configuration, you specify the in-application stream name, the destination stream or Lambda function Amazon Resource Name (ARN), and the format to use when writing data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to write to the \n            destination stream or Lambda function on your behalf.</p>\n        <p>In the output configuration, you also provide the output stream or Lambda function ARN. For stream destinations, you provide the format\n            of data in the stream (for example, JSON, CSV). You also must provide an IAM role that\n            Amazon Kinesis Analytics can assume to write to the stream or Lambda function on your behalf.</p>"
-          }
-        },
         "CloudWatchLoggingOptions": {
           "target": "com.amazonaws.kinesisanalytics#CloudWatchLoggingOptions",
           "traits": {
@@ -807,17 +789,35 @@
             "smithy.api#documentation": "<p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.\n        For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html\">Using Tagging</a>.</p>"
           }
         },
-        "ApplicationName": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
+        "ApplicationDescription": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationDescription",
           "traits": {
-            "smithy.api#documentation": "<p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Summary description of the application.</p>"
           }
         },
         "Inputs": {
           "target": "com.amazonaws.kinesisanalytics#Inputs",
           "traits": {
             "smithy.api#documentation": "<p>Use this parameter to configure the application input.</p>\n        <p>You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table).</p>\n        <p>For the streaming source, you provide its Amazon Resource Name (ARN) and format of\n            data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role\n            that Amazon Kinesis Analytics can assume to read this stream on your behalf.</p>\n        <p>To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.</p>"
+          }
+        },
+        "Outputs": {
+          "target": "com.amazonaws.kinesisanalytics#Outputs",
+          "traits": {
+            "smithy.api#documentation": "<p>You can configure application output to write data from any of the in-application streams to up to three destinations.</p>\n        <p>These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery\n            streams, AWS Lambda destinations, or any combination of the three.</p>\n        <p>In the configuration, you specify the in-application stream name, the destination stream or Lambda function Amazon Resource Name (ARN), and the format to use when writing data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to write to the \n            destination stream or Lambda function on your behalf.</p>\n        <p>In the output configuration, you also provide the output stream or Lambda function ARN. For stream destinations, you provide the format\n            of data in the stream (for example, JSON, CSV). You also must provide an IAM role that\n            Amazon Kinesis Analytics can assume to write to the stream or Lambda function on your behalf.</p>"
+          }
+        },
+        "ApplicationCode": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationCode",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more SQL statements that read input data, transform it, and generate output.\n            For example, you can write a SQL statement that reads data from one in-application\n            stream, generates a running average of the number of advertisement clicks by vendor, and\n            insert resulting rows in another in-application stream using pumps. For more information\n            about the typical pattern, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html\">Application\n                Code</a>. </p>\n        \n        <p>You can provide such series of SQL statements, \n            where output of one statement can be\n            used as the input for the next statement. You store \n            intermediate results by creating in-application streams and pumps.</p>\n        \n        <p>Note that the application code must create the streams with names \n            specified in the <code>Outputs</code>. For example, \n            if your <code>Outputs</code> defines output streams named \n            <code>ExampleOutputStream1</code> and <code>ExampleOutputStream2</code>,\n            then your application code must create these streams. </p>"
+          }
+        },
+        "ApplicationName": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -898,10 +898,10 @@
     "com.amazonaws.kinesisanalytics#DeleteApplicationCloudWatchLoggingOptionRequest": {
       "type": "structure",
       "members": {
-        "CloudWatchLoggingOptionId": {
-          "target": "com.amazonaws.kinesisanalytics#Id",
+        "CurrentApplicationVersionId": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to\n            delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation. </p>",
+            "smithy.api#documentation": "<p>The version ID of the Kinesis Analytics application.</p>",
             "smithy.api#required": {}
           }
         },
@@ -912,10 +912,10 @@
             "smithy.api#required": {}
           }
         },
-        "CurrentApplicationVersionId": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
+        "CloudWatchLoggingOptionId": {
+          "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The version ID of the Kinesis Analytics application.</p>",
+            "smithy.api#documentation": "<p>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to\n            delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation. </p>",
             "smithy.api#required": {}
           }
         }
@@ -964,17 +964,17 @@
             "smithy.api#required": {}
           }
         },
-        "ApplicationName": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
-          "traits": {
-            "smithy.api#documentation": "<p>The Kinesis Analytics application name.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "InputId": {
           "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the input configuration from which to delete the input processing\n            configuration. You can get a list of the input IDs for an application by using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ApplicationName": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Kinesis Analytics application name.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1016,10 +1016,10 @@
     "com.amazonaws.kinesisanalytics#DeleteApplicationOutputRequest": {
       "type": "structure",
       "members": {
-        "OutputId": {
-          "target": "com.amazonaws.kinesisanalytics#Id",
+        "CurrentApplicationVersionId": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the configuration to delete. \n            Each output configuration that is added to the application, either when the application is \n            created or later using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html\">AddApplicationOutput</a> operation, has a unique ID. \n            You need to provide the ID to uniquely identify the output configuration that you want to \n            delete from the application configuration. \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the specific\n            <code>OutputId</code>. \n        </p>",
+            "smithy.api#documentation": "<p>Amazon Kinesis Analytics application version. \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version.\n            If the version specified is not the current version, the \n            <code>ConcurrentModificationException</code> is returned.\n        </p>",
             "smithy.api#required": {}
           }
         },
@@ -1030,10 +1030,10 @@
             "smithy.api#required": {}
           }
         },
-        "CurrentApplicationVersionId": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
+        "OutputId": {
+          "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Kinesis Analytics application version. \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version.\n            If the version specified is not the current version, the \n            <code>ConcurrentModificationException</code> is returned.\n        </p>",
+            "smithy.api#documentation": "<p>The ID of the configuration to delete. \n            Each output configuration that is added to the application, either when the application is \n            created or later using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html\">AddApplicationOutput</a> operation, has a unique ID. \n            You need to provide the ID to uniquely identify the output configuration that you want to \n            delete from the application configuration. \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the specific\n            <code>OutputId</code>. \n        </p>",
             "smithy.api#required": {}
           }
         }
@@ -1081,6 +1081,13 @@
     "com.amazonaws.kinesisanalytics#DeleteApplicationReferenceDataSourceRequest": {
       "type": "structure",
       "members": {
+        "CurrentApplicationVersionId": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
+          "traits": {
+            "smithy.api#documentation": "<p>Version of the application.  \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version.\n            If the version specified \n            is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ApplicationName": {
           "target": "com.amazonaws.kinesisanalytics#ApplicationName",
           "traits": {
@@ -1094,13 +1101,6 @@
             "smithy.api#documentation": "<p>ID of the reference data source. When you add a reference data source to your \n            application using the \n            <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html\">AddApplicationReferenceDataSource</a>, Amazon Kinesis Analytics assigns an ID. \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the reference ID.\n        </p>",
             "smithy.api#required": {}
           }
-        },
-        "CurrentApplicationVersionId": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
-          "traits": {
-            "smithy.api#documentation": "<p>Version of the application.  \n            You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version.\n            If the version specified \n            is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
@@ -1111,17 +1111,17 @@
     "com.amazonaws.kinesisanalytics#DeleteApplicationRequest": {
       "type": "structure",
       "members": {
-        "CreateTimestamp": {
-          "target": "com.amazonaws.kinesisanalytics#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            You can use the <code>DescribeApplication</code> operation to get this value.\n        </p>",
-            "smithy.api#required": {}
-          }
-        },
         "ApplicationName": {
           "target": "com.amazonaws.kinesisanalytics#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the Amazon Kinesis Analytics application to delete.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CreateTimestamp": {
+          "target": "com.amazonaws.kinesisanalytics#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            You can use the <code>DescribeApplication</code> operation to get this value.\n        </p>",
             "smithy.api#required": {}
           }
         }
@@ -1231,16 +1231,16 @@
     "com.amazonaws.kinesisanalytics#DiscoverInputSchemaRequest": {
       "type": "structure",
       "members": {
+        "InputStartingPositionConfiguration": {
+          "target": "com.amazonaws.kinesisanalytics#InputStartingPositionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.</p>"
+          }
+        },
         "RoleARN": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.</p>"
-          }
-        },
-        "InputProcessingConfiguration": {
-          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html\">InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>"
           }
         },
         "ResourceARN": {
@@ -1255,10 +1255,10 @@
             "smithy.api#documentation": "<p>Specify this parameter to discover a schema from data in an Amazon S3\n            object.</p>"
           }
         },
-        "InputStartingPositionConfiguration": {
-          "target": "com.amazonaws.kinesisanalytics#InputStartingPositionConfiguration",
+        "InputProcessingConfiguration": {
+          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.</p>"
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html\">InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>"
           }
         }
       }
@@ -1266,10 +1266,10 @@
     "com.amazonaws.kinesisanalytics#DiscoverInputSchemaResponse": {
       "type": "structure",
       "members": {
-        "ParsedInputRecords": {
-          "target": "com.amazonaws.kinesisanalytics#ParsedInputRecords",
+        "RawInputRecords": {
+          "target": "com.amazonaws.kinesisanalytics#RawInputRecords",
           "traits": {
-            "smithy.api#documentation": "<p>An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).</p>"
+            "smithy.api#documentation": "<p>Raw stream data that was sampled to infer the schema.</p>"
           }
         },
         "InputSchema": {
@@ -1278,10 +1278,10 @@
             "smithy.api#documentation": "<p>Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.</p>"
           }
         },
-        "RawInputRecords": {
-          "target": "com.amazonaws.kinesisanalytics#RawInputRecords",
+        "ParsedInputRecords": {
+          "target": "com.amazonaws.kinesisanalytics#ParsedInputRecords",
           "traits": {
-            "smithy.api#documentation": "<p>Raw stream data that was sampled to infer the schema.</p>"
+            "smithy.api#documentation": "<p>An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).</p>"
           }
         },
         "ProcessedInputRecords": {
@@ -1344,10 +1344,10 @@
     "com.amazonaws.kinesisanalytics#Input": {
       "type": "structure",
       "members": {
-        "KinesisStreamsInput": {
-          "target": "com.amazonaws.kinesisanalytics#KinesisStreamsInput",
+        "InputProcessingConfiguration": {
+          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>If the streaming source is an Amazon Kinesis stream, \n            identifies the stream's Amazon Resource Name (ARN) and an IAM role \n            that enables Amazon Kinesis Analytics to access the stream on your behalf.</p>\n        <p>Note: Either <code>KinesisStreamsInput</code> or <code>KinesisFirehoseInput</code> is required.</p>"
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html\">InputProcessingConfiguration</a> for the input. An input\n            processor transforms records as they are received from the stream, before the\n            application's SQL code executes. Currently, the only input processing configuration\n            available is <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html\">InputLambdaProcessor</a>.</p>"
           }
         },
         "InputSchema": {
@@ -1357,10 +1357,10 @@
             "smithy.api#required": {}
           }
         },
-        "InputProcessingConfiguration": {
-          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfiguration",
+        "InputParallelism": {
+          "target": "com.amazonaws.kinesisanalytics#InputParallelism",
           "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html\">InputProcessingConfiguration</a> for the input. An input\n            processor transforms records as they are received from the stream, before the\n            application's SQL code executes. Currently, the only input processing configuration\n            available is <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html\">InputLambdaProcessor</a>.</p>"
+            "smithy.api#documentation": "<p>Describes the number of in-application streams to create. </p>\n         <p>Data from your source is routed to these in-application input streams.</p>\n        <p>    (see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>.</p>"
           }
         },
         "KinesisFirehoseInput": {
@@ -1369,17 +1369,17 @@
             "smithy.api#documentation": "<p>If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies\n            the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to\n            access the stream on your behalf.</p>\n        <p>Note: Either <code>KinesisStreamsInput</code> or <code>KinesisFirehoseInput</code> is required.</p>"
           }
         },
+        "KinesisStreamsInput": {
+          "target": "com.amazonaws.kinesisanalytics#KinesisStreamsInput",
+          "traits": {
+            "smithy.api#documentation": "<p>If the streaming source is an Amazon Kinesis stream, \n            identifies the stream's Amazon Resource Name (ARN) and an IAM role \n            that enables Amazon Kinesis Analytics to access the stream on your behalf.</p>\n        <p>Note: Either <code>KinesisStreamsInput</code> or <code>KinesisFirehoseInput</code> is required.</p>"
+          }
+        },
         "NamePrefix": {
           "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
           "traits": {
             "smithy.api#documentation": "<p>Name prefix to use when creating an in-application stream. Suppose that you specify\n            a prefix \"MyInApplicationStream.\" Amazon Kinesis Analytics then creates one or more (as\n            per the <code>InputParallelism</code> count you specified) in-application streams with\n            names \"MyInApplicationStream_001,\" \"MyInApplicationStream_002,\" and so on. </p>",
             "smithy.api#required": {}
-          }
-        },
-        "InputParallelism": {
-          "target": "com.amazonaws.kinesisanalytics#InputParallelism",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the number of in-application streams to create. </p>\n         <p>Data from your source is routed to these in-application input streams.</p>\n        <p>    (see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>.</p>"
           }
         }
       },
@@ -1418,6 +1418,36 @@
     "com.amazonaws.kinesisanalytics#InputDescription": {
       "type": "structure",
       "members": {
+        "NamePrefix": {
+          "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>In-application name prefix.</p>"
+          }
+        },
+        "InputProcessingConfigurationDescription": {
+          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfigurationDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>"
+          }
+        },
+        "InAppStreamNames": {
+          "target": "com.amazonaws.kinesisanalytics#InAppStreamNames",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the in-application stream names that are mapped to the \n            stream source.</p>"
+          }
+        },
+        "InputParallelism": {
+          "target": "com.amazonaws.kinesisanalytics#InputParallelism",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the configured parallelism (number of in-application streams \n            mapped to the streaming source).</p>"
+          }
+        },
+        "InputStartingPositionConfiguration": {
+          "target": "com.amazonaws.kinesisanalytics#InputStartingPositionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Point at which the application is configured to read from the input stream.</p>"
+          }
+        },
         "KinesisStreamsInputDescription": {
           "target": "com.amazonaws.kinesisanalytics#KinesisStreamsInputDescription",
           "traits": {
@@ -1430,46 +1460,16 @@
             "smithy.api#documentation": "<p>Input ID associated with the application input. \n            This is the ID that Amazon Kinesis Analytics assigns to each \n            input configuration you add to your application. </p>"
           }
         },
-        "InputSchema": {
-          "target": "com.amazonaws.kinesisanalytics#SourceSchema",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding \n            columns in the in-application stream that is being created. </p>"
-          }
-        },
-        "InputParallelism": {
-          "target": "com.amazonaws.kinesisanalytics#InputParallelism",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the configured parallelism (number of in-application streams \n            mapped to the streaming source).</p>"
-          }
-        },
-        "InAppStreamNames": {
-          "target": "com.amazonaws.kinesisanalytics#InAppStreamNames",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns the in-application stream names that are mapped to the \n            stream source.</p>"
-          }
-        },
         "KinesisFirehoseInputDescription": {
           "target": "com.amazonaws.kinesisanalytics#KinesisFirehoseInputDescription",
           "traits": {
             "smithy.api#documentation": "<p>If an Amazon Kinesis Firehose delivery stream is configured as a streaming source,\n            provides the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics\n            to access the stream on your behalf.</p>"
           }
         },
-        "InputProcessingConfigurationDescription": {
-          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfigurationDescription",
+        "InputSchema": {
+          "target": "com.amazonaws.kinesisanalytics#SourceSchema",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>"
-          }
-        },
-        "InputStartingPositionConfiguration": {
-          "target": "com.amazonaws.kinesisanalytics#InputStartingPositionConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Point at which the application is configured to read from the input stream.</p>"
-          }
-        },
-        "NamePrefix": {
-          "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
-          "traits": {
-            "smithy.api#documentation": "<p>In-application name prefix.</p>"
+            "smithy.api#documentation": "<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding \n            columns in the in-application stream that is being created. </p>"
           }
         }
       },
@@ -1486,17 +1486,17 @@
     "com.amazonaws.kinesisanalytics#InputLambdaProcessor": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the <a href=\"https://docs.aws.amazon.com/lambda/\">AWS Lambda</a> function that operates\n            on records in the stream.</p>\n            <note>\n            <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda\">Example ARNs: AWS Lambda</a>\n            </p>\n         </note>",
-            "smithy.api#required": {}
-          }
-        },
         "RoleARN": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the <a href=\"https://docs.aws.amazon.com/lambda/\">AWS Lambda</a> function that operates\n            on records in the stream.</p>\n            <note>\n            <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda\">Example ARNs: AWS Lambda</a>\n            </p>\n         </note>",
             "smithy.api#required": {}
           }
         }
@@ -1508,16 +1508,16 @@
     "com.amazonaws.kinesisanalytics#InputLambdaProcessorDescription": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the <a href=\"https://docs.aws.amazon.com/lambda/\">AWS Lambda</a> function that is used to preprocess the records in the stream.</p>"
-          }
-        },
         "RoleARN": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>"
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the <a href=\"https://docs.aws.amazon.com/lambda/\">AWS Lambda</a> function that is used to preprocess the records in the stream.</p>"
           }
         }
       },
@@ -1528,16 +1528,16 @@
     "com.amazonaws.kinesisanalytics#InputLambdaProcessorUpdate": {
       "type": "structure",
       "members": {
-        "RoleARNUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#RoleARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the new IAM role that is used to access the AWS Lambda\n            function.</p>"
-          }
-        },
         "ResourceARNUpdate": {
           "target": "com.amazonaws.kinesisanalytics#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the new <a href=\"https://docs.aws.amazon.com/lambda/\">AWS Lambda</a> function that\n            is used to preprocess the records in the stream.</p>\n        <note>\n            <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda\">Example ARNs: AWS Lambda</a>\n            </p>\n         </note>"
+          }
+        },
+        "RoleARNUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#RoleARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the new IAM role that is used to access the AWS Lambda\n            function.</p>"
           }
         }
       },
@@ -1630,10 +1630,10 @@
     "com.amazonaws.kinesisanalytics#InputSchemaUpdate": {
       "type": "structure",
       "members": {
-        "RecordColumnUpdates": {
-          "target": "com.amazonaws.kinesisanalytics#RecordColumns",
+        "RecordEncodingUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#RecordEncoding",
           "traits": {
-            "smithy.api#documentation": "<p>A list of <code>RecordColumn</code> objects. Each object describes the mapping \n            of the streaming source element to the corresponding column in the in-application stream. </p>"
+            "smithy.api#documentation": "<p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>"
           }
         },
         "RecordFormatUpdate": {
@@ -1642,10 +1642,10 @@
             "smithy.api#documentation": "<p>Specifies the format of the records on the streaming source.</p>"
           }
         },
-        "RecordEncodingUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#RecordEncoding",
+        "RecordColumnUpdates": {
+          "target": "com.amazonaws.kinesisanalytics#RecordColumns",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>"
+            "smithy.api#documentation": "<p>A list of <code>RecordColumn</code> objects. Each object describes the mapping \n            of the streaming source element to the corresponding column in the in-application stream. </p>"
           }
         }
       },
@@ -1689,30 +1689,6 @@
     "com.amazonaws.kinesisanalytics#InputUpdate": {
       "type": "structure",
       "members": {
-        "InputParallelismUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#InputParallelismUpdate",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the parallelism updates (the number in-application \n            streams Amazon Kinesis Analytics creates for the specific streaming source).</p>"
-          }
-        },
-        "KinesisFirehoseInputUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#KinesisFirehoseInputUpdate",
-          "traits": {
-            "smithy.api#documentation": "<p>If an Amazon Kinesis Firehose delivery stream is the streaming source to be\n            updated, provides an updated stream ARN and IAM role ARN.</p>"
-          }
-        },
-        "InputSchemaUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#InputSchemaUpdate",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the data format on the streaming source, and \n            how record elements on the streaming source map to columns of the in-application stream that is created.</p>"
-          }
-        },
-        "InputProcessingConfigurationUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfigurationUpdate",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes updates for an input processing configuration.</p>"
-          }
-        },
         "InputId": {
           "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
@@ -1730,6 +1706,30 @@
           "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
           "traits": {
             "smithy.api#documentation": "<p>Name prefix for in-application streams that Amazon Kinesis Analytics creates \n            for the specific streaming source.</p>"
+          }
+        },
+        "KinesisFirehoseInputUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#KinesisFirehoseInputUpdate",
+          "traits": {
+            "smithy.api#documentation": "<p>If an Amazon Kinesis Firehose delivery stream is the streaming source to be\n            updated, provides an updated stream ARN and IAM role ARN.</p>"
+          }
+        },
+        "InputParallelismUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#InputParallelismUpdate",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the parallelism updates (the number in-application \n            streams Amazon Kinesis Analytics creates for the specific streaming source).</p>"
+          }
+        },
+        "InputProcessingConfigurationUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#InputProcessingConfigurationUpdate",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes updates for an input processing configuration.</p>"
+          }
+        },
+        "InputSchemaUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#InputSchemaUpdate",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the data format on the streaming source, and \n            how record elements on the streaming source map to columns of the in-application stream that is created.</p>"
           }
         }
       },
@@ -1912,16 +1912,16 @@
     "com.amazonaws.kinesisanalytics#KinesisFirehoseInputDescription": {
       "type": "structure",
       "members": {
-        "RoleARN": {
-          "target": "com.amazonaws.kinesisanalytics#RoleARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream.</p>"
-          }
-        },
         "ResourceARN": {
           "target": "com.amazonaws.kinesisanalytics#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.</p>"
+          }
+        },
+        "RoleARN": {
+          "target": "com.amazonaws.kinesisanalytics#RoleARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream.</p>"
           }
         }
       },
@@ -1932,16 +1932,16 @@
     "com.amazonaws.kinesisanalytics#KinesisFirehoseInputUpdate": {
       "type": "structure",
       "members": {
-        "ResourceARNUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to\n            read.</p>"
-          }
-        },
         "RoleARNUpdate": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream\n            on your behalf. You need to grant the necessary permissions to this role.</p>"
+          }
+        },
+        "ResourceARNUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to\n            read.</p>"
           }
         }
       },
@@ -1952,17 +1952,17 @@
     "com.amazonaws.kinesisanalytics#KinesisFirehoseOutput": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the destination Amazon Kinesis Firehose delivery stream to write to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RoleARN": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the destination Amazon Kinesis Firehose delivery stream to write to.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1974,16 +1974,16 @@
     "com.amazonaws.kinesisanalytics#KinesisFirehoseOutputDescription": {
       "type": "structure",
       "members": {
-        "RoleARN": {
-          "target": "com.amazonaws.kinesisanalytics#RoleARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>"
-          }
-        },
         "ResourceARN": {
           "target": "com.amazonaws.kinesisanalytics#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.</p>"
+          }
+        },
+        "RoleARN": {
+          "target": "com.amazonaws.kinesisanalytics#RoleARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>"
           }
         }
       },
@@ -2036,16 +2036,16 @@
     "com.amazonaws.kinesisanalytics#KinesisStreamsInputDescription": {
       "type": "structure",
       "members": {
-        "RoleARN": {
-          "target": "com.amazonaws.kinesisanalytics#RoleARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>"
-          }
-        },
         "ResourceARN": {
           "target": "com.amazonaws.kinesisanalytics#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>"
+          }
+        },
+        "RoleARN": {
+          "target": "com.amazonaws.kinesisanalytics#RoleARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>"
           }
         }
       },
@@ -2076,17 +2076,17 @@
     "com.amazonaws.kinesisanalytics#KinesisStreamsOutput": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the destination Amazon Kinesis stream to write to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RoleARN": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the destination Amazon Kinesis stream to write to.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2098,16 +2098,16 @@
     "com.amazonaws.kinesisanalytics#KinesisStreamsOutputDescription": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>"
-          }
-        },
         "RoleARN": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>"
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>"
           }
         }
       },
@@ -2138,17 +2138,17 @@
     "com.amazonaws.kinesisanalytics#LambdaOutput": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the destination Lambda function to write\n            to.</p>\n        <note>\n            <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda\">Example ARNs: AWS Lambda</a>\n            </p>\n         </note>",
-            "smithy.api#required": {}
-          }
-        },
         "RoleARN": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.kinesisanalytics#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the destination Lambda function to write\n            to.</p>\n        <note>\n            <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda\">Example ARNs: AWS Lambda</a>\n            </p>\n         </note>",
             "smithy.api#required": {}
           }
         }
@@ -2180,16 +2180,16 @@
     "com.amazonaws.kinesisanalytics#LambdaOutputUpdate": {
       "type": "structure",
       "members": {
-        "RoleARNUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#RoleARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>"
-          }
-        },
         "ResourceARNUpdate": {
           "target": "com.amazonaws.kinesisanalytics#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the destination Lambda function.</p>\n        <note>\n            <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda\">Example ARNs: AWS Lambda</a>\n            </p>\n         </note>"
+          }
+        },
+        "RoleARNUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#RoleARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>"
           }
         }
       },
@@ -2237,16 +2237,16 @@
     "com.amazonaws.kinesisanalytics#ListApplicationsRequest": {
       "type": "structure",
       "members": {
-        "ExclusiveStartApplicationName": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.</p>"
-          }
-        },
         "Limit": {
           "target": "com.amazonaws.kinesisanalytics#ListApplicationsInputLimit",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of applications to list.</p>"
+          }
+        },
+        "ExclusiveStartApplicationName": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.</p>"
           }
         }
       },
@@ -2335,16 +2335,16 @@
     "com.amazonaws.kinesisanalytics#MappingParameters": {
       "type": "structure",
       "members": {
-        "JSONMappingParameters": {
-          "target": "com.amazonaws.kinesisanalytics#JSONMappingParameters",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides additional mapping information when JSON is the record format on the streaming source.</p>"
-          }
-        },
         "CSVMappingParameters": {
           "target": "com.amazonaws.kinesisanalytics#CSVMappingParameters",
           "traits": {
             "smithy.api#documentation": "<p>Provides additional mapping information when the record format uses delimiters \n            (for example, CSV).</p>"
+          }
+        },
+        "JSONMappingParameters": {
+          "target": "com.amazonaws.kinesisanalytics#JSONMappingParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides additional mapping information when JSON is the record format on the streaming source.</p>"
           }
         }
       },
@@ -2355,17 +2355,10 @@
     "com.amazonaws.kinesisanalytics#Output": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
+        "KinesisStreamsOutput": {
+          "target": "com.amazonaws.kinesisanalytics#KinesisStreamsOutput",
           "traits": {
-            "smithy.api#documentation": "<p>Name of the in-application stream.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "LambdaOutput": {
-          "target": "com.amazonaws.kinesisanalytics#LambdaOutput",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies an AWS Lambda function as the destination.</p>"
+            "smithy.api#documentation": "<p>Identifies an Amazon Kinesis stream \n            as the destination.</p>"
           }
         },
         "DestinationSchema": {
@@ -2381,10 +2374,17 @@
             "smithy.api#documentation": "<p>Identifies an Amazon Kinesis Firehose delivery stream as the destination.</p>"
           }
         },
-        "KinesisStreamsOutput": {
-          "target": "com.amazonaws.kinesisanalytics#KinesisStreamsOutput",
+        "Name": {
+          "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies an Amazon Kinesis stream \n            as the destination.</p>"
+            "smithy.api#documentation": "<p>Name of the in-application stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LambdaOutput": {
+          "target": "com.amazonaws.kinesisanalytics#LambdaOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies an AWS Lambda function as the destination.</p>"
           }
         }
       },
@@ -2395,10 +2395,16 @@
     "com.amazonaws.kinesisanalytics#OutputDescription": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
+        "DestinationSchema": {
+          "target": "com.amazonaws.kinesisanalytics#DestinationSchema",
           "traits": {
-            "smithy.api#documentation": "<p>Name of the in-application stream configured as output.</p>"
+            "smithy.api#documentation": "<p>Data format used for writing data to the destination.</p>"
+          }
+        },
+        "LambdaOutputDescription": {
+          "target": "com.amazonaws.kinesisanalytics#LambdaOutputDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the AWS Lambda function configured as the destination where output is\n            written.</p>"
           }
         },
         "KinesisFirehoseOutputDescription": {
@@ -2407,16 +2413,10 @@
             "smithy.api#documentation": "<p>Describes the Amazon Kinesis Firehose delivery stream configured as the \n            destination where output is written.</p>"
           }
         },
-        "DestinationSchema": {
-          "target": "com.amazonaws.kinesisanalytics#DestinationSchema",
+        "Name": {
+          "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
           "traits": {
-            "smithy.api#documentation": "<p>Data format used for writing data to the destination.</p>"
-          }
-        },
-        "OutputId": {
-          "target": "com.amazonaws.kinesisanalytics#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the output configuration.</p>"
+            "smithy.api#documentation": "<p>Name of the in-application stream configured as output.</p>"
           }
         },
         "KinesisStreamsOutputDescription": {
@@ -2425,10 +2425,10 @@
             "smithy.api#documentation": "<p>Describes Amazon Kinesis stream configured as the \n            destination where output is written.</p>"
           }
         },
-        "LambdaOutputDescription": {
-          "target": "com.amazonaws.kinesisanalytics#LambdaOutputDescription",
+        "OutputId": {
+          "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the AWS Lambda function configured as the destination where output is\n            written.</p>"
+            "smithy.api#documentation": "<p>A unique identifier for the output configuration.</p>"
           }
         }
       },
@@ -2445,11 +2445,10 @@
     "com.amazonaws.kinesisanalytics#OutputUpdate": {
       "type": "structure",
       "members": {
-        "OutputId": {
-          "target": "com.amazonaws.kinesisanalytics#Id",
+        "LambdaOutputUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#LambdaOutputUpdate",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies the specific output configuration that you want to update.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Describes an AWS Lambda function as the destination for the output.</p>"
           }
         },
         "KinesisFirehoseOutputUpdate": {
@@ -2458,16 +2457,10 @@
             "smithy.api#documentation": "<p>Describes an Amazon Kinesis Firehose delivery stream as the destination for the\n            output.</p>"
           }
         },
-        "KinesisStreamsOutputUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#KinesisStreamsOutputUpdate",
+        "NameUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
           "traits": {
-            "smithy.api#documentation": "<p>Describes an Amazon Kinesis stream as the destination for the output.</p>"
-          }
-        },
-        "LambdaOutputUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#LambdaOutputUpdate",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes an AWS Lambda function as the destination for the output.</p>"
+            "smithy.api#documentation": "<p>If you want to specify a different in-application stream \n            for this output configuration, use this field to \n            specify the new in-application stream name.</p>"
           }
         },
         "DestinationSchemaUpdate": {
@@ -2476,10 +2469,17 @@
             "smithy.api#documentation": "<p>Describes the data format when records are written to the destination. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>.</p>"
           }
         },
-        "NameUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#InAppStreamName",
+        "KinesisStreamsOutputUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#KinesisStreamsOutputUpdate",
           "traits": {
-            "smithy.api#documentation": "<p>If you want to specify a different in-application stream \n            for this output configuration, use this field to \n            specify the new in-application stream name.</p>"
+            "smithy.api#documentation": "<p>Describes an Amazon Kinesis stream as the destination for the output.</p>"
+          }
+        },
+        "OutputId": {
+          "target": "com.amazonaws.kinesisanalytics#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the specific output configuration that you want to update.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2541,17 +2541,17 @@
             "smithy.api#documentation": "<p>Reference to the data element in the streaming input or the reference data source. This element\n            is required if the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel\">RecordFormatType</a> is <code>JSON</code>.</p>"
           }
         },
-        "SqlType": {
-          "target": "com.amazonaws.kinesisanalytics#RecordColumnSqlType",
-          "traits": {
-            "smithy.api#documentation": "<p>Type of column created in the in-application input stream or reference table.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.kinesisanalytics#RecordColumnName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the column created in the in-application input stream or reference table.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SqlType": {
+          "target": "com.amazonaws.kinesisanalytics#RecordColumnSqlType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of column created in the in-application input stream or reference table.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2655,17 +2655,17 @@
     "com.amazonaws.kinesisanalytics#ReferenceDataSource": {
       "type": "structure",
       "members": {
-        "S3ReferenceDataSource": {
-          "target": "com.amazonaws.kinesisanalytics#S3ReferenceDataSource",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf.\n            \n            An Amazon Kinesis Analytics application loads reference data only once. If the data changes, you call the <code>UpdateApplication</code> operation to trigger reloading of data into your application. </p>"
-          }
-        },
         "ReferenceSchema": {
           "target": "com.amazonaws.kinesisanalytics#SourceSchema",
           "traits": {
             "smithy.api#documentation": "<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "S3ReferenceDataSource": {
+          "target": "com.amazonaws.kinesisanalytics#S3ReferenceDataSource",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf.\n            \n            An Amazon Kinesis Analytics application loads reference data only once. If the data changes, you call the <code>UpdateApplication</code> operation to trigger reloading of data into your application. </p>"
           }
         },
         "TableName": {
@@ -2683,10 +2683,11 @@
     "com.amazonaws.kinesisanalytics#ReferenceDataSourceDescription": {
       "type": "structure",
       "members": {
-        "ReferenceSchema": {
-          "target": "com.amazonaws.kinesisanalytics#SourceSchema",
+        "ReferenceId": {
+          "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>"
+            "smithy.api#documentation": "<p>ID of the reference data source. This is the ID \n            that Amazon Kinesis Analytics assigns when you add the reference data source \n            to your application using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html\">AddApplicationReferenceDataSource</a> operation.</p>",
+            "smithy.api#required": {}
           }
         },
         "S3ReferenceDataSourceDescription": {
@@ -2696,18 +2697,17 @@
             "smithy.api#required": {}
           }
         },
-        "ReferenceId": {
-          "target": "com.amazonaws.kinesisanalytics#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>ID of the reference data source. This is the ID \n            that Amazon Kinesis Analytics assigns when you add the reference data source \n            to your application using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html\">AddApplicationReferenceDataSource</a> operation.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TableName": {
           "target": "com.amazonaws.kinesisanalytics#InAppTableName",
           "traits": {
             "smithy.api#documentation": "<p>The in-application table name created by the specific reference data source configuration.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ReferenceSchema": {
+          "target": "com.amazonaws.kinesisanalytics#SourceSchema",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>"
           }
         }
       },
@@ -2724,16 +2724,11 @@
     "com.amazonaws.kinesisanalytics#ReferenceDataSourceUpdate": {
       "type": "structure",
       "members": {
-        "ReferenceSchemaUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#SourceSchema",
+        "ReferenceId": {
+          "target": "com.amazonaws.kinesisanalytics#Id",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>"
-          }
-        },
-        "S3ReferenceDataSourceUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#S3ReferenceDataSourceUpdate",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.</p>"
+            "smithy.api#documentation": "<p>ID of the reference data source being updated. You can use the \n            <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get this value.</p>",
+            "smithy.api#required": {}
           }
         },
         "TableNameUpdate": {
@@ -2742,11 +2737,16 @@
             "smithy.api#documentation": "<p>In-application table name that is created by this update.</p>"
           }
         },
-        "ReferenceId": {
-          "target": "com.amazonaws.kinesisanalytics#Id",
+        "S3ReferenceDataSourceUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#S3ReferenceDataSourceUpdate",
           "traits": {
-            "smithy.api#documentation": "<p>ID of the reference data source being updated. You can use the \n            <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get this value.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.</p>"
+          }
+        },
+        "ReferenceSchemaUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#SourceSchema",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>"
           }
         }
       },
@@ -2832,17 +2832,17 @@
             "smithy.api#required": {}
           }
         },
-        "RoleARN": {
-          "target": "com.amazonaws.kinesisanalytics#RoleARN",
-          "traits": {
-            "smithy.api#documentation": "<p>IAM ARN of the role used to access the data.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "BucketARN": {
           "target": "com.amazonaws.kinesisanalytics#BucketARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN of the S3 bucket that contains the data.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleARN": {
+          "target": "com.amazonaws.kinesisanalytics#RoleARN",
+          "traits": {
+            "smithy.api#documentation": "<p>IAM ARN of the role used to access the data.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2854,6 +2854,13 @@
     "com.amazonaws.kinesisanalytics#S3ReferenceDataSource": {
       "type": "structure",
       "members": {
+        "ReferenceRoleARN": {
+          "target": "com.amazonaws.kinesisanalytics#RoleARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the <code>s3:GetObject</code> action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "FileKey": {
           "target": "com.amazonaws.kinesisanalytics#FileKey",
           "traits": {
@@ -2865,13 +2872,6 @@
           "target": "com.amazonaws.kinesisanalytics#BucketARN",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the S3 bucket.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ReferenceRoleARN": {
-          "target": "com.amazonaws.kinesisanalytics#RoleARN",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the <code>s3:GetObject</code> action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2912,6 +2912,12 @@
     "com.amazonaws.kinesisanalytics#S3ReferenceDataSourceUpdate": {
       "type": "structure",
       "members": {
+        "BucketARNUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#BucketARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the S3 bucket.</p>"
+          }
+        },
         "ReferenceRoleARNUpdate": {
           "target": "com.amazonaws.kinesisanalytics#RoleARN",
           "traits": {
@@ -2922,12 +2928,6 @@
           "target": "com.amazonaws.kinesisanalytics#FileKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key name.</p>"
-          }
-        },
-        "BucketARNUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#BucketARN",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the S3 bucket.</p>"
           }
         }
       },
@@ -2951,13 +2951,6 @@
     "com.amazonaws.kinesisanalytics#SourceSchema": {
       "type": "structure",
       "members": {
-        "RecordColumns": {
-          "target": "com.amazonaws.kinesisanalytics#RecordColumns",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of <code>RecordColumn</code> objects.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RecordFormat": {
           "target": "com.amazonaws.kinesisanalytics#RecordFormat",
           "traits": {
@@ -2969,6 +2962,13 @@
           "target": "com.amazonaws.kinesisanalytics#RecordEncoding",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>"
+          }
+        },
+        "RecordColumns": {
+          "target": "com.amazonaws.kinesisanalytics#RecordColumns",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of <code>RecordColumn</code> objects.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3008,17 +3008,17 @@
     "com.amazonaws.kinesisanalytics#StartApplicationRequest": {
       "type": "structure",
       "members": {
-        "InputConfigurations": {
-          "target": "com.amazonaws.kinesisanalytics#InputConfigurations",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ApplicationName": {
           "target": "com.amazonaws.kinesisanalytics#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InputConfigurations": {
+          "target": "com.amazonaws.kinesisanalytics#InputConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3082,17 +3082,17 @@
     "com.amazonaws.kinesisanalytics#Tag": {
       "type": "structure",
       "members": {
+        "Value": {
+          "target": "com.amazonaws.kinesisanalytics#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the key-value tag. The value is optional.</p>"
+          }
+        },
         "Key": {
           "target": "com.amazonaws.kinesisanalytics#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The key of the key-value tag.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Value": {
-          "target": "com.amazonaws.kinesisanalytics#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the key-value tag. The value is optional.</p>"
           }
         }
       },
@@ -3153,17 +3153,17 @@
     "com.amazonaws.kinesisanalytics#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.kinesisanalytics#KinesisAnalyticsARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the application to assign the tags.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.kinesisanalytics#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The key-value tags to assign to the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.kinesisanalytics#KinesisAnalyticsARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the application to assign the tags.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3212,11 +3212,11 @@
     "com.amazonaws.kinesisanalytics#UnableToDetectSchemaException": {
       "type": "structure",
       "members": {
-        "RawInputRecords": {
-          "target": "com.amazonaws.kinesisanalytics#RawInputRecords"
-        },
         "ProcessedInputRecords": {
           "target": "com.amazonaws.kinesisanalytics#ProcessedInputRecords"
+        },
+        "RawInputRecords": {
+          "target": "com.amazonaws.kinesisanalytics#RawInputRecords"
         },
         "message": {
           "target": "com.amazonaws.kinesisanalytics#ErrorMessage"
@@ -3326,10 +3326,10 @@
     "com.amazonaws.kinesisanalytics#UpdateApplicationRequest": {
       "type": "structure",
       "members": {
-        "ApplicationUpdate": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationUpdate",
+        "CurrentApplicationVersionId": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>Describes application updates.</p>",
+            "smithy.api#documentation": "<p>The current application version ID. You can use the \n            <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get this value.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3340,10 +3340,10 @@
             "smithy.api#required": {}
           }
         },
-        "CurrentApplicationVersionId": {
-          "target": "com.amazonaws.kinesisanalytics#ApplicationVersionId",
+        "ApplicationUpdate": {
+          "target": "com.amazonaws.kinesisanalytics#ApplicationUpdate",
           "traits": {
-            "smithy.api#documentation": "<p>The current application version ID. You can use the \n            <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get this value.</p>",
+            "smithy.api#documentation": "<p>Describes application updates.</p>",
             "smithy.api#required": {}
           }
         }

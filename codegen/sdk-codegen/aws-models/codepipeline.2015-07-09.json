@@ -41,10 +41,10 @@
     "com.amazonaws.codepipeline#AWSSessionCredentials": {
       "type": "structure",
       "members": {
-        "sessionToken": {
-          "target": "com.amazonaws.codepipeline#SessionToken",
+        "secretAccessKey": {
+          "target": "com.amazonaws.codepipeline#SecretAccessKey",
           "traits": {
-            "smithy.api#documentation": "<p>The token for the session.</p>",
+            "smithy.api#documentation": "<p>The secret access key for the session.</p>",
             "smithy.api#required": {}
           }
         },
@@ -55,10 +55,10 @@
             "smithy.api#required": {}
           }
         },
-        "secretAccessKey": {
-          "target": "com.amazonaws.codepipeline#SecretAccessKey",
+        "sessionToken": {
+          "target": "com.amazonaws.codepipeline#SessionToken",
           "traits": {
-            "smithy.api#documentation": "<p>The secret access key for the session.</p>",
+            "smithy.api#documentation": "<p>The token for the session.</p>",
             "smithy.api#required": {}
           }
         }
@@ -103,17 +103,17 @@
     "com.amazonaws.codepipeline#AcknowledgeJobInput": {
       "type": "structure",
       "members": {
-        "jobId": {
-          "target": "com.amazonaws.codepipeline#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique system-generated ID of the job for which you want to confirm\n            receipt.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "nonce": {
           "target": "com.amazonaws.codepipeline#Nonce",
           "traits": {
             "smithy.api#documentation": "<p>A system-generated random number that AWS CodePipeline uses to ensure that the job\n            is being worked on by only one job worker. Get this number from the response of the\n                <a>PollForJobs</a> request that returned this job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.codepipeline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique system-generated ID of the job for which you want to confirm\n            receipt.</p>",
             "smithy.api#required": {}
           }
         }
@@ -165,10 +165,10 @@
     "com.amazonaws.codepipeline#AcknowledgeThirdPartyJobInput": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.codepipeline#ClientToken",
+        "jobId": {
+          "target": "com.amazonaws.codepipeline#ThirdPartyJobId",
           "traits": {
-            "smithy.api#documentation": "<p>The clientToken portion of the clientId and clientToken pair used to verify that\n            the calling entity is allowed access to the job and its details.</p>",
+            "smithy.api#documentation": "<p>The unique system-generated ID of the job.</p>",
             "smithy.api#required": {}
           }
         },
@@ -179,10 +179,10 @@
             "smithy.api#required": {}
           }
         },
-        "jobId": {
-          "target": "com.amazonaws.codepipeline#ThirdPartyJobId",
+        "clientToken": {
+          "target": "com.amazonaws.codepipeline#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>The unique system-generated ID of the job.</p>",
+            "smithy.api#documentation": "<p>The clientToken portion of the clientId and clientToken pair used to verify that\n            the calling entity is allowed access to the job and its details.</p>",
             "smithy.api#required": {}
           }
         }
@@ -271,37 +271,10 @@
     "com.amazonaws.codepipeline#ActionConfigurationProperty": {
       "type": "structure",
       "members": {
-        "queryable": {
-          "target": "com.amazonaws.codepipeline#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates that the property is used with <code>PollForJobs</code>. When creating a\n            custom action, an action can have up to one queryable property. If it has one, that\n            property must be both required and not secret.</p>\n        <p>If you create a pipeline with a custom action type, and that custom action contains\n            a queryable property, the value for that configuration property is subject to other\n            restrictions. The value must be less than or equal to twenty (20) characters. The value\n            can contain only alphanumeric characters, underscores, and hyphens.</p>"
-          }
-        },
         "secret": {
           "target": "com.amazonaws.codepipeline#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Whether the configuration property is secret. Secrets are hidden from all calls\n            except for <code>GetJobDetails</code>, <code>GetThirdPartyJobDetails</code>,\n                <code>PollForJobs</code>, and <code>PollForThirdPartyJobs</code>.</p>\n        <p>When updating a pipeline, passing * * * * * without changing any other values of\n            the action preserves the previous value of the secret.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.codepipeline#ActionConfigurationKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the action configuration property.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "key": {
-          "target": "com.amazonaws.codepipeline#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the configuration property is a key.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "required": {
-          "target": "com.amazonaws.codepipeline#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the configuration property is a required value.</p>",
             "smithy.api#required": {}
           }
         },
@@ -315,6 +288,33 @@
           "target": "com.amazonaws.codepipeline#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the action configuration property that is displayed to\n            users.</p>"
+          }
+        },
+        "queryable": {
+          "target": "com.amazonaws.codepipeline#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates that the property is used with <code>PollForJobs</code>. When creating a\n            custom action, an action can have up to one queryable property. If it has one, that\n            property must be both required and not secret.</p>\n        <p>If you create a pipeline with a custom action type, and that custom action contains\n            a queryable property, the value for that configuration property is subject to other\n            restrictions. The value must be less than or equal to twenty (20) characters. The value\n            can contain only alphanumeric characters, underscores, and hyphens.</p>"
+          }
+        },
+        "required": {
+          "target": "com.amazonaws.codepipeline#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the configuration property is a required value.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.codepipeline#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the configuration property is a key.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.codepipeline#ActionConfigurationKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action configuration property.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -395,23 +395,11 @@
     "com.amazonaws.codepipeline#ActionDeclaration": {
       "type": "structure",
       "members": {
-        "namespace": {
-          "target": "com.amazonaws.codepipeline#ActionNamespace",
+        "actionTypeId": {
+          "target": "com.amazonaws.codepipeline#ActionTypeId",
           "traits": {
-            "smithy.api#documentation": "<p>The variable namespace associated with the action. All variables produced as output by\n            this action fall under this namespace.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.codepipeline#ActionName",
-          "traits": {
-            "smithy.api#documentation": "<p>The action declaration's name.</p>",
+            "smithy.api#documentation": "<p>Specifies the action type and the provider of the action.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "roleArn": {
-          "target": "com.amazonaws.codepipeline#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the IAM service role that performs the declared action. This is assumed\n            through the roleArn for the pipeline.</p>"
           }
         },
         "inputArtifacts": {
@@ -426,6 +414,25 @@
             "smithy.api#documentation": "<p>The name or ID of the result of the action declaration, such as a test or build\n            artifact.</p>"
           }
         },
+        "region": {
+          "target": "com.amazonaws.codepipeline#AWSRegionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The action declaration's AWS Region, such as us-east-1.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.codepipeline#ActionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The action declaration's name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "namespace": {
+          "target": "com.amazonaws.codepipeline#ActionNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The variable namespace associated with the action. All variables produced as output by\n            this action fall under this namespace.</p>"
+          }
+        },
         "runOrder": {
           "target": "com.amazonaws.codepipeline#ActionRunOrder",
           "traits": {
@@ -438,17 +445,10 @@
             "smithy.api#documentation": "<p>The action's configuration. These are key-value pairs that specify input values for\n            an action. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements\">Action Structure Requirements in CodePipeline</a>. For the list of\n            configuration properties for the AWS CloudFormation action type in CodePipeline, see\n                <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html\">Configuration Properties Reference</a> in the <i>AWS CloudFormation User\n                Guide</i>. For template snippets with examples, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html\">Using Parameter Override Functions with CodePipeline Pipelines</a> in the\n                <i>AWS CloudFormation User Guide</i>.</p>\n        <p>The values can be represented in either JSON or YAML format. For example, the JSON\n            configuration item format is as follows: </p>\n        <p>\n            <i>JSON:</i>\n         </p>\n        <p>\n            <code>\"Configuration\" : { Key : Value },</code>\n        </p>"
           }
         },
-        "actionTypeId": {
-          "target": "com.amazonaws.codepipeline#ActionTypeId",
+        "roleArn": {
+          "target": "com.amazonaws.codepipeline#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the action type and the provider of the action.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "region": {
-          "target": "com.amazonaws.codepipeline#AWSRegionName",
-          "traits": {
-            "smithy.api#documentation": "<p>The action declaration's AWS Region, such as us-east-1.</p>"
+            "smithy.api#documentation": "<p>The ARN of the IAM service role that performs the declared action. This is assumed\n            through the roleArn for the pipeline.</p>"
           }
         }
       },
@@ -459,22 +459,10 @@
     "com.amazonaws.codepipeline#ActionExecution": {
       "type": "structure",
       "members": {
-        "externalExecutionUrl": {
-          "target": "com.amazonaws.codepipeline#Url",
+        "token": {
+          "target": "com.amazonaws.codepipeline#ActionExecutionToken",
           "traits": {
-            "smithy.api#documentation": "<p>The URL of a resource external to AWS that is used when running the action (for\n            example, an external repository URL).</p>"
-          }
-        },
-        "externalExecutionId": {
-          "target": "com.amazonaws.codepipeline#ExecutionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The external ID of the run of the action.</p>"
-          }
-        },
-        "summary": {
-          "target": "com.amazonaws.codepipeline#ExecutionSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>A summary of the run of the action.</p>"
+            "smithy.api#documentation": "<p>The system-generated token used to identify a unique approval request. The token\n            for each open approval request can be obtained using the <code>GetPipelineState</code>\n            command. It is used to validate that the approval request corresponding to this token is\n            still valid.</p>"
           }
         },
         "status": {
@@ -489,16 +477,22 @@
             "smithy.api#documentation": "<p>The details of an error returned by a URL external to AWS.</p>"
           }
         },
-        "token": {
-          "target": "com.amazonaws.codepipeline#ActionExecutionToken",
+        "summary": {
+          "target": "com.amazonaws.codepipeline#ExecutionSummary",
           "traits": {
-            "smithy.api#documentation": "<p>The system-generated token used to identify a unique approval request. The token\n            for each open approval request can be obtained using the <code>GetPipelineState</code>\n            command. It is used to validate that the approval request corresponding to this token is\n            still valid.</p>"
+            "smithy.api#documentation": "<p>A summary of the run of the action.</p>"
           }
         },
-        "percentComplete": {
-          "target": "com.amazonaws.codepipeline#Percentage",
+        "externalExecutionId": {
+          "target": "com.amazonaws.codepipeline#ExecutionId",
           "traits": {
-            "smithy.api#documentation": "<p>A percentage of completeness of the action as it runs.</p>"
+            "smithy.api#documentation": "<p>The external ID of the run of the action.</p>"
+          }
+        },
+        "lastUpdatedBy": {
+          "target": "com.amazonaws.codepipeline#LastUpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user who last changed the pipeline.</p>"
           }
         },
         "lastStatusChange": {
@@ -507,10 +501,16 @@
             "smithy.api#documentation": "<p>The last status change of the action.</p>"
           }
         },
-        "lastUpdatedBy": {
-          "target": "com.amazonaws.codepipeline#LastUpdatedBy",
+        "percentComplete": {
+          "target": "com.amazonaws.codepipeline#Percentage",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the user who last changed the pipeline.</p>"
+            "smithy.api#documentation": "<p>A percentage of completeness of the action as it runs.</p>"
+          }
+        },
+        "externalExecutionUrl": {
+          "target": "com.amazonaws.codepipeline#Url",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL of a resource external to AWS that is used when running the action (for\n            example, an external repository URL).</p>"
           }
         }
       },
@@ -521,22 +521,16 @@
     "com.amazonaws.codepipeline#ActionExecutionDetail": {
       "type": "structure",
       "members": {
-        "pipelineExecutionId": {
-          "target": "com.amazonaws.codepipeline#PipelineExecutionId",
+        "output": {
+          "target": "com.amazonaws.codepipeline#ActionExecutionOutput",
           "traits": {
-            "smithy.api#documentation": "<p>The pipeline execution ID for the action execution.</p>"
+            "smithy.api#documentation": "<p>Output details for the action execution, such as the action execution result.</p>"
           }
         },
-        "lastUpdateTime": {
-          "target": "com.amazonaws.codepipeline#Timestamp",
+        "pipelineVersion": {
+          "target": "com.amazonaws.codepipeline#PipelineVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The last update time of the action execution.</p>"
-          }
-        },
-        "stageName": {
-          "target": "com.amazonaws.codepipeline#StageName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the stage that contains the action.</p>"
+            "smithy.api#documentation": "<p>The version of the pipeline where the action was run.</p>"
           }
         },
         "input": {
@@ -545,10 +539,28 @@
             "smithy.api#documentation": "<p>Input details for the action execution, such as role ARN, Region, and input\n            artifacts.</p>"
           }
         },
-        "output": {
-          "target": "com.amazonaws.codepipeline#ActionExecutionOutput",
+        "stageName": {
+          "target": "com.amazonaws.codepipeline#StageName",
           "traits": {
-            "smithy.api#documentation": "<p>Output details for the action execution, such as the action execution result.</p>"
+            "smithy.api#documentation": "<p>The name of the stage that contains the action.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.codepipeline#ActionExecutionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p> The status of the action execution. Status categories are <code>InProgress</code>,\n                <code>Succeeded</code>, and <code>Failed</code>.</p>"
+          }
+        },
+        "actionName": {
+          "target": "com.amazonaws.codepipeline#ActionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action.</p>"
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazonaws.codepipeline#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The last update time of the action execution.</p>"
           }
         },
         "startTime": {
@@ -563,22 +575,10 @@
             "smithy.api#documentation": "<p>The action execution ID.</p>"
           }
         },
-        "actionName": {
-          "target": "com.amazonaws.codepipeline#ActionName",
+        "pipelineExecutionId": {
+          "target": "com.amazonaws.codepipeline#PipelineExecutionId",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the action.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.codepipeline#ActionExecutionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p> The status of the action execution. Status categories are <code>InProgress</code>,\n                <code>Succeeded</code>, and <code>Failed</code>.</p>"
-          }
-        },
-        "pipelineVersion": {
-          "target": "com.amazonaws.codepipeline#PipelineVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the pipeline where the action was run.</p>"
+            "smithy.api#documentation": "<p>The pipeline execution ID for the action execution.</p>"
           }
         }
       },
@@ -612,16 +612,10 @@
     "com.amazonaws.codepipeline#ActionExecutionInput": {
       "type": "structure",
       "members": {
-        "configuration": {
-          "target": "com.amazonaws.codepipeline#ActionConfigurationMap",
+        "roleArn": {
+          "target": "com.amazonaws.codepipeline#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>Configuration data for an action execution.</p>"
-          }
-        },
-        "inputArtifacts": {
-          "target": "com.amazonaws.codepipeline#ArtifactDetailList",
-          "traits": {
-            "smithy.api#documentation": "<p>Details of input artifacts of the action that correspond to the action\n            execution.</p>"
+            "smithy.api#documentation": "<p>The ARN of the IAM service role that performs the declared action. This is assumed\n            through the roleArn for the pipeline. </p>"
           }
         },
         "namespace": {
@@ -630,14 +624,14 @@
             "smithy.api#documentation": "<p>The variable namespace associated with the action. All variables produced as output by\n            this action fall under this namespace.</p>"
           }
         },
-        "roleArn": {
-          "target": "com.amazonaws.codepipeline#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the IAM service role that performs the declared action. This is assumed\n            through the roleArn for the pipeline. </p>"
-          }
-        },
         "actionTypeId": {
           "target": "com.amazonaws.codepipeline#ActionTypeId"
+        },
+        "resolvedConfiguration": {
+          "target": "com.amazonaws.codepipeline#ResolvedActionConfigurationMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration data for an action execution with all variable references replaced with\n            their real values for the execution.</p>"
+          }
         },
         "region": {
           "target": "com.amazonaws.codepipeline#AWSRegionName",
@@ -645,10 +639,16 @@
             "smithy.api#documentation": "<p>The AWS Region for the action, such as us-east-1.</p>"
           }
         },
-        "resolvedConfiguration": {
-          "target": "com.amazonaws.codepipeline#ResolvedActionConfigurationMap",
+        "inputArtifacts": {
+          "target": "com.amazonaws.codepipeline#ArtifactDetailList",
           "traits": {
-            "smithy.api#documentation": "<p>Configuration data for an action execution with all variable references replaced with\n            their real values for the execution.</p>"
+            "smithy.api#documentation": "<p>Details of input artifacts of the action that correspond to the action\n            execution.</p>"
+          }
+        },
+        "configuration": {
+          "target": "com.amazonaws.codepipeline#ActionConfigurationMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration data for an action execution.</p>"
           }
         }
       },
@@ -659,12 +659,6 @@
     "com.amazonaws.codepipeline#ActionExecutionOutput": {
       "type": "structure",
       "members": {
-        "outputVariables": {
-          "target": "com.amazonaws.codepipeline#OutputVariablesMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The outputVariables field shows the key-value pairs that were output as part of that\n            execution.</p>"
-          }
-        },
         "executionResult": {
           "target": "com.amazonaws.codepipeline#ActionExecutionResult",
           "traits": {
@@ -676,6 +670,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Details of output artifacts of the action that correspond to the action\n            execution.</p>"
           }
+        },
+        "outputVariables": {
+          "target": "com.amazonaws.codepipeline#OutputVariablesMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The outputVariables field shows the key-value pairs that were output as part of that\n            execution.</p>"
+          }
         }
       },
       "traits": {
@@ -685,12 +685,6 @@
     "com.amazonaws.codepipeline#ActionExecutionResult": {
       "type": "structure",
       "members": {
-        "externalExecutionSummary": {
-          "target": "com.amazonaws.codepipeline#ExternalExecutionSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>The action provider's summary for the action execution.</p>"
-          }
-        },
         "externalExecutionId": {
           "target": "com.amazonaws.codepipeline#ExternalExecutionId",
           "traits": {
@@ -701,6 +695,12 @@
           "target": "com.amazonaws.codepipeline#Url",
           "traits": {
             "smithy.api#documentation": "<p>The deepest external link to the external resource (for example, a repository URL or\n            deployment endpoint) that is used when running the action.</p>"
+          }
+        },
+        "externalExecutionSummary": {
+          "target": "com.amazonaws.codepipeline#ExternalExecutionSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>The action provider's summary for the action execution.</p>"
           }
         }
       },
@@ -801,6 +801,13 @@
     "com.amazonaws.codepipeline#ActionRevision": {
       "type": "structure",
       "members": {
+        "revisionId": {
+          "target": "com.amazonaws.codepipeline#Revision",
+          "traits": {
+            "smithy.api#documentation": "<p>The system-generated unique ID that identifies the revision number of the\n            action.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "created": {
           "target": "com.amazonaws.codepipeline#Timestamp",
           "traits": {
@@ -812,13 +819,6 @@
           "target": "com.amazonaws.codepipeline#RevisionChangeIdentifier",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the change that set the state to this revision (for\n            example, a deployment ID or timestamp).</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "revisionId": {
-          "target": "com.amazonaws.codepipeline#Revision",
-          "traits": {
-            "smithy.api#documentation": "<p>The system-generated unique ID that identifies the revision number of the\n            action.</p>",
             "smithy.api#required": {}
           }
         }
@@ -840,16 +840,10 @@
     "com.amazonaws.codepipeline#ActionState": {
       "type": "structure",
       "members": {
-        "revisionUrl": {
-          "target": "com.amazonaws.codepipeline#Url",
+        "currentRevision": {
+          "target": "com.amazonaws.codepipeline#ActionRevision",
           "traits": {
-            "smithy.api#documentation": "<p>A URL link for more information about the revision, such as a commit details\n            page.</p>"
-          }
-        },
-        "actionName": {
-          "target": "com.amazonaws.codepipeline#ActionName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the action.</p>"
+            "smithy.api#documentation": "<p>Represents information about the version (or revision) of an action.</p>"
           }
         },
         "latestExecution": {
@@ -858,16 +852,22 @@
             "smithy.api#documentation": "<p>Represents information about the run of an action.</p>"
           }
         },
+        "actionName": {
+          "target": "com.amazonaws.codepipeline#ActionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action.</p>"
+          }
+        },
+        "revisionUrl": {
+          "target": "com.amazonaws.codepipeline#Url",
+          "traits": {
+            "smithy.api#documentation": "<p>A URL link for more information about the revision, such as a commit details\n            page.</p>"
+          }
+        },
         "entityUrl": {
           "target": "com.amazonaws.codepipeline#Url",
           "traits": {
             "smithy.api#documentation": "<p>A URL link for more information about the state of the action, such as a deployment\n            group details page.</p>"
-          }
-        },
-        "currentRevision": {
-          "target": "com.amazonaws.codepipeline#ActionRevision",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents information about the version (or revision) of an action.</p>"
           }
         }
       },
@@ -884,24 +884,17 @@
     "com.amazonaws.codepipeline#ActionType": {
       "type": "structure",
       "members": {
-        "settings": {
-          "target": "com.amazonaws.codepipeline#ActionTypeSettings",
-          "traits": {
-            "smithy.api#documentation": "<p>The settings for the action type.</p>"
-          }
-        },
-        "outputArtifactDetails": {
-          "target": "com.amazonaws.codepipeline#ArtifactDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>The details of the output artifact of the action, such as its commit ID.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "inputArtifactDetails": {
           "target": "com.amazonaws.codepipeline#ArtifactDetails",
           "traits": {
             "smithy.api#documentation": "<p>The details of the input artifact for the action, such as its commit ID.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "actionConfigurationProperties": {
+          "target": "com.amazonaws.codepipeline#ActionConfigurationPropertyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration properties for the action type.</p>"
           }
         },
         "id": {
@@ -911,10 +904,17 @@
             "smithy.api#required": {}
           }
         },
-        "actionConfigurationProperties": {
-          "target": "com.amazonaws.codepipeline#ActionConfigurationPropertyList",
+        "outputArtifactDetails": {
+          "target": "com.amazonaws.codepipeline#ArtifactDetails",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration properties for the action type.</p>"
+            "smithy.api#documentation": "<p>The details of the output artifact of the action, such as its commit ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "settings": {
+          "target": "com.amazonaws.codepipeline#ActionTypeSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The settings for the action type.</p>"
           }
         }
       },
@@ -925,6 +925,13 @@
     "com.amazonaws.codepipeline#ActionTypeId": {
       "type": "structure",
       "members": {
+        "owner": {
+          "target": "com.amazonaws.codepipeline#ActionOwner",
+          "traits": {
+            "smithy.api#documentation": "<p>The creator of the action being called.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "category": {
           "target": "com.amazonaws.codepipeline#ActionCategory",
           "traits": {
@@ -936,13 +943,6 @@
           "target": "com.amazonaws.codepipeline#ActionProvider",
           "traits": {
             "smithy.api#documentation": "<p>The provider of the service being called by the action. Valid providers are\n            determined by the action category. For example, an action in the Deploy category type\n            might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For\n            more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers\">Valid Action Types and Providers in CodePipeline</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "owner": {
-          "target": "com.amazonaws.codepipeline#ActionOwner",
-          "traits": {
-            "smithy.api#documentation": "<p>The creator of the action being called.</p>",
             "smithy.api#required": {}
           }
         },
@@ -982,10 +982,10 @@
     "com.amazonaws.codepipeline#ActionTypeSettings": {
       "type": "structure",
       "members": {
-        "revisionUrlTemplate": {
+        "entityUrlTemplate": {
           "target": "com.amazonaws.codepipeline#UrlTemplate",
           "traits": {
-            "smithy.api#documentation": "<p>The URL returned to the AWS CodePipeline console that contains a link to the page\n            where customers can update or change the configuration of the external action.</p>"
+            "smithy.api#documentation": "<p>The URL returned to the AWS CodePipeline console that provides a deep link to the\n            resources of the external system, such as the configuration page for an AWS CodeDeploy\n            deployment group. This link is provided as part of the action display in the\n            pipeline.</p>"
           }
         },
         "executionUrlTemplate": {
@@ -994,16 +994,16 @@
             "smithy.api#documentation": "<p>The URL returned to the AWS CodePipeline console that contains a link to the\n            top-level landing page for the external system, such as the console page for AWS\n            CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console\n            and provides a link to the execution entity of the external action.</p>"
           }
         },
-        "entityUrlTemplate": {
-          "target": "com.amazonaws.codepipeline#UrlTemplate",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL returned to the AWS CodePipeline console that provides a deep link to the\n            resources of the external system, such as the configuration page for an AWS CodeDeploy\n            deployment group. This link is provided as part of the action display in the\n            pipeline.</p>"
-          }
-        },
         "thirdPartyConfigurationUrl": {
           "target": "com.amazonaws.codepipeline#Url",
           "traits": {
             "smithy.api#documentation": "<p>The URL of a sign-up page where users can sign up for an external service and\n            perform initial configuration of the action provided by that service.</p>"
+          }
+        },
+        "revisionUrlTemplate": {
+          "target": "com.amazonaws.codepipeline#UrlTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL returned to the AWS CodePipeline console that contains a link to the page\n            where customers can update or change the configuration of the external action.</p>"
           }
         }
       },
@@ -1081,12 +1081,6 @@
     "com.amazonaws.codepipeline#Artifact": {
       "type": "structure",
       "members": {
-        "revision": {
-          "target": "com.amazonaws.codepipeline#Revision",
-          "traits": {
-            "smithy.api#documentation": "<p>The artifact's revision ID. Depending on the type of object, this could be a commit\n            ID (GitHub) or a revision ID (Amazon S3).</p>"
-          }
-        },
         "location": {
           "target": "com.amazonaws.codepipeline#ArtifactLocation",
           "traits": {
@@ -1098,6 +1092,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The artifact's name.</p>"
           }
+        },
+        "revision": {
+          "target": "com.amazonaws.codepipeline#Revision",
+          "traits": {
+            "smithy.api#documentation": "<p>The artifact's revision ID. Depending on the type of object, this could be a commit\n            ID (GitHub) or a revision ID (Amazon S3).</p>"
+          }
         }
       },
       "traits": {
@@ -1107,16 +1107,16 @@
     "com.amazonaws.codepipeline#ArtifactDetail": {
       "type": "structure",
       "members": {
-        "s3location": {
-          "target": "com.amazonaws.codepipeline#S3Location",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon S3 artifact location for the action execution.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.codepipeline#ArtifactName",
           "traits": {
             "smithy.api#documentation": "<p>The artifact object name for the action execution.</p>"
+          }
+        },
+        "s3location": {
+          "target": "com.amazonaws.codepipeline#S3Location",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 artifact location for the action execution.</p>"
           }
         }
       },
@@ -1202,10 +1202,10 @@
     "com.amazonaws.codepipeline#ArtifactRevision": {
       "type": "structure",
       "members": {
-        "revisionChangeIdentifier": {
-          "target": "com.amazonaws.codepipeline#RevisionChangeIdentifier",
+        "revisionSummary": {
+          "target": "com.amazonaws.codepipeline#RevisionSummary",
           "traits": {
-            "smithy.api#documentation": "<p>An additional identifier for a revision, such as a commit date or, for artifacts\n            stored in Amazon S3 buckets, the ETag value.</p>"
+            "smithy.api#documentation": "<p>Summary information about the most recent revision of the artifact. For GitHub and\n            AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the\n            user-provided content of a <code>codepipeline-artifact-revision-summary</code> key\n            specified in the object metadata.</p>"
           }
         },
         "created": {
@@ -1214,16 +1214,16 @@
             "smithy.api#documentation": "<p>The date and time when the most recent revision of the artifact was created, in\n            timestamp format.</p>"
           }
         },
-        "revisionUrl": {
-          "target": "com.amazonaws.codepipeline#Url",
+        "name": {
+          "target": "com.amazonaws.codepipeline#ArtifactName",
           "traits": {
-            "smithy.api#documentation": "<p>The commit ID for the artifact revision. For artifacts stored in GitHub or AWS\n            CodeCommit repositories, the commit ID is linked to a commit details page.</p>"
+            "smithy.api#documentation": "<p>The name of an artifact. This name might be system-generated, such as \"MyApp\", or\n            defined by the user when an action is created.</p>"
           }
         },
-        "revisionSummary": {
-          "target": "com.amazonaws.codepipeline#RevisionSummary",
+        "revisionChangeIdentifier": {
+          "target": "com.amazonaws.codepipeline#RevisionChangeIdentifier",
           "traits": {
-            "smithy.api#documentation": "<p>Summary information about the most recent revision of the artifact. For GitHub and\n            AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the\n            user-provided content of a <code>codepipeline-artifact-revision-summary</code> key\n            specified in the object metadata.</p>"
+            "smithy.api#documentation": "<p>An additional identifier for a revision, such as a commit date or, for artifacts\n            stored in Amazon S3 buckets, the ETag value.</p>"
           }
         },
         "revisionId": {
@@ -1232,10 +1232,10 @@
             "smithy.api#documentation": "<p>The revision ID of the artifact.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.codepipeline#ArtifactName",
+        "revisionUrl": {
+          "target": "com.amazonaws.codepipeline#Url",
           "traits": {
-            "smithy.api#documentation": "<p>The name of an artifact. This name might be system-generated, such as \"MyApp\", or\n            defined by the user when an action is created.</p>"
+            "smithy.api#documentation": "<p>The commit ID for the artifact revision. For artifacts stored in GitHub or AWS\n            CodeCommit repositories, the commit ID is linked to a commit details page.</p>"
           }
         }
       },
@@ -1259,17 +1259,17 @@
             "smithy.api#required": {}
           }
         },
+        "encryptionKey": {
+          "target": "com.amazonaws.codepipeline#EncryptionKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The encryption key used to encrypt the data in the artifact store, such as an AWS\n            Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon\n            S3 is used.</p>"
+          }
+        },
         "location": {
           "target": "com.amazonaws.codepipeline#ArtifactStoreLocation",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket used for storing the artifacts for a pipeline. You can specify the\n            name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline\n            artifacts is created for you based on the name of the pipeline. You can use any S3\n            bucket in the same AWS Region as the pipeline to store your pipeline\n            artifacts.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "encryptionKey": {
-          "target": "com.amazonaws.codepipeline#EncryptionKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The encryption key used to encrypt the data in the artifact store, such as an AWS\n            Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon\n            S3 is used.</p>"
           }
         }
       },
@@ -1567,10 +1567,10 @@
     "com.amazonaws.codepipeline#CreateCustomActionTypeInput": {
       "type": "structure",
       "members": {
-        "inputArtifactDetails": {
-          "target": "com.amazonaws.codepipeline#ArtifactDetails",
+        "provider": {
+          "target": "com.amazonaws.codepipeline#ActionProvider",
           "traits": {
-            "smithy.api#documentation": "<p>The details of the input artifact for the action, such as its commit ID.</p>",
+            "smithy.api#documentation": "<p>The provider of the service used in the custom action, such as AWS\n            CodeDeploy.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1581,24 +1581,11 @@
             "smithy.api#required": {}
           }
         },
-        "provider": {
-          "target": "com.amazonaws.codepipeline#ActionProvider",
+        "version": {
+          "target": "com.amazonaws.codepipeline#Version",
           "traits": {
-            "smithy.api#documentation": "<p>The provider of the service used in the custom action, such as AWS\n            CodeDeploy.</p>",
+            "smithy.api#documentation": "<p>The version identifier of the custom action.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "outputArtifactDetails": {
-          "target": "com.amazonaws.codepipeline#ArtifactDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>The details of the output artifact of the action, such as its commit ID.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "settings": {
-          "target": "com.amazonaws.codepipeline#ActionTypeSettings",
-          "traits": {
-            "smithy.api#documentation": "<p>URLs that provide users information about this custom action.</p>"
           }
         },
         "tags": {
@@ -1613,10 +1600,23 @@
             "smithy.api#documentation": "<p>The configuration properties for the custom action.</p>\n        <note>\n            <p>You can refer to a name in the configuration properties of the custom action\n                within the URL templates by following the format of {Config:name}, as long as the\n                configuration property is both required and not secret. For more information, see\n                    <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html\">Create a\n                    Custom Action for a Pipeline</a>.</p>\n        </note>"
           }
         },
-        "version": {
-          "target": "com.amazonaws.codepipeline#Version",
+        "settings": {
+          "target": "com.amazonaws.codepipeline#ActionTypeSettings",
           "traits": {
-            "smithy.api#documentation": "<p>The version identifier of the custom action.</p>",
+            "smithy.api#documentation": "<p>URLs that provide users information about this custom action.</p>"
+          }
+        },
+        "outputArtifactDetails": {
+          "target": "com.amazonaws.codepipeline#ArtifactDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of the output artifact of the action, such as its commit ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "inputArtifactDetails": {
+          "target": "com.amazonaws.codepipeline#ArtifactDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of the input artifact for the action, such as its commit ID.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1693,17 +1693,17 @@
     "com.amazonaws.codepipeline#CreatePipelineInput": {
       "type": "structure",
       "members": {
+        "tags": {
+          "target": "com.amazonaws.codepipeline#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the pipeline.</p>"
+          }
+        },
         "pipeline": {
           "target": "com.amazonaws.codepipeline#PipelineDeclaration",
           "traits": {
             "smithy.api#documentation": "<p>Represents the structure of actions and stages to be performed in the pipeline.\n        </p>",
             "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.codepipeline#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags for the pipeline.</p>"
           }
         }
       },
@@ -1714,16 +1714,16 @@
     "com.amazonaws.codepipeline#CreatePipelineOutput": {
       "type": "structure",
       "members": {
-        "pipeline": {
-          "target": "com.amazonaws.codepipeline#PipelineDeclaration",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents the structure of actions and stages to be performed in the pipeline.\n        </p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.codepipeline#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the tags applied to the pipeline.</p>"
+          }
+        },
+        "pipeline": {
+          "target": "com.amazonaws.codepipeline#PipelineDeclaration",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the structure of actions and stages to be performed in the pipeline.\n        </p>"
           }
         }
       },
@@ -1734,10 +1734,11 @@
     "com.amazonaws.codepipeline#CurrentRevision": {
       "type": "structure",
       "members": {
-        "revisionSummary": {
-          "target": "com.amazonaws.codepipeline#RevisionSummary",
+        "revision": {
+          "target": "com.amazonaws.codepipeline#Revision",
           "traits": {
-            "smithy.api#documentation": "<p>The summary of the most recent revision of the artifact.</p>"
+            "smithy.api#documentation": "<p>The revision ID of the current version of an artifact.</p>",
+            "smithy.api#required": {}
           }
         },
         "changeIdentifier": {
@@ -1753,11 +1754,10 @@
             "smithy.api#documentation": "<p>The date and time when the most recent revision of the artifact was created, in\n            timestamp format.</p>"
           }
         },
-        "revision": {
-          "target": "com.amazonaws.codepipeline#Revision",
+        "revisionSummary": {
+          "target": "com.amazonaws.codepipeline#RevisionSummary",
           "traits": {
-            "smithy.api#documentation": "<p>The revision ID of the current version of an artifact.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The summary of the most recent revision of the artifact.</p>"
           }
         }
       },
@@ -1785,10 +1785,10 @@
     "com.amazonaws.codepipeline#DeleteCustomActionTypeInput": {
       "type": "structure",
       "members": {
-        "category": {
-          "target": "com.amazonaws.codepipeline#ActionCategory",
+        "provider": {
+          "target": "com.amazonaws.codepipeline#ActionProvider",
           "traits": {
-            "smithy.api#documentation": "<p>The category of the custom action that you want to delete, such as source or\n            deploy.</p>",
+            "smithy.api#documentation": "<p>The provider of the service used in the custom action, such as AWS\n            CodeDeploy.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1799,10 +1799,10 @@
             "smithy.api#required": {}
           }
         },
-        "provider": {
-          "target": "com.amazonaws.codepipeline#ActionProvider",
+        "category": {
+          "target": "com.amazonaws.codepipeline#ActionCategory",
           "traits": {
-            "smithy.api#documentation": "<p>The provider of the service used in the custom action, such as AWS\n            CodeDeploy.</p>",
+            "smithy.api#documentation": "<p>The category of the custom action that you want to delete, such as source or\n            deploy.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1946,10 +1946,10 @@
     "com.amazonaws.codepipeline#DisableStageTransitionInput": {
       "type": "structure",
       "members": {
-        "transitionType": {
-          "target": "com.amazonaws.codepipeline#StageTransitionType",
+        "pipelineName": {
+          "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether artifacts are prevented from transitioning into the stage and\n            being processed by the actions in that stage (inbound), or prevented from transitioning\n            from the stage after they have been processed by the actions in that stage\n            (outbound).</p>",
+            "smithy.api#documentation": "<p>The name of the pipeline in which you want to disable the flow of artifacts from\n            one stage to another.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1960,17 +1960,17 @@
             "smithy.api#required": {}
           }
         },
-        "pipelineName": {
-          "target": "com.amazonaws.codepipeline#PipelineName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the pipeline in which you want to disable the flow of artifacts from\n            one stage to another.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "stageName": {
           "target": "com.amazonaws.codepipeline#StageName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stage where you want to disable the inbound or outbound transition\n            of artifacts.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "transitionType": {
+          "target": "com.amazonaws.codepipeline#StageTransitionType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether artifacts are prevented from transitioning into the stage and\n            being processed by the actions in that stage (inbound), or prevented from transitioning\n            from the stage after they have been processed by the actions in that stage\n            (outbound).</p>",
             "smithy.api#required": {}
           }
         }
@@ -2024,6 +2024,13 @@
     "com.amazonaws.codepipeline#EnableStageTransitionInput": {
       "type": "structure",
       "members": {
+        "transitionType": {
+          "target": "com.amazonaws.codepipeline#StageTransitionType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether artifacts are allowed to enter the stage and be processed by the\n            actions in that stage (inbound) or whether already processed artifacts are allowed to\n            transition to the next stage (outbound).</p>",
+            "smithy.api#required": {}
+          }
+        },
         "stageName": {
           "target": "com.amazonaws.codepipeline#StageName",
           "traits": {
@@ -2035,13 +2042,6 @@
           "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the pipeline in which you want to enable the flow of artifacts from one\n            stage to another.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "transitionType": {
-          "target": "com.amazonaws.codepipeline#StageTransitionType",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether artifacts are allowed to enter the stage and be processed by the\n            actions in that stage (inbound) or whether already processed artifacts are allowed to\n            transition to the next stage (outbound).</p>",
             "smithy.api#required": {}
           }
         }
@@ -2118,10 +2118,10 @@
     "com.amazonaws.codepipeline#ExecutionDetails": {
       "type": "structure",
       "members": {
-        "summary": {
-          "target": "com.amazonaws.codepipeline#ExecutionSummary",
+        "percentComplete": {
+          "target": "com.amazonaws.codepipeline#Percentage",
           "traits": {
-            "smithy.api#documentation": "<p>The summary of the current status of the actions.</p>"
+            "smithy.api#documentation": "<p>The percentage of work completed on the action, represented on a scale of 0 to 100\n            percent.</p>"
           }
         },
         "externalExecutionId": {
@@ -2130,10 +2130,10 @@
             "smithy.api#documentation": "<p>The system-generated unique ID of this action used to identify this job worker in\n            any external systems, such as AWS CodeDeploy.</p>"
           }
         },
-        "percentComplete": {
-          "target": "com.amazonaws.codepipeline#Percentage",
+        "summary": {
+          "target": "com.amazonaws.codepipeline#ExecutionSummary",
           "traits": {
-            "smithy.api#documentation": "<p>The percentage of work completed on the action, represented on a scale of 0 to 100\n            percent.</p>"
+            "smithy.api#documentation": "<p>The summary of the current status of the actions.</p>"
           }
         }
       },
@@ -2162,16 +2162,16 @@
     "com.amazonaws.codepipeline#ExecutionTrigger": {
       "type": "structure",
       "members": {
-        "triggerType": {
-          "target": "com.amazonaws.codepipeline#TriggerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of change-detection method, command, or user interaction that started a\n            pipeline execution.</p>"
-          }
-        },
         "triggerDetail": {
           "target": "com.amazonaws.codepipeline#TriggerDetail",
           "traits": {
             "smithy.api#documentation": "<p>Detail related to the event that started a pipeline execution, such as the webhook ARN\n            of the webhook that triggered the pipeline execution or the user ARN for a\n            user-initiated <code>start-pipeline-execution</code> CLI command.</p>"
+          }
+        },
+        "triggerType": {
+          "target": "com.amazonaws.codepipeline#TriggerType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of change-detection method, command, or user interaction that started a\n            pipeline execution.</p>"
           }
         }
       },
@@ -2188,17 +2188,17 @@
     "com.amazonaws.codepipeline#FailureDetails": {
       "type": "structure",
       "members": {
-        "type": {
-          "target": "com.amazonaws.codepipeline#FailureType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the failure.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "message": {
           "target": "com.amazonaws.codepipeline#Message",
           "traits": {
             "smithy.api#documentation": "<p>The message about the failure.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.codepipeline#FailureType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the failure.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2378,17 +2378,17 @@
     "com.amazonaws.codepipeline#GetPipelineInput": {
       "type": "structure",
       "members": {
+        "version": {
+          "target": "com.amazonaws.codepipeline#PipelineVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of the pipeline. If you do not specify a version, defaults to\n            the current version.</p>"
+          }
+        },
         "name": {
           "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the pipeline for which you want to get information. Pipeline names must\n            be unique under an AWS user account.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.codepipeline#PipelineVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number of the pipeline. If you do not specify a version, defaults to\n            the current version.</p>"
           }
         }
       },
@@ -2399,16 +2399,16 @@
     "com.amazonaws.codepipeline#GetPipelineOutput": {
       "type": "structure",
       "members": {
-        "metadata": {
-          "target": "com.amazonaws.codepipeline#PipelineMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents the pipeline metadata information returned as part of the output of a\n                <code>GetPipeline</code> action.</p>"
-          }
-        },
         "pipeline": {
           "target": "com.amazonaws.codepipeline#PipelineDeclaration",
           "traits": {
             "smithy.api#documentation": "<p>Represents the structure of actions and stages to be performed in the pipeline.\n        </p>"
+          }
+        },
+        "metadata": {
+          "target": "com.amazonaws.codepipeline#PipelineMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the pipeline metadata information returned as part of the output of a\n                <code>GetPipeline</code> action.</p>"
           }
         }
       },
@@ -2454,10 +2454,10 @@
     "com.amazonaws.codepipeline#GetPipelineStateOutput": {
       "type": "structure",
       "members": {
-        "updated": {
+        "created": {
           "target": "com.amazonaws.codepipeline#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time the pipeline was last updated, in timestamp format.</p>"
+            "smithy.api#documentation": "<p>The date and time the pipeline was created, in timestamp format.</p>"
           }
         },
         "pipelineName": {
@@ -2472,16 +2472,16 @@
             "smithy.api#documentation": "<p>The version number of the pipeline.</p>\n        <note>\n            <p>A newly created pipeline is always assigned a version number of\n                <code>1</code>.</p>\n        </note>"
           }
         },
+        "updated": {
+          "target": "com.amazonaws.codepipeline#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the pipeline was last updated, in timestamp format.</p>"
+          }
+        },
         "stageStates": {
           "target": "com.amazonaws.codepipeline#StageStateList",
           "traits": {
             "smithy.api#documentation": "<p>A list of the pipeline stage output information, including stage name, state, most\n            recent run details, whether the stage is disabled, and other data.</p>"
-          }
-        },
-        "created": {
-          "target": "com.amazonaws.codepipeline#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time the pipeline was created, in timestamp format.</p>"
           }
         }
       },
@@ -2518,17 +2518,17 @@
     "com.amazonaws.codepipeline#GetThirdPartyJobDetailsInput": {
       "type": "structure",
       "members": {
-        "jobId": {
-          "target": "com.amazonaws.codepipeline#ThirdPartyJobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique system-generated ID used for identifying the job.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.codepipeline#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>The clientToken portion of the clientId and clientToken pair used to verify that\n            the calling entity is allowed access to the job and its details.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.codepipeline#ThirdPartyJobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique system-generated ID used for identifying the job.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2779,6 +2779,18 @@
     "com.amazonaws.codepipeline#Job": {
       "type": "structure",
       "members": {
+        "id": {
+          "target": "com.amazonaws.codepipeline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique system-generated ID of the job.</p>"
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.codepipeline#JobData",
+          "traits": {
+            "smithy.api#documentation": "<p>Other data about a job.</p>"
+          }
+        },
         "accountId": {
           "target": "com.amazonaws.codepipeline#AccountId",
           "traits": {
@@ -2790,18 +2802,6 @@
           "traits": {
             "smithy.api#documentation": "<p>A system-generated random number that AWS CodePipeline uses to ensure that the job\n            is being worked on by only one job worker. Use this number in an <a>AcknowledgeJob</a> request.</p>"
           }
-        },
-        "data": {
-          "target": "com.amazonaws.codepipeline#JobData",
-          "traits": {
-            "smithy.api#documentation": "<p>Other data about a job.</p>"
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.codepipeline#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique system-generated ID of the job.</p>"
-          }
         }
       },
       "traits": {
@@ -2811,6 +2811,24 @@
     "com.amazonaws.codepipeline#JobData": {
       "type": "structure",
       "members": {
+        "actionConfiguration": {
+          "target": "com.amazonaws.codepipeline#ActionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents information about an action configuration.</p>"
+          }
+        },
+        "inputArtifacts": {
+          "target": "com.amazonaws.codepipeline#ArtifactList",
+          "traits": {
+            "smithy.api#documentation": "<p>The artifact supplied to the job.</p>"
+          }
+        },
+        "actionTypeId": {
+          "target": "com.amazonaws.codepipeline#ActionTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents information about an action type.</p>"
+          }
+        },
         "artifactCredentials": {
           "target": "com.amazonaws.codepipeline#AWSSessionCredentials",
           "traits": {
@@ -2835,28 +2853,10 @@
             "smithy.api#documentation": "<p>Represents information about a pipeline to a job worker.</p>\n        <note>\n            <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for\n                custom jobs.</p>\n        </note>"
           }
         },
-        "inputArtifacts": {
-          "target": "com.amazonaws.codepipeline#ArtifactList",
-          "traits": {
-            "smithy.api#documentation": "<p>The artifact supplied to the job.</p>"
-          }
-        },
-        "actionTypeId": {
-          "target": "com.amazonaws.codepipeline#ActionTypeId",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents information about an action type.</p>"
-          }
-        },
         "outputArtifacts": {
           "target": "com.amazonaws.codepipeline#ArtifactList",
           "traits": {
             "smithy.api#documentation": "<p>The output of the job.</p>"
-          }
-        },
-        "actionConfiguration": {
-          "target": "com.amazonaws.codepipeline#ActionConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents information about an action configuration.</p>"
           }
         }
       },
@@ -2867,16 +2867,16 @@
     "com.amazonaws.codepipeline#JobDetails": {
       "type": "structure",
       "members": {
-        "accountId": {
-          "target": "com.amazonaws.codepipeline#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID associated with the job.</p>"
-          }
-        },
         "data": {
           "target": "com.amazonaws.codepipeline#JobData",
           "traits": {
             "smithy.api#documentation": "<p>Represents other information about a job required for a job worker to complete the\n            job. </p>"
+          }
+        },
+        "accountId": {
+          "target": "com.amazonaws.codepipeline#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID associated with the job.</p>"
           }
         },
         "id": {
@@ -3019,10 +3019,11 @@
     "com.amazonaws.codepipeline#ListActionExecutionsInput": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.codepipeline#MaxResults",
+        "pipelineName": {
+          "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n            results, make another call with the returned nextToken value. Action execution history\n            is retained for up to 12 months, based on action execution start times. Default value is\n            100. </p>\n        <note>\n            <p>Detailed execution history is available for executions run on or after February\n                21, 2019.</p>\n        </note>"
+            "smithy.api#documentation": "<p> The name of the pipeline for which you want to list action execution history.</p>",
+            "smithy.api#required": {}
           }
         },
         "filter": {
@@ -3031,17 +3032,16 @@
             "smithy.api#documentation": "<p>Input information used to filter action execution history.</p>"
           }
         },
+        "maxResults": {
+          "target": "com.amazonaws.codepipeline#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n            results, make another call with the returned nextToken value. Action execution history\n            is retained for up to 12 months, based on action execution start times. Default value is\n            100. </p>\n        <note>\n            <p>Detailed execution history is available for executions run on or after February\n                21, 2019.</p>\n        </note>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.codepipeline#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token that was returned from the previous <code>ListActionExecutions</code> call,\n            which can be used to return the next set of action executions in the list.</p>"
-          }
-        },
-        "pipelineName": {
-          "target": "com.amazonaws.codepipeline#PipelineName",
-          "traits": {
-            "smithy.api#documentation": "<p> The name of the pipeline for which you want to list action execution history.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -3090,16 +3090,16 @@
     "com.amazonaws.codepipeline#ListActionTypesInput": {
       "type": "structure",
       "members": {
-        "actionOwnerFilter": {
-          "target": "com.amazonaws.codepipeline#ActionOwner",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters the list of action types to those created by a specified entity.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.codepipeline#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>An identifier that was returned from the previous list action types call, which can\n            be used to return the next set of action types in the list.</p>"
+          }
+        },
+        "actionOwnerFilter": {
+          "target": "com.amazonaws.codepipeline#ActionOwner",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the list of action types to those created by a specified entity.</p>"
           }
         }
       },
@@ -3159,11 +3159,10 @@
     "com.amazonaws.codepipeline#ListPipelineExecutionsInput": {
       "type": "structure",
       "members": {
-        "pipelineName": {
-          "target": "com.amazonaws.codepipeline#PipelineName",
+        "nextToken": {
+          "target": "com.amazonaws.codepipeline#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the pipeline for which you want to get execution summary\n            information.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The token that was returned from the previous <code>ListPipelineExecutions</code>\n            call, which can be used to return the next set of pipeline executions in the\n            list.</p>"
           }
         },
         "maxResults": {
@@ -3172,10 +3171,11 @@
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n            results, make another call with the returned nextToken value. Pipeline history is\n            limited to the most recent 12 months, based on pipeline execution start times. Default\n            value is 100.</p>"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.codepipeline#NextToken",
+        "pipelineName": {
+          "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
-            "smithy.api#documentation": "<p>The token that was returned from the previous <code>ListPipelineExecutions</code>\n            call, which can be used to return the next set of pipeline executions in the\n            list.</p>"
+            "smithy.api#documentation": "<p>The name of the pipeline for which you want to get execution summary\n            information.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3295,12 +3295,6 @@
     "com.amazonaws.codepipeline#ListTagsForResourceInput": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.codepipeline#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
-          }
-        },
         "resourceArn": {
           "target": "com.amazonaws.codepipeline#ResourceArn",
           "traits": {
@@ -3312,6 +3306,12 @@
           "target": "com.amazonaws.codepipeline#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token that was returned from the previous API call, which would be used to return\n            the next page of the list. The ListTagsforResource call lists all available tags in one\n            call and does not use pagination.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.codepipeline#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>"
           }
         }
       }
@@ -3336,23 +3336,22 @@
     "com.amazonaws.codepipeline#ListWebhookItem": {
       "type": "structure",
       "members": {
-        "url": {
-          "target": "com.amazonaws.codepipeline#WebhookUrl",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique URL generated by CodePipeline. When a POST request is made to this URL,\n            the defined pipeline is started as long as the body of the post request satisfies the\n            defined authentication and filtering conditions. Deleting and re-creating a webhook\n            makes the old URL invalid and generates a new one.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "lastTriggered": {
-          "target": "com.amazonaws.codepipeline#WebhookLastTriggered",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time a webhook was last successfully triggered, in timestamp\n            format.</p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.codepipeline#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the tags applied to the webhook.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "com.amazonaws.codepipeline#WebhookErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The text of the error message about the webhook.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.codepipeline#WebhookArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the webhook.</p>"
           }
         },
         "definition": {
@@ -3362,16 +3361,17 @@
             "smithy.api#required": {}
           }
         },
-        "arn": {
-          "target": "com.amazonaws.codepipeline#WebhookArn",
+        "lastTriggered": {
+          "target": "com.amazonaws.codepipeline#WebhookLastTriggered",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the webhook.</p>"
+            "smithy.api#documentation": "<p>The date and time a webhook was last successfully triggered, in timestamp\n            format.</p>"
           }
         },
-        "errorMessage": {
-          "target": "com.amazonaws.codepipeline#WebhookErrorMessage",
+        "url": {
+          "target": "com.amazonaws.codepipeline#WebhookUrl",
           "traits": {
-            "smithy.api#documentation": "<p>The text of the error message about the webhook.</p>"
+            "smithy.api#documentation": "<p>A unique URL generated by CodePipeline. When a POST request is made to this URL,\n            the defined pipeline is started as long as the body of the post request satisfies the\n            defined authentication and filtering conditions. Deleting and re-creating a webhook\n            makes the old URL invalid and generates a new one.</p>",
+            "smithy.api#required": {}
           }
         },
         "errorCode": {
@@ -3413,16 +3413,16 @@
     "com.amazonaws.codepipeline#ListWebhooksInput": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.codepipeline#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token that was returned from the previous ListWebhooks call, which can be used\n            to return the next set of webhooks in the list.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.codepipeline#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n            results, make another call with the returned nextToken value.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.codepipeline#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token that was returned from the previous ListWebhooks call, which can be used\n            to return the next set of webhooks in the list.</p>"
           }
         }
       }
@@ -3602,22 +3602,22 @@
     "com.amazonaws.codepipeline#PipelineContext": {
       "type": "structure",
       "members": {
+        "pipelineArn": {
+          "target": "com.amazonaws.codepipeline#PipelineArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the pipeline.</p>"
+          }
+        },
         "stage": {
           "target": "com.amazonaws.codepipeline#StageContext",
           "traits": {
             "smithy.api#documentation": "<p>The stage of the pipeline.</p>"
           }
         },
-        "pipelineName": {
-          "target": "com.amazonaws.codepipeline#PipelineName",
+        "action": {
+          "target": "com.amazonaws.codepipeline#ActionContext",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the pipeline. This is a user-specified value. Pipeline names must be\n            unique across all pipeline names under an Amazon Web Services account.</p>"
-          }
-        },
-        "pipelineArn": {
-          "target": "com.amazonaws.codepipeline#PipelineArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the pipeline.</p>"
+            "smithy.api#documentation": "<p>The context of an action to a job worker in the stage of a pipeline.</p>"
           }
         },
         "pipelineExecutionId": {
@@ -3626,10 +3626,10 @@
             "smithy.api#documentation": "<p>The execution ID of the pipeline.</p>"
           }
         },
-        "action": {
-          "target": "com.amazonaws.codepipeline#ActionContext",
+        "pipelineName": {
+          "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
-            "smithy.api#documentation": "<p>The context of an action to a job worker in the stage of a pipeline.</p>"
+            "smithy.api#documentation": "<p>The name of the pipeline. This is a user-specified value. Pipeline names must be\n            unique across all pipeline names under an Amazon Web Services account.</p>"
           }
         }
       },
@@ -3640,20 +3640,6 @@
     "com.amazonaws.codepipeline#PipelineDeclaration": {
       "type": "structure",
       "members": {
-        "stages": {
-          "target": "com.amazonaws.codepipeline#PipelineStageDeclarationList",
-          "traits": {
-            "smithy.api#documentation": "<p>The stage in which to perform the action.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.codepipeline#PipelineName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the action to be performed.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "roleArn": {
           "target": "com.amazonaws.codepipeline#RoleArn",
           "traits": {
@@ -3667,16 +3653,30 @@
             "smithy.api#documentation": "<p>Represents information about the S3 bucket where artifacts are stored for the\n            pipeline.</p>\n        <note>\n            <p>You must include either <code>artifactStore</code> or\n                    <code>artifactStores</code> in your pipeline, but you cannot use both. If you\n                create a cross-region action in your pipeline, you must use\n                    <code>artifactStores</code>.</p>\n        </note>"
           }
         },
+        "artifactStores": {
+          "target": "com.amazonaws.codepipeline#ArtifactStoreMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A mapping of <code>artifactStore</code> objects and their corresponding AWS\n            Regions. There must be an artifact store for the pipeline Region and for each\n            cross-region action in the pipeline.</p>\n        <note>\n            <p>You must include either <code>artifactStore</code> or\n                    <code>artifactStores</code> in your pipeline, but you cannot use both. If you\n                create a cross-region action in your pipeline, you must use\n                    <code>artifactStores</code>.</p>\n        </note>"
+          }
+        },
+        "stages": {
+          "target": "com.amazonaws.codepipeline#PipelineStageDeclarationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The stage in which to perform the action.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "version": {
           "target": "com.amazonaws.codepipeline#PipelineVersion",
           "traits": {
             "smithy.api#documentation": "<p>The version number of the pipeline. A new pipeline always has a version number of\n            1. This number is incremented when a pipeline is updated.</p>"
           }
         },
-        "artifactStores": {
-          "target": "com.amazonaws.codepipeline#ArtifactStoreMap",
+        "name": {
+          "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
-            "smithy.api#documentation": "<p>A mapping of <code>artifactStore</code> objects and their corresponding AWS\n            Regions. There must be an artifact store for the pipeline Region and for each\n            cross-region action in the pipeline.</p>\n        <note>\n            <p>You must include either <code>artifactStore</code> or\n                    <code>artifactStores</code> in your pipeline, but you cannot use both. If you\n                create a cross-region action in your pipeline, you must use\n                    <code>artifactStores</code>.</p>\n        </note>"
+            "smithy.api#documentation": "<p>The name of the action to be performed.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3687,10 +3687,10 @@
     "com.amazonaws.codepipeline#PipelineExecution": {
       "type": "structure",
       "members": {
-        "pipelineName": {
-          "target": "com.amazonaws.codepipeline#PipelineName",
+        "status": {
+          "target": "com.amazonaws.codepipeline#PipelineExecutionStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the pipeline with the specified pipeline execution.</p>"
+            "smithy.api#documentation": "<p>The status of the pipeline execution.</p>\n        <ul>\n            <li>\n                <p>InProgress: The pipeline execution is currently running.</p>\n            </li>\n            <li>\n                <p>Stopped: The pipeline execution was manually stopped. For more information,\n                    see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped\">Stopped Executions</a>.</p>\n            </li>\n            <li>\n                <p>Stopping: The pipeline execution received a request to be manually stopped.\n                    Depending on the selected stop mode, the execution is either completing or\n                    abandoning in-progress actions. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped\">Stopped Executions</a>.</p>\n            </li>\n            <li>\n                <p>Succeeded: The pipeline execution was completed successfully. </p>\n            </li>\n            <li>\n                <p>Superseded: While this pipeline execution was waiting for the next stage to\n                    be completed, a newer pipeline execution advanced and continued through the\n                    pipeline instead. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded\">Superseded Executions</a>.</p>\n            </li>\n            <li>\n                <p>Failed: The pipeline execution was not completed successfully.</p>\n            </li>\n         </ul>"
           }
         },
         "artifactRevisions": {
@@ -3699,22 +3699,22 @@
             "smithy.api#documentation": "<p>A list of <code>ArtifactRevision</code> objects included in a pipeline\n            execution.</p>"
           }
         },
-        "pipelineVersion": {
-          "target": "com.amazonaws.codepipeline#PipelineVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number of the pipeline with the specified pipeline execution.</p>"
-          }
-        },
         "pipelineExecutionId": {
           "target": "com.amazonaws.codepipeline#PipelineExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the pipeline execution.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.codepipeline#PipelineExecutionStatus",
+        "pipelineName": {
+          "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the pipeline execution.</p>\n        <ul>\n            <li>\n                <p>InProgress: The pipeline execution is currently running.</p>\n            </li>\n            <li>\n                <p>Stopped: The pipeline execution was manually stopped. For more information,\n                    see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped\">Stopped Executions</a>.</p>\n            </li>\n            <li>\n                <p>Stopping: The pipeline execution received a request to be manually stopped.\n                    Depending on the selected stop mode, the execution is either completing or\n                    abandoning in-progress actions. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped\">Stopped Executions</a>.</p>\n            </li>\n            <li>\n                <p>Succeeded: The pipeline execution was completed successfully. </p>\n            </li>\n            <li>\n                <p>Superseded: While this pipeline execution was waiting for the next stage to\n                    be completed, a newer pipeline execution advanced and continued through the\n                    pipeline instead. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded\">Superseded Executions</a>.</p>\n            </li>\n            <li>\n                <p>Failed: The pipeline execution was not completed successfully.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The name of the pipeline with the specified pipeline execution.</p>"
+          }
+        },
+        "pipelineVersion": {
+          "target": "com.amazonaws.codepipeline#PipelineVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of the pipeline with the specified pipeline execution.</p>"
           }
         }
       },
@@ -3789,10 +3789,10 @@
     "com.amazonaws.codepipeline#PipelineExecutionSummary": {
       "type": "structure",
       "members": {
-        "status": {
-          "target": "com.amazonaws.codepipeline#PipelineExecutionStatus",
+        "stopTrigger": {
+          "target": "com.amazonaws.codepipeline#StopExecutionTrigger",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the pipeline execution.</p>\n        <ul>\n            <li>\n                <p>InProgress: The pipeline execution is currently running.</p>\n            </li>\n            <li>\n                <p>Stopped: The pipeline execution was manually stopped. For more information,\n                    see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped\">Stopped Executions</a>.</p>\n            </li>\n            <li>\n                <p>Stopping: The pipeline execution received a request to be manually stopped.\n                    Depending on the selected stop mode, the execution is either completing or\n                    abandoning in-progress actions. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped\">Stopped Executions</a>.</p>\n            </li>\n            <li>\n                <p>Succeeded: The pipeline execution was completed successfully. </p>\n            </li>\n            <li>\n                <p>Superseded: While this pipeline execution was waiting for the next stage to\n                    be completed, a newer pipeline execution advanced and continued through the\n                    pipeline instead. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded\">Superseded Executions</a>.</p>\n            </li>\n            <li>\n                <p>Failed: The pipeline execution was not completed successfully.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The interaction that stopped a pipeline execution.</p>"
           }
         },
         "sourceRevisions": {
@@ -3801,10 +3801,16 @@
             "smithy.api#documentation": "<p>A list of the source artifact revisions that initiated a pipeline\n            execution.</p>"
           }
         },
-        "stopTrigger": {
-          "target": "com.amazonaws.codepipeline#StopExecutionTrigger",
+        "trigger": {
+          "target": "com.amazonaws.codepipeline#ExecutionTrigger",
           "traits": {
-            "smithy.api#documentation": "<p>The interaction that stopped a pipeline execution.</p>"
+            "smithy.api#documentation": "<p>The interaction or event that started a pipeline execution, such as automated change\n            detection or a <code>StartPipelineExecution</code> API call.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.codepipeline#PipelineExecutionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the pipeline execution.</p>\n        <ul>\n            <li>\n                <p>InProgress: The pipeline execution is currently running.</p>\n            </li>\n            <li>\n                <p>Stopped: The pipeline execution was manually stopped. For more information,\n                    see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped\">Stopped Executions</a>.</p>\n            </li>\n            <li>\n                <p>Stopping: The pipeline execution received a request to be manually stopped.\n                    Depending on the selected stop mode, the execution is either completing or\n                    abandoning in-progress actions. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped\">Stopped Executions</a>.</p>\n            </li>\n            <li>\n                <p>Succeeded: The pipeline execution was completed successfully. </p>\n            </li>\n            <li>\n                <p>Superseded: While this pipeline execution was waiting for the next stage to\n                    be completed, a newer pipeline execution advanced and continued through the\n                    pipeline instead. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded\">Superseded Executions</a>.</p>\n            </li>\n            <li>\n                <p>Failed: The pipeline execution was not completed successfully.</p>\n            </li>\n         </ul>"
           }
         },
         "lastUpdateTime": {
@@ -3823,12 +3829,6 @@
           "target": "com.amazonaws.codepipeline#PipelineExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the pipeline execution.</p>"
-          }
-        },
-        "trigger": {
-          "target": "com.amazonaws.codepipeline#ExecutionTrigger",
-          "traits": {
-            "smithy.api#documentation": "<p>The interaction or event that started a pipeline execution, such as automated change\n            detection or a <code>StartPipelineExecution</code> API call.</p>"
           }
         }
       },
@@ -3851,10 +3851,10 @@
     "com.amazonaws.codepipeline#PipelineMetadata": {
       "type": "structure",
       "members": {
-        "pipelineArn": {
-          "target": "com.amazonaws.codepipeline#PipelineArn",
+        "updated": {
+          "target": "com.amazonaws.codepipeline#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the pipeline.</p>"
+            "smithy.api#documentation": "<p>The date and time the pipeline was last updated, in timestamp format.</p>"
           }
         },
         "created": {
@@ -3863,10 +3863,10 @@
             "smithy.api#documentation": "<p>The date and time the pipeline was created, in timestamp format.</p>"
           }
         },
-        "updated": {
-          "target": "com.amazonaws.codepipeline#Timestamp",
+        "pipelineArn": {
+          "target": "com.amazonaws.codepipeline#PipelineArn",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time the pipeline was last updated, in timestamp format.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the pipeline.</p>"
           }
         }
       },
@@ -3923,10 +3923,10 @@
     "com.amazonaws.codepipeline#PipelineSummary": {
       "type": "structure",
       "members": {
-        "updated": {
-          "target": "com.amazonaws.codepipeline#Timestamp",
+        "name": {
+          "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time of the last update to the pipeline, in timestamp\n            format.</p>"
+            "smithy.api#documentation": "<p>The name of the pipeline.</p>"
           }
         },
         "created": {
@@ -3935,16 +3935,16 @@
             "smithy.api#documentation": "<p>The date and time the pipeline was created, in timestamp format.</p>"
           }
         },
+        "updated": {
+          "target": "com.amazonaws.codepipeline#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time of the last update to the pipeline, in timestamp\n            format.</p>"
+          }
+        },
         "version": {
           "target": "com.amazonaws.codepipeline#PipelineVersion",
           "traits": {
             "smithy.api#documentation": "<p>The version number of the pipeline.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.codepipeline#PipelineName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the pipeline.</p>"
           }
         }
       },
@@ -3999,12 +3999,6 @@
     "com.amazonaws.codepipeline#PollForJobsInput": {
       "type": "structure",
       "members": {
-        "maxBatchSize": {
-          "target": "com.amazonaws.codepipeline#MaxBatchSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of jobs to return in a poll for jobs call.</p>"
-          }
-        },
         "actionTypeId": {
           "target": "com.amazonaws.codepipeline#ActionTypeId",
           "traits": {
@@ -4016,6 +4010,12 @@
           "target": "com.amazonaws.codepipeline#QueryParamMap",
           "traits": {
             "smithy.api#documentation": "<p>A map of property names and values. For an action type with no queryable\n            properties, this value must be null or an empty map. For an action type with a queryable\n            property, you must supply that property as a key in the map. Only jobs whose action\n            configuration matches the mapped value are returned.</p>"
+          }
+        },
+        "maxBatchSize": {
+          "target": "com.amazonaws.codepipeline#MaxBatchSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of jobs to return in a poll for jobs call.</p>"
           }
         }
       },
@@ -4060,17 +4060,17 @@
     "com.amazonaws.codepipeline#PollForThirdPartyJobsInput": {
       "type": "structure",
       "members": {
+        "maxBatchSize": {
+          "target": "com.amazonaws.codepipeline#MaxBatchSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of jobs to return in a poll for jobs call.</p>"
+          }
+        },
         "actionTypeId": {
           "target": "com.amazonaws.codepipeline#ActionTypeId",
           "traits": {
             "smithy.api#documentation": "<p>Represents information about an action type.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "maxBatchSize": {
-          "target": "com.amazonaws.codepipeline#MaxBatchSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of jobs to return in a poll for jobs call.</p>"
           }
         }
       },
@@ -4135,17 +4135,17 @@
             "smithy.api#required": {}
           }
         },
-        "stageName": {
-          "target": "com.amazonaws.codepipeline#StageName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the stage that contains the action that acts on the revision.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "pipelineName": {
           "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the pipeline that starts processing the revision to the\n            source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stageName": {
+          "target": "com.amazonaws.codepipeline#StageName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the stage that contains the action that acts on the revision.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4157,16 +4157,16 @@
     "com.amazonaws.codepipeline#PutActionRevisionOutput": {
       "type": "structure",
       "members": {
-        "newRevision": {
-          "target": "com.amazonaws.codepipeline#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the artifact revision was previously used in an execution of the\n            specified pipeline.</p>"
-          }
-        },
         "pipelineExecutionId": {
           "target": "com.amazonaws.codepipeline#PipelineExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the current workflow state of the pipeline.</p>"
+          }
+        },
+        "newRevision": {
+          "target": "com.amazonaws.codepipeline#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the artifact revision was previously used in an execution of the\n            specified pipeline.</p>"
           }
         }
       },
@@ -4216,20 +4216,6 @@
             "smithy.api#required": {}
           }
         },
-        "actionName": {
-          "target": "com.amazonaws.codepipeline#ActionName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the action for which approval is requested.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "token": {
-          "target": "com.amazonaws.codepipeline#ApprovalToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The system-generated token used to identify a unique approval request. The token\n            for each open approval request can be obtained using the <a>GetPipelineState</a> action. It is used to validate that the approval\n            request corresponding to this token is still valid.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "pipelineName": {
           "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
@@ -4241,6 +4227,20 @@
           "target": "com.amazonaws.codepipeline#ApprovalResult",
           "traits": {
             "smithy.api#documentation": "<p>Represents information about the result of the approval request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "actionName": {
+          "target": "com.amazonaws.codepipeline#ActionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action for which approval is requested.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "token": {
+          "target": "com.amazonaws.codepipeline#ApprovalToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The system-generated token used to identify a unique approval request. The token\n            for each open approval request can be obtained using the <a>GetPipelineState</a> action. It is used to validate that the approval\n            request corresponding to this token is still valid.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4286,17 +4286,17 @@
     "com.amazonaws.codepipeline#PutJobFailureResultInput": {
       "type": "structure",
       "members": {
-        "failureDetails": {
-          "target": "com.amazonaws.codepipeline#FailureDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>The details about the failure of a job.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "jobId": {
           "target": "com.amazonaws.codepipeline#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The unique system-generated ID of the job that failed. This is the same ID returned\n            from <code>PollForJobs</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "failureDetails": {
+          "target": "com.amazonaws.codepipeline#FailureDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The details about the failure of a job.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4331,10 +4331,10 @@
     "com.amazonaws.codepipeline#PutJobSuccessResultInput": {
       "type": "structure",
       "members": {
-        "continuationToken": {
-          "target": "com.amazonaws.codepipeline#ContinuationToken",
+        "executionDetails": {
+          "target": "com.amazonaws.codepipeline#ExecutionDetails",
           "traits": {
-            "smithy.api#documentation": "<p>A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that a\n            successful job provides to identify a custom action in progress. Future jobs use this\n            token to identify the running instance of the action. It can be reused to return more\n            information about the progress of the custom action. When the action is complete, no\n            continuation token should be supplied.</p>"
+            "smithy.api#documentation": "<p>The execution details of the successful job, such as the actions taken by the job\n            worker.</p>"
           }
         },
         "outputVariables": {
@@ -4343,23 +4343,23 @@
             "smithy.api#documentation": "<p>Key-value pairs produced as output by a job worker that can be made available to a\n            downstream action configuration. <code>outputVariables</code> can be included only when\n            there is no continuation token on the request.</p>"
           }
         },
-        "jobId": {
-          "target": "com.amazonaws.codepipeline#JobId",
+        "continuationToken": {
+          "target": "com.amazonaws.codepipeline#ContinuationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The unique system-generated ID of the job that succeeded. This is the same ID\n            returned from <code>PollForJobs</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "executionDetails": {
-          "target": "com.amazonaws.codepipeline#ExecutionDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>The execution details of the successful job, such as the actions taken by the job\n            worker.</p>"
+            "smithy.api#documentation": "<p>A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that a\n            successful job provides to identify a custom action in progress. Future jobs use this\n            token to identify the running instance of the action. It can be reused to return more\n            information about the progress of the custom action. When the action is complete, no\n            continuation token should be supplied.</p>"
           }
         },
         "currentRevision": {
           "target": "com.amazonaws.codepipeline#CurrentRevision",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the current revision of the artifact successfully worked on by the\n            job.</p>"
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.codepipeline#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique system-generated ID of the job that succeeded. This is the same ID\n            returned from <code>PollForJobs</code>.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4393,6 +4393,13 @@
     "com.amazonaws.codepipeline#PutThirdPartyJobFailureResultInput": {
       "type": "structure",
       "members": {
+        "failureDetails": {
+          "target": "com.amazonaws.codepipeline#FailureDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents information about failure details.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "clientToken": {
           "target": "com.amazonaws.codepipeline#ClientToken",
           "traits": {
@@ -4404,13 +4411,6 @@
           "target": "com.amazonaws.codepipeline#ThirdPartyJobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the job that failed. This is the same ID returned from\n                <code>PollForThirdPartyJobs</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "failureDetails": {
-          "target": "com.amazonaws.codepipeline#FailureDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents information about failure details.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4445,23 +4445,10 @@
     "com.amazonaws.codepipeline#PutThirdPartyJobSuccessResultInput": {
       "type": "structure",
       "members": {
-        "currentRevision": {
-          "target": "com.amazonaws.codepipeline#CurrentRevision",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents information about a current revision.</p>"
-          }
-        },
         "jobId": {
           "target": "com.amazonaws.codepipeline#ThirdPartyJobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the job that successfully completed. This is the same ID returned from\n                <code>PollForThirdPartyJobs</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "clientToken": {
-          "target": "com.amazonaws.codepipeline#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The clientToken portion of the clientId and clientToken pair used to verify that\n            the calling entity is allowed access to the job and its details.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4475,6 +4462,19 @@
           "target": "com.amazonaws.codepipeline#ExecutionDetails",
           "traits": {
             "smithy.api#documentation": "<p>The details of the actions taken and results produced on an artifact as it passes\n            through stages in the pipeline. </p>"
+          }
+        },
+        "currentRevision": {
+          "target": "com.amazonaws.codepipeline#CurrentRevision",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents information about a current revision.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.codepipeline#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The clientToken portion of the clientId and clientToken pair used to verify that\n            the calling entity is allowed access to the job and its details.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4523,17 +4523,17 @@
     "com.amazonaws.codepipeline#PutWebhookInput": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.codepipeline#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags for the webhook.</p>"
-          }
-        },
         "webhook": {
           "target": "com.amazonaws.codepipeline#WebhookDefinition",
           "traits": {
             "smithy.api#documentation": "<p>The detail provided in an input file to create the webhook, such as the webhook\n            name, the pipeline name, and the action name. Give the webhook a unique name that helps\n            you identify it. You might name the webhook after the pipeline and action it targets so\n            that you can easily recognize what it's used for later.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.codepipeline#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the webhook.</p>"
           }
         }
       }
@@ -4661,13 +4661,6 @@
     "com.amazonaws.codepipeline#RetryStageExecutionInput": {
       "type": "structure",
       "members": {
-        "pipelineExecutionId": {
-          "target": "com.amazonaws.codepipeline#PipelineExecutionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the pipeline execution in the failed stage to be retried. Use the <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of\n            the failed stage</p>",
-            "smithy.api#required": {}
-          }
-        },
         "pipelineName": {
           "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
@@ -4686,6 +4679,13 @@
           "target": "com.amazonaws.codepipeline#StageRetryMode",
           "traits": {
             "smithy.api#documentation": "<p>The scope of the retry attempt. Currently, the only supported value is\n            FAILED_ACTIONS.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "pipelineExecutionId": {
+          "target": "com.amazonaws.codepipeline#PipelineExecutionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the pipeline execution in the failed stage to be retried. Use the <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of\n            the failed stage</p>",
             "smithy.api#required": {}
           }
         }
@@ -4791,16 +4791,16 @@
     "com.amazonaws.codepipeline#S3Location": {
       "type": "structure",
       "members": {
-        "key": {
-          "target": "com.amazonaws.codepipeline#S3Key",
-          "traits": {
-            "smithy.api#documentation": "<p>The artifact name.</p>"
-          }
-        },
         "bucket": {
           "target": "com.amazonaws.codepipeline#S3Bucket",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 artifact bucket for an action's artifacts.</p>"
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.codepipeline#S3Key",
+          "traits": {
+            "smithy.api#documentation": "<p>The artifact name.</p>"
           }
         }
       },
@@ -4820,11 +4820,10 @@
     "com.amazonaws.codepipeline#SourceRevision": {
       "type": "structure",
       "members": {
-        "actionName": {
-          "target": "com.amazonaws.codepipeline#ActionName",
+        "revisionSummary": {
+          "target": "com.amazonaws.codepipeline#RevisionSummary",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the action that processed the revision to the source\n            artifact.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Summary information about the most recent revision of the artifact. For GitHub and\n            AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the\n            user-provided content of a <code>codepipeline-artifact-revision-summary</code> key\n            specified in the object metadata.</p>"
           }
         },
         "revisionId": {
@@ -4833,16 +4832,17 @@
             "smithy.api#documentation": "<p>The system-generated unique ID that identifies the revision number of the\n            artifact.</p>"
           }
         },
+        "actionName": {
+          "target": "com.amazonaws.codepipeline#ActionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action that processed the revision to the source\n            artifact.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "revisionUrl": {
           "target": "com.amazonaws.codepipeline#Url",
           "traits": {
             "smithy.api#documentation": "<p>The commit ID for the artifact revision. For artifacts stored in GitHub or AWS\n            CodeCommit repositories, the commit ID is linked to a commit details page.</p>"
-          }
-        },
-        "revisionSummary": {
-          "target": "com.amazonaws.codepipeline#RevisionSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>Summary information about the most recent revision of the artifact. For GitHub and\n            AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the\n            user-provided content of a <code>codepipeline-artifact-revision-summary</code> key\n            specified in the object metadata.</p>"
           }
         }
       },
@@ -4885,6 +4885,13 @@
     "com.amazonaws.codepipeline#StageDeclaration": {
       "type": "structure",
       "members": {
+        "name": {
+          "target": "com.amazonaws.codepipeline#StageName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the stage.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "blockers": {
           "target": "com.amazonaws.codepipeline#StageBlockerDeclarationList",
           "traits": {
@@ -4895,13 +4902,6 @@
           "target": "com.amazonaws.codepipeline#StageActionDeclarationList",
           "traits": {
             "smithy.api#documentation": "<p>The actions included in a stage.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.codepipeline#StageName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the stage.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5013,6 +5013,12 @@
     "com.amazonaws.codepipeline#StageState": {
       "type": "structure",
       "members": {
+        "latestExecution": {
+          "target": "com.amazonaws.codepipeline#StageExecution",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the latest execution in the stage, including its ID and\n            status.</p>"
+          }
+        },
         "stageName": {
           "target": "com.amazonaws.codepipeline#StageName",
           "traits": {
@@ -5029,12 +5035,6 @@
           "target": "com.amazonaws.codepipeline#ActionStateList",
           "traits": {
             "smithy.api#documentation": "<p>The state of the stage.</p>"
-          }
-        },
-        "latestExecution": {
-          "target": "com.amazonaws.codepipeline#StageExecution",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the latest execution in the stage, including its ID and\n            status.</p>"
           }
         }
       },
@@ -5086,18 +5086,18 @@
     "com.amazonaws.codepipeline#StartPipelineExecutionInput": {
       "type": "structure",
       "members": {
-        "clientRequestToken": {
-          "target": "com.amazonaws.codepipeline#ClientRequestToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The system-generated unique ID used to identify a unique execution\n            request.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the pipeline to start.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "clientRequestToken": {
+          "target": "com.amazonaws.codepipeline#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The system-generated unique ID used to identify a unique execution\n            request.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -5162,19 +5162,6 @@
     "com.amazonaws.codepipeline#StopPipelineExecutionInput": {
       "type": "structure",
       "members": {
-        "pipelineExecutionId": {
-          "target": "com.amazonaws.codepipeline#PipelineExecutionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the pipeline execution to be stopped in the current stage. Use the\n                <code>GetPipelineState</code> action to retrieve the current\n            pipelineExecutionId.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "reason": {
-          "target": "com.amazonaws.codepipeline#StopPipelineExecutionReason",
-          "traits": {
-            "smithy.api#documentation": "<p>Use this option to enter comments, such as the reason the pipeline was stopped.</p>"
-          }
-        },
         "pipelineName": {
           "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
@@ -5186,6 +5173,19 @@
           "target": "com.amazonaws.codepipeline#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Use this option to stop the pipeline execution by abandoning, rather than finishing,\n            in-progress actions.</p>\n        <note>\n            <p>This option can lead to failed or out-of-sequence tasks.</p>\n        </note>"
+          }
+        },
+        "pipelineExecutionId": {
+          "target": "com.amazonaws.codepipeline#PipelineExecutionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the pipeline execution to be stopped in the current stage. Use the\n                <code>GetPipelineState</code> action to retrieve the current\n            pipelineExecutionId.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.codepipeline#StopPipelineExecutionReason",
+          "traits": {
+            "smithy.api#documentation": "<p>Use this option to enter comments, such as the reason the pipeline was stopped.</p>"
           }
         }
       }
@@ -5323,16 +5323,16 @@
     "com.amazonaws.codepipeline#ThirdPartyJob": {
       "type": "structure",
       "members": {
-        "clientId": {
-          "target": "com.amazonaws.codepipeline#ClientId",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>clientToken</code> portion of the <code>clientId</code> and\n                <code>clientToken</code> pair used to verify that the calling entity is allowed\n            access to the job and its details.</p>"
-          }
-        },
         "jobId": {
           "target": "com.amazonaws.codepipeline#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier used to identify the job in AWS CodePipeline.</p>"
+          }
+        },
+        "clientId": {
+          "target": "com.amazonaws.codepipeline#ClientId",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>clientToken</code> portion of the <code>clientId</code> and\n                <code>clientToken</code> pair used to verify that the calling entity is allowed\n            access to the job and its details.</p>"
           }
         }
       },
@@ -5343,28 +5343,16 @@
     "com.amazonaws.codepipeline#ThirdPartyJobData": {
       "type": "structure",
       "members": {
+        "outputArtifacts": {
+          "target": "com.amazonaws.codepipeline#ArtifactList",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the artifact that is the result of the action, if any. This name might\n            be system-generated, such as \"MyBuiltApp\", or it might be defined by the user when the\n            action is created.</p>"
+          }
+        },
         "actionConfiguration": {
           "target": "com.amazonaws.codepipeline#ActionConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Represents information about an action configuration.</p>"
-          }
-        },
-        "encryptionKey": {
-          "target": "com.amazonaws.codepipeline#EncryptionKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The encryption key used to encrypt and decrypt data in the artifact store for the\n            pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and\n            might not be present.</p>"
-          }
-        },
-        "artifactCredentials": {
-          "target": "com.amazonaws.codepipeline#AWSSessionCredentials",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents an AWS session credentials object. These credentials are temporary\n            credentials that are issued by AWS Secure Token Service (STS). They can be used to\n            access input and output artifacts in the S3 bucket used to store artifact for the\n            pipeline in AWS CodePipeline. </p>"
-          }
-        },
-        "continuationToken": {
-          "target": "com.amazonaws.codepipeline#ContinuationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A system-generated token, such as a AWS CodeDeploy deployment ID, that a job\n            requires to continue the job asynchronously.</p>"
           }
         },
         "actionTypeId": {
@@ -5373,22 +5361,34 @@
             "smithy.api#documentation": "<p>Represents information about an action type.</p>"
           }
         },
-        "inputArtifacts": {
-          "target": "com.amazonaws.codepipeline#ArtifactList",
+        "continuationToken": {
+          "target": "com.amazonaws.codepipeline#ContinuationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the artifact that is worked on by the action, if any. This name might\n            be system-generated, such as \"MyApp\", or it might be defined by the user when the action\n            is created. The input artifact name must match the name of an output artifact generated\n            by an action in an earlier action or stage of the pipeline.</p>"
+            "smithy.api#documentation": "<p>A system-generated token, such as a AWS CodeDeploy deployment ID, that a job\n            requires to continue the job asynchronously.</p>"
           }
         },
-        "outputArtifacts": {
-          "target": "com.amazonaws.codepipeline#ArtifactList",
+        "artifactCredentials": {
+          "target": "com.amazonaws.codepipeline#AWSSessionCredentials",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the artifact that is the result of the action, if any. This name might\n            be system-generated, such as \"MyBuiltApp\", or it might be defined by the user when the\n            action is created.</p>"
+            "smithy.api#documentation": "<p>Represents an AWS session credentials object. These credentials are temporary\n            credentials that are issued by AWS Secure Token Service (STS). They can be used to\n            access input and output artifacts in the S3 bucket used to store artifact for the\n            pipeline in AWS CodePipeline. </p>"
+          }
+        },
+        "encryptionKey": {
+          "target": "com.amazonaws.codepipeline#EncryptionKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The encryption key used to encrypt and decrypt data in the artifact store for the\n            pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and\n            might not be present.</p>"
           }
         },
         "pipelineContext": {
           "target": "com.amazonaws.codepipeline#PipelineContext",
           "traits": {
             "smithy.api#documentation": "<p>Represents information about a pipeline to a job worker.</p>\n        <note>\n            <p>Does not include <code>pipelineArn</code> and <code>pipelineExecutionId</code>\n                for ThirdParty jobs.</p>\n        </note>"
+          }
+        },
+        "inputArtifacts": {
+          "target": "com.amazonaws.codepipeline#ArtifactList",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the artifact that is worked on by the action, if any. This name might\n            be system-generated, such as \"MyApp\", or it might be defined by the user when the action\n            is created. The input artifact name must match the name of an output artifact generated\n            by an action in an earlier action or stage of the pipeline.</p>"
           }
         }
       },
@@ -5399,10 +5399,10 @@
     "com.amazonaws.codepipeline#ThirdPartyJobDetails": {
       "type": "structure",
       "members": {
-        "nonce": {
-          "target": "com.amazonaws.codepipeline#Nonce",
+        "data": {
+          "target": "com.amazonaws.codepipeline#ThirdPartyJobData",
           "traits": {
-            "smithy.api#documentation": "<p>A system-generated random number that AWS CodePipeline uses to ensure that the job\n            is being worked on by only one job worker. Use this number in an <a>AcknowledgeThirdPartyJob</a> request.</p>"
+            "smithy.api#documentation": "<p>The data to be returned by the third party job worker.</p>"
           }
         },
         "id": {
@@ -5411,10 +5411,10 @@
             "smithy.api#documentation": "<p>The identifier used to identify the job details in AWS CodePipeline.</p>"
           }
         },
-        "data": {
-          "target": "com.amazonaws.codepipeline#ThirdPartyJobData",
+        "nonce": {
+          "target": "com.amazonaws.codepipeline#Nonce",
           "traits": {
-            "smithy.api#documentation": "<p>The data to be returned by the third party job worker.</p>"
+            "smithy.api#documentation": "<p>A system-generated random number that AWS CodePipeline uses to ensure that the job\n            is being worked on by only one job worker. Use this number in an <a>AcknowledgeThirdPartyJob</a> request.</p>"
           }
         }
       },
@@ -5458,10 +5458,10 @@
     "com.amazonaws.codepipeline#TransitionState": {
       "type": "structure",
       "members": {
-        "lastChangedAt": {
-          "target": "com.amazonaws.codepipeline#LastChangedAt",
+        "lastChangedBy": {
+          "target": "com.amazonaws.codepipeline#LastChangedBy",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp when the transition state was last changed.</p>"
+            "smithy.api#documentation": "<p>The ID of the user who last changed the transition state.</p>"
           }
         },
         "disabledReason": {
@@ -5476,10 +5476,10 @@
             "smithy.api#documentation": "<p>Whether the transition between stages is enabled (true) or disabled\n            (false).</p>"
           }
         },
-        "lastChangedBy": {
-          "target": "com.amazonaws.codepipeline#LastChangedBy",
+        "lastChangedAt": {
+          "target": "com.amazonaws.codepipeline#LastChangedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the user who last changed the transition state.</p>"
+            "smithy.api#documentation": "<p>The timestamp when the transition state was last changed.</p>"
           }
         }
       },
@@ -5689,16 +5689,16 @@
     "com.amazonaws.codepipeline#WebhookAuthConfiguration": {
       "type": "structure",
       "members": {
-        "SecretToken": {
-          "target": "com.amazonaws.codepipeline#WebhookAuthConfigurationSecretToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The property used to configure GitHub authentication. For GITHUB_HMAC, only the\n                <code>SecretToken</code> property must be set.</p>"
-          }
-        },
         "AllowedIPRange": {
           "target": "com.amazonaws.codepipeline#WebhookAuthConfigurationAllowedIPRange",
           "traits": {
             "smithy.api#documentation": "<p>The property used to configure acceptance of webhooks in an IP address range. For\n            IP, only the <code>AllowedIPRange</code> property must be set. This property must be set\n            to a valid CIDR range.</p>"
+          }
+        },
+        "SecretToken": {
+          "target": "com.amazonaws.codepipeline#WebhookAuthConfigurationSecretToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The property used to configure GitHub authentication. For GITHUB_HMAC, only the\n                <code>SecretToken</code> property must be set.</p>"
           }
         }
       },
@@ -5746,10 +5746,17 @@
     "com.amazonaws.codepipeline#WebhookDefinition": {
       "type": "structure",
       "members": {
-        "targetPipeline": {
-          "target": "com.amazonaws.codepipeline#PipelineName",
+        "name": {
+          "target": "com.amazonaws.codepipeline#WebhookName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the pipeline you want to connect to the webhook.</p>",
+            "smithy.api#documentation": "<p>The name of the webhook.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.codepipeline#WebhookFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of rules applied to the body/payload sent in the POST request to a webhook\n            URL. All defined rules must pass for the request to be accepted and the pipeline\n            started.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5760,10 +5767,10 @@
             "smithy.api#required": {}
           }
         },
-        "name": {
-          "target": "com.amazonaws.codepipeline#WebhookName",
+        "authenticationConfiguration": {
+          "target": "com.amazonaws.codepipeline#WebhookAuthConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the webhook.</p>",
+            "smithy.api#documentation": "<p>Properties that configure the authentication applied to incoming webhook trigger\n            requests. The required properties depend on the authentication type. For GITHUB_HMAC,\n            only the <code>SecretToken </code>property must be set. For IP, only the\n                <code>AllowedIPRange </code>property must be set to a valid CIDR range. For\n            UNAUTHENTICATED, no properties can be set.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5774,17 +5781,10 @@
             "smithy.api#required": {}
           }
         },
-        "authenticationConfiguration": {
-          "target": "com.amazonaws.codepipeline#WebhookAuthConfiguration",
+        "targetPipeline": {
+          "target": "com.amazonaws.codepipeline#PipelineName",
           "traits": {
-            "smithy.api#documentation": "<p>Properties that configure the authentication applied to incoming webhook trigger\n            requests. The required properties depend on the authentication type. For GITHUB_HMAC,\n            only the <code>SecretToken </code>property must be set. For IP, only the\n                <code>AllowedIPRange </code>property must be set to a valid CIDR range. For\n            UNAUTHENTICATED, no properties can be set.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "filters": {
-          "target": "com.amazonaws.codepipeline#WebhookFilters",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of rules applied to the body/payload sent in the POST request to a webhook\n            URL. All defined rules must pass for the request to be accepted and the pipeline\n            started.</p>",
+            "smithy.api#documentation": "<p>The name of the pipeline you want to connect to the webhook.</p>",
             "smithy.api#required": {}
           }
         }

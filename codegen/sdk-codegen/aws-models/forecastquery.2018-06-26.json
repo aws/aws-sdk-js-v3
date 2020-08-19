@@ -84,16 +84,16 @@
     "com.amazonaws.forecastquery#DataPoint": {
       "type": "structure",
       "members": {
-        "Timestamp": {
-          "target": "com.amazonaws.forecastquery#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp of the specific forecast.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.forecastquery#Double",
           "traits": {
             "smithy.api#documentation": "<p>The forecast value.</p>"
+          }
+        },
+        "Timestamp": {
+          "target": "com.amazonaws.forecastquery#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of the specific forecast.</p>"
           }
         }
       },
@@ -231,6 +231,13 @@
     "com.amazonaws.forecastquery#QueryForecastRequest": {
       "type": "structure",
       "members": {
+        "ForecastArn": {
+          "target": "com.amazonaws.forecastquery#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the forecast to query.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Filters": {
           "target": "com.amazonaws.forecastquery#Filters",
           "traits": {
@@ -238,10 +245,10 @@
             "smithy.api#required": {}
           }
         },
-        "EndDate": {
+        "StartDate": {
           "target": "com.amazonaws.forecastquery#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>"
+            "smithy.api#documentation": "<p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>"
           }
         },
         "NextToken": {
@@ -250,17 +257,10 @@
             "smithy.api#documentation": "<p>If the result of the previous request was truncated, the response includes a\n        <code>NextToken</code>. To retrieve the next set of results, use the token in the next\n      request. Tokens expire after 24 hours.</p>"
           }
         },
-        "ForecastArn": {
-          "target": "com.amazonaws.forecastquery#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the forecast to query.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "StartDate": {
+        "EndDate": {
           "target": "com.amazonaws.forecastquery#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>"
+            "smithy.api#documentation": "<p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>"
           }
         }
       }

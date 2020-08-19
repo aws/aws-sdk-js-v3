@@ -131,17 +131,17 @@
     "com.amazonaws.inspector#AddAttributesToFindingsRequest": {
       "type": "structure",
       "members": {
-        "attributes": {
-          "target": "com.amazonaws.inspector#UserAttributeList",
-          "traits": {
-            "smithy.api#documentation": "<p>The array of attributes that you want to assign to specified findings.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "findingArns": {
           "target": "com.amazonaws.inspector#AddRemoveAttributesFindingArnList",
           "traits": {
             "smithy.api#documentation": "<p>The ARNs that specify the findings that you want to assign attributes to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "attributes": {
+          "target": "com.amazonaws.inspector#UserAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of attributes that you want to assign to specified findings.</p>",
             "smithy.api#required": {}
           }
         }
@@ -174,17 +174,17 @@
     "com.amazonaws.inspector#AgentAlreadyRunningAssessment": {
       "type": "structure",
       "members": {
-        "assessmentRunArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the assessment run that has already been started.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "agentId": {
           "target": "com.amazonaws.inspector#AgentId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the agent that is running on an EC2 instance that is already participating in\n         another started assessment run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assessmentRunArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the assessment run that has already been started.</p>",
             "smithy.api#required": {}
           }
         }
@@ -208,17 +208,17 @@
     "com.amazonaws.inspector#AgentFilter": {
       "type": "structure",
       "members": {
-        "agentHealths": {
-          "target": "com.amazonaws.inspector#AgentHealthList",
-          "traits": {
-            "smithy.api#documentation": "<p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "agentHealthCodes": {
           "target": "com.amazonaws.inspector#AgentHealthCodeList",
           "traits": {
             "smithy.api#documentation": "<p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "agentHealths": {
+          "target": "com.amazonaws.inspector#AgentHealthList",
+          "traits": {
+            "smithy.api#documentation": "<p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -325,10 +325,28 @@
     "com.amazonaws.inspector#AgentPreview": {
       "type": "structure",
       "members": {
-        "kernelVersion": {
-          "target": "com.amazonaws.inspector#KernelVersion",
+        "autoScalingGroup": {
+          "target": "com.amazonaws.inspector#AutoScalingGroup",
           "traits": {
-            "smithy.api#documentation": "<p>The kernel version of the operating system running on the EC2 instance on which the\n         Amazon Inspector Agent is installed.</p>"
+            "smithy.api#documentation": "<p>The Auto Scaling group for the EC2 instance where the agent is installed.</p>"
+          }
+        },
+        "operatingSystem": {
+          "target": "com.amazonaws.inspector#OperatingSystem",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system running on the EC2 instance on which the Amazon Inspector Agent\n         is installed.</p>"
+          }
+        },
+        "hostname": {
+          "target": "com.amazonaws.inspector#Hostname",
+          "traits": {
+            "smithy.api#documentation": "<p>The hostname of the EC2 instance on which the Amazon Inspector Agent is\n         installed.</p>"
+          }
+        },
+        "agentVersion": {
+          "target": "com.amazonaws.inspector#AgentVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the Amazon Inspector Agent.</p>"
           }
         },
         "agentHealth": {
@@ -344,34 +362,16 @@
             "smithy.api#required": {}
           }
         },
-        "hostname": {
-          "target": "com.amazonaws.inspector#Hostname",
-          "traits": {
-            "smithy.api#documentation": "<p>The hostname of the EC2 instance on which the Amazon Inspector Agent is\n         installed.</p>"
-          }
-        },
         "ipv4Address": {
           "target": "com.amazonaws.inspector#Ipv4Address",
           "traits": {
             "smithy.api#documentation": "<p>The IP address of the EC2 instance on which the Amazon Inspector Agent is\n         installed.</p>"
           }
         },
-        "agentVersion": {
-          "target": "com.amazonaws.inspector#AgentVersion",
+        "kernelVersion": {
+          "target": "com.amazonaws.inspector#KernelVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The version of the Amazon Inspector Agent.</p>"
-          }
-        },
-        "autoScalingGroup": {
-          "target": "com.amazonaws.inspector#AutoScalingGroup",
-          "traits": {
-            "smithy.api#documentation": "<p>The Auto Scaling group for the EC2 instance where the agent is installed.</p>"
-          }
-        },
-        "operatingSystem": {
-          "target": "com.amazonaws.inspector#OperatingSystem",
-          "traits": {
-            "smithy.api#documentation": "<p>The operating system running on the EC2 instance on which the Amazon Inspector Agent\n         is installed.</p>"
+            "smithy.api#documentation": "<p>The kernel version of the operating system running on the EC2 instance on which the\n         Amazon Inspector Agent is installed.</p>"
           }
         }
       },
@@ -403,13 +403,6 @@
     "com.amazonaws.inspector#AgentsAlreadyRunningAssessmentException": {
       "type": "structure",
       "members": {
-        "agents": {
-          "target": "com.amazonaws.inspector#AgentAlreadyRunningAssessmentList",
-          "traits": {
-            "smithy.api#documentation": "<p></p>",
-            "smithy.api#required": {}
-          }
-        },
         "message": {
           "target": "com.amazonaws.inspector#ErrorMessage",
           "traits": {
@@ -421,6 +414,13 @@
           "target": "com.amazonaws.inspector#Bool",
           "traits": {
             "smithy.api#documentation": "<p>You can immediately retry your request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "agents": {
+          "target": "com.amazonaws.inspector#AgentAlreadyRunningAssessmentList",
+          "traits": {
+            "smithy.api#documentation": "<p></p>",
             "smithy.api#required": {}
           }
         },
@@ -476,45 +476,24 @@
     "com.amazonaws.inspector#AssessmentRun": {
       "type": "structure",
       "members": {
+        "createdAt": {
+          "target": "com.amazonaws.inspector#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when <a>StartAssessmentRun</a> was called.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assessmentTemplateArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the assessment template that is associated with the assessment\n         run.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "userAttributesForFindings": {
           "target": "com.amazonaws.inspector#UserAttributeList",
           "traits": {
             "smithy.api#documentation": "<p>The user-defined attributes that are assigned to every generated finding.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "findingCounts": {
-          "target": "com.amazonaws.inspector#AssessmentRunFindingCounts",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides a total count of generated findings per severity.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "rulesPackageArns": {
-          "target": "com.amazonaws.inspector#AssessmentRulesPackageArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>The rules packages selected for the assessment run.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "state": {
-          "target": "com.amazonaws.inspector#AssessmentRunState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the assessment run.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "notifications": {
-          "target": "com.amazonaws.inspector#AssessmentRunNotificationList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of notifications for the event subscriptions. A notification about a\n         particular generated finding is added to this list only once.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "durationInSeconds": {
-          "target": "com.amazonaws.inspector#AssessmentRunDuration",
-          "traits": {
-            "smithy.api#documentation": "<p>The duration of the assessment run.</p>",
             "smithy.api#required": {}
           }
         },
@@ -525,10 +504,17 @@
             "smithy.api#required": {}
           }
         },
-        "createdAt": {
-          "target": "com.amazonaws.inspector#Timestamp",
+        "name": {
+          "target": "com.amazonaws.inspector#AssessmentRunName",
           "traits": {
-            "smithy.api#documentation": "<p>The time when <a>StartAssessmentRun</a> was called.</p>",
+            "smithy.api#documentation": "<p>The auto-generated name for the assessment run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.inspector#AssessmentRunState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the assessment run.</p>",
             "smithy.api#required": {}
           }
         },
@@ -539,17 +525,43 @@
             "smithy.api#required": {}
           }
         },
+        "notifications": {
+          "target": "com.amazonaws.inspector#AssessmentRunNotificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of notifications for the event subscriptions. A notification about a\n         particular generated finding is added to this list only once.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "rulesPackageArns": {
+          "target": "com.amazonaws.inspector#AssessmentRulesPackageArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The rules packages selected for the assessment run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "completedAt": {
+          "target": "com.amazonaws.inspector#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The assessment run completion time that corresponds to the rules packages evaluation\n         completion time or failure.</p>"
+          }
+        },
+        "durationInSeconds": {
+          "target": "com.amazonaws.inspector#AssessmentRunDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration of the assessment run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.inspector#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when <a>StartAssessmentRun</a> was called.</p>"
+          }
+        },
         "stateChangedAt": {
           "target": "com.amazonaws.inspector#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The last time when the assessment run's state changed.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.inspector#AssessmentRunName",
-          "traits": {
-            "smithy.api#documentation": "<p>The auto-generated name for the assessment run.</p>",
             "smithy.api#required": {}
           }
         },
@@ -560,22 +572,10 @@
             "smithy.api#required": {}
           }
         },
-        "completedAt": {
-          "target": "com.amazonaws.inspector#Timestamp",
+        "findingCounts": {
+          "target": "com.amazonaws.inspector#AssessmentRunFindingCounts",
           "traits": {
-            "smithy.api#documentation": "<p>The assessment run completion time that corresponds to the rules packages evaluation\n         completion time or failure.</p>"
-          }
-        },
-        "startedAt": {
-          "target": "com.amazonaws.inspector#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when <a>StartAssessmentRun</a> was called.</p>"
-          }
-        },
-        "assessmentTemplateArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the assessment template that is associated with the assessment\n         run.</p>",
+            "smithy.api#documentation": "<p>Provides a total count of generated findings per severity.</p>",
             "smithy.api#required": {}
           }
         }
@@ -587,10 +587,10 @@
     "com.amazonaws.inspector#AssessmentRunAgent": {
       "type": "structure",
       "members": {
-        "telemetryMetadata": {
-          "target": "com.amazonaws.inspector#TelemetryMetadataList",
+        "agentHealth": {
+          "target": "com.amazonaws.inspector#AgentHealth",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Inspector application data metrics that are collected by the\n         agent.</p>",
+            "smithy.api#documentation": "<p>The current health state of the agent.</p>",
             "smithy.api#required": {}
           }
         },
@@ -600,23 +600,10 @@
             "smithy.api#documentation": "<p>The description for the agent health code.</p>"
           }
         },
-        "autoScalingGroup": {
-          "target": "com.amazonaws.inspector#AutoScalingGroup",
+        "telemetryMetadata": {
+          "target": "com.amazonaws.inspector#TelemetryMetadataList",
           "traits": {
-            "smithy.api#documentation": "<p>The Auto Scaling group of the EC2 instance that is specified by the agent\n         ID.</p>"
-          }
-        },
-        "agentHealthCode": {
-          "target": "com.amazonaws.inspector#AgentHealthCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The detailed health state of the agent.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "agentHealth": {
-          "target": "com.amazonaws.inspector#AgentHealth",
-          "traits": {
-            "smithy.api#documentation": "<p>The current health state of the agent.</p>",
+            "smithy.api#documentation": "<p>The Amazon Inspector application data metrics that are collected by the\n         agent.</p>",
             "smithy.api#required": {}
           }
         },
@@ -632,6 +619,19 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the assessment run that is associated with the agent.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "agentHealthCode": {
+          "target": "com.amazonaws.inspector#AgentHealthCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The detailed health state of the agent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "autoScalingGroup": {
+          "target": "com.amazonaws.inspector#AutoScalingGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>The Auto Scaling group of the EC2 instance that is specified by the agent\n         ID.</p>"
           }
         }
       },
@@ -663,10 +663,10 @@
     "com.amazonaws.inspector#AssessmentRunFilter": {
       "type": "structure",
       "members": {
-        "namePattern": {
-          "target": "com.amazonaws.inspector#NamePattern",
+        "states": {
+          "target": "com.amazonaws.inspector#AssessmentRunStateList",
           "traits": {
-            "smithy.api#documentation": "<p>For a record to match a filter, an explicit value or a string containing a wildcard\n         that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a>\n         data type.</p>"
+            "smithy.api#documentation": "<p>For a record to match a filter, one of the values specified for this data type\n         property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data\n         type.</p>"
           }
         },
         "completionTimeRange": {
@@ -675,10 +675,10 @@
             "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must inclusively match any value between the specified minimum and maximum values\n         of the <b>completedAt</b> property of the <a>AssessmentRun</a> data type.</p>"
           }
         },
-        "durationRange": {
-          "target": "com.amazonaws.inspector#DurationRange",
+        "rulesPackageArns": {
+          "target": "com.amazonaws.inspector#FilterRulesPackageArnList",
           "traits": {
-            "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must inclusively match any value between the specified minimum and maximum values\n         of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.</p>"
+            "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a> data\n         type.</p>"
           }
         },
         "stateChangeTimeRange": {
@@ -687,22 +687,22 @@
             "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must match the <b>stateChangedAt</b> property of the\n            <a>AssessmentRun</a> data type.</p>"
           }
         },
-        "states": {
-          "target": "com.amazonaws.inspector#AssessmentRunStateList",
-          "traits": {
-            "smithy.api#documentation": "<p>For a record to match a filter, one of the values specified for this data type\n         property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data\n         type.</p>"
-          }
-        },
-        "rulesPackageArns": {
-          "target": "com.amazonaws.inspector#FilterRulesPackageArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a> data\n         type.</p>"
-          }
-        },
         "startTimeRange": {
           "target": "com.amazonaws.inspector#TimestampRange",
           "traits": {
             "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must inclusively match any value between the specified minimum and maximum values\n         of the <b>startTime</b> property of the <a>AssessmentRun</a> data type.</p>"
+          }
+        },
+        "namePattern": {
+          "target": "com.amazonaws.inspector#NamePattern",
+          "traits": {
+            "smithy.api#documentation": "<p>For a record to match a filter, an explicit value or a string containing a wildcard\n         that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a>\n         data type.</p>"
+          }
+        },
+        "durationRange": {
+          "target": "com.amazonaws.inspector#DurationRange",
+          "traits": {
+            "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must inclusively match any value between the specified minimum and maximum values\n         of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.</p>"
           }
         }
       },
@@ -734,13 +734,6 @@
     "com.amazonaws.inspector#AssessmentRunInProgressException": {
       "type": "structure",
       "members": {
-        "assessmentRunArns": {
-          "target": "com.amazonaws.inspector#AssessmentRunInProgressArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARNs of the assessment runs that are currently in progress.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "assessmentRunArnsTruncated": {
           "target": "com.amazonaws.inspector#Bool",
           "traits": {
@@ -748,10 +741,10 @@
             "smithy.api#required": {}
           }
         },
-        "canRetry": {
-          "target": "com.amazonaws.inspector#Bool",
+        "assessmentRunArns": {
+          "target": "com.amazonaws.inspector#AssessmentRunInProgressArnList",
           "traits": {
-            "smithy.api#documentation": "<p>You can immediately retry your request.</p>",
+            "smithy.api#documentation": "<p>The ARNs of the assessment runs that are currently in progress.</p>",
             "smithy.api#required": {}
           }
         },
@@ -759,6 +752,13 @@
           "target": "com.amazonaws.inspector#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>Details of the exception error.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "canRetry": {
+          "target": "com.amazonaws.inspector#Bool",
+          "traits": {
+            "smithy.api#documentation": "<p>You can immediately retry your request.</p>",
             "smithy.api#required": {}
           }
         }
@@ -792,6 +792,26 @@
     "com.amazonaws.inspector#AssessmentRunNotification": {
       "type": "structure",
       "members": {
+        "date": {
+          "target": "com.amazonaws.inspector#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date of the notification.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "snsPublishStatusCode": {
+          "target": "com.amazonaws.inspector#AssessmentRunNotificationSnsStatusCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The status code of the SNS notification.</p>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.inspector#Bool",
+          "traits": {
+            "smithy.api#documentation": "<p>The Boolean value that specifies whether the notification represents an\n         error.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "message": {
           "target": "com.amazonaws.inspector#Message",
           "traits": {
@@ -805,30 +825,10 @@
             "smithy.api#required": {}
           }
         },
-        "error": {
-          "target": "com.amazonaws.inspector#Bool",
-          "traits": {
-            "smithy.api#documentation": "<p>The Boolean value that specifies whether the notification represents an\n         error.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "snsTopicArn": {
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The SNS topic to which the SNS notification is sent.</p>"
-          }
-        },
-        "snsPublishStatusCode": {
-          "target": "com.amazonaws.inspector#AssessmentRunNotificationSnsStatusCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The status code of the SNS notification.</p>"
-          }
-        },
-        "date": {
-          "target": "com.amazonaws.inspector#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date of the notification.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -933,17 +933,17 @@
     "com.amazonaws.inspector#AssessmentRunStateChange": {
       "type": "structure",
       "members": {
-        "state": {
-          "target": "com.amazonaws.inspector#AssessmentRunState",
-          "traits": {
-            "smithy.api#documentation": "<p>The assessment run state.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "stateChangedAt": {
           "target": "com.amazonaws.inspector#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The last time the assessment run state changed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.inspector#AssessmentRunState",
+          "traits": {
+            "smithy.api#documentation": "<p>The assessment run state.</p>",
             "smithy.api#required": {}
           }
         }
@@ -979,13 +979,6 @@
     "com.amazonaws.inspector#AssessmentTarget": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN that specifies the Amazon Inspector assessment target.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "createdAt": {
           "target": "com.amazonaws.inspector#Timestamp",
           "traits": {
@@ -993,10 +986,18 @@
             "smithy.api#required": {}
           }
         },
-        "resourceGroupArn": {
+        "updatedAt": {
+          "target": "com.amazonaws.inspector#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which <a>UpdateAssessmentTarget</a> is called.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "arn": {
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN that specifies the resource group that is associated with the assessment\n         target.</p>"
+            "smithy.api#documentation": "<p>The ARN that specifies the Amazon Inspector assessment target.</p>",
+            "smithy.api#required": {}
           }
         },
         "name": {
@@ -1006,11 +1007,10 @@
             "smithy.api#required": {}
           }
         },
-        "updatedAt": {
-          "target": "com.amazonaws.inspector#Timestamp",
+        "resourceGroupArn": {
+          "target": "com.amazonaws.inspector#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which <a>UpdateAssessmentTarget</a> is called.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The ARN that specifies the resource group that is associated with the assessment\n         target.</p>"
           }
         }
       },
@@ -1056,33 +1056,6 @@
     "com.amazonaws.inspector#AssessmentTemplate": {
       "type": "structure",
       "members": {
-        "createdAt": {
-          "target": "com.amazonaws.inspector#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time at which the assessment template is created.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "lastAssessmentRunArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the most recent assessment run associated with this\n         assessment template. This value exists only when the value of assessmentRunCount is\n         greaterpa than zero.</p>"
-          }
-        },
-        "assessmentTargetArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the assessment target that corresponds to this assessment\n         template.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the assessment template.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.inspector#AssessmentTemplateName",
           "traits": {
@@ -1090,17 +1063,10 @@
             "smithy.api#required": {}
           }
         },
-        "rulesPackageArns": {
-          "target": "com.amazonaws.inspector#AssessmentTemplateRulesPackageArnList",
+        "userAttributesForFindings": {
+          "target": "com.amazonaws.inspector#UserAttributeList",
           "traits": {
-            "smithy.api#documentation": "<p>The rules packages that are specified for this assessment template.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assessmentRunCount": {
-          "target": "com.amazonaws.inspector#ArnCount",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of existing assessment runs associated with this assessment template. This\n         value can be zero or a positive integer.</p>",
+            "smithy.api#documentation": "<p>The user-defined attributes that are assigned to every generated finding from the\n         assessment run that uses this assessment template.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1111,10 +1077,44 @@
             "smithy.api#required": {}
           }
         },
-        "userAttributesForFindings": {
-          "target": "com.amazonaws.inspector#UserAttributeList",
+        "createdAt": {
+          "target": "com.amazonaws.inspector#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The user-defined attributes that are assigned to every generated finding from the\n         assessment run that uses this assessment template.</p>",
+            "smithy.api#documentation": "<p>The time at which the assessment template is created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the assessment template.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastAssessmentRunArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the most recent assessment run associated with this\n         assessment template. This value exists only when the value of assessmentRunCount is\n         greaterpa than zero.</p>"
+          }
+        },
+        "rulesPackageArns": {
+          "target": "com.amazonaws.inspector#AssessmentTemplateRulesPackageArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The rules packages that are specified for this assessment template.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assessmentTargetArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the assessment target that corresponds to this assessment\n         template.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assessmentRunCount": {
+          "target": "com.amazonaws.inspector#ArnCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of existing assessment runs associated with this assessment template. This\n         value can be zero or a positive integer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1126,6 +1126,12 @@
     "com.amazonaws.inspector#AssessmentTemplateFilter": {
       "type": "structure",
       "members": {
+        "durationRange": {
+          "target": "com.amazonaws.inspector#DurationRange",
+          "traits": {
+            "smithy.api#documentation": "<p>For a record to match a filter, the value specified for this data type property must\n         inclusively match any value between the specified minimum and maximum values of the\n            <b>durationInSeconds</b> property of the <a>AssessmentTemplate</a> data type.</p>"
+          }
+        },
         "namePattern": {
           "target": "com.amazonaws.inspector#NamePattern",
           "traits": {
@@ -1136,12 +1142,6 @@
           "target": "com.amazonaws.inspector#FilterRulesPackageArnList",
           "traits": {
             "smithy.api#documentation": "<p>For a record to match a filter, the values that are specified for this data type\n         property must be contained in the list of values of the <b>rulesPackageArns</b> property of the <a>AssessmentTemplate</a> data\n         type.</p>"
-          }
-        },
-        "durationRange": {
-          "target": "com.amazonaws.inspector#DurationRange",
-          "traits": {
-            "smithy.api#documentation": "<p>For a record to match a filter, the value specified for this data type property must\n         inclusively match any value between the specified minimum and maximum values of the\n            <b>durationInSeconds</b> property of the <a>AssessmentTemplate</a> data type.</p>"
           }
         }
       },
@@ -1185,10 +1185,35 @@
     "com.amazonaws.inspector#AssetAttributes": {
       "type": "structure",
       "members": {
-        "amiId": {
-          "target": "com.amazonaws.inspector#AmiId",
+        "tags": {
+          "target": "com.amazonaws.inspector#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where\n         the finding is generated.</p>"
+            "smithy.api#documentation": "<p>The tags related to the EC2 instance where the finding is generated.</p>"
+          }
+        },
+        "schemaVersion": {
+          "target": "com.amazonaws.inspector#NumericVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The schema version of this data type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "hostname": {
+          "target": "com.amazonaws.inspector#Hostname",
+          "traits": {
+            "smithy.api#documentation": "<p>The hostname of the EC2 instance where the finding is generated.</p>"
+          }
+        },
+        "ipv4Addresses": {
+          "target": "com.amazonaws.inspector#Ipv4AddressList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of IP v4 addresses of the EC2 instance where the finding is\n         generated.</p>"
+          }
+        },
+        "autoScalingGroup": {
+          "target": "com.amazonaws.inspector#AutoScalingGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>The Auto Scaling group of the EC2 instance where the finding is generated.</p>"
           }
         },
         "agentId": {
@@ -1203,35 +1228,10 @@
             "smithy.api#documentation": "<p>An array of the network interfaces interacting with the EC2 instance where the\n         finding is generated.</p>"
           }
         },
-        "ipv4Addresses": {
-          "target": "com.amazonaws.inspector#Ipv4AddressList",
+        "amiId": {
+          "target": "com.amazonaws.inspector#AmiId",
           "traits": {
-            "smithy.api#documentation": "<p>The list of IP v4 addresses of the EC2 instance where the finding is\n         generated.</p>"
-          }
-        },
-        "schemaVersion": {
-          "target": "com.amazonaws.inspector#NumericVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The schema version of this data type.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.inspector#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags related to the EC2 instance where the finding is generated.</p>"
-          }
-        },
-        "autoScalingGroup": {
-          "target": "com.amazonaws.inspector#AutoScalingGroup",
-          "traits": {
-            "smithy.api#documentation": "<p>The Auto Scaling group of the EC2 instance where the finding is generated.</p>"
-          }
-        },
-        "hostname": {
-          "target": "com.amazonaws.inspector#Hostname",
-          "traits": {
-            "smithy.api#documentation": "<p>The hostname of the EC2 instance where the finding is generated.</p>"
+            "smithy.api#documentation": "<p>The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where\n         the finding is generated.</p>"
           }
         }
       },
@@ -1253,17 +1253,17 @@
     "com.amazonaws.inspector#Attribute": {
       "type": "structure",
       "members": {
+        "value": {
+          "target": "com.amazonaws.inspector#AttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value assigned to the attribute key.</p>"
+          }
+        },
         "key": {
           "target": "com.amazonaws.inspector#AttributeKey",
           "traits": {
             "smithy.api#documentation": "<p>The attribute key.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "value": {
-          "target": "com.amazonaws.inspector#AttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value assigned to the attribute key.</p>"
           }
         }
       },
@@ -1452,10 +1452,10 @@
     "com.amazonaws.inspector#CreateAssessmentTemplateRequest": {
       "type": "structure",
       "members": {
-        "assessmentTemplateName": {
-          "target": "com.amazonaws.inspector#AssessmentTemplateName",
+        "assessmentTargetArn": {
+          "target": "com.amazonaws.inspector#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The user-defined name that identifies the assessment template that you want to\n         create. You can create several assessment templates for an assessment target. The names of\n         the assessment templates that correspond to a particular assessment target must be\n         unique.</p>",
+            "smithy.api#documentation": "<p>The ARN that specifies the assessment target for which you want to create the\n         assessment template.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1472,17 +1472,17 @@
             "smithy.api#documentation": "<p>The user-defined attributes that are assigned to every finding that is generated by\n         the assessment run that uses this assessment template. An attribute is a key and value pair\n         (an <a>Attribute</a> object). Within an assessment template, each key must be\n         unique.</p>"
           }
         },
+        "assessmentTemplateName": {
+          "target": "com.amazonaws.inspector#AssessmentTemplateName",
+          "traits": {
+            "smithy.api#documentation": "<p>The user-defined name that identifies the assessment template that you want to\n         create. You can create several assessment templates for an assessment target. The names of\n         the assessment templates that correspond to a particular assessment target must be\n         unique.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "rulesPackageArns": {
           "target": "com.amazonaws.inspector#AssessmentTemplateRulesPackageArnList",
           "traits": {
             "smithy.api#documentation": "<p>The ARNs that specify the rules packages that you want to attach to the assessment\n         template.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assessmentTargetArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN that specifies the assessment target for which you want to create the\n         assessment template.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1767,17 +1767,17 @@
     "com.amazonaws.inspector#DescribeAssessmentRunsResponse": {
       "type": "structure",
       "members": {
-        "failedItems": {
-          "target": "com.amazonaws.inspector#FailedItems",
-          "traits": {
-            "smithy.api#documentation": "<p>Assessment run details that cannot be described. An error code is provided for each\n         failed item.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "assessmentRuns": {
           "target": "com.amazonaws.inspector#AssessmentRunList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the assessment run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "failedItems": {
+          "target": "com.amazonaws.inspector#FailedItems",
+          "traits": {
+            "smithy.api#documentation": "<p>Assessment run details that cannot be described. An error code is provided for each\n         failed item.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1868,17 +1868,17 @@
     "com.amazonaws.inspector#DescribeAssessmentTemplatesResponse": {
       "type": "structure",
       "members": {
-        "failedItems": {
-          "target": "com.amazonaws.inspector#FailedItems",
-          "traits": {
-            "smithy.api#documentation": "<p>Assessment template details that cannot be described. An error code is provided for\n         each failed item.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "assessmentTemplates": {
           "target": "com.amazonaws.inspector#AssessmentTemplateList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the assessment templates.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "failedItems": {
+          "target": "com.amazonaws.inspector#FailedItems",
+          "traits": {
+            "smithy.api#documentation": "<p>Assessment template details that cannot be described. An error code is provided for\n         each failed item.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1901,17 +1901,17 @@
     "com.amazonaws.inspector#DescribeCrossAccountAccessRoleResponse": {
       "type": "structure",
       "members": {
-        "registeredAt": {
-          "target": "com.amazonaws.inspector#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date when the cross-account access role was registered.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "roleArn": {
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS\n         account.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "registeredAt": {
+          "target": "com.amazonaws.inspector#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date when the cross-account access role was registered.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1947,17 +1947,17 @@
     "com.amazonaws.inspector#DescribeExclusionsRequest": {
       "type": "structure",
       "members": {
-        "locale": {
-          "target": "com.amazonaws.inspector#Locale",
-          "traits": {
-            "smithy.api#documentation": "<p>The locale into which you want to translate the exclusion's title, description, and\n         recommendation.</p>"
-          }
-        },
         "exclusionArns": {
           "target": "com.amazonaws.inspector#BatchDescribeExclusionsArnList",
           "traits": {
             "smithy.api#documentation": "<p>The list of ARNs that specify the exclusions that you want to describe.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "locale": {
+          "target": "com.amazonaws.inspector#Locale",
+          "traits": {
+            "smithy.api#documentation": "<p>The locale into which you want to translate the exclusion's title, description, and\n         recommendation.</p>"
           }
         }
       }
@@ -1965,17 +1965,17 @@
     "com.amazonaws.inspector#DescribeExclusionsResponse": {
       "type": "structure",
       "members": {
-        "exclusions": {
-          "target": "com.amazonaws.inspector#ExclusionMap",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the exclusions.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "failedItems": {
           "target": "com.amazonaws.inspector#FailedItems",
           "traits": {
             "smithy.api#documentation": "<p>Exclusion details that cannot be described. An error code is provided for each failed\n         item.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "exclusions": {
+          "target": "com.amazonaws.inspector#ExclusionMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the exclusions.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2112,17 +2112,17 @@
     "com.amazonaws.inspector#DescribeRulesPackagesRequest": {
       "type": "structure",
       "members": {
-        "locale": {
-          "target": "com.amazonaws.inspector#Locale",
-          "traits": {
-            "smithy.api#documentation": "<p>The locale that you want to translate a rules package description into.</p>"
-          }
-        },
         "rulesPackageArns": {
           "target": "com.amazonaws.inspector#BatchDescribeArnList",
           "traits": {
             "smithy.api#documentation": "<p>The ARN that specifies the rules package that you want to describe.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "locale": {
+          "target": "com.amazonaws.inspector#Locale",
+          "traits": {
+            "smithy.api#documentation": "<p>The locale that you want to translate a rules package description into.</p>"
           }
         }
       }
@@ -2130,17 +2130,17 @@
     "com.amazonaws.inspector#DescribeRulesPackagesResponse": {
       "type": "structure",
       "members": {
-        "rulesPackages": {
-          "target": "com.amazonaws.inspector#RulesPackageList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the rules package.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "failedItems": {
           "target": "com.amazonaws.inspector#FailedItems",
           "traits": {
             "smithy.api#documentation": "<p>Rules package details that cannot be described. An error code is provided for each\n         failed item.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "rulesPackages": {
+          "target": "com.amazonaws.inspector#RulesPackageList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the rules package.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2149,16 +2149,16 @@
     "com.amazonaws.inspector#DurationRange": {
       "type": "structure",
       "members": {
-        "maxSeconds": {
-          "target": "com.amazonaws.inspector#AssessmentRunDuration",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum value of the duration range. Must be less than or equal to 604800 seconds\n         (1 week).</p>"
-          }
-        },
         "minSeconds": {
           "target": "com.amazonaws.inspector#AssessmentRunDuration",
           "traits": {
             "smithy.api#documentation": "<p>The minimum value of the duration range. Must be greater than zero.</p>"
+          }
+        },
+        "maxSeconds": {
+          "target": "com.amazonaws.inspector#AssessmentRunDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum value of the duration range. Must be less than or equal to 604800 seconds\n         (1 week).</p>"
           }
         }
       },
@@ -2212,10 +2212,10 @@
     "com.amazonaws.inspector#Exclusion": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.inspector#Arn",
+        "description": {
+          "target": "com.amazonaws.inspector#Text",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN that specifies the exclusion.</p>",
+            "smithy.api#documentation": "<p>The description of the exclusion.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2226,17 +2226,16 @@
             "smithy.api#required": {}
           }
         },
+        "attributes": {
+          "target": "com.amazonaws.inspector#AttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The system-defined attributes for the exclusion.</p>"
+          }
+        },
         "recommendation": {
           "target": "com.amazonaws.inspector#Text",
           "traits": {
             "smithy.api#documentation": "<p>The recommendation for the exclusion.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the exclusion.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2247,10 +2246,11 @@
             "smithy.api#required": {}
           }
         },
-        "attributes": {
-          "target": "com.amazonaws.inspector#AttributeList",
+        "arn": {
+          "target": "com.amazonaws.inspector#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The system-defined attributes for the exclusion.</p>"
+            "smithy.api#documentation": "<p>The ARN that specifies the exclusion.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2276,11 +2276,17 @@
     "com.amazonaws.inspector#ExclusionPreview": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.inspector#Text",
+        "scopes": {
+          "target": "com.amazonaws.inspector#ScopeList",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the exclusion preview.</p>",
+            "smithy.api#documentation": "<p>The AWS resources for which the exclusion preview pertains.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "attributes": {
+          "target": "com.amazonaws.inspector#AttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The system-defined attributes for the exclusion preview.</p>"
           }
         },
         "recommendation": {
@@ -2297,17 +2303,11 @@
             "smithy.api#required": {}
           }
         },
-        "scopes": {
-          "target": "com.amazonaws.inspector#ScopeList",
+        "description": {
+          "target": "com.amazonaws.inspector#Text",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS resources for which the exclusion preview pertains.</p>",
+            "smithy.api#documentation": "<p>The description of the exclusion preview.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "attributes": {
-          "target": "com.amazonaws.inspector#AttributeList",
-          "traits": {
-            "smithy.api#documentation": "<p>The system-defined attributes for the exclusion preview.</p>"
           }
         }
       },
@@ -2404,96 +2404,16 @@
     "com.amazonaws.inspector#Finding": {
       "type": "structure",
       "members": {
-        "severity": {
-          "target": "com.amazonaws.inspector#Severity",
-          "traits": {
-            "smithy.api#documentation": "<p>The finding severity. Values can be set to High, Medium, Low, and\n         Informational.</p>"
-          }
-        },
-        "numericSeverity": {
-          "target": "com.amazonaws.inspector#NumericSeverity",
-          "traits": {
-            "smithy.api#documentation": "<p>The numeric value of the finding severity.</p>"
-          }
-        },
-        "schemaVersion": {
-          "target": "com.amazonaws.inspector#NumericVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The schema version of this data type.</p>"
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.inspector#FindingId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the finding.</p>"
-          }
-        },
-        "userAttributes": {
-          "target": "com.amazonaws.inspector#UserAttributeList",
-          "traits": {
-            "smithy.api#documentation": "<p>The user-defined attributes that are assigned to the finding.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "confidence": {
-          "target": "com.amazonaws.inspector#IocConfidence",
-          "traits": {
-            "smithy.api#documentation": "<p>This data element is currently not used.</p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the finding.</p>"
-          }
-        },
-        "recommendation": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The recommendation for the finding.</p>"
-          }
-        },
-        "title": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the finding.</p>"
-          }
-        },
         "assetType": {
           "target": "com.amazonaws.inspector#AssetType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the host from which the finding is generated.</p>"
           }
         },
-        "assetAttributes": {
-          "target": "com.amazonaws.inspector#AssetAttributes",
+        "title": {
+          "target": "com.amazonaws.inspector#Text",
           "traits": {
-            "smithy.api#documentation": "<p>A collection of attributes of the host from which the finding is generated.</p>"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.inspector#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the finding was generated.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "service": {
-          "target": "com.amazonaws.inspector#ServiceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The data element is set to \"Inspector\".</p>"
-          }
-        },
-        "indicatorOfCompromise": {
-          "target": "com.amazonaws.inspector#Bool",
-          "traits": {
-            "smithy.api#documentation": "<p>This data element is currently not used.</p>"
-          }
-        },
-        "serviceAttributes": {
-          "target": "com.amazonaws.inspector#InspectorServiceAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>This data type is used in the <a>Finding</a> data type.</p>"
+            "smithy.api#documentation": "<p>The name of the finding.</p>"
           }
         },
         "attributes": {
@@ -2503,11 +2423,48 @@
             "smithy.api#required": {}
           }
         },
-        "arn": {
-          "target": "com.amazonaws.inspector#Arn",
+        "numericSeverity": {
+          "target": "com.amazonaws.inspector#NumericSeverity",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN that specifies the finding.</p>",
+            "smithy.api#documentation": "<p>The numeric value of the finding severity.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the finding.</p>"
+          }
+        },
+        "userAttributes": {
+          "target": "com.amazonaws.inspector#UserAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The user-defined attributes that are assigned to the finding.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "recommendation": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommendation for the finding.</p>"
+          }
+        },
+        "schemaVersion": {
+          "target": "com.amazonaws.inspector#NumericVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The schema version of this data type.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.inspector#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the finding was generated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "serviceAttributes": {
+          "target": "com.amazonaws.inspector#InspectorServiceAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>This data type is used in the <a>Finding</a> data type.</p>"
           }
         },
         "updatedAt": {
@@ -2515,6 +2472,49 @@
           "traits": {
             "smithy.api#documentation": "<p>The time when <a>AddAttributesToFindings</a> is called.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "confidence": {
+          "target": "com.amazonaws.inspector#IocConfidence",
+          "traits": {
+            "smithy.api#documentation": "<p>This data element is currently not used.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN that specifies the finding.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetAttributes": {
+          "target": "com.amazonaws.inspector#AssetAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>A collection of attributes of the host from which the finding is generated.</p>"
+          }
+        },
+        "indicatorOfCompromise": {
+          "target": "com.amazonaws.inspector#Bool",
+          "traits": {
+            "smithy.api#documentation": "<p>This data element is currently not used.</p>"
+          }
+        },
+        "service": {
+          "target": "com.amazonaws.inspector#ServiceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The data element is set to \"Inspector\".</p>"
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.inspector#FindingId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the finding.</p>"
+          }
+        },
+        "severity": {
+          "target": "com.amazonaws.inspector#Severity",
+          "traits": {
+            "smithy.api#documentation": "<p>The finding severity. Values can be set to High, Medium, Low, and\n         Informational.</p>"
           }
         }
       },
@@ -2531,18 +2531,6 @@
     "com.amazonaws.inspector#FindingFilter": {
       "type": "structure",
       "members": {
-        "creationTimeRange": {
-          "target": "com.amazonaws.inspector#TimestampRange",
-          "traits": {
-            "smithy.api#documentation": "<p>The time range during which the finding is generated.</p>"
-          }
-        },
-        "userAttributes": {
-          "target": "com.amazonaws.inspector#AttributeList",
-          "traits": {
-            "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data\n         type.</p>"
-          }
-        },
         "ruleNames": {
           "target": "com.amazonaws.inspector#RuleNameList",
           "traits": {
@@ -2553,12 +2541,6 @@
           "target": "com.amazonaws.inspector#AutoScalingGroupList",
           "traits": {
             "smithy.api#documentation": "<p>For a record to match a filter, one of the values that is specified for this data\n         type property must be the exact match of the value of the <b>autoScalingGroup</b> property of the <a>Finding</a> data\n         type.</p>"
-          }
-        },
-        "severities": {
-          "target": "com.amazonaws.inspector#SeverityList",
-          "traits": {
-            "smithy.api#documentation": "<p>For a record to match a filter, one of the values that is specified for this data\n         type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>"
           }
         },
         "agentIds": {
@@ -2577,6 +2559,24 @@
           "target": "com.amazonaws.inspector#FilterRulesPackageArnList",
           "traits": {
             "smithy.api#documentation": "<p>For a record to match a filter, one of the values that is specified for this data\n         type property must be the exact match of the value of the <b>rulesPackageArn</b> property of the <a>Finding</a> data\n         type.</p>"
+          }
+        },
+        "creationTimeRange": {
+          "target": "com.amazonaws.inspector#TimestampRange",
+          "traits": {
+            "smithy.api#documentation": "<p>The time range during which the finding is generated.</p>"
+          }
+        },
+        "userAttributes": {
+          "target": "com.amazonaws.inspector#AttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>For a record to match a filter, the value that is specified for this data type\n         property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data\n         type.</p>"
+          }
+        },
+        "severities": {
+          "target": "com.amazonaws.inspector#SeverityList",
+          "traits": {
+            "smithy.api#documentation": "<p>For a record to match a filter, one of the values that is specified for this data\n         type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>"
           }
         }
       },
@@ -2643,17 +2643,17 @@
     "com.amazonaws.inspector#GetAssessmentReportRequest": {
       "type": "structure",
       "members": {
-        "reportType": {
-          "target": "com.amazonaws.inspector#ReportType",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the type of the assessment report that you want to generate. There are two\n         types of assessment reports: a finding report and a full report. For more information, see\n            <a href=\"https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html\">Assessment Reports</a>. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "assessmentRunArn": {
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN that specifies the assessment run for which you want to generate a\n         report.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "reportType": {
+          "target": "com.amazonaws.inspector#ReportType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the type of the assessment report that you want to generate. There are two\n         types of assessment reports: a finding report and a full report. For more information, see\n            <a href=\"https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html\">Assessment Reports</a>. </p>",
             "smithy.api#required": {}
           }
         },
@@ -2669,17 +2669,17 @@
     "com.amazonaws.inspector#GetAssessmentReportResponse": {
       "type": "structure",
       "members": {
-        "url": {
-          "target": "com.amazonaws.inspector#Url",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the URL where you can find the generated assessment report. This parameter\n         is only returned if the report is successfully generated.</p>"
-          }
-        },
         "status": {
           "target": "com.amazonaws.inspector#ReportStatus",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the status of the request to generate an assessment report. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "url": {
+          "target": "com.amazonaws.inspector#Url",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the URL where you can find the generated assessment report. This parameter\n         is only returned if the report is successfully generated.</p>"
           }
         }
       }
@@ -2718,10 +2718,23 @@
     "com.amazonaws.inspector#GetExclusionsPreviewRequest": {
       "type": "structure",
       "members": {
+        "assessmentTemplateArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN that specifies the assessment template for which the exclusions preview was\n         requested.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "maxResults": {
           "target": "com.amazonaws.inspector#ListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>You can use this parameter to indicate the maximum number of items you want in the\n         response. The default value is 100. The maximum value is 500.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.inspector#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the GetExclusionsPreviewRequest action. Subsequent calls to\n         the action fill nextToken in the request with the value of nextToken from the previous\n         response to continue listing data.</p>"
           }
         },
         "previewToken": {
@@ -2736,29 +2749,17 @@
           "traits": {
             "smithy.api#documentation": "<p>The locale into which you want to translate the exclusion's title, description, and\n         recommendation.</p>"
           }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.inspector#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the GetExclusionsPreviewRequest action. Subsequent calls to\n         the action fill nextToken in the request with the value of nextToken from the previous\n         response to continue listing data.</p>"
-          }
-        },
-        "assessmentTemplateArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN that specifies the assessment template for which the exclusions preview was\n         requested.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.inspector#GetExclusionsPreviewResponse": {
       "type": "structure",
       "members": {
-        "exclusionPreviews": {
-          "target": "com.amazonaws.inspector#ExclusionPreviewList",
+        "previewStatus": {
+          "target": "com.amazonaws.inspector#PreviewStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the exclusions included in the preview.</p>"
+            "smithy.api#documentation": "<p>Specifies the status of the request to generate an exclusions preview.</p>",
+            "smithy.api#required": {}
           }
         },
         "nextToken": {
@@ -2767,11 +2768,10 @@
             "smithy.api#documentation": "<p>When a response is generated, if there is more data to be listed, this parameters is\n         present in the response and contains the value to use for the nextToken parameter in a\n         subsequent pagination request. If there is no more data to be listed, this parameter is set\n         to null.</p>"
           }
         },
-        "previewStatus": {
-          "target": "com.amazonaws.inspector#PreviewStatus",
+        "exclusionPreviews": {
+          "target": "com.amazonaws.inspector#ExclusionPreviewList",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the status of the request to generate an exclusions preview.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Information about the exclusions included in the preview.</p>"
           }
         }
       }
@@ -2996,6 +2996,12 @@
     "com.amazonaws.inspector#InspectorServiceAttributes": {
       "type": "structure",
       "members": {
+        "assessmentRunArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the assessment run during which the finding is generated.</p>"
+          }
+        },
         "schemaVersion": {
           "target": "com.amazonaws.inspector#NumericVersion",
           "traits": {
@@ -3007,12 +3013,6 @@
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the rules package that is used to generate the finding.</p>"
-          }
-        },
-        "assessmentRunArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the assessment run during which the finding is generated.</p>"
           }
         }
       },
@@ -3061,13 +3061,6 @@
     "com.amazonaws.inspector#InvalidCrossAccountRoleException": {
       "type": "structure",
       "members": {
-        "errorCode": {
-          "target": "com.amazonaws.inspector#InvalidCrossAccountRoleErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>Code that indicates the type of error that is generated.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "canRetry": {
           "target": "com.amazonaws.inspector#Bool",
           "traits": {
@@ -3079,6 +3072,13 @@
           "target": "com.amazonaws.inspector#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>Details of the exception error.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "errorCode": {
+          "target": "com.amazonaws.inspector#InvalidCrossAccountRoleErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Code that indicates the type of error that is generated.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3314,17 +3314,17 @@
     "com.amazonaws.inspector#InvalidInputException": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "com.amazonaws.inspector#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>Details of the exception error.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "canRetry": {
           "target": "com.amazonaws.inspector#Bool",
           "traits": {
             "smithy.api#documentation": "<p>You can immediately retry your request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.inspector#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>Details of the exception error.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3416,6 +3416,13 @@
     "com.amazonaws.inspector#LimitExceededException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.inspector#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>Details of the exception error.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "errorCode": {
           "target": "com.amazonaws.inspector#LimitExceededErrorCode",
           "traits": {
@@ -3427,13 +3434,6 @@
           "target": "com.amazonaws.inspector#Bool",
           "traits": {
             "smithy.api#documentation": "<p>You can immediately retry your request.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "message": {
-          "target": "com.amazonaws.inspector#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>Details of the exception error.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3477,10 +3477,10 @@
     "com.amazonaws.inspector#ListAssessmentRunAgentsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.inspector#ListMaxResults",
+        "filter": {
+          "target": "com.amazonaws.inspector#AgentFilter",
           "traits": {
-            "smithy.api#documentation": "<p>You can use this parameter to indicate the maximum number of items that you want in\n         the response. The default value is 10. The maximum value is 500.</p>"
+            "smithy.api#documentation": "<p>You can use this parameter to specify a subset of data to be included in the action's\n         response.</p>\n         <p>For a record to match a filter, all specified filter attributes must match. When\n         multiple values are specified for a filter attribute, any of the values can\n         match.</p>"
           }
         },
         "assessmentRunArn": {
@@ -3490,10 +3490,10 @@
             "smithy.api#required": {}
           }
         },
-        "filter": {
-          "target": "com.amazonaws.inspector#AgentFilter",
+        "maxResults": {
+          "target": "com.amazonaws.inspector#ListMaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>You can use this parameter to specify a subset of data to be included in the action's\n         response.</p>\n         <p>For a record to match a filter, all specified filter attributes must match. When\n         multiple values are specified for a filter attribute, any of the values can\n         match.</p>"
+            "smithy.api#documentation": "<p>You can use this parameter to indicate the maximum number of items that you want in\n         the response. The default value is 10. The maximum value is 500.</p>"
           }
         },
         "nextToken": {
@@ -3556,6 +3556,12 @@
     "com.amazonaws.inspector#ListAssessmentRunsRequest": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.inspector#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the <b>ListAssessmentRuns</b>\n         action. Subsequent calls to the action fill <b>nextToken</b> in\n         the request with the value of <b>NextToken</b> from the previous\n         response to continue listing data.</p>"
+          }
+        },
         "assessmentTemplateArns": {
           "target": "com.amazonaws.inspector#ListParentArnList",
           "traits": {
@@ -3566,12 +3572,6 @@
           "target": "com.amazonaws.inspector#ListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>You can use this parameter to indicate the maximum number of items that you want in\n         the response. The default value is 10. The maximum value is 500.</p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.inspector#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the <b>ListAssessmentRuns</b>\n         action. Subsequent calls to the action fill <b>nextToken</b> in\n         the request with the value of <b>NextToken</b> from the previous\n         response to continue listing data.</p>"
           }
         },
         "filter": {
@@ -3585,17 +3585,17 @@
     "com.amazonaws.inspector#ListAssessmentRunsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.inspector#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p> When a response is generated, if there is more data to be listed, this parameter is\n         present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more\n         data to be listed, this parameter is set to null.</p>"
-          }
-        },
         "assessmentRunArns": {
           "target": "com.amazonaws.inspector#ListReturnedArnList",
           "traits": {
             "smithy.api#documentation": "<p>A list of ARNs that specifies the assessment runs that are returned by the\n         action.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.inspector#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p> When a response is generated, if there is more data to be listed, this parameter is\n         present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more\n         data to be listed, this parameter is set to null.</p>"
           }
         }
       }
@@ -3631,10 +3631,10 @@
     "com.amazonaws.inspector#ListAssessmentTargetsRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.inspector#PaginationToken",
+        "filter": {
+          "target": "com.amazonaws.inspector#AssessmentTargetFilter",
           "traits": {
-            "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the <b>ListAssessmentTargets</b>\n         action. Subsequent calls to the action fill <b>nextToken</b> in\n         the request with the value of <b>NextToken</b> from the previous\n         response to continue listing data.</p>"
+            "smithy.api#documentation": "<p>You can use this parameter to specify a subset of data to be included in the action's\n         response.</p>\n         <p>For a record to match a filter, all specified filter attributes must match. When\n         multiple values are specified for a filter attribute, any of the values can\n         match.</p>"
           }
         },
         "maxResults": {
@@ -3643,10 +3643,10 @@
             "smithy.api#documentation": "<p>You can use this parameter to indicate the maximum number of items you want in the\n         response. The default value is 10. The maximum value is 500.</p>"
           }
         },
-        "filter": {
-          "target": "com.amazonaws.inspector#AssessmentTargetFilter",
+        "nextToken": {
+          "target": "com.amazonaws.inspector#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>You can use this parameter to specify a subset of data to be included in the action's\n         response.</p>\n         <p>For a record to match a filter, all specified filter attributes must match. When\n         multiple values are specified for a filter attribute, any of the values can\n         match.</p>"
+            "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the <b>ListAssessmentTargets</b>\n         action. Subsequent calls to the action fill <b>nextToken</b> in\n         the request with the value of <b>NextToken</b> from the previous\n         response to continue listing data.</p>"
           }
         }
       }
@@ -3709,12 +3709,6 @@
             "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the <b>ListAssessmentTemplates</b>\n         action. Subsequent calls to the action fill <b>nextToken</b> in\n         the request with the value of <b>NextToken</b> from the previous\n         response to continue listing data.</p>"
           }
         },
-        "assessmentTargetArns": {
-          "target": "com.amazonaws.inspector#ListParentArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of ARNs that specifies the assessment targets whose assessment templates you\n         want to list.</p>"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.inspector#ListMaxResults",
           "traits": {
@@ -3726,23 +3720,29 @@
           "traits": {
             "smithy.api#documentation": "<p>You can use this parameter to specify a subset of data to be included in the action's\n         response.</p>\n         <p>For a record to match a filter, all specified filter attributes must match. When\n         multiple values are specified for a filter attribute, any of the values can\n         match.</p>"
           }
+        },
+        "assessmentTargetArns": {
+          "target": "com.amazonaws.inspector#ListParentArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of ARNs that specifies the assessment targets whose assessment templates you\n         want to list.</p>"
+          }
         }
       }
     },
     "com.amazonaws.inspector#ListAssessmentTemplatesResponse": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.inspector#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p> When a response is generated, if there is more data to be listed, this parameter is\n         present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more\n         data to be listed, this parameter is set to null.</p>"
+          }
+        },
         "assessmentTemplateArns": {
           "target": "com.amazonaws.inspector#ListReturnedArnList",
           "traits": {
             "smithy.api#documentation": "<p>A list of ARNs that specifies the assessment templates returned by the\n         action.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.inspector#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p> When a response is generated, if there is more data to be listed, this parameter is\n         present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more\n         data to be listed, this parameter is set to null.</p>"
           }
         }
       }
@@ -3859,12 +3859,6 @@
     "com.amazonaws.inspector#ListExclusionsRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.inspector#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the ListExclusionsRequest action. Subsequent calls to the\n         action fill nextToken in the request with the value of nextToken from the previous response\n         to continue listing data.</p>"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.inspector#ListMaxResults",
           "traits": {
@@ -3877,23 +3871,29 @@
             "smithy.api#documentation": "<p>The ARN of the assessment run that generated the exclusions that you want to\n         list.</p>",
             "smithy.api#required": {}
           }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.inspector#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the ListExclusionsRequest action. Subsequent calls to the\n         action fill nextToken in the request with the value of nextToken from the previous response\n         to continue listing data.</p>"
+          }
         }
       }
     },
     "com.amazonaws.inspector#ListExclusionsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.inspector#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>When a response is generated, if there is more data to be listed, this parameters is\n         present in the response and contains the value to use for the nextToken parameter in a\n         subsequent pagination request. If there is no more data to be listed, this parameter is set\n         to null.</p>"
-          }
-        },
         "exclusionArns": {
           "target": "com.amazonaws.inspector#ListReturnedArnList",
           "traits": {
             "smithy.api#documentation": "<p>A list of exclusions' ARNs returned by the action.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.inspector#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>When a response is generated, if there is more data to be listed, this parameters is\n         present in the response and contains the value to use for the nextToken parameter in a\n         subsequent pagination request. If there is no more data to be listed, this parameter is set\n         to null.</p>"
           }
         }
       }
@@ -3932,10 +3932,10 @@
     "com.amazonaws.inspector#ListFindingsRequest": {
       "type": "structure",
       "members": {
-        "assessmentRunArns": {
-          "target": "com.amazonaws.inspector#ListParentArnList",
+        "filter": {
+          "target": "com.amazonaws.inspector#FindingFilter",
           "traits": {
-            "smithy.api#documentation": "<p>The ARNs of the assessment runs that generate the findings that you want to\n         list.</p>"
+            "smithy.api#documentation": "<p>You can use this parameter to specify a subset of data to be included in the action's\n         response.</p>\n         <p>For a record to match a filter, all specified filter attributes must match. When\n         multiple values are specified for a filter attribute, any of the values can\n         match.</p>"
           }
         },
         "maxResults": {
@@ -3950,10 +3950,10 @@
             "smithy.api#documentation": "<p>You can use this parameter when paginating results. Set the value of this parameter\n         to null on your first call to the <b>ListFindings</b> action.\n         Subsequent calls to the action fill <b>nextToken</b> in the\n         request with the value of <b>NextToken</b> from the previous\n         response to continue listing data.</p>"
           }
         },
-        "filter": {
-          "target": "com.amazonaws.inspector#FindingFilter",
+        "assessmentRunArns": {
+          "target": "com.amazonaws.inspector#ListParentArnList",
           "traits": {
-            "smithy.api#documentation": "<p>You can use this parameter to specify a subset of data to be included in the action's\n         response.</p>\n         <p>For a record to match a filter, all specified filter attributes must match. When\n         multiple values are specified for a filter attribute, any of the values can\n         match.</p>"
+            "smithy.api#documentation": "<p>The ARNs of the assessment runs that generate the findings that you want to\n         list.</p>"
           }
         }
       }
@@ -4054,17 +4054,17 @@
     "com.amazonaws.inspector#ListRulesPackagesResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.inspector#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p> When a response is generated, if there is more data to be listed, this parameter is\n         present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more\n         data to be listed, this parameter is set to null.</p>"
-          }
-        },
         "rulesPackageArns": {
           "target": "com.amazonaws.inspector#ListReturnedArnList",
           "traits": {
             "smithy.api#documentation": "<p>The list of ARNs that specifies the rules packages returned by the action.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.inspector#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p> When a response is generated, if there is more data to be listed, this parameter is\n         present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more\n         data to be listed, this parameter is set to null.</p>"
           }
         }
       }
@@ -4166,52 +4166,10 @@
     "com.amazonaws.inspector#NetworkInterface": {
       "type": "structure",
       "members": {
-        "subnetId": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of a subnet associated with the network interface.</p>"
-          }
-        },
-        "networkInterfaceId": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the network interface.</p>"
-          }
-        },
-        "vpcId": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of a VPC associated with the network interface.</p>"
-          }
-        },
-        "privateIpAddresses": {
-          "target": "com.amazonaws.inspector#PrivateIpAddresses",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of the private IP addresses associated with the network interface. Includes\n         the privateDnsName and privateIpAddress.</p>"
-          }
-        },
         "publicDnsName": {
           "target": "com.amazonaws.inspector#Text",
           "traits": {
             "smithy.api#documentation": "<p>The name of a public DNS associated with the network interface.</p>"
-          }
-        },
-        "securityGroups": {
-          "target": "com.amazonaws.inspector#SecurityGroups",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of the security groups associated with the network interface. Includes the\n         groupId and groupName.</p>"
-          }
-        },
-        "privateIpAddress": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The private IP address associated with the network interface.</p>"
-          }
-        },
-        "publicIp": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The public IP address from which the network interface is reachable.</p>"
           }
         },
         "privateDnsName": {
@@ -4220,10 +4178,52 @@
             "smithy.api#documentation": "<p>The name of a private DNS associated with the network interface.</p>"
           }
         },
+        "publicIp": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The public IP address from which the network interface is reachable.</p>"
+          }
+        },
+        "securityGroups": {
+          "target": "com.amazonaws.inspector#SecurityGroups",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the security groups associated with the network interface. Includes the\n         groupId and groupName.</p>"
+          }
+        },
+        "privateIpAddresses": {
+          "target": "com.amazonaws.inspector#PrivateIpAddresses",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the private IP addresses associated with the network interface. Includes\n         the privateDnsName and privateIpAddress.</p>"
+          }
+        },
+        "networkInterfaceId": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the network interface.</p>"
+          }
+        },
+        "subnetId": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of a subnet associated with the network interface.</p>"
+          }
+        },
+        "privateIpAddress": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The private IP address associated with the network interface.</p>"
+          }
+        },
         "ipv6Addresses": {
           "target": "com.amazonaws.inspector#Ipv6Addresses",
           "traits": {
             "smithy.api#documentation": "<p>The IP addresses associated with the network interface.</p>"
+          }
+        },
+        "vpcId": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of a VPC associated with the network interface.</p>"
           }
         }
       },
@@ -4384,13 +4384,6 @@
     "com.amazonaws.inspector#PreviewAgentsRequest": {
       "type": "structure",
       "members": {
-        "previewAgentsArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the assessment target whose agents you want to preview.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.inspector#PaginationToken",
           "traits": {
@@ -4401,6 +4394,13 @@
           "target": "com.amazonaws.inspector#PreviewAgentsMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>You can use this parameter to indicate the maximum number of items you want in the\n         response. The default value is 10. The maximum value is 500.</p>"
+          }
+        },
+        "previewAgentsArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the assessment target whose agents you want to preview.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -4638,6 +4638,13 @@
     "com.amazonaws.inspector#ResourceGroup": {
       "type": "structure",
       "members": {
+        "arn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the resource group.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "tags": {
           "target": "com.amazonaws.inspector#ResourceGroupTags",
           "traits": {
@@ -4649,13 +4656,6 @@
           "target": "com.amazonaws.inspector#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time at which resource group is created.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the resource group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4733,19 +4733,6 @@
     "com.amazonaws.inspector#RulesPackage": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.inspector#RulesPackageName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the rules package.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the rules package.</p>"
-          }
-        },
         "provider": {
           "target": "com.amazonaws.inspector#ProviderName",
           "traits": {
@@ -4760,11 +4747,24 @@
             "smithy.api#required": {}
           }
         },
+        "name": {
+          "target": "com.amazonaws.inspector#RulesPackageName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the rules package.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "version": {
           "target": "com.amazonaws.inspector#Version",
           "traits": {
             "smithy.api#documentation": "<p>The version ID of the rules package.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the rules package.</p>"
           }
         }
       },
@@ -4796,16 +4796,16 @@
     "com.amazonaws.inspector#Scope": {
       "type": "structure",
       "members": {
-        "value": {
-          "target": "com.amazonaws.inspector#ScopeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The resource identifier for the specified scope type.</p>"
-          }
-        },
         "key": {
           "target": "com.amazonaws.inspector#ScopeType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the scope.</p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.inspector#ScopeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource identifier for the specified scope type.</p>"
           }
         }
       },
@@ -4845,16 +4845,16 @@
     "com.amazonaws.inspector#SecurityGroup": {
       "type": "structure",
       "members": {
-        "groupId": {
-          "target": "com.amazonaws.inspector#Text",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the security group.</p>"
-          }
-        },
         "groupName": {
           "target": "com.amazonaws.inspector#Text",
           "traits": {
             "smithy.api#documentation": "<p>The name of the security group.</p>"
+          }
+        },
+        "groupId": {
+          "target": "com.amazonaws.inspector#Text",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the security group.</p>"
           }
         }
       },
@@ -4930,17 +4930,17 @@
     "com.amazonaws.inspector#SetTagsForResourceRequest": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.inspector#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A collection of key and value pairs that you want to set to the assessment\n         template.</p>"
-          }
-        },
         "resourceArn": {
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the assessment template that you want to set tags to.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.inspector#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A collection of key and value pairs that you want to set to the assessment\n         template.</p>"
           }
         }
       }
@@ -5025,17 +5025,17 @@
     "com.amazonaws.inspector#StartAssessmentRunRequest": {
       "type": "structure",
       "members": {
-        "assessmentRunName": {
-          "target": "com.amazonaws.inspector#AssessmentRunName",
-          "traits": {
-            "smithy.api#documentation": "<p>You can specify the name for the assessment run. The name must be unique for the\n         assessment template whose ARN is used to start the assessment run.</p>"
-          }
-        },
         "assessmentTemplateArn": {
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the assessment template of the assessment run that you want to\n         start.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "assessmentRunName": {
+          "target": "com.amazonaws.inspector#AssessmentRunName",
+          "traits": {
+            "smithy.api#documentation": "<p>You can specify the name for the assessment run. The name must be unique for the\n         assessment template whose ARN is used to start the assessment run.</p>"
           }
         }
       }
@@ -5096,17 +5096,17 @@
     "com.amazonaws.inspector#StopAssessmentRunRequest": {
       "type": "structure",
       "members": {
+        "stopAction": {
+          "target": "com.amazonaws.inspector#StopAction",
+          "traits": {
+            "smithy.api#documentation": "<p>An input option that can be set to either START_EVALUATION or SKIP_EVALUATION.\n         START_EVALUATION (the default value), stops the AWS agent from collecting data and begins\n         the results evaluation and the findings generation process. SKIP_EVALUATION cancels the\n         assessment run immediately, after which no findings are generated.</p>"
+          }
+        },
         "assessmentRunArn": {
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the assessment run that you want to stop.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "stopAction": {
-          "target": "com.amazonaws.inspector#StopAction",
-          "traits": {
-            "smithy.api#documentation": "<p>An input option that can be set to either START_EVALUATION or SKIP_EVALUATION.\n         START_EVALUATION (the default value), stops the AWS agent from collecting data and begins\n         the results evaluation and the findings generation process. SKIP_EVALUATION cancels the\n         assessment run immediately, after which no findings are generated.</p>"
           }
         }
       }
@@ -5143,13 +5143,6 @@
     "com.amazonaws.inspector#SubscribeToEventRequest": {
       "type": "structure",
       "members": {
-        "resourceArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the assessment template that is used during the event for which you want\n         to receive SNS notifications.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "event": {
           "target": "com.amazonaws.inspector#InspectorEvent",
           "traits": {
@@ -5163,19 +5156,19 @@
             "smithy.api#documentation": "<p>The ARN of the SNS topic to which the SNS notifications are sent.</p>",
             "smithy.api#required": {}
           }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the assessment template that is used during the event for which you want\n         to receive SNS notifications.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.inspector#Subscription": {
       "type": "structure",
       "members": {
-        "resourceArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the assessment template that is used during the event for which the SNS\n         notification is sent.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "topicArn": {
           "target": "com.amazonaws.inspector#Arn",
           "traits": {
@@ -5187,6 +5180,13 @@
           "target": "com.amazonaws.inspector#EventSubscriptionList",
           "traits": {
             "smithy.api#documentation": "<p>The list of existing event subscriptions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the assessment template that is used during the event for which the SNS\n         notification is sent.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5267,6 +5267,13 @@
     "com.amazonaws.inspector#TelemetryMetadata": {
       "type": "structure",
       "members": {
+        "messageType": {
+          "target": "com.amazonaws.inspector#MessageType",
+          "traits": {
+            "smithy.api#documentation": "<p>A specific type of behavioral data that is collected by the agent.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "dataSize": {
           "target": "com.amazonaws.inspector#Long",
           "traits": {
@@ -5277,13 +5284,6 @@
           "target": "com.amazonaws.inspector#Long",
           "traits": {
             "smithy.api#documentation": "<p>The count of messages that the agent sends to the Amazon Inspector service.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "messageType": {
-          "target": "com.amazonaws.inspector#MessageType",
-          "traits": {
-            "smithy.api#documentation": "<p>A specific type of behavioral data that is collected by the agent.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5371,6 +5371,13 @@
     "com.amazonaws.inspector#UnsubscribeFromEventRequest": {
       "type": "structure",
       "members": {
+        "topicArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SNS topic to which SNS notifications are sent.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "event": {
           "target": "com.amazonaws.inspector#InspectorEvent",
           "traits": {
@@ -5384,27 +5391,20 @@
             "smithy.api#documentation": "<p>The ARN of the assessment template that is used during the event for which you want\n         to stop receiving SNS notifications.</p>",
             "smithy.api#required": {}
           }
-        },
-        "topicArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SNS topic to which SNS notifications are sent.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.inspector#UnsupportedFeatureException": {
       "type": "structure",
       "members": {
-        "canRetry": {
-          "target": "com.amazonaws.inspector#Bool",
+        "message": {
+          "target": "com.amazonaws.inspector#ErrorMessage",
           "traits": {
             "smithy.api#required": {}
           }
         },
-        "message": {
-          "target": "com.amazonaws.inspector#ErrorMessage",
+        "canRetry": {
+          "target": "com.amazonaws.inspector#Bool",
           "traits": {
             "smithy.api#required": {}
           }
@@ -5444,17 +5444,17 @@
     "com.amazonaws.inspector#UpdateAssessmentTargetRequest": {
       "type": "structure",
       "members": {
+        "resourceGroupArn": {
+          "target": "com.amazonaws.inspector#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the resource group that is used to specify the new resource group to\n         associate with the assessment target.</p>"
+          }
+        },
         "assessmentTargetName": {
           "target": "com.amazonaws.inspector#AssessmentTargetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the assessment target that you want to update.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "resourceGroupArn": {
-          "target": "com.amazonaws.inspector#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the resource group that is used to specify the new resource group to\n         associate with the assessment target.</p>"
           }
         },
         "assessmentTargetArn": {

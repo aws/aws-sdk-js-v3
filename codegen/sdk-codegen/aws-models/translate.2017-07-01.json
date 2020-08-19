@@ -223,14 +223,14 @@
     "com.amazonaws.translate#DetectedLanguageLowConfidenceException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.translate#String"
+        },
         "DetectedLanguageCode": {
           "target": "com.amazonaws.translate#LanguageCodeString",
           "traits": {
             "smithy.api#documentation": "<p>The language code of the auto-detected language from Amazon Comprehend.</p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.translate#String"
         }
       },
       "traits": {
@@ -242,17 +242,17 @@
     "com.amazonaws.translate#EncryptionKey": {
       "type": "structure",
       "members": {
-        "Type": {
-          "target": "com.amazonaws.translate#EncryptionKeyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Id": {
           "target": "com.amazonaws.translate#EncryptionKeyID",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom\n      terminology.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.translate#EncryptionKeyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</p>",
             "smithy.api#required": {}
           }
         }
@@ -330,16 +330,16 @@
     "com.amazonaws.translate#GetTerminologyResponse": {
       "type": "structure",
       "members": {
-        "TerminologyProperties": {
-          "target": "com.amazonaws.translate#TerminologyProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>The properties of the custom terminology being retrieved.</p>"
-          }
-        },
         "TerminologyDataLocation": {
           "target": "com.amazonaws.translate#TerminologyDataLocation",
           "traits": {
             "smithy.api#documentation": "<p>The data location of the custom terminology being retrieved. The custom terminology file\n      is returned in a presigned url that has a 30 minute expiration.</p>"
+          }
+        },
+        "TerminologyProperties": {
+          "target": "com.amazonaws.translate#TerminologyProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties of the custom terminology being retrieved.</p>"
           }
         }
       }
@@ -383,12 +383,6 @@
     "com.amazonaws.translate#ImportTerminologyRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.translate#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the custom terminology being imported.</p>"
-          }
-        },
         "MergeStrategy": {
           "target": "com.amazonaws.translate#MergeStrategy",
           "traits": {
@@ -402,6 +396,13 @@
             "smithy.api#documentation": "<p>The encryption key for the custom terminology being imported.</p>"
           }
         },
+        "Name": {
+          "target": "com.amazonaws.translate#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the custom terminology being imported.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "TerminologyData": {
           "target": "com.amazonaws.translate#TerminologyData",
           "traits": {
@@ -409,11 +410,10 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.translate#ResourceName",
+        "Description": {
+          "target": "com.amazonaws.translate#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the custom terminology being imported.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The description of the custom terminology being imported.</p>"
           }
         }
       }
@@ -432,17 +432,17 @@
     "com.amazonaws.translate#InputDataConfig": {
       "type": "structure",
       "members": {
-        "S3Uri": {
-          "target": "com.amazonaws.translate#S3Uri",
-          "traits": {
-            "smithy.api#documentation": "<p>The URI of the AWS S3 folder that contains the input file. The folder must be in the\n      same Region as the API endpoint you are calling.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ContentType": {
           "target": "com.amazonaws.translate#ContentType",
           "traits": {
             "smithy.api#documentation": "<p>The multipurpose internet mail extension (MIME) type of the input files. Valid values are\n        <code>text/plain</code> for plaintext files and <code>text/html</code> for HTML\n      files.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "S3Uri": {
+          "target": "com.amazonaws.translate#S3Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The URI of the AWS S3 folder that contains the input file. The folder must be in the\n      same Region as the API endpoint you are calling.</p>",
             "smithy.api#required": {}
           }
         }
@@ -512,10 +512,10 @@
     "com.amazonaws.translate#JobDetails": {
       "type": "structure",
       "members": {
-        "InputDocumentsCount": {
+        "TranslatedDocumentsCount": {
           "target": "com.amazonaws.translate#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The number of documents used as input in a translation job.</p>"
+            "smithy.api#documentation": "<p>The number of documents successfully processed during a translation job.</p>"
           }
         },
         "DocumentsWithErrorsCount": {
@@ -524,10 +524,10 @@
             "smithy.api#documentation": "<p>The number of documents that could not be processed during a translation job.</p>"
           }
         },
-        "TranslatedDocumentsCount": {
+        "InputDocumentsCount": {
           "target": "com.amazonaws.translate#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The number of documents successfully processed during a translation job.</p>"
+            "smithy.api#documentation": "<p>The number of documents used as input in a translation job.</p>"
           }
         }
       },
@@ -881,24 +881,23 @@
     "com.amazonaws.translate#StartTextTranslationJobRequest": {
       "type": "structure",
       "members": {
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.translate#IamRoleArn",
+        "SourceLanguageCode": {
+          "target": "com.amazonaws.translate#LanguageCodeString",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role\n      that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>",
+            "smithy.api#documentation": "<p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>\n         <p>Amazon Translate does not automatically detect a source language during batch translation\n      jobs.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.translate#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the batch translation job to be performed.</p>"
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.translate#InputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and S3 location of the input documents for the translation\n      job.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "SourceLanguageCode": {
-          "target": "com.amazonaws.translate#LanguageCodeString",
-          "traits": {
-            "smithy.api#documentation": "<p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>\n         <p>Amazon Translate does not automatically detect a source language during batch translation\n      jobs.</p>",
             "smithy.api#required": {}
           }
         },
@@ -923,17 +922,18 @@
             "smithy.api#required": {}
           }
         },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.translate#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role\n      that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "OutputDataConfig": {
           "target": "com.amazonaws.translate#OutputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the S3 folder to which your job output will be saved.\n      </p>",
             "smithy.api#required": {}
-          }
-        },
-        "JobName": {
-          "target": "com.amazonaws.translate#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the batch translation job to be performed.</p>"
           }
         }
       }
@@ -941,16 +941,16 @@
     "com.amazonaws.translate#StartTextTranslationJobResponse": {
       "type": "structure",
       "members": {
-        "JobId": {
-          "target": "com.amazonaws.translate#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of a job, use this ID with the\n        <a>DescribeTextTranslationJob</a> operation.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.translate#JobStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the job. Possible values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SUBMITTED</code> - The job has been received and is queued for\n          processing.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> - Amazon Translate is processing the job.</p>\n            </li>\n            <li>\n               <p>\n                  <code>COMPLETED</code> - The job was successfully completed and the output is\n          available.</p>\n            </li>\n            <li>\n               <p>\n                  <code>COMPLETED_WITH_ERRORS</code> - The job was completed with errors. The errors can\n          be analyzed in the job's output.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code> - The job did not complete. To get details, use the <a>DescribeTextTranslationJob</a> operation.</p>\n            </li>\n            <li>\n               <p>\n                  <code>STOP_REQUESTED</code> - The user who started the job has requested that it be\n          stopped.</p>\n            </li>\n            <li>\n               <p>\n                  <code>STOPPED</code> - The job has been stopped.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.translate#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of a job, use this ID with the\n        <a>DescribeTextTranslationJob</a> operation.</p>"
           }
         }
       }
@@ -1032,16 +1032,16 @@
     "com.amazonaws.translate#Term": {
       "type": "structure",
       "members": {
-        "TargetText": {
-          "target": "com.amazonaws.translate#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The target text of the term being translated by the custom terminology.</p>"
-          }
-        },
         "SourceText": {
           "target": "com.amazonaws.translate#String",
           "traits": {
             "smithy.api#documentation": "<p>The source text of the term being translated by the custom terminology.</p>"
+          }
+        },
+        "TargetText": {
+          "target": "com.amazonaws.translate#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The target text of the term being translated by the custom terminology.</p>"
           }
         }
       },
@@ -1064,17 +1064,17 @@
     "com.amazonaws.translate#TerminologyData": {
       "type": "structure",
       "members": {
-        "File": {
-          "target": "com.amazonaws.translate#TerminologyFile",
-          "traits": {
-            "smithy.api#documentation": "<p>The file containing the custom terminology data. Your version of the AWS SDK performs a\n      Base64-encoding on this field before sending a request to the AWS service. Users of the SDK\n      should not perform Base64-encoding themselves.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Format": {
           "target": "com.amazonaws.translate#TerminologyDataFormat",
           "traits": {
             "smithy.api#documentation": "<p>The data format of the custom terminology. Either CSV or TMX.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "File": {
+          "target": "com.amazonaws.translate#TerminologyFile",
+          "traits": {
+            "smithy.api#documentation": "<p>The file containing the custom terminology data. Your version of the AWS SDK performs a\n      Base64-encoding on this field before sending a request to the AWS service. Users of the SDK\n      should not perform Base64-encoding themselves.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1101,17 +1101,17 @@
     "com.amazonaws.translate#TerminologyDataLocation": {
       "type": "structure",
       "members": {
-        "RepositoryType": {
-          "target": "com.amazonaws.translate#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The repository type for the custom terminology data.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Location": {
           "target": "com.amazonaws.translate#String",
           "traits": {
             "smithy.api#documentation": "<p>The location of the custom terminology data.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RepositoryType": {
+          "target": "com.amazonaws.translate#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The repository type for the custom terminology data.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1133,10 +1133,52 @@
     "com.amazonaws.translate#TerminologyProperties": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.translate#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the custom terminology.</p>"
+          }
+        },
+        "EncryptionKey": {
+          "target": "com.amazonaws.translate#EncryptionKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The encryption key for the custom terminology.</p>"
+          }
+        },
+        "TargetLanguageCodes": {
+          "target": "com.amazonaws.translate#LanguageCodeStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The language codes for the target languages available with the custom terminology file.\n      All possible target languages are returned in array.</p>"
+          }
+        },
         "SizeBytes": {
           "target": "com.amazonaws.translate#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The size of the file used when importing a custom terminology.</p>"
+          }
+        },
+        "LastUpdatedAt": {
+          "target": "com.amazonaws.translate#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the custom terminology was last update, based on the timestamp.</p>"
+          }
+        },
+        "TermCount": {
+          "target": "com.amazonaws.translate#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of terms included in the custom terminology.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.translate#TerminologyArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the custom terminology. </p>"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.translate#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the custom terminology was created, based on the timestamp.</p>"
           }
         },
         "SourceLanguageCode": {
@@ -1149,48 +1191,6 @@
           "target": "com.amazonaws.translate#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the custom terminology properties.</p>"
-          }
-        },
-        "TermCount": {
-          "target": "com.amazonaws.translate#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of terms included in the custom terminology.</p>"
-          }
-        },
-        "CreatedAt": {
-          "target": "com.amazonaws.translate#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time at which the custom terminology was created, based on the timestamp.</p>"
-          }
-        },
-        "LastUpdatedAt": {
-          "target": "com.amazonaws.translate#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time at which the custom terminology was last update, based on the timestamp.</p>"
-          }
-        },
-        "Arn": {
-          "target": "com.amazonaws.translate#TerminologyArn",
-          "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the custom terminology. </p>"
-          }
-        },
-        "EncryptionKey": {
-          "target": "com.amazonaws.translate#EncryptionKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The encryption key for the custom terminology.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.translate#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the custom terminology.</p>"
-          }
-        },
-        "TargetLanguageCodes": {
-          "target": "com.amazonaws.translate#LanguageCodeStringList",
-          "traits": {
-            "smithy.api#documentation": "<p>The language codes for the target languages available with the custom terminology file.\n      All possible target languages are returned in array.</p>"
           }
         }
       },
@@ -1220,6 +1220,12 @@
     "com.amazonaws.translate#TextTranslationJobFilter": {
       "type": "structure",
       "members": {
+        "JobName": {
+          "target": "com.amazonaws.translate#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the list of jobs by name.</p>"
+          }
+        },
         "JobStatus": {
           "target": "com.amazonaws.translate#JobStatus",
           "traits": {
@@ -1237,12 +1243,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing and\n      returns only the jobs submitted before the specified time. Jobs are returned in ascending\n      order, oldest to newest.</p>"
           }
-        },
-        "JobName": {
-          "target": "com.amazonaws.translate#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters the list of jobs by name.</p>"
-          }
         }
       },
       "traits": {
@@ -1252,34 +1252,10 @@
     "com.amazonaws.translate#TextTranslationJobProperties": {
       "type": "structure",
       "members": {
-        "TargetLanguageCodes": {
-          "target": "com.amazonaws.translate#TargetLanguageCodeStringList",
-          "traits": {
-            "smithy.api#documentation": "<p>The language code of the language of the target text. The language must be a language\n      supported by Amazon Translate.</p>"
-          }
-        },
-        "TerminologyNames": {
-          "target": "com.amazonaws.translate#ResourceNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list containing the names of the terminologies applied to a translation job. Only one\n      terminology can be applied per <a>StartTextTranslationJob</a> request at this\n      time.</p>"
-          }
-        },
-        "JobName": {
-          "target": "com.amazonaws.translate#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The user-defined name of the translation job.</p>"
-          }
-        },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.translate#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role\n      that granted Amazon Translate read access to the job's input data.</p>"
-          }
-        },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.translate#OutputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The output configuration properties that were specified when the job was requested.</p>"
           }
         },
         "JobId": {
@@ -1288,22 +1264,28 @@
             "smithy.api#documentation": "<p>The ID of the translation job.</p>"
           }
         },
-        "SourceLanguageCode": {
-          "target": "com.amazonaws.translate#LanguageCodeString",
+        "JobStatus": {
+          "target": "com.amazonaws.translate#JobStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The language code of the language of the source text. The language must be a language\n      supported by Amazon Translate.</p>"
+            "smithy.api#documentation": "<p>The status of the translation job.</p>"
           }
         },
-        "InputDataConfig": {
-          "target": "com.amazonaws.translate#InputDataConfig",
+        "TerminologyNames": {
+          "target": "com.amazonaws.translate#ResourceNameList",
           "traits": {
-            "smithy.api#documentation": "<p>The input configuration properties that were specified when the job was requested.</p>"
+            "smithy.api#documentation": "<p>A list containing the names of the terminologies applied to a translation job. Only one\n      terminology can be applied per <a>StartTextTranslationJob</a> request at this\n      time.</p>"
           }
         },
-        "JobDetails": {
-          "target": "com.amazonaws.translate#JobDetails",
+        "TargetLanguageCodes": {
+          "target": "com.amazonaws.translate#TargetLanguageCodeStringList",
           "traits": {
-            "smithy.api#documentation": "<p>The number of documents successfully and unsuccessfully processed during the translation\n      job.</p>"
+            "smithy.api#documentation": "<p>The language code of the language of the target text. The language must be a language\n      supported by Amazon Translate.</p>"
+          }
+        },
+        "OutputDataConfig": {
+          "target": "com.amazonaws.translate#OutputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The output configuration properties that were specified when the job was requested.</p>"
           }
         },
         "SubmittedTime": {
@@ -1318,16 +1300,34 @@
             "smithy.api#documentation": "<p>The time at which the translation job ended.</p>"
           }
         },
-        "JobStatus": {
-          "target": "com.amazonaws.translate#JobStatus",
+        "JobDetails": {
+          "target": "com.amazonaws.translate#JobDetails",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the translation job.</p>"
+            "smithy.api#documentation": "<p>The number of documents successfully and unsuccessfully processed during the translation\n      job.</p>"
+          }
+        },
+        "InputDataConfig": {
+          "target": "com.amazonaws.translate#InputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The input configuration properties that were specified when the job was requested.</p>"
+          }
+        },
+        "SourceLanguageCode": {
+          "target": "com.amazonaws.translate#LanguageCodeString",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the language of the source text. The language must be a language\n      supported by Amazon Translate.</p>"
           }
         },
         "Message": {
           "target": "com.amazonaws.translate#UnboundedLengthString",
           "traits": {
             "smithy.api#documentation": "<p>An explanation of any errors that may have occured during the translation job.</p>"
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.translate#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The user-defined name of the translation job.</p>"
           }
         }
       },
@@ -1342,8 +1342,7 @@
       }
     },
     "com.amazonaws.translate#Timestamp": {
-      "type": "timestamp",
-      "traits": {}
+      "type": "timestamp"
     },
     "com.amazonaws.translate#TooManyRequestsException": {
       "type": "structure",
@@ -1399,10 +1398,10 @@
     "com.amazonaws.translate#TranslateTextRequest": {
       "type": "structure",
       "members": {
-        "SourceLanguageCode": {
-          "target": "com.amazonaws.translate#LanguageCodeString",
+        "Text": {
+          "target": "com.amazonaws.translate#BoundedLengthString",
           "traits": {
-            "smithy.api#documentation": "<p>The language code for the language of the source text. The language must be a language\n      supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p>\n         <p>To have Amazon Translate determine the source language of your text, you can specify\n        <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify\n        <code>auto</code>, Amazon Translate will call <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html\">Amazon\n        Comprehend</a> to determine the source language.</p>",
+            "smithy.api#documentation": "<p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on\n      your character set, this may be fewer than 5,000 characters.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1413,17 +1412,17 @@
             "smithy.api#required": {}
           }
         },
+        "SourceLanguageCode": {
+          "target": "com.amazonaws.translate#LanguageCodeString",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code for the language of the source text. The language must be a language\n      supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p>\n         <p>To have Amazon Translate determine the source language of your text, you can specify\n        <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify\n        <code>auto</code>, Amazon Translate will call <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html\">Amazon\n        Comprehend</a> to determine the source language.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "TerminologyNames": {
           "target": "com.amazonaws.translate#ResourceNameList",
           "traits": {
             "smithy.api#documentation": "<p>The name of the terminology list file to be used in the TranslateText request. You can use\n      1 terminology list at most in a <code>TranslateText</code> request. Terminology lists can\n      contain a maximum of 256 terms.</p>"
-          }
-        },
-        "Text": {
-          "target": "com.amazonaws.translate#BoundedLengthString",
-          "traits": {
-            "smithy.api#documentation": "<p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on\n      your character set, this may be fewer than 5,000 characters.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -1431,11 +1430,10 @@
     "com.amazonaws.translate#TranslateTextResponse": {
       "type": "structure",
       "members": {
-        "SourceLanguageCode": {
-          "target": "com.amazonaws.translate#LanguageCodeString",
+        "AppliedTerminologies": {
+          "target": "com.amazonaws.translate#AppliedTerminologyList",
           "traits": {
-            "smithy.api#documentation": "<p>The language code for the language of the source text.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The names of the custom terminologies applied to the input text by Amazon Translate for the\n      translated text response.</p>"
           }
         },
         "TranslatedText": {
@@ -1445,10 +1443,11 @@
             "smithy.api#required": {}
           }
         },
-        "AppliedTerminologies": {
-          "target": "com.amazonaws.translate#AppliedTerminologyList",
+        "SourceLanguageCode": {
+          "target": "com.amazonaws.translate#LanguageCodeString",
           "traits": {
-            "smithy.api#documentation": "<p>The names of the custom terminologies applied to the input text by Amazon Translate for the\n      translated text response.</p>"
+            "smithy.api#documentation": "<p>The language code for the language of the source text.</p>",
+            "smithy.api#required": {}
           }
         },
         "TargetLanguageCode": {
@@ -1466,6 +1465,9 @@
     "com.amazonaws.translate#UnsupportedLanguagePairException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.translate#String"
+        },
         "SourceLanguageCode": {
           "target": "com.amazonaws.translate#LanguageCodeString",
           "traits": {
@@ -1477,9 +1479,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The language code for the language of the translated text. </p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.translate#String"
         }
       },
       "traits": {

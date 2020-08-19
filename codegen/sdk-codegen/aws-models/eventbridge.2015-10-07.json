@@ -230,6 +230,13 @@
     "com.amazonaws.eventbridge#AwsVpcConfiguration": {
       "type": "structure",
       "members": {
+        "Subnets": {
+          "target": "com.amazonaws.eventbridge#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the subnets associated with the task. These subnets must all be in the same\n            VPC. You can specify as many as 16 subnets.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "SecurityGroups": {
           "target": "com.amazonaws.eventbridge#StringList",
           "traits": {
@@ -240,13 +247,6 @@
           "target": "com.amazonaws.eventbridge#AssignPublicIp",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the task's elastic network interface receives a public IP address.\n            You can specify <code>ENABLED</code> only when <code>LaunchType</code> in\n                <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>"
-          }
-        },
-        "Subnets": {
-          "target": "com.amazonaws.eventbridge#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the subnets associated with the task. These subnets must all be in the same\n            VPC. You can specify as many as 16 subnets.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -271,16 +271,10 @@
     "com.amazonaws.eventbridge#BatchParameters": {
       "type": "structure",
       "members": {
-        "ArrayProperties": {
-          "target": "com.amazonaws.eventbridge#BatchArrayProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>The array properties for the submitted job, such as the size of the array. The\n            array size can be between 2 and 10,000. If you specify array properties for a job, it\n            becomes an array job. This parameter is used only if the target is an AWS Batch\n            job.</p>"
-          }
-        },
-        "JobDefinition": {
+        "JobName": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN or name of the job definition to use if the event target is an AWS Batch\n            job. This job definition must already exist.</p>",
+            "smithy.api#documentation": "<p>The name to use for this execution of the job, if the target is an AWS Batch\n            job.</p>",
             "smithy.api#required": {}
           }
         },
@@ -290,11 +284,17 @@
             "smithy.api#documentation": "<p>The retry strategy to use for failed jobs, if the target is an AWS Batch job. The\n            retry strategy is the number of times to retry the failed job execution. Valid values\n            are 1–10. When you specify a retry strategy here, it overrides the retry strategy\n            defined in the job definition.</p>"
           }
         },
-        "JobName": {
+        "JobDefinition": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name to use for this execution of the job, if the target is an AWS Batch\n            job.</p>",
+            "smithy.api#documentation": "<p>The ARN or name of the job definition to use if the event target is an AWS Batch\n            job. This job definition must already exist.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ArrayProperties": {
+          "target": "com.amazonaws.eventbridge#BatchArrayProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The array properties for the submitted job, such as the size of the array. The\n            array size can be between 2 and 10,000. If you specify array properties for a job, it\n            becomes an array job. This parameter is used only if the target is an AWS Batch\n            job.</p>"
           }
         }
       },
@@ -334,13 +334,6 @@
     "com.amazonaws.eventbridge#Condition": {
       "type": "structure",
       "members": {
-        "Type": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the type of condition. Currently the only supported value is\n                <code>StringEquals</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Value": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
@@ -352,6 +345,13 @@
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the key for the condition. Currently the only supported key is\n                <code>aws:PrincipalOrgID</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the type of condition. Currently the only supported value is\n                <code>StringEquals</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -462,17 +462,17 @@
     "com.amazonaws.eventbridge#CreatePartnerEventSourceRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.eventbridge#EventSourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the partner event source. This name must be unique and must be in the\n            format\n                    <code>\n               <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>\n            </code>.\n            The AWS account that wants to use this partner event source must create a partner event\n            bus with a name that matches the name of the partner event source.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Account": {
           "target": "com.amazonaws.eventbridge#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID that is permitted to create a matching partner event bus for this\n            partner event source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.eventbridge#EventSourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the partner event source. This name must be unique and must be in the\n            format\n                    <code>\n               <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>\n            </code>.\n            The AWS account that wants to use this partner event source must create a partner event\n            bus with a name that matches the name of the partner event source.</p>",
             "smithy.api#required": {}
           }
         }
@@ -579,17 +579,17 @@
     "com.amazonaws.eventbridge#DeletePartnerEventSourceRequest": {
       "type": "structure",
       "members": {
-        "Account": {
-          "target": "com.amazonaws.eventbridge#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID of the AWS customer that the event source was created for.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event source to delete.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Account": {
+          "target": "com.amazonaws.eventbridge#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the AWS customer that the event source was created for.</p>",
             "smithy.api#required": {}
           }
         }
@@ -621,13 +621,6 @@
     "com.amazonaws.eventbridge#DeleteRuleRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.eventbridge#RuleName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Force": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
@@ -638,6 +631,13 @@
           "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.eventbridge#RuleName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the rule.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -676,6 +676,12 @@
     "com.amazonaws.eventbridge#DescribeEventBusResponse": {
       "type": "structure",
       "members": {
+        "Arn": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account permitted to write events to the\n            current account.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
@@ -686,12 +692,6 @@
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The policy that enables the external account to send events to your\n            account.</p>"
-          }
-        },
-        "Arn": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account permitted to write events to the\n            current account.</p>"
           }
         }
       }
@@ -734,30 +734,6 @@
     "com.amazonaws.eventbridge#DescribeEventSourceResponse": {
       "type": "structure",
       "members": {
-        "CreatedBy": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the SaaS partner that created the event source.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.eventbridge#EventSourceState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the event source. If it is ACTIVE, you have already created a matching\n            event bus for this event source, and that event bus is active. If it is PENDING, either\n            you haven't yet created a matching event bus, or that event bus is deactivated. If it is\n            DELETED, you have created a matching event bus, but the event source has since been\n            deleted.</p>"
-          }
-        },
-        "ExpirationTime": {
-          "target": "com.amazonaws.eventbridge#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the event source will expire if you do not create a matching\n            event bus.</p>"
-          }
-        },
-        "Arn": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the partner event source.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
@@ -768,6 +744,30 @@
           "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the event source was created.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the partner event source.</p>"
+          }
+        },
+        "CreatedBy": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the SaaS partner that created the event source.</p>"
+          }
+        },
+        "ExpirationTime": {
+          "target": "com.amazonaws.eventbridge#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the event source will expire if you do not create a matching\n            event bus.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.eventbridge#EventSourceState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the event source. If it is ACTIVE, you have already created a matching\n            event bus for this event source, and that event bus is active. If it is PENDING, either\n            you haven't yet created a matching event bus, or that event bus is deactivated. If it is\n            DELETED, you have created a matching event bus, but the event source has since been\n            deleted.</p>"
           }
         }
       }
@@ -810,16 +810,16 @@
     "com.amazonaws.eventbridge#DescribePartnerEventSourceResponse": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the event source.</p>"
-          }
-        },
         "Arn": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event source.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the event source.</p>"
           }
         }
       }
@@ -865,16 +865,28 @@
     "com.amazonaws.eventbridge#DescribeRuleResponse": {
       "type": "structure",
       "members": {
+        "State": {
+          "target": "com.amazonaws.eventbridge#RuleState",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the rule is enabled or disabled.</p>"
+          }
+        },
+        "EventPattern": {
+          "target": "com.amazonaws.eventbridge#EventPattern",
+          "traits": {
+            "smithy.api#documentation": "<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and\n                Event Patterns</a> in the <i>Amazon EventBridge User\n            Guide</i>.</p>"
+          }
+        },
+        "ScheduleExpression": {
+          "target": "com.amazonaws.eventbridge#ScheduleExpression",
+          "traits": {
+            "smithy.api#documentation": "<p>The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5\n            minutes)\".</p>"
+          }
+        },
         "EventBusName": {
           "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.eventbridge#RuleName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the rule.</p>"
           }
         },
         "Description": {
@@ -889,22 +901,10 @@
             "smithy.api#documentation": "<p>If this is a managed rule, created by an AWS service on your behalf, this field\n            displays the principal name of the AWS service that created the rule.</p>"
           }
         },
-        "ScheduleExpression": {
-          "target": "com.amazonaws.eventbridge#ScheduleExpression",
-          "traits": {
-            "smithy.api#documentation": "<p>The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5\n            minutes)\".</p>"
-          }
-        },
         "Arn": {
           "target": "com.amazonaws.eventbridge#RuleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule.</p>"
-          }
-        },
-        "EventPattern": {
-          "target": "com.amazonaws.eventbridge#EventPattern",
-          "traits": {
-            "smithy.api#documentation": "<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and\n                Event Patterns</a> in the <i>Amazon EventBridge User\n            Guide</i>.</p>"
           }
         },
         "RoleArn": {
@@ -913,10 +913,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>"
           }
         },
-        "State": {
-          "target": "com.amazonaws.eventbridge#RuleState",
+        "Name": {
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the rule is enabled or disabled.</p>"
+            "smithy.api#documentation": "<p>The name of the rule.</p>"
           }
         }
       }
@@ -947,17 +947,17 @@
     "com.amazonaws.eventbridge#DisableRuleRequest": {
       "type": "structure",
       "members": {
+        "EventBusName": {
+          "target": "com.amazonaws.eventbridge#EventBusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "EventBusName": {
-          "target": "com.amazonaws.eventbridge#EventBusName",
-          "traits": {
-            "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
           }
         }
       }
@@ -965,10 +965,22 @@
     "com.amazonaws.eventbridge#EcsParameters": {
       "type": "structure",
       "members": {
-        "TaskCount": {
-          "target": "com.amazonaws.eventbridge#LimitMin1",
+        "NetworkConfiguration": {
+          "target": "com.amazonaws.eventbridge#NetworkConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The number of tasks to create based on <code>TaskDefinition</code>. The default is\n            1.</p>"
+            "smithy.api#documentation": "<p>Use this structure if the ECS task uses the <code>awsvpc</code> network mode. This\n            structure specifies the VPC subnets and security groups associated with the task, and\n            whether a public IP address is to be used. This structure is required if\n                <code>LaunchType</code> is <code>FARGATE</code> because the <code>awsvpc</code> mode\n            is required for Fargate tasks.</p>\n        <p>If you specify <code>NetworkConfiguration</code> when the target ECS task does not use\n            the <code>awsvpc</code> network mode, the task fails.</p>"
+          }
+        },
+        "PlatformVersion": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the platform version for the task. Specify only the numeric portion of the\n            platform version, such as <code>1.1.0</code>.</p>\n        <p>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>. For\n            more information about valid platform versions, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html\">AWS Fargate Platform\n                Versions</a> in the <i>Amazon Elastic Container Service Developer\n                Guide</i>.</p>"
+          }
+        },
+        "Group": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>"
           }
         },
         "TaskDefinitionArn": {
@@ -978,28 +990,16 @@
             "smithy.api#required": {}
           }
         },
+        "TaskCount": {
+          "target": "com.amazonaws.eventbridge#LimitMin1",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of tasks to create based on <code>TaskDefinition</code>. The default is\n            1.</p>"
+          }
+        },
         "LaunchType": {
           "target": "com.amazonaws.eventbridge#LaunchType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the launch type on which your task is running. The launch type that you\n            specify here must match one of the launch type (compatibilities) of the target task. The\n                <code>FARGATE</code> value is supported only in the Regions where AWS Fargate with\n            Amazon ECS is supported. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html\">AWS Fargate on Amazon\n                ECS</a> in the <i>Amazon Elastic Container Service Developer\n                Guide</i>.</p>"
-          }
-        },
-        "Group": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>"
-          }
-        },
-        "PlatformVersion": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the platform version for the task. Specify only the numeric portion of the\n            platform version, such as <code>1.1.0</code>.</p>\n        <p>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>. For\n            more information about valid platform versions, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html\">AWS Fargate Platform\n                Versions</a> in the <i>Amazon Elastic Container Service Developer\n                Guide</i>.</p>"
-          }
-        },
-        "NetworkConfiguration": {
-          "target": "com.amazonaws.eventbridge#NetworkConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Use this structure if the ECS task uses the <code>awsvpc</code> network mode. This\n            structure specifies the VPC subnets and security groups associated with the task, and\n            whether a public IP address is to be used. This structure is required if\n                <code>LaunchType</code> is <code>FARGATE</code> because the <code>awsvpc</code> mode\n            is required for Fargate tasks.</p>\n        <p>If you specify <code>NetworkConfiguration</code> when the target ECS task does not use\n            the <code>awsvpc</code> network mode, the task fails.</p>"
           }
         }
       },
@@ -1033,17 +1033,17 @@
     "com.amazonaws.eventbridge#EnableRuleRequest": {
       "type": "structure",
       "members": {
-        "EventBusName": {
-          "target": "com.amazonaws.eventbridge#EventBusName",
-          "traits": {
-            "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "EventBusName": {
+          "target": "com.amazonaws.eventbridge#EventBusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
           }
         }
       }
@@ -1114,30 +1114,6 @@
     "com.amazonaws.eventbridge#EventSource": {
       "type": "structure",
       "members": {
-        "CreatedBy": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the partner that created the event source.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the event source.</p>"
-          }
-        },
-        "CreationTime": {
-          "target": "com.amazonaws.eventbridge#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time the event source was created.</p>"
-          }
-        },
-        "Arn": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the event source.</p>"
-          }
-        },
         "ExpirationTime": {
           "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
@@ -1148,6 +1124,30 @@
           "target": "com.amazonaws.eventbridge#EventSourceState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the event source. If it is ACTIVE, you have already created a matching\n            event bus for this event source, and that event bus is active. If it is PENDING, either\n            you haven't yet created a matching event bus, or that event bus is deactivated. If it is\n            DELETED, you have created a matching event bus, but the event source has since been\n            deleted.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the event source.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.eventbridge#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the event source was created.</p>"
+          }
+        },
+        "CreatedBy": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the partner that created the event source.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the event source.</p>"
           }
         }
       },
@@ -1241,16 +1241,16 @@
             "smithy.api#documentation": "<p>The query string keys/values that need to be sent as part of request invoking the \n            API Gateway REST API.</p>"
           }
         },
-        "HeaderParameters": {
-          "target": "com.amazonaws.eventbridge#HeaderParametersMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The headers that need to be sent as part of request invoking the API Gateway REST \n            API.</p>"
-          }
-        },
         "PathParameterValues": {
           "target": "com.amazonaws.eventbridge#PathParameterList",
           "traits": {
             "smithy.api#documentation": "<p>The path parameter values to be used to populate API Gateway REST API\n         path wildcards (\"*\").</p>"
+          }
+        },
+        "HeaderParameters": {
+          "target": "com.amazonaws.eventbridge#HeaderParametersMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The headers that need to be sent as part of request invoking the API Gateway REST \n            API.</p>"
           }
         }
       },
@@ -1261,17 +1261,17 @@
     "com.amazonaws.eventbridge#InputTransformer": {
       "type": "structure",
       "members": {
-        "InputPathsMap": {
-          "target": "com.amazonaws.eventbridge#TransformerPaths",
-          "traits": {
-            "smithy.api#documentation": "<p>Map of JSON paths to be extracted from the event. You can then insert these in the\n            template in <code>InputTemplate</code> to produce the output you want to be sent to the\n            target.</p>\n        <p>\n            <code>InputPathsMap</code> is an array key-value pairs, where each value is a valid\n            JSON path. You can have as many as 10 key-value pairs. You must use JSON dot notation,\n            not bracket notation.</p>\n        <p>The keys cannot start with \"AWS.\" </p>"
-          }
-        },
         "InputTemplate": {
           "target": "com.amazonaws.eventbridge#TransformerInput",
           "traits": {
             "smithy.api#documentation": "<p>Input template where you specify placeholders that will be filled with the values\n            of the keys from <code>InputPathsMap</code> to customize the data sent to the target.\n            Enclose each <code>InputPathsMaps</code> value in brackets:\n                <<i>value</i>> The InputTemplate must be valid JSON.</p>\n\n        <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the\n            following restrictions apply:</p>\n        <ul>\n            <li>\n                <p>The placeholder cannot be used as an object key.</p>\n            </li>\n            <li>\n                <p>Object values cannot include quote marks.</p>\n            </li>\n         </ul>\n        <p>The following example shows the syntax for using <code>InputPathsMap</code> and\n                <code>InputTemplate</code>.</p>\n        <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n        <p>\n            <code>{</code>\n         </p>\n        <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\":\n                \"$.detail.status\"},</code>\n         </p>\n        <p>\n            <code>\"InputTemplate\": \"<instance> is in state\n            <status>\"</code>\n         </p>\n        <p>\n            <code>}</code>\n         </p>\n        <p>To have the <code>InputTemplate</code> include quote marks within a JSON string,\n            escape each quote marks with a slash, as in the following example:</p>\n        <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n        <p>\n            <code>{</code>\n         </p>\n        <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\":\n                \"$.detail.status\"},</code>\n         </p>\n        <p>\n            <code>\"InputTemplate\": \"<instance> is in state\n            \\\"<status>\\\"\"</code>\n         </p>\n        <p>\n            <code>}</code>\n         </p>",
             "smithy.api#required": {}
+          }
+        },
+        "InputPathsMap": {
+          "target": "com.amazonaws.eventbridge#TransformerPaths",
+          "traits": {
+            "smithy.api#documentation": "<p>Map of JSON paths to be extracted from the event. You can then insert these in the\n            template in <code>InputTemplate</code> to produce the output you want to be sent to the\n            target.</p>\n        <p>\n            <code>InputPathsMap</code> is an array key-value pairs, where each value is a valid\n            JSON path. You can have as many as 10 key-value pairs. You must use JSON dot notation,\n            not bracket notation.</p>\n        <p>The keys cannot start with \"AWS.\" </p>"
           }
         }
       },
@@ -1409,10 +1409,10 @@
     "com.amazonaws.eventbridge#ListEventBusesRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.eventbridge#NextToken",
+        "Limit": {
+          "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>Specifying this limits the number of results returned by this operation. The operation\n            also returns a NextToken which you can use in a subsequent operation to retrieve the\n            next set of results.</p>"
           }
         },
         "NamePrefix": {
@@ -1421,10 +1421,10 @@
             "smithy.api#documentation": "<p>Specifying this limits the results to only those event buses with names that start\n            with the specified prefix.</p>"
           }
         },
-        "Limit": {
-          "target": "com.amazonaws.eventbridge#LimitMax100",
+        "NextToken": {
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>Specifying this limits the number of results returned by this operation. The operation\n            also returns a NextToken which you can use in a subsequent operation to retrieve the\n            next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
           }
         }
       }
@@ -1432,16 +1432,16 @@
     "com.amazonaws.eventbridge#ListEventBusesResponse": {
       "type": "structure",
       "members": {
-        "EventBuses": {
-          "target": "com.amazonaws.eventbridge#EventBusList",
-          "traits": {
-            "smithy.api#documentation": "<p>This list of event buses.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of\n            results.</p>"
+          }
+        },
+        "EventBuses": {
+          "target": "com.amazonaws.eventbridge#EventBusList",
+          "traits": {
+            "smithy.api#documentation": "<p>This list of event buses.</p>"
           }
         }
       }
@@ -1469,16 +1469,16 @@
     "com.amazonaws.eventbridge#ListEventSourcesRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.eventbridge#LimitMax100",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifying this limits the number of results returned by this operation. The operation\n            also returns a NextToken which you can use in a subsequent operation to retrieve the\n            next set of results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.eventbridge#LimitMax100",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifying this limits the number of results returned by this operation. The operation\n            also returns a NextToken which you can use in a subsequent operation to retrieve the\n            next set of results.</p>"
           }
         },
         "NamePrefix": {
@@ -1532,6 +1532,12 @@
     "com.amazonaws.eventbridge#ListPartnerEventSourceAccountsRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.eventbridge#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned by a previous call to this operation. Specifying this retrieves the\n            next set of results.</p>"
+          }
+        },
         "Limit": {
           "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
@@ -1543,12 +1549,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner event source to display account information about.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.eventbridge#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to this operation. Specifying this retrieves the\n            next set of results.</p>"
           }
         }
       }
@@ -1593,6 +1593,12 @@
     "com.amazonaws.eventbridge#ListPartnerEventSourcesRequest": {
       "type": "structure",
       "members": {
+        "Limit": {
+          "target": "com.amazonaws.eventbridge#LimitMax100",
+          "traits": {
+            "smithy.api#documentation": "<p>pecifying this limits the number of results returned by this operation. The operation\n            also returns a NextToken which you can use in a subsequent operation to retrieve the\n            next set of results.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
@@ -1605,28 +1611,22 @@
             "smithy.api#documentation": "<p>If you specify this, the results are limited to only those partner event sources that\n            start with the string you specify.</p>",
             "smithy.api#required": {}
           }
-        },
-        "Limit": {
-          "target": "com.amazonaws.eventbridge#LimitMax100",
-          "traits": {
-            "smithy.api#documentation": "<p>pecifying this limits the number of results returned by this operation. The operation\n            also returns a NextToken which you can use in a subsequent operation to retrieve the\n            next set of results.</p>"
-          }
         }
       }
     },
     "com.amazonaws.eventbridge#ListPartnerEventSourcesResponse": {
       "type": "structure",
       "members": {
-        "PartnerEventSources": {
-          "target": "com.amazonaws.eventbridge#PartnerEventSourceList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of partner event sources returned by the operation.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of\n            results.</p>"
+          }
+        },
+        "PartnerEventSources": {
+          "target": "com.amazonaws.eventbridge#PartnerEventSourceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of partner event sources returned by the operation.</p>"
           }
         }
       }
@@ -1654,16 +1654,22 @@
     "com.amazonaws.eventbridge#ListRuleNamesByTargetRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.eventbridge#LimitMax100",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
-          }
-        },
         "EventBusName": {
           "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>Limits the results to show only the rules associated with the specified event\n            bus.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.eventbridge#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of\n            results.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.eventbridge#LimitMax100",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
         "TargetArn": {
@@ -1671,12 +1677,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target resource.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.eventbridge#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of\n            results.</p>"
           }
         }
       }
@@ -1721,12 +1721,6 @@
     "com.amazonaws.eventbridge#ListRulesRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.eventbridge#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of\n            results.</p>"
-          }
-        },
         "Limit": {
           "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
@@ -1737,6 +1731,12 @@
           "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The prefix matching the rule name.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.eventbridge#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of\n            results.</p>"
           }
         },
         "EventBusName": {
@@ -1830,10 +1830,11 @@
     "com.amazonaws.eventbridge#ListTargetsByRuleRequest": {
       "type": "structure",
       "members": {
-        "EventBusName": {
-          "target": "com.amazonaws.eventbridge#EventBusName",
+        "Rule": {
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
-            "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
+            "smithy.api#documentation": "<p>The name of the rule.</p>",
+            "smithy.api#required": {}
           }
         },
         "Limit": {
@@ -1842,17 +1843,16 @@
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
-        "Rule": {
-          "target": "com.amazonaws.eventbridge#RuleName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of\n            results.</p>"
+          }
+        },
+        "EventBusName": {
+          "target": "com.amazonaws.eventbridge#EventBusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
           }
         }
       }
@@ -1860,16 +1860,16 @@
     "com.amazonaws.eventbridge#ListTargetsByRuleResponse": {
       "type": "structure",
       "members": {
-        "Targets": {
-          "target": "com.amazonaws.eventbridge#TargetList",
-          "traits": {
-            "smithy.api#documentation": "<p>The targets assigned to the rule.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether there are additional results to retrieve. If there are no more\n            results, the value is null.</p>"
+          }
+        },
+        "Targets": {
+          "target": "com.amazonaws.eventbridge#TargetList",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets assigned to the rule.</p>"
           }
         }
       }
@@ -1946,16 +1946,16 @@
     "com.amazonaws.eventbridge#PartnerEventSource": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the partner event source.</p>"
-          }
-        },
         "Arn": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the partner event source.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the partner event source.</p>"
           }
         }
       },
@@ -1966,6 +1966,18 @@
     "com.amazonaws.eventbridge#PartnerEventSourceAccount": {
       "type": "structure",
       "members": {
+        "CreationTime": {
+          "target": "com.amazonaws.eventbridge#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the event source was created.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.eventbridge#EventSourceState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the event source. If it is ACTIVE, you have already created a matching\n            event bus for this event source, and that event bus is active. If it is PENDING, either\n            you haven't yet created a matching event bus, or that event bus is deactivated. If it is\n            DELETED, you have created a matching event bus, but the event source has since been\n            deleted.</p>"
+          }
+        },
         "Account": {
           "target": "com.amazonaws.eventbridge#AccountId",
           "traits": {
@@ -1976,18 +1988,6 @@
           "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the event source will expire, if the AWS account doesn't create\n            a matching event bus for it.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.eventbridge#EventSourceState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the event source. If it is ACTIVE, you have already created a matching\n            event bus for this event source, and that event bus is active. If it is PENDING, either\n            you haven't yet created a matching event bus, or that event bus is deactivated. If it is\n            DELETED, you have created a matching event bus, but the event source has since been\n            deleted.</p>"
-          }
-        },
-        "CreationTime": {
-          "target": "com.amazonaws.eventbridge#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time the event source was created.</p>"
           }
         }
       },
@@ -2083,10 +2083,10 @@
     "com.amazonaws.eventbridge#PutEventsRequestEntry": {
       "type": "structure",
       "members": {
-        "Detail": {
-          "target": "com.amazonaws.eventbridge#String",
+        "Resources": {
+          "target": "com.amazonaws.eventbridge#EventResourceList",
           "traits": {
-            "smithy.api#documentation": "<p>A valid JSON string. There is no other schema imposed. The JSON string may contain\n            fields and nested subobjects.</p>"
+            "smithy.api#documentation": "<p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily\n            concerns. Any number, including zero, may be present.</p>"
           }
         },
         "Source": {
@@ -2095,16 +2095,16 @@
             "smithy.api#documentation": "<p>The source of the event.</p>"
           }
         },
+        "Detail": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid JSON string. There is no other schema imposed. The JSON string may contain\n            fields and nested subobjects.</p>"
+          }
+        },
         "EventBusName": {
           "target": "com.amazonaws.eventbridge#NonPartnerEventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus that will receive the event. Only the rules that are associated with\n            this event bus will be able to match the event.</p>"
-          }
-        },
-        "Resources": {
-          "target": "com.amazonaws.eventbridge#EventResourceList",
-          "traits": {
-            "smithy.api#documentation": "<p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily\n            concerns. Any number, including zero, may be present.</p>"
           }
         },
         "Time": {
@@ -2220,16 +2220,10 @@
     "com.amazonaws.eventbridge#PutPartnerEventsRequestEntry": {
       "type": "structure",
       "members": {
-        "Detail": {
-          "target": "com.amazonaws.eventbridge#String",
+        "Resources": {
+          "target": "com.amazonaws.eventbridge#EventResourceList",
           "traits": {
-            "smithy.api#documentation": "<p>A valid JSON string. There is no other schema imposed. The JSON string may contain\n            fields and nested subobjects.</p>"
-          }
-        },
-        "DetailType": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A free-form string used to decide what fields to expect in the event detail.</p>"
+            "smithy.api#documentation": "<p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily\n            concerns. Any number, including zero, may be present.</p>"
           }
         },
         "Time": {
@@ -2238,16 +2232,22 @@
             "smithy.api#documentation": "<p>The date and time of the event.</p>"
           }
         },
-        "Resources": {
-          "target": "com.amazonaws.eventbridge#EventResourceList",
+        "Detail": {
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
-            "smithy.api#documentation": "<p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily\n            concerns. Any number, including zero, may be present.</p>"
+            "smithy.api#documentation": "<p>A valid JSON string. There is no other schema imposed. The JSON string may contain\n            fields and nested subobjects.</p>"
           }
         },
         "Source": {
           "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The event source that is generating the evntry.</p>"
+          }
+        },
+        "DetailType": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A free-form string used to decide what fields to expect in the event detail.</p>"
           }
         }
       },
@@ -2270,16 +2270,16 @@
     "com.amazonaws.eventbridge#PutPartnerEventsResponse": {
       "type": "structure",
       "members": {
-        "Entries": {
-          "target": "com.amazonaws.eventbridge#PutPartnerEventsResultEntryList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of events from this operation that were successfully written to the partner\n            event bus.</p>"
-          }
-        },
         "FailedEntryCount": {
           "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of events from this operation that could not be written to the partner\n            event bus.</p>"
+          }
+        },
+        "Entries": {
+          "target": "com.amazonaws.eventbridge#PutPartnerEventsResultEntryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of events from this operation that were successfully written to the partner\n            event bus.</p>"
           }
         }
       }
@@ -2287,6 +2287,12 @@
     "com.amazonaws.eventbridge#PutPartnerEventsResultEntry": {
       "type": "structure",
       "members": {
+        "EventId": {
+          "target": "com.amazonaws.eventbridge#EventId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the event.</p>"
+          }
+        },
         "ErrorCode": {
           "target": "com.amazonaws.eventbridge#ErrorCode",
           "traits": {
@@ -2297,12 +2303,6 @@
           "target": "com.amazonaws.eventbridge#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The error message that explains why the event submission failed.</p>"
-          }
-        },
-        "EventId": {
-          "target": "com.amazonaws.eventbridge#EventId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the event.</p>"
           }
         }
       },
@@ -2342,6 +2342,13 @@
     "com.amazonaws.eventbridge#PutPermissionRequest": {
       "type": "structure",
       "members": {
+        "StatementId": {
+          "target": "com.amazonaws.eventbridge#StatementId",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier string for the external account that you are granting permissions to.\n            If you later want to revoke the permission for this external account, specify this\n                <code>StatementId</code> when you run <a>RemovePermission</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Condition": {
           "target": "com.amazonaws.eventbridge#Condition",
           "traits": {
@@ -2355,24 +2362,17 @@
             "smithy.api#required": {}
           }
         },
+        "EventBusName": {
+          "target": "com.amazonaws.eventbridge#NonPartnerEventBusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
+          }
+        },
         "Principal": {
           "target": "com.amazonaws.eventbridge#Principal",
           "traits": {
             "smithy.api#documentation": "<p>The 12-digit AWS account ID that you are permitting to put events to your default\n            event bus. Specify \"*\" to permit any account to put events to your default event\n            bus.</p>\n\n        <p>If you specify \"*\" without specifying <code>Condition</code>, avoid creating rules\n            that may match undesirable events. To create more secure rules, make sure that the event\n            pattern for each rule contains an <code>account</code> field with a specific account ID\n            from which to receive events. Rules with an account field do not match any events sent\n            from other accounts.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "StatementId": {
-          "target": "com.amazonaws.eventbridge#StatementId",
-          "traits": {
-            "smithy.api#documentation": "<p>An identifier string for the external account that you are granting permissions to.\n            If you later want to revoke the permission for this external account, specify this\n                <code>StatementId</code> when you run <a>RemovePermission</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EventBusName": {
-          "target": "com.amazonaws.eventbridge#NonPartnerEventBusName",
-          "traits": {
-            "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is\n            used.</p>"
           }
         }
       }
@@ -2412,23 +2412,16 @@
     "com.amazonaws.eventbridge#PutRuleRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.eventbridge#TagList",
+        "State": {
+          "target": "com.amazonaws.eventbridge#RuleState",
           "traits": {
-            "smithy.api#documentation": "<p>The list of key-value pairs to associate with the rule.</p>"
+            "smithy.api#documentation": "<p>Indicates whether the rule is enabled or disabled.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.eventbridge#RuleName",
+        "Description": {
+          "target": "com.amazonaws.eventbridge#RuleDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the rule that you are creating or updating.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EventBusName": {
-          "target": "com.amazonaws.eventbridge#EventBusName",
-          "traits": {
-            "smithy.api#documentation": "<p>The event bus to associate with this rule. If you omit this, the default event bus is\n            used.</p>"
+            "smithy.api#documentation": "<p>A description of the rule.</p>"
           }
         },
         "RoleArn": {
@@ -2437,10 +2430,11 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>"
           }
         },
-        "State": {
-          "target": "com.amazonaws.eventbridge#RuleState",
+        "Name": {
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the rule is enabled or disabled.</p>"
+            "smithy.api#documentation": "<p>The name of the rule that you are creating or updating.</p>",
+            "smithy.api#required": {}
           }
         },
         "EventPattern": {
@@ -2455,10 +2449,16 @@
             "smithy.api#documentation": "<p>The scheduling expression. For example, \"cron(0 20 * * ? *)\" or \"rate(5\n            minutes)\".</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.eventbridge#RuleDescription",
+        "Tags": {
+          "target": "com.amazonaws.eventbridge#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the rule.</p>"
+            "smithy.api#documentation": "<p>The list of key-value pairs to associate with the rule.</p>"
+          }
+        },
+        "EventBusName": {
+          "target": "com.amazonaws.eventbridge#EventBusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The event bus to associate with this rule. If you omit this, the default event bus is\n            used.</p>"
           }
         }
       }
@@ -2506,17 +2506,17 @@
     "com.amazonaws.eventbridge#PutTargetsRequest": {
       "type": "structure",
       "members": {
+        "EventBusName": {
+          "target": "com.amazonaws.eventbridge#EventBusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the event bus associated with the rule. If you omit this, the default\n            event bus is used.</p>"
+          }
+        },
         "Targets": {
           "target": "com.amazonaws.eventbridge#TargetList",
           "traits": {
             "smithy.api#documentation": "<p>The targets to update or add to the rule.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "EventBusName": {
-          "target": "com.amazonaws.eventbridge#EventBusName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the event bus associated with the rule. If you omit this, the default\n            event bus is used.</p>"
           }
         },
         "Rule": {
@@ -2531,16 +2531,16 @@
     "com.amazonaws.eventbridge#PutTargetsResponse": {
       "type": "structure",
       "members": {
-        "FailedEntries": {
-          "target": "com.amazonaws.eventbridge#PutTargetsResultEntryList",
-          "traits": {
-            "smithy.api#documentation": "<p>The failed target entries.</p>"
-          }
-        },
         "FailedEntryCount": {
           "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of failed entries.</p>"
+          }
+        },
+        "FailedEntries": {
+          "target": "com.amazonaws.eventbridge#PutTargetsResultEntryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The failed target entries.</p>"
           }
         }
       }
@@ -2548,12 +2548,6 @@
     "com.amazonaws.eventbridge#PutTargetsResultEntry": {
       "type": "structure",
       "members": {
-        "ErrorMessage": {
-          "target": "com.amazonaws.eventbridge#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>The error message that explains why the target addition failed.</p>"
-          }
-        },
         "TargetId": {
           "target": "com.amazonaws.eventbridge#TargetId",
           "traits": {
@@ -2564,6 +2558,12 @@
           "target": "com.amazonaws.eventbridge#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code that indicates why the target addition failed. If the value is\n                <code>ConcurrentModificationException</code>, too many requests were made at the\n            same time.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.eventbridge#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message that explains why the target addition failed.</p>"
           }
         }
       },
@@ -2629,17 +2629,17 @@
     "com.amazonaws.eventbridge#RemovePermissionRequest": {
       "type": "structure",
       "members": {
+        "EventBusName": {
+          "target": "com.amazonaws.eventbridge#NonPartnerEventBusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the event bus to revoke permissions for. If you omit this, the default\n            event bus is used.</p>"
+          }
+        },
         "StatementId": {
           "target": "com.amazonaws.eventbridge#StatementId",
           "traits": {
             "smithy.api#documentation": "<p>The statement ID corresponding to the account that is no longer allowed to put\n            events to the default event bus.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "EventBusName": {
-          "target": "com.amazonaws.eventbridge#NonPartnerEventBusName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the event bus to revoke permissions for. If you omit this, the default\n            event bus is used.</p>"
           }
         }
       }
@@ -2679,11 +2679,10 @@
             "smithy.api#documentation": "<p>The name of the event bus associated with the rule.</p>"
           }
         },
-        "Rule": {
-          "target": "com.amazonaws.eventbridge#RuleName",
+        "Force": {
+          "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>If this is a managed rule, created by an AWS service on your behalf, you must specify\n                <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored\n            for rules that are not managed rules. You can check whether a rule is a managed rule by\n            using <code>DescribeRule</code> or <code>ListRules</code> and checking the\n                <code>ManagedBy</code> field of the response.</p>"
           }
         },
         "Ids": {
@@ -2693,10 +2692,11 @@
             "smithy.api#required": {}
           }
         },
-        "Force": {
-          "target": "com.amazonaws.eventbridge#Boolean",
+        "Rule": {
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
-            "smithy.api#documentation": "<p>If this is a managed rule, created by an AWS service on your behalf, you must specify\n                <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored\n            for rules that are not managed rules. You can check whether a rule is a managed rule by\n            using <code>DescribeRule</code> or <code>ListRules</code> and checking the\n                <code>ManagedBy</code> field of the response.</p>"
+            "smithy.api#documentation": "<p>The name of the rule.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -2721,6 +2721,12 @@
     "com.amazonaws.eventbridge#RemoveTargetsResultEntry": {
       "type": "structure",
       "members": {
+        "TargetId": {
+          "target": "com.amazonaws.eventbridge#TargetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the target.</p>"
+          }
+        },
         "ErrorMessage": {
           "target": "com.amazonaws.eventbridge#ErrorMessage",
           "traits": {
@@ -2731,12 +2737,6 @@
           "target": "com.amazonaws.eventbridge#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code that indicates why the target removal failed. If the value is\n                <code>ConcurrentModificationException</code>, too many requests were made at the\n            same time.</p>"
-          }
-        },
-        "TargetId": {
-          "target": "com.amazonaws.eventbridge#TargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the target.</p>"
           }
         }
       },
@@ -2786,34 +2786,28 @@
     "com.amazonaws.eventbridge#Rule": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.eventbridge#RuleName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the rule.</p>"
-          }
-        },
-        "EventBusName": {
-          "target": "com.amazonaws.eventbridge#EventBusName",
-          "traits": {
-            "smithy.api#documentation": "<p>The event bus associated with the rule.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.eventbridge#RuleDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the rule.</p>"
-          }
-        },
         "RoleArn": {
           "target": "com.amazonaws.eventbridge#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that is used for target\n            invocation.</p>"
           }
         },
-        "EventPattern": {
-          "target": "com.amazonaws.eventbridge#EventPattern",
+        "State": {
+          "target": "com.amazonaws.eventbridge#RuleState",
           "traits": {
-            "smithy.api#documentation": "<p>The event pattern of the rule. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and\n                Event Patterns</a> in the <i>Amazon EventBridge User\n            Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The state of the rule.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.eventbridge#RuleName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the rule.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.eventbridge#RuleDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the rule.</p>"
           }
         },
         "ScheduleExpression": {
@@ -2828,16 +2822,22 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule.</p>"
           }
         },
-        "State": {
-          "target": "com.amazonaws.eventbridge#RuleState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the rule.</p>"
-          }
-        },
         "ManagedBy": {
           "target": "com.amazonaws.eventbridge#ManagedBy",
           "traits": {
             "smithy.api#documentation": "<p>If the rule was created on behalf of your account by an AWS service, this field\n            displays the principal name of the service that created the rule.</p>"
+          }
+        },
+        "EventPattern": {
+          "target": "com.amazonaws.eventbridge#EventPattern",
+          "traits": {
+            "smithy.api#documentation": "<p>The event pattern of the rule. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and\n                Event Patterns</a> in the <i>Amazon EventBridge User\n            Guide</i>.</p>"
+          }
+        },
+        "EventBusName": {
+          "target": "com.amazonaws.eventbridge#EventBusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The event bus associated with the rule.</p>"
           }
         }
       },
@@ -3025,17 +3025,17 @@
     "com.amazonaws.eventbridge#Tag": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.eventbridge#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value for the specified tag key.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Key": {
           "target": "com.amazonaws.eventbridge#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>A string you can use to assign a value. The combination of tag keys and values can\n            help you organize and categorize your resources.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.eventbridge#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value for the specified tag key.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3094,17 +3094,17 @@
     "com.amazonaws.eventbridge#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.eventbridge#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of key-value pairs to associate with the resource.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceARN": {
           "target": "com.amazonaws.eventbridge#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the EventBridge resource that you're adding tags to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.eventbridge#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of key-value pairs to associate with the resource.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3126,28 +3126,16 @@
     "com.amazonaws.eventbridge#Target": {
       "type": "structure",
       "members": {
-        "Input": {
-          "target": "com.amazonaws.eventbridge#TargetInput",
-          "traits": {
-            "smithy.api#documentation": "<p>Valid JSON text passed to the target. In this case, nothing from the event itself\n            is passed to the target. For more information, see <a href=\"http://www.rfc-editor.org/rfc/rfc7159.txt\">The JavaScript Object Notation\n                (JSON) Data Interchange Format</a>.</p>"
-          }
-        },
-        "KinesisParameters": {
-          "target": "com.amazonaws.eventbridge#KinesisParameters",
-          "traits": {
-            "smithy.api#documentation": "<p>The custom parameter you can use to control the shard assignment, when the target\n            is a Kinesis data stream. If you do not include this parameter, the default is to use\n            the <code>eventId</code> as the partition key.</p>"
-          }
-        },
-        "InputPath": {
-          "target": "com.amazonaws.eventbridge#TargetInputPath",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the JSONPath that is used for extracting part of the matched event\n            when passing it to the target. You must use JSON dot notation, not bracket notation. For\n            more information about JSON paths, see <a href=\"http://goessner.net/articles/JsonPath/\">JSONPath</a>.</p>"
-          }
-        },
         "EcsParameters": {
           "target": "com.amazonaws.eventbridge#EcsParameters",
           "traits": {
             "smithy.api#documentation": "<p>Contains the Amazon ECS task definition and task count to be used, if the event\n            target is an Amazon ECS task. For more information about Amazon ECS tasks, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html\">Task\n                Definitions </a> in the <i>Amazon EC2 Container Service Developer\n                Guide</i>.</p>"
+          }
+        },
+        "BatchParameters": {
+          "target": "com.amazonaws.eventbridge#BatchParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>If the event target is an AWS Batch job, this contains the job definition, job\n            name, and other parameters. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/jobs.html\">Jobs</a> in the <i>AWS Batch User\n                Guide</i>.</p>"
           }
         },
         "SqsParameters": {
@@ -3156,18 +3144,10 @@
             "smithy.api#documentation": "<p>Contains the message group ID to use when the target is a FIFO queue.</p>\n        <p>If you specify an SQS FIFO queue as a target, the queue must have content-based\n            deduplication enabled.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.eventbridge#TargetId",
+        "InputTransformer": {
+          "target": "com.amazonaws.eventbridge#InputTransformer",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the target.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Arn": {
-          "target": "com.amazonaws.eventbridge#TargetArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Settings to enable you to provide custom input to a target based on certain event\n            data. You can extract one or more key-value pairs from the event and then use that data\n            to send customized input to the target.</p>"
           }
         },
         "HttpParameters": {
@@ -3188,16 +3168,36 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to be used for this target when the\n            rule is triggered. If one rule triggers multiple targets, you can use a different IAM\n            role for each target.</p>"
           }
         },
-        "InputTransformer": {
-          "target": "com.amazonaws.eventbridge#InputTransformer",
+        "Input": {
+          "target": "com.amazonaws.eventbridge#TargetInput",
           "traits": {
-            "smithy.api#documentation": "<p>Settings to enable you to provide custom input to a target based on certain event\n            data. You can extract one or more key-value pairs from the event and then use that data\n            to send customized input to the target.</p>"
+            "smithy.api#documentation": "<p>Valid JSON text passed to the target. In this case, nothing from the event itself\n            is passed to the target. For more information, see <a href=\"http://www.rfc-editor.org/rfc/rfc7159.txt\">The JavaScript Object Notation\n                (JSON) Data Interchange Format</a>.</p>"
           }
         },
-        "BatchParameters": {
-          "target": "com.amazonaws.eventbridge#BatchParameters",
+        "Id": {
+          "target": "com.amazonaws.eventbridge#TargetId",
           "traits": {
-            "smithy.api#documentation": "<p>If the event target is an AWS Batch job, this contains the job definition, job\n            name, and other parameters. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/jobs.html\">Jobs</a> in the <i>AWS Batch User\n                Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The ID of the target.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "KinesisParameters": {
+          "target": "com.amazonaws.eventbridge#KinesisParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom parameter you can use to control the shard assignment, when the target\n            is a Kinesis data stream. If you do not include this parameter, the default is to use\n            the <code>eventId</code> as the partition key.</p>"
+          }
+        },
+        "InputPath": {
+          "target": "com.amazonaws.eventbridge#TargetInputPath",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the JSONPath that is used for extracting part of the matched event\n            when passing it to the target. You must use JSON dot notation, not bracket notation. For\n            more information about JSON paths, see <a href=\"http://goessner.net/articles/JsonPath/\">JSONPath</a>.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.eventbridge#TargetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3298,17 +3298,17 @@
     "com.amazonaws.eventbridge#TestEventPatternRequest": {
       "type": "structure",
       "members": {
-        "Event": {
-          "target": "com.amazonaws.eventbridge#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The event, in JSON format, to test against the event pattern.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "EventPattern": {
           "target": "com.amazonaws.eventbridge#EventPattern",
           "traits": {
             "smithy.api#documentation": "<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and\n                Event Patterns</a> in the <i>Amazon EventBridge User\n            Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Event": {
+          "target": "com.amazonaws.eventbridge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The event, in JSON format, to test against the event pattern.</p>",
             "smithy.api#required": {}
           }
         }

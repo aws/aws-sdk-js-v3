@@ -165,13 +165,6 @@
     "com.amazonaws.ec2instanceconnect#SendSSHPublicKeyRequest": {
       "type": "structure",
       "members": {
-        "InstanceOSUser": {
-          "target": "com.amazonaws.ec2instanceconnect#InstanceOSUser",
-          "traits": {
-            "smithy.api#documentation": "<p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SSHPublicKey": {
           "target": "com.amazonaws.ec2instanceconnect#SSHPublicKey",
           "traits": {
@@ -190,6 +183,13 @@
           "target": "com.amazonaws.ec2instanceconnect#InstanceId",
           "traits": {
             "smithy.api#documentation": "<p>The EC2 instance you wish to publish the SSH key to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceOSUser": {
+          "target": "com.amazonaws.ec2instanceconnect#InstanceOSUser",
+          "traits": {
+            "smithy.api#documentation": "<p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>",
             "smithy.api#required": {}
           }
         }

@@ -134,10 +134,10 @@
     "com.amazonaws.ebs#ChangedBlock": {
       "type": "structure",
       "members": {
-        "BlockIndex": {
-          "target": "com.amazonaws.ebs#BlockIndex",
+        "SecondBlockToken": {
+          "target": "com.amazonaws.ebs#BlockToken",
           "traits": {
-            "smithy.api#documentation": "<p>The block index.</p>"
+            "smithy.api#documentation": "<p>The block token for the block index of the <code>SecondSnapshotId</code> specified in\n            the <code>ListChangedBlocks</code> operation.</p>"
           }
         },
         "FirstBlockToken": {
@@ -146,10 +146,10 @@
             "smithy.api#documentation": "<p>The block token for the block index of the <code>FirstSnapshotId</code> specified in\n            the <code>ListChangedBlocks</code> operation. This value is absent if the first snapshot\n            does not have the changed block that is on the second snapshot.</p>"
           }
         },
-        "SecondBlockToken": {
-          "target": "com.amazonaws.ebs#BlockToken",
+        "BlockIndex": {
+          "target": "com.amazonaws.ebs#BlockIndex",
           "traits": {
-            "smithy.api#documentation": "<p>The block token for the block index of the <code>SecondSnapshotId</code> specified in\n            the <code>ListChangedBlocks</code> operation.</p>"
+            "smithy.api#documentation": "<p>The block index.</p>"
           }
         }
       },
@@ -255,28 +255,6 @@
     "com.amazonaws.ebs#CompleteSnapshotRequest": {
       "type": "structure",
       "members": {
-        "ChecksumAlgorithm": {
-          "target": "com.amazonaws.ebs#ChecksumAlgorithm",
-          "traits": {
-            "smithy.api#documentation": "<p>The algorithm used to generate the checksum. Currently, the only supported algorithm\n            is <code>SHA256</code>.</p>",
-            "smithy.api#httpHeader": "x-amz-Checksum-Algorithm"
-          }
-        },
-        "Checksum": {
-          "target": "com.amazonaws.ebs#Checksum",
-          "traits": {
-            "smithy.api#documentation": "<p>An aggregated Base-64 SHA256 checksum based on the checksums of each written\n            block.</p>\n        <p>To generate the aggregated checksum using the linear aggregation method, arrange the\n            checksums for each written block in ascending order of their block index, concatenate\n            them to form a single string, and then generate the checksum on the entire string using\n            the SHA256 algorithm.</p>",
-            "smithy.api#httpHeader": "x-amz-Checksum"
-          }
-        },
-        "ChangedBlocksCount": {
-          "target": "com.amazonaws.ebs#ChangedBlocksCount",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of blocks that were written to the snapshot.</p>",
-            "smithy.api#httpHeader": "x-amz-ChangedBlocksCount",
-            "smithy.api#required": {}
-          }
-        },
         "SnapshotId": {
           "target": "com.amazonaws.ebs#SnapshotId",
           "traits": {
@@ -290,6 +268,28 @@
           "traits": {
             "smithy.api#documentation": "<p>The aggregation method used to generate the checksum. Currently, the only supported\n            aggregation method is <code>LINEAR</code>.</p>",
             "smithy.api#httpHeader": "x-amz-Checksum-Aggregation-Method"
+          }
+        },
+        "ChecksumAlgorithm": {
+          "target": "com.amazonaws.ebs#ChecksumAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "<p>The algorithm used to generate the checksum. Currently, the only supported algorithm\n            is <code>SHA256</code>.</p>",
+            "smithy.api#httpHeader": "x-amz-Checksum-Algorithm"
+          }
+        },
+        "ChangedBlocksCount": {
+          "target": "com.amazonaws.ebs#ChangedBlocksCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of blocks that were written to the snapshot.</p>",
+            "smithy.api#httpHeader": "x-amz-ChangedBlocksCount",
+            "smithy.api#required": {}
+          }
+        },
+        "Checksum": {
+          "target": "com.amazonaws.ebs#Checksum",
+          "traits": {
+            "smithy.api#documentation": "<p>An aggregated Base-64 SHA256 checksum based on the checksums of each written\n            block.</p>\n        <p>To generate the aggregated checksum using the linear aggregation method, arrange the\n            checksums for each written block in ascending order of their block index, concatenate\n            them to form a single string, and then generate the checksum on the entire string using\n            the SHA256 algorithm.</p>",
+            "smithy.api#httpHeader": "x-amz-Checksum"
           }
         }
       }
@@ -434,14 +434,6 @@
     "com.amazonaws.ebs#GetSnapshotBlockRequest": {
       "type": "structure",
       "members": {
-        "BlockToken": {
-          "target": "com.amazonaws.ebs#BlockToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The block token of the block from which to get data.</p>\n\n\n        <p>Obtain the <code>BlockToken</code> by running the <code>ListChangedBlocks</code> or\n                <code>ListSnapshotBlocks</code> operations.</p>",
-            "smithy.api#httpQuery": "blockToken",
-            "smithy.api#required": {}
-          }
-        },
         "BlockIndex": {
           "target": "com.amazonaws.ebs#BlockIndex",
           "traits": {
@@ -457,24 +449,32 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "BlockToken": {
+          "target": "com.amazonaws.ebs#BlockToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The block token of the block from which to get data.</p>\n\n\n        <p>Obtain the <code>BlockToken</code> by running the <code>ListChangedBlocks</code> or\n                <code>ListSnapshotBlocks</code> operations.</p>",
+            "smithy.api#httpQuery": "blockToken",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.ebs#GetSnapshotBlockResponse": {
       "type": "structure",
       "members": {
+        "ChecksumAlgorithm": {
+          "target": "com.amazonaws.ebs#ChecksumAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "<p>The algorithm used to generate the checksum for the block, such as SHA256.</p>",
+            "smithy.api#httpHeader": "x-amz-Checksum-Algorithm"
+          }
+        },
         "BlockData": {
           "target": "com.amazonaws.ebs#BlockData",
           "traits": {
             "smithy.api#documentation": "<p>The data content of the block.</p>",
             "smithy.api#httpPayload": {}
-          }
-        },
-        "Checksum": {
-          "target": "com.amazonaws.ebs#Checksum",
-          "traits": {
-            "smithy.api#documentation": "<p>The checksum generated for the block, which is Base64 encoded.</p>",
-            "smithy.api#httpHeader": "x-amz-Checksum"
           }
         },
         "DataLength": {
@@ -484,11 +484,11 @@
             "smithy.api#httpHeader": "x-amz-Data-Length"
           }
         },
-        "ChecksumAlgorithm": {
-          "target": "com.amazonaws.ebs#ChecksumAlgorithm",
+        "Checksum": {
+          "target": "com.amazonaws.ebs#Checksum",
           "traits": {
-            "smithy.api#documentation": "<p>The algorithm used to generate the checksum for the block, such as SHA256.</p>",
-            "smithy.api#httpHeader": "x-amz-Checksum-Algorithm"
+            "smithy.api#documentation": "<p>The checksum generated for the block, which is Base64 encoded.</p>",
+            "smithy.api#httpHeader": "x-amz-Checksum"
           }
         }
       }
@@ -572,18 +572,25 @@
     "com.amazonaws.ebs#ListChangedBlocksRequest": {
       "type": "structure",
       "members": {
-        "FirstSnapshotId": {
-          "target": "com.amazonaws.ebs#SnapshotId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the first snapshot to use for the comparison.</p>\n        <important>\n            <p>The <code>FirstSnapshotID</code> parameter must be specified with a\n                    <code>SecondSnapshotId</code> parameter; otherwise, an error occurs.</p>\n        </important>",
-            "smithy.api#httpQuery": "firstSnapshotId"
-          }
-        },
         "StartingBlockIndex": {
           "target": "com.amazonaws.ebs#BlockIndex",
           "traits": {
             "smithy.api#documentation": "<p>The block index from which the comparison should start.</p>\n\n\n        <p>The list in the response will start from this block index or the next valid block\n            index in the snapshots.</p>",
             "smithy.api#httpQuery": "startingBlockIndex"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ebs#PageToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>",
+            "smithy.api#httpQuery": "pageToken"
+          }
+        },
+        "FirstSnapshotId": {
+          "target": "com.amazonaws.ebs#SnapshotId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the first snapshot to use for the comparison.</p>\n        <important>\n            <p>The <code>FirstSnapshotID</code> parameter must be specified with a\n                    <code>SecondSnapshotId</code> parameter; otherwise, an error occurs.</p>\n        </important>",
+            "smithy.api#httpQuery": "firstSnapshotId"
           }
         },
         "SecondSnapshotId": {
@@ -600,19 +607,24 @@
             "smithy.api#documentation": "<p>The number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.ebs#PageToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to request the next page of results.</p>",
-            "smithy.api#httpQuery": "pageToken"
-          }
         }
       }
     },
     "com.amazonaws.ebs#ListChangedBlocksResponse": {
       "type": "structure",
       "members": {
+        "ChangedBlocks": {
+          "target": "com.amazonaws.ebs#ChangedBlocks",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects containing information about the changed blocks.</p>"
+          }
+        },
+        "ExpiryTime": {
+          "target": "com.amazonaws.ebs#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the <code>BlockToken</code> expires.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.ebs#PageToken",
           "traits": {
@@ -623,18 +635,6 @@
           "target": "com.amazonaws.ebs#VolumeSize",
           "traits": {
             "smithy.api#documentation": "<p>The size of the volume in GB.</p>"
-          }
-        },
-        "ExpiryTime": {
-          "target": "com.amazonaws.ebs#TimeStamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the <code>BlockToken</code> expires.</p>"
-          }
-        },
-        "ChangedBlocks": {
-          "target": "com.amazonaws.ebs#ChangedBlocks",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects containing information about the changed blocks.</p>"
           }
         },
         "BlockSize": {
@@ -690,19 +690,18 @@
     "com.amazonaws.ebs#ListSnapshotBlocksRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.ebs#PageToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>",
+            "smithy.api#httpQuery": "pageToken"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.ebs#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
-          }
-        },
-        "SnapshotId": {
-          "target": "com.amazonaws.ebs#SnapshotId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the snapshot from which to get block indexes and block tokens.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         },
         "StartingBlockIndex": {
@@ -712,11 +711,12 @@
             "smithy.api#httpQuery": "startingBlockIndex"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.ebs#PageToken",
+        "SnapshotId": {
+          "target": "com.amazonaws.ebs#SnapshotId",
           "traits": {
-            "smithy.api#documentation": "<p>The token to request the next page of results.</p>",
-            "smithy.api#httpQuery": "pageToken"
+            "smithy.api#documentation": "<p>The ID of the snapshot from which to get block indexes and block tokens.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -724,18 +724,6 @@
     "com.amazonaws.ebs#ListSnapshotBlocksResponse": {
       "type": "structure",
       "members": {
-        "ExpiryTime": {
-          "target": "com.amazonaws.ebs#TimeStamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the <code>BlockToken</code> expires.</p>"
-          }
-        },
-        "VolumeSize": {
-          "target": "com.amazonaws.ebs#VolumeSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the volume in GB.</p>"
-          }
-        },
         "BlockSize": {
           "target": "com.amazonaws.ebs#BlockSize",
           "traits": {
@@ -748,10 +736,22 @@
             "smithy.api#documentation": "<p>An array of objects containing information about the blocks.</p>"
           }
         },
+        "ExpiryTime": {
+          "target": "com.amazonaws.ebs#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the <code>BlockToken</code> expires.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.ebs#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there\n            are no more results to return.</p>"
+          }
+        },
+        "VolumeSize": {
+          "target": "com.amazonaws.ebs#VolumeSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the volume in GB.</p>"
           }
         }
       }
@@ -838,11 +838,42 @@
     "com.amazonaws.ebs#PutSnapshotBlockRequest": {
       "type": "structure",
       "members": {
+        "SnapshotId": {
+          "target": "com.amazonaws.ebs#SnapshotId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the snapshot.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "BlockIndex": {
+          "target": "com.amazonaws.ebs#BlockIndex",
+          "traits": {
+            "smithy.api#documentation": "<p>The block index of the block in which to write the data. A block index is the offset\n            position of a block within a snapshot, and it is used to identify the block. To identify\n            the logical offset of the data in the logical volume, multiply the block index with the\n            block size (Block index * 512 bytes).</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Progress": {
+          "target": "com.amazonaws.ebs#Progress",
+          "traits": {
+            "smithy.api#documentation": "<p>The progress of the write process, as a percentage.</p>",
+            "smithy.api#httpHeader": "x-amz-Progress"
+          }
+        },
         "BlockData": {
           "target": "com.amazonaws.ebs#BlockData",
           "traits": {
             "smithy.api#documentation": "<p>The data to write to the block.</p>\n        <p>The block data is not signed as part of the Signature Version 4 signing process. As a\n            result, you must generate and provide a Base64-encoded SHA256 checksum for the block\n            data using the <b>x-amz-Checksum</b> header. Also, you \n        \tmust specify the checksum algorithm using the <b>x-amz-Checksum-Algorithm</b> \n        \theader. The checksum that you provide is part of the Signature Version 4 signing process. \n        \tIt is validated against a checksum generated by Amazon EBS to ensure the validity and authenticity \n        \tof the data. If the checksums do not correspond, the request fails. For more information, \n        \tsee <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums\">\n                Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User\n                Guide</i>.</p>",
             "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ChecksumAlgorithm": {
+          "target": "com.amazonaws.ebs#ChecksumAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "<p>The algorithm used to generate the checksum. Currently, the only supported algorithm\n            is <code>SHA256</code>.</p>",
+            "smithy.api#httpHeader": "x-amz-Checksum-Algorithm",
             "smithy.api#required": {}
           }
         },
@@ -861,55 +892,24 @@
             "smithy.api#httpHeader": "x-amz-Checksum",
             "smithy.api#required": {}
           }
-        },
-        "ChecksumAlgorithm": {
-          "target": "com.amazonaws.ebs#ChecksumAlgorithm",
-          "traits": {
-            "smithy.api#documentation": "<p>The algorithm used to generate the checksum. Currently, the only supported algorithm\n            is <code>SHA256</code>.</p>",
-            "smithy.api#httpHeader": "x-amz-Checksum-Algorithm",
-            "smithy.api#required": {}
-          }
-        },
-        "Progress": {
-          "target": "com.amazonaws.ebs#Progress",
-          "traits": {
-            "smithy.api#documentation": "<p>The progress of the write process, as a percentage.</p>",
-            "smithy.api#httpHeader": "x-amz-Progress"
-          }
-        },
-        "BlockIndex": {
-          "target": "com.amazonaws.ebs#BlockIndex",
-          "traits": {
-            "smithy.api#documentation": "<p>The block index of the block in which to write the data. A block index is the offset\n            position of a block within a snapshot, and it is used to identify the block. To identify\n            the logical offset of the data in the logical volume, multiply the block index with the\n            block size (Block index * 512 bytes).</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "SnapshotId": {
-          "target": "com.amazonaws.ebs#SnapshotId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the snapshot.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.ebs#PutSnapshotBlockResponse": {
       "type": "structure",
       "members": {
-        "Checksum": {
-          "target": "com.amazonaws.ebs#Checksum",
-          "traits": {
-            "smithy.api#documentation": "<p>The SHA256 checksum generated for the block data by Amazon EBS.</p>",
-            "smithy.api#httpHeader": "x-amz-Checksum"
-          }
-        },
         "ChecksumAlgorithm": {
           "target": "com.amazonaws.ebs#ChecksumAlgorithm",
           "traits": {
             "smithy.api#documentation": "<p>The algorithm used by Amazon EBS to generate the checksum.</p>",
             "smithy.api#httpHeader": "x-amz-Checksum-Algorithm"
+          }
+        },
+        "Checksum": {
+          "target": "com.amazonaws.ebs#Checksum",
+          "traits": {
+            "smithy.api#documentation": "<p>The SHA256 checksum generated for the block data by Amazon EBS.</p>",
+            "smithy.api#httpHeader": "x-amz-Checksum"
           }
         }
       }
@@ -951,14 +951,14 @@
     "com.amazonaws.ebs#ResourceNotFoundException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.ebs#ErrorMessage"
-        },
         "Reason": {
           "target": "com.amazonaws.ebs#ResourceNotFoundExceptionReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason for the exception.</p>"
           }
+        },
+        "Message": {
+          "target": "com.amazonaws.ebs#ErrorMessage"
         }
       },
       "traits": {
@@ -985,14 +985,14 @@
     "com.amazonaws.ebs#ServiceQuotaExceededException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.ebs#ErrorMessage"
+        },
         "Reason": {
           "target": "com.amazonaws.ebs#ServiceQuotaExceededExceptionReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason for the exception.</p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.ebs#ErrorMessage"
         }
       },
       "traits": {
@@ -1068,11 +1068,29 @@
     "com.amazonaws.ebs#StartSnapshotRequest": {
       "type": "structure",
       "members": {
-        "ClientToken": {
-          "target": "com.amazonaws.ebs#IdempotencyToken",
+        "Tags": {
+          "target": "com.amazonaws.ebs#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. Idempotency ensures that an API request completes only once. With an idempotent \n            request, if the original request completes successfully. The subsequent retries with the same \n            client token return the result from the original successful request and they have no additional \n            effect.</p>\n        <p>If you do not specify a client token, one is automatically generated by the AWS SDK.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html\">\n    \t\tIdempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>The tags to apply to the snapshot.</p>"
+          }
+        },
+        "KmsKeyArn": {
+          "target": "com.amazonaws.ebs#KmsKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) \n        \tcustomer master key (CMK) to be used to encrypt the snapshot. If you do not specify a \n        \tCMK, the default AWS managed CMK is used.</p>\n        <p>If you specify a <b>ParentSnapshotId</b>, omit this\n            parameter; the snapshot will be encrypted using the same CMK that was used to encrypt\n            the parent snapshot.</p>\n        <p>If <b>Encrypted</b> is set to <code>true</code>, \n        \tyou must specify a CMK ARN. </p>"
+          }
+        },
+        "VolumeSize": {
+          "target": "com.amazonaws.ebs#VolumeSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the volume, in GiB. The maximum size is <code>16384</code> GiB (16\n            TiB).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Encrypted": {
+          "target": "com.amazonaws.ebs#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether to encrypt the snapshot. To create an encrypted snapshot, specify\n                <code>true</code>. To create an unencrypted snapshot, omit this parameter.</p>\n        <p>If you specify a value for <b>ParentSnapshotId</b>, omit\n            this parameter.</p>\n        <p>If you specify <code>true</code>, the snapshot is encrypted using the CMK specified\n            using the <b>KmsKeyArn</b> parameter. If no value is specified\n            for <b>KmsKeyArn</b>, the default CMK for your account is \n        \tused. If no default CMK has been specified for your account, the AWS managed CMK is used. \n        \tTo set a default CMK for your account, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyEbsDefaultKmsKeyId.html\">\n        \t\tModifyEbsDefaultKmsKeyId</a>.</p>\n        <p>If your account is enabled for encryption by default, you cannot set this parameter to\n                <code>false</code>. In this case, you can omit this parameter.</p>\n\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-encryption\">\n                Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
           }
         },
         "Timeout": {
@@ -1093,29 +1111,11 @@
             "smithy.api#documentation": "<p>A description for the snapshot.</p>"
           }
         },
-        "KmsKeyArn": {
-          "target": "com.amazonaws.ebs#KmsKeyArn",
+        "ClientToken": {
+          "target": "com.amazonaws.ebs#IdempotencyToken",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) \n        \tcustomer master key (CMK) to be used to encrypt the snapshot. If you do not specify a \n        \tCMK, the default AWS managed CMK is used.</p>\n        <p>If you specify a <b>ParentSnapshotId</b>, omit this\n            parameter; the snapshot will be encrypted using the same CMK that was used to encrypt\n            the parent snapshot.</p>\n        <p>If <b>Encrypted</b> is set to <code>true</code>, \n        \tyou must specify a CMK ARN. </p>"
-          }
-        },
-        "VolumeSize": {
-          "target": "com.amazonaws.ebs#VolumeSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the volume, in GiB. The maximum size is <code>16384</code> GiB (16\n            TiB).</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.ebs#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to the snapshot.</p>"
-          }
-        },
-        "Encrypted": {
-          "target": "com.amazonaws.ebs#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether to encrypt the snapshot. To create an encrypted snapshot, specify\n                <code>true</code>. To create an unencrypted snapshot, omit this parameter.</p>\n        <p>If you specify a value for <b>ParentSnapshotId</b>, omit\n            this parameter.</p>\n        <p>If you specify <code>true</code>, the snapshot is encrypted using the CMK specified\n            using the <b>KmsKeyArn</b> parameter. If no value is specified\n            for <b>KmsKeyArn</b>, the default CMK for your account is \n        \tused. If no default CMK has been specified for your account, the AWS managed CMK is used. \n        \tTo set a default CMK for your account, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyEbsDefaultKmsKeyId.html\">\n        \t\tModifyEbsDefaultKmsKeyId</a>.</p>\n        <p>If your account is enabled for encryption by default, you cannot set this parameter to\n                <code>false</code>. In this case, you can omit this parameter.</p>\n\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-encryption\">\n                Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. Idempotency ensures that an API request completes only once. With an idempotent \n            request, if the original request completes successfully. The subsequent retries with the same \n            client token return the result from the original successful request and they have no additional \n            effect.</p>\n        <p>If you do not specify a client token, one is automatically generated by the AWS SDK.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html\">\n    \t\tIdempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -1123,46 +1123,10 @@
     "com.amazonaws.ebs#StartSnapshotResponse": {
       "type": "structure",
       "members": {
-        "ParentSnapshotId": {
-          "target": "com.amazonaws.ebs#SnapshotId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the parent snapshot.</p>"
-          }
-        },
-        "VolumeSize": {
-          "target": "com.amazonaws.ebs#VolumeSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the volume, in GiB.</p>"
-          }
-        },
-        "OwnerId": {
-          "target": "com.amazonaws.ebs#OwnerId",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID of the snapshot owner.</p>"
-          }
-        },
-        "StartTime": {
-          "target": "com.amazonaws.ebs#TimeStamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp when the snapshot was created.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.ebs#Status",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the snapshot.</p>"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.ebs#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the snapshot.</p>"
-          }
-        },
-        "BlockSize": {
-          "target": "com.amazonaws.ebs#BlockSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the blocks in the snapshot, in bytes.</p>"
           }
         },
         "Tags": {
@@ -1171,16 +1135,52 @@
             "smithy.api#documentation": "<p>The tags applied to the snapshot. You can specify up to 50 tags per snapshot. For more\n            information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\"> Tagging your Amazon EC2\n                resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
           }
         },
+        "BlockSize": {
+          "target": "com.amazonaws.ebs#BlockSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the blocks in the snapshot, in bytes.</p>"
+          }
+        },
         "KmsKeyArn": {
           "target": "com.amazonaws.ebs#KmsKeyArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer\n            master key (CMK) used to encrypt the snapshot.</p>"
           }
         },
+        "VolumeSize": {
+          "target": "com.amazonaws.ebs#VolumeSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the volume, in GiB.</p>"
+          }
+        },
         "SnapshotId": {
           "target": "com.amazonaws.ebs#SnapshotId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the snapshot.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.ebs#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the snapshot.</p>"
+          }
+        },
+        "ParentSnapshotId": {
+          "target": "com.amazonaws.ebs#SnapshotId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the parent snapshot.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.ebs#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the snapshot was created.</p>"
+          }
+        },
+        "OwnerId": {
+          "target": "com.amazonaws.ebs#OwnerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the snapshot owner.</p>"
           }
         }
       }
@@ -1211,16 +1211,16 @@
     "com.amazonaws.ebs#Tag": {
       "type": "structure",
       "members": {
-        "Key": {
-          "target": "com.amazonaws.ebs#TagKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The key of the tag.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.ebs#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the tag.</p>"
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.ebs#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The key of the tag.</p>"
           }
         }
       },
@@ -1270,14 +1270,14 @@
     "com.amazonaws.ebs#ValidationException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.ebs#ErrorMessage"
-        },
         "Reason": {
           "target": "com.amazonaws.ebs#ValidationExceptionReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason for the validation exception.</p>"
           }
+        },
+        "Message": {
+          "target": "com.amazonaws.ebs#ErrorMessage"
         }
       },
       "traits": {

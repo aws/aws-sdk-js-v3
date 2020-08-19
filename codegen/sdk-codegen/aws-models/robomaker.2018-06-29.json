@@ -133,16 +133,16 @@
     "com.amazonaws.robomaker#BatchPolicy": {
       "type": "structure",
       "members": {
-        "timeoutInSeconds": {
-          "target": "com.amazonaws.robomaker#BatchTimeoutInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of time, in seconds, to wait for the batch to complete. \n        \n      </p>\n         <p>If a batch times out, and there are pending requests that \n      were failing due to an internal failure (like <code>InternalServiceError</code>), \n      they will be moved to the \n      failed list and the batch status will be <code>Failed</code>.\n      If the pending requests were failing for any other reason, \n      the failed pending requests will be moved to the failed list \n      and the batch status will be <code>TimedOut</code>.\n      </p>"
-          }
-        },
         "maxConcurrency": {
           "target": "com.amazonaws.robomaker#MaxConcurrency",
           "traits": {
             "smithy.api#documentation": "<p>The number of active simulation jobs create as part of the batch that \n         can be in an active state at the same time. \n      </p>\n         <p>Active states include: <code>Pending</code>,<code>Preparing</code>, \n         <code>Running</code>, <code>Restarting</code>, <code>RunningFailed</code> and\n         <code>Terminating</code>. All other states are terminal states.  \n      </p>"
+          }
+        },
+        "timeoutInSeconds": {
+          "target": "com.amazonaws.robomaker#BatchTimeoutInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time, in seconds, to wait for the batch to complete. \n        \n      </p>\n         <p>If a batch times out, and there are pending requests that \n      were failing due to an internal failure (like <code>InternalServiceError</code>), \n      they will be moved to the \n      failed list and the batch status will be <code>Failed</code>.\n      If the pending requests were failing for any other reason, \n      the failed pending requests will be moved to the failed list \n      and the batch status will be <code>TimedOut</code>.\n      </p>"
           }
         }
       },
@@ -410,25 +410,6 @@
     "com.amazonaws.robomaker#CreateDeploymentJobRequest": {
       "type": "structure",
       "members": {
-        "fleet": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet to deploy.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "deploymentConfig": {
-          "target": "com.amazonaws.robomaker#DeploymentConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The requested deployment configuration.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the deployment job.</p>"
-          }
-        },
         "clientRequestToken": {
           "target": "com.amazonaws.robomaker#ClientRequestToken",
           "traits": {
@@ -437,10 +418,29 @@
             "smithy.api#required": {}
           }
         },
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the deployment job.</p>"
+          }
+        },
+        "deploymentConfig": {
+          "target": "com.amazonaws.robomaker#DeploymentConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The requested deployment configuration.</p>"
+          }
+        },
         "deploymentApplicationConfigs": {
           "target": "com.amazonaws.robomaker#DeploymentApplicationConfigs",
           "traits": {
             "smithy.api#documentation": "<p>The deployment application configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "fleet": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet to deploy.</p>",
             "smithy.api#required": {}
           }
         }
@@ -455,30 +455,6 @@
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the fleet was created.</p>"
           }
         },
-        "deploymentApplicationConfigs": {
-          "target": "com.amazonaws.robomaker#DeploymentApplicationConfigs",
-          "traits": {
-            "smithy.api#documentation": "<p>The deployment application configuration.</p>"
-          }
-        },
-        "deploymentConfig": {
-          "target": "com.amazonaws.robomaker#DeploymentConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The deployment configuration.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of all tags added to the deployment job.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.robomaker#DeploymentStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the deployment job.</p>"
-          }
-        },
         "failureReason": {
           "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
@@ -491,16 +467,40 @@
             "smithy.api#documentation": "<p>The target fleet for the deployment job.</p>"
           }
         },
+        "deploymentApplicationConfigs": {
+          "target": "com.amazonaws.robomaker#DeploymentApplicationConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>The deployment application configuration.</p>"
+          }
+        },
         "failureCode": {
           "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The failure code of the simulation job if it failed:</p>\n         <dl>\n            <dt>BadPermissionError</dt>\n            <dd>\n\n               <p>AWS Greengrass requires a service-level role permission to access\n                  other services. The role must include the \n                  <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy$jsonEditor\">\n                     <code>AWSGreengrassResourceAccessRolePolicy</code> \n                     managed policy</a>.\n               </p>\n            </dd>\n            <dt>ExtractingBundleFailure</dt>\n            <dd>\n               <p>The robot application could not be extracted from the bundle.</p>\n            </dd>\n            <dt>FailureThresholdBreached</dt>\n            <dd>\n               <p>The percentage of robots that could not be updated exceeded the percentage\n                  set for the deployment.</p>\n            </dd>\n            <dt>GreengrassDeploymentFailed</dt>\n            <dd>\n               <p>The robot application could not be deployed to the robot.</p>\n            </dd>\n            <dt>GreengrassGroupVersionDoesNotExist</dt>\n            <dd>\n               <p>The AWS Greengrass group or version associated with a robot is missing.</p>\n            </dd>\n            <dt>InternalServerError</dt>\n            <dd>\n               <p>An internal error has occurred. Retry your request, but if the problem persists, \n                  contact us with details.</p>\n            </dd>\n            <dt>MissingRobotApplicationArchitecture</dt>\n            <dd>\n               <p>The robot application does not have a source that matches the architecture of the robot.</p>\n            </dd>\n            <dt>MissingRobotDeploymentResource</dt>\n            <dd>\n               <p>One or more of the resources specified for the robot application are missing. For\n               example, does the robot application have the correct launch package and launch file?</p>\n            </dd>\n            <dt>PostLaunchFileFailure</dt>\n            <dd>\n               <p>The post-launch script failed.</p>\n            </dd>\n            <dt>PreLaunchFileFailure</dt>\n            <dd>\n               <p>The pre-launch script failed.</p>\n            </dd>\n            <dt>ResourceNotFound</dt>\n            <dd>\n               <p>One or more deployment resources are missing. For example, do robot application \n                  source bundles still exist? </p>\n            </dd>\n            <dt>RobotDeploymentNoResponse</dt>\n            <dd>\n               <p>There is no response from the robot. It might not be powered on or \n               connected to the internet.</p>\n            </dd>\n         </dl>"
           }
         },
+        "deploymentConfig": {
+          "target": "com.amazonaws.robomaker#DeploymentConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The deployment configuration.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.robomaker#DeploymentStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the deployment job.</p>"
+          }
+        },
         "arn": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deployment job.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of all tags added to the deployment job.</p>"
           }
         }
       }
@@ -539,17 +539,17 @@
     "com.amazonaws.robomaker#CreateFleetRequest": {
       "type": "structure",
       "members": {
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the fleet.</p>"
+          }
+        },
         "name": {
           "target": "com.amazonaws.robomaker#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the fleet.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the fleet.</p>"
           }
         }
       }
@@ -557,16 +557,16 @@
     "com.amazonaws.robomaker#CreateFleetResponse": {
       "type": "structure",
       "members": {
-        "createdAt": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the fleet was created.</p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The list of all tags added to the fleet.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the fleet.</p>"
           }
         },
         "arn": {
@@ -575,10 +575,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
+        "createdAt": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the fleet.</p>"
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the fleet was created.</p>"
           }
         }
       }
@@ -657,11 +657,10 @@
     "com.amazonaws.robomaker#CreateRobotApplicationRequest": {
       "type": "structure",
       "members": {
-        "robotSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The robot software suite (ROS distribuition) used by the robot application.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the robot application.</p>"
           }
         },
         "sources": {
@@ -678,10 +677,11 @@
             "smithy.api#required": {}
           }
         },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
+        "robotSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the robot application.</p>"
+            "smithy.api#documentation": "<p>The robot software suite (ROS distribuition) used by the robot application.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -689,16 +689,40 @@
     "com.amazonaws.robomaker#CreateRobotApplicationResponse": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
+        "version": {
+          "target": "com.amazonaws.robomaker#Version",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot application.</p>"
+            "smithy.api#documentation": "<p>The version of the robot application.</p>"
+          }
+        },
+        "revisionId": {
+          "target": "com.amazonaws.robomaker#RevisionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The revision id of the robot application.</p>"
           }
         },
         "robotSoftwareSuite": {
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The robot software suite (ROS distribution) used by the robot application.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot application.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the robot application.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of all tags added to the robot application.</p>"
           }
         },
         "lastUpdatedAt": {
@@ -711,30 +735,6 @@
           "target": "com.amazonaws.robomaker#Sources",
           "traits": {
             "smithy.api#documentation": "<p>The sources of the robot application.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of all tags added to the robot application.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the robot application.</p>"
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.robomaker#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the robot application.</p>"
-          }
-        },
-        "revisionId": {
-          "target": "com.amazonaws.robomaker#RevisionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The revision id of the robot application.</p>"
           }
         }
       }
@@ -776,17 +776,17 @@
     "com.amazonaws.robomaker#CreateRobotApplicationVersionRequest": {
       "type": "structure",
       "members": {
+        "currentRevisionId": {
+          "target": "com.amazonaws.robomaker#RevisionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The current revision id for the robot application. If you provide a value and it\n        matches the latest revision ID, a new version will be created.</p>"
+          }
+        },
         "application": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the robot application.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "currentRevisionId": {
-          "target": "com.amazonaws.robomaker#RevisionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The current revision id for the robot application. If you provide a value and it\n        matches the latest revision ID, a new version will be created.</p>"
           }
         }
       }
@@ -794,10 +794,34 @@
     "com.amazonaws.robomaker#CreateRobotApplicationVersionResponse": {
       "type": "structure",
       "members": {
+        "revisionId": {
+          "target": "com.amazonaws.robomaker#RevisionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The revision id of the robot application.</p>"
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.robomaker#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the robot application.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the robot application.</p>"
+          }
+        },
         "lastUpdatedAt": {
           "target": "com.amazonaws.robomaker#LastUpdatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot application.</p>"
           }
         },
         "sources": {
@@ -810,30 +834,6 @@
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The robot software suite (ROS distribution) used by the robot application.</p>"
-          }
-        },
-        "revisionId": {
-          "target": "com.amazonaws.robomaker#RevisionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The revision id of the robot application.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot application.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the robot application.</p>"
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.robomaker#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the robot application.</p>"
           }
         }
       }
@@ -848,17 +848,17 @@
             "smithy.api#required": {}
           }
         },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the robot.</p>"
-          }
-        },
         "architecture": {
           "target": "com.amazonaws.robomaker#Architecture",
           "traits": {
             "smithy.api#documentation": "<p>The target architecture of the robot.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the robot.</p>"
           }
         },
         "greengrassGroupId": {
@@ -873,10 +873,16 @@
     "com.amazonaws.robomaker#CreateRobotResponse": {
       "type": "structure",
       "members": {
-        "architecture": {
-          "target": "com.amazonaws.robomaker#Architecture",
+        "greengrassGroupId": {
+          "target": "com.amazonaws.robomaker#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The target architecture of the robot.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Greengrass group associated with the robot.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot.</p>"
           }
         },
         "name": {
@@ -885,28 +891,22 @@
             "smithy.api#documentation": "<p>The name of the robot.</p>"
           }
         },
+        "architecture": {
+          "target": "com.amazonaws.robomaker#Architecture",
+          "traits": {
+            "smithy.api#documentation": "<p>The target architecture of the robot.</p>"
+          }
+        },
         "tags": {
           "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The list of all tags added to the robot.</p>"
           }
         },
-        "greengrassGroupId": {
-          "target": "com.amazonaws.robomaker#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Greengrass group associated with the robot.</p>"
-          }
-        },
         "createdAt": {
           "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot was created.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot.</p>"
           }
         }
       }
@@ -951,16 +951,29 @@
     "com.amazonaws.robomaker#CreateSimulationApplicationRequest": {
       "type": "structure",
       "members": {
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the simulation application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "renderingEngine": {
+          "target": "com.amazonaws.robomaker#RenderingEngine",
+          "traits": {
+            "smithy.api#documentation": "<p>The rendering engine for the simulation application.</p>"
+          }
+        },
         "tags": {
           "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the simulation application.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
+        "simulationSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the simulation application.</p>",
+            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>",
             "smithy.api#required": {}
           }
         },
@@ -977,35 +990,40 @@
             "smithy.api#documentation": "<p>The sources of the simulation application.</p>",
             "smithy.api#required": {}
           }
-        },
-        "renderingEngine": {
-          "target": "com.amazonaws.robomaker#RenderingEngine",
-          "traits": {
-            "smithy.api#documentation": "<p>The rendering engine for the simulation application.</p>"
-          }
-        },
-        "simulationSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
-          "traits": {
-            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.robomaker#CreateSimulationApplicationResponse": {
       "type": "structure",
       "members": {
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+        "sources": {
+          "target": "com.amazonaws.robomaker#Sources",
           "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>"
+            "smithy.api#documentation": "<p>The sources of the simulation application.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation application.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the simulation application.</p>"
           }
         },
         "renderingEngine": {
           "target": "com.amazonaws.robomaker#RenderingEngine",
           "traits": {
             "smithy.api#documentation": "<p>The rendering engine for the simulation application.</p>"
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>"
           }
         },
         "robotSoftwareSuite": {
@@ -1014,16 +1032,10 @@
             "smithy.api#documentation": "<p>Information about the robot software suite (ROS distribution).</p>"
           }
         },
-        "sources": {
-          "target": "com.amazonaws.robomaker#Sources",
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The sources of the simulation application.</p>"
-          }
-        },
-        "simulationSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
-          "traits": {
-            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>"
+            "smithy.api#documentation": "<p>The list of all tags added to the simulation application.</p>"
           }
         },
         "revisionId": {
@@ -1038,22 +1050,10 @@
             "smithy.api#documentation": "<p>The version of the simulation application.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
+        "simulationSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
           "traits": {
-            "smithy.api#documentation": "<p>The list of all tags added to the simulation application.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the simulation application.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation application.</p>"
+            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>"
           }
         }
       }
@@ -1113,28 +1113,10 @@
     "com.amazonaws.robomaker#CreateSimulationApplicationVersionResponse": {
       "type": "structure",
       "members": {
-        "version": {
-          "target": "com.amazonaws.robomaker#Version",
+        "simulationSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
           "traits": {
-            "smithy.api#documentation": "<p>The version of the simulation application.</p>"
-          }
-        },
-        "renderingEngine": {
-          "target": "com.amazonaws.robomaker#RenderingEngine",
-          "traits": {
-            "smithy.api#documentation": "<p>The rendering engine for the simulation application.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the simulation application.</p>"
-          }
-        },
-        "revisionId": {
-          "target": "com.amazonaws.robomaker#RevisionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The revision ID of the simulation application.</p>"
+            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>"
           }
         },
         "sources": {
@@ -1143,10 +1125,22 @@
             "smithy.api#documentation": "<p>The sources of the simulation application.</p>"
           }
         },
-        "simulationSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.robomaker#LastUpdatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>"
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>"
+          }
+        },
+        "renderingEngine": {
+          "target": "com.amazonaws.robomaker#RenderingEngine",
+          "traits": {
+            "smithy.api#documentation": "<p>The rendering engine for the simulation application.</p>"
+          }
+        },
+        "revisionId": {
+          "target": "com.amazonaws.robomaker#RevisionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The revision ID of the simulation application.</p>"
           }
         },
         "robotSoftwareSuite": {
@@ -1155,10 +1149,16 @@
             "smithy.api#documentation": "<p>Information about the robot software suite (ROS distribution).</p>"
           }
         },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>"
+            "smithy.api#documentation": "<p>The name of the simulation application.</p>"
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.robomaker#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the simulation application.</p>"
           }
         },
         "arn": {
@@ -1212,41 +1212,16 @@
     "com.amazonaws.robomaker#CreateSimulationJobRequest": {
       "type": "structure",
       "members": {
-        "dataSources": {
-          "target": "com.amazonaws.robomaker#DataSourceConfigs",
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>Specify data sources to mount read-only files from S3 into your simulation. These files are \n        available under <code>/opt/robomaker/datasources/data_source_name</code>.\n      </p>\n         <note>\n            <p>There is a limit of 100 files and a combined size of 25GB for all\n            <code>DataSourceConfig</code> objects.  \n         </p>\n         </note>"
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the simulation job.</p>"
           }
         },
-        "robotApplications": {
-          "target": "com.amazonaws.robomaker#RobotApplicationConfigs",
+        "outputLocation": {
+          "target": "com.amazonaws.robomaker#OutputLocation",
           "traits": {
-            "smithy.api#documentation": "<p>The robot application to use in the simulation job.</p>"
-          }
-        },
-        "clientRequestToken": {
-          "target": "com.amazonaws.robomaker#ClientRequestToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
-        "simulationApplications": {
-          "target": "com.amazonaws.robomaker#SimulationApplicationConfigs",
-          "traits": {
-            "smithy.api#documentation": "<p>The simulation application to use in the simulation job.</p>"
-          }
-        },
-        "loggingConfig": {
-          "target": "com.amazonaws.robomaker#LoggingConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The logging configuration.</p>"
-          }
-        },
-        "compute": {
-          "target": "com.amazonaws.robomaker#Compute",
-          "traits": {
-            "smithy.api#documentation": "<p>Compute information for the simulation job.</p>"
+            "smithy.api#documentation": "<p>Location for output files generated by the simulation job.</p>"
           }
         },
         "maxJobDurationInSeconds": {
@@ -1256,16 +1231,17 @@
             "smithy.api#required": {}
           }
         },
-        "failureBehavior": {
-          "target": "com.amazonaws.robomaker#FailureBehavior",
+        "loggingConfig": {
+          "target": "com.amazonaws.robomaker#LoggingConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The failure behavior the simulation job.</p>\n         <dl>\n            <dt>Continue</dt>\n            <dd>\n               <p>Restart the simulation job in the same host instance.</p>\n            </dd>\n            <dt>Fail</dt>\n            <dd>\n               <p>Stop the simulation job and terminate the instance.</p>\n            </dd>\n         </dl>"
+            "smithy.api#documentation": "<p>The logging configuration.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
+        "clientRequestToken": {
+          "target": "com.amazonaws.robomaker#ClientRequestToken",
           "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the simulation job.</p>"
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         },
         "iamRole": {
@@ -1275,16 +1251,40 @@
             "smithy.api#required": {}
           }
         },
-        "outputLocation": {
-          "target": "com.amazonaws.robomaker#OutputLocation",
+        "compute": {
+          "target": "com.amazonaws.robomaker#Compute",
           "traits": {
-            "smithy.api#documentation": "<p>Location for output files generated by the simulation job.</p>"
+            "smithy.api#documentation": "<p>Compute information for the simulation job.</p>"
           }
         },
         "vpcConfig": {
           "target": "com.amazonaws.robomaker#VPCConfig",
           "traits": {
             "smithy.api#documentation": "<p>If your simulation job accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. \n         These must belong to the same VPC. You must provide at least one security group and one subnet ID. </p>"
+          }
+        },
+        "simulationApplications": {
+          "target": "com.amazonaws.robomaker#SimulationApplicationConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>The simulation application to use in the simulation job.</p>"
+          }
+        },
+        "robotApplications": {
+          "target": "com.amazonaws.robomaker#RobotApplicationConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>The robot application to use in the simulation job.</p>"
+          }
+        },
+        "dataSources": {
+          "target": "com.amazonaws.robomaker#DataSourceConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify data sources to mount read-only files from S3 into your simulation. These files are \n        available under <code>/opt/robomaker/datasources/data_source_name</code>.\n      </p>\n         <note>\n            <p>There is a limit of 100 files and a combined size of 25GB for all\n            <code>DataSourceConfig</code> objects.  \n         </p>\n         </note>"
+          }
+        },
+        "failureBehavior": {
+          "target": "com.amazonaws.robomaker#FailureBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>The failure behavior the simulation job.</p>\n         <dl>\n            <dt>Continue</dt>\n            <dd>\n               <p>Restart the simulation job in the same host instance.</p>\n            </dd>\n            <dt>Fail</dt>\n            <dd>\n               <p>Stop the simulation job and terminate the instance.</p>\n            </dd>\n         </dl>"
           }
         }
       }
@@ -1303,46 +1303,10 @@
     "com.amazonaws.robomaker#CreateSimulationJobResponse": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation job.</p>"
-          }
-        },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.robomaker#LastUpdatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>"
-          }
-        },
-        "robotApplications": {
-          "target": "com.amazonaws.robomaker#RobotApplicationConfigs",
-          "traits": {
-            "smithy.api#documentation": "<p>The robot application used by the simulation job.</p>"
-          }
-        },
-        "dataSources": {
-          "target": "com.amazonaws.robomaker#DataSources",
-          "traits": {
-            "smithy.api#documentation": "<p>The data sources for the simulation job.</p>"
-          }
-        },
-        "lastStartedAt": {
-          "target": "com.amazonaws.robomaker#LastStartedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The list of all tags added to the simulation job.</p>"
-          }
-        },
-        "outputLocation": {
-          "target": "com.amazonaws.robomaker#OutputLocation",
-          "traits": {
-            "smithy.api#documentation": "<p>Simulation job output files location.</p>"
           }
         },
         "failureCode": {
@@ -1351,16 +1315,34 @@
             "smithy.api#documentation": "<p>The failure code of the simulation job if it failed:</p>\n         <dl>\n            <dt>InternalServiceError</dt>\n            <dd>\n               <p>Internal service error.</p>\n            </dd>\n            <dt>RobotApplicationCrash</dt>\n            <dd>\n               <p>Robot application exited abnormally.</p>\n            </dd>\n            <dt>SimulationApplicationCrash</dt>\n            <dd>\n               <p> Simulation application exited abnormally.</p>\n            </dd>\n            <dt>BadPermissionsRobotApplication</dt>\n            <dd>\n               <p>Robot application bundle could not be downloaded.</p>\n            </dd>\n            <dt>BadPermissionsSimulationApplication</dt>\n            <dd>\n               <p>Simulation application bundle could not be downloaded.</p>\n            </dd>\n            <dt>BadPermissionsS3Output</dt>\n            <dd>\n               <p>Unable to publish outputs to customer-provided S3 bucket.</p>\n            </dd>\n            <dt>BadPermissionsCloudwatchLogs</dt>\n            <dd>\n               <p>Unable to publish logs to customer-provided CloudWatch Logs resource.</p>\n            </dd>\n            <dt>SubnetIpLimitExceeded</dt>\n            <dd>\n               <p>Subnet IP limit exceeded.</p>\n            </dd>\n            <dt>ENILimitExceeded</dt>\n            <dd>\n               <p>ENI limit exceeded.</p>\n            </dd>\n            <dt>BadPermissionsUserCredentials</dt>\n            <dd>\n               <p>Unable to use the Role provided.</p>\n            </dd>\n            <dt>InvalidBundleRobotApplication</dt>\n            <dd>\n               <p>Robot bundle cannot be extracted (invalid format, bundling error, or other issue).</p>\n            </dd>\n            <dt>InvalidBundleSimulationApplication</dt>\n            <dd>\n               <p>Simulation bundle cannot be extracted (invalid format, bundling error, or other issue).</p>\n            </dd>\n            <dt>RobotApplicationVersionMismatchedEtag</dt>\n            <dd>\n               <p>Etag for RobotApplication does not match value during version creation.</p>\n            </dd>\n            <dt>SimulationApplicationVersionMismatchedEtag</dt>\n            <dd>\n               <p>Etag for SimulationApplication does not match value during version creation.</p>\n            </dd>\n         </dl>"
           }
         },
-        "compute": {
-          "target": "com.amazonaws.robomaker#ComputeResponse",
+        "status": {
+          "target": "com.amazonaws.robomaker#SimulationJobStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Compute information for the simulation job.</p>"
+            "smithy.api#documentation": "<p>The status of the simulation job.</p>"
           }
         },
-        "iamRole": {
-          "target": "com.amazonaws.robomaker#IamRole",
+        "outputLocation": {
+          "target": "com.amazonaws.robomaker#OutputLocation",
           "traits": {
-            "smithy.api#documentation": "<p>The IAM role that allows the simulation job to call the AWS APIs that \n         are specified in its associated policies on your behalf.</p>"
+            "smithy.api#documentation": "<p>Simulation job output files location.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation job.</p>"
+          }
+        },
+        "dataSources": {
+          "target": "com.amazonaws.robomaker#DataSources",
+          "traits": {
+            "smithy.api#documentation": "<p>The data sources for the simulation job.</p>"
+          }
+        },
+        "robotApplications": {
+          "target": "com.amazonaws.robomaker#RobotApplicationConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>The robot application used by the simulation job.</p>"
           }
         },
         "vpcConfig": {
@@ -1369,16 +1351,22 @@
             "smithy.api#documentation": "<p>Information about the vpc configuration.</p>"
           }
         },
-        "maxJobDurationInSeconds": {
-          "target": "com.amazonaws.robomaker#JobDuration",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum simulation job duration in seconds.\n      </p>"
-          }
-        },
         "simulationTimeMillis": {
           "target": "com.amazonaws.robomaker#SimulationTimeMillis",
           "traits": {
             "smithy.api#documentation": "<p>The simulation job execution duration in milliseconds.</p>"
+          }
+        },
+        "lastStartedAt": {
+          "target": "com.amazonaws.robomaker#LastStartedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>"
+          }
+        },
+        "iamRole": {
+          "target": "com.amazonaws.robomaker#IamRole",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM role that allows the simulation job to call the AWS APIs that \n         are specified in its associated policies on your behalf.</p>"
           }
         },
         "failureBehavior": {
@@ -1387,28 +1375,40 @@
             "smithy.api#documentation": "<p>the failure behavior for the simulation job.</p>"
           }
         },
-        "clientRequestToken": {
-          "target": "com.amazonaws.robomaker#ClientRequestToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.robomaker#SimulationJobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the simulation job.</p>"
-          }
-        },
         "simulationApplications": {
           "target": "com.amazonaws.robomaker#SimulationApplicationConfigs",
           "traits": {
             "smithy.api#documentation": "<p>The simulation application used by the simulation job.</p>"
           }
         },
+        "compute": {
+          "target": "com.amazonaws.robomaker#ComputeResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>Compute information for the simulation job.</p>"
+          }
+        },
         "loggingConfig": {
           "target": "com.amazonaws.robomaker#LoggingConfig",
           "traits": {
             "smithy.api#documentation": "<p>The logging configuration.</p>"
+          }
+        },
+        "maxJobDurationInSeconds": {
+          "target": "com.amazonaws.robomaker#JobDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum simulation job duration in seconds.\n      </p>"
+          }
+        },
+        "clientRequestToken": {
+          "target": "com.amazonaws.robomaker#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>"
           }
         }
       }
@@ -1425,16 +1425,16 @@
             "smithy.api#documentation": "<p>The name of the data source.</p>"
           }
         },
-        "s3Keys": {
-          "target": "com.amazonaws.robomaker#S3KeyOutputs",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of S3 keys identifying the data source files.</p>"
-          }
-        },
         "s3Bucket": {
           "target": "com.amazonaws.robomaker#S3Bucket",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket where the data files are located.</p>"
+          }
+        },
+        "s3Keys": {
+          "target": "com.amazonaws.robomaker#S3KeyOutputs",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of S3 keys identifying the data source files.</p>"
           }
         }
       },
@@ -1445,10 +1445,10 @@
     "com.amazonaws.robomaker#DataSourceConfig": {
       "type": "structure",
       "members": {
-        "s3Keys": {
-          "target": "com.amazonaws.robomaker#S3Keys",
+        "s3Bucket": {
+          "target": "com.amazonaws.robomaker#S3Bucket",
           "traits": {
-            "smithy.api#documentation": "<p>The list of S3 keys identifying the data source files.</p>",
+            "smithy.api#documentation": "<p>The S3 bucket where the data files are located.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1459,10 +1459,10 @@
             "smithy.api#required": {}
           }
         },
-        "s3Bucket": {
-          "target": "com.amazonaws.robomaker#S3Bucket",
+        "s3Keys": {
+          "target": "com.amazonaws.robomaker#S3Keys",
           "traits": {
-            "smithy.api#documentation": "<p>The S3 bucket where the data files are located.</p>",
+            "smithy.api#documentation": "<p>The list of S3 keys identifying the data source files.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1598,17 +1598,17 @@
     "com.amazonaws.robomaker#DeleteRobotApplicationRequest": {
       "type": "structure",
       "members": {
-        "applicationVersion": {
-          "target": "com.amazonaws.robomaker#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the robot application to delete.</p>"
-          }
-        },
         "application": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the the robot application.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "applicationVersion": {
+          "target": "com.amazonaws.robomaker#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the robot application to delete.</p>"
           }
         }
       }
@@ -1686,6 +1686,13 @@
     "com.amazonaws.robomaker#DeploymentApplicationConfig": {
       "type": "structure",
       "members": {
+        "applicationVersion": {
+          "target": "com.amazonaws.robomaker#DeploymentVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "application": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
@@ -1697,13 +1704,6 @@
           "target": "com.amazonaws.robomaker#DeploymentLaunchConfig",
           "traits": {
             "smithy.api#documentation": "<p>The launch configuration.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "applicationVersion": {
-          "target": "com.amazonaws.robomaker#DeploymentVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the application.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1727,10 +1727,10 @@
     "com.amazonaws.robomaker#DeploymentConfig": {
       "type": "structure",
       "members": {
-        "robotDeploymentTimeoutInSeconds": {
-          "target": "com.amazonaws.robomaker#DeploymentTimeout",
+        "failureThresholdPercentage": {
+          "target": "com.amazonaws.robomaker#Percentage",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of time, in seconds, to wait for deployment to a single robot to complete. \n        Choose a time between 1 minute and 7 days. The default is 5 hours.</p>"
+            "smithy.api#documentation": "<p>The percentage of deployments that need to fail before stopping deployment.</p>"
           }
         },
         "concurrentDeploymentPercentage": {
@@ -1739,16 +1739,16 @@
             "smithy.api#documentation": "<p>The percentage of robots receiving the deployment at the same time.</p>"
           }
         },
-        "failureThresholdPercentage": {
-          "target": "com.amazonaws.robomaker#Percentage",
-          "traits": {
-            "smithy.api#documentation": "<p>The percentage of deployments that need to fail before stopping deployment.</p>"
-          }
-        },
         "downloadConditionFile": {
           "target": "com.amazonaws.robomaker#S3Object",
           "traits": {
             "smithy.api#documentation": "<p>The download condition file.</p>"
+          }
+        },
+        "robotDeploymentTimeoutInSeconds": {
+          "target": "com.amazonaws.robomaker#DeploymentTimeout",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time, in seconds, to wait for deployment to a single robot to complete. \n        Choose a time between 1 minute and 7 days. The default is 5 hours.</p>"
           }
         }
       },
@@ -1759,10 +1759,10 @@
     "com.amazonaws.robomaker#DeploymentJob": {
       "type": "structure",
       "members": {
-        "failureCode": {
-          "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The deployment job failure code.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deployment job.</p>"
           }
         },
         "status": {
@@ -1771,22 +1771,10 @@
             "smithy.api#documentation": "<p>The status of the deployment job.</p>"
           }
         },
-        "failureReason": {
-          "target": "com.amazonaws.robomaker#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>A short description of the reason why the deployment job failed.</p>"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the deployment job was created.</p>"
-          }
-        },
-        "arn": {
+        "fleet": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deployment job.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
           }
         },
         "deploymentConfig": {
@@ -1795,16 +1783,28 @@
             "smithy.api#documentation": "<p>The deployment configuration.</p>"
           }
         },
-        "fleet": {
-          "target": "com.amazonaws.robomaker#Arn",
+        "createdAt": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the deployment job was created.</p>"
+          }
+        },
+        "failureCode": {
+          "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The deployment job failure code.</p>"
           }
         },
         "deploymentApplicationConfigs": {
           "target": "com.amazonaws.robomaker#DeploymentApplicationConfigs",
           "traits": {
             "smithy.api#documentation": "<p>The deployment application configuration.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.robomaker#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>A short description of the reason why the deployment job failed.</p>"
           }
         }
       },
@@ -1914,10 +1914,10 @@
     "com.amazonaws.robomaker#DeploymentLaunchConfig": {
       "type": "structure",
       "members": {
-        "preLaunchFile": {
-          "target": "com.amazonaws.robomaker#Path",
+        "environmentVariables": {
+          "target": "com.amazonaws.robomaker#EnvironmentVariableMap",
           "traits": {
-            "smithy.api#documentation": "<p>The deployment pre-launch file. This file will be executed prior to the launch file.</p>"
+            "smithy.api#documentation": "<p>An array of key/value pairs specifying environment variables for the robot application</p>"
           }
         },
         "postLaunchFile": {
@@ -1926,23 +1926,23 @@
             "smithy.api#documentation": "<p>The deployment post-launch file. This file will be executed after the launch file.</p>"
           }
         },
-        "environmentVariables": {
-          "target": "com.amazonaws.robomaker#EnvironmentVariableMap",
+        "preLaunchFile": {
+          "target": "com.amazonaws.robomaker#Path",
           "traits": {
-            "smithy.api#documentation": "<p>An array of key/value pairs specifying environment variables for the robot application</p>"
-          }
-        },
-        "launchFile": {
-          "target": "com.amazonaws.robomaker#Command",
-          "traits": {
-            "smithy.api#documentation": "<p>The launch file name.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The deployment pre-launch file. This file will be executed prior to the launch file.</p>"
           }
         },
         "packageName": {
           "target": "com.amazonaws.robomaker#Command",
           "traits": {
             "smithy.api#documentation": "<p>The package name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "launchFile": {
+          "target": "com.amazonaws.robomaker#Command",
+          "traits": {
+            "smithy.api#documentation": "<p>The launch file name.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2032,17 +2032,17 @@
     "com.amazonaws.robomaker#DeregisterRobotRequest": {
       "type": "structure",
       "members": {
-        "fleet": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "robot": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "fleet": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2051,16 +2051,16 @@
     "com.amazonaws.robomaker#DeregisterRobotResponse": {
       "type": "structure",
       "members": {
-        "fleet": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
-          }
-        },
         "robot": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot.</p>"
+          }
+        },
+        "fleet": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
           }
         }
       }
@@ -2111,52 +2111,16 @@
     "com.amazonaws.robomaker#DescribeDeploymentJobResponse": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of all tags added to the specified deployment job.</p>"
-          }
-        },
-        "deploymentApplicationConfigs": {
-          "target": "com.amazonaws.robomaker#DeploymentApplicationConfigs",
-          "traits": {
-            "smithy.api#documentation": "<p>The deployment application configuration.</p>"
-          }
-        },
-        "failureCode": {
-          "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The deployment job failure code.</p>"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the deployment job was created.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.robomaker#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>A short description of the reason why the deployment job failed.</p>"
-          }
-        },
         "arn": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deployment job.</p>"
           }
         },
-        "deploymentConfig": {
-          "target": "com.amazonaws.robomaker#DeploymentConfig",
+        "status": {
+          "target": "com.amazonaws.robomaker#DeploymentStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The deployment configuration.</p>"
-          }
-        },
-        "fleet": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
+            "smithy.api#documentation": "<p>The status of the deployment job.</p>"
           }
         },
         "robotDeploymentSummary": {
@@ -2165,10 +2129,46 @@
             "smithy.api#documentation": "<p>A list of robot deployment summaries.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.robomaker#DeploymentStatus",
+        "deploymentConfig": {
+          "target": "com.amazonaws.robomaker#DeploymentConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the deployment job.</p>"
+            "smithy.api#documentation": "<p>The deployment configuration.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the deployment job was created.</p>"
+          }
+        },
+        "fleet": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of all tags added to the specified deployment job.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.robomaker#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>A short description of the reason why the deployment job failed.</p>"
+          }
+        },
+        "failureCode": {
+          "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The deployment job failure code.</p>"
+          }
+        },
+        "deploymentApplicationConfigs": {
+          "target": "com.amazonaws.robomaker#DeploymentApplicationConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>The deployment application configuration.</p>"
           }
         }
       }
@@ -2219,10 +2219,10 @@
     "com.amazonaws.robomaker#DescribeFleetResponse": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
+        "createdAt": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the fleet was created.</p>"
           }
         },
         "lastDeploymentStatus": {
@@ -2231,22 +2231,22 @@
             "smithy.api#documentation": "<p>The status of the last deployment.</p>"
           }
         },
-        "lastDeploymentTime": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time of the last deployment.</p>"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the fleet was created.</p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The list of all tags added to the specified fleet.</p>"
+          }
+        },
+        "lastDeploymentJob": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the last deployment job.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
           }
         },
         "name": {
@@ -2255,10 +2255,10 @@
             "smithy.api#documentation": "<p>The name of the fleet.</p>"
           }
         },
-        "lastDeploymentJob": {
-          "target": "com.amazonaws.robomaker#Arn",
+        "lastDeploymentTime": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the last deployment job.</p>"
+            "smithy.api#documentation": "<p>The time of the last deployment.</p>"
           }
         },
         "robots": {
@@ -2352,10 +2352,16 @@
     "com.amazonaws.robomaker#DescribeRobotApplicationResponse": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The list of all tags added to the specified robot application.</p>"
+            "smithy.api#documentation": "<p>The name of the robot application.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot application.</p>"
           }
         },
         "version": {
@@ -2370,34 +2376,28 @@
             "smithy.api#documentation": "<p>The revision id of the robot application.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the robot application.</p>"
-          }
-        },
         "robotSoftwareSuite": {
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The robot software suite (ROS distribution) used by the robot application.</p>"
           }
         },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot application.</p>"
+            "smithy.api#documentation": "<p>The list of all tags added to the specified robot application.</p>"
           }
         },
         "sources": {
           "target": "com.amazonaws.robomaker#Sources",
           "traits": {
             "smithy.api#documentation": "<p>The sources of the robot application.</p>"
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>"
           }
         }
       }
@@ -2417,16 +2417,22 @@
     "com.amazonaws.robomaker#DescribeRobotResponse": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The list of all tags added to the specified robot.</p>"
+            "smithy.api#documentation": "<p>The name of the robot.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.robomaker#RobotStatus",
+        "architecture": {
+          "target": "com.amazonaws.robomaker#Architecture",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the fleet.</p>"
+            "smithy.api#documentation": "<p>The target architecture of the robot application.</p>"
+          }
+        },
+        "lastDeploymentJob": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the last deployment job.</p>"
           }
         },
         "fleetArn": {
@@ -2435,10 +2441,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
           }
         },
-        "createdAt": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot was created.</p>"
+            "smithy.api#documentation": "<p>The list of all tags added to the specified robot.</p>"
           }
         },
         "arn": {
@@ -2453,28 +2459,22 @@
             "smithy.api#documentation": "<p>The Greengrass group id.</p>"
           }
         },
+        "status": {
+          "target": "com.amazonaws.robomaker#RobotStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the fleet.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot was created.</p>"
+          }
+        },
         "lastDeploymentTime": {
           "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time of the last deployment job.</p>"
-          }
-        },
-        "lastDeploymentJob": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the last deployment job.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the robot.</p>"
-          }
-        },
-        "architecture": {
-          "target": "com.amazonaws.robomaker#Architecture",
-          "traits": {
-            "smithy.api#documentation": "<p>The target architecture of the robot application.</p>"
           }
         }
       }
@@ -2531,34 +2531,10 @@
     "com.amazonaws.robomaker#DescribeSimulationApplicationResponse": {
       "type": "structure",
       "members": {
-        "revisionId": {
-          "target": "com.amazonaws.robomaker#RevisionId",
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The revision id of the simulation application.</p>"
-          }
-        },
-        "robotSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the robot software suite (ROS distribution).</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot simulation application.</p>"
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.robomaker#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the simulation application.</p>"
-          }
-        },
-        "simulationSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
-          "traits": {
-            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>"
+            "smithy.api#documentation": "<p>The list of all tags added to the specified simulation application.</p>"
           }
         },
         "renderingEngine": {
@@ -2567,28 +2543,52 @@
             "smithy.api#documentation": "<p>The rendering engine for the simulation application.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the simulation application.</p>"
-          }
-        },
         "lastUpdatedAt": {
           "target": "com.amazonaws.robomaker#LastUpdatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of all tags added to the specified simulation application.</p>"
-          }
-        },
         "sources": {
           "target": "com.amazonaws.robomaker#Sources",
           "traits": {
             "smithy.api#documentation": "<p>The sources of the simulation application.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot simulation application.</p>"
+          }
+        },
+        "robotSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the robot software suite (ROS distribution).</p>"
+          }
+        },
+        "simulationSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
+          "traits": {
+            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>"
+          }
+        },
+        "revisionId": {
+          "target": "com.amazonaws.robomaker#RevisionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The revision id of the simulation application.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the simulation application.</p>"
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.robomaker#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the simulation application.</p>"
           }
         }
       }
@@ -2667,22 +2667,16 @@
     "com.amazonaws.robomaker#DescribeSimulationJobBatchResponse": {
       "type": "structure",
       "members": {
-        "failedRequests": {
-          "target": "com.amazonaws.robomaker#FailedCreateSimulationJobRequests",
+        "createdRequests": {
+          "target": "com.amazonaws.robomaker#SimulationJobSummaries",
           "traits": {
-            "smithy.api#documentation": "<p>A list of failed create simulation job requests. The request failed to \n         be created into a simulation job. Failed requests do not \n         have a simulation job ID.\n      </p>"
+            "smithy.api#documentation": "<p>A list of created simulation job summaries.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.robomaker#LastUpdatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the batch.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.robomaker#SimulationJobBatchStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the batch.</p>\n         <dl>\n            <dt>Pending</dt>\n            <dd>\n               <p>The simulation job batch request is pending.</p>\n            </dd>\n            <dt>InProgress</dt>\n            <dd>\n               <p>The simulation job batch is in progress. </p>\n            </dd>\n            <dt>Failed</dt>\n            <dd>\n               <p>The simulation job batch failed. One or more simulation job requests could not be completed\n                due to an internal failure (like <code>InternalServiceError</code>). \n                See <code>failureCode</code> and <code>failureReason</code> for more information.</p>\n            </dd>\n            <dt>Completed</dt>\n            <dd>\n               <p>The simulation batch job completed. A batch is complete when (1) there are \n               no pending simulation job requests in the batch and none of the \n               failed simulation job requests are due to <code>InternalServiceError</code> and (2)\n                  when all created simulation jobs have reached a terminal state (for example, \n                  <code>Completed</code> or <code>Failed</code>).\n               </p>\n            </dd>\n            <dt>Canceled</dt>\n            <dd>\n               <p>The simulation batch job was cancelled.</p>\n            </dd>\n            <dt>Canceling</dt>\n            <dd>\n               <p>The simulation batch job is being cancelled.</p>\n            </dd>\n            <dt>Completing</dt>\n            <dd>\n               <p>The simulation batch job is completing.</p>\n            </dd>\n            <dt>TimingOut</dt>\n            <dd>\n               <p>The simulation job batch is timing out.</p>\n               <p>If a batch timing out, and there are pending requests that \n                  were failing due to an internal failure (like <code>InternalServiceError</code>), \n                  the batch status will be <code>Failed</code>. If there are no such failing request,  \n                  the batch status will be <code>TimedOut</code>.\n               </p>\n            </dd>\n            <dt>TimedOut</dt>\n            <dd>\n               <p>The simulation batch job timed out.</p>\n            </dd>\n         </dl>"
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was last updated.</p>"
           }
         },
         "batchPolicy": {
@@ -2691,22 +2685,10 @@
             "smithy.api#documentation": "<p>The batch policy.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the simulation job batch.</p>"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was created.</p>"
-          }
-        },
-        "createdRequests": {
-          "target": "com.amazonaws.robomaker#SimulationJobSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of created simulation job summaries.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the batch.</p>"
           }
         },
         "failureCode": {
@@ -2715,16 +2697,34 @@
             "smithy.api#documentation": "<p>The failure code of the simulation job batch.</p>"
           }
         },
+        "pendingRequests": {
+          "target": "com.amazonaws.robomaker#CreateSimulationJobRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of pending simulation job requests. These requests have\n      not yet been created into simulation jobs.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.robomaker#SimulationJobBatchStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the batch.</p>\n         <dl>\n            <dt>Pending</dt>\n            <dd>\n               <p>The simulation job batch request is pending.</p>\n            </dd>\n            <dt>InProgress</dt>\n            <dd>\n               <p>The simulation job batch is in progress. </p>\n            </dd>\n            <dt>Failed</dt>\n            <dd>\n               <p>The simulation job batch failed. One or more simulation job requests could not be completed\n                due to an internal failure (like <code>InternalServiceError</code>). \n                See <code>failureCode</code> and <code>failureReason</code> for more information.</p>\n            </dd>\n            <dt>Completed</dt>\n            <dd>\n               <p>The simulation batch job completed. A batch is complete when (1) there are \n               no pending simulation job requests in the batch and none of the \n               failed simulation job requests are due to <code>InternalServiceError</code> and (2)\n                  when all created simulation jobs have reached a terminal state (for example, \n                  <code>Completed</code> or <code>Failed</code>).\n               </p>\n            </dd>\n            <dt>Canceled</dt>\n            <dd>\n               <p>The simulation batch job was cancelled.</p>\n            </dd>\n            <dt>Canceling</dt>\n            <dd>\n               <p>The simulation batch job is being cancelled.</p>\n            </dd>\n            <dt>Completing</dt>\n            <dd>\n               <p>The simulation batch job is completing.</p>\n            </dd>\n            <dt>TimingOut</dt>\n            <dd>\n               <p>The simulation job batch is timing out.</p>\n               <p>If a batch timing out, and there are pending requests that \n                  were failing due to an internal failure (like <code>InternalServiceError</code>), \n                  the batch status will be <code>Failed</code>. If there are no such failing request,  \n                  the batch status will be <code>TimedOut</code>.\n               </p>\n            </dd>\n            <dt>TimedOut</dt>\n            <dd>\n               <p>The simulation batch job timed out.</p>\n            </dd>\n         </dl>"
+          }
+        },
+        "failedRequests": {
+          "target": "com.amazonaws.robomaker#FailedCreateSimulationJobRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of failed create simulation job requests. The request failed to \n         be created into a simulation job. Failed requests do not \n         have a simulation job ID.\n      </p>"
+          }
+        },
         "failureReason": {
           "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The reason the simulation job batch failed.</p>"
           }
         },
-        "pendingRequests": {
-          "target": "com.amazonaws.robomaker#CreateSimulationJobRequests",
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>A list of pending simulation job requests. These requests have\n      not yet been created into simulation jobs.</p>"
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the simulation job batch.</p>"
           }
         },
         "clientRequestToken": {
@@ -2733,10 +2733,10 @@
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+        "createdAt": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was last updated.</p>"
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was created.</p>"
           }
         }
       }
@@ -2756,6 +2756,24 @@
     "com.amazonaws.robomaker#DescribeSimulationJobResponse": {
       "type": "structure",
       "members": {
+        "status": {
+          "target": "com.amazonaws.robomaker#SimulationJobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the simulation job.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of all tags added to the specified simulation job.</p>"
+          }
+        },
+        "loggingConfig": {
+          "target": "com.amazonaws.robomaker#LoggingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The logging configuration.</p>"
+          }
+        },
         "outputLocation": {
           "target": "com.amazonaws.robomaker#OutputLocation",
           "traits": {
@@ -2768,58 +2786,10 @@
             "smithy.api#documentation": "<p>The failure code of the simulation job if it failed:</p>\n         <dl>\n            <dt>InternalServiceError</dt>\n            <dd>\n               <p>Internal service error.</p>\n            </dd>\n            <dt>RobotApplicationCrash</dt>\n            <dd>\n               <p>Robot application exited abnormally.</p>\n            </dd>\n            <dt>SimulationApplicationCrash</dt>\n            <dd>\n               <p> Simulation application exited abnormally.</p>\n            </dd>\n            <dt>BadPermissionsRobotApplication</dt>\n            <dd>\n               <p>Robot application bundle could not be downloaded.</p>\n            </dd>\n            <dt>BadPermissionsSimulationApplication</dt>\n            <dd>\n               <p>Simulation application bundle could not be downloaded.</p>\n            </dd>\n            <dt>BadPermissionsS3Output</dt>\n            <dd>\n               <p>Unable to publish outputs to customer-provided S3 bucket.</p>\n            </dd>\n            <dt>BadPermissionsCloudwatchLogs</dt>\n            <dd>\n               <p>Unable to publish logs to customer-provided CloudWatch Logs resource.</p>\n            </dd>\n            <dt>SubnetIpLimitExceeded</dt>\n            <dd>\n               <p>Subnet IP limit exceeded.</p>\n            </dd>\n            <dt>ENILimitExceeded</dt>\n            <dd>\n               <p>ENI limit exceeded.</p>\n            </dd>\n            <dt>BadPermissionsUserCredentials</dt>\n            <dd>\n               <p>Unable to use the Role provided.</p>\n            </dd>\n            <dt>InvalidBundleRobotApplication</dt>\n            <dd>\n               <p>Robot bundle cannot be extracted (invalid format, bundling error, or other issue).</p>\n            </dd>\n            <dt>InvalidBundleSimulationApplication</dt>\n            <dd>\n               <p>Simulation bundle cannot be extracted (invalid format, bundling error, or other issue).</p>\n            </dd>\n            <dt>RobotApplicationVersionMismatchedEtag</dt>\n            <dd>\n               <p>Etag for RobotApplication does not match value during version creation.</p>\n            </dd>\n            <dt>SimulationApplicationVersionMismatchedEtag</dt>\n            <dd>\n               <p>Etag for SimulationApplication does not match value during version creation.</p>\n            </dd>\n         </dl>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation job.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.robomaker#SimulationJobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the simulation job.</p>"
-          }
-        },
-        "dataSources": {
-          "target": "com.amazonaws.robomaker#DataSources",
-          "traits": {
-            "smithy.api#documentation": "<p>The data sources for the simulation job.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of all tags added to the specified simulation job.</p>"
-          }
-        },
-        "robotApplications": {
-          "target": "com.amazonaws.robomaker#RobotApplicationConfigs",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of robot applications.</p>"
-          }
-        },
-        "failureBehavior": {
-          "target": "com.amazonaws.robomaker#FailureBehavior",
-          "traits": {
-            "smithy.api#documentation": "<p>The failure behavior for the simulation job.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.robomaker#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>Details about why the simulation job failed. For more information\n         about troubleshooting, see <a href=\"https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html\">Troubleshooting</a>.</p>"
-          }
-        },
         "networkInterface": {
           "target": "com.amazonaws.robomaker#NetworkInterface",
           "traits": {
             "smithy.api#documentation": "<p>The network interface information for the simulation job.</p>"
-          }
-        },
-        "lastStartedAt": {
-          "target": "com.amazonaws.robomaker#LastStartedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>"
           }
         },
         "vpcConfig": {
@@ -2828,10 +2798,10 @@
             "smithy.api#documentation": "<p>The VPC configuration.</p>"
           }
         },
-        "simulationTimeMillis": {
-          "target": "com.amazonaws.robomaker#SimulationTimeMillis",
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The simulation job execution duration in milliseconds.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation job.</p>"
           }
         },
         "iamRole": {
@@ -2846,22 +2816,46 @@
             "smithy.api#documentation": "<p>Compute information for the simulation job.</p>"
           }
         },
+        "robotApplications": {
+          "target": "com.amazonaws.robomaker#RobotApplicationConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of robot applications.</p>"
+          }
+        },
+        "simulationTimeMillis": {
+          "target": "com.amazonaws.robomaker#SimulationTimeMillis",
+          "traits": {
+            "smithy.api#documentation": "<p>The simulation job execution duration in milliseconds.</p>"
+          }
+        },
+        "dataSources": {
+          "target": "com.amazonaws.robomaker#DataSources",
+          "traits": {
+            "smithy.api#documentation": "<p>The data sources for the simulation job.</p>"
+          }
+        },
         "simulationApplications": {
           "target": "com.amazonaws.robomaker#SimulationApplicationConfigs",
           "traits": {
             "smithy.api#documentation": "<p>A list of simulation applications.</p>"
           }
         },
-        "maxJobDurationInSeconds": {
-          "target": "com.amazonaws.robomaker#JobDuration",
+        "lastStartedAt": {
+          "target": "com.amazonaws.robomaker#LastStartedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>"
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
+        "failureReason": {
+          "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the simulation job.</p>"
+            "smithy.api#documentation": "<p>Details about why the simulation job failed. For more information\n         about troubleshooting, see <a href=\"https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html\">Troubleshooting</a>.</p>"
+          }
+        },
+        "failureBehavior": {
+          "target": "com.amazonaws.robomaker#FailureBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>The failure behavior for the simulation job.</p>"
           }
         },
         "clientRequestToken": {
@@ -2870,16 +2864,22 @@
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
-        "loggingConfig": {
-          "target": "com.amazonaws.robomaker#LoggingConfig",
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The logging configuration.</p>"
+            "smithy.api#documentation": "<p>The name of the simulation job.</p>"
           }
         },
         "lastUpdatedAt": {
           "target": "com.amazonaws.robomaker#LastUpdatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>"
+          }
+        },
+        "maxJobDurationInSeconds": {
+          "target": "com.amazonaws.robomaker#JobDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>"
           }
         }
       }
@@ -2925,6 +2925,12 @@
     "com.amazonaws.robomaker#FailedCreateSimulationJobRequest": {
       "type": "structure",
       "members": {
+        "failedAt": {
+          "target": "com.amazonaws.robomaker#FailedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch failed.</p>"
+          }
+        },
         "failureReason": {
           "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
@@ -2941,12 +2947,6 @@
           "target": "com.amazonaws.robomaker#SimulationJobRequest",
           "traits": {
             "smithy.api#documentation": "<p>The simulation job request.</p>"
-          }
-        },
-        "failedAt": {
-          "target": "com.amazonaws.robomaker#FailedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch failed.</p>"
           }
         }
       },
@@ -2978,16 +2978,16 @@
     "com.amazonaws.robomaker#Filter": {
       "type": "structure",
       "members": {
-        "values": {
-          "target": "com.amazonaws.robomaker#FilterValues",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of values.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.robomaker#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the filter.</p>"
+          }
+        },
+        "values": {
+          "target": "com.amazonaws.robomaker#FilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of values.</p>"
           }
         }
       },
@@ -3028,10 +3028,10 @@
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the fleet was created.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
+        "lastDeploymentTime": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
+            "smithy.api#documentation": "<p>The time of the last deployment.</p>"
           }
         },
         "lastDeploymentStatus": {
@@ -3040,22 +3040,22 @@
             "smithy.api#documentation": "<p>The status of the last fleet deployment.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the fleet.</p>"
-          }
-        },
         "lastDeploymentJob": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the last deployment job.</p>"
           }
         },
-        "lastDeploymentTime": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The time of the last deployment.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the fleet.</p>"
           }
         }
       },
@@ -3165,18 +3165,6 @@
     "com.amazonaws.robomaker#LaunchConfig": {
       "type": "structure",
       "members": {
-        "streamUI": {
-          "target": "com.amazonaws.robomaker#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Boolean indicating whether a streaming session will be configured for the application. If <code>True</code>,\n        AWS RoboMaker will configure a connection so you can interact with your application as it is\n       running in the simulation. You must configure and luanch the component. It must have a graphical\n       user interface.\n       </p>"
-          }
-        },
-        "environmentVariables": {
-          "target": "com.amazonaws.robomaker#EnvironmentVariableMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The environment variables for the application launch.</p>"
-          }
-        },
         "portForwardingConfig": {
           "target": "com.amazonaws.robomaker#PortForwardingConfig",
           "traits": {
@@ -3190,11 +3178,23 @@
             "smithy.api#required": {}
           }
         },
+        "streamUI": {
+          "target": "com.amazonaws.robomaker#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Boolean indicating whether a streaming session will be configured for the application. If <code>True</code>,\n        AWS RoboMaker will configure a connection so you can interact with your application as it is\n       running in the simulation. You must configure and luanch the component. It must have a graphical\n       user interface.\n       </p>"
+          }
+        },
         "launchFile": {
           "target": "com.amazonaws.robomaker#Command",
           "traits": {
             "smithy.api#documentation": "<p>The launch file name.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "environmentVariables": {
+          "target": "com.amazonaws.robomaker#EnvironmentVariableMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The environment variables for the application launch.</p>"
           }
         }
       },
@@ -3277,16 +3277,16 @@
     "com.amazonaws.robomaker#ListDeploymentJobsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.robomaker#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListDeploymentJobs</code> request. \n         When the results of a <code>ListDeploymentJobs</code> request exceed <code>maxResults</code>, this \n         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more \n         results to return. </p>"
-          }
-        },
         "deploymentJobs": {
           "target": "com.amazonaws.robomaker#DeploymentJobs",
           "traits": {
             "smithy.api#documentation": "<p>A list of deployment jobs that meet the criteria of the request.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.robomaker#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListDeploymentJobs</code> request. \n         When the results of a <code>ListDeploymentJobs</code> request exceed <code>maxResults</code>, this \n         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more \n         results to return. </p>"
           }
         }
       }
@@ -3330,10 +3330,10 @@
     "com.amazonaws.robomaker#ListFleetsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.robomaker#MaxResults",
+        "filters": {
+          "target": "com.amazonaws.robomaker#Filters",
           "traits": {
-            "smithy.api#documentation": "<p>When this parameter is used, <code>ListFleets</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListFleets</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 200. If this parameter is not used, then <code>ListFleets</code>\n         returns up to 200 results and a <code>nextToken</code> value if applicable. </p>"
+            "smithy.api#documentation": "<p>Optional filters to limit results.</p>\n         <p>The filter name <code>name</code> is supported.\n         When filtering, you must use the complete value of the filtered item. You can use up to three filters.</p>"
           }
         },
         "nextToken": {
@@ -3342,10 +3342,10 @@
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated \n         <code>ListFleets</code> request where <code>maxResults</code> was used and the results \n         exceeded the value of that parameter. Pagination continues from the end of the previous results \n         that returned the <code>nextToken</code> value. \n      </p>\n         <note>\n            <p>This token should be treated as an opaque identifier that is only used to retrieve \n         the next items in a list and not for other programmatic purposes.</p>\n         </note>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.robomaker#Filters",
+        "maxResults": {
+          "target": "com.amazonaws.robomaker#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>Optional filters to limit results.</p>\n         <p>The filter name <code>name</code> is supported.\n         When filtering, you must use the complete value of the filtered item. You can use up to three filters.</p>"
+            "smithy.api#documentation": "<p>When this parameter is used, <code>ListFleets</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListFleets</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 200. If this parameter is not used, then <code>ListFleets</code>\n         returns up to 200 results and a <code>nextToken</code> value if applicable. </p>"
           }
         }
       }
@@ -3353,16 +3353,16 @@
     "com.amazonaws.robomaker#ListFleetsResponse": {
       "type": "structure",
       "members": {
-        "fleetDetails": {
-          "target": "com.amazonaws.robomaker#Fleets",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of fleet details meeting the request criteria.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.robomaker#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListDeploymentJobs</code> request. \n         When the results of a <code>ListFleets</code> request exceed <code>maxResults</code>, this \n         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more \n         results to return. </p>"
+          }
+        },
+        "fleetDetails": {
+          "target": "com.amazonaws.robomaker#Fleets",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of fleet details meeting the request criteria.</p>"
           }
         }
       }
@@ -3403,10 +3403,10 @@
     "com.amazonaws.robomaker#ListRobotApplicationsRequest": {
       "type": "structure",
       "members": {
-        "filters": {
-          "target": "com.amazonaws.robomaker#Filters",
+        "versionQualifier": {
+          "target": "com.amazonaws.robomaker#VersionQualifier",
           "traits": {
-            "smithy.api#documentation": "<p>Optional filters to limit results.</p>\n            <p>The filter name <code>name</code> is supported.\n         When filtering, you must use the complete value of the filtered item. You can use up to three filters.</p>"
+            "smithy.api#documentation": "<p>The version qualifier of the robot application.</p>"
           }
         },
         "maxResults": {
@@ -3421,10 +3421,10 @@
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated \n         <code>ListRobotApplications</code> request where <code>maxResults</code> was used and the results \n         exceeded the value of that parameter. Pagination continues from the end of the previous results \n         that returned the <code>nextToken</code> value. \n      </p>"
           }
         },
-        "versionQualifier": {
-          "target": "com.amazonaws.robomaker#VersionQualifier",
+        "filters": {
+          "target": "com.amazonaws.robomaker#Filters",
           "traits": {
-            "smithy.api#documentation": "<p>The version qualifier of the robot application.</p>"
+            "smithy.api#documentation": "<p>Optional filters to limit results.</p>\n            <p>The filter name <code>name</code> is supported.\n         When filtering, you must use the complete value of the filtered item. You can use up to three filters.</p>"
           }
         }
       }
@@ -3432,16 +3432,16 @@
     "com.amazonaws.robomaker#ListRobotApplicationsResponse": {
       "type": "structure",
       "members": {
-        "robotApplicationSummaries": {
-          "target": "com.amazonaws.robomaker#RobotApplicationSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of robot application summaries that meet the criteria of the request.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.robomaker#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListRobotApplications</code> request. \n         When the results of a <code>ListRobotApplications</code> request exceed <code>maxResults</code>, this \n         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more \n         results to return. </p>"
+          }
+        },
+        "robotApplicationSummaries": {
+          "target": "com.amazonaws.robomaker#RobotApplicationSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of robot application summaries that meet the criteria of the request.</p>"
           }
         }
       }
@@ -3491,16 +3491,16 @@
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated \n         <code>ListRobots</code> request where <code>maxResults</code> was used and the results \n         exceeded the value of that parameter. Pagination continues from the end of the previous results \n         that returned the <code>nextToken</code> value. \n      </p>"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.robomaker#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>When this parameter is used, <code>ListRobots</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListRobots</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 200. If this parameter is not used, then <code>ListRobots</code>\n         returns up to 200 results and a <code>nextToken</code> value if applicable. </p>"
-          }
-        },
         "filters": {
           "target": "com.amazonaws.robomaker#Filters",
           "traits": {
             "smithy.api#documentation": "<p>Optional filters to limit results.</p>\n         <p>The filter names <code>status</code> and <code>fleetName</code> are supported.\n         When filtering, you must use the complete value of the filtered item. You can use up to three filters,\n         but they must be for the same named item. For example, if you are looking for items with the status\n         <code>Registered</code> or the status <code>Available</code>.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.robomaker#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>When this parameter is used, <code>ListRobots</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListRobots</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 200. If this parameter is not used, then <code>ListRobots</code>\n         returns up to 200 results and a <code>nextToken</code> value if applicable. </p>"
           }
         }
       }
@@ -3508,16 +3508,16 @@
     "com.amazonaws.robomaker#ListRobotsResponse": {
       "type": "structure",
       "members": {
-        "robots": {
-          "target": "com.amazonaws.robomaker#Robots",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of robots that meet the criteria of the request.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.robomaker#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListRobots</code> request. \n         When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this \n         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more \n         results to return. </p>"
+          }
+        },
+        "robots": {
+          "target": "com.amazonaws.robomaker#Robots",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of robots that meet the criteria of the request.</p>"
           }
         }
       }
@@ -3558,16 +3558,16 @@
     "com.amazonaws.robomaker#ListSimulationApplicationsRequest": {
       "type": "structure",
       "members": {
+        "maxResults": {
+          "target": "com.amazonaws.robomaker#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>When this parameter is used, <code>ListSimulationApplications</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListSimulationApplications</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 100. If this parameter is not used, then <code>ListSimulationApplications</code>\n         returns up to 100 results and a <code>nextToken</code> value if applicable. </p>"
+          }
+        },
         "filters": {
           "target": "com.amazonaws.robomaker#Filters",
           "traits": {
             "smithy.api#documentation": "<p>Optional list of filters to limit results.</p>\n         <p>The filter name <code>name</code> is supported.  When filtering, you must use the complete \n        value of the filtered item. You can use up to three filters.</p>"
-          }
-        },
-        "versionQualifier": {
-          "target": "com.amazonaws.robomaker#VersionQualifier",
-          "traits": {
-            "smithy.api#documentation": "<p>The version qualifier of the simulation application.</p>"
           }
         },
         "nextToken": {
@@ -3576,10 +3576,10 @@
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated \n         <code>ListSimulationApplications</code> request where <code>maxResults</code> was used and the results \n         exceeded the value of that parameter. Pagination continues from the end of the previous results \n         that returned the <code>nextToken</code> value. \n      </p>"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.robomaker#MaxResults",
+        "versionQualifier": {
+          "target": "com.amazonaws.robomaker#VersionQualifier",
           "traits": {
-            "smithy.api#documentation": "<p>When this parameter is used, <code>ListSimulationApplications</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListSimulationApplications</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 100. If this parameter is not used, then <code>ListSimulationApplications</code>\n         returns up to 100 results and a <code>nextToken</code> value if applicable. </p>"
+            "smithy.api#documentation": "<p>The version qualifier of the simulation application.</p>"
           }
         }
       }
@@ -3587,16 +3587,16 @@
     "com.amazonaws.robomaker#ListSimulationApplicationsResponse": {
       "type": "structure",
       "members": {
-        "simulationApplicationSummaries": {
-          "target": "com.amazonaws.robomaker#SimulationApplicationSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of simulation application summaries that meet the criteria of the request.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.robomaker#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListSimulationApplications</code> request. \n         When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this \n         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more \n         results to return. </p>"
+          }
+        },
+        "simulationApplicationSummaries": {
+          "target": "com.amazonaws.robomaker#SimulationApplicationSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of simulation application summaries that meet the criteria of the request.</p>"
           }
         }
       }
@@ -3640,16 +3640,16 @@
             "smithy.api#documentation": "<p>When this parameter is used, <code>ListSimulationJobBatches</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListSimulationJobBatches</code> request with the returned \n         <code>nextToken</code> value. \n      </p>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.robomaker#Filters",
-          "traits": {
-            "smithy.api#documentation": "<p>Optional filters to limit results.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.robomaker#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated \n         <code>ListSimulationJobBatches</code> request where <code>maxResults</code> was used and the results \n         exceeded the value of that parameter. Pagination continues from the end of the previous results \n         that returned the <code>nextToken</code> value. \n      </p>"
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.robomaker#Filters",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional filters to limit results.</p>"
           }
         }
       }
@@ -3707,12 +3707,6 @@
     "com.amazonaws.robomaker#ListSimulationJobsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.robomaker#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>When this parameter is used, <code>ListSimulationJobs</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListSimulationJobs</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 1000. If this parameter is not used, then <code>ListSimulationJobs</code>\n         returns up to 1000 results and a <code>nextToken</code> value if applicable. </p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.robomaker#PaginationToken",
           "traits": {
@@ -3724,23 +3718,29 @@
           "traits": {
             "smithy.api#documentation": "<p>Optional filters to limit results.</p>\n         <p>The filter names <code>status</code> and <code>simulationApplicationName</code> \n        and <code>robotApplicationName</code> are supported.\n         When filtering, you must use the complete value of the filtered item. You can use up to three filters,\n         but they must be for the same named item. For example, if you are looking for items with the status\n         <code>Preparing</code> or the status <code>Running</code>.</p>"
           }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.robomaker#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>When this parameter is used, <code>ListSimulationJobs</code> only returns \n         <code>maxResults</code> results in a single page along with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListSimulationJobs</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 1000. If this parameter is not used, then <code>ListSimulationJobs</code>\n         returns up to 1000 results and a <code>nextToken</code> value if applicable. </p>"
+          }
         }
       }
     },
     "com.amazonaws.robomaker#ListSimulationJobsResponse": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.robomaker#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListSimulationJobs</code> request. \n         When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this \n         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more \n         results to return. </p>"
+          }
+        },
         "simulationJobSummaries": {
           "target": "com.amazonaws.robomaker#SimulationJobSummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list of simulation job summaries that meet the criteria of the request.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.robomaker#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListSimulationJobs</code> request. \n         When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this \n         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more \n         results to return. </p>"
           }
         }
       }
@@ -3840,6 +3840,12 @@
     "com.amazonaws.robomaker#NetworkInterface": {
       "type": "structure",
       "members": {
+        "publicIpAddress": {
+          "target": "com.amazonaws.robomaker#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The IPv4 public address of the network interface.</p>"
+          }
+        },
         "privateIpAddress": {
           "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
@@ -3850,12 +3856,6 @@
           "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the network interface.</p>"
-          }
-        },
-        "publicIpAddress": {
-          "target": "com.amazonaws.robomaker#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The IPv4 public address of the network interface.</p>"
           }
         }
       },
@@ -3968,6 +3968,13 @@
     "com.amazonaws.robomaker#PortMapping": {
       "type": "structure",
       "members": {
+        "jobPort": {
+          "target": "com.amazonaws.robomaker#Port",
+          "traits": {
+            "smithy.api#documentation": "<p>The port number on the simulation job instance to use as a remote connection point. </p>",
+            "smithy.api#required": {}
+          }
+        },
         "enableOnPublicIp": {
           "target": "com.amazonaws.robomaker#Boolean",
           "traits": {
@@ -3978,13 +3985,6 @@
           "target": "com.amazonaws.robomaker#NonSystemPort",
           "traits": {
             "smithy.api#documentation": "<p>The port number on the application.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "jobPort": {
-          "target": "com.amazonaws.robomaker#Port",
-          "traits": {
-            "smithy.api#documentation": "<p>The port number on the simulation job instance to use as a remote connection point. </p>",
             "smithy.api#required": {}
           }
         }
@@ -4008,16 +4008,10 @@
     "com.amazonaws.robomaker#ProgressDetail": {
       "type": "structure",
       "members": {
-        "percentDone": {
-          "target": "com.amazonaws.robomaker#PercentDone",
+        "targetResource": {
+          "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>Precentage of the step that is done. This currently only applies to the <code>Downloading/Extracting</code> \n        step of the deployment. It is empty for other steps.</p>"
-          }
-        },
-        "estimatedTimeRemainingSeconds": {
-          "target": "com.amazonaws.robomaker#GenericInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>Estimated amount of time in seconds remaining in the step. This currently only applies\n        to the <code>Downloading/Extracting</code> step of the deployment. It is empty for other steps.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deployment job.</p>"
           }
         },
         "currentProgress": {
@@ -4026,10 +4020,16 @@
             "smithy.api#documentation": "<p>The current progress status.</p>\n         <dl>\n            <dt>Validating</dt>\n            <dd>\n               <p>Validating the deployment.</p>\n            </dd>\n            <dt>DownloadingExtracting</dt>\n            <dd>\n               <p>Downloading and extracting the bundle on the robot.</p>\n            </dd>\n            <dt>ExecutingPreLaunch</dt>\n            <dd>\n               <p>Executing pre-launch script(s) if provided.</p>\n            </dd>\n            <dt>Launching</dt>\n            <dd>\n               <p>Launching the robot application.</p>\n            </dd>\n            <dt>ExecutingPostLaunch</dt>\n            <dd>\n               <p>Executing post-launch script(s) if provided.</p>\n            </dd>\n            <dt>Finished</dt>\n            <dd>\n               <p>Deployment is complete.</p>\n            </dd>\n         </dl>"
           }
         },
-        "targetResource": {
-          "target": "com.amazonaws.robomaker#GenericString",
+        "estimatedTimeRemainingSeconds": {
+          "target": "com.amazonaws.robomaker#GenericInteger",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deployment job.</p>"
+            "smithy.api#documentation": "<p>Estimated amount of time in seconds remaining in the step. This currently only applies\n        to the <code>Downloading/Extracting</code> step of the deployment. It is empty for other steps.</p>"
+          }
+        },
+        "percentDone": {
+          "target": "com.amazonaws.robomaker#PercentDone",
+          "traits": {
+            "smithy.api#documentation": "<p>Precentage of the step that is done. This currently only applies to the <code>Downloading/Extracting</code> \n        step of the deployment. It is empty for other steps.</p>"
           }
         }
       },
@@ -4093,16 +4093,16 @@
     "com.amazonaws.robomaker#RegisterRobotResponse": {
       "type": "structure",
       "members": {
-        "fleet": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet that the robot will join.</p>"
-          }
-        },
         "robot": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>Information about the robot registration.</p>"
+          }
+        },
+        "fleet": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet that the robot will join.</p>"
           }
         }
       }
@@ -4110,16 +4110,16 @@
     "com.amazonaws.robomaker#RenderingEngine": {
       "type": "structure",
       "members": {
-        "version": {
-          "target": "com.amazonaws.robomaker#RenderingEngineVersionType",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the rendering engine.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.robomaker#RenderingEngineType",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rendering engine.</p>"
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.robomaker#RenderingEngineVersionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the rendering engine.</p>"
           }
         }
       },
@@ -4237,28 +4237,16 @@
     "com.amazonaws.robomaker#Robot": {
       "type": "structure",
       "members": {
-        "status": {
-          "target": "com.amazonaws.robomaker#RobotStatus",
+        "lastDeploymentTime": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the robot.</p>"
+            "smithy.api#documentation": "<p>The time of the last deployment.</p>"
           }
         },
-        "greenGrassGroupId": {
-          "target": "com.amazonaws.robomaker#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>The Greengrass group associated with the robot.</p>"
-          }
-        },
-        "lastDeploymentJob": {
+        "fleetArn": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the last deployment job.</p>"
-          }
-        },
-        "architecture": {
-          "target": "com.amazonaws.robomaker#Architecture",
-          "traits": {
-            "smithy.api#documentation": "<p>The architecture of the robot.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
           }
         },
         "name": {
@@ -4273,22 +4261,34 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot.</p>"
           }
         },
+        "lastDeploymentJob": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the last deployment job.</p>"
+          }
+        },
         "createdAt": {
           "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot was created.</p>"
           }
         },
-        "lastDeploymentTime": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
+        "greenGrassGroupId": {
+          "target": "com.amazonaws.robomaker#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The time of the last deployment.</p>"
+            "smithy.api#documentation": "<p>The Greengrass group associated with the robot.</p>"
           }
         },
-        "fleetArn": {
-          "target": "com.amazonaws.robomaker#Arn",
+        "status": {
+          "target": "com.amazonaws.robomaker#RobotStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
+            "smithy.api#documentation": "<p>The status of the robot.</p>"
+          }
+        },
+        "architecture": {
+          "target": "com.amazonaws.robomaker#Architecture",
+          "traits": {
+            "smithy.api#documentation": "<p>The architecture of the robot.</p>"
           }
         }
       },
@@ -4357,10 +4357,22 @@
     "com.amazonaws.robomaker#RobotApplicationSummary": {
       "type": "structure",
       "members": {
+        "robotSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about a robot software suite (ROS distribution).</p>"
+          }
+        },
         "version": {
           "target": "com.amazonaws.robomaker#Version",
           "traits": {
             "smithy.api#documentation": "<p>The version of the robot application.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the robot application.</p>"
           }
         },
         "arn": {
@@ -4374,18 +4386,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>"
           }
-        },
-        "robotSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about a robot software suite (ROS distribution).</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the robot application.</p>"
-          }
         }
       },
       "traits": {
@@ -4395,22 +4395,22 @@
     "com.amazonaws.robomaker#RobotDeployment": {
       "type": "structure",
       "members": {
+        "deploymentFinishTime": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the deployment finished.</p>"
+          }
+        },
+        "deploymentStartTime": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the deployment was started.</p>"
+          }
+        },
         "status": {
           "target": "com.amazonaws.robomaker#RobotStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the robot deployment.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.robomaker#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>A short description of the reason why the robot deployment failed.</p>"
-          }
-        },
-        "failureCode": {
-          "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The robot deployment failure code.</p>"
           }
         },
         "arn": {
@@ -4425,16 +4425,16 @@
             "smithy.api#documentation": "<p>Information about how the deployment is progressing.</p>"
           }
         },
-        "deploymentFinishTime": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
+        "failureCode": {
+          "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
           "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the deployment finished.</p>"
+            "smithy.api#documentation": "<p>The robot deployment failure code.</p>"
           }
         },
-        "deploymentStartTime": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
+        "failureReason": {
+          "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the deployment was started.</p>"
+            "smithy.api#documentation": "<p>A short description of the reason why the robot deployment failed.</p>"
           }
         }
       },
@@ -4486,16 +4486,16 @@
     "com.amazonaws.robomaker#RobotSoftwareSuite": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.robomaker#RobotSoftwareSuiteType",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the robot software suite (ROS distribution).</p>"
-          }
-        },
         "version": {
           "target": "com.amazonaws.robomaker#RobotSoftwareSuiteVersionType",
           "traits": {
             "smithy.api#documentation": "<p>The version of the robot software suite (ROS distribution).</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#RobotSoftwareSuiteType",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the robot software suite (ROS distribution).</p>"
           }
         }
       },
@@ -4610,16 +4610,16 @@
     "com.amazonaws.robomaker#S3KeyOutput": {
       "type": "structure",
       "members": {
-        "s3Key": {
-          "target": "com.amazonaws.robomaker#S3Key",
-          "traits": {
-            "smithy.api#documentation": "<p>The S3 key.</p>"
-          }
-        },
         "etag": {
           "target": "com.amazonaws.robomaker#S3Etag",
           "traits": {
             "smithy.api#documentation": "<p>The etag for the object.</p>"
+          }
+        },
+        "s3Key": {
+          "target": "com.amazonaws.robomaker#S3Key",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 key.</p>"
           }
         }
       },
@@ -4648,6 +4648,13 @@
     "com.amazonaws.robomaker#S3Object": {
       "type": "structure",
       "members": {
+        "key": {
+          "target": "com.amazonaws.robomaker#S3Key",
+          "traits": {
+            "smithy.api#documentation": "<p>The key of the object.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "bucket": {
           "target": "com.amazonaws.robomaker#S3Bucket",
           "traits": {
@@ -4659,13 +4666,6 @@
           "target": "com.amazonaws.robomaker#S3Etag",
           "traits": {
             "smithy.api#documentation": "<p>The etag of the object.</p>"
-          }
-        },
-        "key": {
-          "target": "com.amazonaws.robomaker#S3Key",
-          "traits": {
-            "smithy.api#documentation": "<p>The key of the object.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -4701,6 +4701,12 @@
     "com.amazonaws.robomaker#SimulationApplicationConfig": {
       "type": "structure",
       "members": {
+        "applicationVersion": {
+          "target": "com.amazonaws.robomaker#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the simulation application.</p>"
+          }
+        },
         "application": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
@@ -4713,12 +4719,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The launch configuration for the simulation application.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "applicationVersion": {
-          "target": "com.amazonaws.robomaker#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the simulation application.</p>"
           }
         }
       },
@@ -4759,16 +4759,10 @@
     "com.amazonaws.robomaker#SimulationApplicationSummary": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the simulation application.</p>"
-          }
-        },
-        "simulationSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about a simulation software suite.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation application.</p>"
           }
         },
         "lastUpdatedAt": {
@@ -4777,22 +4771,28 @@
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>"
           }
         },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the simulation application.</p>"
+          }
+        },
         "robotSoftwareSuite": {
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>Information about a robot software suite (ROS distribution).</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation application.</p>"
-          }
-        },
         "version": {
           "target": "com.amazonaws.robomaker#Version",
           "traits": {
             "smithy.api#documentation": "<p>The version of the simulation application.</p>"
+          }
+        },
+        "simulationSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about a simulation software suite.</p>"
           }
         }
       },
@@ -4803,54 +4803,6 @@
     "com.amazonaws.robomaker#SimulationJob": {
       "type": "structure",
       "members": {
-        "networkInterface": {
-          "target": "com.amazonaws.robomaker#NetworkInterface",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about a network interface.</p>"
-          }
-        },
-        "maxJobDurationInSeconds": {
-          "target": "com.amazonaws.robomaker#JobDuration",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum simulation job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>"
-          }
-        },
-        "compute": {
-          "target": "com.amazonaws.robomaker#ComputeResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>Compute information for the simulation job</p>"
-          }
-        },
-        "failureBehavior": {
-          "target": "com.amazonaws.robomaker#FailureBehavior",
-          "traits": {
-            "smithy.api#documentation": "<p>The failure behavior the simulation job.</p>\n         <dl>\n            <dt>Continue</dt>\n            <dd>\n               <p>Restart the simulation job in the same host instance.</p>\n            </dd>\n            <dt>Fail</dt>\n            <dd>\n               <p>Stop the simulation job and terminate the instance.</p>\n            </dd>\n         </dl>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.robomaker#SimulationJobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Status of the simulation job.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.robomaker#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The reason why the simulation job failed.</p>"
-          }
-        },
-        "failureCode": {
-          "target": "com.amazonaws.robomaker#SimulationJobErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The failure code of the simulation job if it failed.</p>"
-          }
-        },
-        "iamRole": {
-          "target": "com.amazonaws.robomaker#IamRole",
-          "traits": {
-            "smithy.api#documentation": "<p>The IAM role that allows the simulation instance to call the AWS APIs that \n         are specified in its associated policies on your behalf. This is how credentials are passed in to your \n         simulation job.\n      </p>"
-          }
-        },
         "simulationTimeMillis": {
           "target": "com.amazonaws.robomaker#SimulationTimeMillis",
           "traits": {
@@ -4863,16 +4815,76 @@
             "smithy.api#documentation": "<p>VPC configuration information.</p>"
           }
         },
+        "iamRole": {
+          "target": "com.amazonaws.robomaker#IamRole",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM role that allows the simulation instance to call the AWS APIs that \n         are specified in its associated policies on your behalf. This is how credentials are passed in to your \n         simulation job.\n      </p>"
+          }
+        },
+        "compute": {
+          "target": "com.amazonaws.robomaker#ComputeResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>Compute information for the simulation job</p>"
+          }
+        },
+        "clientRequestToken": {
+          "target": "com.amazonaws.robomaker#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for this <code>SimulationJob</code> request.</p>"
+          }
+        },
+        "networkInterface": {
+          "target": "com.amazonaws.robomaker#NetworkInterface",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about a network interface.</p>"
+          }
+        },
         "lastStartedAt": {
           "target": "com.amazonaws.robomaker#LastStartedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>"
           }
         },
+        "failureReason": {
+          "target": "com.amazonaws.robomaker#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason why the simulation job failed.</p>"
+          }
+        },
+        "robotApplications": {
+          "target": "com.amazonaws.robomaker#RobotApplicationConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of robot applications.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the simulation job.</p>"
+          }
+        },
         "arn": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation job.</p>"
+          }
+        },
+        "simulationApplications": {
+          "target": "com.amazonaws.robomaker#SimulationApplicationConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of simulation applications.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.robomaker#SimulationJobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of the simulation job.</p>"
+          }
+        },
+        "failureBehavior": {
+          "target": "com.amazonaws.robomaker#FailureBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>The failure behavior the simulation job.</p>\n         <dl>\n            <dt>Continue</dt>\n            <dd>\n               <p>Restart the simulation job in the same host instance.</p>\n            </dd>\n            <dt>Fail</dt>\n            <dd>\n               <p>Stop the simulation job and terminate the instance.</p>\n            </dd>\n         </dl>"
           }
         },
         "dataSources": {
@@ -4887,34 +4899,22 @@
             "smithy.api#documentation": "<p>Location for output files generated by the simulation job.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the simulation job.</p>"
-          }
-        },
-        "robotApplications": {
-          "target": "com.amazonaws.robomaker#RobotApplicationConfigs",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of robot applications.</p>"
-          }
-        },
-        "simulationApplications": {
-          "target": "com.amazonaws.robomaker#SimulationApplicationConfigs",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of simulation applications.</p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the simulation job.</p>"
           }
         },
-        "clientRequestToken": {
-          "target": "com.amazonaws.robomaker#ClientRequestToken",
+        "failureCode": {
+          "target": "com.amazonaws.robomaker#SimulationJobErrorCode",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for this <code>SimulationJob</code> request.</p>"
+            "smithy.api#documentation": "<p>The failure code of the simulation job if it failed.</p>"
+          }
+        },
+        "loggingConfig": {
+          "target": "com.amazonaws.robomaker#LoggingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The logging configuration.</p>"
           }
         },
         "lastUpdatedAt": {
@@ -4923,10 +4923,10 @@
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>"
           }
         },
-        "loggingConfig": {
-          "target": "com.amazonaws.robomaker#LoggingConfig",
+        "maxJobDurationInSeconds": {
+          "target": "com.amazonaws.robomaker#JobDuration",
           "traits": {
-            "smithy.api#documentation": "<p>The logging configuration.</p>"
+            "smithy.api#documentation": "<p>The maximum simulation job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>"
           }
         }
       },
@@ -4997,34 +4997,10 @@
     "com.amazonaws.robomaker#SimulationJobBatchSummary": {
       "type": "structure",
       "members": {
-        "failedRequestCount": {
-          "target": "com.amazonaws.robomaker#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of failed simulation job requests.</p>"
-          }
-        },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.robomaker#LastUpdatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was last updated.</p>"
-          }
-        },
-        "createdRequestCount": {
-          "target": "com.amazonaws.robomaker#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of created simulation job requests.</p>"
-          }
-        },
         "createdAt": {
           "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was created.</p>"
-          }
-        },
-        "pendingRequestCount": {
-          "target": "com.amazonaws.robomaker#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of pending simulation job requests.</p>"
           }
         },
         "status": {
@@ -5033,10 +5009,34 @@
             "smithy.api#documentation": "<p>The status of the simulation job batch.</p>\n         <dl>\n            <dt>Pending</dt>\n            <dd>\n               <p>The simulation job batch request is pending.</p>\n            </dd>\n            <dt>InProgress</dt>\n            <dd>\n               <p>The simulation job batch is in progress. </p>\n            </dd>\n            <dt>Failed</dt>\n            <dd>\n               <p>The simulation job batch failed. One or more simulation job requests could not be completed\n                due to an internal failure (like <code>InternalServiceError</code>). \n                See <code>failureCode</code> and <code>failureReason</code> for more information.</p>\n            </dd>\n            <dt>Completed</dt>\n            <dd>\n               <p>The simulation batch job completed. A batch is complete when (1) there are \n               no pending simulation job requests in the batch and none of the \n               failed simulation job requests are due to <code>InternalServiceError</code> and (2)\n                  when all created simulation jobs have reached a terminal state (for example, \n                  <code>Completed</code> or <code>Failed</code>).\n               </p>\n            </dd>\n            <dt>Canceled</dt>\n            <dd>\n               <p>The simulation batch job was cancelled.</p>\n            </dd>\n            <dt>Canceling</dt>\n            <dd>\n               <p>The simulation batch job is being cancelled.</p>\n            </dd>\n            <dt>Completing</dt>\n            <dd>\n               <p>The simulation batch job is completing.</p>\n            </dd>\n            <dt>TimingOut</dt>\n            <dd>\n               <p>The simulation job batch is timing out.</p>\n               <p>If a batch timing out, and there are pending requests that \n                  were failing due to an internal failure (like <code>InternalServiceError</code>), \n                  the batch status will be <code>Failed</code>. If there are no such failing request,  \n                  the batch status will be <code>TimedOut</code>.\n               </p>\n            </dd>\n            <dt>TimedOut</dt>\n            <dd>\n               <p>The simulation batch job timed out.</p>\n            </dd>\n         </dl>"
           }
         },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was last updated.</p>"
+          }
+        },
         "arn": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the batch.</p>"
+          }
+        },
+        "createdRequestCount": {
+          "target": "com.amazonaws.robomaker#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of created simulation job requests.</p>"
+          }
+        },
+        "failedRequestCount": {
+          "target": "com.amazonaws.robomaker#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of failed simulation job requests.</p>"
+          }
+        },
+        "pendingRequestCount": {
+          "target": "com.amazonaws.robomaker#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of pending simulation job requests.</p>"
           }
         }
       },
@@ -5162,20 +5162,17 @@
     "com.amazonaws.robomaker#SimulationJobRequest": {
       "type": "structure",
       "members": {
-        "useDefaultApplications": {
-          "target": "com.amazonaws.robomaker#BoxedBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Boolean indicating whether to use default simulation tool applications.</p>"
-          }
-        },
         "iamRole": {
           "target": "com.amazonaws.robomaker#IamRole",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role name that allows the simulation instance to call the AWS APIs that \n         are specified in its associated policies on your behalf. This is how credentials are passed in to your \n         simulation job. \n      </p>"
           }
         },
-        "loggingConfig": {
-          "target": "com.amazonaws.robomaker#LoggingConfig"
+        "compute": {
+          "target": "com.amazonaws.robomaker#Compute",
+          "traits": {
+            "smithy.api#documentation": "<p>Compute information for the simulation job</p>"
+          }
         },
         "vpcConfig": {
           "target": "com.amazonaws.robomaker#VPCConfig"
@@ -5198,20 +5195,20 @@
             "smithy.api#documentation": "<p>The robot applications to use in the simulation job.</p>"
           }
         },
-        "compute": {
-          "target": "com.amazonaws.robomaker#Compute",
-          "traits": {
-            "smithy.api#documentation": "<p>Compute information for the simulation job</p>"
-          }
-        },
         "dataSources": {
           "target": "com.amazonaws.robomaker#DataSourceConfigs",
           "traits": {
             "smithy.api#documentation": "<p>Specify data sources to mount read-only files from S3 into your simulation. These files are \n        available under <code>/opt/robomaker/datasources/data_source_name</code>.\n      </p>\n         <note>\n            <p>There is a limit of 100 files and a combined size of 25GB for all\n            <code>DataSourceConfig</code> objects.  \n         </p>\n         </note>"
           }
         },
-        "outputLocation": {
-          "target": "com.amazonaws.robomaker#OutputLocation"
+        "loggingConfig": {
+          "target": "com.amazonaws.robomaker#LoggingConfig"
+        },
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the simulation job request.</p>"
+          }
         },
         "maxJobDurationInSeconds": {
           "target": "com.amazonaws.robomaker#JobDuration",
@@ -5220,11 +5217,14 @@
             "smithy.api#required": {}
           }
         },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
+        "useDefaultApplications": {
+          "target": "com.amazonaws.robomaker#BoxedBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the simulation job request.</p>"
+            "smithy.api#documentation": "<p>Boolean indicating whether to use default simulation tool applications.</p>"
           }
+        },
+        "outputLocation": {
+          "target": "com.amazonaws.robomaker#OutputLocation"
         }
       },
       "traits": {
@@ -5293,16 +5293,10 @@
     "com.amazonaws.robomaker#SimulationJobSummary": {
       "type": "structure",
       "members": {
-        "simulationApplicationNames": {
-          "target": "com.amazonaws.robomaker#SimulationApplicationNames",
+        "robotApplicationNames": {
+          "target": "com.amazonaws.robomaker#RobotApplicationNames",
           "traits": {
-            "smithy.api#documentation": "<p>A list of simulation job simulation application names.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.robomaker#SimulationJobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the simulation job.</p>"
+            "smithy.api#documentation": "<p>A list of simulation job robot application names.</p>"
           }
         },
         "arn": {
@@ -5311,10 +5305,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation job.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
+        "dataSourceNames": {
+          "target": "com.amazonaws.robomaker#DataSourceNames",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the simulation job.</p>"
+            "smithy.api#documentation": "<p>The names of the data sources.</p>"
           }
         },
         "lastUpdatedAt": {
@@ -5323,16 +5317,22 @@
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>"
           }
         },
-        "dataSourceNames": {
-          "target": "com.amazonaws.robomaker#DataSourceNames",
+        "status": {
+          "target": "com.amazonaws.robomaker#SimulationJobStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The names of the data sources.</p>"
+            "smithy.api#documentation": "<p>The status of the simulation job.</p>"
           }
         },
-        "robotApplicationNames": {
-          "target": "com.amazonaws.robomaker#RobotApplicationNames",
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
           "traits": {
-            "smithy.api#documentation": "<p>A list of simulation job robot application names.</p>"
+            "smithy.api#documentation": "<p>The name of the simulation job.</p>"
+          }
+        },
+        "simulationApplicationNames": {
+          "target": "com.amazonaws.robomaker#SimulationApplicationNames",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of simulation job simulation application names.</p>"
           }
         }
       },
@@ -5349,16 +5349,16 @@
     "com.amazonaws.robomaker#SimulationSoftwareSuite": {
       "type": "structure",
       "members": {
-        "version": {
-          "target": "com.amazonaws.robomaker#SimulationSoftwareSuiteVersionType",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the simulation software suite.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.robomaker#SimulationSoftwareSuiteType",
           "traits": {
             "smithy.api#documentation": "<p>The name of the simulation software suite.</p>"
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.robomaker#SimulationSoftwareSuiteVersionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the simulation software suite.</p>"
           }
         }
       },
@@ -5413,12 +5413,6 @@
             "smithy.api#documentation": "<p>The taget processor architecture for the application.</p>"
           }
         },
-        "etag": {
-          "target": "com.amazonaws.robomaker#S3Etag",
-          "traits": {
-            "smithy.api#documentation": "<p>A hash of the object specified by <code>s3Bucket</code> and <code>s3Key</code>.</p>"
-          }
-        },
         "s3Bucket": {
           "target": "com.amazonaws.robomaker#S3Bucket",
           "traits": {
@@ -5430,6 +5424,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The s3 object key.</p>"
           }
+        },
+        "etag": {
+          "target": "com.amazonaws.robomaker#S3Etag",
+          "traits": {
+            "smithy.api#documentation": "<p>A hash of the object specified by <code>s3Bucket</code> and <code>s3Key</code>.</p>"
+          }
         }
       },
       "traits": {
@@ -5439,10 +5439,10 @@
     "com.amazonaws.robomaker#SourceConfig": {
       "type": "structure",
       "members": {
-        "s3Key": {
-          "target": "com.amazonaws.robomaker#S3Key",
+        "architecture": {
+          "target": "com.amazonaws.robomaker#Architecture",
           "traits": {
-            "smithy.api#documentation": "<p>The s3 object key.</p>"
+            "smithy.api#documentation": "<p>The target processor architecture for the application.</p>"
           }
         },
         "s3Bucket": {
@@ -5451,10 +5451,10 @@
             "smithy.api#documentation": "<p>The Amazon S3 bucket name.</p>"
           }
         },
-        "architecture": {
-          "target": "com.amazonaws.robomaker#Architecture",
+        "s3Key": {
+          "target": "com.amazonaws.robomaker#S3Key",
           "traits": {
-            "smithy.api#documentation": "<p>The target processor architecture for the application.</p>"
+            "smithy.api#documentation": "<p>The s3 object key.</p>"
           }
         }
       },
@@ -5511,10 +5511,10 @@
     "com.amazonaws.robomaker#StartSimulationJobBatchRequest": {
       "type": "structure",
       "members": {
-        "batchPolicy": {
-          "target": "com.amazonaws.robomaker#BatchPolicy",
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The batch policy.</p>"
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the deployment job batch.</p>"
           }
         },
         "createSimulationJobRequests": {
@@ -5531,10 +5531,10 @@
             "smithy.api#idempotencyToken": {}
           }
         },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
+        "batchPolicy": {
+          "target": "com.amazonaws.robomaker#BatchPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the deployment job batch.</p>"
+            "smithy.api#documentation": "<p>The batch policy.</p>"
           }
         }
       }
@@ -5542,52 +5542,16 @@
     "com.amazonaws.robomaker#StartSimulationJobBatchResponse": {
       "type": "structure",
       "members": {
-        "failedRequests": {
-          "target": "com.amazonaws.robomaker#FailedCreateSimulationJobRequests",
+        "createdRequests": {
+          "target": "com.amazonaws.robomaker#SimulationJobSummaries",
           "traits": {
-            "smithy.api#documentation": "<p>A list of failed simulation job requests. The request failed to \n         be created into a simulation job. Failed requests do not \n         have a simulation job ID.\n      </p>"
-          }
-        },
-        "batchPolicy": {
-          "target": "com.amazonaws.robomaker#BatchPolicy",
-          "traits": {
-            "smithy.api#documentation": "<p>The batch policy.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.robomaker#SimulationJobBatchStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the simulation job batch.</p>\n         <dl>\n            <dt>Pending</dt>\n            <dd>\n               <p>The simulation job batch request is pending.</p>\n            </dd>\n            <dt>InProgress</dt>\n            <dd>\n               <p>The simulation job batch is in progress. </p>\n            </dd>\n            <dt>Failed</dt>\n            <dd>\n               <p>The simulation job batch failed. One or more simulation job requests could not be completed\n                due to an internal failure (like <code>InternalServiceError</code>). \n                See <code>failureCode</code> and <code>failureReason</code> for more information.</p>\n            </dd>\n            <dt>Completed</dt>\n            <dd>\n               <p>The simulation batch job completed. A batch is complete when (1) there are \n               no pending simulation job requests in the batch and none of the \n               failed simulation job requests are due to <code>InternalServiceError</code> and (2)\n                  when all created simulation jobs have reached a terminal state (for example, \n                  <code>Completed</code> or <code>Failed</code>).\n               </p>\n            </dd>\n            <dt>Canceled</dt>\n            <dd>\n               <p>The simulation batch job was cancelled.</p>\n            </dd>\n            <dt>Canceling</dt>\n            <dd>\n               <p>The simulation batch job is being cancelled.</p>\n            </dd>\n            <dt>Completing</dt>\n            <dd>\n               <p>The simulation batch job is completing.</p>\n            </dd>\n            <dt>TimingOut</dt>\n            <dd>\n               <p>The simulation job batch is timing out.</p>\n               <p>If a batch timing out, and there are pending requests that \n                  were failing due to an internal failure (like <code>InternalServiceError</code>), \n                  the batch status will be <code>Failed</code>. If there are no such failing request,  \n                  the batch status will be <code>TimedOut</code>.\n               </p>\n            </dd>\n            <dt>TimedOut</dt>\n            <dd>\n               <p>The simulation batch job timed out.</p>\n            </dd>\n         </dl>"
+            "smithy.api#documentation": "<p>A list of created simulation job request summaries.</p>"
           }
         },
         "arn": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (arn) of the batch.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.robomaker#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the deployment job batch.</p>"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was created.</p>"
-          }
-        },
-        "clientRequestToken": {
-          "target": "com.amazonaws.robomaker#ClientRequestToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.robomaker#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The reason the simulation job batch failed.</p>"
           }
         },
         "pendingRequests": {
@@ -5602,10 +5566,46 @@
             "smithy.api#documentation": "<p>The failure code if the simulation job batch failed.</p>"
           }
         },
-        "createdRequests": {
-          "target": "com.amazonaws.robomaker#SimulationJobSummaries",
+        "batchPolicy": {
+          "target": "com.amazonaws.robomaker#BatchPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>A list of created simulation job request summaries.</p>"
+            "smithy.api#documentation": "<p>The batch policy.</p>"
+          }
+        },
+        "failedRequests": {
+          "target": "com.amazonaws.robomaker#FailedCreateSimulationJobRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of failed simulation job requests. The request failed to \n         be created into a simulation job. Failed requests do not \n         have a simulation job ID.\n      </p>"
+          }
+        },
+        "clientRequestToken": {
+          "target": "com.amazonaws.robomaker#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.robomaker#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the deployment job batch.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.robomaker#SimulationJobBatchStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the simulation job batch.</p>\n         <dl>\n            <dt>Pending</dt>\n            <dd>\n               <p>The simulation job batch request is pending.</p>\n            </dd>\n            <dt>InProgress</dt>\n            <dd>\n               <p>The simulation job batch is in progress. </p>\n            </dd>\n            <dt>Failed</dt>\n            <dd>\n               <p>The simulation job batch failed. One or more simulation job requests could not be completed\n                due to an internal failure (like <code>InternalServiceError</code>). \n                See <code>failureCode</code> and <code>failureReason</code> for more information.</p>\n            </dd>\n            <dt>Completed</dt>\n            <dd>\n               <p>The simulation batch job completed. A batch is complete when (1) there are \n               no pending simulation job requests in the batch and none of the \n               failed simulation job requests are due to <code>InternalServiceError</code> and (2)\n                  when all created simulation jobs have reached a terminal state (for example, \n                  <code>Completed</code> or <code>Failed</code>).\n               </p>\n            </dd>\n            <dt>Canceled</dt>\n            <dd>\n               <p>The simulation batch job was cancelled.</p>\n            </dd>\n            <dt>Canceling</dt>\n            <dd>\n               <p>The simulation batch job is being cancelled.</p>\n            </dd>\n            <dt>Completing</dt>\n            <dd>\n               <p>The simulation batch job is completing.</p>\n            </dd>\n            <dt>TimingOut</dt>\n            <dd>\n               <p>The simulation job batch is timing out.</p>\n               <p>If a batch timing out, and there are pending requests that \n                  were failing due to an internal failure (like <code>InternalServiceError</code>), \n                  the batch status will be <code>Failed</code>. If there are no such failing request,  \n                  the batch status will be <code>TimedOut</code>.\n               </p>\n            </dd>\n            <dt>TimedOut</dt>\n            <dd>\n               <p>The simulation batch job timed out.</p>\n            </dd>\n         </dl>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.robomaker#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason the simulation job batch failed.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation job batch was created.</p>"
           }
         }
       }
@@ -5665,18 +5665,18 @@
     "com.amazonaws.robomaker#SyncDeploymentJobRequest": {
       "type": "structure",
       "members": {
+        "fleet": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The target fleet for the synchronization.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "clientRequestToken": {
           "target": "com.amazonaws.robomaker#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#required": {}
-          }
-        },
-        "fleet": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The target fleet for the synchronization.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5685,10 +5685,16 @@
     "com.amazonaws.robomaker#SyncDeploymentJobResponse": {
       "type": "structure",
       "members": {
-        "failureReason": {
-          "target": "com.amazonaws.robomaker#GenericString",
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The failure reason if the job fails.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the synchronization request.</p>"
+          }
+        },
+        "fleet": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
           }
         },
         "status": {
@@ -5697,10 +5703,10 @@
             "smithy.api#documentation": "<p>The status of the synchronization job.</p>"
           }
         },
-        "createdAt": {
-          "target": "com.amazonaws.robomaker#CreatedAt",
+        "failureCode": {
+          "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
           "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the fleet was created.</p>"
+            "smithy.api#documentation": "<p>The failure code if the job fails:</p>\n         <dl>\n            <dt>InternalServiceError</dt>\n            <dd>\n               <p>Internal service error.</p>\n            </dd>\n            <dt>RobotApplicationCrash</dt>\n            <dd>\n               <p>Robot application exited abnormally.</p>\n            </dd>\n            <dt>SimulationApplicationCrash</dt>\n            <dd>\n               <p> Simulation application exited abnormally.</p>\n            </dd>\n            <dt>BadPermissionsRobotApplication</dt>\n            <dd>\n               <p>Robot application bundle could not be downloaded.</p>\n            </dd>\n            <dt>BadPermissionsSimulationApplication</dt>\n            <dd>\n               <p>Simulation application bundle could not be downloaded.</p>\n            </dd>\n            <dt>BadPermissionsS3Output</dt>\n            <dd>\n               <p>Unable to publish outputs to customer-provided S3 bucket.</p>\n            </dd>\n            <dt>BadPermissionsCloudwatchLogs</dt>\n            <dd>\n               <p>Unable to publish logs to customer-provided CloudWatch Logs resource.</p>\n            </dd>\n            <dt>SubnetIpLimitExceeded</dt>\n            <dd>\n               <p>Subnet IP limit exceeded.</p>\n            </dd>\n            <dt>ENILimitExceeded</dt>\n            <dd>\n               <p>ENI limit exceeded.</p>\n            </dd>\n            <dt>BadPermissionsUserCredentials</dt>\n            <dd>\n               <p>Unable to use the Role provided.</p>\n            </dd>\n            <dt>InvalidBundleRobotApplication</dt>\n            <dd>\n               <p>Robot bundle cannot be extracted (invalid format, bundling error, or other issue).</p>\n            </dd>\n            <dt>InvalidBundleSimulationApplication</dt>\n            <dd>\n               <p>Simulation bundle cannot be extracted (invalid format, bundling error, or other issue).</p>\n            </dd>\n            <dt>RobotApplicationVersionMismatchedEtag</dt>\n            <dd>\n               <p>Etag for RobotApplication does not match value during version creation.</p>\n            </dd>\n            <dt>SimulationApplicationVersionMismatchedEtag</dt>\n            <dd>\n               <p>Etag for SimulationApplication does not match value during version creation.</p>\n            </dd>\n         </dl>"
           }
         },
         "deploymentApplicationConfigs": {
@@ -5709,28 +5715,22 @@
             "smithy.api#documentation": "<p>Information about the deployment application configurations.</p>"
           }
         },
-        "failureCode": {
-          "target": "com.amazonaws.robomaker#DeploymentJobErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The failure code if the job fails:</p>\n         <dl>\n            <dt>InternalServiceError</dt>\n            <dd>\n               <p>Internal service error.</p>\n            </dd>\n            <dt>RobotApplicationCrash</dt>\n            <dd>\n               <p>Robot application exited abnormally.</p>\n            </dd>\n            <dt>SimulationApplicationCrash</dt>\n            <dd>\n               <p> Simulation application exited abnormally.</p>\n            </dd>\n            <dt>BadPermissionsRobotApplication</dt>\n            <dd>\n               <p>Robot application bundle could not be downloaded.</p>\n            </dd>\n            <dt>BadPermissionsSimulationApplication</dt>\n            <dd>\n               <p>Simulation application bundle could not be downloaded.</p>\n            </dd>\n            <dt>BadPermissionsS3Output</dt>\n            <dd>\n               <p>Unable to publish outputs to customer-provided S3 bucket.</p>\n            </dd>\n            <dt>BadPermissionsCloudwatchLogs</dt>\n            <dd>\n               <p>Unable to publish logs to customer-provided CloudWatch Logs resource.</p>\n            </dd>\n            <dt>SubnetIpLimitExceeded</dt>\n            <dd>\n               <p>Subnet IP limit exceeded.</p>\n            </dd>\n            <dt>ENILimitExceeded</dt>\n            <dd>\n               <p>ENI limit exceeded.</p>\n            </dd>\n            <dt>BadPermissionsUserCredentials</dt>\n            <dd>\n               <p>Unable to use the Role provided.</p>\n            </dd>\n            <dt>InvalidBundleRobotApplication</dt>\n            <dd>\n               <p>Robot bundle cannot be extracted (invalid format, bundling error, or other issue).</p>\n            </dd>\n            <dt>InvalidBundleSimulationApplication</dt>\n            <dd>\n               <p>Simulation bundle cannot be extracted (invalid format, bundling error, or other issue).</p>\n            </dd>\n            <dt>RobotApplicationVersionMismatchedEtag</dt>\n            <dd>\n               <p>Etag for RobotApplication does not match value during version creation.</p>\n            </dd>\n            <dt>SimulationApplicationVersionMismatchedEtag</dt>\n            <dd>\n               <p>Etag for SimulationApplication does not match value during version creation.</p>\n            </dd>\n         </dl>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the synchronization request.</p>"
-          }
-        },
         "deploymentConfig": {
           "target": "com.amazonaws.robomaker#DeploymentConfig",
           "traits": {
             "smithy.api#documentation": "<p>Information about the deployment configuration.</p>"
           }
         },
-        "fleet": {
-          "target": "com.amazonaws.robomaker#Arn",
+        "createdAt": {
+          "target": "com.amazonaws.robomaker#CreatedAt",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the fleet was created.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.robomaker#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The failure reason if the job fails.</p>"
           }
         }
       }
@@ -5943,17 +5943,17 @@
             "smithy.api#documentation": "<p>The revision id for the robot application.</p>"
           }
         },
-        "application": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The application information for the robot application.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "robotSoftwareSuite": {
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The robot software suite (ROS distribution) used by the robot application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "application": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The application information for the robot application.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5969,34 +5969,10 @@
     "com.amazonaws.robomaker#UpdateRobotApplicationResponse": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.robomaker#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the robot application.</p>"
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.robomaker#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the robot application.</p>"
-          }
-        },
         "arn": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the updated robot application.</p>"
-          }
-        },
-        "robotSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
-          "traits": {
-            "smithy.api#documentation": "<p>The robot software suite (ROS distribution) used by the robot application.</p>"
-          }
-        },
-        "revisionId": {
-          "target": "com.amazonaws.robomaker#RevisionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The revision id of the robot application.</p>"
           }
         },
         "sources": {
@@ -6005,10 +5981,34 @@
             "smithy.api#documentation": "<p>The sources of the robot application.</p>"
           }
         },
+        "robotSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
+          "traits": {
+            "smithy.api#documentation": "<p>The robot software suite (ROS distribution) used by the robot application.</p>"
+          }
+        },
         "lastUpdatedAt": {
           "target": "com.amazonaws.robomaker#LastUpdatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.robomaker#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the robot application.</p>"
+          }
+        },
+        "revisionId": {
+          "target": "com.amazonaws.robomaker#RevisionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The revision id of the robot application.</p>"
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.robomaker#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the robot application.</p>"
           }
         }
       }
@@ -6056,11 +6056,10 @@
             "smithy.api#documentation": "<p>The rendering engine for the simulation application.</p>"
           }
         },
-        "simulationSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
+        "currentRevisionId": {
+          "target": "com.amazonaws.robomaker#RevisionId",
           "traits": {
-            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The revision id for the robot application.</p>"
           }
         },
         "sources": {
@@ -6077,16 +6076,17 @@
             "smithy.api#required": {}
           }
         },
-        "currentRevisionId": {
-          "target": "com.amazonaws.robomaker#RevisionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The revision id for the robot application.</p>"
-          }
-        },
         "robotSoftwareSuite": {
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>Information about the robot software suite (ROS distribution).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "simulationSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
+          "traits": {
+            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6095,40 +6095,16 @@
     "com.amazonaws.robomaker#UpdateSimulationApplicationResponse": {
       "type": "structure",
       "members": {
-        "sources": {
-          "target": "com.amazonaws.robomaker#Sources",
-          "traits": {
-            "smithy.api#documentation": "<p>The sources of the simulation application.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.robomaker#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the updated simulation application.</p>"
-          }
-        },
-        "simulationSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
-          "traits": {
-            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>"
-          }
-        },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.robomaker#LastUpdatedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>"
-          }
-        },
         "revisionId": {
           "target": "com.amazonaws.robomaker#RevisionId",
           "traits": {
             "smithy.api#documentation": "<p>The revision id of the simulation application.</p>"
           }
         },
-        "version": {
-          "target": "com.amazonaws.robomaker#Version",
+        "robotSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
-            "smithy.api#documentation": "<p>The version of the robot application.</p>"
+            "smithy.api#documentation": "<p>Information about the robot software suite (ROS distribution).</p>"
           }
         },
         "renderingEngine": {
@@ -6137,16 +6113,40 @@
             "smithy.api#documentation": "<p>The rendering engine for the simulation application.</p>"
           }
         },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.robomaker#LastUpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>"
+          }
+        },
+        "sources": {
+          "target": "com.amazonaws.robomaker#Sources",
+          "traits": {
+            "smithy.api#documentation": "<p>The sources of the simulation application.</p>"
+          }
+        },
         "name": {
           "target": "com.amazonaws.robomaker#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the simulation application.</p>"
           }
         },
-        "robotSoftwareSuite": {
-          "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
+        "simulationSoftwareSuite": {
+          "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the robot software suite (ROS distribution).</p>"
+            "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.robomaker#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the updated simulation application.</p>"
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.robomaker#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the robot application.</p>"
           }
         }
       }
@@ -6154,6 +6154,12 @@
     "com.amazonaws.robomaker#VPCConfig": {
       "type": "structure",
       "members": {
+        "securityGroups": {
+          "target": "com.amazonaws.robomaker#SecurityGroups",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of one or more security groups IDs in your VPC.</p>"
+          }
+        },
         "subnets": {
           "target": "com.amazonaws.robomaker#Subnets",
           "traits": {
@@ -6166,12 +6172,6 @@
           "traits": {
             "smithy.api#documentation": "<p>A boolean indicating whether to assign a public IP address.</p>"
           }
-        },
-        "securityGroups": {
-          "target": "com.amazonaws.robomaker#SecurityGroups",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of one or more security groups IDs in your VPC.</p>"
-          }
         }
       },
       "traits": {
@@ -6181,16 +6181,16 @@
     "com.amazonaws.robomaker#VPCConfigResponse": {
       "type": "structure",
       "members": {
+        "securityGroups": {
+          "target": "com.amazonaws.robomaker#SecurityGroups",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of security group IDs associated with the simulation job.</p>"
+          }
+        },
         "vpcId": {
           "target": "com.amazonaws.robomaker#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The VPC ID associated with your simulation job.</p>"
-          }
-        },
-        "subnets": {
-          "target": "com.amazonaws.robomaker#Subnets",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of subnet IDs associated with the simulation job.</p>"
           }
         },
         "assignPublicIp": {
@@ -6199,10 +6199,10 @@
             "smithy.api#documentation": "<p>A boolean indicating if a public IP was assigned.</p>"
           }
         },
-        "securityGroups": {
-          "target": "com.amazonaws.robomaker#SecurityGroups",
+        "subnets": {
+          "target": "com.amazonaws.robomaker#Subnets",
           "traits": {
-            "smithy.api#documentation": "<p>A list of security group IDs associated with the simulation job.</p>"
+            "smithy.api#documentation": "<p>A list of subnet IDs associated with the simulation job.</p>"
           }
         }
       },

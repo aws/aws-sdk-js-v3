@@ -155,18 +155,18 @@
     "com.amazonaws.qldb#CancelJournalKinesisStreamRequest": {
       "type": "structure",
       "members": {
-        "StreamId": {
-          "target": "com.amazonaws.qldb#UniqueId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique ID that QLDB assigns to each QLDB journal stream.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "LedgerName": {
           "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.qldb#UniqueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID that QLDB assigns to each QLDB journal stream.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -218,17 +218,17 @@
     "com.amazonaws.qldb#CreateLedgerRequest": {
       "type": "structure",
       "members": {
+        "DeletionProtection": {
+          "target": "com.amazonaws.qldb#DeletionProtection",
+          "traits": {
+            "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger that you want to create. The name must be unique among all of\n         your ledgers in the current AWS Region.</p>\n         <p>Naming constraints for ledger names are defined in <a href=\"https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming\">Quotas in Amazon QLDB</a>\n         in the <i>Amazon QLDB Developer Guide</i>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "DeletionProtection": {
-          "target": "com.amazonaws.qldb#DeletionProtection",
-          "traits": {
-            "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
           }
         },
         "Tags": {
@@ -249,18 +249,6 @@
     "com.amazonaws.qldb#CreateLedgerResponse": {
       "type": "structure",
       "members": {
-        "State": {
-          "target": "com.amazonaws.qldb#LedgerState",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the ledger.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.qldb#LedgerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the ledger.</p>"
-          }
-        },
         "Arn": {
           "target": "com.amazonaws.qldb#Arn",
           "traits": {
@@ -277,6 +265,18 @@
           "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.qldb#LedgerState",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the ledger.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.qldb#LedgerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the ledger.</p>"
           }
         }
       }
@@ -413,18 +413,18 @@
     "com.amazonaws.qldb#DescribeJournalS3ExportRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.qldb#LedgerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "ExportId": {
           "target": "com.amazonaws.qldb#UniqueId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the journal export job that you want to describe.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.qldb#LedgerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the ledger.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -484,10 +484,10 @@
     "com.amazonaws.qldb#DescribeLedgerResponse": {
       "type": "structure",
       "members": {
-        "CreationDateTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
+        "State": {
+          "target": "com.amazonaws.qldb#LedgerState",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
+            "smithy.api#documentation": "<p>The current status of the ledger.</p>"
           }
         },
         "Name": {
@@ -508,10 +508,10 @@
             "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
           }
         },
-        "State": {
-          "target": "com.amazonaws.qldb#LedgerState",
+        "CreationDateTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the ledger.</p>"
+            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
           }
         }
       }
@@ -571,20 +571,6 @@
     "com.amazonaws.qldb#ExportJournalToS3Request": {
       "type": "structure",
       "members": {
-        "InclusiveStartTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The inclusive start date and time for the range of journal contents that you want to\n         export.</p>\n         <p>The <code>InclusiveStartTime</code> must be in <code>ISO 8601</code> date and time\n         format and in Universal Coordinated Time (UTC). For example:\n            <code>2019-06-13T21:36:34Z</code>\n         </p>\n         <p>The <code>InclusiveStartTime</code> must be before <code>ExclusiveEndTime</code>.</p>\n         <p>If you provide an <code>InclusiveStartTime</code> that is before the ledger's\n            <code>CreationDateTime</code>, Amazon QLDB defaults it to the ledger's\n            <code>CreationDateTime</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "S3ExportConfiguration": {
-          "target": "com.amazonaws.qldb#S3ExportConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration settings of the Amazon S3 bucket destination for your export\n         request.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ExclusiveEndTime": {
           "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
@@ -600,10 +586,24 @@
             "smithy.api#required": {}
           }
         },
+        "InclusiveStartTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The inclusive start date and time for the range of journal contents that you want to\n         export.</p>\n         <p>The <code>InclusiveStartTime</code> must be in <code>ISO 8601</code> date and time\n         format and in Universal Coordinated Time (UTC). For example:\n            <code>2019-06-13T21:36:34Z</code>\n         </p>\n         <p>The <code>InclusiveStartTime</code> must be before <code>ExclusiveEndTime</code>.</p>\n         <p>If you provide an <code>InclusiveStartTime</code> that is before the ledger's\n            <code>CreationDateTime</code>, Amazon QLDB defaults it to the ledger's\n            <code>CreationDateTime</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "RoleArn": {
           "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a\n         journal export job to do the following:</p>\n         <ul>\n            <li>\n               <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>\n            </li>\n            <li>\n               <p>(Optional) Use your customer master key (CMK) in AWS Key Management Service (AWS\n               KMS) for server-side encryption of your exported data.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "S3ExportConfiguration": {
+          "target": "com.amazonaws.qldb#S3ExportConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration settings of the Amazon S3 bucket destination for your export\n         request.</p>",
             "smithy.api#required": {}
           }
         }
@@ -671,10 +671,11 @@
     "com.amazonaws.qldb#GetBlockRequest": {
       "type": "structure",
       "members": {
-        "DigestTipAddress": {
+        "BlockAddress": {
           "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
-            "smithy.api#documentation": "<p>The latest block location covered by the digest for which to request a proof. An address\n         is an Amazon Ion structure that has two fields: <code>strandId</code> and\n            <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}</code>\n         </p>"
+            "smithy.api#documentation": "<p>The location of the block that you want to request. An address is an Amazon Ion\n         structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}</code>\n         </p>",
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -685,11 +686,10 @@
             "smithy.api#required": {}
           }
         },
-        "BlockAddress": {
+        "DigestTipAddress": {
           "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
-            "smithy.api#documentation": "<p>The location of the block that you want to request. An address is an Amazon Ion\n         structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}</code>\n         </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The latest block location covered by the digest for which to request a proof. An address\n         is an Amazon Ion structure that has two fields: <code>strandId</code> and\n            <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}</code>\n         </p>"
           }
         }
       }
@@ -697,17 +697,17 @@
     "com.amazonaws.qldb#GetBlockResponse": {
       "type": "structure",
       "members": {
-        "Proof": {
-          "target": "com.amazonaws.qldb#ValueHolder",
-          "traits": {
-            "smithy.api#documentation": "<p>The proof object in Amazon Ion format returned by a <code>GetBlock</code> request. A\n         proof contains the list of hash values required to recalculate the specified digest using a\n         Merkle tree, starting with the specified block.</p>"
-          }
-        },
         "Block": {
           "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The block data object in Amazon Ion format.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Proof": {
+          "target": "com.amazonaws.qldb#ValueHolder",
+          "traits": {
+            "smithy.api#documentation": "<p>The proof object in Amazon Ion format returned by a <code>GetBlock</code> request. A\n         proof contains the list of hash values required to recalculate the specified digest using a\n         Merkle tree, starting with the specified block.</p>"
           }
         }
       }
@@ -756,17 +756,17 @@
     "com.amazonaws.qldb#GetDigestResponse": {
       "type": "structure",
       "members": {
-        "Digest": {
-          "target": "com.amazonaws.qldb#Digest",
-          "traits": {
-            "smithy.api#documentation": "<p>The 256-bit hash value representing the digest returned by a <code>GetDigest</code>\n         request.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DigestTipAddress": {
           "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The latest block location covered by the digest that you requested. An address is an\n         Amazon Ion structure that has two fields: <code>strandId</code> and\n         <code>sequenceNo</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Digest": {
+          "target": "com.amazonaws.qldb#Digest",
+          "traits": {
+            "smithy.api#documentation": "<p>The 256-bit hash value representing the digest returned by a <code>GetDigest</code>\n         request.</p>",
             "smithy.api#required": {}
           }
         }
@@ -810,12 +810,10 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.qldb#LedgerName",
+        "DigestTipAddress": {
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The latest block location covered by the digest for which to request a proof. An address\n         is an Amazon Ion structure that has two fields: <code>strandId</code> and\n            <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}</code>\n         </p>"
           }
         },
         "BlockAddress": {
@@ -825,10 +823,12 @@
             "smithy.api#required": {}
           }
         },
-        "DigestTipAddress": {
-          "target": "com.amazonaws.qldb#ValueHolder",
+        "Name": {
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
-            "smithy.api#documentation": "<p>The latest block location covered by the digest for which to request a proof. An address\n         is an Amazon Ion structure that has two fields: <code>strandId</code> and\n            <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}</code>\n         </p>"
+            "smithy.api#documentation": "<p>The name of the ledger.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -836,17 +836,17 @@
     "com.amazonaws.qldb#GetRevisionResponse": {
       "type": "structure",
       "members": {
+        "Proof": {
+          "target": "com.amazonaws.qldb#ValueHolder",
+          "traits": {
+            "smithy.api#documentation": "<p>The proof object in Amazon Ion format returned by a <code>GetRevision</code> request. A\n         proof contains the list of hash values that are required to recalculate the specified\n         digest using a Merkle tree, starting with the specified document revision.</p>"
+          }
+        },
         "Revision": {
           "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The document revision data object in Amazon Ion format.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Proof": {
-          "target": "com.amazonaws.qldb#ValueHolder",
-          "traits": {
-            "smithy.api#documentation": "<p>The proof object in Amazon Ion format returned by a <code>GetRevision</code> request. A\n         proof contains the list of hash values that are required to recalculate the specified\n         digest using a Merkle tree, starting with the specified document revision.</p>"
           }
         }
       }
@@ -854,14 +854,14 @@
     "com.amazonaws.qldb#InvalidParameterException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.qldb#ErrorMessage"
+        },
         "ParameterName": {
           "target": "com.amazonaws.qldb#ParameterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the invalid parameter.</p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.qldb#ErrorMessage"
         }
       },
       "traits": {
@@ -883,39 +883,6 @@
     "com.amazonaws.qldb#JournalKinesisStreamDescription": {
       "type": "structure",
       "members": {
-        "CreationTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the QLDB journal stream was created.\n         (Epoch time format is the number of seconds elapsed since 12:00:00 AM January 1, 1970\n         UTC.)</p>"
-          }
-        },
-        "KinesisConfiguration": {
-          "target": "com.amazonaws.qldb#KinesisConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration settings of the Amazon Kinesis Data Streams destination for your QLDB journal\n         stream.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "InclusiveStartTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The inclusive start date and time from which to start streaming journal data.</p>"
-          }
-        },
-        "StreamId": {
-          "target": "com.amazonaws.qldb#UniqueId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique ID that QLDB assigns to each QLDB journal stream.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "StreamName": {
-          "target": "com.amazonaws.qldb#StreamName",
-          "traits": {
-            "smithy.api#documentation": "<p>The user-defined name of the QLDB journal stream.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RoleArn": {
           "target": "com.amazonaws.qldb#Arn",
           "traits": {
@@ -923,17 +890,16 @@
             "smithy.api#required": {}
           }
         },
-        "Status": {
-          "target": "com.amazonaws.qldb#StreamStatus",
+        "ExclusiveEndTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The current state of the QLDB journal stream.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The exclusive date and time that specifies when the stream ends. If this parameter is\n         blank, the stream runs indefinitely until you cancel it.</p>"
           }
         },
-        "ErrorCause": {
-          "target": "com.amazonaws.qldb#ErrorCause",
+        "CreationTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The error message that describes the reason that a stream has a status of\n            <code>IMPAIRED</code> or <code>FAILED</code>. This is not applicable to streams that\n         have other status values.</p>"
+            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the QLDB journal stream was created.\n         (Epoch time format is the number of seconds elapsed since 12:00:00 AM January 1, 1970\n         UTC.)</p>"
           }
         },
         "Arn": {
@@ -949,10 +915,44 @@
             "smithy.api#required": {}
           }
         },
-        "ExclusiveEndTime": {
+        "StreamName": {
+          "target": "com.amazonaws.qldb#StreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>The user-defined name of the QLDB journal stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.qldb#StreamStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current state of the QLDB journal stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "KinesisConfiguration": {
+          "target": "com.amazonaws.qldb#KinesisConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration settings of the Amazon Kinesis Data Streams destination for your QLDB journal\n         stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.qldb#UniqueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID that QLDB assigns to each QLDB journal stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InclusiveStartTime": {
           "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The exclusive date and time that specifies when the stream ends. If this parameter is\n         blank, the stream runs indefinitely until you cancel it.</p>"
+            "smithy.api#documentation": "<p>The inclusive start date and time from which to start streaming journal data.</p>"
+          }
+        },
+        "ErrorCause": {
+          "target": "com.amazonaws.qldb#ErrorCause",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message that describes the reason that a stream has a status of\n            <code>IMPAIRED</code> or <code>FAILED</code>. This is not applicable to streams that\n         have other status values.</p>"
           }
         }
       },
@@ -969,27 +969,6 @@
     "com.amazonaws.qldb#JournalS3ExportDescription": {
       "type": "structure",
       "members": {
-        "ExportId": {
-          "target": "com.amazonaws.qldb#UniqueId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the journal export job.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ExportCreationTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the export job was created. (Epoch time\n         format is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "InclusiveStartTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The inclusive start date and time for the range of journal contents that are specified\n         in the original export request.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "S3ExportConfiguration": {
           "target": "com.amazonaws.qldb#S3ExportConfiguration",
           "traits": {
@@ -1003,10 +982,17 @@
             "smithy.api#required": {}
           }
         },
-        "LedgerName": {
-          "target": "com.amazonaws.qldb#LedgerName",
+        "InclusiveStartTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the ledger.</p>",
+            "smithy.api#documentation": "<p>The inclusive start date and time for the range of journal contents that are specified\n         in the original export request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.qldb#ExportStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current state of the journal export job.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1017,10 +1003,24 @@
             "smithy.api#required": {}
           }
         },
-        "Status": {
-          "target": "com.amazonaws.qldb#ExportStatus",
+        "LedgerName": {
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
-            "smithy.api#documentation": "<p>The current state of the journal export job.</p>",
+            "smithy.api#documentation": "<p>The name of the ledger.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExportCreationTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the export job was created. (Epoch time\n         format is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExportId": {
+          "target": "com.amazonaws.qldb#UniqueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the journal export job.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1098,10 +1098,10 @@
     "com.amazonaws.qldb#LedgerSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.qldb#LedgerName",
+        "CreationDateTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the ledger.</p>"
+            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
           }
         },
         "State": {
@@ -1110,10 +1110,10 @@
             "smithy.api#documentation": "<p>The current status of the ledger.</p>"
           }
         },
-        "CreationDateTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
+        "Name": {
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
+            "smithy.api#documentation": "<p>The name of the ledger.</p>"
           }
         }
       },
@@ -1124,14 +1124,14 @@
     "com.amazonaws.qldb#LimitExceededException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.qldb#ErrorMessage"
+        },
         "ResourceType": {
           "target": "com.amazonaws.qldb#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource.</p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.qldb#ErrorMessage"
         }
       },
       "traits": {
@@ -1176,11 +1176,11 @@
     "com.amazonaws.qldb#ListJournalKinesisStreamsForLedgerRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.qldb#MaxResults",
+        "NextToken": {
+          "target": "com.amazonaws.qldb#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single\n            <code>ListJournalKinesisStreamsForLedger</code> request. (The actual number of results\n         returned might be fewer.)</p>",
-            "smithy.api#httpQuery": "max_results"
+            "smithy.api#documentation": "<p>A pagination token, indicating that you want to retrieve the next page of results. If\n         you received a value for <code>NextToken</code> in the response from a previous\n            <code>ListJournalKinesisStreamsForLedger</code> call, you should use that value as input\n         here.</p>",
+            "smithy.api#httpQuery": "next_token"
           }
         },
         "LedgerName": {
@@ -1191,11 +1191,11 @@
             "smithy.api#required": {}
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.qldb#NextToken",
+        "MaxResults": {
+          "target": "com.amazonaws.qldb#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>A pagination token, indicating that you want to retrieve the next page of results. If\n         you received a value for <code>NextToken</code> in the response from a previous\n            <code>ListJournalKinesisStreamsForLedger</code> call, you should use that value as input\n         here.</p>",
-            "smithy.api#httpQuery": "next_token"
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single\n            <code>ListJournalKinesisStreamsForLedger</code> request. (The actual number of results\n         returned might be fewer.)</p>",
+            "smithy.api#httpQuery": "max_results"
           }
         }
       }
@@ -1264,6 +1264,14 @@
     "com.amazonaws.qldb#ListJournalS3ExportsForLedgerRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.qldb#LedgerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the ledger.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.qldb#NextToken",
           "traits": {
@@ -1277,30 +1285,22 @@
             "smithy.api#documentation": "<p>The maximum number of results to return in a single\n            <code>ListJournalS3ExportsForLedger</code> request. (The actual number of results\n         returned might be fewer.)</p>",
             "smithy.api#httpQuery": "max_results"
           }
-        },
-        "Name": {
-          "target": "com.amazonaws.qldb#LedgerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.qldb#ListJournalS3ExportsForLedgerResponse": {
       "type": "structure",
       "members": {
-        "JournalS3Exports": {
-          "target": "com.amazonaws.qldb#JournalS3ExportList",
-          "traits": {
-            "smithy.api#documentation": "<p>The array of journal export job descriptions that are associated with the specified\n         ledger.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<ul>\n            <li>\n               <p>If <code>NextToken</code> is empty, then the last page of results has been\n               processed and there are no more results to be retrieved.</p>\n            </li>\n            <li>\n               <p>If <code>NextToken</code> is <i>not</i> empty, then there are more\n               results available. To retrieve the next page of results, use the value of\n                  <code>NextToken</code> in a subsequent <code>ListJournalS3ExportsForLedger</code>\n               call.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "JournalS3Exports": {
+          "target": "com.amazonaws.qldb#JournalS3ExportList",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of journal export job descriptions that are associated with the specified\n         ledger.</p>"
           }
         }
       }
@@ -1308,18 +1308,18 @@
     "com.amazonaws.qldb#ListJournalS3ExportsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.qldb#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single <code>ListJournalS3Exports</code>\n         request. (The actual number of results returned might be fewer.)</p>",
-            "smithy.api#httpQuery": "max_results"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token, indicating that you want to retrieve the next page of results. If\n         you received a value for <code>NextToken</code> in the response from a previous\n            <code>ListJournalS3Exports</code> call, then you should use that value as input\n         here.</p>",
             "smithy.api#httpQuery": "next_token"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.qldb#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single <code>ListJournalS3Exports</code>\n         request. (The actual number of results returned might be fewer.)</p>",
+            "smithy.api#httpQuery": "max_results"
           }
         }
       }
@@ -1327,16 +1327,16 @@
     "com.amazonaws.qldb#ListJournalS3ExportsResponse": {
       "type": "structure",
       "members": {
-        "JournalS3Exports": {
-          "target": "com.amazonaws.qldb#JournalS3ExportList",
-          "traits": {
-            "smithy.api#documentation": "<p>The array of journal export job descriptions for all ledgers that are associated with\n         the current AWS account and Region.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<ul>\n            <li>\n               <p>If <code>NextToken</code> is empty, then the last page of results has been\n               processed and there are no more results to be retrieved.</p>\n            </li>\n            <li>\n               <p>If <code>NextToken</code> is <i>not</i> empty, then there are more\n               results available. To retrieve the next page of results, use the value of\n                  <code>NextToken</code> in a subsequent <code>ListJournalS3Exports</code>\n               call.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "JournalS3Exports": {
+          "target": "com.amazonaws.qldb#JournalS3ExportList",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of journal export job descriptions for all ledgers that are associated with\n         the current AWS account and Region.</p>"
           }
         }
       }
@@ -1385,16 +1385,16 @@
     "com.amazonaws.qldb#ListLedgersResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.qldb#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A pagination token, indicating whether there are more results available:</p>\n         <ul>\n            <li>\n               <p>If <code>NextToken</code> is empty, then the last page of results has been\n               processed and there are no more results to be retrieved.</p>\n            </li>\n            <li>\n               <p>If <code>NextToken</code> is <i>not</i> empty, then there are more\n               results available. To retrieve the next page of results, use the value of\n                  <code>NextToken</code> in a subsequent <code>ListLedgers</code> call.</p>\n            </li>\n         </ul>"
-          }
-        },
         "Ledgers": {
           "target": "com.amazonaws.qldb#LedgerList",
           "traits": {
             "smithy.api#documentation": "<p>The array of ledger summaries that are associated with the current AWS account and\n         Region.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.qldb#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A pagination token, indicating whether there are more results available:</p>\n         <ul>\n            <li>\n               <p>If <code>NextToken</code> is empty, then the last page of results has been\n               processed and there are no more results to be retrieved.</p>\n            </li>\n            <li>\n               <p>If <code>NextToken</code> is <i>not</i> empty, then there are more\n               results available. To retrieve the next page of results, use the value of\n                  <code>NextToken</code> in a subsequent <code>ListLedgers</code> call.</p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -1485,14 +1485,14 @@
     "com.amazonaws.qldb#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.qldb#ErrorMessage"
+        },
         "ResourceType": {
           "target": "com.amazonaws.qldb#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource.</p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.qldb#ErrorMessage"
         },
         "ResourceName": {
           "target": "com.amazonaws.qldb#ResourceName",
@@ -1510,6 +1510,12 @@
     "com.amazonaws.qldb#ResourceInUseException": {
       "type": "structure",
       "members": {
+        "ResourceType": {
+          "target": "com.amazonaws.qldb#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of resource.</p>"
+          }
+        },
         "Message": {
           "target": "com.amazonaws.qldb#ErrorMessage"
         },
@@ -1517,12 +1523,6 @@
           "target": "com.amazonaws.qldb#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource.</p>"
-          }
-        },
-        "ResourceType": {
-          "target": "com.amazonaws.qldb#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of resource.</p>"
           }
         }
       },
@@ -1538,6 +1538,12 @@
     "com.amazonaws.qldb#ResourceNotFoundException": {
       "type": "structure",
       "members": {
+        "ResourceName": {
+          "target": "com.amazonaws.qldb#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource.</p>"
+          }
+        },
         "ResourceType": {
           "target": "com.amazonaws.qldb#ResourceType",
           "traits": {
@@ -1546,12 +1552,6 @@
         },
         "Message": {
           "target": "com.amazonaws.qldb#ErrorMessage"
-        },
-        "ResourceName": {
-          "target": "com.amazonaws.qldb#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource.</p>"
-          }
         }
       },
       "traits": {
@@ -1563,8 +1563,11 @@
     "com.amazonaws.qldb#ResourcePreconditionNotMetException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.qldb#ErrorMessage"
+        "ResourceType": {
+          "target": "com.amazonaws.qldb#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of resource.</p>"
+          }
         },
         "ResourceName": {
           "target": "com.amazonaws.qldb#ResourceName",
@@ -1572,11 +1575,8 @@
             "smithy.api#documentation": "<p>The name of the resource.</p>"
           }
         },
-        "ResourceType": {
-          "target": "com.amazonaws.qldb#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of resource.</p>"
-          }
+        "Message": {
+          "target": "com.amazonaws.qldb#ErrorMessage"
         }
       },
       "traits": {
@@ -1601,17 +1601,17 @@
     "com.amazonaws.qldb#S3EncryptionConfiguration": {
       "type": "structure",
       "members": {
+        "KmsKeyArn": {
+          "target": "com.amazonaws.qldb#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a symmetric customer master key (CMK) in AWS Key\n         Management Service (AWS KMS). Amazon QLDB does not support asymmetric CMKs.</p>\n         <p>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the\n            <code>ObjectEncryptionType</code>.</p>\n         <p>\n            <code>KmsKeyArn</code> is not required if you specify <code>SSE_S3</code> as the\n            <code>ObjectEncryptionType</code>.</p>"
+          }
+        },
         "ObjectEncryptionType": {
           "target": "com.amazonaws.qldb#S3ObjectEncryptionType",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 object encryption type.</p>\n         <p>To learn more about server-side encryption options in Amazon S3, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html\">Protecting Data\n            Using Server-Side Encryption</a> in the <i>Amazon S3 Developer\n         Guide</i>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "KmsKeyArn": {
-          "target": "com.amazonaws.qldb#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a symmetric customer master key (CMK) in AWS Key\n         Management Service (AWS KMS). Amazon QLDB does not support asymmetric CMKs.</p>\n         <p>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the\n            <code>ObjectEncryptionType</code>.</p>\n         <p>\n            <code>KmsKeyArn</code> is not required if you specify <code>SSE_S3</code> as the\n            <code>ObjectEncryptionType</code>.</p>"
           }
         }
       },
@@ -1622,17 +1622,17 @@
     "com.amazonaws.qldb#S3ExportConfiguration": {
       "type": "structure",
       "members": {
-        "Bucket": {
-          "target": "com.amazonaws.qldb#S3Bucket",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon S3 bucket name in which a journal export job writes the journal contents.</p>\n         <p>The bucket name must comply with the Amazon S3 bucket naming conventions. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html\">Bucket Restrictions and\n            Limitations</a> in the <i>Amazon S3 Developer Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "EncryptionConfiguration": {
           "target": "com.amazonaws.qldb#S3EncryptionConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The encryption settings that are used by a journal export job to write data in an Amazon S3\n         bucket.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Bucket": {
+          "target": "com.amazonaws.qldb#S3Bucket",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket name in which a journal export job writes the journal contents.</p>\n         <p>The bucket name must comply with the Amazon S3 bucket naming conventions. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html\">Bucket Restrictions and\n            Limitations</a> in the <i>Amazon S3 Developer Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1707,30 +1707,11 @@
     "com.amazonaws.qldb#StreamJournalToKinesisRequest": {
       "type": "structure",
       "members": {
-        "ExclusiveEndTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
+        "LedgerName": {
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
-            "smithy.api#documentation": "<p>The exclusive date and time that specifies when the stream ends. If you don't define\n         this parameter, the stream runs indefinitely until you cancel it.</p>\n         <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format\n         and in Universal Coordinated Time (UTC). For example:\n         <code>2019-06-13T21:36:34Z</code>\n         </p>"
-          }
-        },
-        "StreamName": {
-          "target": "com.amazonaws.qldb#StreamName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that you want to assign to the QLDB journal stream. User-defined names can\n         help identify and indicate the purpose of a stream.</p>\n         <p>Your stream name must be unique among other <i>active</i> streams for a\n         given ledger. Stream names have the same naming constraints as ledger names, as defined in\n            <a href=\"https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming\">Quotas in Amazon QLDB</a> in the <i>Amazon QLDB Developer\n         Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "KinesisConfiguration": {
-          "target": "com.amazonaws.qldb#KinesisConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration settings of the Kinesis Data Streams destination for your stream request.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "InclusiveStartTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The inclusive start date and time from which to start streaming journal data. This\n         parameter must be in <code>ISO 8601</code> date and time format and in Universal\n         Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>\n         </p>\n         <p>The <code>InclusiveStartTime</code> cannot be in the future and must be before\n            <code>ExclusiveEndTime</code>.</p>\n         <p>If you provide an <code>InclusiveStartTime</code> that is before the ledger's\n            <code>CreationDateTime</code>, QLDB effectively defaults it to the ledger's\n            <code>CreationDateTime</code>.</p>",
+            "smithy.api#documentation": "<p>The name of the ledger.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         },
@@ -1741,18 +1722,37 @@
             "smithy.api#required": {}
           }
         },
-        "LedgerName": {
-          "target": "com.amazonaws.qldb#LedgerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.qldb#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The key-value pairs to add as tags to the stream that you want to create. Tag keys are\n         case sensitive. Tag values are case sensitive and can be null.</p>"
+          }
+        },
+        "KinesisConfiguration": {
+          "target": "com.amazonaws.qldb#KinesisConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration settings of the Kinesis Data Streams destination for your stream request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamName": {
+          "target": "com.amazonaws.qldb#StreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that you want to assign to the QLDB journal stream. User-defined names can\n         help identify and indicate the purpose of a stream.</p>\n         <p>Your stream name must be unique among other <i>active</i> streams for a\n         given ledger. Stream names have the same naming constraints as ledger names, as defined in\n            <a href=\"https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming\">Quotas in Amazon QLDB</a> in the <i>Amazon QLDB Developer\n         Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InclusiveStartTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The inclusive start date and time from which to start streaming journal data. This\n         parameter must be in <code>ISO 8601</code> date and time format and in Universal\n         Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>\n         </p>\n         <p>The <code>InclusiveStartTime</code> cannot be in the future and must be before\n            <code>ExclusiveEndTime</code>.</p>\n         <p>If you provide an <code>InclusiveStartTime</code> that is before the ledger's\n            <code>CreationDateTime</code>, QLDB effectively defaults it to the ledger's\n            <code>CreationDateTime</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExclusiveEndTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The exclusive date and time that specifies when the stream ends. If you don't define\n         this parameter, the stream runs indefinitely until you cancel it.</p>\n         <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format\n         and in Universal Coordinated Time (UTC). For example:\n         <code>2019-06-13T21:36:34Z</code>\n         </p>"
           }
         }
       }
@@ -1854,18 +1854,18 @@
     "com.amazonaws.qldb#TagResourceRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.qldb#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>The key-value pairs to add as tags to the specified QLDB resource. Tag keys are case\n         sensitive. If you specify a key that already exists for the resource, your request fails\n         and returns an error. Tag values are case sensitive and can be null.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ResourceArn": {
           "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) to which you want to add the tags. For example:</p>\n         <p>\n            <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code>\n         </p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.qldb#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>The key-value pairs to add as tags to the specified QLDB resource. Tag keys are case\n         sensitive. If you specify a key that already exists for the resource, your request fails\n         and returns an error. Tag values are case sensitive and can be null.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1990,6 +1990,12 @@
     "com.amazonaws.qldb#UpdateLedgerRequest": {
       "type": "structure",
       "members": {
+        "DeletionProtection": {
+          "target": "com.amazonaws.qldb#DeletionProtection",
+          "traits": {
+            "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
@@ -1997,22 +2003,16 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        },
-        "DeletionProtection": {
-          "target": "com.amazonaws.qldb#DeletionProtection",
-          "traits": {
-            "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
-          }
         }
       }
     },
     "com.amazonaws.qldb#UpdateLedgerResponse": {
       "type": "structure",
       "members": {
-        "DeletionProtection": {
-          "target": "com.amazonaws.qldb#DeletionProtection",
+        "CreationDateTime": {
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
+            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
           }
         },
         "State": {
@@ -2021,10 +2021,10 @@
             "smithy.api#documentation": "<p>The current status of the ledger.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.qldb#LedgerName",
+        "DeletionProtection": {
+          "target": "com.amazonaws.qldb#DeletionProtection",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the ledger.</p>"
+            "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
           }
         },
         "Arn": {
@@ -2033,10 +2033,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the ledger.</p>"
           }
         },
-        "CreationDateTime": {
-          "target": "com.amazonaws.qldb#Timestamp",
+        "Name": {
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
+            "smithy.api#documentation": "<p>The name of the ledger.</p>"
           }
         }
       }

@@ -75,19 +75,6 @@
     "com.amazonaws.worklink#AssociateDomainRequest": {
       "type": "structure",
       "members": {
-        "DisplayName": {
-          "target": "com.amazonaws.worklink#DisplayName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name to display.</p>"
-          }
-        },
-        "DomainName": {
-          "target": "com.amazonaws.worklink#DomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>The fully qualified domain name (FQDN).</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
@@ -95,10 +82,23 @@
             "smithy.api#required": {}
           }
         },
+        "DisplayName": {
+          "target": "com.amazonaws.worklink#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name to display.</p>"
+          }
+        },
         "AcmCertificateArn": {
           "target": "com.amazonaws.worklink#AcmCertificateArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.worklink#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The fully qualified domain name (FQDN).</p>",
             "smithy.api#required": {}
           }
         }
@@ -148,17 +148,17 @@
     "com.amazonaws.worklink#AssociateWebsiteAuthorizationProviderRequest": {
       "type": "structure",
       "members": {
-        "FleetArn": {
-          "target": "com.amazonaws.worklink#FleetArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "AuthorizationProviderType": {
           "target": "com.amazonaws.worklink#AuthorizationProviderType",
           "traits": {
             "smithy.api#documentation": "<p>The authorization provider type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.worklink#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
           }
         },
@@ -221,11 +221,10 @@
     "com.amazonaws.worklink#AssociateWebsiteCertificateAuthorityRequest": {
       "type": "structure",
       "members": {
-        "Certificate": {
-          "target": "com.amazonaws.worklink#Certificate",
+        "DisplayName": {
+          "target": "com.amazonaws.worklink#DisplayName",
           "traits": {
-            "smithy.api#documentation": "<p>The root certificate of the CA.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The certificate name to display.</p>"
           }
         },
         "FleetArn": {
@@ -235,10 +234,11 @@
             "smithy.api#required": {}
           }
         },
-        "DisplayName": {
-          "target": "com.amazonaws.worklink#DisplayName",
+        "Certificate": {
+          "target": "com.amazonaws.worklink#Certificate",
           "traits": {
-            "smithy.api#documentation": "<p>The certificate name to display.</p>"
+            "smithy.api#documentation": "<p>The root certificate of the CA.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -346,16 +346,17 @@
     "com.amazonaws.worklink#CreateFleetRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.worklink#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p> The tags to add to the resource. A tag is a key-value pair.</p>"
-          }
-        },
         "OptimizeForEndUserLocation": {
           "target": "com.amazonaws.worklink#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>"
+          }
+        },
+        "FleetName": {
+          "target": "com.amazonaws.worklink#FleetName",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique name for the fleet.</p>",
+            "smithy.api#required": {}
           }
         },
         "DisplayName": {
@@ -364,11 +365,10 @@
             "smithy.api#documentation": "<p>The fleet name to display.</p>"
           }
         },
-        "FleetName": {
-          "target": "com.amazonaws.worklink#FleetName",
+        "Tags": {
+          "target": "com.amazonaws.worklink#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>A unique name for the fleet.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p> The tags to add to the resource. A tag is a key-value pair.</p>"
           }
         }
       }
@@ -543,12 +543,6 @@
     "com.amazonaws.worklink#DescribeCompanyNetworkConfigurationResponse": {
       "type": "structure",
       "members": {
-        "SubnetIds": {
-          "target": "com.amazonaws.worklink#SubnetIds",
-          "traits": {
-            "smithy.api#documentation": "<p>The subnets used for X-ENI connections from Amazon WorkLink rendering containers.</p>"
-          }
-        },
         "SecurityGroupIds": {
           "target": "com.amazonaws.worklink#SecurityGroupIds",
           "traits": {
@@ -559,6 +553,12 @@
           "target": "com.amazonaws.worklink#VpcId",
           "traits": {
             "smithy.api#documentation": "<p>The VPC with connectivity to associated websites.</p>"
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.worklink#SubnetIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The subnets used for X-ENI connections from Amazon WorkLink rendering containers.</p>"
           }
         }
       }
@@ -657,17 +657,17 @@
     "com.amazonaws.worklink#DescribeDeviceRequest": {
       "type": "structure",
       "members": {
-        "DeviceId": {
-          "target": "com.amazonaws.worklink#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for a registered user's device.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.worklink#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for a registered user's device.</p>",
             "smithy.api#required": {}
           }
         }
@@ -676,28 +676,10 @@
     "com.amazonaws.worklink#DescribeDeviceResponse": {
       "type": "structure",
       "members": {
-        "Username": {
-          "target": "com.amazonaws.worklink#Username",
+        "Manufacturer": {
+          "target": "com.amazonaws.worklink#DeviceManufacturer",
           "traits": {
-            "smithy.api#documentation": "<p>The user name associated with the device.</p>"
-          }
-        },
-        "PatchLevel": {
-          "target": "com.amazonaws.worklink#DevicePatchLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>The operating system patch level of the device.</p>"
-          }
-        },
-        "OperatingSystemVersion": {
-          "target": "com.amazonaws.worklink#DeviceOperatingSystemVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The operating system version of the device.</p>"
-          }
-        },
-        "OperatingSystem": {
-          "target": "com.amazonaws.worklink#DeviceOperatingSystemName",
-          "traits": {
-            "smithy.api#documentation": "<p>The operating system of the device.</p>"
+            "smithy.api#documentation": "<p>The manufacturer of the device.</p>"
           }
         },
         "FirstAccessedTime": {
@@ -706,10 +688,10 @@
             "smithy.api#documentation": "<p>The date that the device first signed in to Amazon WorkLink.</p>"
           }
         },
-        "LastAccessedTime": {
-          "target": "com.amazonaws.worklink#DateTime",
+        "OperatingSystemVersion": {
+          "target": "com.amazonaws.worklink#DeviceOperatingSystemVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The date that the device last accessed Amazon WorkLink.</p>"
+            "smithy.api#documentation": "<p>The operating system version of the device.</p>"
           }
         },
         "Model": {
@@ -718,16 +700,34 @@
             "smithy.api#documentation": "<p>The model of the device.</p>"
           }
         },
-        "Manufacturer": {
-          "target": "com.amazonaws.worklink#DeviceManufacturer",
+        "Username": {
+          "target": "com.amazonaws.worklink#Username",
           "traits": {
-            "smithy.api#documentation": "<p>The manufacturer of the device.</p>"
+            "smithy.api#documentation": "<p>The user name associated with the device.</p>"
+          }
+        },
+        "OperatingSystem": {
+          "target": "com.amazonaws.worklink#DeviceOperatingSystemName",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system of the device.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.worklink#DeviceStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current state of the device.</p>"
+          }
+        },
+        "PatchLevel": {
+          "target": "com.amazonaws.worklink#DevicePatchLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system patch level of the device.</p>"
+          }
+        },
+        "LastAccessedTime": {
+          "target": "com.amazonaws.worklink#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date that the device last accessed Amazon WorkLink.</p>"
           }
         }
       }
@@ -788,16 +788,22 @@
     "com.amazonaws.worklink#DescribeDomainResponse": {
       "type": "structure",
       "members": {
+        "DomainStatus": {
+          "target": "com.amazonaws.worklink#DomainStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current state for the domain.</p>"
+          }
+        },
         "DomainName": {
           "target": "com.amazonaws.worklink#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the domain.</p>"
           }
         },
-        "DisplayName": {
-          "target": "com.amazonaws.worklink#DisplayName",
+        "CreatedTime": {
+          "target": "com.amazonaws.worklink#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The name to display.</p>"
+            "smithy.api#documentation": "<p>The time that the domain was added.</p>"
           }
         },
         "AcmCertificateArn": {
@@ -806,16 +812,10 @@
             "smithy.api#documentation": "<p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>"
           }
         },
-        "DomainStatus": {
-          "target": "com.amazonaws.worklink#DomainStatus",
+        "DisplayName": {
+          "target": "com.amazonaws.worklink#DisplayName",
           "traits": {
-            "smithy.api#documentation": "<p>The current state for the domain.</p>"
-          }
-        },
-        "CreatedTime": {
-          "target": "com.amazonaws.worklink#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the domain was added.</p>"
+            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         }
       }
@@ -869,28 +869,16 @@
     "com.amazonaws.worklink#DescribeFleetMetadataResponse": {
       "type": "structure",
       "members": {
-        "CreatedTime": {
-          "target": "com.amazonaws.worklink#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the fleet was created.</p>"
-          }
-        },
-        "FleetName": {
-          "target": "com.amazonaws.worklink#FleetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the fleet.</p>"
-          }
-        },
-        "FleetStatus": {
-          "target": "com.amazonaws.worklink#FleetStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current state of the fleet.</p>"
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.worklink#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The tags attached to the resource. A tag is a key-value pair.</p>"
+          }
+        },
+        "CompanyCode": {
+          "target": "com.amazonaws.worklink#CompanyCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier used by users to sign in to the Amazon WorkLink app.</p>"
           }
         },
         "OptimizeForEndUserLocation": {
@@ -905,16 +893,28 @@
             "smithy.api#documentation": "<p>The time that the fleet was last updated.</p>"
           }
         },
+        "CreatedTime": {
+          "target": "com.amazonaws.worklink#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the fleet was created.</p>"
+          }
+        },
+        "FleetStatus": {
+          "target": "com.amazonaws.worklink#FleetStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current state of the fleet.</p>"
+          }
+        },
         "DisplayName": {
           "target": "com.amazonaws.worklink#DisplayName",
           "traits": {
             "smithy.api#documentation": "<p>The name to display.</p>"
           }
         },
-        "CompanyCode": {
-          "target": "com.amazonaws.worklink#CompanyCode",
+        "FleetName": {
+          "target": "com.amazonaws.worklink#FleetName",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier used by users to sign in to the Amazon WorkLink app.</p>"
+            "smithy.api#documentation": "<p>The name of the fleet.</p>"
           }
         }
       }
@@ -968,6 +968,12 @@
     "com.amazonaws.worklink#DescribeIdentityProviderConfigurationResponse": {
       "type": "structure",
       "members": {
+        "IdentityProviderType": {
+          "target": "com.amazonaws.worklink#IdentityProviderType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of identity provider.</p>"
+          }
+        },
         "ServiceProviderSamlMetadata": {
           "target": "com.amazonaws.worklink#SamlMetadata",
           "traits": {
@@ -978,12 +984,6 @@
           "target": "com.amazonaws.worklink#SamlMetadata",
           "traits": {
             "smithy.api#documentation": "<p>The SAML metadata document provided by the user’s identity provider.</p>"
-          }
-        },
-        "IdentityProviderType": {
-          "target": "com.amazonaws.worklink#IdentityProviderType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of identity provider.</p>"
           }
         }
       }
@@ -1025,17 +1025,17 @@
     "com.amazonaws.worklink#DescribeWebsiteCertificateAuthorityRequest": {
       "type": "structure",
       "members": {
-        "FleetArn": {
-          "target": "com.amazonaws.worklink#FleetArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "WebsiteCaId": {
           "target": "com.amazonaws.worklink#Id",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the certificate authority.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.worklink#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1050,16 +1050,16 @@
             "smithy.api#documentation": "<p>The time that the certificate authority was added.</p>"
           }
         },
-        "Certificate": {
-          "target": "com.amazonaws.worklink#Certificate",
-          "traits": {
-            "smithy.api#documentation": "<p>The root certificate of the certificate authority.</p>"
-          }
-        },
         "DisplayName": {
           "target": "com.amazonaws.worklink#DisplayName",
           "traits": {
             "smithy.api#documentation": "<p>The certificate name to display.</p>"
+          }
+        },
+        "Certificate": {
+          "target": "com.amazonaws.worklink#Certificate",
+          "traits": {
+            "smithy.api#documentation": "<p>The root certificate of the certificate authority.</p>"
           }
         }
       }
@@ -1247,17 +1247,17 @@
     "com.amazonaws.worklink#DisassociateWebsiteAuthorizationProviderRequest": {
       "type": "structure",
       "members": {
-        "AuthorizationProviderId": {
-          "target": "com.amazonaws.worklink#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the authorization provider.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AuthorizationProviderId": {
+          "target": "com.amazonaws.worklink#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the authorization provider.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1304,17 +1304,17 @@
     "com.amazonaws.worklink#DisassociateWebsiteCertificateAuthorityRequest": {
       "type": "structure",
       "members": {
-        "WebsiteCaId": {
-          "target": "com.amazonaws.worklink#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the CA.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "WebsiteCaId": {
+          "target": "com.amazonaws.worklink#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the CA.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1385,6 +1385,12 @@
     "com.amazonaws.worklink#DomainSummary": {
       "type": "structure",
       "members": {
+        "DisplayName": {
+          "target": "com.amazonaws.worklink#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name to display.</p>"
+          }
+        },
         "DomainName": {
           "target": "com.amazonaws.worklink#DomainName",
           "traits": {
@@ -1404,12 +1410,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the domain.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "DisplayName": {
-          "target": "com.amazonaws.worklink#DisplayName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         }
       },
@@ -1479,6 +1479,24 @@
     "com.amazonaws.worklink#FleetSummary": {
       "type": "structure",
       "members": {
+        "FleetName": {
+          "target": "com.amazonaws.worklink#FleetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the fleet.</p>"
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.worklink#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the fleet was created.</p>"
+          }
+        },
+        "CompanyCode": {
+          "target": "com.amazonaws.worklink#CompanyCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier used by users to sign into the Amazon WorkLink app.</p>"
+          }
+        },
         "LastUpdatedTime": {
           "target": "com.amazonaws.worklink#DateTime",
           "traits": {
@@ -1491,40 +1509,22 @@
             "smithy.api#documentation": "<p>The name of the fleet to display.</p>"
           }
         },
+        "FleetStatus": {
+          "target": "com.amazonaws.worklink#FleetStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the fleet.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.worklink#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The tags attached to the resource. A tag is a key-value pair.</p>"
           }
         },
-        "CompanyCode": {
-          "target": "com.amazonaws.worklink#CompanyCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier used by users to sign into the Amazon WorkLink app.</p>"
-          }
-        },
-        "CreatedTime": {
-          "target": "com.amazonaws.worklink#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the fleet was created.</p>"
-          }
-        },
-        "FleetName": {
-          "target": "com.amazonaws.worklink#FleetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the fleet.</p>"
-          }
-        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>"
-          }
-        },
-        "FleetStatus": {
-          "target": "com.amazonaws.worklink#FleetStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the fleet.</p>"
           }
         }
       },
@@ -1626,12 +1626,6 @@
     "com.amazonaws.worklink#ListDevicesRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.worklink#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>"
-          }
-        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
@@ -1643,6 +1637,12 @@
           "target": "com.amazonaws.worklink#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.worklink#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>"
           }
         }
       }
@@ -1706,6 +1706,13 @@
     "com.amazonaws.worklink#ListDomainsRequest": {
       "type": "structure",
       "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.worklink#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.worklink#NextToken",
           "traits": {
@@ -1717,29 +1724,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
           }
-        },
-        "FleetArn": {
-          "target": "com.amazonaws.worklink#FleetArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.worklink#ListDomainsResponse": {
       "type": "structure",
       "members": {
-        "Domains": {
-          "target": "com.amazonaws.worklink#DomainSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the domains.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.worklink#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>"
+          }
+        },
+        "Domains": {
+          "target": "com.amazonaws.worklink#DomainSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the domains.</p>"
           }
         }
       }
@@ -1800,16 +1800,16 @@
     "com.amazonaws.worklink#ListFleetsResponse": {
       "type": "structure",
       "members": {
-        "FleetSummaryList": {
-          "target": "com.amazonaws.worklink#FleetSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>The summary list of the fleets.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.worklink#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>"
+          }
+        },
+        "FleetSummaryList": {
+          "target": "com.amazonaws.worklink#FleetSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The summary list of the fleets.</p>"
           }
         }
       }
@@ -1902,6 +1902,12 @@
     "com.amazonaws.worklink#ListWebsiteAuthorizationProvidersRequest": {
       "type": "structure",
       "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.worklink#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.worklink#NextToken",
           "traits": {
@@ -1913,12 +1919,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.worklink#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
           }
         }
       }
@@ -1979,17 +1979,17 @@
     "com.amazonaws.worklink#ListWebsiteCertificateAuthoritiesRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.worklink#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>"
+          }
+        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.worklink#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>"
           }
         },
         "MaxResults": {
@@ -2099,17 +2099,17 @@
     "com.amazonaws.worklink#RestoreDomainAccessRequest": {
       "type": "structure",
       "members": {
-        "FleetArn": {
-          "target": "com.amazonaws.worklink#FleetArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DomainName": {
           "target": "com.amazonaws.worklink#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.worklink#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2156,17 +2156,17 @@
     "com.amazonaws.worklink#RevokeDomainAccessRequest": {
       "type": "structure",
       "members": {
-        "DomainName": {
-          "target": "com.amazonaws.worklink#DomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.worklink#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2240,17 +2240,17 @@
     "com.amazonaws.worklink#SignOutUserRequest": {
       "type": "structure",
       "members": {
-        "FleetArn": {
-          "target": "com.amazonaws.worklink#FleetArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Username": {
           "target": "com.amazonaws.worklink#Username",
           "traits": {
             "smithy.api#documentation": "<p>The name of the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.worklink#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2334,18 +2334,18 @@
     "com.amazonaws.worklink#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.worklink#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to add to the resource. A tag is a key-value pair.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.worklink#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to add to the resource. A tag is a key-value pair.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2474,17 +2474,17 @@
     "com.amazonaws.worklink#UpdateAuditStreamConfigurationRequest": {
       "type": "structure",
       "members": {
+        "AuditStreamArn": {
+          "target": "com.amazonaws.worklink#AuditStreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Amazon Kinesis data stream that receives the audit events.</p>"
+          }
+        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "AuditStreamArn": {
-          "target": "com.amazonaws.worklink#AuditStreamArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the Amazon Kinesis data stream that receives the audit events.</p>"
           }
         }
       }
@@ -2530,6 +2530,20 @@
     "com.amazonaws.worklink#UpdateCompanyNetworkConfigurationRequest": {
       "type": "structure",
       "members": {
+        "VpcId": {
+          "target": "com.amazonaws.worklink#VpcId",
+          "traits": {
+            "smithy.api#documentation": "<p>The VPC with connectivity to associated websites.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.worklink#SecurityGroupIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The security groups associated with access to the provided subnets.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "SubnetIds": {
           "target": "com.amazonaws.worklink#SubnetIds",
           "traits": {
@@ -2541,20 +2555,6 @@
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "SecurityGroupIds": {
-          "target": "com.amazonaws.worklink#SecurityGroupIds",
-          "traits": {
-            "smithy.api#documentation": "<p>The security groups associated with access to the provided subnets.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "VpcId": {
-          "target": "com.amazonaws.worklink#VpcId",
-          "traits": {
-            "smithy.api#documentation": "<p>The VPC with connectivity to associated websites.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2601,17 +2601,17 @@
     "com.amazonaws.worklink#UpdateDevicePolicyConfigurationRequest": {
       "type": "structure",
       "members": {
+        "DeviceCaCertificate": {
+          "target": "com.amazonaws.worklink#CertificateChain",
+          "traits": {
+            "smithy.api#documentation": "<p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>"
+          }
+        },
         "FleetArn": {
           "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "DeviceCaCertificate": {
-          "target": "com.amazonaws.worklink#CertificateChain",
-          "traits": {
-            "smithy.api#documentation": "<p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>"
           }
         }
       }
@@ -2657,6 +2657,13 @@
     "com.amazonaws.worklink#UpdateDomainMetadataRequest": {
       "type": "structure",
       "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.worklink#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DisplayName": {
           "target": "com.amazonaws.worklink#DisplayName",
           "traits": {
@@ -2667,13 +2674,6 @@
           "target": "com.amazonaws.worklink#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "FleetArn": {
-          "target": "com.amazonaws.worklink#FleetArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2720,6 +2720,12 @@
     "com.amazonaws.worklink#UpdateFleetMetadataRequest": {
       "type": "structure",
       "members": {
+        "DisplayName": {
+          "target": "com.amazonaws.worklink#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "<p>The fleet name to display. The existing DisplayName is unset if null is passed.</p>"
+          }
+        },
         "OptimizeForEndUserLocation": {
           "target": "com.amazonaws.worklink#Boolean",
           "traits": {
@@ -2731,12 +2737,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "DisplayName": {
-          "target": "com.amazonaws.worklink#DisplayName",
-          "traits": {
-            "smithy.api#documentation": "<p>The fleet name to display. The existing DisplayName is unset if null is passed.</p>"
           }
         }
       }
@@ -2782,10 +2782,10 @@
     "com.amazonaws.worklink#UpdateIdentityProviderConfigurationRequest": {
       "type": "structure",
       "members": {
-        "FleetArn": {
-          "target": "com.amazonaws.worklink#FleetArn",
+        "IdentityProviderType": {
+          "target": "com.amazonaws.worklink#IdentityProviderType",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
+            "smithy.api#documentation": "<p>The type of identity provider.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2795,10 +2795,10 @@
             "smithy.api#documentation": "<p>The SAML metadata document provided by the customer’s identity provider. The existing\n            IdentityProviderSamlMetadata is unset if null is passed.</p>"
           }
         },
-        "IdentityProviderType": {
-          "target": "com.amazonaws.worklink#IdentityProviderType",
+        "FleetArn": {
+          "target": "com.amazonaws.worklink#FleetArn",
           "traits": {
-            "smithy.api#documentation": "<p>The type of identity provider.</p>",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2826,18 +2826,6 @@
     "com.amazonaws.worklink#WebsiteAuthorizationProviderSummary": {
       "type": "structure",
       "members": {
-        "AuthorizationProviderId": {
-          "target": "com.amazonaws.worklink#Id",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the authorization provider.</p>"
-          }
-        },
-        "DomainName": {
-          "target": "com.amazonaws.worklink#DomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>The domain name of the authorization provider. This applies only to SAML-based\n            authorization providers.</p>"
-          }
-        },
         "AuthorizationProviderType": {
           "target": "com.amazonaws.worklink#AuthorizationProviderType",
           "traits": {
@@ -2849,6 +2837,18 @@
           "target": "com.amazonaws.worklink#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time of creation.</p>"
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.worklink#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name of the authorization provider. This applies only to SAML-based\n            authorization providers.</p>"
+          }
+        },
+        "AuthorizationProviderId": {
+          "target": "com.amazonaws.worklink#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the authorization provider.</p>"
           }
         }
       },
@@ -2865,12 +2865,6 @@
     "com.amazonaws.worklink#WebsiteCaSummary": {
       "type": "structure",
       "members": {
-        "CreatedTime": {
-          "target": "com.amazonaws.worklink#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the CA was added.</p>"
-          }
-        },
         "DisplayName": {
           "target": "com.amazonaws.worklink#DisplayName",
           "traits": {
@@ -2881,6 +2875,12 @@
           "target": "com.amazonaws.worklink#Id",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the CA.</p>"
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.worklink#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the CA was added.</p>"
           }
         }
       },

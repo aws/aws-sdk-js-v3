@@ -144,16 +144,16 @@
     "com.amazonaws.support#AddAttachmentsToSetResponse": {
       "type": "structure",
       "members": {
-        "attachmentSetId": {
-          "target": "com.amazonaws.support#AttachmentSetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified, a\n            new attachment set is created, and the ID of the set is returned in the response. If an\n                <code>attachmentSetId</code> was specified, the attachments are added to the\n            specified set, if it exists.</p>"
-          }
-        },
         "expiryTime": {
           "target": "com.amazonaws.support#ExpiryTime",
           "traits": {
             "smithy.api#documentation": "<p>The time and date when the attachment set expires.</p>"
+          }
+        },
+        "attachmentSetId": {
+          "target": "com.amazonaws.support#AttachmentSetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified, a\n            new attachment set is created, and the ID of the set is returned in the response. If an\n                <code>attachmentSetId</code> was specified, the attachments are added to the\n            specified set, if it exists.</p>"
           }
         }
       },
@@ -190,10 +190,10 @@
     "com.amazonaws.support#AddCommunicationToCaseRequest": {
       "type": "structure",
       "members": {
-        "attachmentSetId": {
-          "target": "com.amazonaws.support#AttachmentSetId",
+        "caseId": {
+          "target": "com.amazonaws.support#CaseId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of a set of one or more attachments for the communication to add to the case.\n            Create the set by calling <a>AddAttachmentsToSet</a>\n        </p>"
+            "smithy.api#documentation": "<p>The AWS Support case ID requested or returned in the call. The case ID is an\n            alphanumeric string formatted as shown in this example:\n                case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>\n        </p>"
           }
         },
         "ccEmailAddresses": {
@@ -209,10 +209,10 @@
             "smithy.api#required": {}
           }
         },
-        "caseId": {
-          "target": "com.amazonaws.support#CaseId",
+        "attachmentSetId": {
+          "target": "com.amazonaws.support#AttachmentSetId",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Support case ID requested or returned in the call. The case ID is an\n            alphanumeric string formatted as shown in this example:\n                case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>\n        </p>"
+            "smithy.api#documentation": "<p>The ID of a set of one or more attachments for the communication to add to the case.\n            Create the set by calling <a>AddAttachmentsToSet</a>\n        </p>"
           }
         }
       }
@@ -237,16 +237,16 @@
     "com.amazonaws.support#Attachment": {
       "type": "structure",
       "members": {
-        "fileName": {
-          "target": "com.amazonaws.support#FileName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the attachment file.</p>"
-          }
-        },
         "data": {
           "target": "com.amazonaws.support#Data",
           "traits": {
             "smithy.api#documentation": "<p>The content of the attachment file.</p>"
+          }
+        },
+        "fileName": {
+          "target": "com.amazonaws.support#FileName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the attachment file.</p>"
           }
         }
       },
@@ -391,52 +391,10 @@
     "com.amazonaws.support#CaseDetails": {
       "type": "structure",
       "members": {
-        "ccEmailAddresses": {
-          "target": "com.amazonaws.support#CcEmailAddressList",
+        "displayId": {
+          "target": "com.amazonaws.support#DisplayId",
           "traits": {
-            "smithy.api#documentation": "<p>The email addresses that receive copies of communication about the case.</p>"
-          }
-        },
-        "language": {
-          "target": "com.amazonaws.support#Language",
-          "traits": {
-            "smithy.api#documentation": "<p>The ISO 639-1 code for the language in which AWS provides support. AWS Support\n            currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be\n            passed explicitly for operations that take them.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.support#Status",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the case.</p>\n        <p>Valid values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>opened</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>pending-customer-action</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>reopened</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>resolved</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>unassigned</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>work-in-progress</code>\n               </p>\n            </li>\n         </ul>"
-          }
-        },
-        "subject": {
-          "target": "com.amazonaws.support#Subject",
-          "traits": {
-            "smithy.api#documentation": "<p>The subject line for the case in the AWS Support Center.</p>"
-          }
-        },
-        "submittedBy": {
-          "target": "com.amazonaws.support#SubmittedBy",
-          "traits": {
-            "smithy.api#documentation": "<p>The email address of the account that submitted the case.</p>"
-          }
-        },
-        "caseId": {
-          "target": "com.amazonaws.support#CaseId",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Support case ID requested or returned in the call. The case ID is an\n            alphanumeric string formatted as shown in this example:\n                case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>\n        </p>"
-          }
-        },
-        "recentCommunications": {
-          "target": "com.amazonaws.support#RecentCaseCommunications",
-          "traits": {
-            "smithy.api#documentation": "<p>The five most recent communications between you and AWS Support Center, including the\n            IDs of any attachments to the communications. Also includes a <code>nextToken</code>\n            that you can use to retrieve earlier communications.</p>"
-          }
-        },
-        "categoryCode": {
-          "target": "com.amazonaws.support#CategoryCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The category of problem for the AWS Support case.</p>"
+            "smithy.api#documentation": "<p>The ID displayed for the case in the AWS Support Center. This is a numeric\n            string.</p>"
           }
         },
         "serviceCode": {
@@ -445,10 +403,10 @@
             "smithy.api#documentation": "<p>The code for the AWS service. You can get a list of codes and the corresponding\n            service names by calling <a>DescribeServices</a>.</p>"
           }
         },
-        "displayId": {
-          "target": "com.amazonaws.support#DisplayId",
+        "timeCreated": {
+          "target": "com.amazonaws.support#TimeCreated",
           "traits": {
-            "smithy.api#documentation": "<p>The ID displayed for the case in the AWS Support Center. This is a numeric\n            string.</p>"
+            "smithy.api#documentation": "<p>The time that the case was created in the AWS Support Center.</p>"
           }
         },
         "severityCode": {
@@ -457,10 +415,52 @@
             "smithy.api#documentation": "<p>The code for the severity level returned by the call to <a>DescribeSeverityLevels</a>.</p>"
           }
         },
-        "timeCreated": {
-          "target": "com.amazonaws.support#TimeCreated",
+        "categoryCode": {
+          "target": "com.amazonaws.support#CategoryCode",
           "traits": {
-            "smithy.api#documentation": "<p>The time that the case was created in the AWS Support Center.</p>"
+            "smithy.api#documentation": "<p>The category of problem for the AWS Support case.</p>"
+          }
+        },
+        "recentCommunications": {
+          "target": "com.amazonaws.support#RecentCaseCommunications",
+          "traits": {
+            "smithy.api#documentation": "<p>The five most recent communications between you and AWS Support Center, including the\n            IDs of any attachments to the communications. Also includes a <code>nextToken</code>\n            that you can use to retrieve earlier communications.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.support#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the case.</p>\n        <p>Valid values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>opened</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>pending-customer-action</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>reopened</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>resolved</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>unassigned</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>work-in-progress</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "language": {
+          "target": "com.amazonaws.support#Language",
+          "traits": {
+            "smithy.api#documentation": "<p>The ISO 639-1 code for the language in which AWS provides support. AWS Support\n            currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be\n            passed explicitly for operations that take them.</p>"
+          }
+        },
+        "submittedBy": {
+          "target": "com.amazonaws.support#SubmittedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address of the account that submitted the case.</p>"
+          }
+        },
+        "ccEmailAddresses": {
+          "target": "com.amazonaws.support#CcEmailAddressList",
+          "traits": {
+            "smithy.api#documentation": "<p>The email addresses that receive copies of communication about the case.</p>"
+          }
+        },
+        "subject": {
+          "target": "com.amazonaws.support#Subject",
+          "traits": {
+            "smithy.api#documentation": "<p>The subject line for the case in the AWS Support Center.</p>"
+          }
+        },
+        "caseId": {
+          "target": "com.amazonaws.support#CaseId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Support case ID requested or returned in the call. The case ID is an\n            alphanumeric string formatted as shown in this example:\n                case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>\n        </p>"
           }
         }
       },
@@ -510,16 +510,16 @@
     "com.amazonaws.support#Category": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.support#CategoryName",
-          "traits": {
-            "smithy.api#documentation": "<p>The category name for the support case.</p>"
-          }
-        },
         "code": {
           "target": "com.amazonaws.support#CategoryCode",
           "traits": {
             "smithy.api#documentation": "<p>The category code for the support case.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.support#CategoryName",
+          "traits": {
+            "smithy.api#documentation": "<p>The category name for the support case.</p>"
           }
         }
       },
@@ -551,12 +551,6 @@
     "com.amazonaws.support#Communication": {
       "type": "structure",
       "members": {
-        "timeCreated": {
-          "target": "com.amazonaws.support#TimeCreated",
-          "traits": {
-            "smithy.api#documentation": "<p>The time the communication was created.</p>"
-          }
-        },
         "submittedBy": {
           "target": "com.amazonaws.support#SubmittedBy",
           "traits": {
@@ -569,16 +563,22 @@
             "smithy.api#documentation": "<p>The AWS Support case ID requested or returned in the call. The case ID is an\n            alphanumeric string formatted as shown in this example:\n                case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>\n        </p>"
           }
         },
+        "attachmentSet": {
+          "target": "com.amazonaws.support#AttachmentSet",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the attachments to the case communication.</p>"
+          }
+        },
         "body": {
           "target": "com.amazonaws.support#CommunicationBody",
           "traits": {
             "smithy.api#documentation": "<p>The text of the communication between the customer and AWS Support.</p>"
           }
         },
-        "attachmentSet": {
-          "target": "com.amazonaws.support#AttachmentSet",
+        "timeCreated": {
+          "target": "com.amazonaws.support#TimeCreated",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the attachments to the case communication.</p>"
+            "smithy.api#documentation": "<p>The time the communication was created.</p>"
           }
         }
       },
@@ -624,10 +624,17 @@
     "com.amazonaws.support#CreateCaseRequest": {
       "type": "structure",
       "members": {
-        "serviceCode": {
-          "target": "com.amazonaws.support#ServiceCode",
+        "subject": {
+          "target": "com.amazonaws.support#Subject",
           "traits": {
-            "smithy.api#documentation": "<p>The code for the AWS service. You can use the <a>DescribeServices</a>\n            operation to get the possible <code>serviceCode</code> values.</p>"
+            "smithy.api#documentation": "<p>The title of the AWS Support case. The title appears in the <b>Subject</b> field on the AWS Support Center <a href=\"https://console.aws.amazon.com/support/home#/case/create\">Create Case</a> page.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "issueType": {
+          "target": "com.amazonaws.support#IssueType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of issue for the case. You can specify <code>customer-service</code> or\n                <code>technical</code>. If you don't specify a value, the default is\n                <code>technical</code>.</p>"
           }
         },
         "categoryCode": {
@@ -636,29 +643,16 @@
             "smithy.api#documentation": "<p>The category of problem for the AWS Support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each\n            AWS service defines its own set of category codes.</p>"
           }
         },
+        "serviceCode": {
+          "target": "com.amazonaws.support#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The code for the AWS service. You can use the <a>DescribeServices</a>\n            operation to get the possible <code>serviceCode</code> values.</p>"
+          }
+        },
         "severityCode": {
           "target": "com.amazonaws.support#SeverityCode",
           "traits": {
             "smithy.api#documentation": "<p>A value that indicates the urgency of the case. This value determines the response\n            time according to your service level agreement with AWS Support. You can use the <a>DescribeSeverityLevels</a> operation to get the possible values for\n                <code>severityCode</code>. </p>\n        <p>For more information, see <a>SeverityLevel</a> and <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity\">Choosing a\n                Severity</a> in the <i>AWS Support User Guide</i>.</p>\n        <note>\n            <p>The availability of severity levels depends on the support plan for the AWS\n                account.</p>\n        </note>"
-          }
-        },
-        "attachmentSetId": {
-          "target": "com.amazonaws.support#AttachmentSetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of a set of one or more attachments for the case. Create the set by using the\n                <a>AddAttachmentsToSet</a> operation.</p>"
-          }
-        },
-        "subject": {
-          "target": "com.amazonaws.support#Subject",
-          "traits": {
-            "smithy.api#documentation": "<p>The title of the AWS Support case. The title appears in the <b>Subject</b> field on the AWS Support Center <a href=\"https://console.aws.amazon.com/support/home#/case/create\">Create Case</a> page.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "language": {
-          "target": "com.amazonaws.support#Language",
-          "traits": {
-            "smithy.api#documentation": "<p>The language in which AWS Support handles the case. You must specify the ISO 639-1\n            code for the <code>language</code> parameter if you want support in that language.\n            Currently, English (\"en\") and Japanese (\"ja\") are supported.</p>"
           }
         },
         "communicationBody": {
@@ -668,16 +662,22 @@
             "smithy.api#required": {}
           }
         },
+        "language": {
+          "target": "com.amazonaws.support#Language",
+          "traits": {
+            "smithy.api#documentation": "<p>The language in which AWS Support handles the case. You must specify the ISO 639-1\n            code for the <code>language</code> parameter if you want support in that language.\n            Currently, English (\"en\") and Japanese (\"ja\") are supported.</p>"
+          }
+        },
         "ccEmailAddresses": {
           "target": "com.amazonaws.support#CcEmailAddressList",
           "traits": {
             "smithy.api#documentation": "<p>A list of email addresses that AWS Support copies on case correspondence. AWS Support\n            identifies the account that creates the case when you specify your AWS credentials in an\n            HTTP POST method or use the <a href=\"http://aws.amazon.com/tools/\">AWS SDKs</a>.\n        </p>"
           }
         },
-        "issueType": {
-          "target": "com.amazonaws.support#IssueType",
+        "attachmentSetId": {
+          "target": "com.amazonaws.support#AttachmentSetId",
           "traits": {
-            "smithy.api#documentation": "<p>The type of issue for the case. You can specify <code>customer-service</code> or\n                <code>technical</code>. If you don't specify a value, the default is\n                <code>technical</code>.</p>"
+            "smithy.api#documentation": "<p>The ID of a set of one or more attachments for the case. Create the set by using the\n                <a>AddAttachmentsToSet</a> operation.</p>"
           }
         }
       }
@@ -786,40 +786,16 @@
     "com.amazonaws.support#DescribeCasesRequest": {
       "type": "structure",
       "members": {
-        "beforeTime": {
-          "target": "com.amazonaws.support#BeforeTime",
+        "nextToken": {
+          "target": "com.amazonaws.support#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The end date for a filtered date search on support case communications. Case\n            communications are available for 12 months after creation.</p>"
-          }
-        },
-        "caseIdList": {
-          "target": "com.amazonaws.support#CaseIdList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of ID numbers of the support cases you want returned. The maximum number of\n            cases is 100.</p>"
+            "smithy.api#documentation": "<p>A resumption point for pagination.</p>"
           }
         },
         "language": {
           "target": "com.amazonaws.support#Language",
           "traits": {
             "smithy.api#documentation": "<p>The ISO 639-1 code for the language in which AWS provides support. AWS Support\n            currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be\n            passed explicitly for operations that take them.</p>"
-          }
-        },
-        "includeResolvedCases": {
-          "target": "com.amazonaws.support#IncludeResolvedCases",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether to include resolved support cases in the <code>DescribeCases</code>\n            response. By default, resolved cases aren't included.</p>"
-          }
-        },
-        "displayId": {
-          "target": "com.amazonaws.support#DisplayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID displayed for a case in the AWS Support Center user interface.</p>"
-          }
-        },
-        "includeCommunications": {
-          "target": "com.amazonaws.support#IncludeCommunications",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether to include communications in the <code>DescribeCases</code>\n            response. By default, communications are incuded.</p>"
           }
         },
         "afterTime": {
@@ -834,10 +810,34 @@
             "smithy.api#documentation": "<p>The maximum number of results to return before paginating.</p>"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.support#NextToken",
+        "displayId": {
+          "target": "com.amazonaws.support#DisplayId",
           "traits": {
-            "smithy.api#documentation": "<p>A resumption point for pagination.</p>"
+            "smithy.api#documentation": "<p>The ID displayed for a case in the AWS Support Center user interface.</p>"
+          }
+        },
+        "beforeTime": {
+          "target": "com.amazonaws.support#BeforeTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The end date for a filtered date search on support case communications. Case\n            communications are available for 12 months after creation.</p>"
+          }
+        },
+        "includeResolvedCases": {
+          "target": "com.amazonaws.support#IncludeResolvedCases",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to include resolved support cases in the <code>DescribeCases</code>\n            response. By default, resolved cases aren't included.</p>"
+          }
+        },
+        "includeCommunications": {
+          "target": "com.amazonaws.support#IncludeCommunications",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to include communications in the <code>DescribeCases</code>\n            response. By default, communications are incuded.</p>"
+          }
+        },
+        "caseIdList": {
+          "target": "com.amazonaws.support#CaseIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of ID numbers of the support cases you want returned. The maximum number of\n            cases is 100.</p>"
           }
         }
       }
@@ -885,11 +885,16 @@
     "com.amazonaws.support#DescribeCommunicationsRequest": {
       "type": "structure",
       "members": {
-        "caseId": {
-          "target": "com.amazonaws.support#CaseId",
+        "beforeTime": {
+          "target": "com.amazonaws.support#BeforeTime",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Support case ID requested or returned in the call. The case ID is an\n            alphanumeric string formatted as shown in this example:\n                case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>\n        </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The end date for a filtered date search on support case communications. Case\n            communications are available for 12 months after creation.</p>"
+          }
+        },
+        "afterTime": {
+          "target": "com.amazonaws.support#AfterTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The start date for a filtered date search on support case communications. Case\n            communications are available for 12 months after creation.</p>"
           }
         },
         "nextToken": {
@@ -904,16 +909,11 @@
             "smithy.api#documentation": "<p>The maximum number of results to return before paginating.</p>"
           }
         },
-        "beforeTime": {
-          "target": "com.amazonaws.support#BeforeTime",
+        "caseId": {
+          "target": "com.amazonaws.support#CaseId",
           "traits": {
-            "smithy.api#documentation": "<p>The end date for a filtered date search on support case communications. Case\n            communications are available for 12 months after creation.</p>"
-          }
-        },
-        "afterTime": {
-          "target": "com.amazonaws.support#AfterTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The start date for a filtered date search on support case communications. Case\n            communications are available for 12 months after creation.</p>"
+            "smithy.api#documentation": "<p>The AWS Support case ID requested or returned in the call. The case ID is an\n            alphanumeric string formatted as shown in this example:\n                case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>\n        </p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -921,16 +921,16 @@
     "com.amazonaws.support#DescribeCommunicationsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.support#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A resumption point for pagination.</p>"
-          }
-        },
         "communications": {
           "target": "com.amazonaws.support#CommunicationList",
           "traits": {
             "smithy.api#documentation": "<p>The communications for the case.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.support#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A resumption point for pagination.</p>"
           }
         }
       },
@@ -1276,16 +1276,16 @@
     "com.amazonaws.support#RecentCaseCommunications": {
       "type": "structure",
       "members": {
-        "communications": {
-          "target": "com.amazonaws.support#CommunicationList",
-          "traits": {
-            "smithy.api#documentation": "<p>The five most recent communications associated with the case.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.support#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A resumption point for pagination.</p>"
+          }
+        },
+        "communications": {
+          "target": "com.amazonaws.support#CommunicationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The five most recent communications associated with the case.</p>"
           }
         }
       },
@@ -1374,16 +1374,16 @@
     "com.amazonaws.support#ResolveCaseResponse": {
       "type": "structure",
       "members": {
-        "finalCaseStatus": {
-          "target": "com.amazonaws.support#CaseStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the case after the <a>ResolveCase</a> request was\n            processed.</p>"
-          }
-        },
         "initialCaseStatus": {
           "target": "com.amazonaws.support#CaseStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the case when the <a>ResolveCase</a> request was sent.</p>"
+          }
+        },
+        "finalCaseStatus": {
+          "target": "com.amazonaws.support#CaseStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the case after the <a>ResolveCase</a> request was\n            processed.</p>"
           }
         }
       },
@@ -1397,12 +1397,6 @@
     "com.amazonaws.support#Service": {
       "type": "structure",
       "members": {
-        "categories": {
-          "target": "com.amazonaws.support#CategoryList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of categories that describe the type of support issue a case describes.\n            Categories consist of a category name and a category code. Category names and codes are\n            passed to AWS Support when you call <a>CreateCase</a>.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.support#ServiceName",
           "traits": {
@@ -1413,6 +1407,12 @@
           "target": "com.amazonaws.support#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>The code for an AWS service returned by the <a>DescribeServices</a>\n            response. The <code>name</code> element contains the corresponding friendly name.</p>"
+          }
+        },
+        "categories": {
+          "target": "com.amazonaws.support#CategoryList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of categories that describe the type of support issue a case describes.\n            Categories consist of a category name and a category code. Category names and codes are\n            passed to AWS Support when you call <a>CreateCase</a>.</p>"
           }
         }
       },
@@ -1520,24 +1520,10 @@
     "com.amazonaws.support#TrustedAdvisorCheckDescription": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.support#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the Trusted Advisor check, which includes the alert criteria and\n            recommended operations (contains HTML markup).</p>",
-            "smithy.api#required": {}
-          }
-        },
         "id": {
           "target": "com.amazonaws.support#String",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the Trusted Advisor check.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "category": {
-          "target": "com.amazonaws.support#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The category of the Trusted Advisor check.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1552,6 +1538,20 @@
           "target": "com.amazonaws.support#String",
           "traits": {
             "smithy.api#documentation": "<p>The display name for the Trusted Advisor check.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "category": {
+          "target": "com.amazonaws.support#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The category of the Trusted Advisor check.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.support#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the Trusted Advisor check, which includes the alert criteria and\n            recommended operations (contains HTML markup).</p>",
             "smithy.api#required": {}
           }
         }
@@ -1576,17 +1576,17 @@
             "smithy.api#required": {}
           }
         },
-        "status": {
-          "target": "com.amazonaws.support#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the Trusted Advisor check for which a refresh has been requested:\n            </p>\n        <ul>\n            <li>\n                <p>\n                  <code>none:</code> The check is not refreshed or the non-success status\n                    exceeds the timeout</p>\n            </li>\n            <li>\n                <p>\n                  <code>enqueued:</code> The check refresh requests has entered the refresh\n                    queue</p>\n            </li>\n            <li>\n                <p>\n                  <code>processing:</code> The check refresh request is picked up by the rule\n                    processing engine</p>\n            </li>\n            <li>\n                <p>\n                  <code>success:</code> The check is successfully refreshed</p>\n            </li>\n            <li>\n                <p>\n                  <code>abandoned:</code> The check refresh has failed</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "millisUntilNextRefreshable": {
           "target": "com.amazonaws.support#Long",
           "traits": {
             "smithy.api#documentation": "<p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for\n            refresh.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.support#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the Trusted Advisor check for which a refresh has been requested:\n            </p>\n        <ul>\n            <li>\n                <p>\n                  <code>none:</code> The check is not refreshed or the non-success status\n                    exceeds the timeout</p>\n            </li>\n            <li>\n                <p>\n                  <code>enqueued:</code> The check refresh requests has entered the refresh\n                    queue</p>\n            </li>\n            <li>\n                <p>\n                  <code>processing:</code> The check refresh request is picked up by the rule\n                    processing engine</p>\n            </li>\n            <li>\n                <p>\n                  <code>success:</code> The check is successfully refreshed</p>\n            </li>\n            <li>\n                <p>\n                  <code>abandoned:</code> The check refresh has failed</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -1604,34 +1604,6 @@
     "com.amazonaws.support#TrustedAdvisorCheckResult": {
       "type": "structure",
       "members": {
-        "checkId": {
-          "target": "com.amazonaws.support#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the Trusted Advisor check.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.support#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or\n            \"not_available\".</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "categorySpecificSummary": {
-          "target": "com.amazonaws.support#TrustedAdvisorCategorySpecificSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>Summary information that relates to the category of the check. Cost Optimizing is the\n            only category that is currently supported.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "timestamp": {
-          "target": "com.amazonaws.support#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The time of the last refresh of the check.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "flaggedResources": {
           "target": "com.amazonaws.support#TrustedAdvisorResourceDetailList",
           "traits": {
@@ -1644,19 +1616,11 @@
           "traits": {
             "smithy.api#required": {}
           }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The results of a Trusted Advisor check returned by <a>DescribeTrustedAdvisorCheckResult</a>.</p>"
-      }
-    },
-    "com.amazonaws.support#TrustedAdvisorCheckSummary": {
-      "type": "structure",
-      "members": {
-        "status": {
-          "target": "com.amazonaws.support#String",
+        },
+        "categorySpecificSummary": {
+          "target": "com.amazonaws.support#TrustedAdvisorCategorySpecificSummary",
           "traits": {
-            "smithy.api#documentation": "<p>The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or\n            \"not_available\".</p>",
+            "smithy.api#documentation": "<p>Summary information that relates to the category of the check. Cost Optimizing is the\n            only category that is currently supported.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1667,9 +1631,32 @@
             "smithy.api#required": {}
           }
         },
-        "resourcesSummary": {
-          "target": "com.amazonaws.support#TrustedAdvisorResourcesSummary",
+        "timestamp": {
+          "target": "com.amazonaws.support#String",
           "traits": {
+            "smithy.api#documentation": "<p>The time of the last refresh of the check.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.support#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or\n            \"not_available\".</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The results of a Trusted Advisor check returned by <a>DescribeTrustedAdvisorCheckResult</a>.</p>"
+      }
+    },
+    "com.amazonaws.support#TrustedAdvisorCheckSummary": {
+      "type": "structure",
+      "members": {
+        "categorySpecificSummary": {
+          "target": "com.amazonaws.support#TrustedAdvisorCategorySpecificSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Summary information that relates to the category of the check. Cost Optimizing is the\n            only category that is currently supported.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1679,6 +1666,19 @@
             "smithy.api#documentation": "<p>Specifies whether the Trusted Advisor check has flagged resources.</p>"
           }
         },
+        "resourcesSummary": {
+          "target": "com.amazonaws.support#TrustedAdvisorResourcesSummary",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "checkId": {
+          "target": "com.amazonaws.support#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the Trusted Advisor check.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "timestamp": {
           "target": "com.amazonaws.support#String",
           "traits": {
@@ -1686,10 +1686,10 @@
             "smithy.api#required": {}
           }
         },
-        "categorySpecificSummary": {
-          "target": "com.amazonaws.support#TrustedAdvisorCategorySpecificSummary",
+        "status": {
+          "target": "com.amazonaws.support#String",
           "traits": {
-            "smithy.api#documentation": "<p>Summary information that relates to the category of the check. Cost Optimizing is the\n            only category that is currently supported.</p>",
+            "smithy.api#documentation": "<p>The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or\n            \"not_available\".</p>",
             "smithy.api#required": {}
           }
         }
@@ -1729,10 +1729,11 @@
     "com.amazonaws.support#TrustedAdvisorResourceDetail": {
       "type": "structure",
       "members": {
-        "region": {
-          "target": "com.amazonaws.support#String",
+        "metadata": {
+          "target": "com.amazonaws.support#StringList",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS region in which the identified resource is located.</p>"
+            "smithy.api#documentation": "<p>Additional information about the identified resource. The exact metadata and its order\n            can be obtained by inspecting the <a>TrustedAdvisorCheckDescription</a>\n            object returned by the call to <a>DescribeTrustedAdvisorChecks</a>. <b>Metadata</b> contains all the data that is shown in the Excel\n            download, even in those cases where the UI shows just summary data.</p>",
+            "smithy.api#required": {}
           }
         },
         "resourceId": {
@@ -1742,12 +1743,6 @@
             "smithy.api#required": {}
           }
         },
-        "isSuppressed": {
-          "target": "com.amazonaws.support#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the AWS resource was ignored by Trusted Advisor because it was\n            marked as suppressed by the user.</p>"
-          }
-        },
         "status": {
           "target": "com.amazonaws.support#String",
           "traits": {
@@ -1755,11 +1750,16 @@
             "smithy.api#required": {}
           }
         },
-        "metadata": {
-          "target": "com.amazonaws.support#StringList",
+        "region": {
+          "target": "com.amazonaws.support#String",
           "traits": {
-            "smithy.api#documentation": "<p>Additional information about the identified resource. The exact metadata and its order\n            can be obtained by inspecting the <a>TrustedAdvisorCheckDescription</a>\n            object returned by the call to <a>DescribeTrustedAdvisorChecks</a>. <b>Metadata</b> contains all the data that is shown in the Excel\n            download, even in those cases where the UI shows just summary data.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The AWS region in which the identified resource is located.</p>"
+          }
+        },
+        "isSuppressed": {
+          "target": "com.amazonaws.support#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the AWS resource was ignored by Trusted Advisor because it was\n            marked as suppressed by the user.</p>"
           }
         }
       },
@@ -1776,17 +1776,17 @@
     "com.amazonaws.support#TrustedAdvisorResourcesSummary": {
       "type": "structure",
       "members": {
-        "resourcesProcessed": {
-          "target": "com.amazonaws.support#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of AWS resources that were analyzed by the Trusted Advisor check.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "resourcesSuppressed": {
           "target": "com.amazonaws.support#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of AWS resources ignored by Trusted Advisor because they were marked as\n            suppressed by the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourcesIgnored": {
+          "target": "com.amazonaws.support#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of AWS resources ignored by Trusted Advisor because information was\n            unavailable.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1797,10 +1797,10 @@
             "smithy.api#required": {}
           }
         },
-        "resourcesIgnored": {
+        "resourcesProcessed": {
           "target": "com.amazonaws.support#Long",
           "traits": {
-            "smithy.api#documentation": "<p>The number of AWS resources ignored by Trusted Advisor because information was\n            unavailable.</p>",
+            "smithy.api#documentation": "<p>The number of AWS resources that were analyzed by the Trusted Advisor check.</p>",
             "smithy.api#required": {}
           }
         }

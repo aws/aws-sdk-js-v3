@@ -236,17 +236,17 @@
     "com.amazonaws.wafv2#AssociateWebACLRequest": {
       "type": "structure",
       "members": {
-        "WebACLArn": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.wafv2#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </p>\n       \n         <p>The ARN must be in one of the following formats:</p>\n         <ul>\n            <li>\n               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>\n                  </code>\n               </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "WebACLArn": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>",
             "smithy.api#required": {}
           }
         }
@@ -276,20 +276,6 @@
     "com.amazonaws.wafv2#ByteMatchStatement": {
       "type": "structure",
       "members": {
-        "TextTransformations": {
-          "target": "com.amazonaws.wafv2#TextTransformations",
-          "traits": {
-            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. \n         If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the \n         content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "PositionalConstraint": {
-          "target": "com.amazonaws.wafv2#PositionalConstraint",
-          "traits": {
-            "smithy.api#documentation": "<p>The area within the portion of a web request that you want AWS WAF to search for <code>SearchString</code>. Valid values include the following:</p>\n         <p>\n            <b>CONTAINS</b>\n         </p>\n         <p>The specified part of the web request must include the value of <code>SearchString</code>, but the location doesn't matter.</p>\t\t\n         <p>\n            <b>CONTAINS_WORD</b>\n         </p>\n         <p>The specified part of the web request must include the value of <code>SearchString</code>, and \n         <code>SearchString</code> must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition, \n         <code>SearchString</code> must be a word, which means that both of the following are true:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SearchString</code> is at the beginning of the specified part of the web request or is \n                  preceded by a character other than an alphanumeric character or underscore (_). \n                  Examples include the value of a header and <code>;BadBot</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SearchString</code> is at the end of the specified part of the web request or is \n                  followed by a character other than an alphanumeric character or underscore (_), for example,\n                  <code>BadBot;</code> and <code>-BadBot;</code>.</p>\n            </li>\n         </ul>\n         <p>\n            <b>EXACTLY</b>\n         </p>\n         <p>The value of the specified part of the web request must exactly match the value of <code>SearchString</code>.</p>\n         <p>\n            <b>STARTS_WITH</b>\n         </p>\n         <p>The value of <code>SearchString</code> must appear at the beginning of the specified part of the web request.</p>\t\t\n         <p>\n            <b>ENDS_WITH</b>\n         </p>\n         <p>The value of <code>SearchString</code> must appear at the end of the specified part of the web request.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FieldToMatch": {
           "target": "com.amazonaws.wafv2#FieldToMatch",
           "traits": {
@@ -301,6 +287,20 @@
           "target": "com.amazonaws.wafv2#SearchString",
           "traits": {
             "smithy.api#documentation": "<p>A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in <a>FieldToMatch</a>. The maximum length of the value is 50 bytes.</p>\n         <p>Valid values depend on the component that you specify for inspection in <code>FieldToMatch</code>:</p>\t\t\n         <ul>\n            <li>\n               <p>\n                  <code>Method</code>: The HTTP method that you want AWS WAF to search for. This indicates the type of operation specified in the request. </p>\n            </li>\n            <li>\n               <p>\n                  <code>UriPath</code>: The value that you want AWS WAF to search for in the URI path,\n               for example, <code>/images/daily-ad.jpg</code>. </p>\n            </li>\n         </ul>\n      \n         <p>If <code>SearchString</code> includes alphabetic characters A-Z and a-z, note that the value is case sensitive.</p>\n         <p>\n            <b>If you're using the AWS WAF API</b>\n         </p>\n         <p>Specify a base64-encoded version of the value. The maximum length of the value before you base64-encode it is 50 bytes.</p>\n         <p>For example, suppose the value of <code>Type</code> is <code>HEADER</code> and the\n         value of <code>Data</code> is <code>User-Agent</code>. If you want to search the\n         <code>User-Agent</code> header for the value <code>BadBot</code>, you base64-encode\n         <code>BadBot</code> using MIME\n         base64-encoding\n         and include the resulting value, <code>QmFkQm90</code>, in the value of\n         <code>SearchString</code>.</p>\n         <p>\n            <b>If you're using the AWS CLI or one of the AWS SDKs</b>\n         </p>\n         <p>The value that you want AWS WAF to search for. The SDK automatically base64 encodes the value.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TextTransformations": {
+          "target": "com.amazonaws.wafv2#TextTransformations",
+          "traits": {
+            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. \n         If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the \n         content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PositionalConstraint": {
+          "target": "com.amazonaws.wafv2#PositionalConstraint",
+          "traits": {
+            "smithy.api#documentation": "<p>The area within the portion of a web request that you want AWS WAF to search for <code>SearchString</code>. Valid values include the following:</p>\n         <p>\n            <b>CONTAINS</b>\n         </p>\n         <p>The specified part of the web request must include the value of <code>SearchString</code>, but the location doesn't matter.</p>\t\t\n         <p>\n            <b>CONTAINS_WORD</b>\n         </p>\n         <p>The specified part of the web request must include the value of <code>SearchString</code>, and \n         <code>SearchString</code> must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition, \n         <code>SearchString</code> must be a word, which means that both of the following are true:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SearchString</code> is at the beginning of the specified part of the web request or is \n                  preceded by a character other than an alphanumeric character or underscore (_). \n                  Examples include the value of a header and <code>;BadBot</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SearchString</code> is at the end of the specified part of the web request or is \n                  followed by a character other than an alphanumeric character or underscore (_), for example,\n                  <code>BadBot;</code> and <code>-BadBot;</code>.</p>\n            </li>\n         </ul>\n         <p>\n            <b>EXACTLY</b>\n         </p>\n         <p>The value of the specified part of the web request must exactly match the value of <code>SearchString</code>.</p>\n         <p>\n            <b>STARTS_WITH</b>\n         </p>\n         <p>The value of <code>SearchString</code> must appear at the beginning of the specified part of the web request.</p>\t\t\n         <p>\n            <b>ENDS_WITH</b>\n         </p>\n         <p>The value of <code>SearchString</code> must appear at the end of the specified part of the web request.</p>",
             "smithy.api#required": {}
           }
         }
@@ -355,17 +355,17 @@
     "com.amazonaws.wafv2#CheckCapacityRequest": {
       "type": "structure",
       "members": {
-        "Rules": {
-          "target": "com.amazonaws.wafv2#Rules",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <a>Rule</a> that you're configuring to use in a rule group or web ACL. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "Scope": {
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Rules": {
+          "target": "com.amazonaws.wafv2#Rules",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a>Rule</a> that you're configuring to use in a rule group or web ACL. </p>",
             "smithy.api#required": {}
           }
         }
@@ -1486,17 +1486,24 @@
     "com.amazonaws.wafv2#CreateIPSetRequest": {
       "type": "structure",
       "members": {
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>"
+          }
+        },
+        "Addresses": {
+          "target": "com.amazonaws.wafv2#IPAddresses",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify \n               <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "IPAddressVersion": {
           "target": "com.amazonaws.wafv2#IPAddressVersion",
           "traits": {
             "smithy.api#documentation": "<p>Specify IPV4 or IPV6. </p>",
             "smithy.api#required": {}
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>"
           }
         },
         "Name": {
@@ -1506,12 +1513,6 @@
             "smithy.api#required": {}
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.wafv2#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of key:value pairs to associate with the resource.</p>"
-          }
-        },
         "Scope": {
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
@@ -1519,11 +1520,10 @@
             "smithy.api#required": {}
           }
         },
-        "Addresses": {
-          "target": "com.amazonaws.wafv2#IPAddresses",
+        "Tags": {
+          "target": "com.amazonaws.wafv2#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify \n               <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An array of key:value pairs to associate with the resource.</p>"
           }
         }
       }
@@ -1580,11 +1580,10 @@
     "com.amazonaws.wafv2#CreateRegexPatternSetRequest": {
       "type": "structure",
       "members": {
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>"
           }
         },
         "Tags": {
@@ -1593,23 +1592,24 @@
             "smithy.api#documentation": "<p>An array of key:value pairs to associate with the resource.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the set. You cannot change the name after you create the set.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>"
-          }
-        },
         "RegularExpressionList": {
           "target": "com.amazonaws.wafv2#RegularExpressionList",
           "traits": {
             "smithy.api#documentation": "<p>Array of regular expression strings. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the set. You cannot change the name after you create the set.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1676,6 +1676,19 @@
     "com.amazonaws.wafv2#CreateRuleGroupRequest": {
       "type": "structure",
       "members": {
+        "VisibilityConfig": {
+          "target": "com.amazonaws.wafv2#VisibilityConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Rules": {
+          "target": "com.amazonaws.wafv2#Rules",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a>Rule</a> statements used to identify the web requests that you \n         want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching  \n         web requests, and parameters that govern how AWS WAF handles them. \n      </p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.wafv2#TagList",
           "traits": {
@@ -1689,17 +1702,16 @@
             "smithy.api#required": {}
           }
         },
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>"
+          }
+        },
         "Scope": {
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
-        "VisibilityConfig": {
-          "target": "com.amazonaws.wafv2#VisibilityConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
             "smithy.api#required": {}
           }
         },
@@ -1708,18 +1720,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The web ACL capacity units (WCUs) required for this rule group.</p> \n          <p>When you create your own rule group, you define this, and you cannot change it after creation. \n          When you add or modify the rules in a rule group, AWS WAF enforces this limit. You can check the capacity \n          for a set of rules using <a>CheckCapacity</a>.</p> \n          <p>AWS WAF uses WCUs to calculate and control the operating\n         resources that are used to run your rules, rule groups, and web ACLs. AWS WAF\n         calculates capacity differently for each rule type, to reflect the relative cost of each rule. \n         Simple rules that cost little to run use fewer WCUs than more complex rules\n\t\t\t\tthat use more processing power. \n\t\t\t\tRule group capacity is fixed at creation, which helps users plan their  \n         web ACL WCU usage when they use a rule group. \n         The WCU limit for web ACLs is 1,500.  </p>",
             "smithy.api#required": {}
-          }
-        },
-        "Rules": {
-          "target": "com.amazonaws.wafv2#Rules",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a>Rule</a> statements used to identify the web requests that you \n         want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching  \n         web requests, and parameters that govern how AWS WAF handles them. \n      </p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>"
           }
         }
       }
@@ -1788,24 +1788,10 @@
     "com.amazonaws.wafv2#CreateWebACLRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.wafv2#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of key:value pairs to associate with the resource.</p>"
+            "smithy.api#documentation": "<p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>"
           }
         },
         "Rules": {
@@ -1821,6 +1807,19 @@
             "smithy.api#required": {}
           }
         },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.wafv2#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of key:value pairs to associate with the resource.</p>"
+          }
+        },
         "DefaultAction": {
           "target": "com.amazonaws.wafv2#DefaultAction",
           "traits": {
@@ -1828,10 +1827,11 @@
             "smithy.api#required": {}
           }
         },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>"
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1850,16 +1850,16 @@
     "com.amazonaws.wafv2#DefaultAction": {
       "type": "structure",
       "members": {
-        "Block": {
-          "target": "com.amazonaws.wafv2#BlockAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies that AWS WAF should block requests by default. </p>"
-          }
-        },
         "Allow": {
           "target": "com.amazonaws.wafv2#AllowAction",
           "traits": {
             "smithy.api#documentation": "<p>Specifies that AWS WAF should allow requests by default.</p>"
+          }
+        },
+        "Block": {
+          "target": "com.amazonaws.wafv2#BlockAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies that AWS WAF should block requests by default. </p>"
           }
         }
       },
@@ -1899,17 +1899,17 @@
     "com.amazonaws.wafv2#DeleteFirewallManagerRuleGroupsRequest": {
       "type": "structure",
       "members": {
-        "WebACLArn": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the web ACL.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "WebACLLockToken": {
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "WebACLArn": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the web ACL.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1967,13 +1967,6 @@
     "com.amazonaws.wafv2#DeleteIPSetRequest": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Scope": {
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
@@ -1981,10 +1974,10 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>",
+            "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1992,6 +1985,13 @@
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2126,10 +2126,10 @@
     "com.amazonaws.wafv2#DeleteRegexPatternSetRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the set. You cannot change the name after you create the set.</p>",
+            "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2140,17 +2140,17 @@
             "smithy.api#required": {}
           }
         },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the set. You cannot change the name after you create the set.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "LockToken": {
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2201,17 +2201,17 @@
     "com.amazonaws.wafv2#DeleteRuleGroupRequest": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Name": {
           "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "LockToken": {
-          "target": "com.amazonaws.wafv2#LockToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
             "smithy.api#required": {}
           }
         },
@@ -2222,10 +2222,10 @@
             "smithy.api#required": {}
           }
         },
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
+        "LockToken": {
+          "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
+            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
             "smithy.api#required": {}
           }
         }
@@ -2283,10 +2283,10 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
+        "LockToken": {
+          "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>",
+            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
             "smithy.api#required": {}
           }
         },
@@ -2297,10 +2297,10 @@
             "smithy.api#required": {}
           }
         },
-        "LockToken": {
-          "target": "com.amazonaws.wafv2#LockToken",
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
-            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
+            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2342,10 +2342,10 @@
     "com.amazonaws.wafv2#DescribeManagedRuleGroupRequest": {
       "type": "structure",
       "members": {
-        "VendorName": {
-          "target": "com.amazonaws.wafv2#VendorName",
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>",
+            "smithy.api#documentation": "<p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2356,10 +2356,10 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
+        "VendorName": {
+          "target": "com.amazonaws.wafv2#VendorName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>",
+            "smithy.api#documentation": "<p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2499,16 +2499,22 @@
     "com.amazonaws.wafv2#FieldToMatch": {
       "type": "structure",
       "members": {
-        "AllQueryArguments": {
-          "target": "com.amazonaws.wafv2#AllQueryArguments",
-          "traits": {
-            "smithy.api#documentation": "<p>Inspect all query arguments. </p>"
-          }
-        },
         "SingleQueryArgument": {
           "target": "com.amazonaws.wafv2#SingleQueryArgument",
           "traits": {
             "smithy.api#documentation": "<p>Inspect a single query argument. Provide the name of the query argument to inspect, such as <i>UserName</i> or <i>SalesRegion</i>. The name can be up to 30 characters long and isn't case sensitive. </p>\n           <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>"
+          }
+        },
+        "SingleHeader": {
+          "target": "com.amazonaws.wafv2#SingleHeader",
+          "traits": {
+            "smithy.api#documentation": "<p>Inspect a single header. Provide the name of the header to inspect, for example, <code>User-Agent</code> or <code>Referer</code>. This setting isn't case sensitive.</p>"
+          }
+        },
+        "Body": {
+          "target": "com.amazonaws.wafv2#Body",
+          "traits": {
+            "smithy.api#documentation": "<p>Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any \n         additional data that you want to send to your web server as the HTTP request body, such as data from a form. </p>\n         <p>Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as <a>ByteMatchStatement</a> or <a>RegexPatternSetReferenceStatement</a>, with a <a>SizeConstraintStatement</a> that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.</p>"
           }
         },
         "QueryString": {
@@ -2523,22 +2529,16 @@
             "smithy.api#documentation": "<p>Inspect the request URI path. This is the part of a web request that identifies a resource, for example, <code>/images/daily-ad.jpg</code>.</p>"
           }
         },
+        "AllQueryArguments": {
+          "target": "com.amazonaws.wafv2#AllQueryArguments",
+          "traits": {
+            "smithy.api#documentation": "<p>Inspect all query arguments. </p>"
+          }
+        },
         "Method": {
           "target": "com.amazonaws.wafv2#Method",
           "traits": {
             "smithy.api#documentation": "<p>Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. </p>"
-          }
-        },
-        "Body": {
-          "target": "com.amazonaws.wafv2#Body",
-          "traits": {
-            "smithy.api#documentation": "<p>Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any \n         additional data that you want to send to your web server as the HTTP request body, such as data from a form. </p>\n         <p>Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as <a>ByteMatchStatement</a> or <a>RegexPatternSetReferenceStatement</a>, with a <a>SizeConstraintStatement</a> that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.</p>"
-          }
-        },
-        "SingleHeader": {
-          "target": "com.amazonaws.wafv2#SingleHeader",
-          "traits": {
-            "smithy.api#documentation": "<p>Inspect a single header. Provide the name of the header to inspect, for example, <code>User-Agent</code> or <code>Referer</code>. This setting isn't case sensitive.</p>"
           }
         }
       },
@@ -2559,25 +2559,6 @@
     "com.amazonaws.wafv2#FirewallManagerRuleGroup": {
       "type": "structure",
       "members": {
-        "OverrideAction": {
-          "target": "com.amazonaws.wafv2#OverrideAction",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
-        "VisibilityConfig": {
-          "target": "com.amazonaws.wafv2#VisibilityConfig",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FirewallManagerStatement": {
           "target": "com.amazonaws.wafv2#FirewallManagerStatement",
           "traits": {
@@ -2589,6 +2570,25 @@
           "target": "com.amazonaws.wafv2#RulePriority",
           "traits": {
             "smithy.api#documentation": "<p>If you define more than one rule group in the first or last Firewall Manager rule groups,\n          AWS WAF evaluates each request against the rule groups in order, starting from the lowest priority setting. \n         The priorities don't need to be consecutive, but they must all be different.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VisibilityConfig": {
+          "target": "com.amazonaws.wafv2#VisibilityConfig",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "OverrideAction": {
+          "target": "com.amazonaws.wafv2#OverrideAction",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2717,6 +2717,13 @@
     "com.amazonaws.wafv2#GetIPSetRequest": {
       "type": "structure",
       "members": {
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
         "Name": {
           "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
@@ -2730,29 +2737,22 @@
             "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
             "smithy.api#required": {}
           }
-        },
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.wafv2#GetIPSetResponse": {
       "type": "structure",
       "members": {
-        "IPSet": {
-          "target": "com.amazonaws.wafv2#IPSet",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
         "LockToken": {
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>"
+          }
+        },
+        "IPSet": {
+          "target": "com.amazonaws.wafv2#IPSet",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
           }
         }
       }
@@ -2881,10 +2881,10 @@
     "com.amazonaws.wafv2#GetRateBasedStatementManagedKeysRequest": {
       "type": "structure",
       "members": {
-        "RuleName": {
-          "target": "com.amazonaws.wafv2#EntityName",
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the rate-based rule to get the keys for.</p>",
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -2902,10 +2902,10 @@
             "smithy.api#required": {}
           }
         },
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
+        "RuleName": {
+          "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The name of the rate-based rule to get the keys for.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2914,16 +2914,16 @@
     "com.amazonaws.wafv2#GetRateBasedStatementManagedKeysResponse": {
       "type": "structure",
       "members": {
-        "ManagedKeysIPV4": {
-          "target": "com.amazonaws.wafv2#RateBasedStatementManagedKeysIPSet",
-          "traits": {
-            "smithy.api#documentation": "<p>The keys that are of Internet Protocol version 4 (IPv4). </p>"
-          }
-        },
         "ManagedKeysIPV6": {
           "target": "com.amazonaws.wafv2#RateBasedStatementManagedKeysIPSet",
           "traits": {
             "smithy.api#documentation": "<p>The keys that are of Internet Protocol version 6 (IPv6). </p>"
+          }
+        },
+        "ManagedKeysIPV4": {
+          "target": "com.amazonaws.wafv2#RateBasedStatementManagedKeysIPSet",
+          "traits": {
+            "smithy.api#documentation": "<p>The keys that are of Internet Protocol version 4 (IPv4). </p>"
           }
         }
       }
@@ -2964,17 +2964,17 @@
             "smithy.api#required": {}
           }
         },
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Scope": {
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2983,16 +2983,16 @@
     "com.amazonaws.wafv2#GetRegexPatternSetResponse": {
       "type": "structure",
       "members": {
-        "RegexPatternSet": {
-          "target": "com.amazonaws.wafv2#RegexPatternSet",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
         "LockToken": {
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>"
+          }
+        },
+        "RegexPatternSet": {
+          "target": "com.amazonaws.wafv2#RegexPatternSet",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
           }
         }
       }
@@ -3026,13 +3026,6 @@
     "com.amazonaws.wafv2#GetRuleGroupRequest": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Scope": {
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
@@ -3046,22 +3039,29 @@
             "smithy.api#documentation": "<p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>",
             "smithy.api#required": {}
           }
+        },
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.wafv2#GetRuleGroupResponse": {
       "type": "structure",
       "members": {
-        "LockToken": {
-          "target": "com.amazonaws.wafv2#LockToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>"
-          }
-        },
         "RuleGroup": {
           "target": "com.amazonaws.wafv2#RuleGroup",
           "traits": {
             "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "LockToken": {
+          "target": "com.amazonaws.wafv2#LockToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>"
           }
         }
       }
@@ -3092,20 +3092,6 @@
     "com.amazonaws.wafv2#GetSampledRequestsRequest": {
       "type": "structure",
       "members": {
-        "TimeWindow": {
-          "target": "com.amazonaws.wafv2#TimeWindow",
-          "traits": {
-            "smithy.api#documentation": "<p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a \n          sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "WebAclArn": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon resource name (ARN) of the <code>WebACL</code> for which you want a sample of requests.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Scope": {
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
@@ -3126,18 +3112,26 @@
             "smithy.api#documentation": "<p>The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received\n         during the time range. If your resource received fewer requests than the value of <code>MaxItems</code>, <code>GetSampledRequests</code> \n         returns information about all of them. </p>",
             "smithy.api#required": {}
           }
+        },
+        "WebAclArn": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon resource name (ARN) of the <code>WebACL</code> for which you want a sample of requests.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TimeWindow": {
+          "target": "com.amazonaws.wafv2#TimeWindow",
+          "traits": {
+            "smithy.api#documentation": "<p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a \n          sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.wafv2#GetSampledRequestsResponse": {
       "type": "structure",
       "members": {
-        "TimeWindow": {
-          "target": "com.amazonaws.wafv2#TimeWindow",
-          "traits": {
-            "smithy.api#documentation": "<p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. \n            However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, \n         <code>GetSampledRequests</code> returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.</p>"
-          }
-        },
         "PopulationSize": {
           "target": "com.amazonaws.wafv2#PopulationSize",
           "traits": {
@@ -3148,6 +3142,12 @@
           "target": "com.amazonaws.wafv2#SampledHTTPRequests",
           "traits": {
             "smithy.api#documentation": "<p>A complex type that contains detailed information about each of the requests in the sample.</p>"
+          }
+        },
+        "TimeWindow": {
+          "target": "com.amazonaws.wafv2#TimeWindow",
+          "traits": {
+            "smithy.api#documentation": "<p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. \n            However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, \n         <code>GetSampledRequests</code> returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.</p>"
           }
         }
       }
@@ -3233,13 +3233,6 @@
     "com.amazonaws.wafv2#GetWebACLRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Id": {
           "target": "com.amazonaws.wafv2#EntityId",
           "traits": {
@@ -3251,6 +3244,13 @@
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3276,16 +3276,16 @@
     "com.amazonaws.wafv2#HTTPHeader": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.wafv2#HeaderName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the HTTP header.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.wafv2#HeaderValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the HTTP header.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#HeaderName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the HTTP header.</p>"
           }
         }
       },
@@ -3305,18 +3305,6 @@
     "com.amazonaws.wafv2#HTTPRequest": {
       "type": "structure",
       "members": {
-        "Country": {
-          "target": "com.amazonaws.wafv2#Country",
-          "traits": {
-            "smithy.api#documentation": "<p>The two-letter country code for the country that the request originated from. For a current list of country codes, \n         see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 alpha-2</a>.</p>"
-          }
-        },
-        "Headers": {
-          "target": "com.amazonaws.wafv2#HTTPHeaders",
-          "traits": {
-            "smithy.api#documentation": "<p>A complex type that contains the name and value for each header in the sampled web request.</p>"
-          }
-        },
         "URI": {
           "target": "com.amazonaws.wafv2#URIString",
           "traits": {
@@ -3329,16 +3317,28 @@
             "smithy.api#documentation": "<p>The HTTP method specified in the sampled web request. </p>"
           }
         },
-        "ClientIP": {
-          "target": "com.amazonaws.wafv2#IPString",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address that the request originated from. If the web ACL is associated with a CloudFront distribution, \n         this is the value of one of the following fields in CloudFront access logs:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>c-ip</code>, if the viewer did not use an HTTP proxy or a load balancer to send the request</p>\n            </li>\n            <li>\n               <p>\n                  <code>x-forwarded-for</code>, if the viewer did use an HTTP proxy or a load balancer to send the request</p>\n            </li>\n         </ul>"
-          }
-        },
         "HTTPVersion": {
           "target": "com.amazonaws.wafv2#HTTPVersion",
           "traits": {
             "smithy.api#documentation": "<p>The HTTP version specified in the sampled web request, for example, <code>HTTP/1.1</code>.</p>"
+          }
+        },
+        "Headers": {
+          "target": "com.amazonaws.wafv2#HTTPHeaders",
+          "traits": {
+            "smithy.api#documentation": "<p>A complex type that contains the name and value for each header in the sampled web request.</p>"
+          }
+        },
+        "Country": {
+          "target": "com.amazonaws.wafv2#Country",
+          "traits": {
+            "smithy.api#documentation": "<p>The two-letter country code for the country that the request originated from. For a current list of country codes, \n         see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 alpha-2</a>.</p>"
+          }
+        },
+        "ClientIP": {
+          "target": "com.amazonaws.wafv2#IPString",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address that the request originated from. If the web ACL is associated with a CloudFront distribution, \n         this is the value of one of the following fields in CloudFront access logs:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>c-ip</code>, if the viewer did not use an HTTP proxy or a load balancer to send the request</p>\n            </li>\n            <li>\n               <p>\n                  <code>x-forwarded-for</code>, if the viewer did use an HTTP proxy or a load balancer to send the request</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -3389,6 +3389,33 @@
     "com.amazonaws.wafv2#IPSet": {
       "type": "structure",
       "members": {
+        "ARN": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Addresses": {
+          "target": "com.amazonaws.wafv2#IPAddresses",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify \n               <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>"
+          }
+        },
         "Id": {
           "target": "com.amazonaws.wafv2#EntityId",
           "traits": {
@@ -3402,33 +3429,6 @@
             "smithy.api#documentation": "<p>Specify IPV4 or IPV6. </p>",
             "smithy.api#required": {}
           }
-        },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>"
-          }
-        },
-        "Addresses": {
-          "target": "com.amazonaws.wafv2#IPAddresses",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify \n               <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ARN": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>",
-            "smithy.api#required": {}
-          }
         }
       },
       "traits": {
@@ -3438,17 +3438,17 @@
     "com.amazonaws.wafv2#IPSetForwardedIPConfig": {
       "type": "structure",
       "members": {
-        "HeaderName": {
-          "target": "com.amazonaws.wafv2#ForwardedIPHeaderName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>\n    \n         <note>\n            <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>\n         </note>",
-            "smithy.api#required": {}
-          }
-        },
         "Position": {
           "target": "com.amazonaws.wafv2#ForwardedIPPosition",
           "traits": {
             "smithy.api#documentation": "<p>The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be <code>10.1.1.1, 127.0.0.0, 10.10.10.10</code> where the first IP address identifies the original client and the rest identify proxies that the request went through. </p>\n         <p>The options for this setting are the following: </p>\n         <ul>\n            <li>\n               <p>FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.</p>\n            </li>\n            <li>\n               <p>LAST - Inspect the last IP address in the list of IP addresses in the header.</p>\n            </li>\n            <li>\n               <p>ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "HeaderName": {
+          "target": "com.amazonaws.wafv2#ForwardedIPHeaderName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>\n    \n         <note>\n            <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -3467,17 +3467,17 @@
     "com.amazonaws.wafv2#IPSetReferenceStatement": {
       "type": "structure",
       "members": {
+        "IPSetForwardedIPConfig": {
+          "target": "com.amazonaws.wafv2#IPSetForwardedIPConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>\n    \n         <note>\n            <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>\n         </note>"
+          }
+        },
         "ARN": {
           "target": "com.amazonaws.wafv2#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a>IPSet</a> that this statement references.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "IPSetForwardedIPConfig": {
-          "target": "com.amazonaws.wafv2#IPSetForwardedIPConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>\n    \n         <note>\n            <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>\n         </note>"
           }
         }
       },
@@ -3494,22 +3494,10 @@
     "com.amazonaws.wafv2#IPSetSummary": {
       "type": "structure",
       "members": {
-        "ARN": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"
           }
         },
         "LockToken": {
@@ -3522,6 +3510,18 @@
           "target": "com.amazonaws.wafv2#EntityDescription",
           "traits": {
             "smithy.api#documentation": "<p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"
+          }
+        },
+        "ARN": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>"
           }
         }
       },
@@ -3558,11 +3558,10 @@
     "com.amazonaws.wafv2#ListAvailableManagedRuleGroupsRequest": {
       "type": "structure",
       "members": {
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
+        "Limit": {
+          "target": "com.amazonaws.wafv2#PaginationLimit",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
           }
         },
         "NextMarker": {
@@ -3571,10 +3570,11 @@
             "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
           }
         },
-        "Limit": {
-          "target": "com.amazonaws.wafv2#PaginationLimit",
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -3582,16 +3582,16 @@
     "com.amazonaws.wafv2#ListAvailableManagedRuleGroupsResponse": {
       "type": "structure",
       "members": {
-        "ManagedRuleGroups": {
-          "target": "com.amazonaws.wafv2#ManagedRuleGroupSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.wafv2#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
+          }
+        },
+        "ManagedRuleGroups": {
+          "target": "com.amazonaws.wafv2#ManagedRuleGroupSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
           }
         }
       }
@@ -3629,16 +3629,16 @@
             "smithy.api#required": {}
           }
         },
-        "Limit": {
-          "target": "com.amazonaws.wafv2#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.wafv2#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.wafv2#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
           }
         }
       }
@@ -3758,11 +3758,10 @@
     "com.amazonaws.wafv2#ListRegexPatternSetsRequest": {
       "type": "structure",
       "members": {
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
+        "Limit": {
+          "target": "com.amazonaws.wafv2#PaginationLimit",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
           }
         },
         "NextMarker": {
@@ -3771,10 +3770,11 @@
             "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
           }
         },
-        "Limit": {
-          "target": "com.amazonaws.wafv2#PaginationLimit",
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -3782,16 +3782,16 @@
     "com.amazonaws.wafv2#ListRegexPatternSetsResponse": {
       "type": "structure",
       "members": {
-        "NextMarker": {
-          "target": "com.amazonaws.wafv2#NextMarker",
-          "traits": {
-            "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
-          }
-        },
         "RegexPatternSets": {
           "target": "com.amazonaws.wafv2#RegexPatternSetSummaries",
           "traits": {
             "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.wafv2#NextMarker",
+          "traits": {
+            "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
           }
         }
       }
@@ -3877,11 +3877,10 @@
     "com.amazonaws.wafv2#ListRuleGroupsRequest": {
       "type": "structure",
       "members": {
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
+        "Limit": {
+          "target": "com.amazonaws.wafv2#PaginationLimit",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
           }
         },
         "NextMarker": {
@@ -3890,10 +3889,11 @@
             "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
           }
         },
-        "Limit": {
-          "target": "com.amazonaws.wafv2#PaginationLimit",
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -3901,16 +3901,16 @@
     "com.amazonaws.wafv2#ListRuleGroupsResponse": {
       "type": "structure",
       "members": {
-        "NextMarker": {
-          "target": "com.amazonaws.wafv2#NextMarker",
-          "traits": {
-            "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
-          }
-        },
         "RuleGroups": {
           "target": "com.amazonaws.wafv2#RuleGroupSummaries",
           "traits": {
             "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.wafv2#NextMarker",
+          "traits": {
+            "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
           }
         }
       }
@@ -3974,16 +3974,16 @@
     "com.amazonaws.wafv2#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
-        "TagInfoForResource": {
-          "target": "com.amazonaws.wafv2#TagInfoForResource",
-          "traits": {
-            "smithy.api#documentation": "<p>The collection of tagging definitions for the resource. </p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.wafv2#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
+          }
+        },
+        "TagInfoForResource": {
+          "target": "com.amazonaws.wafv2#TagInfoForResource",
+          "traits": {
+            "smithy.api#documentation": "<p>The collection of tagging definitions for the resource. </p>"
           }
         }
       }
@@ -4014,12 +4014,6 @@
     "com.amazonaws.wafv2#ListWebACLsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.wafv2#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
-          }
-        },
         "Scope": {
           "target": "com.amazonaws.wafv2#Scope",
           "traits": {
@@ -4032,22 +4026,28 @@
           "traits": {
             "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
           }
+        },
+        "Limit": {
+          "target": "com.amazonaws.wafv2#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of objects that you want AWS WAF to return for this request. If more \n          objects are available, in the response, AWS WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
+          }
         }
       }
     },
     "com.amazonaws.wafv2#ListWebACLsResponse": {
       "type": "structure",
       "members": {
-        "WebACLs": {
-          "target": "com.amazonaws.wafv2#WebACLSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.wafv2#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
+          }
+        },
+        "WebACLs": {
+          "target": "com.amazonaws.wafv2#WebACLSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
           }
         }
       }
@@ -4077,12 +4077,6 @@
     "com.amazonaws.wafv2#LoggingConfiguration": {
       "type": "structure",
       "members": {
-        "RedactedFields": {
-          "target": "com.amazonaws.wafv2#RedactedFields",
-          "traits": {
-            "smithy.api#documentation": "<p>The parts of the request that you want to keep out of the logs. For\n         example, if you redact the cookie field, the cookie field in the firehose will be\n         <code>xxx</code>. </p>"
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.wafv2#ResourceArn",
           "traits": {
@@ -4095,6 +4089,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "RedactedFields": {
+          "target": "com.amazonaws.wafv2#RedactedFields",
+          "traits": {
+            "smithy.api#documentation": "<p>The parts of the request that you want to keep out of the logs. For\n         example, if you redact the cookie field, the cookie field in the firehose will be\n         <code>xxx</code>. </p>"
           }
         }
       },
@@ -4111,12 +4111,6 @@
     "com.amazonaws.wafv2#ManagedRuleGroupStatement": {
       "type": "structure",
       "members": {
-        "ExcludedRules": {
-          "target": "com.amazonaws.wafv2#ExcludedRules",
-          "traits": {
-            "smithy.api#documentation": "<p>The rules whose actions are set to <code>COUNT</code> by the web ACL, regardless of the action that is set on the rule. This effectively excludes the rule from acting on web requests.  </p>"
-          }
-        },
         "VendorName": {
           "target": "com.amazonaws.wafv2#VendorName",
           "traits": {
@@ -4129,6 +4123,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ExcludedRules": {
+          "target": "com.amazonaws.wafv2#ExcludedRules",
+          "traits": {
+            "smithy.api#documentation": "<p>The rules whose actions are set to <code>COUNT</code> by the web ACL, regardless of the action that is set on the rule. This effectively excludes the rule from acting on web requests.  </p>"
           }
         }
       },
@@ -4235,16 +4235,16 @@
     "com.amazonaws.wafv2#OverrideAction": {
       "type": "structure",
       "members": {
-        "Count": {
-          "target": "com.amazonaws.wafv2#CountAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Override the rule action setting to count.</p>"
-          }
-        },
         "None": {
           "target": "com.amazonaws.wafv2#NoneAction",
           "traits": {
             "smithy.api#documentation": "<p>Don't override the rule action setting.</p>"
+          }
+        },
+        "Count": {
+          "target": "com.amazonaws.wafv2#CountAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Override the rule action setting to count.</p>"
           }
         }
       },
@@ -4604,19 +4604,6 @@
     "com.amazonaws.wafv2#RateBasedStatement": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.wafv2#RateLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>The limit on requests per 5-minute period for a single originating IP address. If the statement includes a <code>ScopeDownStatement</code>, this limit is applied only to the requests that match the statement.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ForwardedIPConfig": {
-          "target": "com.amazonaws.wafv2#ForwardedIPConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>\n    \n         <note>\n            <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>\n         </note> \n        \n    \n         <p>This is required if <code>AggregateKeyType</code> is set to <code>FORWARDED_IP</code>.</p>"
-          }
-        },
         "AggregateKeyType": {
           "target": "com.amazonaws.wafv2#RateBasedStatementAggregateKeyType",
           "traits": {
@@ -4628,6 +4615,19 @@
           "target": "com.amazonaws.wafv2#Statement",
           "traits": {
             "smithy.api#documentation": "<p>An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement.</p>"
+          }
+        },
+        "ForwardedIPConfig": {
+          "target": "com.amazonaws.wafv2#ForwardedIPConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>\n    \n         <note>\n            <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>\n         </note> \n        \n    \n         <p>This is required if <code>AggregateKeyType</code> is set to <code>FORWARDED_IP</code>.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.wafv2#RateLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>The limit on requests per 5-minute period for a single originating IP address. If the statement includes a <code>ScopeDownStatement</code>, this limit is applied only to the requests that match the statement.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4653,14 +4653,14 @@
     "com.amazonaws.wafv2#RateBasedStatementManagedKeysIPSet": {
       "type": "structure",
       "members": {
+        "IPAddressVersion": {
+          "target": "com.amazonaws.wafv2#IPAddressVersion"
+        },
         "Addresses": {
           "target": "com.amazonaws.wafv2#IPAddresses",
           "traits": {
             "smithy.api#documentation": "<p>The IP addresses that are currently blocked.</p>"
           }
-        },
-        "IPAddressVersion": {
-          "target": "com.amazonaws.wafv2#IPAddressVersion"
         }
       },
       "traits": {
@@ -4705,16 +4705,16 @@
     "com.amazonaws.wafv2#RegexPatternSet": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the set. You cannot change the name after you create the set.</p>"
-          }
-        },
         "ARN": {
           "target": "com.amazonaws.wafv2#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>"
           }
         },
         "Id": {
@@ -4723,10 +4723,10 @@
             "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>"
+            "smithy.api#documentation": "<p>The name of the set. You cannot change the name after you create the set.</p>"
           }
         },
         "RegularExpressionList": {
@@ -4743,10 +4743,10 @@
     "com.amazonaws.wafv2#RegexPatternSetReferenceStatement": {
       "type": "structure",
       "members": {
-        "FieldToMatch": {
-          "target": "com.amazonaws.wafv2#FieldToMatch",
+        "TextTransformations": {
+          "target": "com.amazonaws.wafv2#TextTransformations",
           "traits": {
-            "smithy.api#documentation": "<p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>",
+            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. \n         If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the \n         content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4757,10 +4757,10 @@
             "smithy.api#required": {}
           }
         },
-        "TextTransformations": {
-          "target": "com.amazonaws.wafv2#TextTransformations",
+        "FieldToMatch": {
+          "target": "com.amazonaws.wafv2#FieldToMatch",
           "traits": {
-            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. \n         If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the \n         content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>",
+            "smithy.api#documentation": "<p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>",
             "smithy.api#required": {}
           }
         }
@@ -4778,10 +4778,22 @@
     "com.amazonaws.wafv2#RegexPatternSetSummary": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data type instance. You cannot change the name after you create the instance.</p>"
+          }
+        },
         "LockToken": {
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>"
           }
         },
         "ARN": {
@@ -4794,18 +4806,6 @@
           "target": "com.amazonaws.wafv2#EntityId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the data type instance. You cannot change the name after you create the instance.</p>"
           }
         }
       },
@@ -4863,6 +4863,33 @@
     "com.amazonaws.wafv2#Rule": {
       "type": "structure",
       "members": {
+        "Statement": {
+          "target": "com.amazonaws.wafv2#Statement",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS WAF processing statement for the rule, for example <a>ByteMatchStatement</a> or <a>SizeConstraintStatement</a>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the rule. You can't change the name of a <code>Rule</code> after you create it. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Priority": {
+          "target": "com.amazonaws.wafv2#RulePriority",
+          "traits": {
+            "smithy.api#documentation": "<p>If you define more than one <code>Rule</code> in a\n         <code>WebACL</code>, AWS WAF evaluates each request against the <code>Rules</code>\n         in order based on the value of <code>Priority</code>.  \n         AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OverrideAction": {
+          "target": "com.amazonaws.wafv2#OverrideAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The override action to apply to the rules in a rule group. Used only for rule statements that reference a rule group, \n           like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>\n        <p>Set the override action to none to leave the rule actions in effect. Set it to count to only count matches, regardless of the rule action settings. </p> \n        <p>In a <a>Rule</a>, you must specify either this <code>OverrideAction</code> setting or the rule <code>Action</code> setting, but not both:</p>\n         <ul>\n            <li>\n               <p>If the rule statement references a rule group, use this override action setting and not the action setting.  </p>\n            </li>\n            <li>\n               <p>If the rule statement does not reference a rule group, use the rule action setting and not this rule override action setting. </p> \n            </li>\n         </ul>"
+          }
+        },
         "Action": {
           "target": "com.amazonaws.wafv2#RuleAction",
           "traits": {
@@ -4875,33 +4902,6 @@
             "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
             "smithy.api#required": {}
           }
-        },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the rule. You can't change the name of a <code>Rule</code> after you create it. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "OverrideAction": {
-          "target": "com.amazonaws.wafv2#OverrideAction",
-          "traits": {
-            "smithy.api#documentation": "<p>The override action to apply to the rules in a rule group. Used only for rule statements that reference a rule group, \n           like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>\n        <p>Set the override action to none to leave the rule actions in effect. Set it to count to only count matches, regardless of the rule action settings. </p> \n        <p>In a <a>Rule</a>, you must specify either this <code>OverrideAction</code> setting or the rule <code>Action</code> setting, but not both:</p>\n         <ul>\n            <li>\n               <p>If the rule statement references a rule group, use this override action setting and not the action setting.  </p>\n            </li>\n            <li>\n               <p>If the rule statement does not reference a rule group, use the rule action setting and not this rule override action setting. </p> \n            </li>\n         </ul>"
-          }
-        },
-        "Statement": {
-          "target": "com.amazonaws.wafv2#Statement",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS WAF processing statement for the rule, for example <a>ByteMatchStatement</a> or <a>SizeConstraintStatement</a>. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Priority": {
-          "target": "com.amazonaws.wafv2#RulePriority",
-          "traits": {
-            "smithy.api#documentation": "<p>If you define more than one <code>Rule</code> in a\n         <code>WebACL</code>, AWS WAF evaluates each request against the <code>Rules</code>\n         in order based on the value of <code>Priority</code>.  \n         AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.</p>",
-            "smithy.api#required": {}
-          }
         }
       },
       "traits": {
@@ -4911,16 +4911,16 @@
     "com.amazonaws.wafv2#RuleAction": {
       "type": "structure",
       "members": {
-        "Allow": {
-          "target": "com.amazonaws.wafv2#AllowAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Instructs AWS WAF to allow the web request.</p>"
-          }
-        },
         "Block": {
           "target": "com.amazonaws.wafv2#BlockAction",
           "traits": {
             "smithy.api#documentation": "<p>Instructs AWS WAF to block the web request.</p>"
+          }
+        },
+        "Allow": {
+          "target": "com.amazonaws.wafv2#AllowAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Instructs AWS WAF to allow the web request.</p>"
           }
         },
         "Count": {
@@ -4937,10 +4937,22 @@
     "com.amazonaws.wafv2#RuleGroup": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
+        "Rules": {
+          "target": "com.amazonaws.wafv2#Rules",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>",
+            "smithy.api#documentation": "<p>The <a>Rule</a> statements used to identify the web requests that you \n         want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching  \n         web requests, and parameters that govern how AWS WAF handles them. \n      </p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>"
+          }
+        },
+        "ARN": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4951,19 +4963,6 @@
             "smithy.api#required": {}
           }
         },
-        "VisibilityConfig": {
-          "target": "com.amazonaws.wafv2#VisibilityConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>"
-          }
-        },
         "Capacity": {
           "target": "com.amazonaws.wafv2#CapacityUnit",
           "traits": {
@@ -4971,17 +4970,18 @@
             "smithy.api#required": {}
           }
         },
-        "ARN": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>",
+            "smithy.api#documentation": "<p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>",
             "smithy.api#required": {}
           }
         },
-        "Rules": {
-          "target": "com.amazonaws.wafv2#Rules",
+        "VisibilityConfig": {
+          "target": "com.amazonaws.wafv2#VisibilityConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The <a>Rule</a> statements used to identify the web requests that you \n         want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching  \n         web requests, and parameters that govern how AWS WAF handles them. \n      </p>"
+            "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5019,16 +5019,22 @@
     "com.amazonaws.wafv2#RuleGroupSummary": {
       "type": "structure",
       "members": {
+        "ARN": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>"
+          }
+        },
         "LockToken": {
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>"
+            "smithy.api#documentation": "<p>The name of the data type instance. You cannot change the name after you create the instance.</p>"
           }
         },
         "Id": {
@@ -5037,16 +5043,10 @@
             "smithy.api#documentation": "<p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"
           }
         },
-        "ARN": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the data type instance. You cannot change the name after you create the instance.</p>"
+            "smithy.api#documentation": "<p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>"
           }
         }
       },
@@ -5102,6 +5102,25 @@
     "com.amazonaws.wafv2#SampledHTTPRequest": {
       "type": "structure",
       "members": {
+        "RuleNameWithinRuleGroup": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the <code>Rule</code> that the request matched. For managed rule groups, the format for this name is <code><vendor name>#<managed rule group name>#<rule name></code>. For your own rule\n         groups, the format for this name is \n         <code><rule group name>#<rule name></code>. If the rule is not in a rule group, the format is <code><rule name></code>. </p>"
+          }
+        },
+        "Timestamp": {
+          "target": "com.amazonaws.wafv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).</p>"
+          }
+        },
+        "Weight": {
+          "target": "com.amazonaws.wafv2#SampleWeight",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that indicates how one result in the response relates \n         proportionally to other results in the response. \n         For example, a result that has a weight of <code>2</code> represents roughly twice \n         as many web requests as a result \n         that has a weight of <code>1</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Request": {
           "target": "com.amazonaws.wafv2#HTTPRequest",
           "traits": {
@@ -5113,25 +5132,6 @@
           "target": "com.amazonaws.wafv2#Action",
           "traits": {
             "smithy.api#documentation": "<p>The action for the <code>Rule</code> that the request matched: <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>"
-          }
-        },
-        "Timestamp": {
-          "target": "com.amazonaws.wafv2#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).</p>"
-          }
-        },
-        "RuleNameWithinRuleGroup": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the <code>Rule</code> that the request matched. For managed rule groups, the format for this name is <code><vendor name>#<managed rule group name>#<rule name></code>. For your own rule\n         groups, the format for this name is \n         <code><rule group name>#<rule name></code>. If the rule is not in a rule group, the format is <code><rule name></code>. </p>"
-          }
-        },
-        "Weight": {
-          "target": "com.amazonaws.wafv2#SampleWeight",
-          "traits": {
-            "smithy.api#documentation": "<p>A value that indicates how one result in the response relates \n         proportionally to other results in the response. \n         For example, a result that has a weight of <code>2</code> represents roughly twice \n         as many web requests as a result \n         that has a weight of <code>1</code>.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -5205,10 +5205,10 @@
     "com.amazonaws.wafv2#SizeConstraintStatement": {
       "type": "structure",
       "members": {
-        "FieldToMatch": {
-          "target": "com.amazonaws.wafv2#FieldToMatch",
+        "Size": {
+          "target": "com.amazonaws.wafv2#Size",
           "traits": {
-            "smithy.api#documentation": "<p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>",
+            "smithy.api#documentation": "<p>The size, in byte, to compare to the request part, after any transformations.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5226,10 +5226,10 @@
             "smithy.api#required": {}
           }
         },
-        "Size": {
-          "target": "com.amazonaws.wafv2#Size",
+        "FieldToMatch": {
+          "target": "com.amazonaws.wafv2#FieldToMatch",
           "traits": {
-            "smithy.api#documentation": "<p>The size, in byte, to compare to the request part, after any transformations.</p>",
+            "smithy.api#documentation": "<p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>",
             "smithy.api#required": {}
           }
         }
@@ -5263,10 +5263,10 @@
     "com.amazonaws.wafv2#Statement": {
       "type": "structure",
       "members": {
-        "ManagedRuleGroupStatement": {
-          "target": "com.amazonaws.wafv2#ManagedRuleGroupStatement",
+        "ByteMatchStatement": {
+          "target": "com.amazonaws.wafv2#ByteMatchStatement",
           "traits": {
-            "smithy.api#documentation": "<p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>\n         <p>You can't nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>"
+            "smithy.api#documentation": "<p>A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.</p>"
           }
         },
         "OrStatement": {
@@ -5275,16 +5275,16 @@
             "smithy.api#documentation": "<p>A logical rule statement used to combine other rule statements with OR logic. You provide more than one <a>Statement</a> within the <code>OrStatement</code>. </p>"
           }
         },
-        "SqliMatchStatement": {
-          "target": "com.amazonaws.wafv2#SqliMatchStatement",
+        "RegexPatternSetReferenceStatement": {
+          "target": "com.amazonaws.wafv2#RegexPatternSetReferenceStatement",
           "traits": {
-            "smithy.api#documentation": "<p>Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database. To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.</p>"
+            "smithy.api#documentation": "<p>A rule statement used to search web request components for matches with regular expressions. To use this, create a <a>RegexPatternSet</a> that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set. To create a regex pattern set, see <a>CreateRegexPatternSet</a>.</p> \n         <p>Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.</p>"
           }
         },
-        "RuleGroupReferenceStatement": {
-          "target": "com.amazonaws.wafv2#RuleGroupReferenceStatement",
+        "ManagedRuleGroupStatement": {
+          "target": "com.amazonaws.wafv2#ManagedRuleGroupStatement",
           "traits": {
-            "smithy.api#documentation": "<p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>\n         <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>"
+            "smithy.api#documentation": "<p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>\n         <p>You can't nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>"
           }
         },
         "IPSetReferenceStatement": {
@@ -5293,28 +5293,16 @@
             "smithy.api#documentation": "<p>A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an <a>IPSet</a> that specifies the addresses you want to detect, then use the ARN of that set in this statement. To create an IP set, see <a>CreateIPSet</a>.</p> \n         <p>Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.</p>"
           }
         },
-        "RegexPatternSetReferenceStatement": {
-          "target": "com.amazonaws.wafv2#RegexPatternSetReferenceStatement",
+        "AndStatement": {
+          "target": "com.amazonaws.wafv2#AndStatement",
           "traits": {
-            "smithy.api#documentation": "<p>A rule statement used to search web request components for matches with regular expressions. To use this, create a <a>RegexPatternSet</a> that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set. To create a regex pattern set, see <a>CreateRegexPatternSet</a>.</p> \n         <p>Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.</p>"
+            "smithy.api#documentation": "<p>A logical rule statement used to combine other rule statements with AND logic. You provide more than one <a>Statement</a> within the <code>AndStatement</code>. </p>"
           }
         },
-        "GeoMatchStatement": {
-          "target": "com.amazonaws.wafv2#GeoMatchStatement",
+        "RuleGroupReferenceStatement": {
+          "target": "com.amazonaws.wafv2#RuleGroupReferenceStatement",
           "traits": {
-            "smithy.api#documentation": "<p>A rule statement used to identify web requests based on country of origin.  </p>"
-          }
-        },
-        "RateBasedStatement": {
-          "target": "com.amazonaws.wafv2#RateBasedStatement",
-          "traits": {
-            "smithy.api#documentation": "<p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests.</p>\n         <p>When the rule action triggers, AWS WAF blocks additional requests from the IP address until the request rate falls below the limit.</p>\n         <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts requests that match the nested statement. For example, based on recent requests that you have seen from an attacker, you might create a rate-based rule with a nested AND rule statement that contains the following nested statements:</p>\n         <ul>\n            <li>\n               <p>An IP match statement with an IP set that specified the address 192.0.2.44.</p>\n            </li>\n            <li>\n               <p>A string match statement that searches in the User-Agent header for the string BadBot.</p>\n            </li>\n         </ul>\n         <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.</p>\n         <p>You cannot nest a <code>RateBasedStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>"
-          }
-        },
-        "SizeConstraintStatement": {
-          "target": "com.amazonaws.wafv2#SizeConstraintStatement",
-          "traits": {
-            "smithy.api#documentation": "<p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>\n         <p>If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.</p> \n         <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>"
+            "smithy.api#documentation": "<p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>\n         <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>"
           }
         },
         "NotStatement": {
@@ -5323,22 +5311,34 @@
             "smithy.api#documentation": "<p>A logical rule statement used to negate the results of another rule statement. You provide one <a>Statement</a> within the <code>NotStatement</code>.</p>"
           }
         },
+        "SqliMatchStatement": {
+          "target": "com.amazonaws.wafv2#SqliMatchStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database. To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.</p>"
+          }
+        },
+        "RateBasedStatement": {
+          "target": "com.amazonaws.wafv2#RateBasedStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests.</p>\n         <p>When the rule action triggers, AWS WAF blocks additional requests from the IP address until the request rate falls below the limit.</p>\n         <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts requests that match the nested statement. For example, based on recent requests that you have seen from an attacker, you might create a rate-based rule with a nested AND rule statement that contains the following nested statements:</p>\n         <ul>\n            <li>\n               <p>An IP match statement with an IP set that specified the address 192.0.2.44.</p>\n            </li>\n            <li>\n               <p>A string match statement that searches in the User-Agent header for the string BadBot.</p>\n            </li>\n         </ul>\n         <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.</p>\n         <p>You cannot nest a <code>RateBasedStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>"
+          }
+        },
+        "GeoMatchStatement": {
+          "target": "com.amazonaws.wafv2#GeoMatchStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>A rule statement used to identify web requests based on country of origin.  </p>"
+          }
+        },
+        "SizeConstraintStatement": {
+          "target": "com.amazonaws.wafv2#SizeConstraintStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>\n         <p>If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.</p> \n         <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>"
+          }
+        },
         "XssMatchStatement": {
           "target": "com.amazonaws.wafv2#XssMatchStatement",
           "traits": {
             "smithy.api#documentation": "<p>A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. \n         XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious \n         client-site scripts into other legitimate web browsers.  \n         The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations \n         to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings. </p>"
-          }
-        },
-        "AndStatement": {
-          "target": "com.amazonaws.wafv2#AndStatement",
-          "traits": {
-            "smithy.api#documentation": "<p>A logical rule statement used to combine other rule statements with AND logic. You provide more than one <a>Statement</a> within the <code>AndStatement</code>. </p>"
-          }
-        },
-        "ByteMatchStatement": {
-          "target": "com.amazonaws.wafv2#ByteMatchStatement",
-          "traits": {
-            "smithy.api#documentation": "<p>A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.</p>"
           }
         }
       },
@@ -5355,17 +5355,17 @@
     "com.amazonaws.wafv2#Tag": {
       "type": "structure",
       "members": {
-        "Key": {
-          "target": "com.amazonaws.wafv2#TagKey",
-          "traits": {
-            "smithy.api#documentation": "<p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are case-sensitive.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Value": {
           "target": "com.amazonaws.wafv2#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as \"companyA\" or \"companyB.\" Tag values are case-sensitive.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.wafv2#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are case-sensitive.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5377,16 +5377,16 @@
     "com.amazonaws.wafv2#TagInfoForResource": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
-          }
-        },
         "TagList": {
           "target": "com.amazonaws.wafv2#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The array of <a>Tag</a> objects defined for the resource. </p>"
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
           }
         }
       },
@@ -5569,17 +5569,17 @@
     "com.amazonaws.wafv2#TimeWindow": {
       "type": "structure",
       "members": {
-        "StartTime": {
-          "target": "com.amazonaws.wafv2#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your \n         AWS resource received. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "EndTime": {
           "target": "com.amazonaws.wafv2#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The end of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your \n         AWS resource received. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.wafv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your \n         AWS resource received. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5629,17 +5629,17 @@
     "com.amazonaws.wafv2#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TagKeys": {
           "target": "com.amazonaws.wafv2#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>An array of keys identifying the tags to disassociate from the resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5687,24 +5687,17 @@
     "com.amazonaws.wafv2#UpdateIPSetRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>"
-          }
-        },
-        "Addresses": {
-          "target": "com.amazonaws.wafv2#IPAddresses",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify \n               <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Id": {
           "target": "com.amazonaws.wafv2#EntityId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>"
           }
         },
         "Name": {
@@ -5718,6 +5711,13 @@
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Addresses": {
+          "target": "com.amazonaws.wafv2#IPAddresses",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify \n               <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5779,10 +5779,31 @@
     "com.amazonaws.wafv2#UpdateRegexPatternSetRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the set. You cannot change the name after you create the set.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "RegularExpressionList": {
           "target": "com.amazonaws.wafv2#RegularExpressionList",
           "traits": {
             "smithy.api#documentation": "<p></p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "LockToken": {
+          "target": "com.amazonaws.wafv2#LockToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
             "smithy.api#required": {}
           }
         },
@@ -5796,27 +5817,6 @@
           "target": "com.amazonaws.wafv2#EntityId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "LockToken": {
-          "target": "com.amazonaws.wafv2#LockToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the set. You cannot change the name after you create the set.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -5877,10 +5877,18 @@
     "com.amazonaws.wafv2#UpdateRuleGroupRequest": {
       "type": "structure",
       "members": {
-        "Rules": {
-          "target": "com.amazonaws.wafv2#Rules",
+        "Scope": {
+          "target": "com.amazonaws.wafv2#Scope",
           "traits": {
-            "smithy.api#documentation": "<p>The <a>Rule</a> statements used to identify the web requests that you \n         want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching  \n         web requests, and parameters that govern how AWS WAF handles them. \n      </p>"
+            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -5893,13 +5901,6 @@
           "target": "com.amazonaws.wafv2#VisibilityConfig",
           "traits": {
             "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5917,11 +5918,10 @@
             "smithy.api#required": {}
           }
         },
-        "Scope": {
-          "target": "com.amazonaws.wafv2#Scope",
+        "Rules": {
+          "target": "com.amazonaws.wafv2#Rules",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>\n         <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>\n         <ul>\n            <li>\n               <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>\n            </li>\n            <li>\n               <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The <a>Rule</a> statements used to identify the web requests that you \n         want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching  \n         web requests, and parameters that govern how AWS WAF handles them. \n      </p>"
           }
         }
       }
@@ -5984,6 +5984,26 @@
     "com.amazonaws.wafv2#UpdateWebACLRequest": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VisibilityConfig": {
+          "target": "com.amazonaws.wafv2#VisibilityConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Rules": {
+          "target": "com.amazonaws.wafv2#Rules",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a>Rule</a> statements used to identify the web requests that you \n         want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching  \n         web requests, and parameters that govern how AWS WAF handles them. \n      </p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.wafv2#EntityName",
           "traits": {
@@ -5991,10 +6011,16 @@
             "smithy.api#required": {}
           }
         },
-        "LockToken": {
-          "target": "com.amazonaws.wafv2#LockToken",
+        "Description": {
+          "target": "com.amazonaws.wafv2#EntityDescription",
           "traits": {
-            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
+            "smithy.api#documentation": "<p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>"
+          }
+        },
+        "DefaultAction": {
+          "target": "com.amazonaws.wafv2#DefaultAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>",
             "smithy.api#required": {}
           }
         },
@@ -6005,36 +6031,10 @@
             "smithy.api#required": {}
           }
         },
-        "Rules": {
-          "target": "com.amazonaws.wafv2#Rules",
+        "LockToken": {
+          "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
-            "smithy.api#documentation": "<p>The <a>Rule</a> statements used to identify the web requests that you \n         want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching  \n         web requests, and parameters that govern how AWS WAF handles them. \n      </p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.wafv2#EntityDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>"
-          }
-        },
-        "VisibilityConfig": {
-          "target": "com.amazonaws.wafv2#VisibilityConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "DefaultAction": {
-          "target": "com.amazonaws.wafv2#DefaultAction",
-          "traits": {
-            "smithy.api#documentation": "<p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>",
+            "smithy.api#documentation": "<p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>",
             "smithy.api#required": {}
           }
         }
@@ -6071,10 +6071,10 @@
     "com.amazonaws.wafv2#VisibilityConfig": {
       "type": "structure",
       "members": {
-        "SampledRequestsEnabled": {
-          "target": "com.amazonaws.wafv2#Boolean",
+        "MetricName": {
+          "target": "com.amazonaws.wafv2#MetricName",
           "traits": {
-            "smithy.api#documentation": "<p>A boolean indicating whether AWS WAF should store a sampling of the web \n           requests that match the rules. You can view the sampled requests through the \n           AWS WAF console. </p>",
+            "smithy.api#documentation": "<p>A name of the CloudWatch metric. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain\n         whitespace or metric names reserved for AWS WAF, for example \"All\" and \"Default_Action.\" You can't change a <code>MetricName</code> after you create a <code>VisibilityConfig</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6085,10 +6085,10 @@
             "smithy.api#required": {}
           }
         },
-        "MetricName": {
-          "target": "com.amazonaws.wafv2#MetricName",
+        "SampledRequestsEnabled": {
+          "target": "com.amazonaws.wafv2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>A name of the CloudWatch metric. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain\n         whitespace or metric names reserved for AWS WAF, for example \"All\" and \"Default_Action.\" You can't change a <code>MetricName</code> after you create a <code>VisibilityConfig</code>.</p>",
+            "smithy.api#documentation": "<p>A boolean indicating whether AWS WAF should store a sampling of the web \n           requests that match the rules. You can view the sampled requests through the \n           AWS WAF console. </p>",
             "smithy.api#required": {}
           }
         }
@@ -6148,17 +6148,17 @@
     "com.amazonaws.wafv2#WAFInvalidParameterException": {
       "type": "structure",
       "members": {
-        "Reason": {
-          "target": "com.amazonaws.wafv2#ErrorReason"
-        },
-        "Parameter": {
-          "target": "com.amazonaws.wafv2#ParameterExceptionParameter"
-        },
         "Field": {
           "target": "com.amazonaws.wafv2#ParameterExceptionField"
         },
         "message": {
           "target": "com.amazonaws.wafv2#ErrorMessage"
+        },
+        "Parameter": {
+          "target": "com.amazonaws.wafv2#ParameterExceptionParameter"
+        },
+        "Reason": {
+          "target": "com.amazonaws.wafv2#ErrorReason"
         }
       },
       "traits": {
@@ -6289,16 +6289,10 @@
     "com.amazonaws.wafv2#WebACL": {
       "type": "structure",
       "members": {
-        "PostProcessFirewallManagerRuleGroups": {
-          "target": "com.amazonaws.wafv2#FirewallManagerRuleGroups",
+        "ARN": {
+          "target": "com.amazonaws.wafv2#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The last set of rules for AWS WAF to process in the web ACL. This is defined in an AWS Firewall Manager WAF policy and \n           contains only rule group references. You can't alter these. Any rules and rule groups that you define for the web ACL are \n           prioritized before these. </p>\n         <p>In the Firewall Manager WAF policy, the Firewall Manager administrator can define a set of rule groups to run first in the web ACL \n           and a set of rule groups to run last. Within each set, the administrator prioritizes the rule groups, to\n          determine their relative processing order.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6314,31 +6308,10 @@
             "smithy.api#documentation": "<p>The first set of rules for AWS WAF to process in the web ACL. This is defined in an AWS Firewall Manager WAF policy and \n           contains only rule group references. You can't alter these. Any rules and rule groups that you define for the web ACL are \n           prioritized after these. </p>\n         <p>In the Firewall Manager WAF policy, the Firewall Manager administrator can define a set of rule groups to run first in the web ACL \n           and a set of rule groups to run last. Within each set, the administrator prioritizes the rule groups, to\n          determine their relative processing order.</p>"
           }
         },
-        "DefaultAction": {
-          "target": "com.amazonaws.wafv2#DefaultAction",
-          "traits": {
-            "smithy.api#documentation": "<p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the <code>WebACL</code>. This ID is returned in the responses to create and list commands. You use this ID to do things like get, update, and delete a <code>WebACL</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "VisibilityConfig": {
           "target": "com.amazonaws.wafv2#VisibilityConfig",
           "traits": {
             "smithy.api#documentation": "<p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ARN": {
-          "target": "com.amazonaws.wafv2#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6348,16 +6321,43 @@
             "smithy.api#documentation": "<p>The web ACL capacity units (WCUs) currently being used by this web ACL. </p>\n         <p>AWS WAF uses WCUs to calculate and control the operating\n         resources that are used to run your rules, rule groups, and web ACLs. AWS WAF\n         calculates capacity differently for each rule type, to reflect the relative cost of each rule. \n         Simple rules that cost little to run use fewer WCUs than more complex rules\n\t\t\t\tthat use more processing power. \n\t\t\t\tRule group capacity is fixed at creation, which helps users plan their  \n         web ACL WCU usage when they use a rule group. \n         The WCU limit for web ACLs is 1,500.  </p>"
           }
         },
-        "ManagedByFirewallManager": {
-          "target": "com.amazonaws.wafv2#Boolean",
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether this web ACL is managed by AWS Firewall Manager. If true, then only AWS Firewall Manager can delete the web ACL or any Firewall Manager rule groups in the web ACL. </p>"
+            "smithy.api#documentation": "<p>A unique identifier for the <code>WebACL</code>. This ID is returned in the responses to create and list commands. You use this ID to do things like get, update, and delete a <code>WebACL</code>.</p>",
+            "smithy.api#required": {}
           }
         },
         "Description": {
           "target": "com.amazonaws.wafv2#EntityDescription",
           "traits": {
             "smithy.api#documentation": "<p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>"
+          }
+        },
+        "ManagedByFirewallManager": {
+          "target": "com.amazonaws.wafv2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether this web ACL is managed by AWS Firewall Manager. If true, then only AWS Firewall Manager can delete the web ACL or any Firewall Manager rule groups in the web ACL. </p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DefaultAction": {
+          "target": "com.amazonaws.wafv2#DefaultAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PostProcessFirewallManagerRuleGroups": {
+          "target": "com.amazonaws.wafv2#FirewallManagerRuleGroups",
+          "traits": {
+            "smithy.api#documentation": "<p>The last set of rules for AWS WAF to process in the web ACL. This is defined in an AWS Firewall Manager WAF policy and \n           contains only rule group references. You can't alter these. Any rules and rule groups that you define for the web ACL are \n           prioritized before these. </p>\n         <p>In the Firewall Manager WAF policy, the Firewall Manager administrator can define a set of rule groups to run first in the web ACL \n           and a set of rule groups to run last. Within each set, the administrator prioritizes the rule groups, to\n          determine their relative processing order.</p>"
           }
         }
       },
@@ -6374,28 +6374,28 @@
     "com.amazonaws.wafv2#WebACLSummary": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.wafv2#EntityId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.wafv2#EntityDescription",
           "traits": {
             "smithy.api#documentation": "<p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.wafv2#EntityName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>"
-          }
-        },
         "ARN": {
           "target": "com.amazonaws.wafv2#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.wafv2#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>"
           }
         },
         "LockToken": {
@@ -6412,17 +6412,17 @@
     "com.amazonaws.wafv2#XssMatchStatement": {
       "type": "structure",
       "members": {
-        "TextTransformations": {
-          "target": "com.amazonaws.wafv2#TextTransformations",
-          "traits": {
-            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. \n         If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the \n         content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FieldToMatch": {
           "target": "com.amazonaws.wafv2#FieldToMatch",
           "traits": {
             "smithy.api#documentation": "<p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TextTransformations": {
+          "target": "com.amazonaws.wafv2#TextTransformations",
+          "traits": {
+            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. \n         If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the \n         content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>",
             "smithy.api#required": {}
           }
         }

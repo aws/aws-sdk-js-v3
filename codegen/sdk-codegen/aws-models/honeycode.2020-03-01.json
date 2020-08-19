@@ -80,17 +80,17 @@
     "com.amazonaws.honeycode#ColumnMetadata": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.honeycode#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the column.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "format": {
           "target": "com.amazonaws.honeycode#Format",
           "traits": {
             "smithy.api#documentation": "<p>The format of the column.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.honeycode#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the column.</p>",
             "smithy.api#required": {}
           }
         }
@@ -102,16 +102,16 @@
     "com.amazonaws.honeycode#DataItem": {
       "type": "structure",
       "members": {
-        "rawValue": {
-          "target": "com.amazonaws.honeycode#RawValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The raw value of the data. e.g. jsmith@example.com</p>"
-          }
-        },
         "overrideFormat": {
           "target": "com.amazonaws.honeycode#Format",
           "traits": {
             "smithy.api#documentation": "<p>\n            The overrideFormat is optional and is specified only if a particular row of data has a different format for\n            the data than the default format defined on the screen or the table.\n        </p>"
+          }
+        },
+        "rawValue": {
+          "target": "com.amazonaws.honeycode#RawValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The raw value of the data. e.g. jsmith@example.com</p>"
           }
         },
         "formattedValue": {
@@ -232,25 +232,6 @@
     "com.amazonaws.honeycode#GetScreenDataRequest": {
       "type": "structure",
       "members": {
-        "appId": {
-          "target": "com.amazonaws.honeycode#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the app that contains the screem.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.honeycode#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            This parameter is optional. If a nextToken is not specified, the API returns the first page of data.\n        </p>\n        <p>\n            Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API\n            will throw ValidationException.\n        </p>"
-          }
-        },
-        "maxResults": {
-          "target": "com.amazonaws.honeycode#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The number of results to be returned on a single page.\n            Specify a number between 1 and 100. The maximum value is 100.\n        </p>\n        <p>\n            This parameter is optional. If you don't specify this parameter, the default page size is 100.\n        </p>"
-          }
-        },
         "workbookId": {
           "target": "com.amazonaws.honeycode#ResourceId",
           "traits": {
@@ -265,10 +246,29 @@
             "smithy.api#required": {}
           }
         },
+        "appId": {
+          "target": "com.amazonaws.honeycode#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the app that contains the screem.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "variables": {
           "target": "com.amazonaws.honeycode#VariableValueMap",
           "traits": {
             "smithy.api#documentation": "<p>\n            Variables are optional and are needed only if the screen requires them to render correctly. Variables are\n            specified as a map where the key is the name of the variable as defined on the screen. The value is an\n            object which currently has only one property, rawValue, which holds the value of the variable to be passed\n            to the screen.\n        </p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.honeycode#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The number of results to be returned on a single page.\n            Specify a number between 1 and 100. The maximum value is 100.\n        </p>\n        <p>\n            This parameter is optional. If you don't specify this parameter, the default page size is 100.\n        </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.honeycode#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            This parameter is optional. If a nextToken is not specified, the API returns the first page of data.\n        </p>\n        <p>\n            Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API\n            will throw ValidationException.\n        </p>"
           }
         }
       }
@@ -276,12 +276,6 @@
     "com.amazonaws.honeycode#GetScreenDataResult": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.honeycode#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            Provides the pagination token to load the next page if there are more results matching the request. If a\n            pagination token is not present in the response, it means that all data matching the query has been loaded.\n        </p>"
-          }
-        },
         "results": {
           "target": "com.amazonaws.honeycode#ResultSetMap",
           "traits": {
@@ -294,6 +288,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n            Indicates the cursor of the workbook at which the data returned by this workbook is read. Workbook cursor\n            keeps increasing with every update and the increments are not sequential.\n        </p>",
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.honeycode#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Provides the pagination token to load the next page if there are more results matching the request. If a\n            pagination token is not present in the response, it means that all data matching the query has been loaded.\n        </p>"
           }
         }
       }
@@ -360,10 +360,10 @@
     "com.amazonaws.honeycode#InvokeScreenAutomationRequest": {
       "type": "structure",
       "members": {
-        "clientRequestToken": {
-          "target": "com.amazonaws.honeycode#ClientRequestToken",
+        "rowId": {
+          "target": "com.amazonaws.honeycode#RowId",
           "traits": {
-            "smithy.api#documentation": "<p>\n            The request token for performing the automation action.\n            Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error\n            like a failed network connection, you can retry the call with the same request token. The service ensures\n            that if the first call using that request token is successfully performed, the second call will return the\n            response of the previous call rather than performing the action again.\n        </p>\n        <p>\n            Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests\n            spanning hours or days.\n        </p>"
+            "smithy.api#documentation": "<p>\n            The row ID for the automation if the automation is defined inside a block with source or list.\n        </p>"
           }
         },
         "workbookId": {
@@ -374,26 +374,6 @@
             "smithy.api#required": {}
           }
         },
-        "variables": {
-          "target": "com.amazonaws.honeycode#VariableValueMap",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            Variables are optional and are needed only if the screen requires them to render correctly. Variables are\n            specified as a map where the key is the name of the variable as defined on the screen. The value is an\n            object which currently has only one property, rawValue, which holds the value of the variable to be passed\n            to the screen.\n        </p>"
-          }
-        },
-        "screenId": {
-          "target": "com.amazonaws.honeycode#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the screen that contains the screen automation.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "rowId": {
-          "target": "com.amazonaws.honeycode#RowId",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            The row ID for the automation if the automation is defined inside a block with source or list.\n        </p>"
-          }
-        },
         "screenAutomationId": {
           "target": "com.amazonaws.honeycode#ResourceId",
           "traits": {
@@ -402,10 +382,30 @@
             "smithy.api#required": {}
           }
         },
+        "variables": {
+          "target": "com.amazonaws.honeycode#VariableValueMap",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Variables are optional and are needed only if the screen requires them to render correctly. Variables are\n            specified as a map where the key is the name of the variable as defined on the screen. The value is an\n            object which currently has only one property, rawValue, which holds the value of the variable to be passed\n            to the screen.\n        </p>"
+          }
+        },
+        "clientRequestToken": {
+          "target": "com.amazonaws.honeycode#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The request token for performing the automation action.\n            Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error\n            like a failed network connection, you can retry the call with the same request token. The service ensures\n            that if the first call using that request token is successfully performed, the second call will return the\n            response of the previous call rather than performing the action again.\n        </p>\n        <p>\n            Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests\n            spanning hours or days.\n        </p>"
+          }
+        },
         "appId": {
           "target": "com.amazonaws.honeycode#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the app that contains the screen automation.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "screenId": {
+          "target": "com.amazonaws.honeycode#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the screen that contains the screen automation.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -493,17 +493,17 @@
     "com.amazonaws.honeycode#ResultRow": {
       "type": "structure",
       "members": {
-        "rowId": {
-          "target": "com.amazonaws.honeycode#RowId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID for a particular row.</p>"
-          }
-        },
         "dataItems": {
           "target": "com.amazonaws.honeycode#DataItems",
           "traits": {
             "smithy.api#documentation": "<p>List of all the data cells in a row.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "rowId": {
+          "target": "com.amazonaws.honeycode#RowId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID for a particular row.</p>"
           }
         }
       },

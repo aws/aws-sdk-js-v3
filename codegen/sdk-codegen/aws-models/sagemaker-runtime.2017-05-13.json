@@ -128,6 +128,13 @@
     "com.amazonaws.sagemakerruntime#InvokeEndpointInput": {
       "type": "structure",
       "members": {
+        "ContentType": {
+          "target": "com.amazonaws.sagemakerruntime#Header",
+          "traits": {
+            "smithy.api#documentation": "<p>The MIME type of the input data in the request body.</p>",
+            "smithy.api#httpHeader": "Content-Type"
+          }
+        },
         "EndpointName": {
           "target": "com.amazonaws.sagemakerruntime#EndpointName",
           "traits": {
@@ -143,13 +150,6 @@
             "smithy.api#httpHeader": "Accept"
           }
         },
-        "ContentType": {
-          "target": "com.amazonaws.sagemakerruntime#Header",
-          "traits": {
-            "smithy.api#documentation": "<p>The MIME type of the input data in the request body.</p>",
-            "smithy.api#httpHeader": "Content-Type"
-          }
-        },
         "Body": {
           "target": "com.amazonaws.sagemakerruntime#BodyBlob",
           "traits": {
@@ -163,19 +163,19 @@
     "com.amazonaws.sagemakerruntime#InvokeEndpointOutput": {
       "type": "structure",
       "members": {
+        "InvokedProductionVariant": {
+          "target": "com.amazonaws.sagemakerruntime#Header",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the production variant that was invoked.</p>",
+            "smithy.api#httpHeader": "x-Amzn-Invoked-Production-Variant"
+          }
+        },
         "Body": {
           "target": "com.amazonaws.sagemakerruntime#BodyBlob",
           "traits": {
             "smithy.api#documentation": "<p>Includes the inference provided by the model.</p>",
             "smithy.api#httpPayload": {},
             "smithy.api#required": {}
-          }
-        },
-        "InvokedProductionVariant": {
-          "target": "com.amazonaws.sagemakerruntime#Header",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the production variant that was invoked.</p>",
-            "smithy.api#httpHeader": "x-Amzn-Invoked-Production-Variant"
           }
         },
         "ContentType": {
@@ -205,12 +205,6 @@
         "Message": {
           "target": "com.amazonaws.sagemakerruntime#Message"
         },
-        "LogStreamArn": {
-          "target": "com.amazonaws.sagemakerruntime#LogStreamArn",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            Amazon Resource Name (ARN) of the log stream. \n        </p>"
-          }
-        },
         "OriginalStatusCode": {
           "target": "com.amazonaws.sagemakerruntime#StatusCode",
           "traits": {
@@ -221,6 +215,12 @@
           "target": "com.amazonaws.sagemakerruntime#Message",
           "traits": {
             "smithy.api#documentation": "<p>\n            Original message. \n        </p>"
+          }
+        },
+        "LogStreamArn": {
+          "target": "com.amazonaws.sagemakerruntime#LogStreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Amazon Resource Name (ARN) of the log stream. \n        </p>"
           }
         }
       },

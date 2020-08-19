@@ -230,10 +230,24 @@
     "com.amazonaws.iotsitewise#AccessPolicySummary": {
       "type": "structure",
       "members": {
+        "identity": {
+          "target": "com.amazonaws.iotsitewise#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS SSO identity (a user or group).</p>",
+            "smithy.api#required": {}
+          }
+        },
         "lastUpdateDate": {
           "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the access policy was last updated, in Unix epoch time.</p>"
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the access policy.</p>",
+            "smithy.api#required": {}
           }
         },
         "resource": {
@@ -253,20 +267,6 @@
           "target": "com.amazonaws.iotsitewise#Permission",
           "traits": {
             "smithy.api#documentation": "<p>The permissions for the access policy. Note that a project <code>ADMINISTRATOR</code> is\n      also known as a project owner.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the access policy.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "identity": {
-          "target": "com.amazonaws.iotsitewise#Identity",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS SSO identity (a user or group).</p>",
             "smithy.api#required": {}
           }
         }
@@ -326,11 +326,10 @@
     "com.amazonaws.iotsitewise#AggregatedValue": {
       "type": "structure",
       "members": {
-        "value": {
-          "target": "com.amazonaws.iotsitewise#Aggregates",
+        "quality": {
+          "target": "com.amazonaws.iotsitewise#Quality",
           "traits": {
-            "smithy.api#documentation": "<p>The value of the aggregates.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The quality of the aggregated data.</p>"
           }
         },
         "timestamp": {
@@ -340,10 +339,11 @@
             "smithy.api#required": {}
           }
         },
-        "quality": {
-          "target": "com.amazonaws.iotsitewise#Quality",
+        "value": {
+          "target": "com.amazonaws.iotsitewise#Aggregates",
           "traits": {
-            "smithy.api#documentation": "<p>The quality of the aggregated data.</p>"
+            "smithy.api#documentation": "<p>The value of the aggregates.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -360,10 +360,10 @@
     "com.amazonaws.iotsitewise#Aggregates": {
       "type": "structure",
       "members": {
-        "average": {
+        "standardDeviation": {
           "target": "com.amazonaws.iotsitewise#AggregatedDoubleValue",
           "traits": {
-            "smithy.api#documentation": "<p>The average (mean) value of the time series over a time interval window.</p>"
+            "smithy.api#documentation": "<p>The standard deviation of the time series over a time interval window.</p>"
           }
         },
         "minimum": {
@@ -372,10 +372,10 @@
             "smithy.api#documentation": "<p>The minimum value of the time series over a time interval window.</p>"
           }
         },
-        "maximum": {
+        "sum": {
           "target": "com.amazonaws.iotsitewise#AggregatedDoubleValue",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum value of the time series over a time interval window.</p>"
+            "smithy.api#documentation": "<p>The sum of the time series over a time interval window.</p>"
           }
         },
         "count": {
@@ -384,16 +384,16 @@
             "smithy.api#documentation": "<p>The count of data points in the time series over a time interval window.</p>"
           }
         },
-        "standardDeviation": {
+        "maximum": {
           "target": "com.amazonaws.iotsitewise#AggregatedDoubleValue",
           "traits": {
-            "smithy.api#documentation": "<p>The standard deviation of the time series over a time interval window.</p>"
+            "smithy.api#documentation": "<p>The maximum value of the time series over a time interval window.</p>"
           }
         },
-        "sum": {
+        "average": {
           "target": "com.amazonaws.iotsitewise#AggregatedDoubleValue",
           "traits": {
-            "smithy.api#documentation": "<p>The sum of the time series over a time interval window.</p>"
+            "smithy.api#documentation": "<p>The average (mean) value of the time series over a time interval window.</p>"
           }
         }
       },
@@ -523,17 +523,17 @@
     "com.amazonaws.iotsitewise#AssetModelHierarchyDefinition": {
       "type": "structure",
       "members": {
-        "childAssetModelId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of an asset model for this hierarchy.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the asset model hierarchy definition (as specified in <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html\">CreateAssetModel</a> or <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html\">UpdateAssetModel</a>).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "childAssetModelId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of an asset model for this hierarchy.</p>",
             "smithy.api#required": {}
           }
         }
@@ -557,6 +557,27 @@
     "com.amazonaws.iotsitewise#AssetModelProperty": {
       "type": "structure",
       "members": {
+        "dataType": {
+          "target": "com.amazonaws.iotsitewise#PropertyDataType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type of the asset model property.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.iotsitewise#PropertyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The property type (see <code>PropertyType</code>).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.iotsitewise#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the asset model property.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "unit": {
           "target": "com.amazonaws.iotsitewise#PropertyUnit",
           "traits": {
@@ -568,27 +589,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the asset model property.</p>"
           }
-        },
-        "dataType": {
-          "target": "com.amazonaws.iotsitewise#PropertyDataType",
-          "traits": {
-            "smithy.api#documentation": "<p>The data type of the asset model property.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.iotsitewise#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the asset model property.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.iotsitewise#PropertyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The property type (see <code>PropertyType</code>).</p>",
-            "smithy.api#required": {}
-          }
         }
       },
       "traits": {
@@ -598,17 +598,17 @@
     "com.amazonaws.iotsitewise#AssetModelPropertyDefinition": {
       "type": "structure",
       "members": {
+        "name": {
+          "target": "com.amazonaws.iotsitewise#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the property definition.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "dataType": {
           "target": "com.amazonaws.iotsitewise#PropertyDataType",
           "traits": {
             "smithy.api#documentation": "<p>The data type of the property definition.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.iotsitewise#PropertyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The property definition type (see <code>PropertyType</code>). You can only specify one\n      type in a property definition.</p>",
             "smithy.api#required": {}
           }
         },
@@ -618,10 +618,10 @@
             "smithy.api#documentation": "<p>The unit of the property definition, such as <code>Newtons</code> or\n      <code>RPM</code>.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.iotsitewise#Name",
+        "type": {
+          "target": "com.amazonaws.iotsitewise#PropertyType",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the property definition.</p>",
+            "smithy.api#documentation": "<p>The property definition type (see <code>PropertyType</code>). You can only specify one\n      type in a property definition.</p>",
             "smithy.api#required": {}
           }
         }
@@ -697,6 +697,34 @@
     "com.amazonaws.iotsitewise#AssetModelSummary": {
       "type": "structure",
       "members": {
+        "lastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the asset model was last updated, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset model (used with AWS IoT SiteWise APIs).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.iotsitewise#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The asset model description.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.iotsitewise#AssetModelStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the asset model.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "creationDate": {
           "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
@@ -717,34 +745,6 @@
             "smithy.api#documentation": "<p>The name of the asset model.</p>",
             "smithy.api#required": {}
           }
-        },
-        "id": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset model (used with AWS IoT SiteWise APIs).</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "lastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the asset model was last updated, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.iotsitewise#AssetModelStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the asset model.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.iotsitewise#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The asset model description.</p>",
-            "smithy.api#required": {}
-          }
         }
       },
       "traits": {
@@ -760,17 +760,10 @@
     "com.amazonaws.iotsitewise#AssetProperty": {
       "type": "structure",
       "members": {
-        "dataType": {
-          "target": "com.amazonaws.iotsitewise#PropertyDataType",
+        "alias": {
+          "target": "com.amazonaws.iotsitewise#PropertyAlias",
           "traits": {
-            "smithy.api#documentation": "<p>The data type of the asset property.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "notification": {
-          "target": "com.amazonaws.iotsitewise#PropertyNotification",
-          "traits": {
-            "smithy.api#documentation": "<p>The asset property's notification topic and state. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>\n         </p>"
+            "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         },
         "id": {
@@ -787,16 +780,23 @@
             "smithy.api#required": {}
           }
         },
-        "alias": {
-          "target": "com.amazonaws.iotsitewise#PropertyAlias",
+        "notification": {
+          "target": "com.amazonaws.iotsitewise#PropertyNotification",
           "traits": {
-            "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The asset property's notification topic and state. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>\n         </p>"
           }
         },
         "unit": {
           "target": "com.amazonaws.iotsitewise#PropertyUnit",
           "traits": {
             "smithy.api#documentation": "<p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>"
+          }
+        },
+        "dataType": {
+          "target": "com.amazonaws.iotsitewise#PropertyDataType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type of the asset property.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -817,10 +817,10 @@
     "com.amazonaws.iotsitewise#AssetPropertyValue": {
       "type": "structure",
       "members": {
-        "value": {
-          "target": "com.amazonaws.iotsitewise#Variant",
+        "timestamp": {
+          "target": "com.amazonaws.iotsitewise#TimeInNanos",
           "traits": {
-            "smithy.api#documentation": "<p>The value of the asset property (see <code>Variant</code>).</p>",
+            "smithy.api#documentation": "<p>The timestamp of the asset property value.</p>",
             "smithy.api#required": {}
           }
         },
@@ -830,10 +830,10 @@
             "smithy.api#documentation": "<p>The quality of the asset property value.</p>"
           }
         },
-        "timestamp": {
-          "target": "com.amazonaws.iotsitewise#TimeInNanos",
+        "value": {
+          "target": "com.amazonaws.iotsitewise#Variant",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp of the asset property value.</p>",
+            "smithy.api#documentation": "<p>The value of the asset property (see <code>Variant</code>).</p>",
             "smithy.api#required": {}
           }
         }
@@ -884,17 +884,17 @@
     "com.amazonaws.iotsitewise#AssetStatus": {
       "type": "structure",
       "members": {
+        "error": {
+          "target": "com.amazonaws.iotsitewise#ErrorDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains associated error information, if any.</p>"
+          }
+        },
         "state": {
           "target": "com.amazonaws.iotsitewise#AssetState",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the asset.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "error": {
-          "target": "com.amazonaws.iotsitewise#ErrorDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains associated error information, if any.</p>"
           }
         }
       },
@@ -911,24 +911,24 @@
     "com.amazonaws.iotsitewise#AssetSummary": {
       "type": "structure",
       "members": {
-        "hierarchies": {
-          "target": "com.amazonaws.iotsitewise#AssetHierarchies",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "lastUpdateDate": {
           "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the asset was last updated, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.iotsitewise#AssetStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the asset.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetModelId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset model used to create this asset.</p>",
             "smithy.api#required": {}
           }
         },
@@ -946,13 +946,6 @@
             "smithy.api#required": {}
           }
         },
-        "assetModelId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset model used to create this asset.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "creationDate": {
           "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
@@ -960,10 +953,17 @@
             "smithy.api#required": {}
           }
         },
-        "status": {
-          "target": "com.amazonaws.iotsitewise#AssetStatus",
+        "hierarchies": {
+          "target": "com.amazonaws.iotsitewise#AssetHierarchies",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the asset.</p>",
+            "smithy.api#documentation": "<p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1012,13 +1012,6 @@
     "com.amazonaws.iotsitewise#AssociateAssetsRequest": {
       "type": "structure",
       "members": {
-        "hierarchyId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings\n      of assets to be formed that all come from the same asset model. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "assetId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
@@ -1027,18 +1020,25 @@
             "smithy.api#required": {}
           }
         },
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
         "childAssetId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the child asset to be associated.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "hierarchyId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings\n      of assets to be formed that all come from the same asset model. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -1059,13 +1059,6 @@
             "smithy.api#required": {}
           }
         },
-        "assetModelId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset model used to create the asset.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "hierarchies": {
           "target": "com.amazonaws.iotsitewise#AssetHierarchies",
           "traits": {
@@ -1073,10 +1066,17 @@
             "smithy.api#required": {}
           }
         },
-        "status": {
-          "target": "com.amazonaws.iotsitewise#AssetStatus",
+        "lastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the asset.</p>",
+            "smithy.api#documentation": "<p>The date the asset was last updated, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.iotsitewise#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the asset.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1094,17 +1094,17 @@
             "smithy.api#required": {}
           }
         },
-        "name": {
-          "target": "com.amazonaws.iotsitewise#Name",
+        "status": {
+          "target": "com.amazonaws.iotsitewise#AssetStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the asset.</p>",
+            "smithy.api#documentation": "<p>The current status of the asset.</p>",
             "smithy.api#required": {}
           }
         },
-        "lastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
+        "assetModelId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>The date the asset was last updated, in Unix epoch time.</p>",
+            "smithy.api#documentation": "<p>The ID of the asset model used to create the asset.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1173,14 +1173,6 @@
     "com.amazonaws.iotsitewise#BatchAssociateProjectAssetsRequest": {
       "type": "structure",
       "members": {
-        "projectId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the project to which to associate the assets.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.iotsitewise#ClientToken",
           "traits": {
@@ -1192,6 +1184,14 @@
           "target": "com.amazonaws.iotsitewise#IDs",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the assets to be associated to the project.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "projectId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the project to which to associate the assets.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -1258,18 +1258,18 @@
             "smithy.api#idempotencyToken": {}
           }
         },
-        "assetIds": {
-          "target": "com.amazonaws.iotsitewise#IDs",
-          "traits": {
-            "smithy.api#documentation": "<p>The IDs of the assets to be disassociated from the project.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "projectId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the project from which to disassociate the assets.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "assetIds": {
+          "target": "com.amazonaws.iotsitewise#IDs",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the assets to be disassociated from the project.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1296,17 +1296,17 @@
             "smithy.api#required": {}
           }
         },
-        "timestamps": {
-          "target": "com.amazonaws.iotsitewise#Timestamps",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of timestamps for each  error, if any.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "errorCode": {
           "target": "com.amazonaws.iotsitewise#BatchPutAssetPropertyValueErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "timestamps": {
+          "target": "com.amazonaws.iotsitewise#Timestamps",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of timestamps for each  error, if any.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1324,17 +1324,17 @@
     "com.amazonaws.iotsitewise#BatchPutAssetPropertyErrorEntry": {
       "type": "structure",
       "members": {
-        "errors": {
-          "target": "com.amazonaws.iotsitewise#BatchPutAssetPropertyErrors",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of update property value errors.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "entryId": {
           "target": "com.amazonaws.iotsitewise#EntryId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the failed entry.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.iotsitewise#BatchPutAssetPropertyErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of update property value errors.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1510,9 +1510,10 @@
     "com.amazonaws.iotsitewise#ConflictingOperationException": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "com.amazonaws.iotsitewise#ErrorMessage",
+        "resourceArn": {
+          "target": "com.amazonaws.iotsitewise#ResourceArn",
           "traits": {
+            "smithy.api#documentation": "<p>The ARN of the resource that conflicts with this operation.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1523,10 +1524,9 @@
             "smithy.api#required": {}
           }
         },
-        "resourceArn": {
-          "target": "com.amazonaws.iotsitewise#ResourceArn",
+        "message": {
+          "target": "com.amazonaws.iotsitewise#ErrorMessage",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the resource that conflicts with this operation.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1577,30 +1577,10 @@
     "com.amazonaws.iotsitewise#CreateAccessPolicyRequest": {
       "type": "structure",
       "members": {
-        "accessPolicyIdentity": {
-          "target": "com.amazonaws.iotsitewise#Identity",
-          "traits": {
-            "smithy.api#documentation": "<p>The identity for this access policy. Choose either a <code>user</code> or a <code>group</code> but not both.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.iotsitewise#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the access policy. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise\n        resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
-          }
-        },
         "accessPolicyPermission": {
           "target": "com.amazonaws.iotsitewise#Permission",
           "traits": {
             "smithy.api#documentation": "<p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "accessPolicyResource": {
-          "target": "com.amazonaws.iotsitewise#Resource",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either <code>portal</code> or <code>project</code> but not both.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1610,23 +1590,43 @@
             "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
             "smithy.api#idempotencyToken": {}
           }
+        },
+        "accessPolicyResource": {
+          "target": "com.amazonaws.iotsitewise#Resource",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either <code>portal</code> or <code>project</code> but not both.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.iotsitewise#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the access policy. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise\n        resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
+          }
+        },
+        "accessPolicyIdentity": {
+          "target": "com.amazonaws.iotsitewise#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity for this access policy. Choose either a <code>user</code> or a <code>group</code> but not both.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.iotsitewise#CreateAccessPolicyResponse": {
       "type": "structure",
       "members": {
-        "accessPolicyId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the access policy.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "accessPolicyArn": {
           "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the access policy, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy/${AccessPolicyId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "accessPolicyId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the access policy.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1721,23 +1721,10 @@
     "com.amazonaws.iotsitewise#CreateAssetModelRequest": {
       "type": "structure",
       "members": {
-        "assetModelName": {
-          "target": "com.amazonaws.iotsitewise#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique, friendly name for the asset model.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "tags": {
           "target": "com.amazonaws.iotsitewise#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the asset model. For more information,\n      see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
-          }
-        },
-        "assetModelHierarchies": {
-          "target": "com.amazonaws.iotsitewise#AssetModelHierarchyDefinitions",
-          "traits": {
-            "smithy.api#documentation": "<p>The hierarchy definitions of the asset model. Each hierarchy specifies an asset model\n      whose assets can be children of any other assets created from this asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>You can specify up to 10 hierarchies per asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         },
         "assetModelDescription": {
@@ -1746,17 +1733,30 @@
             "smithy.api#documentation": "<p>A description for the asset model.</p>"
           }
         },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
         "assetModelProperties": {
           "target": "com.amazonaws.iotsitewise#AssetModelPropertyDefinitions",
           "traits": {
             "smithy.api#documentation": "<p>The property definitions of the asset model. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html\">Asset Properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>You can specify up to 200 properties per asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         },
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
+        "assetModelHierarchies": {
+          "target": "com.amazonaws.iotsitewise#AssetModelHierarchyDefinitions",
           "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>The hierarchy definitions of the asset model. Each hierarchy specifies an asset model\n      whose assets can be children of any other assets created from this asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>You can specify up to 10 hierarchies per asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
+          }
+        },
+        "assetModelName": {
+          "target": "com.amazonaws.iotsitewise#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, friendly name for the asset model.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1764,13 +1764,6 @@
     "com.amazonaws.iotsitewise#CreateAssetModelResponse": {
       "type": "structure",
       "members": {
-        "assetModelArn": {
-          "target": "com.amazonaws.iotsitewise#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset model, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>\n         </p>",
-            "smithy.api#required": {}
-          }
-        },
         "assetModelId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
@@ -1784,17 +1777,24 @@
             "smithy.api#documentation": "<p>The status of the asset model, which contains a state (<code>CREATING</code> after\n      successfully calling this operation) and any error message.</p>",
             "smithy.api#required": {}
           }
+        },
+        "assetModelArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset model, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.iotsitewise#CreateAssetRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
+        "assetName": {
+          "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>A unique, friendly name for the asset.</p>",
+            "smithy.api#required": {}
           }
         },
         "assetModelId": {
@@ -1810,11 +1810,11 @@
             "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the asset. For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         },
-        "assetName": {
-          "target": "com.amazonaws.iotsitewise#Name",
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, friendly name for the asset.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -1822,13 +1822,6 @@
     "com.amazonaws.iotsitewise#CreateAssetResponse": {
       "type": "structure",
       "members": {
-        "assetId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset. This ID uniquely identifies the asset within AWS IoT SiteWise and can be used with other\n      AWS IoT SiteWise APIs.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "assetStatus": {
           "target": "com.amazonaws.iotsitewise#AssetStatus",
           "traits": {
@@ -1840,6 +1833,13 @@
           "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset. This ID uniquely identifies the asset within AWS IoT SiteWise and can be used with other\n      AWS IoT SiteWise APIs.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1885,23 +1885,11 @@
     "com.amazonaws.iotsitewise#CreateDashboardRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
+        "projectId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
-        "dashboardDescription": {
-          "target": "com.amazonaws.iotsitewise#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for the dashboard.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.iotsitewise#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the dashboard. For more information,\n      see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The ID of the project in which to create the dashboard.</p>",
+            "smithy.api#required": {}
           }
         },
         "dashboardDefinition": {
@@ -1911,11 +1899,17 @@
             "smithy.api#required": {}
           }
         },
-        "projectId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "dashboardDescription": {
+          "target": "com.amazonaws.iotsitewise#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the project in which to create the dashboard.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A description for the dashboard.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         },
         "dashboardName": {
@@ -1923,6 +1917,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A friendly name for the dashboard.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.iotsitewise#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the dashboard. For more information,\n      see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         }
       }
@@ -1986,13 +1986,6 @@
     "com.amazonaws.iotsitewise#CreateGatewayRequest": {
       "type": "structure",
       "members": {
-        "gatewayPlatform": {
-          "target": "com.amazonaws.iotsitewise#GatewayPlatform",
-          "traits": {
-            "smithy.api#documentation": "<p>The gateway's platform. You can only specify one platform in a gateway.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "tags": {
           "target": "com.amazonaws.iotsitewise#TagMap",
           "traits": {
@@ -2005,23 +1998,30 @@
             "smithy.api#documentation": "<p>A unique, friendly name for the gateway.</p>",
             "smithy.api#required": {}
           }
+        },
+        "gatewayPlatform": {
+          "target": "com.amazonaws.iotsitewise#GatewayPlatform",
+          "traits": {
+            "smithy.api#documentation": "<p>The gateway's platform. You can only specify one platform in a gateway.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.iotsitewise#CreateGatewayResponse": {
       "type": "structure",
       "members": {
-        "gatewayId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the gateway device. You can use this ID when you call other AWS IoT SiteWise APIs.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "gatewayArn": {
           "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the gateway, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:gateway/${GatewayId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "gatewayId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the gateway device. You can use this ID when you call other AWS IoT SiteWise APIs.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2067,10 +2067,25 @@
     "com.amazonaws.iotsitewise#CreatePortalRequest": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.iotsitewise#TagMap",
+        "portalContactEmail": {
+          "target": "com.amazonaws.iotsitewise#Email",
           "traits": {
-            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the portal. For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The AWS administrator's contact email address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "portalName": {
+          "target": "com.amazonaws.iotsitewise#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name for the portal.</p>",
+            "smithy.api#required": {}
           }
         },
         "portalDescription": {
@@ -2085,13 +2100,6 @@
             "smithy.api#documentation": "<p>A logo image to display in the portal. Upload a square, high-resolution image. The\n      image is displayed on a dark background.</p>"
           }
         },
-        "portalName": {
-          "target": "com.amazonaws.iotsitewise#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name for the portal.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "roleArn": {
           "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
@@ -2099,18 +2107,10 @@
             "smithy.api#required": {}
           }
         },
-        "portalContactEmail": {
-          "target": "com.amazonaws.iotsitewise#Email",
+        "tags": {
+          "target": "com.amazonaws.iotsitewise#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS administrator's contact email address.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the portal. For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         }
       }
@@ -2118,17 +2118,10 @@
     "com.amazonaws.iotsitewise#CreatePortalResponse": {
       "type": "structure",
       "members": {
-        "ssoApplicationId": {
-          "target": "com.amazonaws.iotsitewise#SSOApplicationId",
+        "portalStartUrl": {
+          "target": "com.amazonaws.iotsitewise#Url",
           "traits": {
-            "smithy.api#documentation": "<p>The associated AWS SSO application Id.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "portalStatus": {
-          "target": "com.amazonaws.iotsitewise#PortalStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the portal, which contains a state (<code>CREATING</code> after successfully\n      calling this operation) and any error message.</p>",
+            "smithy.api#documentation": "<p>The public URL for the AWS IoT SiteWise Monitor portal.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2146,10 +2139,17 @@
             "smithy.api#required": {}
           }
         },
-        "portalStartUrl": {
-          "target": "com.amazonaws.iotsitewise#Url",
+        "ssoApplicationId": {
+          "target": "com.amazonaws.iotsitewise#SSOApplicationId",
           "traits": {
-            "smithy.api#documentation": "<p>The public URL for the AWS IoT SiteWise Monitor portal.</p>",
+            "smithy.api#documentation": "<p>The associated AWS SSO application Id.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "portalStatus": {
+          "target": "com.amazonaws.iotsitewise#PortalStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the portal, which contains a state (<code>CREATING</code> after successfully\n      calling this operation) and any error message.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2195,10 +2195,10 @@
     "com.amazonaws.iotsitewise#CreateProjectRequest": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.iotsitewise#TagMap",
+        "projectDescription": {
+          "target": "com.amazonaws.iotsitewise#Description",
           "traits": {
-            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the project. For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>A description for the project.</p>"
           }
         },
         "portalId": {
@@ -2215,17 +2215,17 @@
             "smithy.api#idempotencyToken": {}
           }
         },
+        "tags": {
+          "target": "com.amazonaws.iotsitewise#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the project. For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
+          }
+        },
         "projectName": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name for the project.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "projectDescription": {
-          "target": "com.amazonaws.iotsitewise#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for the project.</p>"
           }
         }
       }
@@ -2268,17 +2268,23 @@
     "com.amazonaws.iotsitewise#DashboardSummary": {
       "type": "structure",
       "members": {
-        "id": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "lastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the dashboard.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The date the dashboard was last updated, in Unix epoch time.</p>"
           }
         },
         "creationDate": {
           "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the dashboard was created, in Unix epoch time.</p>"
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the dashboard.</p>",
+            "smithy.api#required": {}
           }
         },
         "name": {
@@ -2292,12 +2298,6 @@
           "target": "com.amazonaws.iotsitewise#Description",
           "traits": {
             "smithy.api#documentation": "<p>The dashboard's description.</p>"
-          }
-        },
-        "lastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the dashboard was last updated, in Unix epoch time.</p>"
           }
         }
       },
@@ -2352,20 +2352,20 @@
     "com.amazonaws.iotsitewise#DeleteAccessPolicyRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#httpQuery": "clientToken",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
         "accessPolicyId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the access policy to be deleted.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#httpQuery": "clientToken",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -2484,20 +2484,20 @@
     "com.amazonaws.iotsitewise#DeleteAssetRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#httpQuery": "clientToken",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
         "assetId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the asset to delete.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#httpQuery": "clientToken",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -2796,13 +2796,6 @@
     "com.amazonaws.iotsitewise#DescribeAccessPolicyResponse": {
       "type": "structure",
       "members": {
-        "accessPolicyCreationDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the access policy was created, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "accessPolicyId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
@@ -2810,24 +2803,10 @@
             "smithy.api#required": {}
           }
         },
-        "accessPolicyIdentity": {
-          "target": "com.amazonaws.iotsitewise#Identity",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS SSO identity (user or group) to which this access policy applies.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "accessPolicyPermission": {
           "target": "com.amazonaws.iotsitewise#Permission",
           "traits": {
             "smithy.api#documentation": "<p>The access policy permission. Note that a project <code>ADMINISTRATOR</code> is also known\n      as a project owner.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "accessPolicyResource": {
-          "target": "com.amazonaws.iotsitewise#Resource",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS IoT SiteWise Monitor resource (portal or project) to which this access policy provides\n      access.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2842,6 +2821,27 @@
           "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the access policy, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy/${AccessPolicyId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "accessPolicyCreationDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the access policy was created, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "accessPolicyIdentity": {
+          "target": "com.amazonaws.iotsitewise#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS SSO identity (user or group) to which this access policy applies.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "accessPolicyResource": {
+          "target": "com.amazonaws.iotsitewise#Resource",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS IoT SiteWise Monitor resource (portal or project) to which this access policy provides\n      access.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2931,27 +2931,6 @@
     "com.amazonaws.iotsitewise#DescribeAssetModelResponse": {
       "type": "structure",
       "members": {
-        "assetModelId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset model.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assetModelHierarchies": {
-          "target": "com.amazonaws.iotsitewise#AssetModelHierarchies",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of asset model hierarchies that each contain a <code>childAssetModelId</code> and a\n        <code>hierarchyId</code> (named <code>id</code>). A hierarchy specifies allowed parent/child\n      asset relationships for an asset model.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assetModelArn": {
-          "target": "com.amazonaws.iotsitewise#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset model, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>\n         </p>",
-            "smithy.api#required": {}
-          }
-        },
         "assetModelLastUpdateDate": {
           "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
@@ -2966,17 +2945,10 @@
             "smithy.api#required": {}
           }
         },
-        "assetModelName": {
-          "target": "com.amazonaws.iotsitewise#Name",
+        "assetModelHierarchies": {
+          "target": "com.amazonaws.iotsitewise#AssetModelHierarchies",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the asset model.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assetModelDescription": {
-          "target": "com.amazonaws.iotsitewise#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The asset model's description.</p>",
+            "smithy.api#documentation": "<p>A list of asset model hierarchies that each contain a <code>childAssetModelId</code> and a\n        <code>hierarchyId</code> (named <code>id</code>). A hierarchy specifies allowed parent/child\n      asset relationships for an asset model.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2987,10 +2959,38 @@
             "smithy.api#required": {}
           }
         },
+        "assetModelArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset model, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
         "assetModelProperties": {
           "target": "com.amazonaws.iotsitewise#AssetModelProperties",
           "traits": {
             "smithy.api#documentation": "<p>The list of asset properties for the asset model.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetModelName": {
+          "target": "com.amazonaws.iotsitewise#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the asset model.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetModelId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset model.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetModelDescription": {
+          "target": "com.amazonaws.iotsitewise#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The asset model's description.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3054,6 +3054,13 @@
     "com.amazonaws.iotsitewise#DescribeAssetPropertyResponse": {
       "type": "structure",
       "members": {
+        "assetProperty": {
+          "target": "com.amazonaws.iotsitewise#Property",
+          "traits": {
+            "smithy.api#documentation": "<p>The asset property's definition, alias, and notification state.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "assetId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
@@ -3072,13 +3079,6 @@
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the asset model.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assetProperty": {
-          "target": "com.amazonaws.iotsitewise#Property",
-          "traits": {
-            "smithy.api#documentation": "<p>The asset property's definition, alias, and notification state.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3100,45 +3100,17 @@
     "com.amazonaws.iotsitewise#DescribeAssetResponse": {
       "type": "structure",
       "members": {
-        "assetCreationDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the asset was created, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assetLastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the asset was last updated, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assetArn": {
-          "target": "com.amazonaws.iotsitewise#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>\n         </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assetName": {
-          "target": "com.amazonaws.iotsitewise#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the asset.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "assetModelId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset model that was used to create the asset.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "assetId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the asset.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetStatus": {
+          "target": "com.amazonaws.iotsitewise#AssetStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the asset, which contains a state and any error message.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3149,6 +3121,13 @@
             "smithy.api#required": {}
           }
         },
+        "assetModelId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset model that was used to create the asset.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "assetHierarchies": {
           "target": "com.amazonaws.iotsitewise#AssetHierarchies",
           "traits": {
@@ -3156,10 +3135,31 @@
             "smithy.api#required": {}
           }
         },
-        "assetStatus": {
-          "target": "com.amazonaws.iotsitewise#AssetStatus",
+        "assetName": {
+          "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the asset, which contains a state and any error message.</p>",
+            "smithy.api#documentation": "<p>The name of the asset.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetLastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the asset was last updated, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "assetCreationDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the asset was created, in Unix epoch time.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3215,27 +3215,6 @@
     "com.amazonaws.iotsitewise#DescribeDashboardResponse": {
       "type": "structure",
       "members": {
-        "dashboardCreationDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the dashboard was created, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "dashboardLastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the dashboard was last updated, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "projectId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the project that the dashboard is in.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "dashboardName": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
@@ -3247,6 +3226,13 @@
           "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the dashboard, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard/${DashboardId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "projectId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the project that the dashboard is in.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3267,6 +3253,20 @@
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the dashboard.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "dashboardCreationDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the dashboard was created, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "dashboardLastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the dashboard was last updated, in Unix epoch time.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3364,10 +3364,10 @@
     "com.amazonaws.iotsitewise#DescribeGatewayCapabilityConfigurationResponse": {
       "type": "structure",
       "members": {
-        "capabilityConfiguration": {
-          "target": "com.amazonaws.iotsitewise#CapabilityConfiguration",
+        "capabilitySyncStatus": {
+          "target": "com.amazonaws.iotsitewise#CapabilitySyncStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The JSON document that defines the gateway capability's configuration. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli\">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_SYNC</code> – The gateway is running the capability configuration.</p>\n            </li>\n            <li>\n               <p>\n                  <code>OUT_OF_SYNC</code> – The gateway hasn't received the capability configuration.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -3385,10 +3385,10 @@
             "smithy.api#required": {}
           }
         },
-        "capabilitySyncStatus": {
-          "target": "com.amazonaws.iotsitewise#CapabilitySyncStatus",
+        "capabilityConfiguration": {
+          "target": "com.amazonaws.iotsitewise#CapabilityConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_SYNC</code> – The gateway is running the capability configuration.</p>\n            </li>\n            <li>\n               <p>\n                  <code>OUT_OF_SYNC</code> – The gateway hasn't received the capability configuration.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The JSON document that defines the gateway capability's configuration. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli\">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3410,17 +3410,24 @@
     "com.amazonaws.iotsitewise#DescribeGatewayResponse": {
       "type": "structure",
       "members": {
+        "creationDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the gateway was created, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the gateway was last updated, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "gatewayName": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the gateway.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "gatewayArn": {
-          "target": "com.amazonaws.iotsitewise#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the gateway, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:gateway/${GatewayId}</code>\n         </p>",
             "smithy.api#required": {}
           }
         },
@@ -3431,10 +3438,10 @@
             "smithy.api#required": {}
           }
         },
-        "creationDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
+        "gatewayId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>The date the gateway was created, in Unix epoch time.</p>",
+            "smithy.api#documentation": "<p>The ID of the gateway device.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3444,17 +3451,10 @@
             "smithy.api#documentation": "<p>The gateway's platform.</p>"
           }
         },
-        "gatewayId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "gatewayArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the gateway device.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "lastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the gateway was last updated, in Unix epoch time.</p>",
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the gateway, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:gateway/${GatewayId}</code>\n         </p>",
             "smithy.api#required": {}
           }
         }
@@ -3560,31 +3560,17 @@
     "com.amazonaws.iotsitewise#DescribePortalResponse": {
       "type": "structure",
       "members": {
-        "portalCreationDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
+        "roleArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>The date the portal was created, in Unix epoch time.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the service role that allows the portal's users to access your AWS IoT SiteWise\n      resources on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html\">Using service roles for AWS IoT SiteWise Monitor</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         },
-        "portalStatus": {
-          "target": "com.amazonaws.iotsitewise#PortalStatus",
+        "portalId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the portal, which contains a state and any error message.</p>",
+            "smithy.api#documentation": "<p>The ID of the portal.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "portalName": {
-          "target": "com.amazonaws.iotsitewise#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the portal.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "portalLogoImageLocation": {
-          "target": "com.amazonaws.iotsitewise#ImageLocation",
-          "traits": {
-            "smithy.api#documentation": "<p>The portal's logo image, which is available at a URL.</p>"
           }
         },
         "portalDescription": {
@@ -3593,17 +3579,17 @@
             "smithy.api#documentation": "<p>The portal's description.</p>"
           }
         },
-        "portalLastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the portal was last updated, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "portalStartUrl": {
           "target": "com.amazonaws.iotsitewise#Url",
           "traits": {
             "smithy.api#documentation": "<p>The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "portalName": {
+          "target": "com.amazonaws.iotsitewise#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the portal.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3621,16 +3607,16 @@
             "smithy.api#required": {}
           }
         },
-        "roleArn": {
-          "target": "com.amazonaws.iotsitewise#ARN",
+        "portalLogoImageLocation": {
+          "target": "com.amazonaws.iotsitewise#ImageLocation",
           "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the service role that allows the portal's users to access your AWS IoT SiteWise\n      resources on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html\">Using service roles for AWS IoT SiteWise Monitor</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The portal's logo image, which is available at a URL.</p>"
           }
         },
-        "portalId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "portalStatus": {
+          "target": "com.amazonaws.iotsitewise#PortalStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the portal.</p>",
+            "smithy.api#documentation": "<p>The current status of the portal, which contains a state and any error message.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3638,6 +3624,20 @@
           "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the portal, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "portalLastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the portal was last updated, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "portalCreationDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the portal was created, in Unix epoch time.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3693,33 +3693,6 @@
     "com.amazonaws.iotsitewise#DescribeProjectResponse": {
       "type": "structure",
       "members": {
-        "projectLastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the project was last updated, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "projectCreationDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the project was created, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "portalId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the portal that the project is in.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "projectDescription": {
-          "target": "com.amazonaws.iotsitewise#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The project's description.</p>"
-          }
-        },
         "projectId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
@@ -3734,11 +3707,38 @@
             "smithy.api#required": {}
           }
         },
+        "projectCreationDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the project was created, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "projectArn": {
           "target": "com.amazonaws.iotsitewise#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the project, which has the following format.</p>\n        <p>\n            <code>arn:${Partition}:iotsitewise:${Region}:${Account}:project/${ProjectId}</code>\n         </p>",
             "smithy.api#required": {}
+          }
+        },
+        "projectLastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the project was last updated, in Unix epoch time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "portalId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the portal that the project is in.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "projectDescription": {
+          "target": "com.amazonaws.iotsitewise#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The project's description.</p>"
           }
         }
       }
@@ -3790,20 +3790,6 @@
     "com.amazonaws.iotsitewise#DisassociateAssetsRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
-        "hierarchyId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings\n      of assets to be formed that all come from the same asset model. You can use the hierarchy ID\n      to identify the correct asset to disassociate. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "childAssetId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
@@ -3817,6 +3803,20 @@
             "smithy.api#documentation": "<p>The ID of the parent asset from which to disassociate the child asset.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "hierarchyId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings\n      of assets to be formed that all come from the same asset model. You can use the hierarchy ID\n      to identify the correct asset to disassociate. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -3859,17 +3859,17 @@
     "com.amazonaws.iotsitewise#ErrorDetails": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "com.amazonaws.iotsitewise#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>The error message.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "code": {
           "target": "com.amazonaws.iotsitewise#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.iotsitewise#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3897,17 +3897,17 @@
     "com.amazonaws.iotsitewise#ExpressionVariable": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.iotsitewise#VariableName",
-          "traits": {
-            "smithy.api#documentation": "<p>The friendly name of the variable to be used in the expression.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "value": {
           "target": "com.amazonaws.iotsitewise#VariableValue",
           "traits": {
             "smithy.api#documentation": "<p>The variable that identifies an asset property from which to use values.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.iotsitewise#VariableName",
+          "traits": {
+            "smithy.api#documentation": "<p>The friendly name of the variable to be used in the expression.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3974,24 +3974,23 @@
     "com.amazonaws.iotsitewise#GatewaySummary": {
       "type": "structure",
       "members": {
-        "gatewayId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the gateway device.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "lastUpdateDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the gateway was last updated, in Unix epoch time.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "gatewayName": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the asset.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "gatewayCapabilitySummaries": {
+          "target": "com.amazonaws.iotsitewise#GatewayCapabilitySummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of gateway capability summaries that each contain a namespace and status. Each\n      gateway capability defines data sources for the gateway. To retrieve a capability\n      configuration's definition, use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html\">DescribeGatewayCapabilityConfiguration</a>.</p>"
+          }
+        },
+        "gatewayId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the gateway device.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4002,10 +4001,11 @@
             "smithy.api#required": {}
           }
         },
-        "gatewayCapabilitySummaries": {
-          "target": "com.amazonaws.iotsitewise#GatewayCapabilitySummaries",
+        "lastUpdateDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>A list of gateway capability summaries that each contain a namespace and status. Each\n      gateway capability defines data sources for the gateway. To retrieve a capability\n      configuration's definition, use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html\">DescribeGatewayCapabilityConfiguration</a>.</p>"
+            "smithy.api#documentation": "<p>The date the gateway was last updated, in Unix epoch time.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4058,19 +4058,26 @@
     "com.amazonaws.iotsitewise#GetAssetPropertyAggregatesRequest": {
       "type": "structure",
       "members": {
-        "aggregateTypes": {
-          "target": "com.amazonaws.iotsitewise#AggregateTypes",
+        "qualities": {
+          "target": "com.amazonaws.iotsitewise#Qualities",
           "traits": {
-            "smithy.api#documentation": "<p>The data aggregating function.</p>",
-            "smithy.api#httpQuery": "aggregateTypes",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The quality by which to filter asset data.</p>",
+            "smithy.api#httpQuery": "qualities"
           }
         },
-        "propertyId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "timeOrdering": {
+          "target": "com.amazonaws.iotsitewise#TimeOrdering",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset property.</p>",
-            "smithy.api#httpQuery": "propertyId"
+            "smithy.api#documentation": "<p>The chronological sorting order of the requested information.</p>",
+            "smithy.api#httpQuery": "timeOrdering"
+          }
+        },
+        "resolution": {
+          "target": "com.amazonaws.iotsitewise#Resolution",
+          "traits": {
+            "smithy.api#documentation": "<p>The time interval over which to aggregate data.</p>",
+            "smithy.api#httpQuery": "resolution",
+            "smithy.api#required": {}
           }
         },
         "startDate": {
@@ -4081,18 +4088,18 @@
             "smithy.api#required": {}
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.iotsitewise#MaxResults",
+        "propertyAlias": {
+          "target": "com.amazonaws.iotsitewise#AssetPropertyAlias",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to be returned per paginated request.</p>",
-            "smithy.api#httpQuery": "maxResults"
+            "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
+            "smithy.api#httpQuery": "propertyAlias"
           }
         },
-        "timeOrdering": {
-          "target": "com.amazonaws.iotsitewise#TimeOrdering",
+        "propertyId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>The chronological sorting order of the requested information.</p>",
-            "smithy.api#httpQuery": "timeOrdering"
+            "smithy.api#documentation": "<p>The ID of the asset property.</p>",
+            "smithy.api#httpQuery": "propertyId"
           }
         },
         "endDate": {
@@ -4103,18 +4110,19 @@
             "smithy.api#required": {}
           }
         },
-        "propertyAlias": {
-          "target": "com.amazonaws.iotsitewise#AssetPropertyAlias",
+        "assetId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
-            "smithy.api#httpQuery": "propertyAlias"
+            "smithy.api#documentation": "<p>The ID of the asset.</p>",
+            "smithy.api#httpQuery": "assetId"
           }
         },
-        "qualities": {
-          "target": "com.amazonaws.iotsitewise#Qualities",
+        "aggregateTypes": {
+          "target": "com.amazonaws.iotsitewise#AggregateTypes",
           "traits": {
-            "smithy.api#documentation": "<p>The quality by which to filter asset data.</p>",
-            "smithy.api#httpQuery": "qualities"
+            "smithy.api#documentation": "<p>The data aggregating function.</p>",
+            "smithy.api#httpQuery": "aggregateTypes",
+            "smithy.api#required": {}
           }
         },
         "nextToken": {
@@ -4124,19 +4132,11 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "assetId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "maxResults": {
+          "target": "com.amazonaws.iotsitewise#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset.</p>",
-            "smithy.api#httpQuery": "assetId"
-          }
-        },
-        "resolution": {
-          "target": "com.amazonaws.iotsitewise#Resolution",
-          "traits": {
-            "smithy.api#documentation": "<p>The time interval over which to aggregate data.</p>",
-            "smithy.api#httpQuery": "resolution",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of results to be returned per paginated request.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -4241,18 +4241,11 @@
     "com.amazonaws.iotsitewise#GetAssetPropertyValueHistoryRequest": {
       "type": "structure",
       "members": {
-        "qualities": {
-          "target": "com.amazonaws.iotsitewise#Qualities",
+        "maxResults": {
+          "target": "com.amazonaws.iotsitewise#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The quality by which to filter asset data.</p>",
-            "smithy.api#httpQuery": "qualities"
-          }
-        },
-        "propertyAlias": {
-          "target": "com.amazonaws.iotsitewise#AssetPropertyAlias",
-          "traits": {
-            "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
-            "smithy.api#httpQuery": "propertyAlias"
+            "smithy.api#documentation": "<p>The maximum number of results to be returned per paginated request.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         },
         "assetId": {
@@ -4269,6 +4262,13 @@
             "smithy.api#httpQuery": "endDate"
           }
         },
+        "qualities": {
+          "target": "com.amazonaws.iotsitewise#Qualities",
+          "traits": {
+            "smithy.api#documentation": "<p>The quality by which to filter asset data.</p>",
+            "smithy.api#httpQuery": "qualities"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.iotsitewise#NextToken",
           "traits": {
@@ -4276,11 +4276,18 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.iotsitewise#MaxResults",
+        "propertyAlias": {
+          "target": "com.amazonaws.iotsitewise#AssetPropertyAlias",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to be returned per paginated request.</p>",
-            "smithy.api#httpQuery": "maxResults"
+            "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
+            "smithy.api#httpQuery": "propertyAlias"
+          }
+        },
+        "timeOrdering": {
+          "target": "com.amazonaws.iotsitewise#TimeOrdering",
+          "traits": {
+            "smithy.api#documentation": "<p>The chronological sorting order of the requested information.</p>",
+            "smithy.api#httpQuery": "timeOrdering"
           }
         },
         "startDate": {
@@ -4296,30 +4303,23 @@
             "smithy.api#documentation": "<p>The ID of the asset property.</p>",
             "smithy.api#httpQuery": "propertyId"
           }
-        },
-        "timeOrdering": {
-          "target": "com.amazonaws.iotsitewise#TimeOrdering",
-          "traits": {
-            "smithy.api#documentation": "<p>The chronological sorting order of the requested information.</p>",
-            "smithy.api#httpQuery": "timeOrdering"
-          }
         }
       }
     },
     "com.amazonaws.iotsitewise#GetAssetPropertyValueHistoryResponse": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
+          }
+        },
         "assetPropertyValueHistory": {
           "target": "com.amazonaws.iotsitewise#AssetPropertyValueHistory",
           "traits": {
             "smithy.api#documentation": "<p>The asset property's value history.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
           }
         }
       }
@@ -4327,18 +4327,18 @@
     "com.amazonaws.iotsitewise#GetAssetPropertyValueRequest": {
       "type": "structure",
       "members": {
-        "propertyId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset property.</p>",
-            "smithy.api#httpQuery": "propertyId"
-          }
-        },
         "propertyAlias": {
           "target": "com.amazonaws.iotsitewise#AssetPropertyAlias",
           "traits": {
             "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
             "smithy.api#httpQuery": "propertyAlias"
+          }
+        },
+        "propertyId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset property.</p>",
+            "smithy.api#httpQuery": "propertyId"
           }
         },
         "assetId": {
@@ -4416,16 +4416,16 @@
     "com.amazonaws.iotsitewise#Identity": {
       "type": "structure",
       "members": {
-        "group": {
-          "target": "com.amazonaws.iotsitewise#GroupIdentity",
-          "traits": {
-            "smithy.api#documentation": "<p>A group identity.</p>"
-          }
-        },
         "user": {
           "target": "com.amazonaws.iotsitewise#UserIdentity",
           "traits": {
             "smithy.api#documentation": "<p>A user identity.</p>"
+          }
+        },
+        "group": {
+          "target": "com.amazonaws.iotsitewise#GroupIdentity",
+          "traits": {
+            "smithy.api#documentation": "<p>A group identity.</p>"
           }
         }
       },
@@ -4461,14 +4461,14 @@
     "com.amazonaws.iotsitewise#Image": {
       "type": "structure",
       "members": {
+        "file": {
+          "target": "com.amazonaws.iotsitewise#ImageFile"
+        },
         "id": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of an existing image. Specify this parameter to keep an existing image.</p>"
           }
-        },
-        "file": {
-          "target": "com.amazonaws.iotsitewise#ImageFile"
         }
       },
       "traits": {
@@ -4478,17 +4478,17 @@
     "com.amazonaws.iotsitewise#ImageFile": {
       "type": "structure",
       "members": {
-        "data": {
-          "target": "com.amazonaws.iotsitewise#ImageFileData",
-          "traits": {
-            "smithy.api#documentation": "<p>The image file contents, represented as a base64-encoded string. The file size must be\n      less than 1 MB.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "type": {
           "target": "com.amazonaws.iotsitewise#ImageFileType",
           "traits": {
             "smithy.api#documentation": "<p>The file type of the image.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.iotsitewise#ImageFileData",
+          "traits": {
+            "smithy.api#documentation": "<p>The image file contents, represented as a base64-encoded string. The file size must be\n      less than 1 MB.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4520,17 +4520,17 @@
     "com.amazonaws.iotsitewise#ImageLocation": {
       "type": "structure",
       "members": {
-        "url": {
-          "target": "com.amazonaws.iotsitewise#Url",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL where the image is available. The URL is valid for 15 minutes so that you can view\n      and download the image</p>",
-            "smithy.api#required": {}
-          }
-        },
         "id": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the image.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "url": {
+          "target": "com.amazonaws.iotsitewise#Url",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL where the image is available. The URL is valid for 15 minutes so that you can view\n      and download the image</p>",
             "smithy.api#required": {}
           }
         }
@@ -4636,25 +4636,11 @@
     "com.amazonaws.iotsitewise#ListAccessPoliciesRequest": {
       "type": "structure",
       "members": {
-        "identityId": {
-          "target": "com.amazonaws.iotsitewise#IdentityId",
+        "resourceId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the identity. This parameter is required if you specify\n        <code>identityType</code>.</p>",
-            "smithy.api#httpQuery": "identityId"
-          }
-        },
-        "resourceType": {
-          "target": "com.amazonaws.iotsitewise#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of resource (portal or project). This parameter is required if you specify\n        <code>resourceId</code>.</p>",
-            "smithy.api#httpQuery": "resourceType"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
-            "smithy.api#httpQuery": "nextToken"
+            "smithy.api#documentation": "<p>The ID of the resource. This parameter is required if you specify\n        <code>resourceType</code>.</p>",
+            "smithy.api#httpQuery": "resourceId"
           }
         },
         "maxResults": {
@@ -4664,6 +4650,13 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
+        "identityId": {
+          "target": "com.amazonaws.iotsitewise#IdentityId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the identity. This parameter is required if you specify\n        <code>identityType</code>.</p>",
+            "smithy.api#httpQuery": "identityId"
+          }
+        },
         "identityType": {
           "target": "com.amazonaws.iotsitewise#IdentityType",
           "traits": {
@@ -4671,11 +4664,18 @@
             "smithy.api#httpQuery": "identityType"
           }
         },
-        "resourceId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the resource. This parameter is required if you specify\n        <code>resourceType</code>.</p>",
-            "smithy.api#httpQuery": "resourceId"
+            "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "resourceType": {
+          "target": "com.amazonaws.iotsitewise#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of resource (portal or project). This parameter is required if you specify\n        <code>resourceId</code>.</p>",
+            "smithy.api#httpQuery": "resourceType"
           }
         }
       }
@@ -4683,17 +4683,17 @@
     "com.amazonaws.iotsitewise#ListAccessPoliciesResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
-          }
-        },
         "accessPolicySummaries": {
           "target": "com.amazonaws.iotsitewise#AccessPolicySummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list that summarizes each access policy.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
           }
         }
       }
@@ -4828,11 +4828,11 @@
     "com.amazonaws.iotsitewise#ListAssetsRequest": {
       "type": "structure",
       "members": {
-        "assetModelId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "filter": {
+          "target": "com.amazonaws.iotsitewise#ListAssetsFilter",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset model by which to filter the list of assets. This parameter is\n      required if you choose <code>ALL</code> for <code>filter</code>.</p>",
-            "smithy.api#httpQuery": "assetModelId"
+            "smithy.api#documentation": "<p>The filter for the requested list of assets. Choose one of the following options. Defaults\n      to <code>ALL</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ALL</code> – The list includes all assets for a given asset model ID. The\n            <code>assetModelId</code> parameter is required if you filter by\n          <code>ALL</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TOP_LEVEL</code> – The list includes only top-level assets in the asset\n          hierarchy tree.</p>\n            </li>\n         </ul>",
+            "smithy.api#httpQuery": "filter"
           }
         },
         "nextToken": {
@@ -4849,11 +4849,11 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "filter": {
-          "target": "com.amazonaws.iotsitewise#ListAssetsFilter",
+        "assetModelId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>The filter for the requested list of assets. Choose one of the following options. Defaults\n      to <code>ALL</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ALL</code> – The list includes all assets for a given asset model ID. The\n            <code>assetModelId</code> parameter is required if you filter by\n          <code>ALL</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TOP_LEVEL</code> – The list includes only top-level assets in the asset\n          hierarchy tree.</p>\n            </li>\n         </ul>",
-            "smithy.api#httpQuery": "filter"
+            "smithy.api#documentation": "<p>The ID of the asset model by which to filter the list of assets. This parameter is\n      required if you choose <code>ALL</code> for <code>filter</code>.</p>",
+            "smithy.api#httpQuery": "assetModelId"
           }
         }
       }
@@ -4861,17 +4861,17 @@
     "com.amazonaws.iotsitewise#ListAssetsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
-          }
-        },
         "assetSummaries": {
           "target": "com.amazonaws.iotsitewise#AssetSummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list that summarizes each asset.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
           }
         }
       }
@@ -4918,12 +4918,11 @@
     "com.amazonaws.iotsitewise#ListAssociatedAssetsRequest": {
       "type": "structure",
       "members": {
-        "assetId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the parent asset.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "maxResults": {
@@ -4933,19 +4932,20 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
+        "assetId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the parent asset.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "hierarchyId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The hierarchy ID (of the parent asset model) whose associated assets are returned. To find\n      a hierarchy ID, use the <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html\">DescribeAsset</a>\n      or <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html\">DescribeAssetModel</a>\n      actions.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
             "smithy.api#httpQuery": "hierarchyId",
             "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
-            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -5007,18 +5007,18 @@
     "com.amazonaws.iotsitewise#ListDashboardsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.iotsitewise#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to be returned per paginated request.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.iotsitewise#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.iotsitewise#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to be returned per paginated request.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         },
         "projectId": {
@@ -5034,17 +5034,17 @@
     "com.amazonaws.iotsitewise#ListDashboardsResponse": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
+          }
+        },
         "dashboardSummaries": {
           "target": "com.amazonaws.iotsitewise#DashboardSummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list that summarizes each dashboard in the project.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
           }
         }
       }
@@ -5088,18 +5088,18 @@
     "com.amazonaws.iotsitewise#ListGatewaysRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.iotsitewise#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be returned per paginated request.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -5107,17 +5107,17 @@
     "com.amazonaws.iotsitewise#ListGatewaysResponse": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
+          }
+        },
         "gatewaySummaries": {
           "target": "com.amazonaws.iotsitewise#GatewaySummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list that summarizes each gateway.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
           }
         }
       }
@@ -5233,12 +5233,11 @@
     "com.amazonaws.iotsitewise#ListProjectAssetsRequest": {
       "type": "structure",
       "members": {
-        "projectId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the project.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "maxResults": {
@@ -5248,11 +5247,12 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
+        "projectId": {
+          "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
-            "smithy.api#documentation": "<p>The token to be used for the next set of paginated results.</p>",
-            "smithy.api#httpQuery": "nextToken"
+            "smithy.api#documentation": "<p>The ID of the project.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5341,17 +5341,17 @@
     "com.amazonaws.iotsitewise#ListProjectsResponse": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.iotsitewise#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
+          }
+        },
         "projectSummaries": {
           "target": "com.amazonaws.iotsitewise#ProjectSummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list that summarizes each project in the portal.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.iotsitewise#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
           }
         }
       }
@@ -5475,10 +5475,10 @@
     "com.amazonaws.iotsitewise#Metric": {
       "type": "structure",
       "members": {
-        "window": {
-          "target": "com.amazonaws.iotsitewise#MetricWindow",
+        "expression": {
+          "target": "com.amazonaws.iotsitewise#Expression",
           "traits": {
-            "smithy.api#documentation": "<p>The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression.\n      AWS IoT SiteWise computes one data point per <code>window</code>.</p>",
+            "smithy.api#documentation": "<p>The mathematical expression that defines the metric aggregation function. You can specify\n      up to 10 variables per expression. You can specify up to 10 functions\n      per expression. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5489,10 +5489,10 @@
             "smithy.api#required": {}
           }
         },
-        "expression": {
-          "target": "com.amazonaws.iotsitewise#Expression",
+        "window": {
+          "target": "com.amazonaws.iotsitewise#MetricWindow",
           "traits": {
-            "smithy.api#documentation": "<p>The mathematical expression that defines the metric aggregation function. You can specify\n      up to 10 variables per expression. You can specify up to 10 functions\n      per expression. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression.\n      AWS IoT SiteWise computes one data point per <code>window</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5676,17 +5676,23 @@
     "com.amazonaws.iotsitewise#PortalSummary": {
       "type": "structure",
       "members": {
+        "creationDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the portal was created, in Unix epoch time.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.iotsitewise#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the portal.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "description": {
           "target": "com.amazonaws.iotsitewise#Description",
           "traits": {
             "smithy.api#documentation": "<p>The portal's description.</p>"
-          }
-        },
-        "startUrl": {
-          "target": "com.amazonaws.iotsitewise#Url",
-          "traits": {
-            "smithy.api#documentation": "<p>The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.</p>",
-            "smithy.api#required": {}
           }
         },
         "lastUpdateDate": {
@@ -5708,16 +5714,10 @@
             "smithy.api#required": {}
           }
         },
-        "creationDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
+        "startUrl": {
+          "target": "com.amazonaws.iotsitewise#Url",
           "traits": {
-            "smithy.api#documentation": "<p>The date the portal was created, in Unix epoch time.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.iotsitewise#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the portal.</p>",
+            "smithy.api#documentation": "<p>The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5750,10 +5750,10 @@
     "com.amazonaws.iotsitewise#ProjectSummary": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.iotsitewise#Description",
+        "creationDate": {
+          "target": "com.amazonaws.iotsitewise#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The project's description.</p>"
+            "smithy.api#documentation": "<p>The date the project was created, in Unix epoch time.</p>"
           }
         },
         "name": {
@@ -5761,12 +5761,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the project.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "creationDate": {
-          "target": "com.amazonaws.iotsitewise#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the project was created, in Unix epoch time.</p>"
           }
         },
         "id": {
@@ -5781,6 +5775,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The date the project was last updated, in Unix epoch time.</p>"
           }
+        },
+        "description": {
+          "target": "com.amazonaws.iotsitewise#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The project's description.</p>"
+          }
         }
       },
       "traits": {
@@ -5790,12 +5790,6 @@
     "com.amazonaws.iotsitewise#Property": {
       "type": "structure",
       "members": {
-        "alias": {
-          "target": "com.amazonaws.iotsitewise#PropertyAlias",
-          "traits": {
-            "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
@@ -5803,22 +5797,16 @@
             "smithy.api#required": {}
           }
         },
-        "type": {
-          "target": "com.amazonaws.iotsitewise#PropertyType",
+        "alias": {
+          "target": "com.amazonaws.iotsitewise#PropertyAlias",
           "traits": {
-            "smithy.api#documentation": "<p>The property type (see <code>PropertyType</code>). A property contains one type.</p>"
+            "smithy.api#documentation": "<p>The property alias that identifies the property, such as an OPC-UA server data stream path\n        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see\n        <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping Industrial Data Streams to Asset Properties</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         },
         "unit": {
           "target": "com.amazonaws.iotsitewise#PropertyUnit",
           "traits": {
             "smithy.api#documentation": "<p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>"
-          }
-        },
-        "notification": {
-          "target": "com.amazonaws.iotsitewise#PropertyNotification",
-          "traits": {
-            "smithy.api#documentation": "<p>The asset property's notification topic and state. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>\n         </p>"
           }
         },
         "id": {
@@ -5828,11 +5816,23 @@
             "smithy.api#required": {}
           }
         },
+        "type": {
+          "target": "com.amazonaws.iotsitewise#PropertyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The property type (see <code>PropertyType</code>). A property contains one type.</p>"
+          }
+        },
         "dataType": {
           "target": "com.amazonaws.iotsitewise#PropertyDataType",
           "traits": {
             "smithy.api#documentation": "<p>The property data type.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "notification": {
+          "target": "com.amazonaws.iotsitewise#PropertyNotification",
+          "traits": {
+            "smithy.api#documentation": "<p>The asset property's notification topic and state. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>\n         </p>"
           }
         }
       },
@@ -5876,17 +5876,17 @@
     "com.amazonaws.iotsitewise#PropertyNotification": {
       "type": "structure",
       "members": {
-        "state": {
-          "target": "com.amazonaws.iotsitewise#PropertyNotificationState",
-          "traits": {
-            "smithy.api#documentation": "<p>The current notification state.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "topic": {
           "target": "com.amazonaws.iotsitewise#PropertyNotificationTopic",
           "traits": {
             "smithy.api#documentation": "<p>The MQTT topic to which AWS IoT SiteWise publishes property value update notifications.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.iotsitewise#PropertyNotificationState",
+          "traits": {
+            "smithy.api#documentation": "<p>The current notification state.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5916,10 +5916,10 @@
     "com.amazonaws.iotsitewise#PropertyType": {
       "type": "structure",
       "members": {
-        "measurement": {
-          "target": "com.amazonaws.iotsitewise#Measurement",
+        "transform": {
+          "target": "com.amazonaws.iotsitewise#Transform",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies an asset measurement property. A measurement represents a device's raw sensor\n      data stream, such as timestamped temperature values or timestamped power values.</p>"
+            "smithy.api#documentation": "<p>Specifies an asset transform property. A transform contains a mathematical expression that\n      maps a property's data points from one form to another, such as a unit conversion from Celsius\n      to Fahrenheit.</p>"
           }
         },
         "metric": {
@@ -5928,16 +5928,16 @@
             "smithy.api#documentation": "<p>Specifies an asset metric property. A metric contains a mathematical expression that uses\n      aggregate functions to process all input data points over a time interval and output a single\n      data point, such as to calculate the average hourly temperature.</p>"
           }
         },
-        "transform": {
-          "target": "com.amazonaws.iotsitewise#Transform",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies an asset transform property. A transform contains a mathematical expression that\n      maps a property's data points from one form to another, such as a unit conversion from Celsius\n      to Fahrenheit.</p>"
-          }
-        },
         "attribute": {
           "target": "com.amazonaws.iotsitewise#Attribute",
           "traits": {
             "smithy.api#documentation": "<p>Specifies an asset attribute property. An attribute generally contains static information,\n      such as the serial number of an <a href=\"https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications\">IIoT</a> wind turbine.</p>"
+          }
+        },
+        "measurement": {
+          "target": "com.amazonaws.iotsitewise#Measurement",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies an asset measurement property. A measurement represents a device's raw sensor\n      data stream, such as timestamped temperature values or timestamped power values.</p>"
           }
         }
       },
@@ -5992,6 +5992,13 @@
     "com.amazonaws.iotsitewise#PutAssetPropertyValueEntry": {
       "type": "structure",
       "members": {
+        "propertyValues": {
+          "target": "com.amazonaws.iotsitewise#AssetPropertyValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of property values to upload. You can specify up to 10\n        <code>propertyValues</code> array elements. </p>",
+            "smithy.api#required": {}
+          }
+        },
         "assetId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
@@ -6014,13 +6021,6 @@
           "target": "com.amazonaws.iotsitewise#EntryId",
           "traits": {
             "smithy.api#documentation": "<p>The user specified ID for the entry. You can use this ID to identify which entries\n      failed.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "propertyValues": {
-          "target": "com.amazonaws.iotsitewise#AssetPropertyValues",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of property values to upload. You can specify up to 10\n        <code>propertyValues</code> array elements. </p>",
             "smithy.api#required": {}
           }
         }
@@ -6126,16 +6126,16 @@
     "com.amazonaws.iotsitewise#Resource": {
       "type": "structure",
       "members": {
-        "project": {
-          "target": "com.amazonaws.iotsitewise#ProjectResource",
-          "traits": {
-            "smithy.api#documentation": "<p>A project resource.</p>"
-          }
-        },
         "portal": {
           "target": "com.amazonaws.iotsitewise#PortalResource",
           "traits": {
             "smithy.api#documentation": "<p>A portal resource.</p>"
+          }
+        },
+        "project": {
+          "target": "com.amazonaws.iotsitewise#ProjectResource",
+          "traits": {
+            "smithy.api#documentation": "<p>A project resource.</p>"
           }
         }
       },
@@ -6146,13 +6146,6 @@
     "com.amazonaws.iotsitewise#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
-        "resourceId": {
-          "target": "com.amazonaws.iotsitewise#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the resource that already exists.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "resourceArn": {
           "target": "com.amazonaws.iotsitewise#ResourceArn",
           "traits": {
@@ -6163,6 +6156,13 @@
         "message": {
           "target": "com.amazonaws.iotsitewise#ErrorMessage",
           "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "resourceId": {
+          "target": "com.amazonaws.iotsitewise#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the resource that already exists.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6309,18 +6309,18 @@
     "com.amazonaws.iotsitewise#TagResourceRequest": {
       "type": "structure",
       "members": {
+        "tags": {
+          "target": "com.amazonaws.iotsitewise#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the resource. For more information,\n      see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "resourceArn": {
           "target": "com.amazonaws.iotsitewise#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to tag.</p>",
             "smithy.api#httpQuery": "resourceArn",
-            "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.iotsitewise#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of key-value pairs that contain metadata for the resource. For more information,\n      see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your AWS IoT SiteWise resources</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6432,17 +6432,17 @@
     "com.amazonaws.iotsitewise#Transform": {
       "type": "structure",
       "members": {
-        "expression": {
-          "target": "com.amazonaws.iotsitewise#Expression",
-          "traits": {
-            "smithy.api#documentation": "<p>The mathematical expression that defines the transformation function. You can specify up\n      to 10 variables per expression. You can specify up to 10 functions per\n      expression. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "variables": {
           "target": "com.amazonaws.iotsitewise#ExpressionVariables",
           "traits": {
             "smithy.api#documentation": "<p>The list of variables used in the expression.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "expression": {
+          "target": "com.amazonaws.iotsitewise#Expression",
+          "traits": {
+            "smithy.api#documentation": "<p>The mathematical expression that defines the transformation function. You can specify up\n      to 10 variables per expression. You can specify up to 10 functions per\n      expression. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6559,6 +6559,20 @@
     "com.amazonaws.iotsitewise#UpdateAccessPolicyRequest": {
       "type": "structure",
       "members": {
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "accessPolicyResource": {
+          "target": "com.amazonaws.iotsitewise#Resource",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either <code>portal</code> or <code>project</code> but not both.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "accessPolicyPermission": {
           "target": "com.amazonaws.iotsitewise#Permission",
           "traits": {
@@ -6578,20 +6592,6 @@
           "target": "com.amazonaws.iotsitewise#Identity",
           "traits": {
             "smithy.api#documentation": "<p>The identity for this access policy. Choose either a <code>user</code> or a <code>group</code> but not both.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
-        "accessPolicyResource": {
-          "target": "com.amazonaws.iotsitewise#Resource",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either <code>portal</code> or <code>project</code> but not both.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6687,6 +6687,31 @@
     "com.amazonaws.iotsitewise#UpdateAssetModelRequest": {
       "type": "structure",
       "members": {
+        "assetModelProperties": {
+          "target": "com.amazonaws.iotsitewise#AssetModelProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated property definitions of the asset model. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html\">Asset Properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>You can specify up to 200 properties per asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "assetModelHierarchies": {
+          "target": "com.amazonaws.iotsitewise#AssetModelHierarchies",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated hierarchy definitions of the asset model. Each hierarchy specifies an asset\n      model whose assets can be children of any other assets created from this asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>You can specify up to 10 hierarchies per asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
+          }
+        },
+        "assetModelDescription": {
+          "target": "com.amazonaws.iotsitewise#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the asset model.</p>"
+          }
+        },
         "assetModelName": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
@@ -6700,31 +6725,6 @@
             "smithy.api#documentation": "<p>The ID of the asset model to update.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "assetModelHierarchies": {
-          "target": "com.amazonaws.iotsitewise#AssetModelHierarchies",
-          "traits": {
-            "smithy.api#documentation": "<p>The updated hierarchy definitions of the asset model. Each hierarchy specifies an asset\n      model whose assets can be children of any other assets created from this asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>You can specify up to 10 hierarchies per asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
-          }
-        },
-        "assetModelProperties": {
-          "target": "com.amazonaws.iotsitewise#AssetModelProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>The updated property definitions of the asset model. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html\">Asset Properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>You can specify up to 200 properties per asset model. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
-          }
-        },
-        "assetModelDescription": {
-          "target": "com.amazonaws.iotsitewise#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for the asset model.</p>"
-          }
-        },
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -6778,25 +6778,10 @@
     "com.amazonaws.iotsitewise#UpdateAssetPropertyRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
         "propertyNotificationState": {
           "target": "com.amazonaws.iotsitewise#PropertyNotificationState",
           "traits": {
             "smithy.api#documentation": "<p>The MQTT notification state (enabled or disabled) for this asset property.\n      When the notification state is enabled, AWS IoT SiteWise publishes property value\n      updates to a unique MQTT topic. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html\">Interacting with Other Services</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>If you omit this parameter, the notification state is set to <code>DISABLED</code>.</p>"
-          }
-        },
-        "assetId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset to be updated.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         },
         "propertyAlias": {
@@ -6812,12 +6797,35 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "assetId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset to be updated.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.iotsitewise#UpdateAssetRequest": {
       "type": "structure",
       "members": {
+        "assetId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset to update.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "assetName": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
@@ -6830,14 +6838,6 @@
           "traits": {
             "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
             "smithy.api#idempotencyToken": {}
-          }
-        },
-        "assetId": {
-          "target": "com.amazonaws.iotsitewise#ID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset to update.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         }
       }
@@ -6891,11 +6891,16 @@
     "com.amazonaws.iotsitewise#UpdateDashboardRequest": {
       "type": "structure",
       "members": {
-        "dashboardId": {
-          "target": "com.amazonaws.iotsitewise#ID",
+        "dashboardDescription": {
+          "target": "com.amazonaws.iotsitewise#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the dashboard to update.</p>",
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>A new description for the dashboard.</p>"
+          }
+        },
+        "dashboardDefinition": {
+          "target": "com.amazonaws.iotsitewise#DashboardDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>The new dashboard definition, as specified in a JSON literal. For detailed information,\n      see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html\">Creating Dashboards (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6906,23 +6911,18 @@
             "smithy.api#idempotencyToken": {}
           }
         },
-        "dashboardDefinition": {
-          "target": "com.amazonaws.iotsitewise#DashboardDefinition",
-          "traits": {
-            "smithy.api#documentation": "<p>The new dashboard definition, as specified in a JSON literal. For detailed information,\n      see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html\">Creating Dashboards (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "dashboardDescription": {
-          "target": "com.amazonaws.iotsitewise#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A new description for the dashboard.</p>"
-          }
-        },
         "dashboardName": {
           "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
             "smithy.api#documentation": "<p>A new friendly name for the dashboard.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "dashboardId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the dashboard to update.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -7009,6 +7009,13 @@
     "com.amazonaws.iotsitewise#UpdateGatewayCapabilityConfigurationRequest": {
       "type": "structure",
       "members": {
+        "capabilityNamespace": {
+          "target": "com.amazonaws.iotsitewise#CapabilityNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the gateway capability configuration to be updated.\n      For example, if you configure OPC-UA\n      sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace\n        <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as\n        <code>1</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "gatewayId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
@@ -7021,13 +7028,6 @@
           "target": "com.amazonaws.iotsitewise#CapabilityConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The JSON document that defines the configuration for the gateway capability. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli\">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "capabilityNamespace": {
-          "target": "com.amazonaws.iotsitewise#CapabilityNamespace",
-          "traits": {
-            "smithy.api#documentation": "<p>The namespace of the gateway capability configuration to be updated.\n      For example, if you configure OPC-UA\n      sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace\n        <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as\n        <code>1</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7112,10 +7112,11 @@
     "com.amazonaws.iotsitewise#UpdatePortalRequest": {
       "type": "structure",
       "members": {
-        "portalDescription": {
-          "target": "com.amazonaws.iotsitewise#Description",
+        "clientToken": {
+          "target": "com.amazonaws.iotsitewise#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A new description for the portal.</p>"
+            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         },
         "roleArn": {
@@ -7125,21 +7126,10 @@
             "smithy.api#required": {}
           }
         },
-        "portalName": {
-          "target": "com.amazonaws.iotsitewise#Name",
+        "portalDescription": {
+          "target": "com.amazonaws.iotsitewise#Description",
           "traits": {
-            "smithy.api#documentation": "<p>A new friendly name for the portal.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "portalLogoImage": {
-          "target": "com.amazonaws.iotsitewise#Image"
-        },
-        "portalContactEmail": {
-          "target": "com.amazonaws.iotsitewise#Email",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS administrator's contact email address.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A new description for the portal.</p>"
           }
         },
         "portalId": {
@@ -7150,12 +7140,22 @@
             "smithy.api#required": {}
           }
         },
-        "clientToken": {
-          "target": "com.amazonaws.iotsitewise#ClientToken",
+        "portalName": {
+          "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
-            "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>A new friendly name for the portal.</p>",
+            "smithy.api#required": {}
           }
+        },
+        "portalContactEmail": {
+          "target": "com.amazonaws.iotsitewise#Email",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS administrator's contact email address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "portalLogoImage": {
+          "target": "com.amazonaws.iotsitewise#Image"
         }
       }
     },
@@ -7208,10 +7208,11 @@
     "com.amazonaws.iotsitewise#UpdateProjectRequest": {
       "type": "structure",
       "members": {
-        "projectDescription": {
-          "target": "com.amazonaws.iotsitewise#Description",
+        "projectName": {
+          "target": "com.amazonaws.iotsitewise#Name",
           "traits": {
-            "smithy.api#documentation": "<p>A new description for the project.</p>"
+            "smithy.api#documentation": "<p>A new friendly name for the project.</p>",
+            "smithy.api#required": {}
           }
         },
         "clientToken": {
@@ -7221,18 +7222,17 @@
             "smithy.api#idempotencyToken": {}
           }
         },
+        "projectDescription": {
+          "target": "com.amazonaws.iotsitewise#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>A new description for the project.</p>"
+          }
+        },
         "projectId": {
           "target": "com.amazonaws.iotsitewise#ID",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the project to update.</p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "projectName": {
-          "target": "com.amazonaws.iotsitewise#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>A new friendly name for the project.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7280,17 +7280,17 @@
     "com.amazonaws.iotsitewise#VariableValue": {
       "type": "structure",
       "members": {
-        "hierarchyId": {
-          "target": "com.amazonaws.iotsitewise#Macro",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the hierarchy to query for the property ID. You can use the hierarchy's name\n      instead of the hierarchy's ID.</p>\n         <p>You use a hierarchy ID instead of a model ID because you can have several hierarchies\n      using the same model and therefore the same <code>propertyId</code>. For example, you might\n      have separately grouped assets that come from the same asset model. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
-          }
-        },
         "propertyId": {
           "target": "com.amazonaws.iotsitewise#Macro",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the property to use as the variable. You can use the property <code>name</code>\n      if it's from the same asset model.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "hierarchyId": {
+          "target": "com.amazonaws.iotsitewise#Macro",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the hierarchy to query for the property ID. You can use the hierarchy's name\n      instead of the hierarchy's ID.</p>\n         <p>You use a hierarchy ID instead of a model ID because you can have several hierarchies\n      using the same model and therefore the same <code>propertyId</code>. For example, you might\n      have separately grouped assets that come from the same asset model. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"
           }
         }
       },
@@ -7301,10 +7301,10 @@
     "com.amazonaws.iotsitewise#Variant": {
       "type": "structure",
       "members": {
-        "doubleValue": {
-          "target": "com.amazonaws.iotsitewise#PropertyValueDoubleValue",
+        "booleanValue": {
+          "target": "com.amazonaws.iotsitewise#PropertyValueBooleanValue",
           "traits": {
-            "smithy.api#documentation": "<p>Asset property data of type double (floating point number).</p>"
+            "smithy.api#documentation": "<p>Asset property data of type Boolean (true or false).</p>"
           }
         },
         "integerValue": {
@@ -7313,10 +7313,10 @@
             "smithy.api#documentation": "<p>Asset property data of type integer (whole number).</p>"
           }
         },
-        "booleanValue": {
-          "target": "com.amazonaws.iotsitewise#PropertyValueBooleanValue",
+        "doubleValue": {
+          "target": "com.amazonaws.iotsitewise#PropertyValueDoubleValue",
           "traits": {
-            "smithy.api#documentation": "<p>Asset property data of type Boolean (true or false).</p>"
+            "smithy.api#documentation": "<p>Asset property data of type double (floating point number).</p>"
           }
         },
         "stringValue": {

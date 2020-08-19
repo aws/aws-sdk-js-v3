@@ -199,12 +199,6 @@
     "com.amazonaws.lambda#AccountLimit": {
       "type": "structure",
       "members": {
-        "CodeSizeUnzipped": {
-          "target": "com.amazonaws.lambda#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum size of a function's deployment package and layers when they're extracted.</p>"
-          }
-        },
         "UnreservedConcurrentExecutions": {
           "target": "com.amazonaws.lambda#UnreservedConcurrentExecutions",
           "traits": {
@@ -228,6 +222,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of simultaneous function executions.</p>"
           }
+        },
+        "CodeSizeUnzipped": {
+          "target": "com.amazonaws.lambda#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum size of a function's deployment package and layers when they're extracted.</p>"
+          }
         }
       },
       "traits": {
@@ -237,16 +237,16 @@
     "com.amazonaws.lambda#AccountUsage": {
       "type": "structure",
       "members": {
-        "FunctionCount": {
-          "target": "com.amazonaws.lambda#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of Lambda functions.</p>"
-          }
-        },
         "TotalCodeSize": {
           "target": "com.amazonaws.lambda#Long",
           "traits": {
             "smithy.api#documentation": "<p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>"
+          }
+        },
+        "FunctionCount": {
+          "target": "com.amazonaws.lambda#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of Lambda functions.</p>"
           }
         }
       },
@@ -303,20 +303,6 @@
     "com.amazonaws.lambda#AddLayerVersionPermissionRequest": {
       "type": "structure",
       "members": {
-        "OrganizationId": {
-          "target": "com.amazonaws.lambda#OrganizationId",
-          "traits": {
-            "smithy.api#documentation": "<p>With the principal set to <code>*</code>, grant permission to all accounts in the specified\n      organization.</p>"
-          }
-        },
-        "LayerName": {
-          "target": "com.amazonaws.lambda#LayerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the layer.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "StatementId": {
           "target": "com.amazonaws.lambda#StatementId",
           "traits": {
@@ -324,18 +310,10 @@
             "smithy.api#required": {}
           }
         },
-        "Action": {
-          "target": "com.amazonaws.lambda#LayerPermissionAllowedAction",
+        "Principal": {
+          "target": "com.amazonaws.lambda#LayerPermissionAllowedPrincipal",
           "traits": {
-            "smithy.api#documentation": "<p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "VersionNumber": {
-          "target": "com.amazonaws.lambda#LayerVersionNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number.</p>",
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>",
             "smithy.api#required": {}
           }
         },
@@ -346,10 +324,32 @@
             "smithy.api#httpQuery": "RevisionId"
           }
         },
-        "Principal": {
-          "target": "com.amazonaws.lambda#LayerPermissionAllowedPrincipal",
+        "OrganizationId": {
+          "target": "com.amazonaws.lambda#OrganizationId",
           "traits": {
-            "smithy.api#documentation": "<p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>",
+            "smithy.api#documentation": "<p>With the principal set to <code>*</code>, grant permission to all accounts in the specified\n      organization.</p>"
+          }
+        },
+        "VersionNumber": {
+          "target": "com.amazonaws.lambda#LayerVersionNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "LayerName": {
+          "target": "com.amazonaws.lambda#LayerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the layer.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Action": {
+          "target": "com.amazonaws.lambda#LayerPermissionAllowedAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -358,16 +358,16 @@
     "com.amazonaws.lambda#AddLayerVersionPermissionResponse": {
       "type": "structure",
       "members": {
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the current revision of the policy.</p>"
-          }
-        },
         "Statement": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The permission statement.</p>"
+          }
+        },
+        "RevisionId": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the current revision of the policy.</p>"
           }
         }
       }
@@ -415,12 +415,10 @@
     "com.amazonaws.lambda#AddPermissionRequest": {
       "type": "structure",
       "members": {
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
+        "EventSourceToken": {
+          "target": "com.amazonaws.lambda#EventSourceToken",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>"
           }
         },
         "Action": {
@@ -430,10 +428,11 @@
             "smithy.api#required": {}
           }
         },
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
           "traits": {
-            "smithy.api#documentation": "<p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a\n      policy that has changed since you last read it.</p>"
+            "smithy.api#documentation": "<p>Specify a version or alias to add permissions to a published version of the function.</p>",
+            "smithy.api#httpQuery": "Qualifier"
           }
         },
         "Principal": {
@@ -441,13 +440,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or\n        <code>SourceAccount</code> to limit who can invoke the function through that service.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify a version or alias to add permissions to a published version of the function.</p>",
-            "smithy.api#httpQuery": "Qualifier"
           }
         },
         "SourceArn": {
@@ -462,16 +454,24 @@
             "smithy.api#documentation": "<p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to\n      ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted\n      by its owner and recreated by another account.</p>"
           }
         },
-        "EventSourceToken": {
-          "target": "com.amazonaws.lambda#EventSourceToken",
+        "RevisionId": {
+          "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>"
+            "smithy.api#documentation": "<p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a\n      policy that has changed since you last read it.</p>"
           }
         },
         "StatementId": {
           "target": "com.amazonaws.lambda#StatementId",
           "traits": {
             "smithy.api#documentation": "<p>A statement identifier that differentiates the statement from others in the same policy.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -520,28 +520,10 @@
     "com.amazonaws.lambda#AliasConfiguration": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.lambda#Alias",
+        "FunctionVersion": {
+          "target": "com.amazonaws.lambda#Version",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the alias.</p>"
-          }
-        },
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier that changes when you update the alias.</p>"
-          }
-        },
-        "RoutingConfig": {
-          "target": "com.amazonaws.lambda#AliasRoutingConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\">routing\n        configuration</a> of the alias.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.lambda#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the alias.</p>"
+            "smithy.api#documentation": "<p>The function version that the alias invokes.</p>"
           }
         },
         "AliasArn": {
@@ -550,10 +532,28 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the alias.</p>"
           }
         },
-        "FunctionVersion": {
-          "target": "com.amazonaws.lambda#Version",
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The function version that the alias invokes.</p>"
+            "smithy.api#documentation": "<p>A description of the alias.</p>"
+          }
+        },
+        "RoutingConfig": {
+          "target": "com.amazonaws.lambda#AliasRoutingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\">routing\n        configuration</a> of the alias.</p>"
+          }
+        },
+        "RevisionId": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier that changes when you update the alias.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.lambda#Alias",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the alias.</p>"
           }
         }
       },
@@ -697,19 +697,10 @@
     "com.amazonaws.lambda#CreateAliasRequest": {
       "type": "structure",
       "members": {
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
+        "RoutingConfig": {
+          "target": "com.amazonaws.lambda#AliasRoutingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "FunctionVersion": {
-          "target": "com.amazonaws.lambda#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The function version that the alias invokes.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\">routing\n        configuration</a> of the alias.</p>"
           }
         },
         "Name": {
@@ -719,16 +710,25 @@
             "smithy.api#required": {}
           }
         },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "Description": {
           "target": "com.amazonaws.lambda#Description",
           "traits": {
             "smithy.api#documentation": "<p>A description of the alias.</p>"
           }
         },
-        "RoutingConfig": {
-          "target": "com.amazonaws.lambda#AliasRoutingConfiguration",
+        "FunctionVersion": {
+          "target": "com.amazonaws.lambda#Version",
           "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\">routing\n        configuration</a> of the alias.</p>"
+            "smithy.api#documentation": "<p>The function version that the alias invokes.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -770,22 +770,47 @@
     "com.amazonaws.lambda#CreateEventSourceMappingRequest": {
       "type": "structure",
       "members": {
+        "MaximumRecordAgeInSeconds": {
+          "target": "com.amazonaws.lambda#MaximumRecordAgeInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>"
+          }
+        },
+        "MaximumRetryAttempts": {
+          "target": "com.amazonaws.lambda#MaximumRetryAttemptsEventSourceMapping",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) The maximum number of times to retry when the function returns an error.</p>"
+          }
+        },
         "Enabled": {
           "target": "com.amazonaws.lambda#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Disables the event source mapping to pause polling and invocation.</p>"
           }
         },
-        "DestinationConfig": {
-          "target": "com.amazonaws.lambda#DestinationConfig",
+        "EventSourceArn": {
+          "target": "com.amazonaws.lambda#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the event source.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         },
         "MaximumBatchingWindowInSeconds": {
           "target": "com.amazonaws.lambda#MaximumBatchingWindowInSeconds",
           "traits": {
             "smithy.api#documentation": "<p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>"
+          }
+        },
+        "StartingPositionTimestamp": {
+          "target": "com.amazonaws.lambda#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start\n      reading.</p>"
+          }
+        },
+        "ParallelizationFactor": {
+          "target": "com.amazonaws.lambda#ParallelizationFactor",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) The number of batches to process from each shard concurrently.</p>"
           }
         },
         "BatchSize": {
@@ -801,22 +826,10 @@
             "smithy.api#required": {}
           }
         },
-        "MaximumRecordAgeInSeconds": {
-          "target": "com.amazonaws.lambda#MaximumRecordAgeInSeconds",
+        "DestinationConfig": {
+          "target": "com.amazonaws.lambda#DestinationConfig",
           "traits": {
-            "smithy.api#documentation": "<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>"
-          }
-        },
-        "MaximumRetryAttempts": {
-          "target": "com.amazonaws.lambda#MaximumRetryAttemptsEventSourceMapping",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) The maximum number of times to retry when the function returns an error.</p>"
-          }
-        },
-        "ParallelizationFactor": {
-          "target": "com.amazonaws.lambda#ParallelizationFactor",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) The number of batches to process from each shard concurrently.</p>"
+            "smithy.api#documentation": "<p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>"
           }
         },
         "StartingPosition": {
@@ -829,19 +842,6 @@
           "target": "com.amazonaws.lambda#BisectBatchOnFunctionError",
           "traits": {
             "smithy.api#documentation": "<p>(Streams) If the function returns an error, split the batch in two and retry.</p>"
-          }
-        },
-        "EventSourceArn": {
-          "target": "com.amazonaws.lambda#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the event source.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
-        "StartingPositionTimestamp": {
-          "target": "com.amazonaws.lambda#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start\n      reading.</p>"
           }
         }
       }
@@ -886,10 +886,28 @@
     "com.amazonaws.lambda#CreateFunctionRequest": {
       "type": "structure",
       "members": {
+        "DeadLetterConfig": {
+          "target": "com.amazonaws.lambda#DeadLetterConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events\n      when they fail processing. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq\">Dead Letter Queues</a>.</p>"
+          }
+        },
+        "Layers": {
+          "target": "com.amazonaws.lambda#LayerList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">function layers</a>\n      to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>"
+          }
+        },
         "VpcConfig": {
           "target": "com.amazonaws.lambda#VpcConfig",
           "traits": {
             "smithy.api#documentation": "<p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.\n      When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more\n      information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">VPC Settings</a>.</p>"
+          }
+        },
+        "TracingConfig": {
+          "target": "com.amazonaws.lambda#TracingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS\n      X-Ray.</p>"
           }
         },
         "MemorySize": {
@@ -898,48 +916,10 @@
             "smithy.api#documentation": "<p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU\n      allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>"
           }
         },
-        "Publish": {
-          "target": "com.amazonaws.lambda#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Set to true to publish the first version of the function during creation.</p>"
-          }
-        },
-        "KMSKeyArn": {
-          "target": "com.amazonaws.lambda#KMSKeyArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment\n      variables. If it's not provided, AWS Lambda uses a default service key.</p>"
-          }
-        },
         "Timeout": {
           "target": "com.amazonaws.lambda#Timeout",
           "traits": {
             "smithy.api#documentation": "<p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The\n      maximum allowed value is 900 seconds.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.lambda#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the function.</p>"
-          }
-        },
-        "Handler": {
-          "target": "com.amazonaws.lambda#Handler",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "DeadLetterConfig": {
-          "target": "com.amazonaws.lambda#DeadLetterConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events\n      when they fail processing. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq\">Dead Letter Queues</a>.</p>"
-          }
-        },
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
-            "smithy.api#required": {}
           }
         },
         "Code": {
@@ -949,10 +929,43 @@
             "smithy.api#required": {}
           }
         },
-        "Environment": {
-          "target": "com.amazonaws.lambda#Environment",
+        "Handler": {
+          "target": "com.amazonaws.lambda#Handler",
           "traits": {
-            "smithy.api#documentation": "<p>Environment variables that are accessible from function code during execution.</p>"
+            "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.lambda#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">tags</a> to apply to the\n      function.</p>"
+          }
+        },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Runtime": {
+          "target": "com.amazonaws.lambda#Runtime",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the function.</p>"
+          }
+        },
+        "Publish": {
+          "target": "com.amazonaws.lambda#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to true to publish the first version of the function during creation.</p>"
           }
         },
         "FileSystemConfigs": {
@@ -968,29 +981,16 @@
             "smithy.api#required": {}
           }
         },
-        "TracingConfig": {
-          "target": "com.amazonaws.lambda#TracingConfig",
+        "KMSKeyArn": {
+          "target": "com.amazonaws.lambda#KMSKeyArn",
           "traits": {
-            "smithy.api#documentation": "<p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS\n      X-Ray.</p>"
+            "smithy.api#documentation": "<p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment\n      variables. If it's not provided, AWS Lambda uses a default service key.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.lambda#Tags",
+        "Environment": {
+          "target": "com.amazonaws.lambda#Environment",
           "traits": {
-            "smithy.api#documentation": "<p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">tags</a> to apply to the\n      function.</p>"
-          }
-        },
-        "Layers": {
-          "target": "com.amazonaws.lambda#LayerList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">function layers</a>\n      to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>"
-          }
-        },
-        "Runtime": {
-          "target": "com.amazonaws.lambda#Runtime",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Environment variables that are accessible from function code during execution.</p>"
           }
         }
       }
@@ -1234,19 +1234,19 @@
     "com.amazonaws.lambda#DeleteFunctionRequest": {
       "type": "structure",
       "members": {
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify a version to delete. You can't delete a version that's referenced by an alias.</p>",
+            "smithy.api#httpQuery": "Qualifier"
+          }
+        },
         "FunctionName": {
           "target": "com.amazonaws.lambda#FunctionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Lambda function or version.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify a version to delete. You can't delete a version that's referenced by an alias.</p>",
-            "smithy.api#httpQuery": "Qualifier"
           }
         }
       }
@@ -1276,18 +1276,18 @@
     "com.amazonaws.lambda#DeleteLayerVersionRequest": {
       "type": "structure",
       "members": {
-        "VersionNumber": {
-          "target": "com.amazonaws.lambda#LayerVersionNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "LayerName": {
           "target": "com.amazonaws.lambda#LayerName",
           "traits": {
             "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the layer.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "VersionNumber": {
+          "target": "com.amazonaws.lambda#LayerVersionNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1328,19 +1328,19 @@
     "com.amazonaws.lambda#DeleteProvisionedConcurrencyConfigRequest": {
       "type": "structure",
       "members": {
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "Qualifier": {
           "target": "com.amazonaws.lambda#Qualifier",
           "traits": {
             "smithy.api#documentation": "<p>The version number or alias name.</p>",
             "smithy.api#httpQuery": "Qualifier",
+            "smithy.api#required": {}
+          }
+        },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -1368,16 +1368,16 @@
     "com.amazonaws.lambda#DestinationConfig": {
       "type": "structure",
       "members": {
-        "OnFailure": {
-          "target": "com.amazonaws.lambda#OnFailure",
-          "traits": {
-            "smithy.api#documentation": "<p>The destination configuration for failed invocations.</p>"
-          }
-        },
         "OnSuccess": {
           "target": "com.amazonaws.lambda#OnSuccess",
           "traits": {
             "smithy.api#documentation": "<p>The destination configuration for successful invocations.</p>"
+          }
+        },
+        "OnFailure": {
+          "target": "com.amazonaws.lambda#OnFailure",
+          "traits": {
+            "smithy.api#documentation": "<p>The destination configuration for failed invocations.</p>"
           }
         }
       },
@@ -1388,10 +1388,10 @@
     "com.amazonaws.lambda#EC2AccessDeniedException": {
       "type": "structure",
       "members": {
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -1420,13 +1420,13 @@
     "com.amazonaws.lambda#EC2UnexpectedException": {
       "type": "structure",
       "members": {
-        "EC2ErrorCode": {
-          "target": "com.amazonaws.lambda#String"
-        },
         "Message": {
           "target": "com.amazonaws.lambda#String"
         },
         "Type": {
+          "target": "com.amazonaws.lambda#String"
+        },
+        "EC2ErrorCode": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -1455,10 +1455,10 @@
     "com.amazonaws.lambda#EFSMountConnectivityException": {
       "type": "structure",
       "members": {
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -1471,10 +1471,10 @@
     "com.amazonaws.lambda#EFSMountFailureException": {
       "type": "structure",
       "members": {
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -1487,10 +1487,10 @@
     "com.amazonaws.lambda#EFSMountTimeoutException": {
       "type": "structure",
       "members": {
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -1559,16 +1559,16 @@
     "com.amazonaws.lambda#EnvironmentResponse": {
       "type": "structure",
       "members": {
-        "Variables": {
-          "target": "com.amazonaws.lambda#EnvironmentVariables",
-          "traits": {
-            "smithy.api#documentation": "<p>Environment variable key-value pairs.</p>"
-          }
-        },
         "Error": {
           "target": "com.amazonaws.lambda#EnvironmentError",
           "traits": {
             "smithy.api#documentation": "<p>Error messages for environment variables that couldn't be applied.</p>"
+          }
+        },
+        "Variables": {
+          "target": "com.amazonaws.lambda#EnvironmentVariables",
+          "traits": {
+            "smithy.api#documentation": "<p>Environment variable key-value pairs.</p>"
           }
         }
       },
@@ -1604,6 +1604,36 @@
     "com.amazonaws.lambda#EventSourceMappingConfiguration": {
       "type": "structure",
       "members": {
+        "BisectBatchOnFunctionError": {
+          "target": "com.amazonaws.lambda#BisectBatchOnFunctionError",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) If the function returns an error, split the batch in two and retry.</p>"
+          }
+        },
+        "DestinationConfig": {
+          "target": "com.amazonaws.lambda#DestinationConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>"
+          }
+        },
+        "UUID": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the event source mapping.</p>"
+          }
+        },
+        "MaximumRecordAgeInSeconds": {
+          "target": "com.amazonaws.lambda#MaximumRecordAgeInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>"
+          }
+        },
+        "MaximumBatchingWindowInSeconds": {
+          "target": "com.amazonaws.lambda#MaximumBatchingWindowInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>"
+          }
+        },
         "State": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
@@ -1616,28 +1646,10 @@
             "smithy.api#documentation": "<p>(Streams) The maximum number of times to retry when the function returns an error.</p>"
           }
         },
-        "MaximumRecordAgeInSeconds": {
-          "target": "com.amazonaws.lambda#MaximumRecordAgeInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>"
-          }
-        },
-        "FunctionArn": {
-          "target": "com.amazonaws.lambda#FunctionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the Lambda function.</p>"
-          }
-        },
-        "MaximumBatchingWindowInSeconds": {
-          "target": "com.amazonaws.lambda#MaximumBatchingWindowInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>"
-          }
-        },
-        "UUID": {
+        "LastProcessingResult": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the event source mapping.</p>"
+            "smithy.api#documentation": "<p>The result of the last AWS Lambda invocation of your Lambda function.</p>"
           }
         },
         "StateTransitionReason": {
@@ -1646,22 +1658,10 @@
             "smithy.api#documentation": "<p>Indicates whether the last change to the event source mapping was made by a user, or by the Lambda\n      service.</p>"
           }
         },
-        "LastProcessingResult": {
-          "target": "com.amazonaws.lambda#String",
+        "FunctionArn": {
+          "target": "com.amazonaws.lambda#FunctionArn",
           "traits": {
-            "smithy.api#documentation": "<p>The result of the last AWS Lambda invocation of your Lambda function.</p>"
-          }
-        },
-        "BatchSize": {
-          "target": "com.amazonaws.lambda#BatchSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to retrieve in a single batch.</p>"
-          }
-        },
-        "EventSourceArn": {
-          "target": "com.amazonaws.lambda#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the event source.</p>"
+            "smithy.api#documentation": "<p>The ARN of the Lambda function.</p>"
           }
         },
         "ParallelizationFactor": {
@@ -1670,22 +1670,22 @@
             "smithy.api#documentation": "<p>(Streams) The number of batches to process from each shard concurrently.</p>"
           }
         },
+        "BatchSize": {
+          "target": "com.amazonaws.lambda#BatchSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to retrieve in a single batch.</p>"
+          }
+        },
         "LastModified": {
           "target": "com.amazonaws.lambda#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date that the event source mapping was last updated, or its state changed.</p>"
           }
         },
-        "DestinationConfig": {
-          "target": "com.amazonaws.lambda#DestinationConfig",
+        "EventSourceArn": {
+          "target": "com.amazonaws.lambda#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>"
-          }
-        },
-        "BisectBatchOnFunctionError": {
-          "target": "com.amazonaws.lambda#BisectBatchOnFunctionError",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) If the function returns an error, split the batch in two and retry.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the event source.</p>"
           }
         }
       },
@@ -1781,28 +1781,28 @@
     "com.amazonaws.lambda#FunctionCode": {
       "type": "structure",
       "members": {
-        "S3ObjectVersion": {
-          "target": "com.amazonaws.lambda#S3ObjectVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>For versioned objects, the version of the deployment package object to use.</p>"
-          }
-        },
-        "S3Bucket": {
-          "target": "com.amazonaws.lambda#S3Bucket",
-          "traits": {
-            "smithy.api#documentation": "<p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>"
-          }
-        },
         "ZipFile": {
           "target": "com.amazonaws.lambda#Blob",
           "traits": {
             "smithy.api#documentation": "<p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for\n  you.</p>"
           }
         },
+        "S3ObjectVersion": {
+          "target": "com.amazonaws.lambda#S3ObjectVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>For versioned objects, the version of the deployment package object to use.</p>"
+          }
+        },
         "S3Key": {
           "target": "com.amazonaws.lambda#S3Key",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 key of the deployment package.</p>"
+          }
+        },
+        "S3Bucket": {
+          "target": "com.amazonaws.lambda#S3Bucket",
+          "traits": {
+            "smithy.api#documentation": "<p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>"
           }
         }
       },
@@ -1813,16 +1813,16 @@
     "com.amazonaws.lambda#FunctionCodeLocation": {
       "type": "structure",
       "members": {
-        "Location": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A presigned URL that you can use to download the deployment package.</p>"
-          }
-        },
         "RepositoryType": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The service that's hosting the file.</p>"
+          }
+        },
+        "Location": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A presigned URL that you can use to download the deployment package.</p>"
           }
         }
       },
@@ -1833,22 +1833,82 @@
     "com.amazonaws.lambda#FunctionConfiguration": {
       "type": "structure",
       "members": {
-        "StateReason": {
-          "target": "com.amazonaws.lambda#StateReason",
+        "Timeout": {
+          "target": "com.amazonaws.lambda#Timeout",
           "traits": {
-            "smithy.api#documentation": "<p>The reason for the function's current state.</p>"
+            "smithy.api#documentation": "<p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>"
+          }
+        },
+        "CodeSha256": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The SHA256 hash of the function's deployment package.</p>"
+          }
+        },
+        "MemorySize": {
+          "target": "com.amazonaws.lambda#MemorySize",
+          "traits": {
+            "smithy.api#documentation": "<p>The memory that's allocated to the function.</p>"
+          }
+        },
+        "DeadLetterConfig": {
+          "target": "com.amazonaws.lambda#DeadLetterConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The function's dead letter queue.</p>"
+          }
+        },
+        "FunctionArn": {
+          "target": "com.amazonaws.lambda#NameSpacedFunctionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The function's Amazon Resource Name (ARN).</p>"
+          }
+        },
+        "CodeSize": {
+          "target": "com.amazonaws.lambda#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the function's deployment package, in bytes.</p>"
+          }
+        },
+        "Handler": {
+          "target": "com.amazonaws.lambda#Handler",
+          "traits": {
+            "smithy.api#documentation": "<p>The function that Lambda calls to begin executing your function.</p>"
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.lambda#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the function was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.lambda#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the Lambda function.</p>"
+          }
+        },
+        "Runtime": {
+          "target": "com.amazonaws.lambda#Runtime",
+          "traits": {
+            "smithy.api#documentation": "<p>The runtime environment for the Lambda function.</p>"
+          }
+        },
+        "Layers": {
+          "target": "com.amazonaws.lambda#LayersReferenceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">\n      layers</a>.</p>"
+          }
+        },
+        "LastUpdateStatus": {
+          "target": "com.amazonaws.lambda#LastUpdateStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>\n      after function creation completes.</p>"
           }
         },
         "FileSystemConfigs": {
           "target": "com.amazonaws.lambda#FileSystemConfigList",
           "traits": {
             "smithy.api#documentation": "<p>Connection settings for an Amazon EFS file system.</p>"
-          }
-        },
-        "Role": {
-          "target": "com.amazonaws.lambda#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The function's execution role.</p>"
           }
         },
         "Description": {
@@ -1863,100 +1923,16 @@
             "smithy.api#documentation": "<p>The function's networking configuration.</p>"
           }
         },
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The latest updated revision of the function or alias.</p>"
-          }
-        },
         "FunctionName": {
           "target": "com.amazonaws.lambda#NamespacedFunctionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the function.</p>"
           }
         },
-        "Handler": {
-          "target": "com.amazonaws.lambda#Handler",
-          "traits": {
-            "smithy.api#documentation": "<p>The function that Lambda calls to begin executing your function.</p>"
-          }
-        },
-        "FunctionArn": {
-          "target": "com.amazonaws.lambda#NameSpacedFunctionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The function's Amazon Resource Name (ARN).</p>"
-          }
-        },
-        "LastUpdateStatus": {
-          "target": "com.amazonaws.lambda#LastUpdateStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>\n      after function creation completes.</p>"
-          }
-        },
-        "Runtime": {
-          "target": "com.amazonaws.lambda#Runtime",
-          "traits": {
-            "smithy.api#documentation": "<p>The runtime environment for the Lambda function.</p>"
-          }
-        },
-        "MemorySize": {
-          "target": "com.amazonaws.lambda#MemorySize",
-          "traits": {
-            "smithy.api#documentation": "<p>The memory that's allocated to the function.</p>"
-          }
-        },
-        "Layers": {
-          "target": "com.amazonaws.lambda#LayersReferenceList",
-          "traits": {
-            "smithy.api#documentation": "<p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">\n      layers</a>.</p>"
-          }
-        },
-        "Version": {
-          "target": "com.amazonaws.lambda#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the Lambda function.</p>"
-          }
-        },
-        "Timeout": {
-          "target": "com.amazonaws.lambda#Timeout",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>"
-          }
-        },
-        "LastModified": {
-          "target": "com.amazonaws.lambda#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the function was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"
-          }
-        },
-        "CodeSize": {
-          "target": "com.amazonaws.lambda#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the function's deployment package, in bytes.</p>"
-          }
-        },
-        "CodeSha256": {
+        "RevisionId": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>The SHA256 hash of the function's deployment package.</p>"
-          }
-        },
-        "DeadLetterConfig": {
-          "target": "com.amazonaws.lambda#DeadLetterConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The function's dead letter queue.</p>"
-          }
-        },
-        "LastUpdateStatusReason": {
-          "target": "com.amazonaws.lambda#LastUpdateStatusReason",
-          "traits": {
-            "smithy.api#documentation": "<p>The reason for the last update that was performed on the function.</p>"
-          }
-        },
-        "StateReasonCode": {
-          "target": "com.amazonaws.lambda#StateReasonCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or\n      modify the function.</p>"
+            "smithy.api#documentation": "<p>The latest updated revision of the function or alias.</p>"
           }
         },
         "State": {
@@ -1965,22 +1941,10 @@
             "smithy.api#documentation": "<p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by\n      invoking it.</p>"
           }
         },
-        "Environment": {
-          "target": "com.amazonaws.lambda#EnvironmentResponse",
+        "LastUpdateStatusReason": {
+          "target": "com.amazonaws.lambda#LastUpdateStatusReason",
           "traits": {
-            "smithy.api#documentation": "<p>The function's environment variables.</p>"
-          }
-        },
-        "KMSKeyArn": {
-          "target": "com.amazonaws.lambda#KMSKeyArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've\n      configured a customer managed CMK.</p>"
-          }
-        },
-        "MasterArn": {
-          "target": "com.amazonaws.lambda#FunctionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>For Lambda@Edge functions, the ARN of the master function.</p>"
+            "smithy.api#documentation": "<p>The reason for the last update that was performed on the function.</p>"
           }
         },
         "LastUpdateStatusReasonCode": {
@@ -1994,6 +1958,42 @@
           "traits": {
             "smithy.api#documentation": "<p>The function's AWS X-Ray tracing configuration.</p>"
           }
+        },
+        "MasterArn": {
+          "target": "com.amazonaws.lambda#FunctionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>For Lambda@Edge functions, the ARN of the master function.</p>"
+          }
+        },
+        "StateReason": {
+          "target": "com.amazonaws.lambda#StateReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the function's current state.</p>"
+          }
+        },
+        "StateReasonCode": {
+          "target": "com.amazonaws.lambda#StateReasonCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or\n      modify the function.</p>"
+          }
+        },
+        "Role": {
+          "target": "com.amazonaws.lambda#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The function's execution role.</p>"
+          }
+        },
+        "KMSKeyArn": {
+          "target": "com.amazonaws.lambda#KMSKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've\n      configured a customer managed CMK.</p>"
+          }
+        },
+        "Environment": {
+          "target": "com.amazonaws.lambda#EnvironmentResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The function's environment variables.</p>"
+          }
         }
       },
       "traits": {
@@ -2003,16 +2003,10 @@
     "com.amazonaws.lambda#FunctionEventInvokeConfig": {
       "type": "structure",
       "members": {
-        "MaximumEventAgeInSeconds": {
-          "target": "com.amazonaws.lambda#MaximumEventAgeInSeconds",
+        "MaximumRetryAttempts": {
+          "target": "com.amazonaws.lambda#MaximumRetryAttempts",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum age of a request that Lambda sends to a function for processing.</p>"
-          }
-        },
-        "DestinationConfig": {
-          "target": "com.amazonaws.lambda#DestinationConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>A destination for events after they have been sent to a function for processing.</p>\n         <p class=\"title\">\n            <b>Destinations</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Queue</b> - The ARN of an SQS queue.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Topic</b> - The ARN of an SNS topic.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The maximum number of times to retry when the function returns an error.</p>"
           }
         },
         "FunctionArn": {
@@ -2021,16 +2015,22 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the function.</p>"
           }
         },
-        "MaximumRetryAttempts": {
-          "target": "com.amazonaws.lambda#MaximumRetryAttempts",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of times to retry when the function returns an error.</p>"
-          }
-        },
         "LastModified": {
           "target": "com.amazonaws.lambda#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the configuration was last updated.</p>"
+          }
+        },
+        "DestinationConfig": {
+          "target": "com.amazonaws.lambda#DestinationConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>A destination for events after they have been sent to a function for processing.</p>\n         <p class=\"title\">\n            <b>Destinations</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Queue</b> - The ARN of an SQS queue.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Topic</b> - The ARN of an SNS topic.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "MaximumEventAgeInSeconds": {
+          "target": "com.amazonaws.lambda#MaximumEventAgeInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum age of a request that Lambda sends to a function for processing.</p>"
           }
         }
       }
@@ -2100,16 +2100,16 @@
     "com.amazonaws.lambda#GetAccountSettingsResponse": {
       "type": "structure",
       "members": {
-        "AccountLimit": {
-          "target": "com.amazonaws.lambda#AccountLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Limits that are related to concurrency and code storage.</p>"
-          }
-        },
         "AccountUsage": {
           "target": "com.amazonaws.lambda#AccountUsage",
           "traits": {
             "smithy.api#documentation": "<p>The number of functions and amount of storage in use.</p>"
+          }
+        },
+        "AccountLimit": {
+          "target": "com.amazonaws.lambda#AccountLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Limits that are related to concurrency and code storage.</p>"
           }
         }
       }
@@ -2148,18 +2148,18 @@
     "com.amazonaws.lambda#GetAliasRequest": {
       "type": "structure",
       "members": {
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.lambda#Alias",
           "traits": {
             "smithy.api#documentation": "<p>The name of the alias.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2330,19 +2330,19 @@
     "com.amazonaws.lambda#GetFunctionConfigurationRequest": {
       "type": "structure",
       "members": {
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify a version or alias to get details about a published version of the function.</p>",
+            "smithy.api#httpQuery": "Qualifier"
+          }
+        },
         "FunctionName": {
           "target": "com.amazonaws.lambda#NamespacedFunctionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify a version or alias to get details about a published version of the function.</p>",
-            "smithy.api#httpQuery": "Qualifier"
           }
         }
       }
@@ -2401,19 +2401,19 @@
     "com.amazonaws.lambda#GetFunctionRequest": {
       "type": "structure",
       "members": {
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify a version or alias to get details about a published version of the function.</p>",
+            "smithy.api#httpQuery": "Qualifier"
+          }
+        },
         "FunctionName": {
           "target": "com.amazonaws.lambda#NamespacedFunctionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify a version or alias to get details about a published version of the function.</p>",
-            "smithy.api#httpQuery": "Qualifier"
           }
         }
       }
@@ -2427,16 +2427,16 @@
             "smithy.api#documentation": "<p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html\">reserved\n        concurrency</a>.</p>"
           }
         },
-        "Configuration": {
-          "target": "com.amazonaws.lambda#FunctionConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration of the function or version.</p>"
-          }
-        },
         "Code": {
           "target": "com.amazonaws.lambda#FunctionCodeLocation",
           "traits": {
             "smithy.api#documentation": "<p>The deployment package of the function or version.</p>"
+          }
+        },
+        "Configuration": {
+          "target": "com.amazonaws.lambda#FunctionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration of the function or version.</p>"
           }
         },
         "Tags": {
@@ -2577,16 +2577,16 @@
     "com.amazonaws.lambda#GetLayerVersionPolicyResponse": {
       "type": "structure",
       "members": {
-        "Policy": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The policy document.</p>"
-          }
-        },
         "RevisionId": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the current revision of the policy.</p>"
+          }
+        },
+        "Policy": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The policy document.</p>"
           }
         }
       }
@@ -2615,6 +2615,18 @@
     "com.amazonaws.lambda#GetLayerVersionResponse": {
       "type": "structure",
       "members": {
+        "LayerVersionArn": {
+          "target": "com.amazonaws.lambda#LayerVersionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the layer version.</p>"
+          }
+        },
+        "LayerArn": {
+          "target": "com.amazonaws.lambda#LayerArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the layer.</p>"
+          }
+        },
         "LicenseInfo": {
           "target": "com.amazonaws.lambda#LicenseInfo",
           "traits": {
@@ -2627,28 +2639,10 @@
             "smithy.api#documentation": "<p>The layer's compatible runtimes.</p>"
           }
         },
-        "Version": {
-          "target": "com.amazonaws.lambda#LayerVersionNumber",
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The version number.</p>"
-          }
-        },
-        "LayerArn": {
-          "target": "com.amazonaws.lambda#LayerArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the layer.</p>"
-          }
-        },
-        "CreatedDate": {
-          "target": "com.amazonaws.lambda#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date that the layer version was created, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"
-          }
-        },
-        "LayerVersionArn": {
-          "target": "com.amazonaws.lambda#LayerVersionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the layer version.</p>"
+            "smithy.api#documentation": "<p>The description of the version.</p>"
           }
         },
         "Content": {
@@ -2657,10 +2651,16 @@
             "smithy.api#documentation": "<p>Details about the layer version.</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.lambda#Description",
+        "CreatedDate": {
+          "target": "com.amazonaws.lambda#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the version.</p>"
+            "smithy.api#documentation": "<p>The date that the layer version was created, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.lambda#LayerVersionNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number.</p>"
           }
         }
       }
@@ -2699,6 +2699,13 @@
     "com.amazonaws.lambda#GetPolicyRequest": {
       "type": "structure",
       "members": {
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify a version or alias to get the policy for that resource.</p>",
+            "smithy.api#httpQuery": "Qualifier"
+          }
+        },
         "FunctionName": {
           "target": "com.amazonaws.lambda#NamespacedFunctionName",
           "traits": {
@@ -2706,29 +2713,22 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        },
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify a version or alias to get the policy for that resource.</p>",
-            "smithy.api#httpQuery": "Qualifier"
-          }
         }
       }
     },
     "com.amazonaws.lambda#GetPolicyResponse": {
       "type": "structure",
       "members": {
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the current revision of the policy.</p>"
-          }
-        },
         "Policy": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource-based policy.</p>"
+          }
+        },
+        "RevisionId": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the current revision of the policy.</p>"
           }
         }
       }
@@ -2770,19 +2770,19 @@
     "com.amazonaws.lambda#GetProvisionedConcurrencyConfigRequest": {
       "type": "structure",
       "members": {
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number or alias name.</p>",
-            "smithy.api#httpQuery": "Qualifier",
-            "smithy.api#required": {}
-          }
-        },
         "FunctionName": {
           "target": "com.amazonaws.lambda#FunctionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number or alias name.</p>",
+            "smithy.api#httpQuery": "Qualifier",
             "smithy.api#required": {}
           }
         }
@@ -2791,22 +2791,10 @@
     "com.amazonaws.lambda#GetProvisionedConcurrencyConfigResponse": {
       "type": "structure",
       "members": {
-        "RequestedProvisionedConcurrentExecutions": {
-          "target": "com.amazonaws.lambda#PositiveInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency requested.</p>"
-          }
-        },
-        "AvailableProvisionedConcurrentExecutions": {
+        "AllocatedProvisionedConcurrentExecutions": {
           "target": "com.amazonaws.lambda#NonNegativeInteger",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency available.</p>"
-          }
-        },
-        "StatusReason": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>"
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency allocated.</p>"
           }
         },
         "Status": {
@@ -2821,10 +2809,22 @@
             "smithy.api#documentation": "<p>The date and time that a user last updated the configuration, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601 format</a>.</p>"
           }
         },
-        "AllocatedProvisionedConcurrentExecutions": {
+        "AvailableProvisionedConcurrentExecutions": {
           "target": "com.amazonaws.lambda#NonNegativeInteger",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency allocated.</p>"
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency available.</p>"
+          }
+        },
+        "StatusReason": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>"
+          }
+        },
+        "RequestedProvisionedConcurrentExecutions": {
+          "target": "com.amazonaws.lambda#PositiveInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency requested.</p>"
           }
         }
       }
@@ -2867,16 +2867,16 @@
     "com.amazonaws.lambda#InvalidRequestContentException": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The exception message.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The exception type.</p>"
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The exception message.</p>"
           }
         }
       },
@@ -2921,10 +2921,10 @@
     "com.amazonaws.lambda#InvalidSubnetIDException": {
       "type": "structure",
       "members": {
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -2953,11 +2953,12 @@
     "com.amazonaws.lambda#InvocationRequest": {
       "type": "structure",
       "members": {
-        "InvocationType": {
-          "target": "com.amazonaws.lambda#InvocationType",
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#NamespacedFunctionName",
           "traits": {
-            "smithy.api#documentation": "<p>Choose from the following options.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>RequestResponse</code> (default) - Invoke the function synchronously. Keep the connection open until\n          the function returns a response or times out. The API response includes the function response and additional\n          data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Event</code> - Invoke the function asynchronously. Send events that fail multiple times to the\n          function's dead-letter queue (if it's configured). The API response only includes a status code.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DryRun</code> - Validate parameter values and verify that the user or role has permission to invoke\n          the function.</p>\n            </li>\n         </ul>",
-            "smithy.api#httpHeader": "X-Amz-Invocation-Type"
+            "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LogType": {
@@ -2974,13 +2975,6 @@
             "smithy.api#httpPayload": {}
           }
         },
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify a version or alias to invoke a published version of the function.</p>",
-            "smithy.api#httpQuery": "Qualifier"
-          }
-        },
         "ClientContext": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
@@ -2988,12 +2982,18 @@
             "smithy.api#httpHeader": "X-Amz-Client-Context"
           }
         },
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#NamespacedFunctionName",
+        "InvocationType": {
+          "target": "com.amazonaws.lambda#InvocationType",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Choose from the following options.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>RequestResponse</code> (default) - Invoke the function synchronously. Keep the connection open until\n          the function returns a response or times out. The API response includes the function response and additional\n          data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Event</code> - Invoke the function asynchronously. Send events that fail multiple times to the\n          function's dead-letter queue (if it's configured). The API response only includes a status code.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DryRun</code> - Validate parameter values and verify that the user or role has permission to invoke\n          the function.</p>\n            </li>\n         </ul>",
+            "smithy.api#httpHeader": "X-Amz-Invocation-Type"
+          }
+        },
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify a version or alias to invoke a published version of the function.</p>",
+            "smithy.api#httpQuery": "Qualifier"
           }
         }
       }
@@ -3001,13 +3001,6 @@
     "com.amazonaws.lambda#InvocationResponse": {
       "type": "structure",
       "members": {
-        "LogResult": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The last 4 KB of the execution log, which is base64 encoded.</p>",
-            "smithy.api#httpHeader": "X-Amz-Log-Result"
-          }
-        },
         "FunctionError": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
@@ -3015,18 +3008,25 @@
             "smithy.api#httpHeader": "X-Amz-Function-Error"
           }
         },
-        "ExecutedVersion": {
-          "target": "com.amazonaws.lambda#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the function that executed. When you invoke a function with an alias, this indicates which\n      version the alias resolved to.</p>",
-            "smithy.api#httpHeader": "X-Amz-Executed-Version"
-          }
-        },
         "Payload": {
           "target": "com.amazonaws.lambda#Blob",
           "traits": {
             "smithy.api#documentation": "<p>The response from the function, or an error object.</p>",
             "smithy.api#httpPayload": {}
+          }
+        },
+        "LogResult": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The last 4 KB of the execution log, which is base64 encoded.</p>",
+            "smithy.api#httpHeader": "X-Amz-Log-Result"
+          }
+        },
+        "ExecutedVersion": {
+          "target": "com.amazonaws.lambda#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the function that executed. When you invoke a function with an alias, this indicates which\n      version the alias resolved to.</p>",
+            "smithy.api#httpHeader": "X-Amz-Executed-Version"
           }
         }
       }
@@ -3185,19 +3185,19 @@
     "com.amazonaws.lambda#InvokeAsyncRequest": {
       "type": "structure",
       "members": {
-        "InvokeArgs": {
-          "target": "com.amazonaws.lambda#BlobStream",
-          "traits": {
-            "smithy.api#documentation": "<p>The JSON that you want to provide to your Lambda function as input.</p>",
-            "smithy.api#httpPayload": {},
-            "smithy.api#required": {}
-          }
-        },
         "FunctionName": {
           "target": "com.amazonaws.lambda#NamespacedFunctionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "InvokeArgs": {
+          "target": "com.amazonaws.lambda#BlobStream",
+          "traits": {
+            "smithy.api#documentation": "<p>The JSON that you want to provide to your Lambda function as input.</p>",
+            "smithy.api#httpPayload": {},
             "smithy.api#required": {}
           }
         }
@@ -3217,10 +3217,10 @@
     "com.amazonaws.lambda#KMSAccessDeniedException": {
       "type": "structure",
       "members": {
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -3344,16 +3344,16 @@
     "com.amazonaws.lambda#Layer": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.lambda#LayerVersionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the function layer.</p>"
-          }
-        },
         "CodeSize": {
           "target": "com.amazonaws.lambda#Long",
           "traits": {
             "smithy.api#documentation": "<p>The size of the layer archive in bytes.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.lambda#LayerVersionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the function layer.</p>"
           }
         }
       },
@@ -3412,16 +3412,16 @@
     "com.amazonaws.lambda#LayerVersionContentInput": {
       "type": "structure",
       "members": {
+        "S3Key": {
+          "target": "com.amazonaws.lambda#S3Key",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 key of the layer archive.</p>"
+          }
+        },
         "S3Bucket": {
           "target": "com.amazonaws.lambda#S3Bucket",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 bucket of the layer archive.</p>"
-          }
-        },
-        "S3ObjectVersion": {
-          "target": "com.amazonaws.lambda#S3ObjectVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>For versioned objects, the version of the layer archive object to use.</p>"
           }
         },
         "ZipFile": {
@@ -3430,10 +3430,10 @@
             "smithy.api#documentation": "<p>The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for\n      you.</p>"
           }
         },
-        "S3Key": {
-          "target": "com.amazonaws.lambda#S3Key",
+        "S3ObjectVersion": {
+          "target": "com.amazonaws.lambda#S3ObjectVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon S3 key of the layer archive.</p>"
+            "smithy.api#documentation": "<p>For versioned objects, the version of the layer archive object to use.</p>"
           }
         }
       },
@@ -3444,12 +3444,6 @@
     "com.amazonaws.lambda#LayerVersionContentOutput": {
       "type": "structure",
       "members": {
-        "CodeSha256": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The SHA-256 hash of the layer archive.</p>"
-          }
-        },
         "Location": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
@@ -3460,6 +3454,12 @@
           "target": "com.amazonaws.lambda#Long",
           "traits": {
             "smithy.api#documentation": "<p>The size of the layer archive in bytes.</p>"
+          }
+        },
+        "CodeSha256": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The SHA-256 hash of the layer archive.</p>"
           }
         }
       },
@@ -3479,10 +3479,22 @@
     "com.amazonaws.lambda#LayerVersionsListItem": {
       "type": "structure",
       "members": {
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the version.</p>"
+          }
+        },
         "CreatedDate": {
           "target": "com.amazonaws.lambda#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.lambda#LayerVersionNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number.</p>"
           }
         },
         "LayerVersionArn": {
@@ -3491,28 +3503,16 @@
             "smithy.api#documentation": "<p>The ARN of the layer version.</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.lambda#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the version.</p>"
-          }
-        },
-        "CompatibleRuntimes": {
-          "target": "com.amazonaws.lambda#CompatibleRuntimes",
-          "traits": {
-            "smithy.api#documentation": "<p>The layer's compatible runtimes.</p>"
-          }
-        },
         "LicenseInfo": {
           "target": "com.amazonaws.lambda#LicenseInfo",
           "traits": {
             "smithy.api#documentation": "<p>The layer's open-source license.</p>"
           }
         },
-        "Version": {
-          "target": "com.amazonaws.lambda#LayerVersionNumber",
+        "CompatibleRuntimes": {
+          "target": "com.amazonaws.lambda#CompatibleRuntimes",
           "traits": {
-            "smithy.api#documentation": "<p>The version number.</p>"
+            "smithy.api#documentation": "<p>The layer's compatible runtimes.</p>"
           }
         }
       },
@@ -3529,12 +3529,6 @@
     "com.amazonaws.lambda#LayersListItem": {
       "type": "structure",
       "members": {
-        "LayerArn": {
-          "target": "com.amazonaws.lambda#LayerArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the function layer.</p>"
-          }
-        },
         "LatestMatchingVersion": {
           "target": "com.amazonaws.lambda#LayerVersionsListItem",
           "traits": {
@@ -3545,6 +3539,12 @@
           "target": "com.amazonaws.lambda#LayerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the layer.</p>"
+          }
+        },
+        "LayerArn": {
+          "target": "com.amazonaws.lambda#LayerArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the function layer.</p>"
           }
         }
       },
@@ -3607,13 +3607,6 @@
     "com.amazonaws.lambda#ListAliasesRequest": {
       "type": "structure",
       "members": {
-        "MaxItems": {
-          "target": "com.amazonaws.lambda#MaxListItems",
-          "traits": {
-            "smithy.api#documentation": "<p>Limit the number of aliases returned.</p>",
-            "smithy.api#httpQuery": "MaxItems"
-          }
-        },
         "FunctionVersion": {
           "target": "com.amazonaws.lambda#Version",
           "traits": {
@@ -3621,11 +3614,11 @@
             "smithy.api#httpQuery": "FunctionVersion"
           }
         },
-        "Marker": {
-          "target": "com.amazonaws.lambda#String",
+        "MaxItems": {
+          "target": "com.amazonaws.lambda#MaxListItems",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "Marker"
+            "smithy.api#documentation": "<p>Limit the number of aliases returned.</p>",
+            "smithy.api#httpQuery": "MaxItems"
           }
         },
         "FunctionName": {
@@ -3635,22 +3628,29 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "Marker": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "Marker"
+          }
         }
       }
     },
     "com.amazonaws.lambda#ListAliasesResponse": {
       "type": "structure",
       "members": {
-        "Aliases": {
-          "target": "com.amazonaws.lambda#AliasList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of aliases.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that's included if more results are available.</p>"
+          }
+        },
+        "Aliases": {
+          "target": "com.amazonaws.lambda#AliasList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of aliases.</p>"
           }
         }
       }
@@ -3702,6 +3702,13 @@
             "smithy.api#httpQuery": "Marker"
           }
         },
+        "MaxItems": {
+          "target": "com.amazonaws.lambda#MaxListItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of event source mappings to return.</p>",
+            "smithy.api#httpQuery": "MaxItems"
+          }
+        },
         "EventSourceArn": {
           "target": "com.amazonaws.lambda#Arn",
           "traits": {
@@ -3715,29 +3722,22 @@
             "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64\n      characters in length.</p>",
             "smithy.api#httpQuery": "FunctionName"
           }
-        },
-        "MaxItems": {
-          "target": "com.amazonaws.lambda#MaxListItems",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of event source mappings to return.</p>",
-            "smithy.api#httpQuery": "MaxItems"
-          }
         }
       }
     },
     "com.amazonaws.lambda#ListEventSourceMappingsResponse": {
       "type": "structure",
       "members": {
-        "NextMarker": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>"
-          }
-        },
         "EventSourceMappings": {
           "target": "com.amazonaws.lambda#EventSourceMappingsList",
           "traits": {
             "smithy.api#documentation": "<p>A list of event source mappings.</p>"
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>"
           }
         }
       }
@@ -3782,11 +3782,12 @@
     "com.amazonaws.lambda#ListFunctionEventInvokeConfigsRequest": {
       "type": "structure",
       "members": {
-        "Marker": {
-          "target": "com.amazonaws.lambda#String",
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "Marker"
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxItems": {
@@ -3796,12 +3797,11 @@
             "smithy.api#httpQuery": "MaxItems"
           }
         },
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
+        "Marker": {
+          "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "Marker"
           }
         }
       }
@@ -3809,16 +3809,16 @@
     "com.amazonaws.lambda#ListFunctionEventInvokeConfigsResponse": {
       "type": "structure",
       "members": {
-        "FunctionEventInvokeConfigs": {
-          "target": "com.amazonaws.lambda#FunctionEventInvokeConfigList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of configurations.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that's included if more results are available.</p>"
+          }
+        },
+        "FunctionEventInvokeConfigs": {
+          "target": "com.amazonaws.lambda#FunctionEventInvokeConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of configurations.</p>"
           }
         }
       }
@@ -3860,18 +3860,18 @@
     "com.amazonaws.lambda#ListFunctionsRequest": {
       "type": "structure",
       "members": {
+        "MasterRegion": {
+          "target": "com.amazonaws.lambda#MasterRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters\n      the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N.\n      Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>",
+            "smithy.api#httpQuery": "MasterRegion"
+          }
+        },
         "Marker": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
             "smithy.api#httpQuery": "Marker"
-          }
-        },
-        "MaxItems": {
-          "target": "com.amazonaws.lambda#MaxListItems",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of functions to return.</p>",
-            "smithy.api#httpQuery": "MaxItems"
           }
         },
         "FunctionVersion": {
@@ -3881,11 +3881,11 @@
             "smithy.api#httpQuery": "FunctionVersion"
           }
         },
-        "MasterRegion": {
-          "target": "com.amazonaws.lambda#MasterRegion",
+        "MaxItems": {
+          "target": "com.amazonaws.lambda#MaxListItems",
           "traits": {
-            "smithy.api#documentation": "<p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters\n      the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N.\n      Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>",
-            "smithy.api#httpQuery": "MasterRegion"
+            "smithy.api#documentation": "<p>The maximum number of functions to return.</p>",
+            "smithy.api#httpQuery": "MaxItems"
           }
         }
       }
@@ -3893,16 +3893,16 @@
     "com.amazonaws.lambda#ListFunctionsResponse": {
       "type": "structure",
       "members": {
-        "NextMarker": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token that's included if more results are available.</p>"
-          }
-        },
         "Functions": {
           "target": "com.amazonaws.lambda#FunctionList",
           "traits": {
             "smithy.api#documentation": "<p>A list of Lambda functions.</p>"
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token that's included if more results are available.</p>"
           }
         }
       },
@@ -3957,6 +3957,13 @@
             "smithy.api#httpQuery": "Marker"
           }
         },
+        "CompatibleRuntime": {
+          "target": "com.amazonaws.lambda#Runtime",
+          "traits": {
+            "smithy.api#documentation": "<p>A runtime identifier. For example, <code>go1.x</code>.</p>",
+            "smithy.api#httpQuery": "CompatibleRuntime"
+          }
+        },
         "MaxItems": {
           "target": "com.amazonaws.lambda#MaxLayerListItems",
           "traits": {
@@ -3970,13 +3977,6 @@
             "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the layer.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "CompatibleRuntime": {
-          "target": "com.amazonaws.lambda#Runtime",
-          "traits": {
-            "smithy.api#documentation": "<p>A runtime identifier. For example, <code>go1.x</code>.</p>",
-            "smithy.api#httpQuery": "CompatibleRuntime"
           }
         }
       }
@@ -4035,11 +4035,11 @@
     "com.amazonaws.lambda#ListLayersRequest": {
       "type": "structure",
       "members": {
-        "CompatibleRuntime": {
-          "target": "com.amazonaws.lambda#Runtime",
+        "MaxItems": {
+          "target": "com.amazonaws.lambda#MaxLayerListItems",
           "traits": {
-            "smithy.api#documentation": "<p>A runtime identifier. For example, <code>go1.x</code>.</p>",
-            "smithy.api#httpQuery": "CompatibleRuntime"
+            "smithy.api#documentation": "<p>The maximum number of layers to return.</p>",
+            "smithy.api#httpQuery": "MaxItems"
           }
         },
         "Marker": {
@@ -4049,11 +4049,11 @@
             "smithy.api#httpQuery": "Marker"
           }
         },
-        "MaxItems": {
-          "target": "com.amazonaws.lambda#MaxLayerListItems",
+        "CompatibleRuntime": {
+          "target": "com.amazonaws.lambda#Runtime",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of layers to return.</p>",
-            "smithy.api#httpQuery": "MaxItems"
+            "smithy.api#documentation": "<p>A runtime identifier. For example, <code>go1.x</code>.</p>",
+            "smithy.api#httpQuery": "CompatibleRuntime"
           }
         }
       }
@@ -4061,16 +4061,16 @@
     "com.amazonaws.lambda#ListLayersResponse": {
       "type": "structure",
       "members": {
-        "NextMarker": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A pagination token returned when the response doesn't contain all layers.</p>"
-          }
-        },
         "Layers": {
           "target": "com.amazonaws.lambda#LayersList",
           "traits": {
             "smithy.api#documentation": "<p>A list of function layers.</p>"
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A pagination token returned when the response doesn't contain all layers.</p>"
           }
         }
       }
@@ -4142,16 +4142,16 @@
     "com.amazonaws.lambda#ListProvisionedConcurrencyConfigsResponse": {
       "type": "structure",
       "members": {
-        "ProvisionedConcurrencyConfigs": {
-          "target": "com.amazonaws.lambda#ProvisionedConcurrencyConfigList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of provisioned concurrency configurations.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that's included if more results are available.</p>"
+          }
+        },
+        "ProvisionedConcurrencyConfigs": {
+          "target": "com.amazonaws.lambda#ProvisionedConcurrencyConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of provisioned concurrency configurations.</p>"
           }
         }
       }
@@ -4251,11 +4251,12 @@
     "com.amazonaws.lambda#ListVersionsByFunctionRequest": {
       "type": "structure",
       "members": {
-        "Marker": {
-          "target": "com.amazonaws.lambda#String",
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#NamespacedFunctionName",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "Marker"
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxItems": {
@@ -4265,12 +4266,11 @@
             "smithy.api#httpQuery": "MaxItems"
           }
         },
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#NamespacedFunctionName",
+        "Marker": {
+          "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "Marker"
           }
         }
       }
@@ -4533,16 +4533,16 @@
     "com.amazonaws.lambda#PreconditionFailedException": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The exception message.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The exception type.</p>"
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The exception message.</p>"
           }
         }
       },
@@ -4567,34 +4567,16 @@
     "com.amazonaws.lambda#ProvisionedConcurrencyConfigListItem": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.lambda#ProvisionedConcurrencyStatusEnum",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the allocation process.</p>"
-          }
-        },
-        "LastModified": {
-          "target": "com.amazonaws.lambda#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that a user last updated the configuration, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601 format</a>.</p>"
-          }
-        },
-        "AllocatedProvisionedConcurrentExecutions": {
-          "target": "com.amazonaws.lambda#NonNegativeInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency allocated.</p>"
-          }
-        },
-        "AvailableProvisionedConcurrentExecutions": {
-          "target": "com.amazonaws.lambda#NonNegativeInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency available.</p>"
-          }
-        },
         "FunctionArn": {
           "target": "com.amazonaws.lambda#FunctionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the alias or version.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.lambda#ProvisionedConcurrencyStatusEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the allocation process.</p>"
           }
         },
         "StatusReason": {
@@ -4608,6 +4590,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The amount of provisioned concurrency requested.</p>"
           }
+        },
+        "AvailableProvisionedConcurrentExecutions": {
+          "target": "com.amazonaws.lambda#NonNegativeInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency available.</p>"
+          }
+        },
+        "AllocatedProvisionedConcurrentExecutions": {
+          "target": "com.amazonaws.lambda#NonNegativeInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency allocated.</p>"
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.lambda#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that a user last updated the configuration, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601 format</a>.</p>"
+          }
         }
       },
       "traits": {
@@ -4617,10 +4617,10 @@
     "com.amazonaws.lambda#ProvisionedConcurrencyConfigNotFoundException": {
       "type": "structure",
       "members": {
-        "message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Type": {
+        "message": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -4686,17 +4686,29 @@
     "com.amazonaws.lambda#PublishLayerVersionRequest": {
       "type": "structure",
       "members": {
-        "Content": {
-          "target": "com.amazonaws.lambda#LayerVersionContentInput",
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The function layer archive.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The description of the version.</p>"
           }
         },
         "LicenseInfo": {
           "target": "com.amazonaws.lambda#LicenseInfo",
           "traits": {
             "smithy.api#documentation": "<p>The layer's software license. It can be any of the following:</p>\n         <ul>\n            <li>\n               <p>An <a href=\"https://spdx.org/licenses/\">SPDX license identifier</a>. For example,\n          <code>MIT</code>.</p>\n            </li>\n            <li>\n               <p>The URL of a license hosted on the internet. For example,\n          <code>https://opensource.org/licenses/MIT</code>.</p>\n            </li>\n            <li>\n               <p>The full text of the license.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "CompatibleRuntimes": {
+          "target": "com.amazonaws.lambda#CompatibleRuntimes",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">function\n        runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.lambda#LayerVersionContentInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The function layer archive.</p>",
+            "smithy.api#required": {}
           }
         },
         "LayerName": {
@@ -4706,24 +4718,18 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        },
-        "CompatibleRuntimes": {
-          "target": "com.amazonaws.lambda#CompatibleRuntimes",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">function\n        runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.lambda#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the version.</p>"
-          }
         }
       }
     },
     "com.amazonaws.lambda#PublishLayerVersionResponse": {
       "type": "structure",
       "members": {
+        "LayerVersionArn": {
+          "target": "com.amazonaws.lambda#LayerVersionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the layer version.</p>"
+          }
+        },
         "CompatibleRuntimes": {
           "target": "com.amazonaws.lambda#CompatibleRuntimes",
           "traits": {
@@ -4736,10 +4742,22 @@
             "smithy.api#documentation": "<p>The layer's software license.</p>"
           }
         },
+        "Content": {
+          "target": "com.amazonaws.lambda#LayerVersionContentOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the layer version.</p>"
+          }
+        },
         "Description": {
           "target": "com.amazonaws.lambda#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the version.</p>"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.lambda#LayerVersionNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number.</p>"
           }
         },
         "LayerArn": {
@@ -4752,24 +4770,6 @@
           "target": "com.amazonaws.lambda#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date that the layer version was created, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"
-          }
-        },
-        "LayerVersionArn": {
-          "target": "com.amazonaws.lambda#LayerVersionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the layer version.</p>"
-          }
-        },
-        "Version": {
-          "target": "com.amazonaws.lambda#LayerVersionNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number.</p>"
-          }
-        },
-        "Content": {
-          "target": "com.amazonaws.lambda#LayerVersionContentOutput",
-          "traits": {
-            "smithy.api#documentation": "<p>Details about the layer version.</p>"
           }
         }
       }
@@ -4817,16 +4817,10 @@
     "com.amazonaws.lambda#PublishVersionRequest": {
       "type": "structure",
       "members": {
-        "CodeSha256": {
+        "RevisionId": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid\n      publishing a version if the function code has changed since you last updated it. You can get the hash for the\n      version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.lambda#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for the version to override the description in the function configuration.</p>"
+            "smithy.api#documentation": "<p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid\n      publishing a version if the function configuration has changed since you last updated it.</p>"
           }
         },
         "FunctionName": {
@@ -4837,10 +4831,16 @@
             "smithy.api#required": {}
           }
         },
-        "RevisionId": {
+        "CodeSha256": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid\n      publishing a version if the function configuration has changed since you last updated it.</p>"
+            "smithy.api#documentation": "<p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid\n      publishing a version if the function code has changed since you last updated it. You can get the hash for the\n      version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the version to override the description in the function configuration.</p>"
           }
         }
       }
@@ -4933,18 +4933,11 @@
     "com.amazonaws.lambda#PutFunctionEventInvokeConfigRequest": {
       "type": "structure",
       "members": {
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "MaximumEventAgeInSeconds": {
-          "target": "com.amazonaws.lambda#MaximumEventAgeInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum age of a request that Lambda sends to a function for processing.</p>"
+            "smithy.api#documentation": "<p>A version number or alias name.</p>",
+            "smithy.api#httpQuery": "Qualifier"
           }
         },
         "DestinationConfig": {
@@ -4953,17 +4946,24 @@
             "smithy.api#documentation": "<p>A destination for events after they have been sent to a function for processing.</p>\n         <p class=\"title\">\n            <b>Destinations</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Queue</b> - The ARN of an SQS queue.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Topic</b> - The ARN of an SNS topic.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>\n            </li>\n         </ul>"
           }
         },
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
+        "MaximumEventAgeInSeconds": {
+          "target": "com.amazonaws.lambda#MaximumEventAgeInSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>A version number or alias name.</p>",
-            "smithy.api#httpQuery": "Qualifier"
+            "smithy.api#documentation": "<p>The maximum age of a request that Lambda sends to a function for processing.</p>"
           }
         },
         "MaximumRetryAttempts": {
           "target": "com.amazonaws.lambda#MaximumRetryAttempts",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of times to retry when the function returns an error.</p>"
+          }
+        },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5005,11 +5005,10 @@
     "com.amazonaws.lambda#PutProvisionedConcurrencyConfigRequest": {
       "type": "structure",
       "members": {
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
+        "ProvisionedConcurrentExecutions": {
+          "target": "com.amazonaws.lambda#PositiveInteger",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency to allocate for the version or alias.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5021,10 +5020,11 @@
             "smithy.api#required": {}
           }
         },
-        "ProvisionedConcurrentExecutions": {
-          "target": "com.amazonaws.lambda#PositiveInteger",
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency to allocate for the version or alias.</p>",
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -5033,24 +5033,6 @@
     "com.amazonaws.lambda#PutProvisionedConcurrencyConfigResponse": {
       "type": "structure",
       "members": {
-        "AvailableProvisionedConcurrentExecutions": {
-          "target": "com.amazonaws.lambda#NonNegativeInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency available.</p>"
-          }
-        },
-        "RequestedProvisionedConcurrentExecutions": {
-          "target": "com.amazonaws.lambda#PositiveInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency requested.</p>"
-          }
-        },
-        "AllocatedProvisionedConcurrentExecutions": {
-          "target": "com.amazonaws.lambda#NonNegativeInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of provisioned concurrency allocated.</p>"
-          }
-        },
         "LastModified": {
           "target": "com.amazonaws.lambda#Timestamp",
           "traits": {
@@ -5063,10 +5045,28 @@
             "smithy.api#documentation": "<p>The status of the allocation process.</p>"
           }
         },
+        "AllocatedProvisionedConcurrentExecutions": {
+          "target": "com.amazonaws.lambda#NonNegativeInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency allocated.</p>"
+          }
+        },
+        "RequestedProvisionedConcurrentExecutions": {
+          "target": "com.amazonaws.lambda#PositiveInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency requested.</p>"
+          }
+        },
         "StatusReason": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>"
+          }
+        },
+        "AvailableProvisionedConcurrentExecutions": {
+          "target": "com.amazonaws.lambda#NonNegativeInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of provisioned concurrency available.</p>"
           }
         }
       }
@@ -5115,6 +5115,21 @@
     "com.amazonaws.lambda#RemoveLayerVersionPermissionRequest": {
       "type": "structure",
       "members": {
+        "RevisionId": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a\n      policy that has changed since you last read it.</p>",
+            "smithy.api#httpQuery": "RevisionId"
+          }
+        },
+        "StatementId": {
+          "target": "com.amazonaws.lambda#StatementId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier that was specified when the statement was added.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "VersionNumber": {
           "target": "com.amazonaws.lambda#LayerVersionNumber",
           "traits": {
@@ -5127,21 +5142,6 @@
           "target": "com.amazonaws.lambda#LayerName",
           "traits": {
             "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the layer.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a\n      policy that has changed since you last read it.</p>",
-            "smithy.api#httpQuery": "RevisionId"
-          }
-        },
-        "StatementId": {
-          "target": "com.amazonaws.lambda#StatementId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier that was specified when the statement was added.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -5182,12 +5182,11 @@
     "com.amazonaws.lambda#RemovePermissionRequest": {
       "type": "structure",
       "members": {
-        "FunctionName": {
-          "target": "com.amazonaws.lambda#FunctionName",
+        "Qualifier": {
+          "target": "com.amazonaws.lambda#Qualifier",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Specify a version or alias to remove permissions from a published version of the function.</p>",
+            "smithy.api#httpQuery": "Qualifier"
           }
         },
         "RevisionId": {
@@ -5205,11 +5204,12 @@
             "smithy.api#required": {}
           }
         },
-        "Qualifier": {
-          "target": "com.amazonaws.lambda#Qualifier",
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
           "traits": {
-            "smithy.api#documentation": "<p>Specify a version or alias to remove permissions from a published version of the function.</p>",
-            "smithy.api#httpQuery": "Qualifier"
+            "smithy.api#documentation": "<p>The name of the Lambda function, version, or alias.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>\n            </li>\n         </ul>\n         <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.\n      If you specify only the function name, it is limited to 64 characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5248,16 +5248,16 @@
     "com.amazonaws.lambda#ResourceConflictException": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The exception message.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The exception type.</p>"
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The exception message.</p>"
           }
         }
       },
@@ -5270,10 +5270,10 @@
     "com.amazonaws.lambda#ResourceInUseException": {
       "type": "structure",
       "members": {
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -5286,10 +5286,10 @@
     "com.amazonaws.lambda#ResourceNotFoundException": {
       "type": "structure",
       "members": {
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -5302,16 +5302,16 @@
     "com.amazonaws.lambda#ResourceNotReadyException": {
       "type": "structure",
       "members": {
-        "Type": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The exception type.</p>"
-          }
-        },
         "message": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The exception message.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The exception type.</p>"
           }
         }
       },
@@ -5470,10 +5470,10 @@
     "com.amazonaws.lambda#ServiceException": {
       "type": "structure",
       "members": {
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -5578,10 +5578,10 @@
     "com.amazonaws.lambda#SubnetIPAddressLimitReachedException": {
       "type": "structure",
       "members": {
-        "Type": {
+        "Message": {
           "target": "com.amazonaws.lambda#String"
         },
-        "Message": {
+        "Type": {
           "target": "com.amazonaws.lambda#String"
         }
       },
@@ -5649,18 +5649,18 @@
     "com.amazonaws.lambda#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.lambda#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags to apply to the function.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Resource": {
           "target": "com.amazonaws.lambda#FunctionArn",
           "traits": {
             "smithy.api#documentation": "<p>The function's Amazon Resource Name (ARN).</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.lambda#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tags to apply to the function.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5720,12 +5720,6 @@
     "com.amazonaws.lambda#TooManyRequestsException": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "com.amazonaws.lambda#String"
-        },
-        "Reason": {
-          "target": "com.amazonaws.lambda#ThrottleReason"
-        },
         "Type": {
           "target": "com.amazonaws.lambda#String"
         },
@@ -5735,6 +5729,12 @@
             "smithy.api#documentation": "<p>The number of seconds the caller should wait before retrying.</p>",
             "smithy.api#httpHeader": "Retry-After"
           }
+        },
+        "Reason": {
+          "target": "com.amazonaws.lambda#ThrottleReason"
+        },
+        "message": {
+          "target": "com.amazonaws.lambda#String"
         }
       },
       "traits": {
@@ -5903,12 +5903,24 @@
     "com.amazonaws.lambda#UpdateAliasRequest": {
       "type": "structure",
       "members": {
+        "RevisionId": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying\n      an alias that has changed since you last read it.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.lambda#Alias",
           "traits": {
             "smithy.api#documentation": "<p>The name of the alias.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "RoutingConfig": {
+          "target": "com.amazonaws.lambda#AliasRoutingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\">routing\n        configuration</a> of the alias.</p>"
           }
         },
         "FunctionName": {
@@ -5925,22 +5937,10 @@
             "smithy.api#documentation": "<p>The function version that the alias invokes.</p>"
           }
         },
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying\n      an alias that has changed since you last read it.</p>"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.lambda#Description",
           "traits": {
             "smithy.api#documentation": "<p>A description of the alias.</p>"
-          }
-        },
-        "RoutingConfig": {
-          "target": "com.amazonaws.lambda#AliasRoutingConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\">routing\n        configuration</a> of the alias.</p>"
           }
         }
       }
@@ -5985,22 +5985,22 @@
     "com.amazonaws.lambda#UpdateEventSourceMappingRequest": {
       "type": "structure",
       "members": {
+        "DestinationConfig": {
+          "target": "com.amazonaws.lambda#DestinationConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>"
+          }
+        },
+        "BisectBatchOnFunctionError": {
+          "target": "com.amazonaws.lambda#BisectBatchOnFunctionError",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) If the function returns an error, split the batch in two and retry.</p>"
+          }
+        },
         "Enabled": {
           "target": "com.amazonaws.lambda#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Disables the event source mapping to pause polling and invocation.</p>"
-          }
-        },
-        "MaximumRetryAttempts": {
-          "target": "com.amazonaws.lambda#MaximumRetryAttemptsEventSourceMapping",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) The maximum number of times to retry when the function returns an error.</p>"
-          }
-        },
-        "MaximumRecordAgeInSeconds": {
-          "target": "com.amazonaws.lambda#MaximumRecordAgeInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>"
           }
         },
         "FunctionName": {
@@ -6015,6 +6015,12 @@
             "smithy.api#documentation": "<p>The maximum number of items to retrieve in a single batch.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p>\n            </li>\n         </ul>"
           }
         },
+        "MaximumRecordAgeInSeconds": {
+          "target": "com.amazonaws.lambda#MaximumRecordAgeInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>"
+          }
+        },
         "ParallelizationFactor": {
           "target": "com.amazonaws.lambda#ParallelizationFactor",
           "traits": {
@@ -6027,24 +6033,18 @@
             "smithy.api#documentation": "<p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>"
           }
         },
-        "BisectBatchOnFunctionError": {
-          "target": "com.amazonaws.lambda#BisectBatchOnFunctionError",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) If the function returns an error, split the batch in two and retry.</p>"
-          }
-        },
-        "DestinationConfig": {
-          "target": "com.amazonaws.lambda#DestinationConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>"
-          }
-        },
         "UUID": {
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the event source mapping.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "MaximumRetryAttempts": {
+          "target": "com.amazonaws.lambda#MaximumRetryAttemptsEventSourceMapping",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams) The maximum number of times to retry when the function returns an error.</p>"
           }
         }
       }
@@ -6092,10 +6092,16 @@
     "com.amazonaws.lambda#UpdateFunctionCodeRequest": {
       "type": "structure",
       "members": {
-        "S3ObjectVersion": {
-          "target": "com.amazonaws.lambda#S3ObjectVersion",
+        "RevisionId": {
+          "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>For versioned objects, the version of the deployment package object to use.</p>"
+            "smithy.api#documentation": "<p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a\n      function that has changed since you last read it.</p>"
+          }
+        },
+        "S3Bucket": {
+          "target": "com.amazonaws.lambda#S3Bucket",
+          "traits": {
+            "smithy.api#documentation": "<p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>"
           }
         },
         "Publish": {
@@ -6104,10 +6110,16 @@
             "smithy.api#documentation": "<p>Set to true to publish a new version of the function after updating the code. This has the same effect as\n      calling <a>PublishVersion</a> separately.</p>"
           }
         },
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
+        "S3Key": {
+          "target": "com.amazonaws.lambda#S3Key",
           "traits": {
-            "smithy.api#documentation": "<p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a\n      function that has changed since you last read it.</p>"
+            "smithy.api#documentation": "<p>The Amazon S3 key of the deployment package.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.lambda#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to true to validate the request parameters and access permissions without modifying the function\n      code.</p>"
           }
         },
         "ZipFile": {
@@ -6124,22 +6136,10 @@
             "smithy.api#required": {}
           }
         },
-        "DryRun": {
-          "target": "com.amazonaws.lambda#Boolean",
+        "S3ObjectVersion": {
+          "target": "com.amazonaws.lambda#S3ObjectVersion",
           "traits": {
-            "smithy.api#documentation": "<p>Set to true to validate the request parameters and access permissions without modifying the function\n      code.</p>"
-          }
-        },
-        "S3Bucket": {
-          "target": "com.amazonaws.lambda#S3Bucket",
-          "traits": {
-            "smithy.api#documentation": "<p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>"
-          }
-        },
-        "S3Key": {
-          "target": "com.amazonaws.lambda#S3Key",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon S3 key of the deployment package.</p>"
+            "smithy.api#documentation": "<p>For versioned objects, the version of the deployment package object to use.</p>"
           }
         }
       }
@@ -6184,16 +6184,10 @@
     "com.amazonaws.lambda#UpdateFunctionConfigurationRequest": {
       "type": "structure",
       "members": {
-        "MemorySize": {
-          "target": "com.amazonaws.lambda#MemorySize",
+        "Layers": {
+          "target": "com.amazonaws.lambda#LayerList",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU\n      allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>"
-          }
-        },
-        "RevisionId": {
-          "target": "com.amazonaws.lambda#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a\n      function that has changed since you last read it.</p>"
+            "smithy.api#documentation": "<p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">function layers</a>\n      to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>"
           }
         },
         "DeadLetterConfig": {
@@ -6202,10 +6196,16 @@
             "smithy.api#documentation": "<p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events\n      when they fail processing. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq\">Dead Letter Queues</a>.</p>"
           }
         },
-        "KMSKeyArn": {
-          "target": "com.amazonaws.lambda#KMSKeyArn",
+        "TracingConfig": {
+          "target": "com.amazonaws.lambda#TracingConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment\n      variables. If it's not provided, AWS Lambda uses a default service key.</p>"
+            "smithy.api#documentation": "<p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS\n      X-Ray.</p>"
+          }
+        },
+        "MemorySize": {
+          "target": "com.amazonaws.lambda#MemorySize",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU\n      allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>"
           }
         },
         "Timeout": {
@@ -6214,34 +6214,16 @@
             "smithy.api#documentation": "<p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The\n      maximum allowed value is 900 seconds.</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.lambda#Description",
+        "RevisionId": {
+          "target": "com.amazonaws.lambda#String",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the function.</p>"
-          }
-        },
-        "VpcConfig": {
-          "target": "com.amazonaws.lambda#VpcConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.\n      When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more\n      information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">VPC Settings</a>.</p>"
+            "smithy.api#documentation": "<p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a\n      function that has changed since you last read it.</p>"
           }
         },
         "Handler": {
           "target": "com.amazonaws.lambda#Handler",
           "traits": {
             "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>"
-          }
-        },
-        "FileSystemConfigs": {
-          "target": "com.amazonaws.lambda#FileSystemConfigList",
-          "traits": {
-            "smithy.api#documentation": "<p>Connection settings for an Amazon EFS file system.</p>"
-          }
-        },
-        "Role": {
-          "target": "com.amazonaws.lambda#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the function's execution role.</p>"
           }
         },
         "FunctionName": {
@@ -6252,16 +6234,10 @@
             "smithy.api#required": {}
           }
         },
-        "Environment": {
-          "target": "com.amazonaws.lambda#Environment",
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
           "traits": {
-            "smithy.api#documentation": "<p>Environment variables that are accessible from function code during execution.</p>"
-          }
-        },
-        "TracingConfig": {
-          "target": "com.amazonaws.lambda#TracingConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS\n      X-Ray.</p>"
+            "smithy.api#documentation": "<p>A description of the function.</p>"
           }
         },
         "Runtime": {
@@ -6270,10 +6246,34 @@
             "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>.</p>"
           }
         },
-        "Layers": {
-          "target": "com.amazonaws.lambda#LayerList",
+        "VpcConfig": {
+          "target": "com.amazonaws.lambda#VpcConfig",
           "traits": {
-            "smithy.api#documentation": "<p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">function layers</a>\n      to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>"
+            "smithy.api#documentation": "<p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.\n      When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more\n      information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">VPC Settings</a>.</p>"
+          }
+        },
+        "Environment": {
+          "target": "com.amazonaws.lambda#Environment",
+          "traits": {
+            "smithy.api#documentation": "<p>Environment variables that are accessible from function code during execution.</p>"
+          }
+        },
+        "KMSKeyArn": {
+          "target": "com.amazonaws.lambda#KMSKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment\n      variables. If it's not provided, AWS Lambda uses a default service key.</p>"
+          }
+        },
+        "Role": {
+          "target": "com.amazonaws.lambda#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the function's execution role.</p>"
+          }
+        },
+        "FileSystemConfigs": {
+          "target": "com.amazonaws.lambda#FileSystemConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>Connection settings for an Amazon EFS file system.</p>"
           }
         }
       }
@@ -6312,16 +6312,16 @@
     "com.amazonaws.lambda#UpdateFunctionEventInvokeConfigRequest": {
       "type": "structure",
       "members": {
-        "MaximumRetryAttempts": {
-          "target": "com.amazonaws.lambda#MaximumRetryAttempts",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of times to retry when the function returns an error.</p>"
-          }
-        },
         "DestinationConfig": {
           "target": "com.amazonaws.lambda#DestinationConfig",
           "traits": {
             "smithy.api#documentation": "<p>A destination for events after they have been sent to a function for processing.</p>\n         <p class=\"title\">\n            <b>Destinations</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Queue</b> - The ARN of an SQS queue.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Topic</b> - The ARN of an SNS topic.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "MaximumEventAgeInSeconds": {
+          "target": "com.amazonaws.lambda#MaximumEventAgeInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum age of a request that Lambda sends to a function for processing.</p>"
           }
         },
         "FunctionName": {
@@ -6332,17 +6332,17 @@
             "smithy.api#required": {}
           }
         },
+        "MaximumRetryAttempts": {
+          "target": "com.amazonaws.lambda#MaximumRetryAttempts",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of times to retry when the function returns an error.</p>"
+          }
+        },
         "Qualifier": {
           "target": "com.amazonaws.lambda#Qualifier",
           "traits": {
             "smithy.api#documentation": "<p>A version number or alias name.</p>",
             "smithy.api#httpQuery": "Qualifier"
-          }
-        },
-        "MaximumEventAgeInSeconds": {
-          "target": "com.amazonaws.lambda#MaximumEventAgeInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum age of a request that Lambda sends to a function for processing.</p>"
           }
         }
       }
@@ -6386,16 +6386,16 @@
             "smithy.api#documentation": "<p>A list of VPC subnet IDs.</p>"
           }
         },
-        "SecurityGroupIds": {
-          "target": "com.amazonaws.lambda#SecurityGroupIds",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of VPC security groups IDs.</p>"
-          }
-        },
         "VpcId": {
           "target": "com.amazonaws.lambda#VpcId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the VPC.</p>"
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.lambda#SecurityGroupIds",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of VPC security groups IDs.</p>"
           }
         }
       },

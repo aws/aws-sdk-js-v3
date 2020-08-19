@@ -38,12 +38,6 @@
     "com.amazonaws.opsworkscm#AccountAttribute": {
       "type": "structure",
       "members": {
-        "Used": {
-          "target": "com.amazonaws.opsworkscm#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The current usage, such as the current number of servers that are associated with the account.\n    </p>"
-          }
-        },
         "Maximum": {
           "target": "com.amazonaws.opsworkscm#Integer",
           "traits": {
@@ -54,6 +48,12 @@
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>\n      The attribute name. The following are supported attribute names.\n    </p>\n         <ul>\n            <li>\n               <p>\n                  <i>ServerLimit:</i> The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <i>ManualBackupLimit:</i> The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum \n        of 50 manual backups saved.\n      </p>\n            </li>\n         </ul>"
+          }
+        },
+        "Used": {
+          "target": "com.amazonaws.opsworkscm#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The current usage, such as the current number of servers that are associated with the account.\n    </p>"
           }
         }
       },
@@ -96,6 +96,13 @@
     "com.amazonaws.opsworkscm#AssociateNodeRequest": {
       "type": "structure",
       "members": {
+        "EngineAttributes": {
+          "target": "com.amazonaws.opsworkscm#EngineAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Engine attributes used for associating the node.\n    </p>\n         <p class=\"title\">\n            <b>Attributes accepted in a AssociateNode request for Chef</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>CHEF_ORGANIZATION</code>: The Chef organization\n          with which the node is associated. By default only one organization\n          named <code>default</code> can exist.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <code>CHEF_NODE_PUBLIC_KEY</code>: A PEM-formatted public key. This key is required for the <code>chef-client</code> agent to access the Chef API.\n    </p>\n            </li>\n         </ul>\n         <p class=\"title\">\n            <b>Attributes accepted in a AssociateNode request for Puppet</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>PUPPET_NODE_CSR</code>: A PEM-formatted certificate-signing request (CSR) that is created by the node.\n    </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
         "NodeName": {
           "target": "com.amazonaws.opsworkscm#NodeName",
           "traits": {
@@ -107,13 +114,6 @@
           "target": "com.amazonaws.opsworkscm#ServerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the server with which to associate the node.\n    </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EngineAttributes": {
-          "target": "com.amazonaws.opsworkscm#EngineAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>Engine attributes used for associating the node.\n    </p>\n         <p class=\"title\">\n            <b>Attributes accepted in a AssociateNode request for Chef</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>CHEF_ORGANIZATION</code>: The Chef organization\n          with which the node is associated. By default only one organization\n          named <code>default</code> can exist.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <code>CHEF_NODE_PUBLIC_KEY</code>: A PEM-formatted public key. This key is required for the <code>chef-client</code> agent to access the Chef API.\n    </p>\n            </li>\n         </ul>\n         <p class=\"title\">\n            <b>Attributes accepted in a AssociateNode request for Puppet</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>PUPPET_NODE_CSR</code>: A PEM-formatted certificate-signing request (CSR) that is created by the node.\n    </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -153,28 +153,40 @@
     "com.amazonaws.opsworkscm#Backup": {
       "type": "structure",
       "members": {
+        "StatusDescription": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      An informational message about backup status.\n    </p>"
+          }
+        },
+        "S3LogUrl": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The Amazon S3 URL of the backup's log file.\n    </p>"
+          }
+        },
+        "BackupType": {
+          "target": "com.amazonaws.opsworkscm#BackupType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The backup type. Valid values are <code>automated</code> or <code>manual</code>.\n    </p>"
+          }
+        },
         "Engine": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>\n      The engine type that is obtained from the server when the backup is created.\n    </p>"
           }
         },
-        "BackupId": {
-          "target": "com.amazonaws.opsworkscm#BackupId",
+        "ServerName": {
+          "target": "com.amazonaws.opsworkscm#ServerName",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The generated ID of the backup. Example: <code>myServerName-yyyyMMddHHmmssSSS</code>\n         </p>"
+            "smithy.api#documentation": "<p>\n      The name of the server from which the backup was made.\n    </p>"
           }
         },
-        "SubnetIds": {
-          "target": "com.amazonaws.opsworkscm#Strings",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The subnet IDs that are obtained from the server when the backup is created.\n    </p>"
-          }
-        },
-        "EngineVersion": {
+        "InstanceType": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The engine version that is obtained from the server when the backup is created.\n    </p>"
+            "smithy.api#documentation": "<p>\n      The instance type that is obtained from the server when the backup is created.\n    </p>"
           }
         },
         "Status": {
@@ -189,40 +201,29 @@
             "smithy.api#documentation": "<p>\n      The IAM user ARN of the requester for manual backups. This field is empty for automated backups.\n    </p>"
           }
         },
-        "InstanceProfileArn": {
-          "target": "com.amazonaws.opsworkscm#String",
+        "CreatedAt": {
+          "target": "com.amazonaws.opsworkscm#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The EC2 instance profile ARN that is obtained from the server when the backup is created. Because this value is stored,\n      you are not required to provide the InstanceProfileArn again if you restore a backup.\n    </p>"
+            "smithy.api#documentation": "<p>\n      The time stamp when the backup was created in the database. Example: <code>2016-07-29T13:38:47.520Z</code>\n         </p>"
           }
         },
-        "S3LogUrl": {
-          "target": "com.amazonaws.opsworkscm#String",
+        "S3DataSize": {
+          "target": "com.amazonaws.opsworkscm#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The Amazon S3 URL of the backup's log file.\n    </p>"
-          }
-        },
-        "SecurityGroupIds": {
-          "target": "com.amazonaws.opsworkscm#Strings",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The security group IDs that are obtained from the server when the backup is created.\n    </p>"
-          }
-        },
-        "StatusDescription": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      An informational message about backup status.\n    </p>"
-          }
-        },
-        "ServerName": {
-          "target": "com.amazonaws.opsworkscm#ServerName",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The name of the server from which the backup was made.\n    </p>"
+            "smithy.api#deprecated": {},
+            "smithy.api#documentation": "<p>\n      This field is deprecated and is no longer used.\n    </p>"
           }
         },
         "ServiceRoleArn": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>\n      The service role ARN that is obtained from the server when the backup is created.\n    </p>"
+          }
+        },
+        "InstanceProfileArn": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The EC2 instance profile ARN that is obtained from the server when the backup is created. Because this value is stored,\n      you are not required to provide the InstanceProfileArn again if you restore a backup.\n    </p>"
           }
         },
         "S3DataUrl": {
@@ -232,10 +233,58 @@
             "smithy.api#documentation": "<p>\n      This field is deprecated and is no longer used.\n    </p>"
           }
         },
+        "EngineVersion": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The engine version that is obtained from the server when the backup is created.\n    </p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A user-provided description for a manual backup. This field is empty for automated backups.\n    </p>"
+          }
+        },
+        "ToolsVersion": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The version of AWS OpsWorks CM-specific tools that is obtained from the server when the backup is created.\n    </p>"
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.opsworkscm#Strings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The security group IDs that are obtained from the server when the backup is created.\n    </p>"
+          }
+        },
         "PreferredMaintenanceWindow": {
           "target": "com.amazonaws.opsworkscm#TimeWindowDefinition",
           "traits": {
             "smithy.api#documentation": "<p>\n      The preferred maintenance period that is obtained from the server when the backup is created.\n    </p>"
+          }
+        },
+        "PreferredBackupWindow": {
+          "target": "com.amazonaws.opsworkscm#TimeWindowDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The preferred backup period that is obtained from the server when the backup is created.\n    </p>"
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.opsworkscm#Strings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The subnet IDs that are obtained from the server when the backup is created.\n    </p>"
+          }
+        },
+        "BackupId": {
+          "target": "com.amazonaws.opsworkscm#BackupId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The generated ID of the backup. Example: <code>myServerName-yyyyMMddHHmmssSSS</code>\n         </p>"
+          }
+        },
+        "BackupArn": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the backup.\n    </p>"
           }
         },
         "EngineModel": {
@@ -248,55 +297,6 @@
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>\n      The key pair that is obtained from the server when the backup is created.\n    </p>"
-          }
-        },
-        "InstanceType": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The instance type that is obtained from the server when the backup is created.\n    </p>"
-          }
-        },
-        "PreferredBackupWindow": {
-          "target": "com.amazonaws.opsworkscm#TimeWindowDefinition",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The preferred backup period that is obtained from the server when the backup is created.\n    </p>"
-          }
-        },
-        "BackupType": {
-          "target": "com.amazonaws.opsworkscm#BackupType",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The backup type. Valid values are <code>automated</code> or <code>manual</code>.\n    </p>"
-          }
-        },
-        "BackupArn": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the backup.\n    </p>"
-          }
-        },
-        "ToolsVersion": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The version of AWS OpsWorks CM-specific tools that is obtained from the server when the backup is created.\n    </p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      A user-provided description for a manual backup. This field is empty for automated backups.\n    </p>"
-          }
-        },
-        "CreatedAt": {
-          "target": "com.amazonaws.opsworkscm#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The time stamp when the backup was created in the database. Example: <code>2016-07-29T13:38:47.520Z</code>\n         </p>"
-          }
-        },
-        "S3DataSize": {
-          "target": "com.amazonaws.opsworkscm#Integer",
-          "traits": {
-            "smithy.api#deprecated": {},
-            "smithy.api#documentation": "<p>\n      This field is deprecated and is no longer used.\n    </p>"
           }
         }
       },
@@ -402,6 +402,12 @@
     "com.amazonaws.opsworkscm#CreateBackupRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.opsworkscm#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.</p>\n         <ul>\n            <li>\n               <p>The key cannot be empty.</p>\n            </li>\n            <li>\n               <p>The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n               </p>\n            </li>\n            <li>\n               <p>The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n               </p>\n            </li>\n            <li>\n               <p>Leading and trailing white spaces are trimmed from both the key and value.</p>\n            </li>\n            <li>\n               <p>A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>\n            </li>\n         </ul>"
+          }
+        },
         "ServerName": {
           "target": "com.amazonaws.opsworkscm#ServerName",
           "traits": {
@@ -413,12 +419,6 @@
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>\n      A user-defined description of the backup.\n    </p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.opsworkscm#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.</p>\n         <ul>\n            <li>\n               <p>The key cannot be empty.</p>\n            </li>\n            <li>\n               <p>The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n               </p>\n            </li>\n            <li>\n               <p>The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n               </p>\n            </li>\n            <li>\n               <p>Leading and trailing white spaces are trimmed from both the key and value.</p>\n            </li>\n            <li>\n               <p>A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -463,11 +463,10 @@
     "com.amazonaws.opsworkscm#CreateServerRequest": {
       "type": "structure",
       "members": {
-        "Engine": {
-          "target": "com.amazonaws.opsworkscm#String",
+        "BackupId": {
+          "target": "com.amazonaws.opsworkscm#BackupId",
           "traits": {
-            "smithy.api#documentation": "<p>\n        The configuration management engine to use. Valid values include <code>ChefAutomate</code> and <code>Puppet</code>.\n      </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>\n      If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.\n    </p>"
           }
         },
         "InstanceProfileArn": {
@@ -477,64 +476,10 @@
             "smithy.api#required": {}
           }
         },
-        "BackupRetentionCount": {
-          "target": "com.amazonaws.opsworkscm#BackupRetentionCountDefinition",
-          "traits": {
-            "smithy.api#documentation": "<p>\n        The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded.\n        The default value is <code>1</code>.\n      </p>"
-          }
-        },
-        "SecurityGroupIds": {
-          "target": "com.amazonaws.opsworkscm#Strings",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups\n      must be within the VPC that is specified by <code>SubnetIds</code>.\n    </p>\n         <p>\n      If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to\n      0.0.0.0/0 (everyone).\n    </p>"
-          }
-        },
-        "EngineVersion": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>\n        The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.\n      </p>"
-          }
-        },
-        "KeyPair": {
-          "target": "com.amazonaws.opsworkscm#KeyPair",
-          "traits": {
-            "smithy.api#documentation": "<p>\n        The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.\n      </p>"
-          }
-        },
-        "DisableAutomatedBackup": {
-          "target": "com.amazonaws.opsworkscm#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\n        Enable or disable scheduled backups. Valid values are <code>true</code> or <code>false</code>. The default value is <code>true</code>.\n      </p>"
-          }
-        },
-        "AssociatePublicIpAddress": {
-          "target": "com.amazonaws.opsworkscm#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\n        Associate a public IP address with a server that you are launching. Valid values are <code>true</code> or <code>false</code>. The default value is <code>true</code>.\n      </p>"
-          }
-        },
-        "CustomCertificate": {
-          "target": "com.amazonaws.opsworkscm#CustomCertificate",
-          "traits": {
-            "smithy.api#documentation": "<p>A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a \n      custom certificate, you must also specify values for <code>CustomDomain</code> and <code>CustomPrivateKey</code>. The following are requirements for the <code>CustomCertificate</code> value:</p>\n         <ul>\n            <li>\n               <p>You can provide either a self-signed, custom certificate, or the full certificate chain.</p>\n            </li>\n            <li>\n               <p>The certificate must be a valid X509 certificate, or a certificate chain in PEM format.</p>\n            </li>\n            <li>\n               <p>The certificate must be valid at the time of upload. A certificate can't be used before its validity period begins (the certificate's <code>NotBefore</code> date), or after it expires \n        (the certificate's <code>NotAfter</code> date).</p>\n            </li>\n            <li>\n               <p>The certificate’s common name or subject alternative names (SANs), if present, must match the value of <code>CustomDomain</code>.</p>\n            </li>\n            <li>\n               <p>The certificate must match the value of <code>CustomPrivateKey</code>.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "BackupId": {
-          "target": "com.amazonaws.opsworkscm#BackupId",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.\n    </p>"
-          }
-        },
         "PreferredBackupWindow": {
           "target": "com.amazonaws.opsworkscm#TimeWindowDefinition",
           "traits": {
             "smithy.api#documentation": "<p>\n      The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server\n      if automated backups are enabled. Valid values must be specified in one of the following formats:\n    </p>\n         <ul>\n            <li>\n               <p>\n                  <code>HH:MM</code> for daily backups</p>\n            </li>\n            <li>\n               <p>\n                  <code>DDD:HH:MM</code> for weekly backups</p>\n            </li>\n         </ul>\n         <p>\n            <code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.</p>\n         <p>\n            <b>Example:</b> \n            <code>08:00</code>, which represents a daily start time of 08:00 UTC.</p>\n         <p>\n            <b>Example:</b> \n            <code>Mon:08:00</code>, which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)</p>"
-          }
-        },
-        "SubnetIds": {
-          "target": "com.amazonaws.opsworkscm#Strings",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The IDs of subnets in which to launch the server EC2 instance.\n    </p>\n         <p>\n      Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have \"Auto Assign Public IP\" enabled.\n    </p>\n         <p>\n      EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have \"Auto Assign Public IP\" enabled.\n    </p>\n         <p>For more information about supported Amazon EC2 platforms, see\n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html\">Supported Platforms</a>.</p>"
           }
         },
         "ServerName": {
@@ -544,16 +489,10 @@
             "smithy.api#required": {}
           }
         },
-        "PreferredMaintenanceWindow": {
-          "target": "com.amazonaws.opsworkscm#TimeWindowDefinition",
+        "SubnetIds": {
+          "target": "com.amazonaws.opsworkscm#Strings",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance.\n      Valid values must be specified in the following format: <code>DDD:HH:MM</code>. <code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated universal time (UTC).\n      The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See <code>TimeWindowDefinition</code> for more information.\n    </p>\n         <p>\n            <b>Example:</b>\n            <code>Mon:08:00</code>,\n      which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)\n    </p>"
-          }
-        },
-        "EngineModel": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>\n        The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.\n      </p>"
+            "smithy.api#documentation": "<p>\n      The IDs of subnets in which to launch the server EC2 instance.\n    </p>\n         <p>\n      Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have \"Auto Assign Public IP\" enabled.\n    </p>\n         <p>\n      EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have \"Auto Assign Public IP\" enabled.\n    </p>\n         <p>For more information about supported Amazon EC2 platforms, see\n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html\">Supported Platforms</a>.</p>"
           }
         },
         "CustomPrivateKey": {
@@ -562,10 +501,41 @@
             "smithy.api#documentation": "<p>A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. \n      If you specify a custom private key, you must also specify values for <code>CustomDomain</code> and <code>CustomCertificate</code>.</p>"
           }
         },
-        "EngineAttributes": {
-          "target": "com.amazonaws.opsworkscm#EngineAttributes",
+        "PreferredMaintenanceWindow": {
+          "target": "com.amazonaws.opsworkscm#TimeWindowDefinition",
           "traits": {
-            "smithy.api#documentation": "<p>Optional engine attributes on a specified server.\n    </p>\n         <p class=\"title\">\n            <b>Attributes accepted in a Chef createServer request:</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>CHEF_AUTOMATE_PIVOTAL_KEY</code>: A\n      base64-encoded RSA public key. The corresponding private key is required to\n      access the Chef API. When no CHEF_AUTOMATE_PIVOTAL_KEY is set, a private key is\n      generated and returned in the response.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <code>CHEF_AUTOMATE_ADMIN_PASSWORD</code>:\n      The password for the administrative user in the Chef Automate web-based dashboard. The\n      password length is a minimum of eight characters, and a maximum of 32. The\n      password can contain letters, numbers, and special characters\n      (!/@#$%^&+=_). The password must contain at least one lower case letter, one upper\n      case letter, one number, and one special character. When no CHEF_AUTOMATE_ADMIN_PASSWORD is set, one is\n      generated and returned in the response.</p>\n            </li>\n         </ul>\n         <p class=\"title\">\n            <b>Attributes accepted in a Puppet createServer request:</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>PUPPET_ADMIN_PASSWORD</code>: To work with the Puppet Enterprise console, a password must use ASCII characters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PUPPET_R10K_REMOTE</code>: The r10k remote is the URL of your control repository \n        (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PUPPET_R10K_PRIVATE_KEY</code>: If you are using a private Git repository, add \n        PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>\n      The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance.\n      Valid values must be specified in the following format: <code>DDD:HH:MM</code>. <code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated universal time (UTC).\n      The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See <code>TimeWindowDefinition</code> for more information.\n    </p>\n         <p>\n            <b>Example:</b>\n            <code>Mon:08:00</code>,\n      which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)\n    </p>"
+          }
+        },
+        "EngineVersion": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.\n      </p>"
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.opsworkscm#Strings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups\n      must be within the VPC that is specified by <code>SubnetIds</code>.\n    </p>\n         <p>\n      If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to\n      0.0.0.0/0 (everyone).\n    </p>"
+          }
+        },
+        "CustomCertificate": {
+          "target": "com.amazonaws.opsworkscm#CustomCertificate",
+          "traits": {
+            "smithy.api#documentation": "<p>A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a \n      custom certificate, you must also specify values for <code>CustomDomain</code> and <code>CustomPrivateKey</code>. The following are requirements for the <code>CustomCertificate</code> value:</p>\n         <ul>\n            <li>\n               <p>You can provide either a self-signed, custom certificate, or the full certificate chain.</p>\n            </li>\n            <li>\n               <p>The certificate must be a valid X509 certificate, or a certificate chain in PEM format.</p>\n            </li>\n            <li>\n               <p>The certificate must be valid at the time of upload. A certificate can't be used before its validity period begins (the certificate's <code>NotBefore</code> date), or after it expires \n        (the certificate's <code>NotAfter</code> date).</p>\n            </li>\n            <li>\n               <p>The certificate’s common name or subject alternative names (SANs), if present, must match the value of <code>CustomDomain</code>.</p>\n            </li>\n            <li>\n               <p>The certificate must match the value of <code>CustomPrivateKey</code>.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "InstanceType": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        The Amazon EC2 instance type to use. For example, <code>m5.large</code>.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DisableAutomatedBackup": {
+          "target": "com.amazonaws.opsworkscm#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        Enable or disable scheduled backups. Valid values are <code>true</code> or <code>false</code>. The default value is <code>true</code>.\n      </p>"
           }
         },
         "ServiceRoleArn": {
@@ -575,10 +545,22 @@
             "smithy.api#required": {}
           }
         },
-        "CustomDomain": {
-          "target": "com.amazonaws.opsworkscm#CustomDomain",
+        "AssociatePublicIpAddress": {
+          "target": "com.amazonaws.opsworkscm#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>. To access the server, create a CNAME DNS record in your preferred DNS service that points the custom \n      domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the \n      generated <code>Endpoint</code> value if the server is using a custom domain. If you specify a custom domain, you must also specify values for <code>CustomCertificate</code> \n      and <code>CustomPrivateKey</code>.</p>"
+            "smithy.api#documentation": "<p>\n        Associate a public IP address with a server that you are launching. Valid values are <code>true</code> or <code>false</code>. The default value is <code>true</code>.\n      </p>"
+          }
+        },
+        "EngineModel": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.\n      </p>"
+          }
+        },
+        "KeyPair": {
+          "target": "com.amazonaws.opsworkscm#KeyPair",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.\n      </p>"
           }
         },
         "Tags": {
@@ -587,11 +569,29 @@
             "smithy.api#documentation": "<p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server.</p>\n         <ul>\n            <li>\n               <p>The key cannot be empty.</p>\n            </li>\n            <li>\n               <p>The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : / @</code>\n               </p>\n            </li>\n            <li>\n               <p>The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : / @</code>\n               </p>\n            </li>\n            <li>\n               <p>Leading and trailing white spaces are trimmed from both the key and value.</p>\n            </li>\n            <li>\n               <p>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server.</p>\n            </li>\n         </ul>"
           }
         },
-        "InstanceType": {
+        "CustomDomain": {
+          "target": "com.amazonaws.opsworkscm#CustomDomain",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>. To access the server, create a CNAME DNS record in your preferred DNS service that points the custom \n      domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the \n      generated <code>Endpoint</code> value if the server is using a custom domain. If you specify a custom domain, you must also specify values for <code>CustomCertificate</code> \n      and <code>CustomPrivateKey</code>.</p>"
+          }
+        },
+        "EngineAttributes": {
+          "target": "com.amazonaws.opsworkscm#EngineAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional engine attributes on a specified server.\n    </p>\n         <p class=\"title\">\n            <b>Attributes accepted in a Chef createServer request:</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>CHEF_AUTOMATE_PIVOTAL_KEY</code>: A\n      base64-encoded RSA public key. The corresponding private key is required to\n      access the Chef API. When no CHEF_AUTOMATE_PIVOTAL_KEY is set, a private key is\n      generated and returned in the response.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <code>CHEF_AUTOMATE_ADMIN_PASSWORD</code>:\n      The password for the administrative user in the Chef Automate web-based dashboard. The\n      password length is a minimum of eight characters, and a maximum of 32. The\n      password can contain letters, numbers, and special characters\n      (!/@#$%^&+=_). The password must contain at least one lower case letter, one upper\n      case letter, one number, and one special character. When no CHEF_AUTOMATE_ADMIN_PASSWORD is set, one is\n      generated and returned in the response.</p>\n            </li>\n         </ul>\n         <p class=\"title\">\n            <b>Attributes accepted in a Puppet createServer request:</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>PUPPET_ADMIN_PASSWORD</code>: To work with the Puppet Enterprise console, a password must use ASCII characters.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PUPPET_R10K_REMOTE</code>: The r10k remote is the URL of your control repository \n        (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PUPPET_R10K_PRIVATE_KEY</code>: If you are using a private Git repository, add \n        PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Engine": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
-            "smithy.api#documentation": "<p>\n        The Amazon EC2 instance type to use. For example, <code>m5.large</code>.\n      </p>",
+            "smithy.api#documentation": "<p>\n        The configuration management engine to use. Valid values include <code>ChefAutomate</code> and <code>Puppet</code>.\n      </p>",
             "smithy.api#required": {}
+          }
+        },
+        "BackupRetentionCount": {
+          "target": "com.amazonaws.opsworkscm#BackupRetentionCountDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded.\n        The default value is <code>1</code>.\n      </p>"
           }
         }
       }
@@ -775,22 +775,16 @@
     "com.amazonaws.opsworkscm#DescribeBackupsRequest": {
       "type": "structure",
       "members": {
-        "BackupId": {
-          "target": "com.amazonaws.opsworkscm#BackupId",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes a single backup.\n    </p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.opsworkscm#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.opsworkscm#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>"
+          }
+        },
+        "BackupId": {
+          "target": "com.amazonaws.opsworkscm#BackupId",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes a single backup.\n    </p>"
           }
         },
         "ServerName": {
@@ -798,22 +792,28 @@
           "traits": {
             "smithy.api#documentation": "<p>Returns backups for the server with the specified ServerName.\n    </p>"
           }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.opsworkscm#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>"
+          }
         }
       }
     },
     "com.amazonaws.opsworkscm#DescribeBackupsResponse": {
       "type": "structure",
       "members": {
-        "Backups": {
-          "target": "com.amazonaws.opsworkscm#Backups",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains the response to a <code>DescribeBackups</code> request.\n    </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>"
+          }
+        },
+        "Backups": {
+          "target": "com.amazonaws.opsworkscm#Backups",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the response to a <code>DescribeBackups</code> request.\n    </p>"
           }
         }
       }
@@ -850,12 +850,6 @@
     "com.amazonaws.opsworkscm#DescribeEventsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.opsworkscm#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>To receive a paginated response, use this parameter to specify the maximum number\n      of results to be returned with a single call. If the number of available results exceeds\n      this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>\n      request parameter to get the next set of results.\n    </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.opsworkscm#NextToken",
           "traits": {
@@ -867,6 +861,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the server for which you want to view events.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.opsworkscm#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>To receive a paginated response, use this parameter to specify the maximum number\n      of results to be returned with a single call. If the number of available results exceeds\n      this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>\n      request parameter to get the next set of results.\n    </p>"
           }
         }
       }
@@ -911,17 +911,17 @@
     "com.amazonaws.opsworkscm#DescribeNodeAssociationStatusRequest": {
       "type": "structure",
       "members": {
-        "ServerName": {
-          "target": "com.amazonaws.opsworkscm#ServerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the server from which to disassociate the node.\n    </p>",
-            "smithy.api#required": {}
-          }
-        },
         "NodeAssociationStatusToken": {
           "target": "com.amazonaws.opsworkscm#NodeAssociationStatusToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ServerName": {
+          "target": "com.amazonaws.opsworkscm#ServerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the server from which to disassociate the node.\n    </p>",
             "smithy.api#required": {}
           }
         }
@@ -930,16 +930,16 @@
     "com.amazonaws.opsworkscm#DescribeNodeAssociationStatusResponse": {
       "type": "structure",
       "members": {
-        "NodeAssociationStatus": {
-          "target": "com.amazonaws.opsworkscm#NodeAssociationStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the association or disassociation request.\n    </p>\n         <p class=\"title\">\n            <b>Possible values:</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>SUCCESS</code>: The association or disassociation succeeded.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code>: The association or disassociation failed.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code>: The association or disassociation is still in progress.\n      </p>\n            </li>\n         </ul>"
-          }
-        },
         "EngineAttributes": {
           "target": "com.amazonaws.opsworkscm#EngineAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Attributes specific to the node association. \n      In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).\n    </p>"
+          }
+        },
+        "NodeAssociationStatus": {
+          "target": "com.amazonaws.opsworkscm#NodeAssociationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the association or disassociation request.\n    </p>\n         <p class=\"title\">\n            <b>Possible values:</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>SUCCESS</code>: The association or disassociation succeeded.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code>: The association or disassociation failed.\n      </p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code>: The association or disassociation is still in progress.\n      </p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -982,14 +982,14 @@
             "smithy.api#documentation": "<p>Describes the server with the specified ServerName.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.opsworkscm#NextToken",
+        "MaxResults": {
+          "target": "com.amazonaws.opsworkscm#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>This is not currently implemented for <code>DescribeServers</code> requests.\n    </p>"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.opsworkscm#MaxResults",
+        "NextToken": {
+          "target": "com.amazonaws.opsworkscm#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>This is not currently implemented for <code>DescribeServers</code> requests.\n    </p>"
           }
@@ -1039,12 +1039,6 @@
     "com.amazonaws.opsworkscm#DisassociateNodeRequest": {
       "type": "structure",
       "members": {
-        "EngineAttributes": {
-          "target": "com.amazonaws.opsworkscm#EngineAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>Engine attributes that are used for disassociating the node. No attributes are required for Puppet.\n    </p>\n         <p class=\"title\">\n            <b>Attributes required in a DisassociateNode request for Chef</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>CHEF_ORGANIZATION</code>: The Chef organization\n          with which the node was associated. By default only one organization\n          named <code>default</code> can exist.\n      </p>\n            </li>\n         </ul>"
-          }
-        },
         "ServerName": {
           "target": "com.amazonaws.opsworkscm#ServerName",
           "traits": {
@@ -1057,6 +1051,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the client node.\n    </p>",
             "smithy.api#required": {}
+          }
+        },
+        "EngineAttributes": {
+          "target": "com.amazonaws.opsworkscm#EngineAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Engine attributes that are used for disassociating the node. No attributes are required for Puppet.\n    </p>\n         <p class=\"title\">\n            <b>Attributes required in a DisassociateNode request for Chef</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>CHEF_ORGANIZATION</code>: The Chef organization\n          with which the node was associated. By default only one organization\n          named <code>default</code> can exist.\n      </p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -1145,17 +1145,17 @@
     "com.amazonaws.opsworkscm#ExportServerEngineAttributeRequest": {
       "type": "structure",
       "members": {
-        "ServerName": {
-          "target": "com.amazonaws.opsworkscm#ServerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the server from which you are exporting the attribute.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ExportAttributeName": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the export attribute. Currently, the supported export attribute is <code>Userdata</code>. \n      This exports a user data script that includes parameters and values provided in the <code>InputAttributes</code> list.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ServerName": {
+          "target": "com.amazonaws.opsworkscm#ServerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the server from which you are exporting the attribute.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1290,17 +1290,17 @@
             "smithy.api#documentation": "<p>NextToken is a string that is returned in some command responses. It indicates that\n        not all entries have been returned, and that you must run at least one more request to get remaining\n        items. To get remaining results, call <code>ListTagsForResource</code> again, and assign the token from the previous\n        results as the value of the <code>nextToken</code> parameter. If there are no more results,\n        the response object's <code>nextToken</code> parameter value is <code>null</code>.\n        Setting a <code>nextToken</code> value that was not returned in\n        your previous results causes an <code>InvalidNextTokenException</code> to occur.</p>"
           }
         },
+        "MaxResults": {
+          "target": "com.amazonaws.opsworkscm#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>To receive a paginated response, use this parameter to specify the maximum number\n        of results to be returned with a single call. If the number of available results exceeds\n        this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>\n        request parameter to get the next set of results.</p>"
+          }
+        },
         "ResourceArn": {
           "target": "com.amazonaws.opsworkscm#AWSOpsWorksCMResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server for which you want to show applied tags. For example, \n        <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.opsworkscm#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>To receive a paginated response, use this parameter to specify the maximum number\n        of results to be returned with a single call. If the number of available results exceeds\n        this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>\n        request parameter to get the next set of results.</p>"
           }
         }
       }
@@ -1533,6 +1533,18 @@
     "com.amazonaws.opsworkscm#RestoreServerRequest": {
       "type": "structure",
       "members": {
+        "InstanceType": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p> The type of instance to restore. Valid values must be specified in the following format: <code>^([cm][34]|t2).*</code>\n      For example, <code>m5.large</code>. Valid values are <code>m5.large</code>, <code>r5.xlarge</code>, and <code>r5.2xlarge</code>. If you do not specify this parameter,\n      RestoreServer uses the instance type from the specified backup.\n    </p>"
+          }
+        },
+        "KeyPair": {
+          "target": "com.amazonaws.opsworkscm#KeyPair",
+          "traits": {
+            "smithy.api#documentation": "<p> The name of the key pair to set on the new EC2 instance. This can be helpful\n      if the administrator no longer has the SSH key.\n    </p>"
+          }
+        },
         "ServerName": {
           "target": "com.amazonaws.opsworkscm#ServerName",
           "traits": {
@@ -1546,18 +1558,6 @@
             "smithy.api#documentation": "<p> The ID of the backup that you want to use to restore a server.\n    </p>",
             "smithy.api#required": {}
           }
-        },
-        "InstanceType": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p> The type of instance to restore. Valid values must be specified in the following format: <code>^([cm][34]|t2).*</code>\n      For example, <code>m5.large</code>. Valid values are <code>m5.large</code>, <code>r5.xlarge</code>, and <code>r5.2xlarge</code>. If you do not specify this parameter,\n      RestoreServer uses the instance type from the specified backup.\n    </p>"
-          }
-        },
-        "KeyPair": {
-          "target": "com.amazonaws.opsworkscm#KeyPair",
-          "traits": {
-            "smithy.api#documentation": "<p> The name of the key pair to set on the new EC2 instance. This can be helpful\n      if the administrator no longer has the SSH key.\n    </p>"
-          }
         }
       }
     },
@@ -1568,10 +1568,28 @@
     "com.amazonaws.opsworkscm#Server": {
       "type": "structure",
       "members": {
-        "PreferredBackupWindow": {
-          "target": "com.amazonaws.opsworkscm#TimeWindowDefinition",
+        "AssociatePublicIpAddress": {
+          "target": "com.amazonaws.opsworkscm#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The preferred backup period specified for the server.\n    </p>"
+            "smithy.api#documentation": "<p>Associate a public IP address with a server that you are launching.\n    </p>"
+          }
+        },
+        "ServiceRoleArn": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The service role ARN used to create the server.\n    </p>"
+          }
+        },
+        "InstanceType": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type that is shown in the EC2 console.\n    </p>"
+          }
+        },
+        "EngineAttributes": {
+          "target": "com.amazonaws.opsworkscm#EngineAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>The response of a createServer() request returns the master\n    credential to access the server in EngineAttributes. These\n    credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().\n    </p>\n         <p class=\"title\">\n            <b>Attributes returned in a createServer response for Chef</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>CHEF_AUTOMATE_PIVOTAL_KEY</code>: A base64-encoded RSA private key that is\n      generated by AWS OpsWorks for Chef Automate. This private key is required to access\n      the Chef API.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CHEF_STARTER_KIT</code>: A base64-encoded ZIP file.\n      The ZIP file contains a Chef starter kit, which includes a README, a\n      configuration file, and the required RSA private key. Save this file, unzip it,\n      and then change to the directory where you've unzipped the file contents.\n      From this directory, you can run Knife commands.</p>\n            </li>\n         </ul>\n         <p class=\"title\">\n            <b>Attributes returned in a createServer response for Puppet</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>PUPPET_STARTER_KIT</code>: A base64-encoded ZIP file.\n        The ZIP file contains a Puppet starter kit, including a README and a\n        required private key. Save this file, unzip it,\n        and then change to the directory where you've unzipped the file contents.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PUPPET_ADMIN_PASSWORD</code>: An administrator password that you can use to sign in to the Puppet Enterprise console after the server is online.</p>\n            </li>\n         </ul>"
           }
         },
         "PreferredMaintenanceWindow": {
@@ -1580,28 +1598,28 @@
             "smithy.api#documentation": "<p>The preferred maintenance period specified for the server.\n    </p>"
           }
         },
-        "EngineModel": {
+        "InstanceProfileArn": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
-            "smithy.api#documentation": "<p>The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.\n    </p>"
+            "smithy.api#documentation": "<p>The instance profile ARN of the server.\n    </p>"
           }
         },
-        "Endpoint": {
-          "target": "com.amazonaws.opsworkscm#String",
+        "SubnetIds": {
+          "target": "com.amazonaws.opsworkscm#Strings",
           "traits": {
-            "smithy.api#documentation": "<p>\n      A DNS name that can be used to access the engine. Example: <code>myserver-asdfghjkl.us-east-1.opsworks.io</code>. \n      You cannot access the server by using the <code>Endpoint</code> value if the server has a <code>CustomDomain</code> specified.\n    </p>"
+            "smithy.api#documentation": "<p>\n      The subnet IDs specified in a CreateServer request.\n    </p>"
           }
         },
-        "ServerName": {
-          "target": "com.amazonaws.opsworkscm#String",
+        "PreferredBackupWindow": {
+          "target": "com.amazonaws.opsworkscm#TimeWindowDefinition",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the server.\n    </p>"
+            "smithy.api#documentation": "<p>The preferred backup period specified for the server.\n    </p>"
           }
         },
-        "InstanceType": {
-          "target": "com.amazonaws.opsworkscm#String",
+        "CreatedAt": {
+          "target": "com.amazonaws.opsworkscm#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type that is shown in the EC2 console.\n    </p>"
+            "smithy.api#documentation": "<p>Time stamp of server creation. Example <code>2016-07-29T13:38:47.520Z</code>\n         </p>"
           }
         },
         "KeyPair": {
@@ -1616,10 +1634,16 @@
             "smithy.api#documentation": "<p>Disables automated backups. The number of stored backups is dependent on the value of PreferredBackupCount.\n    </p>"
           }
         },
-        "CreatedAt": {
-          "target": "com.amazonaws.opsworkscm#Timestamp",
+        "Endpoint": {
+          "target": "com.amazonaws.opsworkscm#String",
           "traits": {
-            "smithy.api#documentation": "<p>Time stamp of server creation. Example <code>2016-07-29T13:38:47.520Z</code>\n         </p>"
+            "smithy.api#documentation": "<p>\n      A DNS name that can be used to access the engine. Example: <code>myserver-asdfghjkl.us-east-1.opsworks.io</code>. \n      You cannot access the server by using the <code>Endpoint</code> value if the server has a <code>CustomDomain</code> specified.\n    </p>"
+          }
+        },
+        "EngineModel": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.\n    </p>"
           }
         },
         "MaintenanceStatus": {
@@ -1628,40 +1652,10 @@
             "smithy.api#documentation": "<p>The status of the most recent server maintenance run. Shows <code>SUCCESS</code> or <code>FAILED</code>.\n    </p>"
           }
         },
-        "BackupRetentionCount": {
-          "target": "com.amazonaws.opsworkscm#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of automated backups to keep.\n    </p>"
-          }
-        },
-        "EngineAttributes": {
-          "target": "com.amazonaws.opsworkscm#EngineAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>The response of a createServer() request returns the master\n    credential to access the server in EngineAttributes. These\n    credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().\n    </p>\n         <p class=\"title\">\n            <b>Attributes returned in a createServer response for Chef</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>CHEF_AUTOMATE_PIVOTAL_KEY</code>: A base64-encoded RSA private key that is\n      generated by AWS OpsWorks for Chef Automate. This private key is required to access\n      the Chef API.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CHEF_STARTER_KIT</code>: A base64-encoded ZIP file.\n      The ZIP file contains a Chef starter kit, which includes a README, a\n      configuration file, and the required RSA private key. Save this file, unzip it,\n      and then change to the directory where you've unzipped the file contents.\n      From this directory, you can run Knife commands.</p>\n            </li>\n         </ul>\n         <p class=\"title\">\n            <b>Attributes returned in a createServer response for Puppet</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <code>PUPPET_STARTER_KIT</code>: A base64-encoded ZIP file.\n        The ZIP file contains a Puppet starter kit, including a README and a\n        required private key. Save this file, unzip it,\n        and then change to the directory where you've unzipped the file contents.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PUPPET_ADMIN_PASSWORD</code>: An administrator password that you can use to sign in to the Puppet Enterprise console after the server is online.</p>\n            </li>\n         </ul>"
-          }
-        },
         "CustomDomain": {
           "target": "com.amazonaws.opsworkscm#CustomDomain",
           "traits": {
             "smithy.api#documentation": "<p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>. \n      You cannot access the server by using the <code>Endpoint</code> value if the server has a <code>CustomDomain</code> specified.</p>"
-          }
-        },
-        "StatusReason": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      Depending on the server status, this field has either a human-readable\n      message (such as a create or backup error), or an escaped block of JSON (used for health check results).\n    </p>"
-          }
-        },
-        "SubnetIds": {
-          "target": "com.amazonaws.opsworkscm#Strings",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The subnet IDs specified in a CreateServer request.\n    </p>"
-          }
-        },
-        "SecurityGroupIds": {
-          "target": "com.amazonaws.opsworkscm#Strings",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The security group IDs for the server, as specified in the CloudFormation stack.\n      These might not be the same security groups that are shown in the EC2 console.\n    </p>"
           }
         },
         "Engine": {
@@ -1670,10 +1664,22 @@
             "smithy.api#documentation": "<p>The engine type of the server. Valid values in this release include <code>ChefAutomate</code> and <code>Puppet</code>.\n    </p>"
           }
         },
-        "InstanceProfileArn": {
+        "BackupRetentionCount": {
+          "target": "com.amazonaws.opsworkscm#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of automated backups to keep.\n    </p>"
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.opsworkscm#Strings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The security group IDs for the server, as specified in the CloudFormation stack.\n      These might not be the same security groups that are shown in the EC2 console.\n    </p>"
+          }
+        },
+        "EngineVersion": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
-            "smithy.api#documentation": "<p>The instance profile ARN of the server.\n    </p>"
+            "smithy.api#documentation": "<p>The engine version of the server. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.\n    </p>"
           }
         },
         "Status": {
@@ -1682,34 +1688,28 @@
             "smithy.api#documentation": "<p>\n      The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server,\n      as well as the server's health state.\n    </p>"
           }
         },
-        "CloudFormationStackArn": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the CloudFormation stack that was used to create the server.\n    </p>"
-          }
-        },
-        "ServiceRoleArn": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The service role ARN used to create the server.\n    </p>"
-          }
-        },
-        "AssociatePublicIpAddress": {
-          "target": "com.amazonaws.opsworkscm#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Associate a public IP address with a server that you are launching.\n    </p>"
-          }
-        },
         "ServerArn": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the server.\n    </p>"
           }
         },
-        "EngineVersion": {
+        "ServerName": {
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
-            "smithy.api#documentation": "<p>The engine version of the server. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.\n    </p>"
+            "smithy.api#documentation": "<p>The name of the server.\n    </p>"
+          }
+        },
+        "CloudFormationStackArn": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the CloudFormation stack that was used to create the server.\n    </p>"
+          }
+        },
+        "StatusReason": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Depending on the server status, this field has either a human-readable\n      message (such as a create or backup error), or an escaped block of JSON (used for health check results).\n    </p>"
           }
         }
       },
@@ -1720,6 +1720,18 @@
     "com.amazonaws.opsworkscm#ServerEvent": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A human-readable informational or status message.</p>"
+          }
+        },
+        "ServerName": {
+          "target": "com.amazonaws.opsworkscm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the server on or for which the event occurred.\n    </p>"
+          }
+        },
         "CreatedAt": {
           "target": "com.amazonaws.opsworkscm#Timestamp",
           "traits": {
@@ -1730,18 +1742,6 @@
           "target": "com.amazonaws.opsworkscm#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 URL of the event's log file.</p>"
-          }
-        },
-        "ServerName": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the server on or for which the event occurred.\n    </p>"
-          }
-        },
-        "Message": {
-          "target": "com.amazonaws.opsworkscm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A human-readable informational or status message.</p>"
           }
         }
       },
@@ -1911,17 +1911,17 @@
     "com.amazonaws.opsworkscm#Tag": {
       "type": "structure",
       "members": {
-        "Key": {
-          "target": "com.amazonaws.opsworkscm#TagKey",
-          "traits": {
-            "smithy.api#documentation": "<p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The key can be a maximum of 127 characters, \n      and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n         </p>",
-            "smithy.api#required": {}
-          }
-        },
         "Value": {
           "target": "com.amazonaws.opsworkscm#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>An optional tag value, such as <code>Production</code> or <code>test-owcm-server</code>. The value can be a maximum of 255 characters, \n      and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.opsworkscm#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The key can be a maximum of 127 characters, \n      and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n         </p>",
             "smithy.api#required": {}
           }
         }
@@ -1990,17 +1990,17 @@
     "com.amazonaws.opsworkscm#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "ResourceArn": {
-          "target": "com.amazonaws.opsworkscm#AWSOpsWorksCMResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example, \n      <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.opsworkscm#TagList",
           "traits": {
             "smithy.api#documentation": "<p>A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or backups.</p>\n         <ul>\n            <li>\n               <p>The key cannot be empty.</p>\n            </li>\n            <li>\n               <p>The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n               </p>\n            </li>\n            <li>\n               <p>The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n               </p>\n            </li>\n            <li>\n               <p>Leading and trailing white spaces are trimmed from both the key and value.</p>\n            </li>\n            <li>\n               <p>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.opsworkscm#AWSOpsWorksCMResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example, \n      <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2129,13 +2129,6 @@
     "com.amazonaws.opsworkscm#UpdateServerEngineAttributesRequest": {
       "type": "structure",
       "members": {
-        "AttributeName": {
-          "target": "com.amazonaws.opsworkscm#AttributeName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the engine attribute to update.\n    </p>",
-            "smithy.api#required": {}
-          }
-        },
         "AttributeValue": {
           "target": "com.amazonaws.opsworkscm#AttributeValue",
           "traits": {
@@ -2146,6 +2139,13 @@
           "target": "com.amazonaws.opsworkscm#ServerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the server to update.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttributeName": {
+          "target": "com.amazonaws.opsworkscm#AttributeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the engine attribute to update.\n    </p>",
             "smithy.api#required": {}
           }
         }
@@ -2165,12 +2165,14 @@
     "com.amazonaws.opsworkscm#UpdateServerRequest": {
       "type": "structure",
       "members": {
-        "ServerName": {
-          "target": "com.amazonaws.opsworkscm#ServerName",
+        "BackupRetentionCount": {
+          "target": "com.amazonaws.opsworkscm#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the server to update.\n    </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Sets the number of automated backups that you want to keep.\n      </p>"
           }
+        },
+        "PreferredMaintenanceWindow": {
+          "target": "com.amazonaws.opsworkscm#TimeWindowDefinition"
         },
         "PreferredBackupWindow": {
           "target": "com.amazonaws.opsworkscm#TimeWindowDefinition"
@@ -2181,13 +2183,11 @@
             "smithy.api#documentation": "<p>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled backups. Automated backups are enabled by default.\n    </p>"
           }
         },
-        "PreferredMaintenanceWindow": {
-          "target": "com.amazonaws.opsworkscm#TimeWindowDefinition"
-        },
-        "BackupRetentionCount": {
-          "target": "com.amazonaws.opsworkscm#Integer",
+        "ServerName": {
+          "target": "com.amazonaws.opsworkscm#ServerName",
           "traits": {
-            "smithy.api#documentation": "<p>Sets the number of automated backups that you want to keep.\n      </p>"
+            "smithy.api#documentation": "<p>The name of the server to update.\n    </p>",
+            "smithy.api#required": {}
           }
         }
       }

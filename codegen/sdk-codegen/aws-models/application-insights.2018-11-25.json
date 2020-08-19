@@ -44,18 +44,6 @@
     "com.amazonaws.applicationinsights#ApplicationComponent": {
       "type": "structure",
       "members": {
-        "ComponentName": {
-          "target": "com.amazonaws.applicationinsights#ComponentName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the component.</p>"
-          }
-        },
-        "ResourceType": {
-          "target": "com.amazonaws.applicationinsights#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue.</p>"
-          }
-        },
         "Tier": {
           "target": "com.amazonaws.applicationinsights#Tier",
           "traits": {
@@ -66,6 +54,18 @@
           "target": "com.amazonaws.applicationinsights#Monitor",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the application component is monitored. </p>"
+          }
+        },
+        "ComponentName": {
+          "target": "com.amazonaws.applicationinsights#ComponentName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the component.</p>"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.applicationinsights#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue.</p>"
           }
         }
       },
@@ -88,22 +88,16 @@
             "smithy.api#documentation": "<p>\n         Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.\n      </p>"
           }
         },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+        "Remarks": {
+          "target": "com.amazonaws.applicationinsights#Remarks",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group used for the application.</p>"
+            "smithy.api#documentation": "<p>The issues on the user side that block Application Insights from successfully monitoring\n         an application. Example remarks include:</p>\n         <ul>\n            <li>\n               <p>“Configuring application, detected 1 Errors, 3 Warnings”</p>\n            </li>\n            <li>\n               <p>“Configuring application, detected 1 Unconfigured Components”</p>\n            </li>\n         </ul>"
           }
         },
         "OpsCenterEnabled": {
           "target": "com.amazonaws.applicationinsights#OpsCenterEnabled",
           "traits": {
             "smithy.api#documentation": "<p>\n         Indicates whether Application Insights will create opsItems for any problem detected by Application\n         Insights for an application.\n      </p>"
-          }
-        },
-        "Remarks": {
-          "target": "com.amazonaws.applicationinsights#Remarks",
-          "traits": {
-            "smithy.api#documentation": "<p>The issues on the user side that block Application Insights from successfully monitoring\n         an application. Example remarks include:</p>\n         <ul>\n            <li>\n               <p>“Configuring application, detected 1 Errors, 3 Warnings”</p>\n            </li>\n            <li>\n               <p>“Configuring application, detected 1 Unconfigured Components”</p>\n            </li>\n         </ul>"
           }
         },
         "OpsItemSNSTopicArn": {
@@ -116,6 +110,12 @@
           "target": "com.amazonaws.applicationinsights#LifeCycle",
           "traits": {
             "smithy.api#documentation": "<p>The lifecycle of the application. </p>"
+          }
+        },
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group used for the application.</p>"
           }
         }
       },
@@ -200,28 +200,16 @@
     "com.amazonaws.applicationinsights#ConfigurationEvent": {
       "type": "structure",
       "members": {
-        "EventDetail": {
-          "target": "com.amazonaws.applicationinsights#ConfigurationEventDetail",
+        "EventResourceType": {
+          "target": "com.amazonaws.applicationinsights#ConfigurationEventResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The details of the event in plain text. \n      </p>"
+            "smithy.api#documentation": "<p>\n         The resource type that Application Insights attempted to configure, for example, CLOUDWATCH_ALARM.\n      </p>"
           }
         },
         "MonitoredResourceARN": {
           "target": "com.amazonaws.applicationinsights#ConfigurationEventMonitoredResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>\n         The resource monitored by Application Insights.\n      </p>"
-          }
-        },
-        "EventTime": {
-          "target": "com.amazonaws.applicationinsights#ConfigurationEventTime",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The timestamp of the event. \n      </p>"
-          }
-        },
-        "EventResourceType": {
-          "target": "com.amazonaws.applicationinsights#ConfigurationEventResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The resource type that Application Insights attempted to configure, for example, CLOUDWATCH_ALARM.\n      </p>"
           }
         },
         "EventResourceName": {
@@ -234,6 +222,18 @@
           "target": "com.amazonaws.applicationinsights#ConfigurationEventStatus",
           "traits": {
             "smithy.api#documentation": "<p>\n         The status of the configuration update event. Possible values include INFO, WARN, and ERROR.\n      </p>"
+          }
+        },
+        "EventTime": {
+          "target": "com.amazonaws.applicationinsights#ConfigurationEventTime",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The timestamp of the event. \n      </p>"
+          }
+        },
+        "EventDetail": {
+          "target": "com.amazonaws.applicationinsights#ConfigurationEventDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The details of the event in plain text. \n      </p>"
           }
         }
       },
@@ -323,22 +323,16 @@
     "com.amazonaws.applicationinsights#CreateApplicationRequest": {
       "type": "structure",
       "members": {
-        "OpsCenterEnabled": {
-          "target": "com.amazonaws.applicationinsights#OpsCenterEnabled",
+        "Tags": {
+          "target": "com.amazonaws.applicationinsights#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>\n         When set to <code>true</code>, creates opsItems for any problems detected on an application.\n      </p>"
+            "smithy.api#documentation": "<p>List of tags to add to the application.\n         tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum\n         length of a tag key is 128 characters. The maximum length of a tag value is 256\n         characters.</p>"
           }
         },
         "OpsItemSNSTopicArn": {
           "target": "com.amazonaws.applicationinsights#OpsItemSNSTopicArn",
           "traits": {
             "smithy.api#documentation": "<p>\n         The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to\n         receive notifications for updates to the opsItem.\n      </p>"
-          }
-        },
-        "CWEMonitorEnabled": {
-          "target": "com.amazonaws.applicationinsights#CWEMonitorEnabled",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.\n      </p>"
           }
         },
         "ResourceGroupName": {
@@ -348,10 +342,16 @@
             "smithy.api#required": {}
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.applicationinsights#TagList",
+        "OpsCenterEnabled": {
+          "target": "com.amazonaws.applicationinsights#OpsCenterEnabled",
           "traits": {
-            "smithy.api#documentation": "<p>List of tags to add to the application.\n         tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum\n         length of a tag key is 128 characters. The maximum length of a tag value is 256\n         characters.</p>"
+            "smithy.api#documentation": "<p>\n         When set to <code>true</code>, creates opsItems for any problems detected on an application.\n      </p>"
+          }
+        },
+        "CWEMonitorEnabled": {
+          "target": "com.amazonaws.applicationinsights#CWEMonitorEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.\n      </p>"
           }
         }
       }
@@ -396,6 +396,13 @@
     "com.amazonaws.applicationinsights#CreateComponentRequest": {
       "type": "structure",
       "members": {
+        "ComponentName": {
+          "target": "com.amazonaws.applicationinsights#ComponentName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the component.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ResourceList": {
           "target": "com.amazonaws.applicationinsights#ResourceList",
           "traits": {
@@ -407,13 +414,6 @@
           "target": "com.amazonaws.applicationinsights#ResourceGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ComponentName": {
-          "target": "com.amazonaws.applicationinsights#ComponentName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": {}
           }
         }
@@ -452,6 +452,20 @@
     "com.amazonaws.applicationinsights#CreateLogPatternRequest": {
       "type": "structure",
       "members": {
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Pattern": {
+          "target": "com.amazonaws.applicationinsights#LogPatternRegex",
+          "traits": {
+            "smithy.api#documentation": "<p>The log pattern.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Rank": {
           "target": "com.amazonaws.applicationinsights#LogPatternRank",
           "traits": {
@@ -466,24 +480,10 @@
             "smithy.api#required": {}
           }
         },
-        "Pattern": {
-          "target": "com.amazonaws.applicationinsights#LogPatternRegex",
-          "traits": {
-            "smithy.api#documentation": "<p>The log pattern.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "PatternSetName": {
           "target": "com.amazonaws.applicationinsights#LogPatternSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the log pattern set.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -492,16 +492,16 @@
     "com.amazonaws.applicationinsights#CreateLogPatternResponse": {
       "type": "structure",
       "members": {
-        "LogPattern": {
-          "target": "com.amazonaws.applicationinsights#LogPattern",
-          "traits": {
-            "smithy.api#documentation": "<p>The successfully created log pattern.</p>"
-          }
-        },
         "ResourceGroupName": {
           "target": "com.amazonaws.applicationinsights#ResourceGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group.</p>"
+          }
+        },
+        "LogPattern": {
+          "target": "com.amazonaws.applicationinsights#LogPattern",
+          "traits": {
+            "smithy.api#documentation": "<p>The successfully created log pattern.</p>"
           }
         }
       }
@@ -574,17 +574,17 @@
     "com.amazonaws.applicationinsights#DeleteComponentRequest": {
       "type": "structure",
       "members": {
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ComponentName": {
           "target": "com.amazonaws.applicationinsights#ComponentName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the component.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -623,6 +623,13 @@
     "com.amazonaws.applicationinsights#DeleteLogPatternRequest": {
       "type": "structure",
       "members": {
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "PatternName": {
           "target": "com.amazonaws.applicationinsights#LogPatternName",
           "traits": {
@@ -634,13 +641,6 @@
           "target": "com.amazonaws.applicationinsights#LogPatternSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the log pattern set.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -768,17 +768,17 @@
     "com.amazonaws.applicationinsights#DescribeComponentConfigurationRecommendationRequest": {
       "type": "structure",
       "members": {
-        "Tier": {
-          "target": "com.amazonaws.applicationinsights#Tier",
-          "traits": {
-            "smithy.api#documentation": "<p>The tier of the application component. Supported tiers include\n         <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>,\n         and <code>DEFAULT</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceGroupName": {
           "target": "com.amazonaws.applicationinsights#ResourceGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tier": {
+          "target": "com.amazonaws.applicationinsights#Tier",
+          "traits": {
+            "smithy.api#documentation": "<p>The tier of the application component. Supported tiers include\n         <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>,\n         and <code>DEFAULT</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -805,17 +805,17 @@
     "com.amazonaws.applicationinsights#DescribeComponentConfigurationRequest": {
       "type": "structure",
       "members": {
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ComponentName": {
           "target": "com.amazonaws.applicationinsights#ComponentName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the component.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -824,16 +824,16 @@
     "com.amazonaws.applicationinsights#DescribeComponentConfigurationResponse": {
       "type": "structure",
       "members": {
-        "ComponentConfiguration": {
-          "target": "com.amazonaws.applicationinsights#ComponentConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>"
-          }
-        },
         "Monitor": {
           "target": "com.amazonaws.applicationinsights#Monitor",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the application component is monitored.</p>"
+          }
+        },
+        "ComponentConfiguration": {
+          "target": "com.amazonaws.applicationinsights#ComponentConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>"
           }
         },
         "Tier": {
@@ -847,17 +847,17 @@
     "com.amazonaws.applicationinsights#DescribeComponentRequest": {
       "type": "structure",
       "members": {
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ComponentName": {
           "target": "com.amazonaws.applicationinsights#ComponentName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the component.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -903,6 +903,13 @@
     "com.amazonaws.applicationinsights#DescribeLogPatternRequest": {
       "type": "structure",
       "members": {
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "PatternName": {
           "target": "com.amazonaws.applicationinsights#LogPatternName",
           "traits": {
@@ -916,29 +923,22 @@
             "smithy.api#documentation": "<p>The name of the log pattern set.</p>",
             "smithy.api#required": {}
           }
-        },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.applicationinsights#DescribeLogPatternResponse": {
       "type": "structure",
       "members": {
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>"
-          }
-        },
         "LogPattern": {
           "target": "com.amazonaws.applicationinsights#LogPattern",
           "traits": {
             "smithy.api#documentation": "<p>The successfully created log pattern.</p>"
+          }
+        },
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -1300,16 +1300,16 @@
     "com.amazonaws.applicationinsights#ListApplicationsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.applicationinsights#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.applicationinsights#MaxEntities",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.applicationinsights#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
         }
       }
@@ -1362,12 +1362,6 @@
     "com.amazonaws.applicationinsights#ListComponentsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.applicationinsights#MaxEntities",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.applicationinsights#PaginationToken",
           "traits": {
@@ -1379,6 +1373,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.applicationinsights#MaxEntities",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
           }
         }
       }
@@ -1431,28 +1431,10 @@
     "com.amazonaws.applicationinsights#ListConfigurationHistoryRequest": {
       "type": "structure",
       "members": {
-        "EndTime": {
-          "target": "com.amazonaws.applicationinsights#EndTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The end time of the event.</p>"
-          }
-        },
-        "StartTime": {
-          "target": "com.amazonaws.applicationinsights#StartTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The start time of the event. </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.applicationinsights#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code> request where\n         <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination\n         continues from the end of the previous results that returned the <code>NextToken</code> value. This\n         value is <code>null</code> when there are no more results to return.</p>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.applicationinsights#MaxEntities",
-          "traits": {
-            "smithy.api#documentation": "<p> The maximum number of results returned by <code>ListConfigurationHistory</code> in\n         paginated output. When this parameter is used, <code>ListConfigurationHistory</code>\n         returns only <code>MaxResults</code> in a single page along with a <code>NextToken</code>\n         response element. The remaining results of the initial request can be seen by sending\n         another <code>ListConfigurationHistory</code> request with the returned\n            <code>NextToken</code> value. If this parameter is not used, then\n            <code>ListConfigurationHistory</code> returns all results. </p>"
           }
         },
         "EventStatus": {
@@ -1461,10 +1443,28 @@
             "smithy.api#documentation": "<p>The status of the configuration update event. Possible values include INFO, WARN, and ERROR.</p>"
           }
         },
+        "EndTime": {
+          "target": "com.amazonaws.applicationinsights#EndTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time of the event.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.applicationinsights#MaxEntities",
+          "traits": {
+            "smithy.api#documentation": "<p> The maximum number of results returned by <code>ListConfigurationHistory</code> in\n         paginated output. When this parameter is used, <code>ListConfigurationHistory</code>\n         returns only <code>MaxResults</code> in a single page along with a <code>NextToken</code>\n         response element. The remaining results of the initial request can be seen by sending\n         another <code>ListConfigurationHistory</code> request with the returned\n            <code>NextToken</code> value. If this parameter is not used, then\n            <code>ListConfigurationHistory</code> returns all results. </p>"
+          }
+        },
         "ResourceGroupName": {
           "target": "com.amazonaws.applicationinsights#ResourceGroupName",
           "traits": {
             "smithy.api#documentation": "<p>Resource group to which the application belongs. </p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.applicationinsights#StartTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of the event. </p>"
           }
         }
       }
@@ -1517,6 +1517,13 @@
     "com.amazonaws.applicationinsights#ListLogPatternSetsRequest": {
       "type": "structure",
       "members": {
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.applicationinsights#MaxEntities",
           "traits": {
@@ -1527,13 +1534,6 @@
           "target": "com.amazonaws.applicationinsights#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
-          }
-        },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -1547,16 +1547,16 @@
             "smithy.api#documentation": "<p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>"
           }
         },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>"
-          }
-        },
         "LogPatternSets": {
           "target": "com.amazonaws.applicationinsights#LogPatternSetList",
           "traits": {
             "smithy.api#documentation": "<p>The list of log pattern sets.</p>"
+          }
+        },
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -1592,10 +1592,10 @@
     "com.amazonaws.applicationinsights#ListLogPatternsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.applicationinsights#MaxEntities",
+        "PatternSetName": {
+          "target": "com.amazonaws.applicationinsights#LogPatternSetName",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
+            "smithy.api#documentation": "<p>The name of the log pattern set.</p>"
           }
         },
         "ResourceGroupName": {
@@ -1611,10 +1611,10 @@
             "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
         },
-        "PatternSetName": {
-          "target": "com.amazonaws.applicationinsights#LogPatternSetName",
+        "MaxResults": {
+          "target": "com.amazonaws.applicationinsights#MaxEntities",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the log pattern set.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
           }
         }
       }
@@ -1622,6 +1622,12 @@
     "com.amazonaws.applicationinsights#ListLogPatternsResponse": {
       "type": "structure",
       "members": {
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
+          }
+        },
         "LogPatterns": {
           "target": "com.amazonaws.applicationinsights#LogPatternList",
           "traits": {
@@ -1632,12 +1638,6 @@
           "target": "com.amazonaws.applicationinsights#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>"
-          }
-        },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -1673,10 +1673,16 @@
     "com.amazonaws.applicationinsights#ListProblemsRequest": {
       "type": "structure",
       "members": {
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+        "MaxResults": {
+          "target": "com.amazonaws.applicationinsights#MaxEntities",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.applicationinsights#EndTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the problem ended, in epoch seconds. If not specified, problems within the\n         past seven days are returned.</p>"
           }
         },
         "StartTime": {
@@ -1691,16 +1697,10 @@
             "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.applicationinsights#MaxEntities",
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.applicationinsights#EndTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the problem ended, in epoch seconds. If not specified, problems within the\n         past seven days are returned.</p>"
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -1708,16 +1708,16 @@
     "com.amazonaws.applicationinsights#ListProblemsResponse": {
       "type": "structure",
       "members": {
-        "ProblemList": {
-          "target": "com.amazonaws.applicationinsights#ProblemList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of problems. </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.applicationinsights#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>"
+          }
+        },
+        "ProblemList": {
+          "target": "com.amazonaws.applicationinsights#ProblemList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of problems. </p>"
           }
         }
       }
@@ -1787,12 +1787,6 @@
     "com.amazonaws.applicationinsights#LogPattern": {
       "type": "structure",
       "members": {
-        "Pattern": {
-          "target": "com.amazonaws.applicationinsights#LogPatternRegex",
-          "traits": {
-            "smithy.api#documentation": "<p>A regular expression that defines the log pattern. A log pattern can contains at many as 50 characters, and it cannot\n         be empty.</p>"
-          }
-        },
         "PatternName": {
           "target": "com.amazonaws.applicationinsights#LogPatternName",
           "traits": {
@@ -1809,6 +1803,12 @@
           "target": "com.amazonaws.applicationinsights#LogPatternSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the log pattern. A log pattern name can contains at many as 30 characters, and it cannot\n         be empty. The characters can be Unicode letters, digits or one of the following symbols: period, dash, underscore.</p>"
+          }
+        },
+        "Pattern": {
+          "target": "com.amazonaws.applicationinsights#LogPatternRegex",
+          "traits": {
+            "smithy.api#documentation": "<p>A regular expression that defines the log pattern. A log pattern can contains at many as 50 characters, and it cannot\n         be empty.</p>"
           }
         }
       },
@@ -1891,82 +1891,10 @@
     "com.amazonaws.applicationinsights#Observation": {
       "type": "structure",
       "members": {
-        "CloudWatchEventSource": {
-          "target": "com.amazonaws.applicationinsights#CloudWatchEventSource",
+        "LogText": {
+          "target": "com.amazonaws.applicationinsights#LogText",
           "traits": {
-            "smithy.api#documentation": "<p> The source of the CloudWatch Event. </p>"
-          }
-        },
-        "LogFilter": {
-          "target": "com.amazonaws.applicationinsights#LogFilter",
-          "traits": {
-            "smithy.api#documentation": "<p>The log filter of the observation.</p>"
-          }
-        },
-        "HealthEventDescription": {
-          "target": "com.amazonaws.applicationinsights#HealthEventDescription",
-          "traits": {
-            "smithy.api#documentation": "<p> The description of the AWS Health event provided by the service, such as Amazon EC2. </p>"
-          }
-        },
-        "HealthEventTypeCategory": {
-          "target": "com.amazonaws.applicationinsights#HealthEventTypeCategory",
-          "traits": {
-            "smithy.api#documentation": "<p> The category of the AWS Health event, such as <code>issue</code>. </p>"
-          }
-        },
-        "HealthEventTypeCode": {
-          "target": "com.amazonaws.applicationinsights#HealthEventTypeCode",
-          "traits": {
-            "smithy.api#documentation": "<p> The type of the AWS Health event, for example,\n            <code>AWS_EC2_POWER_CONNECTIVITY_ISSUE</code>. </p>"
-          }
-        },
-        "XRayNodeName": {
-          "target": "com.amazonaws.applicationinsights#XRayNodeName",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The name of the X-Ray node.\n      </p>"
-          }
-        },
-        "XRayFaultPercent": {
-          "target": "com.amazonaws.applicationinsights#XRayFaultPercent",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The X-Ray request fault percentage for this node.\n      </p>"
-          }
-        },
-        "Unit": {
-          "target": "com.amazonaws.applicationinsights#Unit",
-          "traits": {
-            "smithy.api#documentation": "<p>The unit of the source observation metric.</p>"
-          }
-        },
-        "CloudWatchEventDetailType": {
-          "target": "com.amazonaws.applicationinsights#CloudWatchEventDetailType",
-          "traits": {
-            "smithy.api#documentation": "<p> The detail type of the CloudWatch Event-based observation, for example, <code>EC2\n            Instance State-change Notification</code>. </p>"
-          }
-        },
-        "LogGroup": {
-          "target": "com.amazonaws.applicationinsights#LogGroup",
-          "traits": {
-            "smithy.api#documentation": "<p>The log group name.</p>"
-          }
-        },
-        "SourceType": {
-          "target": "com.amazonaws.applicationinsights#SourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The source type of the observation.</p>"
-          }
-        },
-        "XRayRequestCount": {
-          "target": "com.amazonaws.applicationinsights#XRayRequestCount",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The X-Ray request count for this node.\n      </p>"
-          }
-        },
-        "CloudWatchEventId": {
-          "target": "com.amazonaws.applicationinsights#CloudWatchEventId",
-          "traits": {
-            "smithy.api#documentation": "<p> The ID of the CloudWatch Event-based observation related to the detected problem. </p>"
+            "smithy.api#documentation": "<p>The log text of the observation.</p>"
           }
         },
         "HealthEventArn": {
@@ -1975,40 +1903,10 @@
             "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the AWS Health Event-based observation.</p>"
           }
         },
-        "Ec2State": {
-          "target": "com.amazonaws.applicationinsights#Ec2State",
+        "CodeDeployInstanceGroupId": {
+          "target": "com.amazonaws.applicationinsights#CodeDeployInstanceGroupId",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>.\n      </p>"
-          }
-        },
-        "XRayRequestAverageLatency": {
-          "target": "com.amazonaws.applicationinsights#XRayRequestAverageLatency",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The X-Ray node request average latency for this node.\n      </p>"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.applicationinsights#EndTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the observation ended, in epoch seconds.</p>"
-          }
-        },
-        "XRayThrottlePercent": {
-          "target": "com.amazonaws.applicationinsights#XRayThrottlePercent",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The X-Ray request throttle percentage for this node.\n      </p>"
-          }
-        },
-        "CodeDeployDeploymentId": {
-          "target": "com.amazonaws.applicationinsights#CodeDeployDeploymentId",
-          "traits": {
-            "smithy.api#documentation": "<p> The deployment ID of the CodeDeploy-based observation related to the detected problem. </p>"
-          }
-        },
-        "SourceARN": {
-          "target": "com.amazonaws.applicationinsights#SourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The source resource ARN of the observation.</p>"
+            "smithy.api#documentation": "<p>\n         The instance group to which the CodeDeploy instance belongs. \n      </p>"
           }
         },
         "MetricName": {
@@ -2017,16 +1915,22 @@
             "smithy.api#documentation": "<p>The name of the observation metric.</p>"
           }
         },
-        "LogText": {
-          "target": "com.amazonaws.applicationinsights#LogText",
-          "traits": {
-            "smithy.api#documentation": "<p>The log text of the observation.</p>"
-          }
-        },
         "HealthService": {
           "target": "com.amazonaws.applicationinsights#HealthService",
           "traits": {
             "smithy.api#documentation": "<p> The service to which the AWS Health Event belongs, such as EC2. </p>"
+          }
+        },
+        "Ec2State": {
+          "target": "com.amazonaws.applicationinsights#Ec2State",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>.\n      </p>"
+          }
+        },
+        "SourceARN": {
+          "target": "com.amazonaws.applicationinsights#SourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The source resource ARN of the observation.</p>"
           }
         },
         "CodeDeployDeploymentGroup": {
@@ -2035,34 +1939,52 @@
             "smithy.api#documentation": "<p>\n         The deployment group to which the CodeDeploy deployment belongs.\n      </p>"
           }
         },
-        "CodeDeployState": {
-          "target": "com.amazonaws.applicationinsights#CodeDeployState",
+        "LogGroup": {
+          "target": "com.amazonaws.applicationinsights#LogGroup",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The status of the CodeDeploy deployment, for example <code>SUCCESS</code> or <code> FAILURE</code>. \n      </p>"
+            "smithy.api#documentation": "<p>The log group name.</p>"
           }
         },
-        "MetricNamespace": {
-          "target": "com.amazonaws.applicationinsights#MetricNamespace",
+        "CodeDeployDeploymentId": {
+          "target": "com.amazonaws.applicationinsights#CodeDeployDeploymentId",
           "traits": {
-            "smithy.api#documentation": "<p>The namespace of the observation metric.</p>"
+            "smithy.api#documentation": "<p> The deployment ID of the CodeDeploy-based observation related to the detected problem. </p>"
           }
         },
-        "CodeDeployInstanceGroupId": {
-          "target": "com.amazonaws.applicationinsights#CodeDeployInstanceGroupId",
+        "EndTime": {
+          "target": "com.amazonaws.applicationinsights#EndTime",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The instance group to which the CodeDeploy instance belongs. \n      </p>"
+            "smithy.api#documentation": "<p>The time when the observation ended, in epoch seconds.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.applicationinsights#ObservationId",
+        "XRayRequestAverageLatency": {
+          "target": "com.amazonaws.applicationinsights#XRayRequestAverageLatency",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the observation type.</p>"
+            "smithy.api#documentation": "<p>\n         The X-Ray node request average latency for this node.\n      </p>"
           }
         },
-        "XRayErrorPercent": {
-          "target": "com.amazonaws.applicationinsights#XRayErrorPercent",
+        "CloudWatchEventId": {
+          "target": "com.amazonaws.applicationinsights#CloudWatchEventId",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The X-Ray request error percentage for this node.\n      </p>"
+            "smithy.api#documentation": "<p> The ID of the CloudWatch Event-based observation related to the detected problem. </p>"
+          }
+        },
+        "XRayNodeName": {
+          "target": "com.amazonaws.applicationinsights#XRayNodeName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The name of the X-Ray node.\n      </p>"
+          }
+        },
+        "LogFilter": {
+          "target": "com.amazonaws.applicationinsights#LogFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>The log filter of the observation.</p>"
+          }
+        },
+        "Unit": {
+          "target": "com.amazonaws.applicationinsights#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of the source observation metric.</p>"
           }
         },
         "CodeDeployApplication": {
@@ -2071,16 +1993,76 @@
             "smithy.api#documentation": "<p>\n         The CodeDeploy application to which the deployment belongs.\n      </p>"
           }
         },
-        "LineTime": {
-          "target": "com.amazonaws.applicationinsights#LineTime",
+        "HealthEventTypeCode": {
+          "target": "com.amazonaws.applicationinsights#HealthEventTypeCode",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp in the CloudWatch Logs that specifies when the matched line occurred.</p>"
+            "smithy.api#documentation": "<p> The type of the AWS Health event, for example,\n            <code>AWS_EC2_POWER_CONNECTIVITY_ISSUE</code>. </p>"
+          }
+        },
+        "XRayFaultPercent": {
+          "target": "com.amazonaws.applicationinsights#XRayFaultPercent",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The X-Ray request fault percentage for this node.\n      </p>"
+          }
+        },
+        "XRayThrottlePercent": {
+          "target": "com.amazonaws.applicationinsights#XRayThrottlePercent",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The X-Ray request throttle percentage for this node.\n      </p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.applicationinsights#ObservationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the observation type.</p>"
+          }
+        },
+        "SourceType": {
+          "target": "com.amazonaws.applicationinsights#SourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The source type of the observation.</p>"
+          }
+        },
+        "CloudWatchEventDetailType": {
+          "target": "com.amazonaws.applicationinsights#CloudWatchEventDetailType",
+          "traits": {
+            "smithy.api#documentation": "<p> The detail type of the CloudWatch Event-based observation, for example, <code>EC2\n            Instance State-change Notification</code>. </p>"
+          }
+        },
+        "CloudWatchEventSource": {
+          "target": "com.amazonaws.applicationinsights#CloudWatchEventSource",
+          "traits": {
+            "smithy.api#documentation": "<p> The source of the CloudWatch Event. </p>"
+          }
+        },
+        "HealthEventTypeCategory": {
+          "target": "com.amazonaws.applicationinsights#HealthEventTypeCategory",
+          "traits": {
+            "smithy.api#documentation": "<p> The category of the AWS Health event, such as <code>issue</code>. </p>"
+          }
+        },
+        "HealthEventDescription": {
+          "target": "com.amazonaws.applicationinsights#HealthEventDescription",
+          "traits": {
+            "smithy.api#documentation": "<p> The description of the AWS Health event provided by the service, such as Amazon EC2. </p>"
+          }
+        },
+        "XRayRequestCount": {
+          "target": "com.amazonaws.applicationinsights#XRayRequestCount",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The X-Ray request count for this node.\n      </p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.applicationinsights#StartTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the observation was  first detected, in epoch seconds.</p>"
+          }
+        },
+        "MetricNamespace": {
+          "target": "com.amazonaws.applicationinsights#MetricNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the observation metric.</p>"
           }
         },
         "Value": {
@@ -2093,6 +2075,24 @@
           "target": "com.amazonaws.applicationinsights#XRayNodeType",
           "traits": {
             "smithy.api#documentation": "<p>\n         The type of the  X-Ray node.      </p>"
+          }
+        },
+        "CodeDeployState": {
+          "target": "com.amazonaws.applicationinsights#CodeDeployState",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The status of the CodeDeploy deployment, for example <code>SUCCESS</code> or <code> FAILURE</code>. \n      </p>"
+          }
+        },
+        "LineTime": {
+          "target": "com.amazonaws.applicationinsights#LineTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp in the CloudWatch Logs that specifies when the matched line occurred.</p>"
+          }
+        },
+        "XRayErrorPercent": {
+          "target": "com.amazonaws.applicationinsights#XRayErrorPercent",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The X-Ray request error percentage for this node.\n      </p>"
           }
         }
       },
@@ -2137,22 +2137,10 @@
     "com.amazonaws.applicationinsights#Problem": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.applicationinsights#Status",
+        "Insights": {
+          "target": "com.amazonaws.applicationinsights#Insights",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the problem.</p>"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.applicationinsights#EndTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the problem ended, in epoch seconds.</p>"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.applicationinsights#ProblemId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the problem.</p>"
+            "smithy.api#documentation": "<p>A detailed analysis of the problem using machine learning.</p>"
           }
         },
         "SeverityLevel": {
@@ -2161,10 +2149,10 @@
             "smithy.api#documentation": "<p>A measure of the level of impact of the problem.</p>"
           }
         },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+        "Feedback": {
+          "target": "com.amazonaws.applicationinsights#Feedback",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group affected by the problem.</p>"
+            "smithy.api#documentation": "<p>Feedback provided by the user about the problem.</p>"
           }
         },
         "Title": {
@@ -2173,28 +2161,40 @@
             "smithy.api#documentation": "<p>The name of the problem.</p>"
           }
         },
-        "Insights": {
-          "target": "com.amazonaws.applicationinsights#Insights",
-          "traits": {
-            "smithy.api#documentation": "<p>A detailed analysis of the problem using machine learning.</p>"
-          }
-        },
-        "Feedback": {
-          "target": "com.amazonaws.applicationinsights#Feedback",
-          "traits": {
-            "smithy.api#documentation": "<p>Feedback provided by the user about the problem.</p>"
-          }
-        },
         "StartTime": {
           "target": "com.amazonaws.applicationinsights#StartTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the problem started, in epoch seconds.</p>"
           }
         },
+        "Id": {
+          "target": "com.amazonaws.applicationinsights#ProblemId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the problem.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.applicationinsights#EndTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the problem ended, in epoch seconds.</p>"
+          }
+        },
         "AffectedResource": {
           "target": "com.amazonaws.applicationinsights#AffectedResource",
           "traits": {
             "smithy.api#documentation": "<p>The resource affected by the problem.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.applicationinsights#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the problem.</p>"
+          }
+        },
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource group affected by the problem.</p>"
           }
         }
       },
@@ -2491,14 +2491,14 @@
     "com.amazonaws.applicationinsights#TooManyTagsException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.applicationinsights#ExceptionMessage"
-        },
         "ResourceName": {
           "target": "com.amazonaws.applicationinsights#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource with too many tags.</p>"
           }
+        },
+        "Message": {
+          "target": "com.amazonaws.applicationinsights#ExceptionMessage"
         }
       },
       "traits": {
@@ -2533,17 +2533,17 @@
     "com.amazonaws.applicationinsights#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "TagKeys": {
-          "target": "com.amazonaws.applicationinsights#TagKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags (tag keys) that you want to remove from the resource. When you specify a tag\n         key, the action removes both that key and its associated tag value.</p>\n         <p>To remove more than one tag from the application, append the <code>TagKeys</code>\n         parameter and argument for each additional tag to remove, separated by an ampersand.\n      </p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceARN": {
           "target": "com.amazonaws.applicationinsights#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application that you want to remove one or more tags from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.applicationinsights#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags (tag keys) that you want to remove from the resource. When you specify a tag\n         key, the action removes both that key and its associated tag value.</p>\n         <p>To remove more than one tag from the application, append the <code>TagKeys</code>\n         parameter and argument for each additional tag to remove, separated by an ampersand.\n      </p>",
             "smithy.api#required": {}
           }
         }
@@ -2579,16 +2579,11 @@
     "com.amazonaws.applicationinsights#UpdateApplicationRequest": {
       "type": "structure",
       "members": {
-        "CWEMonitorEnabled": {
-          "target": "com.amazonaws.applicationinsights#CWEMonitorEnabled",
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "<p>\n         Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.\n      </p>"
-          }
-        },
-        "OpsCenterEnabled": {
-          "target": "com.amazonaws.applicationinsights#OpsCenterEnabled",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         When set to <code>true</code>, creates opsItems for any problems detected on an application.\n      </p>"
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
+            "smithy.api#required": {}
           }
         },
         "OpsItemSNSTopicArn": {
@@ -2597,17 +2592,22 @@
             "smithy.api#documentation": "<p>\n         The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to\n         receive notifications for updates to the opsItem.</p>"
           }
         },
+        "OpsCenterEnabled": {
+          "target": "com.amazonaws.applicationinsights#OpsCenterEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         When set to <code>true</code>, creates opsItems for any problems detected on an application.\n      </p>"
+          }
+        },
+        "CWEMonitorEnabled": {
+          "target": "com.amazonaws.applicationinsights#CWEMonitorEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.\n      </p>"
+          }
+        },
         "RemoveSNSTopic": {
           "target": "com.amazonaws.applicationinsights#RemoveSNSTopic",
           "traits": {
             "smithy.api#documentation": "<p>\n         Disassociates the SNS topic from the opsItem created for detected problems.</p>"
-          }
-        },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -2675,10 +2675,10 @@
     "com.amazonaws.applicationinsights#UpdateComponentConfigurationRequest": {
       "type": "structure",
       "members": {
-        "Tier": {
-          "target": "com.amazonaws.applicationinsights#Tier",
+        "ComponentConfiguration": {
+          "target": "com.amazonaws.applicationinsights#ComponentConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,\n         <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</p>"
+            "smithy.api#documentation": "<p>The configuration settings of the component. The value is the escaped JSON of the configuration. For\n         more information about the JSON format, see <a href=\"https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html\">Working with JSON</a>.\n         You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete\n         format of the component configuration file, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html\">Component Configuration</a>.</p>"
           }
         },
         "Monitor": {
@@ -2687,23 +2687,23 @@
             "smithy.api#documentation": "<p>Indicates whether the application component is monitored.</p>"
           }
         },
-        "ComponentConfiguration": {
-          "target": "com.amazonaws.applicationinsights#ComponentConfiguration",
+        "ResourceGroupName": {
+          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration settings of the component. The value is the escaped JSON of the configuration. For\n         more information about the JSON format, see <a href=\"https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html\">Working with JSON</a>.\n         You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete\n         format of the component configuration file, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html\">Component Configuration</a>.</p>"
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tier": {
+          "target": "com.amazonaws.applicationinsights#Tier",
+          "traits": {
+            "smithy.api#documentation": "<p>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,\n         <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</p>"
           }
         },
         "ComponentName": {
           "target": "com.amazonaws.applicationinsights#ComponentName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the component.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ResourceGroupName": {
-          "target": "com.amazonaws.applicationinsights#ResourceGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2716,6 +2716,12 @@
     "com.amazonaws.applicationinsights#UpdateComponentRequest": {
       "type": "structure",
       "members": {
+        "ResourceList": {
+          "target": "com.amazonaws.applicationinsights#ResourceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of resource ARNs that belong to the component.</p>"
+          }
+        },
         "NewComponentName": {
           "target": "com.amazonaws.applicationinsights#NewComponentName",
           "traits": {
@@ -2734,12 +2740,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "ResourceList": {
-          "target": "com.amazonaws.applicationinsights#ResourceList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of resource ARNs that belong to the component.</p>"
           }
         }
       }
@@ -2777,17 +2777,10 @@
     "com.amazonaws.applicationinsights#UpdateLogPatternRequest": {
       "type": "structure",
       "members": {
-        "Pattern": {
-          "target": "com.amazonaws.applicationinsights#LogPatternRegex",
+        "Rank": {
+          "target": "com.amazonaws.applicationinsights#LogPatternRank",
           "traits": {
-            "smithy.api#documentation": "<p>The log pattern.</p>"
-          }
-        },
-        "PatternName": {
-          "target": "com.amazonaws.applicationinsights#LogPatternName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the log pattern.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Rank of the log pattern.</p>"
           }
         },
         "ResourceGroupName": {
@@ -2797,10 +2790,17 @@
             "smithy.api#required": {}
           }
         },
-        "Rank": {
-          "target": "com.amazonaws.applicationinsights#LogPatternRank",
+        "PatternName": {
+          "target": "com.amazonaws.applicationinsights#LogPatternName",
           "traits": {
-            "smithy.api#documentation": "<p>Rank of the log pattern.</p>"
+            "smithy.api#documentation": "<p>The name of the log pattern.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Pattern": {
+          "target": "com.amazonaws.applicationinsights#LogPatternRegex",
+          "traits": {
+            "smithy.api#documentation": "<p>The log pattern.</p>"
           }
         },
         "PatternSetName": {
