@@ -20,7 +20,7 @@ import {
 import { SignatureV4 } from "./SignatureV4";
 import { iso8601 } from "./utilDate";
 
-const signer = new SignatureV4({
+const signerInit = {
   service: "foo",
   region: "us-bar-1",
   sha256: Sha256,
@@ -28,7 +28,9 @@ const signer = new SignatureV4({
     accessKeyId: "foo",
     secretAccessKey: "bar",
   },
-});
+};
+
+const signer = new SignatureV4(signerInit);
 
 const minimalRequest = new HttpRequest({
   method: "POST",
@@ -54,6 +56,27 @@ describe("SignatureV4", () => {
 
     it("should sign requests without bodies", async () => {
       const { query } = await signer.presign(minimalRequest, presigningOptions);
+      expect(query).toEqual({
+        [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
+        [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
+        [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
+        [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
+        [SIGNATURE_QUERY_PARAM]: "46f0091f3e84cbd4552a184f43830a4f8b42fd18ceaefcdc2c225be1efd9e00e",
+      });
+    });
+
+    it("should support overriding region and service in the signer instance", async () => {
+      const signer = new SignatureV4({
+        ...signerInit,
+        service: "qux",
+        region: "us-foo-1",
+      });
+      const { query } = await signer.presign(minimalRequest, {
+        ...presigningOptions,
+        signingService: signerInit.service,
+        signingRegion: signerInit.region,
+      });
       expect(query).toEqual({
         [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
         [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
@@ -313,6 +336,22 @@ describe("SignatureV4", () => {
       );
     });
 
+    it("should support overriding region and service in the signer instance", async () => {
+      const signer = new SignatureV4({
+        ...signerInit,
+        service: "qux",
+        region: "us-foo-1",
+      });
+      const { headers } = await signer.sign(minimalRequest, {
+        signingDate: new Date("2000-01-01T00:00:00.000Z"),
+        signingService: signerInit.service,
+        signingRegion: signerInit.region,
+      });
+      expect(headers[AUTH_HEADER]).toBe(
+        "AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=1e3b24fcfd7655c0c245d99ba7b6b5ca6174eab903ebfbda09ce457af062ad30"
+      );
+    });
+
     it("should sign requests without host header", async () => {
       const request = minimalRequest.clone();
       delete request.headers[HOST_HEADER];
@@ -556,17 +595,19 @@ describe("SignatureV4", () => {
   });
 
   describe("#sign (string)", () => {
+    const signerInit = {
+      service: "s3",
+      region: "us-east-1",
+      credentials: {
+        accessKeyId: "AKIAIOSFODNN7EXAMPLE",
+        secretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+      },
+      sha256: Sha256,
+    };
+
     it("should produce signatures matching known outputs", async () => {
       // Example copied from https://github.com/aws/aws-sdk-php/blob/3.42.0/tests/S3/PostObjectV4Test.php#L37
-      const signer = new SignatureV4({
-        service: "s3",
-        region: "us-east-1",
-        credentials: {
-          accessKeyId: "AKIAIOSFODNN7EXAMPLE",
-          secretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
-        },
-        sha256: Sha256,
-      });
+      const signer = new SignatureV4(signerInit);
       const signingDate = new Date("2015-12-29T00:00:00Z");
       const stringToSign =
         "eyJleHBpcmF0aW9uIjoiMjAxNS0xMi0yOVQwMTowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJzaWd2NGV4YW1wbGVidWNrZXQifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVzZXJcL3VzZXIxXC8iXSx7ImFjbCI6InB1YmxpYy1yZWFkIn0seyJzdWNjZXNzX2FjdGlvbl9yZWRpcmVjdCI6Imh0dHA6XC9cL3NpZ3Y0ZXhhbXBsZWJ1Y2tldC5zMy5hbWF6b25hd3MuY29tXC9zdWNjZXNzZnVsX3VwbG9hZC5odG1sIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZVwvIl0seyJ4LWFtei1tZXRhLXV1aWQiOiIxNDM2NTEyMzY1MTI3NCJ9LHsieC1hbXotc2VydmVyLXNpZGUtZW5jcnlwdGlvbiI6IkFFUzI1NiJ9LFsic3RhcnRzLXdpdGgiLCIkeC1hbXotbWV0YS10YWciLCIiXSx7IlgtQW16LURhdGUiOiIyMDE1MTIyOVQwMDAwWiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFJT1NGT0ROTjdFWEFNUExFXC8yMDE1MTIyOVwvdXMtZWFzdC0xXC9zM1wvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1BbGdvcml0aG0iOiJBV1M0LUhNQUMtU0hBMjU2In1dfQ==";
@@ -574,19 +615,58 @@ describe("SignatureV4", () => {
         "683963a1575bb197c642490ac60f3f08cda08233cd3a163ad31b554e9327a3ff"
       );
     });
+
+    it("should support overriding region and service in the signer instance", async () => {
+      const signer = new SignatureV4({
+        ...signerInit,
+        service: "qux",
+        region: "us-foo-1",
+      });
+      const signingDate = new Date("2015-12-29T00:00:00Z");
+      const stringToSign =
+        "eyJleHBpcmF0aW9uIjoiMjAxNS0xMi0yOVQwMTowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJzaWd2NGV4YW1wbGVidWNrZXQifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVzZXJcL3VzZXIxXC8iXSx7ImFjbCI6InB1YmxpYy1yZWFkIn0seyJzdWNjZXNzX2FjdGlvbl9yZWRpcmVjdCI6Imh0dHA6XC9cL3NpZ3Y0ZXhhbXBsZWJ1Y2tldC5zMy5hbWF6b25hd3MuY29tXC9zdWNjZXNzZnVsX3VwbG9hZC5odG1sIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZVwvIl0seyJ4LWFtei1tZXRhLXV1aWQiOiIxNDM2NTEyMzY1MTI3NCJ9LHsieC1hbXotc2VydmVyLXNpZGUtZW5jcnlwdGlvbiI6IkFFUzI1NiJ9LFsic3RhcnRzLXdpdGgiLCIkeC1hbXotbWV0YS10YWciLCIiXSx7IlgtQW16LURhdGUiOiIyMDE1MTIyOVQwMDAwWiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFJT1NGT0ROTjdFWEFNUExFXC8yMDE1MTIyOVwvdXMtZWFzdC0xXC9zM1wvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1BbGdvcml0aG0iOiJBV1M0LUhNQUMtU0hBMjU2In1dfQ==";
+      expect(
+        await signer.sign(stringToSign, {
+          signingDate,
+          signingRegion: signerInit.region,
+          signingService: signerInit.service,
+        })
+      ).toBe("683963a1575bb197c642490ac60f3f08cda08233cd3a163ad31b554e9327a3ff");
+    });
   });
 
   describe("#sign (event)", () => {
     //adopt to Ruby SDK: https://github.com/aws/aws-sdk-ruby/blob/3c47c05aa77bdbb7b803a3ff932b3a89c32276ac/gems/aws-sigv4/spec/signer_spec.rb#L274
+    const signerInit = {
+      service: "SERVICE",
+      region: "REGION",
+      credentials: {
+        accessKeyId: "akid",
+        secretAccessKey: "secret",
+      },
+      sha256: Sha256,
+    };
+
     it("support event signing", async () => {
-      const signer = new SignatureV4({
-        service: "SERVICE",
-        region: "REGION",
-        credentials: {
-          accessKeyId: "akid",
-          secretAccessKey: "secret",
+      const signer = new SignatureV4(signerInit);
+      const eventSignature = await signer.sign(
+        {
+          headers: Uint8Array.from([5, 58, 100, 97, 116, 101, 8, 0, 0, 1, 103, 247, 125, 87, 112]),
+          payload: "foo" as any,
         },
-        sha256: Sha256,
+        {
+          signingDate: new Date(1369353600000),
+          priorSignature: "",
+        }
+      );
+      expect(eventSignature).toEqual("204bb5e2713e95354680e9522986d3ac0304aeafd33397f39e6540ca51ffe226");
+    });
+
+    it("should support overriding region and service in the signer instance", async () => {
+      const signer = new SignatureV4({
+        ...signerInit,
+        service: "qux",
+        // region: "us-foo-1",
       });
       const eventSignature = await signer.sign(
         {
@@ -596,6 +676,8 @@ describe("SignatureV4", () => {
         {
           signingDate: new Date(1369353600000),
           priorSignature: "",
+          // signingRegion: signerInit.region,
+          signingService: signerInit.service,
         }
       );
       expect(eventSignature).toEqual("204bb5e2713e95354680e9522986d3ac0304aeafd33397f39e6540ca51ffe226");
