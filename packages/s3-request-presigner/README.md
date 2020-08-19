@@ -19,7 +19,7 @@ const signer = new S3Presigner({
 const url = await signer.presign(request);
 ```
 
-Typescript Example:
+ES6 Example:
 
 ```javascript
 import { S3RequestPresigner } from "@aws-sdk/s3-request-presigner";
@@ -33,8 +33,8 @@ const signer = new S3RequestPresigner({
 const url = await signer.presign(request);
 ```
 
-To avoid redundant construction parameters when instantiate the s3 presigner,
-you can simply spread the configurations of an existing s3 clients and supply to
+To avoid redundant construction parameters when instantiating the s3 presigner,
+you can simply spread the configuration of an existing s3 client and supply it to
 the presigner's constructor.
 
 ```javascript
