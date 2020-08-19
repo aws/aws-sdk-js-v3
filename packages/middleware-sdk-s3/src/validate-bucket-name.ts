@@ -7,6 +7,7 @@ import {
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
+import { validate as validateArn } from "@aws-sdk/util-arn-parser";
 
 export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
@@ -14,9 +15,11 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
   ): InitializeHandler<any, Output> => async (
     args: InitializeHandlerArguments<any>
   ): Promise<InitializeHandlerOutput<Output>> => {
-    const { input } = args;
-    if (typeof input.Bucket === "string" && input.Bucket.indexOf("/") >= 0) {
-      const err = new Error(`Bucket name shouldn't contain '/', received '${input.Bucket}'`);
+    const {
+      input: { Bucket },
+    } = args;
+    if (typeof Bucket === "string" && !validateArn(Bucket) && Bucket.indexOf("/") >= 0) {
+      const err = new Error(`Bucket name shouldn't contain '/', received '${Bucket}'`);
       err.name = "InvalidBucketName";
       throw err;
     }
