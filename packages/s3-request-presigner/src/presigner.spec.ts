@@ -12,7 +12,7 @@ import {
   SIGNED_HEADERS_QUERY_PARAM,
   UNSIGNED_PAYLOAD,
 } from "./constants";
-import { S3RequestPresigner, S3RequestPresignerOptions } from "./index";
+import { S3RequestPresigner, S3RequestPresignerOptions } from "./presigner";
 
 describe("s3 presigner", () => {
   const s3ResolvedConfig: S3RequestPresignerOptions = {
