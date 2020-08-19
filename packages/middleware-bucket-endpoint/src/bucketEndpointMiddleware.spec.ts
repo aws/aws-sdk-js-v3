@@ -1,8 +1,20 @@
-import { constructStack } from "@aws-sdk/middleware-stack";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-import { bucketEndpointMiddleware, bucketEndpointMiddlewareOptions } from "./bucketEndpointMiddleware";
 import { resolveBucketEndpointConfig } from "./configurations";
+
+const mockBucketHostname = jest.fn();
+jest.mock("./bucketHostname", () => ({
+  bucketHostname: mockBucketHostname,
+}));
+const mockBucketArn = "an ARN structure";
+const mockArnParse = jest.fn().mockReturnValue(mockBucketArn);
+const mockArnValidation = jest.fn();
+jest.mock("@aws-sdk/util-arn-parser", () => ({
+  parse: mockArnParse,
+  validate: mockArnValidation,
+}));
+
+import { bucketEndpointMiddleware } from "./bucketEndpointMiddleware";
 
 describe("bucketEndpointMiddleware", () => {
   const input = { Bucket: "bucket" };
@@ -14,140 +26,160 @@ describe("bucketEndpointMiddleware", () => {
     path: "/bucket",
   };
   const next = jest.fn();
+  const previouslyResolvedConfig = {
+    region: jest.fn().mockResolvedValue("us-foo-1"),
+    regionInfoProvider: jest
+      .fn()
+      .mockResolvedValue({ hostname: "foo.us-foo-2.amazonaws.com", partition: "aws-foo", signingRegion: "us-foo-1" }),
+    useArnRegion: jest.fn().mockResolvedValue(false),
+  };
 
-  beforeEach(() => {
-    next.mockClear();
+  afterEach(() => {
+    mockArnValidation.mockClear();
+    mockBucketHostname.mockClear();
   });
 
-  it("should convert the request provided into one directed to a virtual hosted-style endpoint", async () => {
-    const request = new HttpRequest(requestInput);
-    const handler = bucketEndpointMiddleware(resolveBucketEndpointConfig({}))(next, {} as any);
-    await handler({ input, request });
-
-    const {
-      input: forwardedInput,
-      request: { hostname, path },
-    } = next.mock.calls[0][0];
-
-    expect(forwardedInput).toBe(input);
-    expect(hostname).toBe("bucket.s3.us-west-2.amazonaws.com");
-    expect(path).toBe("/");
-  });
-
-  it("should not convert the request provided into one directed to a virtual hosted-style endpoint if so configured", async () => {
-    const request = new HttpRequest(requestInput);
-    const handler = bucketEndpointMiddleware(
-      resolveBucketEndpointConfig({
-        forcePathStyle: true,
-      })
-    )(next, {} as any);
-    await handler({ input, request });
-
-    const {
-      input: forwardedInput,
-      request: { hostname, path },
-    } = next.mock.calls[0][0];
-
-    expect(forwardedInput).toBe(input);
-    expect(hostname).toBe("s3.us-west-2.amazonaws.com");
-    expect(path).toBe("/bucket");
-  });
-
-  it("should use the bucket name as a virtual hosted-style endpoint if so configured", async () => {
-    const request = new HttpRequest(requestInput);
-    const handler = bucketEndpointMiddleware(
-      resolveBucketEndpointConfig({
+  describe("with regular bucket name", () => {
+    beforeEach(() => {
+      mockBucketHostname.mockReturnValue({
         bucketEndpoint: true,
-      })
-    )(next, {} as any);
-    await handler({
-      input: { Bucket: "files.domain.com" },
-      request: { ...request, path: "/files.domain.com/path/to/key.ext" },
+        hostname: "bucket.s3.us-west-2.amazonaws.com",
+      });
     });
 
-    const {
-      request: { hostname, path },
-    } = next.mock.calls[0][0];
-
-    expect(hostname).toBe("files.domain.com");
-    expect(path).toBe("/path/to/key.ext");
-  });
-
-  it("should use a transfer acceleration endpoint if so configured", async () => {
-    const request = new HttpRequest(requestInput);
-    const handler = bucketEndpointMiddleware(
-      resolveBucketEndpointConfig({
-        useAccelerateEndpoint: true,
-      })
-    )(next, {} as any);
-    await handler({ input, request });
-
-    const {
-      input: forwardedInput,
-      request: { hostname, path },
-    } = next.mock.calls[0][0];
-
-    expect(forwardedInput).toBe(input);
-    expect(hostname).toBe("bucket.s3-accelerate.amazonaws.com");
-    expect(path).toBe("/");
-  });
-
-  it("should use a dualstack endpoint if so configured", async () => {
-    const request = new HttpRequest(requestInput);
-    const handler = bucketEndpointMiddleware(
-      resolveBucketEndpointConfig({
-        useDualstackEndpoint: true,
-      })
-    )(next, {} as any);
-    await handler({ input, request });
-
-    const {
-      input: forwardedInput,
-      request: { hostname, path },
-    } = next.mock.calls[0][0];
-
-    expect(forwardedInput).toBe(input);
-    expect(hostname).toBe("bucket.s3.dualstack.us-west-2.amazonaws.com");
-    expect(path).toBe("/");
-  });
-
-  it("should use an accelerate dualstack endpoint if configured", async () => {
-    const request = new HttpRequest(requestInput);
-    const handler = bucketEndpointMiddleware(
-      resolveBucketEndpointConfig({
-        useAccelerateEndpoint: true,
-        useDualstackEndpoint: true,
-      })
-    )(next, {} as any);
-    await handler({ input, request });
-
-    const {
-      request: { hostname, path },
-    } = next.mock.calls[0][0];
-
-    expect(hostname).toBe("bucket.s3-accelerate.dualstack.amazonaws.com");
-    expect(path).toBe("/");
-  });
-
-  it("should be inserted before 'hostheaderMiddleware' if exists", async () => {
-    const stack = constructStack();
-    const mockHostheaderMiddleware = (next: any) => (args: any) => {
-      args.request.arr.push("two");
-      return next(args);
-    };
-    const mockbucketEndpointMiddleware = (next: any) => (args: any) => {
-      args.request.arr.push("one");
-      return next(args);
-    };
-    stack.add(mockHostheaderMiddleware, {
-      ...bucketEndpointMiddlewareOptions,
-      name: bucketEndpointMiddlewareOptions.toMiddleware,
+    it("should supply default parameters to bucket hostname constructor", async () => {
+      const request = new HttpRequest(requestInput);
+      mockArnValidation.mockReturnValue(false);
+      const handler = bucketEndpointMiddleware(
+        resolveBucketEndpointConfig({
+          ...previouslyResolvedConfig,
+        })
+      )(next, {} as any);
+      await handler({ input, request });
+      expect(mockBucketHostname).toBeCalled();
+      const param = mockBucketHostname.mock.calls[0][0];
+      expect(param).toEqual({
+        bucketName: input.Bucket,
+        baseHostname: requestInput.hostname,
+        accelerateEndpoint: false,
+        dualstackEndpoint: false,
+        pathStyleEndpoint: false,
+        tlsCompatible: true,
+      });
     });
-    stack.addRelativeTo(mockbucketEndpointMiddleware, bucketEndpointMiddlewareOptions);
-    const handler = stack.resolve(next, {} as any);
-    expect.assertions(2);
-    await handler({ request: { arr: [] }, input: {} } as any);
-    expect(next.mock.calls.length).toBe(1);
-    expect(next.mock.calls[0][0].request.arr).toEqual(["one", "two"]);
+
+    it("should relay parameters to bucket hostname constructor", async () => {
+      const request = new HttpRequest({ ...requestInput, protocol: "http:" });
+      mockArnValidation.mockReturnValue(false);
+      const handler = bucketEndpointMiddleware(
+        resolveBucketEndpointConfig({
+          ...previouslyResolvedConfig,
+          useAccelerateEndpoint: true,
+          useDualstackEndpoint: true,
+          forcePathStyle: true,
+        })
+      )(next, {} as any);
+      await handler({ input, request });
+      expect(mockBucketHostname).toBeCalled();
+      const param = mockBucketHostname.mock.calls[0][0];
+      expect(param).toEqual({
+        bucketName: input.Bucket,
+        baseHostname: requestInput.hostname,
+        accelerateEndpoint: true,
+        dualstackEndpoint: true,
+        pathStyleEndpoint: true,
+        tlsCompatible: false,
+      });
+    });
+  });
+
+  describe("allows bucket name to be an ARN", () => {
+    beforeEach(() => {
+      mockArnValidation.mockReturnValue(true);
+      mockBucketHostname.mockReturnValue({
+        bucketEndpoint: true,
+        hostname: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com",
+      });
+    });
+
+    it("should relay parameters to bucket hostname constructor", async () => {
+      const request = new HttpRequest(requestInput);
+      const handler = bucketEndpointMiddleware(
+        resolveBucketEndpointConfig({
+          ...previouslyResolvedConfig,
+        })
+      )(next, {} as any);
+      await handler({
+        input: { Bucket: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com" },
+        request,
+      });
+      expect(mockBucketHostname).toBeCalled();
+      const param = mockBucketHostname.mock.calls[0][0];
+      expect(param).toEqual({
+        bucketName: mockBucketArn,
+        baseHostname: requestInput.hostname,
+        accelerateEndpoint: false,
+        dualstackEndpoint: false,
+        pathStyleEndpoint: false,
+        tlsCompatible: true,
+        clientPartition: "aws-foo",
+        clientSigningRegion: "us-foo-1",
+        useArnRegion: false,
+      });
+      expect(previouslyResolvedConfig.region).toBeCalled();
+      expect(previouslyResolvedConfig.regionInfoProvider).toBeCalled();
+      expect(previouslyResolvedConfig.useArnRegion).toBeCalled();
+    });
+
+    it("should get client partition and signing region with pseudo region", async () => {
+      const request = new HttpRequest(requestInput);
+      const handler = bucketEndpointMiddleware(
+        resolveBucketEndpointConfig({
+          ...previouslyResolvedConfig,
+          region: () => Promise.resolve("fips-us-foo-1"),
+        })
+      )(next, {} as any);
+      await handler({
+        input: { Bucket: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com" },
+        request,
+      });
+      expect(previouslyResolvedConfig.regionInfoProvider).toBeCalled();
+      expect(previouslyResolvedConfig.regionInfoProvider.mock.calls[0][0]).toBe("us-foo-1");
+    });
+
+    it("should supply bucketHostname in ARN object if bucket name string is a valid ARN", async () => {
+      const request = new HttpRequest(requestInput);
+      const handler = bucketEndpointMiddleware(
+        resolveBucketEndpointConfig({
+          ...previouslyResolvedConfig,
+        })
+      )(next, {} as any);
+      await handler({
+        input: { Bucket: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com" },
+        request,
+      });
+      expect(mockBucketHostname).toBeCalled();
+      expect(mockBucketHostname.mock.calls[0][0].bucketName).toBe(mockBucketArn);
+      expect(mockArnParse).toBeCalled();
+      expect(mockArnValidation).toBeCalled();
+    });
+
+    it("should set signing_region to middleware context if the request will use region from ARN", async () => {
+      const request = new HttpRequest(requestInput);
+      previouslyResolvedConfig.useArnRegion.mockReturnValue(true);
+      const arnRegion = "us-west-2";
+      mockArnParse.mockReturnValue({ region: arnRegion });
+      const handlerContext = {} as any;
+      const handler = bucketEndpointMiddleware(
+        resolveBucketEndpointConfig({
+          ...previouslyResolvedConfig,
+        })
+      )(next, handlerContext);
+      await handler({
+        input: { Bucket: `myendpoint-123456789012.s3-accesspoint.${arnRegion}.amazonaws.com` },
+        request,
+      });
+      expect(handlerContext).toMatchObject({ signing_region: arnRegion });
+    });
   });
 });

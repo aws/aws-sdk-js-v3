@@ -1,5 +1,5 @@
 import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
-import { Provider } from "@aws-sdk/types";
+import { Provider, RegionInfoProvider } from "@aws-sdk/types";
 
 export interface BucketEndpointInputConfig {
   /**
@@ -24,15 +24,24 @@ export interface BucketEndpointInputConfig {
   useArnRegion?: boolean | Provider<boolean>;
 }
 
+interface PreviouslyResolved {
+  region: Provider<string>;
+  regionInfoProvider: RegionInfoProvider;
+}
+
 export interface BucketEndpointResolvedConfig {
   bucketEndpoint: boolean;
   forcePathStyle: boolean;
   useAccelerateEndpoint: boolean;
   useDualstackEndpoint: boolean;
   useArnRegion: Provider<boolean>;
+  region: Provider<string>;
+  regionInfoProvider: RegionInfoProvider;
 }
 
-export function resolveBucketEndpointConfig<T>(input: T & BucketEndpointInputConfig): T & BucketEndpointResolvedConfig {
+export function resolveBucketEndpointConfig<T>(
+  input: T & PreviouslyResolved & BucketEndpointInputConfig
+): T & BucketEndpointResolvedConfig {
   const {
     bucketEndpoint = false,
     forcePathStyle = false,
@@ -46,7 +55,7 @@ export function resolveBucketEndpointConfig<T>(input: T & BucketEndpointInputCon
     forcePathStyle,
     useAccelerateEndpoint,
     useDualstackEndpoint,
-    useArnRegion: typeof useArnRegion === "boolean" ? () => Promise.resolve(useArnRegion) : useArnRegion,
+    useArnRegion: typeof useArnRegion === "function" ? useArnRegion : () => Promise.resolve(useArnRegion),
   };
 }
 
