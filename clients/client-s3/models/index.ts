@@ -9753,7 +9753,7 @@ export interface SelectObjectContentOutput {
 export namespace SelectObjectContentOutput {
   export const filterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
     ...obj,
-    ...(obj.Payload && { Payload: SelectObjectContentEventStream.filterSensitiveLog(obj.Payload) }),
+    ...(obj.Payload && { Payload: "STREAMING_TRAIT" }),
   });
   export const isa = (o: any): o is SelectObjectContentOutput => __isa(o, "SelectObjectContentOutput");
 }
