@@ -240,7 +240,7 @@ describe("bucketHostname", () => {
             baseHostname: "s3.us-west-2.amazonaws.com",
             useArnRegion: true,
           });
-        }).toThrow("Partition in ARN is incompatible, got aws-cn but expected aws");
+        }).toThrow(`Partition in ARN is incompatible, got "aws-cn" but expected "aws"`);
       });
 
       it("should use ARN region", () => {
