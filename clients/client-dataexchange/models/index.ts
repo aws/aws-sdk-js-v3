@@ -74,34 +74,9 @@ export interface AssetEntry {
   Arn: string | undefined;
 
   /**
-   * <p>Information about the asset, including its size.</p>
-   */
-  AssetDetails: AssetDetails | undefined;
-
-  /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-   */
-  AssetType: AssetType | string | undefined;
-
-  /**
-   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The unique identifier for the data set associated with this asset.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The unique identifier for the asset.</p>
    */
   Id: string | undefined;
-
-  /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>The unique identifier for the revision associated with this asset.</p>
@@ -109,14 +84,39 @@ export interface AssetEntry {
   RevisionId: string | undefined;
 
   /**
+   * <p>The unique identifier for the data set associated with this asset.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
    * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
    */
   SourceId?: string;
 
   /**
+   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   */
+  AssetType: AssetType | string | undefined;
+
+  /**
    * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt: Date | undefined;
+
+  /**
+   * <p>Information about the asset, including its size.</p>
+   */
+  AssetDetails: AssetDetails | undefined;
 }
 
 export namespace AssetEntry {
@@ -132,14 +132,14 @@ export namespace AssetEntry {
 export interface AssetSourceEntry {
   __type?: "AssetSourceEntry";
   /**
-   * <p>The S3 bucket that's part of the source of the asset.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
    * <p>The name of the object in Amazon S3 for the asset.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The S3 bucket that's part of the source of the asset.</p>
+   */
+  Bucket: string | undefined;
 }
 
 export namespace AssetSourceEntry {
@@ -185,6 +185,11 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   /**
+   * <p>The type of the resource with the conflict.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
    * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
    */
   Message: string | undefined;
@@ -193,11 +198,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The unique identifier for the resource with the conflict.</p>
    */
   ResourceId?: string;
-
-  /**
-   * <p>The type of the resource with the conflict.</p>
-   */
-  ResourceType?: ResourceType | string;
 }
 
 export namespace ConflictException {
@@ -213,14 +213,14 @@ export namespace ConflictException {
 export interface CreateDataSetRequest {
   __type?: "CreateDataSetRequest";
   /**
+   * <p>A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
    */
   AssetType: AssetType | string | undefined;
-
-  /**
-   * <p>A description for the data set. This value can be up to 16,348 characters long.</p>
-   */
-  Description: string | undefined;
 
   /**
    * <p>The name of the data set.</p>
@@ -228,9 +228,9 @@ export interface CreateDataSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
+   * <p>A description for the data set. This value can be up to 16,348 characters long.</p>
    */
-  Tags?: { [key: string]: string };
+  Description: string | undefined;
 }
 
 export namespace CreateDataSetRequest {
@@ -243,14 +243,24 @@ export namespace CreateDataSetRequest {
 export interface CreateDataSetResponse {
   __type?: "CreateDataSetResponse";
   /**
-   * <p>The ARN for the data set.</p>
+   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
    */
-  Arn?: string;
+  SourceId?: string;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The name of the data set.</p>
    */
-  AssetType?: AssetType | string;
+  Name?: string;
+
+  /**
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   */
+  OriginDetails?: OriginDetails;
+
+  /**
+   * <p>The unique identifier for the data set.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
@@ -263,29 +273,14 @@ export interface CreateDataSetResponse {
   Description?: string;
 
   /**
-   * <p>The unique identifier for the data set.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the data set.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
   Origin?: Origin | string;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * <p>The ARN for the data set.</p>
    */
-  OriginDetails?: OriginDetails;
-
-  /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
-   */
-  SourceId?: string;
+  Arn?: string;
 
   /**
    * <p>The tags for the data set.</p>
@@ -296,6 +291,11 @@ export interface CreateDataSetResponse {
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   */
+  AssetType?: AssetType | string;
 }
 
 export namespace CreateDataSetResponse {
@@ -311,14 +311,14 @@ export namespace CreateDataSetResponse {
 export interface CreateJobRequest {
   __type?: "CreateJobRequest";
   /**
-   * <p>The details for the CreateJob request.</p>
-   */
-  Details: RequestDetails | undefined;
-
-  /**
    * <p>The type of job to be created.</p>
    */
   Type: Type | string | undefined;
+
+  /**
+   * <p>The details for the CreateJob request.</p>
+   */
+  Details: RequestDetails | undefined;
 }
 
 export namespace CreateJobRequest {
@@ -330,6 +330,16 @@ export namespace CreateJobRequest {
 
 export interface CreateJobResponse {
   __type?: "CreateJobResponse";
+  /**
+   * <p>The unique identifier for the job.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
+
   /**
    * <p>The ARN for the job.</p>
    */
@@ -346,14 +356,9 @@ export interface CreateJobResponse {
   Details?: ResponseDetails;
 
   /**
-   * <p>The errors associated with jobs.</p>
+   * <p>The job type.</p>
    */
-  Errors?: JobError[];
-
-  /**
-   * <p>The unique identifier for the job.</p>
-   */
-  Id?: string;
+  Type?: Type | string;
 
   /**
    * <p>The state of the job.</p>
@@ -361,14 +366,9 @@ export interface CreateJobResponse {
   State?: State | string;
 
   /**
-   * <p>The job type.</p>
+   * <p>The errors associated with jobs.</p>
    */
-  Type?: Type | string;
-
-  /**
-   * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
-   */
-  UpdatedAt?: Date;
+  Errors?: JobError[];
 }
 
 export namespace CreateJobResponse {
@@ -384,11 +384,6 @@ export namespace CreateJobResponse {
 export interface CreateRevisionRequest {
   __type?: "CreateRevisionRequest";
   /**
-   * <p>An optional comment about the revision.</p>
-   */
-  Comment?: string;
-
-  /**
    * <p>The unique identifier for a data set.</p>
    */
   DataSetId: string | undefined;
@@ -397,6 +392,11 @@ export interface CreateRevisionRequest {
    * <p>A revision tag is an optional label that you can assign to a revision when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>An optional comment about the revision.</p>
+   */
+  Comment?: string;
 }
 
 export namespace CreateRevisionRequest {
@@ -408,36 +408,6 @@ export namespace CreateRevisionRequest {
 
 export interface CreateRevisionResponse {
   __type?: "CreateRevisionResponse";
-  /**
-   * <p>The ARN for the revision</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>An optional comment about the revision.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-   */
-  Finalized?: boolean;
-
-  /**
-   * <p>The unique identifier for the revision.</p>
-   */
-  Id?: string;
-
   /**
    * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
    */
@@ -452,6 +422,36 @@ export interface CreateRevisionResponse {
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   */
+  Finalized?: boolean;
+
+  /**
+   * <p>The ARN for the revision</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The unique identifier for the data set associated with this revision.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * <p>An optional comment about the revision.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>The unique identifier for the revision.</p>
+   */
+  Id?: string;
 }
 
 export namespace CreateRevisionResponse {
@@ -467,39 +467,9 @@ export namespace CreateRevisionResponse {
 export interface DataSetEntry {
   __type?: "DataSetEntry";
   /**
-   * <p>The ARN for the data set.</p>
+   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
    */
-  Arn: string | undefined;
-
-  /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-   */
-  AssetType: AssetType | string | undefined;
-
-  /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The description for the data set.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The unique identifier for the data set.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the data set.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-   */
-  Origin: Origin | string | undefined;
+  SourceId?: string;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
@@ -507,14 +477,44 @@ export interface DataSetEntry {
   OriginDetails?: OriginDetails;
 
   /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
    */
-  SourceId?: string;
+  AssetType: AssetType | string | undefined;
+
+  /**
+   * <p>The name of the data set.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The description for the data set.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The ARN for the data set.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the data set.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   */
+  Origin: Origin | string | undefined;
+
+  /**
+   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   */
+  CreatedAt: Date | undefined;
 }
 
 export namespace DataSetEntry {
@@ -567,14 +567,14 @@ export namespace DeleteDataSetRequest {
 export interface DeleteRevisionRequest {
   __type?: "DeleteRevisionRequest";
   /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The unique identifier for a revision.</p>
    */
   RevisionId: string | undefined;
+
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
 }
 
 export namespace DeleteRevisionRequest {
@@ -586,11 +586,12 @@ export namespace DeleteRevisionRequest {
 
 export interface Details {
   __type?: "Details";
-  ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails;
   /**
    * <p>The list of sources for the assets.</p>
    */
   ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[];
+
+  ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails;
 }
 
 export namespace Details {
@@ -616,6 +617,11 @@ export interface ExportAssetsToS3RequestDetails {
   DataSetId: string | undefined;
 
   /**
+   * <p>Encryption configuration for the export job.</p>
+   */
+  Encryption?: ExportServerSideEncryption;
+
+  /**
    * <p>The unique identifier for the revision associated with this export request.</p>
    */
   RevisionId: string | undefined;
@@ -634,19 +640,24 @@ export namespace ExportAssetsToS3RequestDetails {
 export interface ExportAssetsToS3ResponseDetails {
   __type?: "ExportAssetsToS3ResponseDetails";
   /**
+   * <p>The unique identifier for the revision associated with this export response.</p>
+   */
+  RevisionId: string | undefined;
+
+  /**
    * <p>The destination in Amazon S3 where the asset is exported.</p>
    */
   AssetDestinations: AssetDestinationEntry[] | undefined;
 
   /**
+   * <p>Encryption configuration of the export job.</p>
+   */
+  Encryption?: ExportServerSideEncryption;
+
+  /**
    * <p>The unique identifier for the data set associated with this export job.</p>
    */
   DataSetId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the revision associated with this export response.</p>
-   */
-  RevisionId: string | undefined;
 }
 
 export namespace ExportAssetsToS3ResponseDetails {
@@ -691,6 +702,21 @@ export namespace ExportAssetToSignedUrlRequestDetails {
 export interface ExportAssetToSignedUrlResponseDetails {
   __type?: "ExportAssetToSignedUrlResponseDetails";
   /**
+   * <p>The unique identifier for the revision associated with this export response.</p>
+   */
+  RevisionId: string | undefined;
+
+  /**
+   * <p>The date and time that the signed URL expires, in ISO 8601 format.</p>
+   */
+  SignedUrlExpiresAt?: Date;
+
+  /**
+   * <p>The signed URL for the export request.</p>
+   */
+  SignedUrl?: string;
+
+  /**
    * <p>The unique identifier for the asset associated with this export job.</p>
    */
   AssetId: string | undefined;
@@ -699,21 +725,6 @@ export interface ExportAssetToSignedUrlResponseDetails {
    * <p>The unique identifier for the data set associated with this export job.</p>
    */
   DataSetId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the revision associated with this export response.</p>
-   */
-  RevisionId: string | undefined;
-
-  /**
-   * <p>The signed URL for the export request.</p>
-   */
-  SignedUrl?: string;
-
-  /**
-   * <p>The date and time that the signed URL expires, in ISO 8601 format.</p>
-   */
-  SignedUrlExpiresAt?: Date;
 }
 
 export namespace ExportAssetToSignedUrlResponseDetails {
@@ -724,6 +735,29 @@ export namespace ExportAssetToSignedUrlResponseDetails {
     __isa(o, "ExportAssetToSignedUrlResponseDetails");
 }
 
+/**
+ * <p>Encryption configuration of the export job. Includes the encryption type as well as the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
+ */
+export interface ExportServerSideEncryption {
+  __type?: "ExportServerSideEncryption";
+  /**
+   * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
+   */
+  Type: ServerSideEncryptionTypes | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
+   */
+  KmsKeyArn?: string;
+}
+
+export namespace ExportServerSideEncryption {
+  export const filterSensitiveLog = (obj: ExportServerSideEncryption): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ExportServerSideEncryption => __isa(o, "ExportServerSideEncryption");
+}
+
 export interface GetAssetRequest {
   __type?: "GetAssetRequest";
   /**
@@ -732,14 +766,14 @@ export interface GetAssetRequest {
   AssetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The unique identifier for a revision.</p>
    */
   RevisionId: string | undefined;
+
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
 }
 
 export namespace GetAssetRequest {
@@ -752,39 +786,9 @@ export namespace GetAssetRequest {
 export interface GetAssetResponse {
   __type?: "GetAssetResponse";
   /**
-   * <p>The ARN for the asset.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>Information about the asset, including its size.</p>
-   */
-  AssetDetails?: AssetDetails;
-
-  /**
    * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
    */
   AssetType?: AssetType | string;
-
-  /**
-   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The unique identifier for the data set associated with this asset.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>The unique identifier for the asset.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The unique identifier for the revision associated with this asset.</p>
@@ -792,14 +796,44 @@ export interface GetAssetResponse {
   RevisionId?: string;
 
   /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   * <p>Information about the asset, including its size.</p>
    */
-  SourceId?: string;
+  AssetDetails?: AssetDetails;
+
+  /**
+   * <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The unique identifier for the asset.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN for the asset.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The unique identifier for the data set associated with this asset.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   */
+  SourceId?: string;
 }
 
 export namespace GetAssetResponse {
@@ -827,9 +861,24 @@ export namespace GetDataSetRequest {
 export interface GetDataSetResponse {
   __type?: "GetDataSetResponse";
   /**
-   * <p>The ARN for the data set.</p>
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Arn?: string;
+  Origin?: Origin | string;
+
+  /**
+   * <p>The tags for the data set.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   */
+  OriginDetails?: OriginDetails;
 
   /**
    * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
@@ -837,9 +886,24 @@ export interface GetDataSetResponse {
   AssetType?: AssetType | string;
 
   /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    */
-  CreatedAt?: Date;
+  UpdatedAt?: Date;
+
+  /**
+   * <p>The name of the data set.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   */
+  SourceId?: string;
+
+  /**
+   * <p>The ARN for the data set.</p>
+   */
+  Arn?: string;
 
   /**
    * <p>The description for the data set.</p>
@@ -850,36 +914,6 @@ export interface GetDataSetResponse {
    * <p>The unique identifier for the data set.</p>
    */
   Id?: string;
-
-  /**
-   * <p>The name of the data set.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-   */
-  Origin?: Origin | string;
-
-  /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-   */
-  OriginDetails?: OriginDetails;
-
-  /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
-   */
-  SourceId?: string;
-
-  /**
-   * <p>The tags for the data set.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
-   */
-  UpdatedAt?: Date;
 }
 
 export namespace GetDataSetResponse {
@@ -907,24 +941,9 @@ export namespace GetJobRequest {
 export interface GetJobResponse {
   __type?: "GetJobResponse";
   /**
-   * <p>The ARN for the job.</p>
+   * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The date and time that the job was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>Details about the job.</p>
-   */
-  Details?: ResponseDetails;
-
-  /**
-   * <p>The errors associated with jobs.</p>
-   */
-  Errors?: JobError[];
+  UpdatedAt?: Date;
 
   /**
    * <p>The unique identifier for the job.</p>
@@ -937,14 +956,29 @@ export interface GetJobResponse {
   State?: State | string;
 
   /**
+   * <p>The ARN for the job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Details about the job.</p>
+   */
+  Details?: ResponseDetails;
+
+  /**
    * <p>The job type.</p>
    */
   Type?: Type | string;
 
   /**
-   * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
+   * <p>The date and time that the job was created, in ISO 8601 format.</p>
    */
-  UpdatedAt?: Date;
+  CreatedAt?: Date;
+
+  /**
+   * <p>The errors associated with jobs.</p>
+   */
+  Errors?: JobError[];
 }
 
 export namespace GetJobResponse {
@@ -957,14 +991,14 @@ export namespace GetJobResponse {
 export interface GetRevisionRequest {
   __type?: "GetRevisionRequest";
   /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The unique identifier for a revision.</p>
    */
   RevisionId: string | undefined;
+
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
 }
 
 export namespace GetRevisionRequest {
@@ -977,39 +1011,9 @@ export namespace GetRevisionRequest {
 export interface GetRevisionResponse {
   __type?: "GetRevisionResponse";
   /**
-   * <p>The ARN for the revision</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>An optional comment about the revision.</p>
-   */
-  Comment?: string;
-
-  /**
    * <p>The date and time that the revision was created, in ISO 8601 format.</p>
    */
   CreatedAt?: Date;
-
-  /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-   */
-  Finalized?: boolean;
-
-  /**
-   * <p>The unique identifier for the revision.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
-   */
-  SourceId?: string;
 
   /**
    * <p>The tags for the revision.</p>
@@ -1017,9 +1021,39 @@ export interface GetRevisionResponse {
   Tags?: { [key: string]: string };
 
   /**
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   */
+  SourceId?: string;
+
+  /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The ARN for the revision</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The unique identifier for the revision.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   */
+  Finalized?: boolean;
+
+  /**
+   * <p>The unique identifier for the data set associated with this revision.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * <p>An optional comment about the revision.</p>
+   */
+  Comment?: string;
 }
 
 export namespace GetRevisionResponse {
@@ -1056,9 +1090,9 @@ export interface ImportAssetFromSignedUrlRequestDetails {
   AssetName: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * <p>The unique identifier for the revision associated with this import request.</p>
    */
-  DataSetId: string | undefined;
+  RevisionId: string | undefined;
 
   /**
    * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
@@ -1066,9 +1100,9 @@ export interface ImportAssetFromSignedUrlRequestDetails {
   Md5Hash: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import request.</p>
+   * <p>The unique identifier for the data set associated with this import job.</p>
    */
-  RevisionId: string | undefined;
+  DataSetId: string | undefined;
 }
 
 export namespace ImportAssetFromSignedUrlRequestDetails {
@@ -1090,14 +1124,19 @@ export interface ImportAssetFromSignedUrlResponseDetails {
   AssetName: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
    */
   Md5Hash?: string;
+
+  /**
+   * <p>The time and date at which the signed URL expires, in ISO 8601 format.</p>
+   */
+  SignedUrlExpiresAt?: Date;
+
+  /**
+   * <p>The unique identifier for the data set associated with this import job.</p>
+   */
+  DataSetId: string | undefined;
 
   /**
    * <p>The unique identifier for the revision associated with this import response.</p>
@@ -1108,11 +1147,6 @@ export interface ImportAssetFromSignedUrlResponseDetails {
    * <p>The signed URL.</p>
    */
   SignedUrl?: string;
-
-  /**
-   * <p>The time and date at which the signed URL expires, in ISO 8601 format.</p>
-   */
-  SignedUrlExpiresAt?: Date;
 }
 
 export namespace ImportAssetFromSignedUrlResponseDetails {
@@ -1129,9 +1163,9 @@ export namespace ImportAssetFromSignedUrlResponseDetails {
 export interface ImportAssetsFromS3RequestDetails {
   __type?: "ImportAssetsFromS3RequestDetails";
   /**
-   * <p>Is a list of S3 bucket and object key pairs.</p>
+   * <p>The unique identifier for the revision associated with this import request.</p>
    */
-  AssetSources: AssetSourceEntry[] | undefined;
+  RevisionId: string | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with this import job.</p>
@@ -1139,9 +1173,9 @@ export interface ImportAssetsFromS3RequestDetails {
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import request.</p>
+   * <p>Is a list of S3 bucket and object key pairs.</p>
    */
-  RevisionId: string | undefined;
+  AssetSources: AssetSourceEntry[] | undefined;
 }
 
 export namespace ImportAssetsFromS3RequestDetails {
@@ -1157,11 +1191,6 @@ export namespace ImportAssetsFromS3RequestDetails {
 export interface ImportAssetsFromS3ResponseDetails {
   __type?: "ImportAssetsFromS3ResponseDetails";
   /**
-   * <p>Is a list of Amazon S3 bucket and object key pairs.</p>
-   */
-  AssetSources: AssetSourceEntry[] | undefined;
-
-  /**
    * <p>The unique identifier for the data set associated with this import job.</p>
    */
   DataSetId: string | undefined;
@@ -1170,6 +1199,11 @@ export interface ImportAssetsFromS3ResponseDetails {
    * <p>The unique identifier for the revision associated with this import response.</p>
    */
   RevisionId: string | undefined;
+
+  /**
+   * <p>Is a list of Amazon S3 bucket and object key pairs.</p>
+   */
+  AssetSources: AssetSourceEntry[] | undefined;
 }
 
 export namespace ImportAssetsFromS3ResponseDetails {
@@ -1204,14 +1238,9 @@ export namespace InternalServerException {
 export interface JobEntry {
   __type?: "JobEntry";
   /**
-   * <p>The ARN for the job.</p>
+   * <p>The job type.</p>
    */
-  Arn: string | undefined;
-
-  /**
-   * <p>The date and time that the job was created, in ISO 8601 format.</p>
-   */
-  CreatedAt: Date | undefined;
+  Type: Type | string | undefined;
 
   /**
    * <p>Details of the operation to be performed by the job, such as export destination details or import source details.</p>
@@ -1219,14 +1248,9 @@ export interface JobEntry {
   Details: ResponseDetails | undefined;
 
   /**
-   * <p>Errors for jobs.</p>
+   * <p>The ARN for the job.</p>
    */
-  Errors?: JobError[];
-
-  /**
-   * <p>The unique identifier for the job.</p>
-   */
-  Id: string | undefined;
+  Arn: string | undefined;
 
   /**
    * <p>The state of the job.</p>
@@ -1234,14 +1258,24 @@ export interface JobEntry {
   State: State | string | undefined;
 
   /**
-   * <p>The job type.</p>
+   * <p>The unique identifier for the job.</p>
    */
-  Type: Type | string | undefined;
+  Id: string | undefined;
 
   /**
    * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the job was created, in ISO 8601 format.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>Errors for jobs.</p>
+   */
+  Errors?: JobError[];
 }
 
 export namespace JobEntry {
@@ -1257,9 +1291,24 @@ export namespace JobEntry {
 export interface JobError {
   __type?: "JobError";
   /**
+   * The unique identifier for the resource related to the error.
+   */
+  ResourceId?: string;
+
+  /**
    * The code for the job error.
    */
   Code: Code | string | undefined;
+
+  /**
+   * The type of resource related to the error.
+   */
+  ResourceType?: JobErrorResourceTypes | string;
+
+  /**
+   * The message related to the job error.
+   */
+  Message: string | undefined;
 
   Details?: Details;
   /**
@@ -1271,21 +1320,6 @@ export interface JobError {
    * The value of the exceeded limit.
    */
   LimitValue?: number;
-
-  /**
-   * The message related to the job error.
-   */
-  Message: string | undefined;
-
-  /**
-   * The unqiue identifier for the resource related to the error.
-   */
-  ResourceId?: string;
-
-  /**
-   * The type of resource related to the error.
-   */
-  ResourceType?: JobErrorResourceTypes | string;
 }
 
 export namespace JobError {
@@ -1323,11 +1357,6 @@ export enum LimitName {
 export interface ListDataSetRevisionsRequest {
   __type?: "ListDataSetRevisionsRequest";
   /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The maximum number of results returned by a single call.</p>
    */
   MaxResults?: number;
@@ -1336,6 +1365,11 @@ export interface ListDataSetRevisionsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
 }
 
 export namespace ListDataSetRevisionsRequest {
@@ -1368,9 +1402,9 @@ export namespace ListDataSetRevisionsResponse {
 export interface ListDataSetsRequest {
   __type?: "ListDataSetsRequest";
   /**
-   * <p>The maximum number of results returned by a single call.</p>
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  MaxResults?: number;
+  Origin?: string;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1378,9 +1412,9 @@ export interface ListDataSetsRequest {
   NextToken?: string;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * <p>The maximum number of results returned by a single call.</p>
    */
-  Origin?: string;
+  MaxResults?: number;
 }
 
 export namespace ListDataSetsRequest {
@@ -1413,24 +1447,24 @@ export namespace ListDataSetsResponse {
 export interface ListJobsRequest {
   __type?: "ListJobsRequest";
   /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>The maximum number of results returned by a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId?: string;
+
+  /**
    * <p>The unique identifier for a revision.</p>
    */
   RevisionId?: string;
+
+  /**
+   * <p>The maximum number of results returned by a single call.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListJobsRequest {
@@ -1443,14 +1477,14 @@ export namespace ListJobsRequest {
 export interface ListJobsResponse {
   __type?: "ListJobsResponse";
   /**
-   * <p>The jobs listed by the request.</p>
-   */
-  Jobs?: JobEntry[];
-
-  /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The jobs listed by the request.</p>
+   */
+  Jobs?: JobEntry[];
 }
 
 export namespace ListJobsResponse {
@@ -1462,6 +1496,11 @@ export namespace ListJobsResponse {
 
 export interface ListRevisionAssetsRequest {
   __type?: "ListRevisionAssetsRequest";
+  /**
+   * <p>The unique identifier for a revision.</p>
+   */
+  RevisionId: string | undefined;
+
   /**
    * <p>The unique identifier for a data set.</p>
    */
@@ -1476,11 +1515,6 @@ export interface ListRevisionAssetsRequest {
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The unique identifier for a revision.</p>
-   */
-  RevisionId: string | undefined;
 }
 
 export namespace ListRevisionAssetsRequest {
@@ -1563,9 +1597,9 @@ export namespace OriginDetails {
 export interface RequestDetails {
   __type?: "RequestDetails";
   /**
-   * <p>Details about the export to signed URL request.</p>
+   * <p>Details about the import from Amazon S3 request.</p>
    */
-  ExportAssetToSignedUrl?: ExportAssetToSignedUrlRequestDetails;
+  ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails;
 
   /**
    * <p>Details about the export to Amazon S3 request.</p>
@@ -1578,9 +1612,9 @@ export interface RequestDetails {
   ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlRequestDetails;
 
   /**
-   * <p>Details about the import from Amazon S3 request.</p>
+   * <p>Details about the export to signed URL request.</p>
    */
-  ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails;
+  ExportAssetToSignedUrl?: ExportAssetToSignedUrlRequestDetails;
 }
 
 export namespace RequestDetails {
@@ -1597,11 +1631,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
-   * <p>The resource couldn't be found.</p>
-   */
-  Message: string | undefined;
-
-  /**
    * <p>The unique identifier for the resource that couldn't be found.</p>
    */
   ResourceId?: string;
@@ -1610,6 +1639,11 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The type of resource that couldn't be found.</p>
    */
   ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The resource couldn't be found.</p>
+   */
+  Message: string | undefined;
 }
 
 export namespace ResourceNotFoundException {
@@ -1637,14 +1671,14 @@ export interface ResponseDetails {
   ExportAssetToSignedUrl?: ExportAssetToSignedUrlResponseDetails;
 
   /**
-   * <p>Details for the export to Amazon S3 response.</p>
-   */
-  ExportAssetsToS3?: ExportAssetsToS3ResponseDetails;
-
-  /**
    * <p>Details for the import from signed URL response.</p>
    */
   ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlResponseDetails;
+
+  /**
+   * <p>Details for the export to Amazon S3 response.</p>
+   */
+  ExportAssetsToS3?: ExportAssetsToS3ResponseDetails;
 
   /**
    * <p>Details for the import from Amazon S3 response.</p>
@@ -1665,6 +1699,31 @@ export namespace ResponseDetails {
 export interface RevisionEntry {
   __type?: "RevisionEntry";
   /**
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   */
+  Finalized?: boolean;
+
+  /**
+   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier for the revision.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier for the data set associated with this revision.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
    * <p>The ARN for the revision.</p>
    */
   Arn: string | undefined;
@@ -1675,34 +1734,9 @@ export interface RevisionEntry {
   Comment?: string;
 
   /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-   */
-  Finalized?: boolean;
-
-  /**
-   * <p>The unique identifier for the revision.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
    */
   SourceId?: string;
-
-  /**
-   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
-   */
-  UpdatedAt: Date | undefined;
 }
 
 export namespace RevisionEntry {
@@ -1730,6 +1764,11 @@ export namespace S3SnapshotAsset {
   export const isa = (o: any): o is S3SnapshotAsset => __isa(o, "S3SnapshotAsset");
 }
 
+export enum ServerSideEncryptionTypes {
+  AES256 = "AES256",
+  aws_kms = "aws:kms",
+}
+
 /**
  * <p>The request has exceeded the quotas imposed by the service.</p>
  */
@@ -1737,9 +1776,9 @@ export interface ServiceLimitExceededException extends __SmithyException, $Metad
   name: "ServiceLimitExceededException";
   $fault: "client";
   /**
-   * <p>The name of the quota that was exceeded.</p>
+   * <p>The request has exceeded the quotas imposed by the service.</p>
    */
-  LimitName?: LimitName | string;
+  Message: string | undefined;
 
   /**
    * <p>The maximum value for the service-specific limit.</p>
@@ -1747,9 +1786,9 @@ export interface ServiceLimitExceededException extends __SmithyException, $Metad
   LimitValue?: number;
 
   /**
-   * <p>The request has exceeded the quotas imposed by the service.</p>
+   * <p>The name of the quota that was exceeded.</p>
    */
-  Message: string | undefined;
+  LimitName?: LimitName | string;
 }
 
 export namespace ServiceLimitExceededException {
@@ -1800,14 +1839,14 @@ export enum State {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * A label that consists of a customer-defined key and an optional value.
    */
   Tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1869,9 +1908,9 @@ export namespace UntagResourceRequest {
 export interface UpdateAssetRequest {
   __type?: "UpdateAssetRequest";
   /**
-   * <p>The unique identifier for an asset.</p>
+   * <p>The unique identifier for a revision.</p>
    */
-  AssetId: string | undefined;
+  RevisionId: string | undefined;
 
   /**
    * <p>The unique identifier for a data set.</p>
@@ -1879,14 +1918,14 @@ export interface UpdateAssetRequest {
   DataSetId: string | undefined;
 
   /**
+   * <p>The unique identifier for an asset.</p>
+   */
+  AssetId: string | undefined;
+
+  /**
    * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The unique identifier for a revision.</p>
-   */
-  RevisionId: string | undefined;
 }
 
 export namespace UpdateAssetRequest {
@@ -1899,14 +1938,14 @@ export namespace UpdateAssetRequest {
 export interface UpdateAssetResponse {
   __type?: "UpdateAssetResponse";
   /**
-   * <p>The ARN for the asset.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>Information about the asset, including its size.</p>
    */
   AssetDetails?: AssetDetails;
+
+  /**
+   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   */
+  SourceId?: string;
 
   /**
    * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
@@ -1919,14 +1958,14 @@ export interface UpdateAssetResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The unique identifier for the data set associated with this asset.</p>
-   */
-  DataSetId?: string;
-
-  /**
    * <p>The unique identifier for the asset.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
 
   /**
    * <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
@@ -1939,14 +1978,14 @@ export interface UpdateAssetResponse {
   RevisionId?: string;
 
   /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   * <p>The unique identifier for the data set associated with this asset.</p>
    */
-  SourceId?: string;
+  DataSetId?: string;
 
   /**
-   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
+   * <p>The ARN for the asset.</p>
    */
-  UpdatedAt?: Date;
+  Arn?: string;
 }
 
 export namespace UpdateAssetResponse {
@@ -1987,24 +2026,9 @@ export namespace UpdateDataSetRequest {
 export interface UpdateDataSetResponse {
   __type?: "UpdateDataSetResponse";
   /**
-   * <p>The ARN for the data set.</p>
+   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-   */
-  AssetType?: AssetType | string;
-
-  /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The description for the data set.</p>
-   */
-  Description?: string;
+  UpdatedAt?: Date;
 
   /**
    * <p>The unique identifier for the data set.</p>
@@ -2012,14 +2036,19 @@ export interface UpdateDataSetResponse {
   Id?: string;
 
   /**
+   * <p>The ARN for the data set.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The name of the data set.</p>
    */
   Name?: string;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
    */
-  Origin?: Origin | string;
+  AssetType?: AssetType | string;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
@@ -2027,14 +2056,24 @@ export interface UpdateDataSetResponse {
   OriginDetails?: OriginDetails;
 
   /**
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   */
+  Origin?: Origin | string;
+
+  /**
    * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
    */
   SourceId?: string;
 
   /**
-   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
+   * <p>The description for the data set.</p>
    */
-  UpdatedAt?: Date;
+  Description?: string;
+
+  /**
+   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
 }
 
 export namespace UpdateDataSetResponse {
@@ -2050,6 +2089,11 @@ export namespace UpdateDataSetResponse {
 export interface UpdateRevisionRequest {
   __type?: "UpdateRevisionRequest";
   /**
+   * <p>Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p>
+   */
+  Finalized?: boolean;
+
+  /**
    * <p>An optional comment about the revision.</p>
    */
   Comment?: string;
@@ -2058,11 +2102,6 @@ export interface UpdateRevisionRequest {
    * <p>The unique identifier for a data set.</p>
    */
   DataSetId: string | undefined;
-
-  /**
-   * <p>Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p>
-   */
-  Finalized?: boolean;
 
   /**
    * <p>The unique identifier for a revision.</p>
@@ -2080,9 +2119,9 @@ export namespace UpdateRevisionRequest {
 export interface UpdateRevisionResponse {
   __type?: "UpdateRevisionResponse";
   /**
-   * <p>The ARN for the revision.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
    */
-  Arn?: string;
+  Finalized?: boolean;
 
   /**
    * <p>An optional comment about the revision.</p>
@@ -2090,9 +2129,9 @@ export interface UpdateRevisionResponse {
   Comment?: string;
 
   /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   * <p>The ARN for the revision.</p>
    */
-  CreatedAt?: Date;
+  Arn?: string;
 
   /**
    * <p>The unique identifier for the data set associated with this revision.</p>
@@ -2100,24 +2139,24 @@ export interface UpdateRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-   */
-  Finalized?: boolean;
-
-  /**
    * <p>The unique identifier for the revision.</p>
    */
   Id?: string;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
-   */
-  SourceId?: string;
-
-  /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   */
+  SourceId?: string;
 }
 
 export namespace UpdateRevisionResponse {

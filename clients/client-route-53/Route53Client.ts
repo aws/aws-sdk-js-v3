@@ -109,6 +109,10 @@ import {
   ListHostedZonesByNameCommandInput,
   ListHostedZonesByNameCommandOutput,
 } from "./commands/ListHostedZonesByNameCommand";
+import {
+  ListHostedZonesByVPCCommandInput,
+  ListHostedZonesByVPCCommandOutput,
+} from "./commands/ListHostedZonesByVPCCommand";
 import { ListHostedZonesCommandInput, ListHostedZonesCommandOutput } from "./commands/ListHostedZonesCommand";
 import {
   ListQueryLoggingConfigsCommandInput,
@@ -255,6 +259,7 @@ export type ServiceInputTypes =
   | ListGeoLocationsCommandInput
   | ListHealthChecksCommandInput
   | ListHostedZonesByNameCommandInput
+  | ListHostedZonesByVPCCommandInput
   | ListHostedZonesCommandInput
   | ListQueryLoggingConfigsCommandInput
   | ListResourceRecordSetsCommandInput
@@ -313,6 +318,7 @@ export type ServiceOutputTypes =
   | ListGeoLocationsCommandOutput
   | ListHealthChecksCommandOutput
   | ListHostedZonesByNameCommandOutput
+  | ListHostedZonesByVPCCommandOutput
   | ListHostedZonesCommandOutput
   | ListQueryLoggingConfigsCommandOutput
   | ListResourceRecordSetsCommandOutput

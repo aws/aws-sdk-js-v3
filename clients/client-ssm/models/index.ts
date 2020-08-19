@@ -8,14 +8,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccountSharingInfo {
   __type?: "AccountSharingInfo";
   /**
-   * <p>The AWS account ID where the current document is shared.</p>
-   */
-  AccountId?: string;
-
-  /**
    * <p>The version of the current document shared with the account.</p>
    */
   SharedDocumentVersion?: string;
+
+  /**
+   * <p>The AWS account ID where the current document is shared.</p>
+   */
+  AccountId?: string;
 }
 
 export namespace AccountSharingInfo {
@@ -33,19 +33,9 @@ export namespace AccountSharingInfo {
 export interface Activation {
   __type?: "Activation";
   /**
-   * <p>The ID created by Systems Manager when you submitted the activation.</p>
+   * <p>Tags assigned to the activation.</p>
    */
-  ActivationId?: string;
-
-  /**
-   * <p>The date the activation was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>A name for the managed instance when it is created.</p>
-   */
-  DefaultInstanceName?: string;
+  Tags?: Tag[];
 
   /**
    * <p>A user defined description of the activation.</p>
@@ -53,14 +43,19 @@ export interface Activation {
   Description?: string;
 
   /**
-   * <p>The date when this activation can no longer be used to register managed instances.</p>
+   * <p>A name for the managed instance when it is created.</p>
    */
-  ExpirationDate?: Date;
+  DefaultInstanceName?: string;
 
   /**
-   * <p>Whether or not the activation is expired.</p>
+   * <p>The ID created by Systems Manager when you submitted the activation.</p>
    */
-  Expired?: boolean;
+  ActivationId?: string;
+
+  /**
+   * <p>The number of managed instances already registered with this activation.</p>
+   */
+  RegistrationsCount?: number;
 
   /**
    * <p>The Amazon Identity and Access Management (IAM) role to assign to the managed
@@ -69,19 +64,24 @@ export interface Activation {
   IamRole?: string;
 
   /**
+   * <p>The date when this activation can no longer be used to register managed instances.</p>
+   */
+  ExpirationDate?: Date;
+
+  /**
+   * <p>The date the activation was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>Whether or not the activation is expired.</p>
+   */
+  Expired?: boolean;
+
+  /**
    * <p>The maximum number of managed instances that can be registered using this activation.</p>
    */
   RegistrationLimit?: number;
-
-  /**
-   * <p>The number of managed instances already registered with this activation.</p>
-   */
-  RegistrationsCount?: number;
-
-  /**
-   * <p>Tags assigned to the activation.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace Activation {
@@ -109,6 +109,15 @@ export interface AddTagsToResourceRequest {
   ResourceId: string | undefined;
 
   /**
+   * <p> One or more tags. The value parameter is required, but if you don't want the tag to have a
+   *    value, specify the parameter with no value, and we set the value to an empty string. </p>
+   *          <important>
+   *             <p>Do not enter personally identifiable information in this field.</p>
+   *          </important>
+   */
+  Tags: Tag[] | undefined;
+
+  /**
    * <p>Specifies the type of resource you are tagging.</p>
    *          <note>
    *             <p>The ManagedInstance type for this API action is for on-premises managed instances. You must
@@ -117,15 +126,6 @@ export interface AddTagsToResourceRequest {
    *          </note>
    */
   ResourceType: ResourceTypeForTagging | string | undefined;
-
-  /**
-   * <p> One or more tags. The value parameter is required, but if you don't want the tag to have a
-   *    value, specify the parameter with no value, and we set the value to an empty string. </p>
-   *          <important>
-   *             <p>Do not enter personally identifiable information in this field.</p>
-   *          </important>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceRequest {
@@ -184,10 +184,19 @@ export namespace AssociatedInstances {
 export interface Association {
   __type?: "Association";
   /**
-   * <p>The ID created by the system when you create an association. An association is a binding
-   *    between a document and a set of targets with a schedule.</p>
+   * <p>A cron expression that specifies a schedule when the association runs.</p>
    */
-  AssociationId?: string;
+  ScheduleExpression?: string;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The instances targeted by the request to create an association. </p>
+   */
+  Targets?: Target[];
 
   /**
    * <p>The association name.</p>
@@ -205,16 +214,6 @@ export interface Association {
   DocumentVersion?: string;
 
   /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The date on which the association was last run.</p>
-   */
-  LastExecutionDate?: Date;
-
-  /**
    * <p>The name of the Systems Manager document.</p>
    */
   Name?: string;
@@ -225,14 +224,15 @@ export interface Association {
   Overview?: AssociationOverview;
 
   /**
-   * <p>A cron expression that specifies a schedule when the association runs.</p>
+   * <p>The ID created by the system when you create an association. An association is a binding
+   *    between a document and a set of targets with a schedule.</p>
    */
-  ScheduleExpression?: string;
+  AssociationId?: string;
 
   /**
-   * <p>The instances targeted by the request to create an association. </p>
+   * <p>The date on which the association was last run.</p>
    */
-  Targets?: Target[];
+  LastExecutionDate?: Date;
 }
 
 export namespace Association {
@@ -271,19 +271,19 @@ export enum AssociationComplianceSeverity {
 export interface AssociationDescription {
   __type?: "AssociationDescription";
   /**
+   * <p>An S3 bucket where you want to store the output details of the request.</p>
+   */
+  OutputLocation?: InstanceAssociationOutputLocation;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
    * <p>The association ID.</p>
    */
   AssociationId?: string;
-
-  /**
-   * <p>The association name.</p>
-   */
-  AssociationName?: string;
-
-  /**
-   * <p>The association version.</p>
-   */
-  AssociationVersion?: string;
 
   /**
    * <p>Specify the target for the association. This target is required for associations that use an
@@ -292,24 +292,14 @@ export interface AssociationDescription {
   AutomationTargetParameterName?: string;
 
   /**
-   * <p>The severity level that is assigned to the association.</p>
+   * <p>The instances targeted by the request. </p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  Targets?: Target[];
 
   /**
-   * <p>The date when the association was made.</p>
+   * <p>A cron expression that specifies a schedule when the association runs.</p>
    */
-  Date?: Date;
-
-  /**
-   * <p>The document version.</p>
-   */
-  DocumentVersion?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
+  ScheduleExpression?: string;
 
   /**
    * <p>The date on which the association was last run.</p>
@@ -317,25 +307,9 @@ export interface AssociationDescription {
   LastExecutionDate?: Date;
 
   /**
-   * <p>The last date on which the association was successfully run.</p>
+   * <p>The association status.</p>
    */
-  LastSuccessfulExecutionDate?: Date;
-
-  /**
-   * <p>The date when the association was last updated.</p>
-   */
-  LastUpdateAssociationDate?: Date;
-
-  /**
-   * <p>The maximum number of targets allowed to run the association at the same time. You can
-   *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
-   *    value is 100%, which means all targets run the association at the same time.</p>
-   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
-   *    MaxConcurrency associations, the association is allowed to run. During the next association
-   *    interval, the new instance will process its association within the limit specified for
-   *    MaxConcurrency.</p>
-   */
-  MaxConcurrency?: string;
+  Status?: AssociationStatus;
 
   /**
    * <p>The number of errors that are allowed before the system stops sending requests to run the
@@ -353,14 +327,40 @@ export interface AssociationDescription {
   MaxErrors?: string;
 
   /**
+   * <p>The document version.</p>
+   */
+  DocumentVersion?: string;
+
+  /**
+   * <p>The date when the association was last updated.</p>
+   */
+  LastUpdateAssociationDate?: Date;
+
+  /**
+   * <p>The severity level that is assigned to the association.</p>
+   */
+  ComplianceSeverity?: AssociationComplianceSeverity | string;
+
+  /**
    * <p>The name of the Systems Manager document.</p>
    */
   Name?: string;
 
   /**
-   * <p>An Amazon S3 bucket where you want to store the output details of the request.</p>
+   * <p>The association version.</p>
    */
-  OutputLocation?: InstanceAssociationOutputLocation;
+  AssociationVersion?: string;
+
+  /**
+   * <p>The maximum number of targets allowed to run the association at the same time. You can
+   *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
+   *    value is 100%, which means all targets run the association at the same time.</p>
+   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
+   *    MaxConcurrency associations, the association is allowed to run. During the next association
+   *    interval, the new instance will process its association within the limit specified for
+   *    MaxConcurrency.</p>
+   */
+  MaxConcurrency?: string;
 
   /**
    * <p>Information about the association.</p>
@@ -368,24 +368,44 @@ export interface AssociationDescription {
   Overview?: AssociationOverview;
 
   /**
+   * <p>The last date on which the association was successfully run.</p>
+   */
+  LastSuccessfulExecutionDate?: Date;
+
+  /**
    * <p>A description of the parameters for a document. </p>
    */
   Parameters?: { [key: string]: string[] };
 
   /**
-   * <p>A cron expression that specifies a schedule when the association runs.</p>
+   * <p>The association name.</p>
    */
-  ScheduleExpression?: string;
+  AssociationName?: string;
 
   /**
-   * <p>The association status.</p>
+   * <p>The date when the association was made.</p>
    */
-  Status?: AssociationStatus;
+  Date?: Date;
 
   /**
-   * <p>The instances targeted by the request. </p>
+   * <p>By default, when you create a new associations, the system runs it immediately after it is
+   *    created and then according to the schedule you specified. Specify this option if you don't want
+   *    an association to run immediately after you create it.</p>
    */
-  Targets?: Target[];
+  ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
+   *     <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the association
+   *    execution to determine the compliance status. If the association execution runs successfully,
+   *    then the association is <code>COMPLIANT</code>. If the association execution doesn't run
+   *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
+   *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
+   *    for the <a>PutComplianceItems</a> API action. In this case, compliance data is not
+   *    managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API action.</p>
+   *          <p>By default, all associations use <code>AUTO</code> mode.</p>
+   */
+  SyncCompliance?: AssociationSyncCompliance | string;
 }
 
 export namespace AssociationDescription {
@@ -417,29 +437,14 @@ export namespace AssociationDoesNotExist {
 export interface AssociationExecution {
   __type?: "AssociationExecution";
   /**
-   * <p>The association ID.</p>
+   * <p>The status of the association execution.</p>
    */
-  AssociationId?: string;
-
-  /**
-   * <p>The association version.</p>
-   */
-  AssociationVersion?: string;
+  Status?: string;
 
   /**
    * <p>The time the execution started.</p>
    */
   CreatedTime?: Date;
-
-  /**
-   * <p>Detailed status information about the execution.</p>
-   */
-  DetailedStatus?: string;
-
-  /**
-   * <p>The execution ID for the association.</p>
-   */
-  ExecutionId?: string;
 
   /**
    * <p>The date of the last execution.</p>
@@ -452,9 +457,24 @@ export interface AssociationExecution {
   ResourceCountByStatus?: string;
 
   /**
-   * <p>The status of the association execution.</p>
+   * <p>Detailed status information about the execution.</p>
    */
-  Status?: string;
+  DetailedStatus?: string;
+
+  /**
+   * <p>The execution ID for the association.</p>
+   */
+  ExecutionId?: string;
+
+  /**
+   * <p>The association ID.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The association version.</p>
+   */
+  AssociationVersion?: string;
 }
 
 export namespace AssociationExecution {
@@ -486,9 +506,9 @@ export namespace AssociationExecutionDoesNotExist {
 export interface AssociationExecutionFilter {
   __type?: "AssociationExecutionFilter";
   /**
-   * <p>The key value used in the request.</p>
+   * <p>The value specified for the key.</p>
    */
-  Key: AssociationExecutionFilterKey | string | undefined;
+  Value: string | undefined;
 
   /**
    * <p>The filter type specified in the request.</p>
@@ -496,9 +516,9 @@ export interface AssociationExecutionFilter {
   Type: AssociationFilterOperatorType | string | undefined;
 
   /**
-   * <p>The value specified for the key.</p>
+   * <p>The key value used in the request.</p>
    */
-  Value: string | undefined;
+  Key: AssociationExecutionFilterKey | string | undefined;
 }
 
 export namespace AssociationExecutionFilter {
@@ -520,14 +540,29 @@ export enum AssociationExecutionFilterKey {
 export interface AssociationExecutionTarget {
   __type?: "AssociationExecutionTarget";
   /**
-   * <p>The association ID.</p>
+   * <p>The association execution status.</p>
    */
-  AssociationId?: string;
+  Status?: string;
 
   /**
-   * <p>The association version.</p>
+   * <p>The date of the last execution.</p>
    */
-  AssociationVersion?: string;
+  LastExecutionDate?: Date;
+
+  /**
+   * <p>The resource ID, for example, the instance ID where the association ran.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The location where the association details are saved.</p>
+   */
+  OutputSource?: OutputSource;
+
+  /**
+   * <p>The resource type, for example, instance.</p>
+   */
+  ResourceType?: string;
 
   /**
    * <p>Detailed information about the execution status.</p>
@@ -540,29 +575,14 @@ export interface AssociationExecutionTarget {
   ExecutionId?: string;
 
   /**
-   * <p>The date of the last execution.</p>
+   * <p>The association version.</p>
    */
-  LastExecutionDate?: Date;
+  AssociationVersion?: string;
 
   /**
-   * <p>The location where the association details are saved.</p>
+   * <p>The association ID.</p>
    */
-  OutputSource?: OutputSource;
-
-  /**
-   * <p>The resource ID, for example, the instance ID where the association ran.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The resource type, for example, instance.</p>
-   */
-  ResourceType?: string;
-
-  /**
-   * <p>The association execution status.</p>
-   */
-  Status?: string;
+  AssociationId?: string;
 }
 
 export namespace AssociationExecutionTarget {
@@ -607,14 +627,14 @@ export enum AssociationExecutionTargetsFilterKey {
 export interface AssociationFilter {
   __type?: "AssociationFilter";
   /**
-   * <p>The name of the filter.</p>
-   */
-  key: AssociationFilterKey | string | undefined;
-
-  /**
    * <p>The filter value.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The name of the filter.</p>
+   */
+  key: AssociationFilterKey | string | undefined;
 }
 
 export namespace AssociationFilter {
@@ -631,6 +651,7 @@ export enum AssociationFilterKey {
   LastExecutedAfter = "LastExecutedAfter",
   LastExecutedBefore = "LastExecutedBefore",
   Name = "Name",
+  ResourceGroupName = "ResourceGroupName",
   Status = "AssociationStatusName",
 }
 
@@ -661,16 +682,16 @@ export namespace AssociationLimitExceeded {
 export interface AssociationOverview {
   __type?: "AssociationOverview";
   /**
+   * <p>A detailed status of the association.</p>
+   */
+  DetailedStatus?: string;
+
+  /**
    * <p>Returns the number of targets for the association status. For example, if you created an
    *    association with two instances, and one of them was successful, this would return the count of
    *    instances by status.</p>
    */
   AssociationStatusAggregatedCount?: { [key: string]: number };
-
-  /**
-   * <p>A detailed status of the association.</p>
-   */
-  DetailedStatus?: string;
 
   /**
    * <p>The status of the association. Status can be: Pending, Success, or Failed.</p>
@@ -696,14 +717,14 @@ export interface AssociationStatus {
   AdditionalInfo?: string;
 
   /**
-   * <p>The date when the status changed.</p>
-   */
-  Date: Date | undefined;
-
-  /**
    * <p>The reason for the status.</p>
    */
   Message: string | undefined;
+
+  /**
+   * <p>The date when the status changed.</p>
+   */
+  Date: Date | undefined;
 
   /**
    * <p>The status.</p>
@@ -724,41 +745,20 @@ export enum AssociationStatusName {
   Success = "Success",
 }
 
+export enum AssociationSyncCompliance {
+  Auto = "AUTO",
+  Manual = "MANUAL",
+}
+
 /**
  * <p>Information about the association version.</p>
  */
 export interface AssociationVersionInfo {
   __type?: "AssociationVersionInfo";
   /**
-   * <p>The ID created by the system when the association was created.</p>
-   */
-  AssociationId?: string;
-
-  /**
-   * <p>The name specified for the association version when the association version was
-   *    created.</p>
-   */
-  AssociationName?: string;
-
-  /**
-   * <p>The association version.</p>
-   */
-  AssociationVersion?: string;
-
-  /**
-   * <p>The severity level that is assigned to the association.</p>
-   */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
-
-  /**
    * <p>The date the association version was created.</p>
    */
   CreatedDate?: Date;
-
-  /**
-   * <p>The version of a Systems Manager document used when the association version was created.</p>
-   */
-  DocumentVersion?: string;
 
   /**
    * <p>The maximum number of targets allowed to run the association at the same time. You can
@@ -770,6 +770,25 @@ export interface AssociationVersionInfo {
    *    MaxConcurrency.</p>
    */
   MaxConcurrency?: string;
+
+  /**
+   * <p>By default, when you create a new associations, the system runs it immediately after it is
+   *    created and then according to the schedule you specified. Specify this option if you don't want
+   *    an association to run immediately after you create it.</p>
+   */
+  ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The name specified for the association version when the association version was
+   *    created.</p>
+   */
+  AssociationName?: string;
+
+  /**
+   * <p>The cron or rate schedule specified for the association when the association version was
+   *    created.</p>
+   */
+  ScheduleExpression?: string;
 
   /**
    * <p>The number of errors that are allowed before the system stops sending requests to run the
@@ -787,9 +806,32 @@ export interface AssociationVersionInfo {
   MaxErrors?: string;
 
   /**
-   * <p>The name specified when the association was created.</p>
+   * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
+   *     <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the association
+   *    execution to determine the compliance status. If the association execution runs successfully,
+   *    then the association is <code>COMPLIANT</code>. If the association execution doesn't run
+   *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
+   *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
+   *    for the <a>PutComplianceItems</a> API action. In this case, compliance data is not
+   *    managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API action.</p>
+   *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  Name?: string;
+  SyncCompliance?: AssociationSyncCompliance | string;
+
+  /**
+   * <p>The targets specified for the association when the association version was created. </p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The ID created by the system when the association was created.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The version of a Systems Manager document used when the association version was created.</p>
+   */
+  DocumentVersion?: string;
 
   /**
    * <p>The location in Amazon S3 specified for the association when the association version was
@@ -803,15 +845,19 @@ export interface AssociationVersionInfo {
   Parameters?: { [key: string]: string[] };
 
   /**
-   * <p>The cron or rate schedule specified for the association when the association version was
-   *    created.</p>
+   * <p>The association version.</p>
    */
-  ScheduleExpression?: string;
+  AssociationVersion?: string;
 
   /**
-   * <p>The targets specified for the association when the association version was created. </p>
+   * <p>The name specified when the association was created.</p>
    */
-  Targets?: Target[];
+  Name?: string;
+
+  /**
+   * <p>The severity level that is assigned to the association.</p>
+   */
+  ComplianceSeverity?: AssociationComplianceSeverity | string;
 }
 
 export namespace AssociationVersionInfo {
@@ -844,6 +890,11 @@ export namespace AssociationVersionLimitExceeded {
 export interface AttachmentContent {
   __type?: "AttachmentContent";
   /**
+   * <p>The size of an attachment in bytes.</p>
+   */
+  Size?: number;
+
+  /**
    * <p>The cryptographic hash value of the document content.</p>
    */
   Hash?: string;
@@ -854,19 +905,14 @@ export interface AttachmentContent {
   HashType?: AttachmentHashType | string;
 
   /**
-   * <p>The name of an attachment.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The size of an attachment in bytes.</p>
-   */
-  Size?: number;
-
-  /**
    * <p>The URL location of the attachment content.</p>
    */
   Url?: string;
+
+  /**
+   * <p>The name of an attachment.</p>
+   */
+  Name?: string;
 }
 
 export namespace AttachmentContent {
@@ -905,17 +951,6 @@ export namespace AttachmentInformation {
 export interface AttachmentsSource {
   __type?: "AttachmentsSource";
   /**
-   * <p>The key of a key-value pair that identifies the location of an attachment to a
-   *    document.</p>
-   */
-  Key?: AttachmentsSourceKey | string;
-
-  /**
-   * <p>The name of the document attachment file.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The value of a key-value pair that identifies the location of an attachment to a document.
    *    The format for <b>Value</b> depends on the type of key you
    *    specify.</p>
@@ -952,6 +987,17 @@ export interface AttachmentsSource {
    *          </ul>
    */
   Values?: string[];
+
+  /**
+   * <p>The key of a key-value pair that identifies the location of an attachment to a
+   *    document.</p>
+   */
+  Key?: AttachmentsSourceKey | string;
+
+  /**
+   * <p>The name of the document attachment file.</p>
+   */
+  Name?: string;
 }
 
 export namespace AttachmentsSource {
@@ -1007,34 +1053,14 @@ export namespace AutomationDefinitionVersionNotFoundException {
 export interface AutomationExecution {
   __type?: "AutomationExecution";
   /**
-   * <p>The execution ID.</p>
-   */
-  AutomationExecutionId?: string;
-
-  /**
-   * <p>The execution status of the Automation.</p>
-   */
-  AutomationExecutionStatus?: AutomationExecutionStatus | string;
-
-  /**
-   * <p>The action of the step that is currently running.</p>
-   */
-  CurrentAction?: string;
-
-  /**
    * <p>The name of the step that is currently running.</p>
    */
   CurrentStepName?: string;
 
   /**
-   * <p>The name of the Automation document used during the execution.</p>
+   * <p>The AutomationExecutionId of the parent automation.</p>
    */
-  DocumentName?: string;
-
-  /**
-   * <p>The version of the document to use during execution.</p>
-   */
-  DocumentVersion?: string;
+  ParentAutomationExecutionId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who ran the automation.</p>
@@ -1042,9 +1068,62 @@ export interface AutomationExecution {
   ExecutedBy?: string;
 
   /**
-   * <p>The time the execution finished.</p>
+   * <p>The name of the Automation document used during the execution.</p>
    */
-  ExecutionEndTime?: Date;
+  DocumentName?: string;
+
+  /**
+   * <p>The execution ID.</p>
+   */
+  AutomationExecutionId?: string;
+
+  /**
+   * <p>The list of execution outputs as defined in the automation document.</p>
+   */
+  Outputs?: { [key: string]: string[] };
+
+  /**
+   * <p>A boolean value that indicates if the response contains the full list of the Automation step
+   *    executions. If true, use the DescribeAutomationStepExecutions API action to get the full list of
+   *    step executions.</p>
+   */
+  StepExecutionsTruncated?: boolean;
+
+  /**
+   * <p>The automation execution mode.</p>
+   */
+  Mode?: ExecutionMode | string;
+
+  /**
+   * <p>The specified targets.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The specified key-value mapping of document parameters to target resources.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
+
+  /**
+   * <p>The key-value map of execution parameters, which were supplied when calling
+   *    StartAutomationExecution.</p>
+   */
+  Parameters?: { [key: string]: string[] };
+
+  /**
+   * <p>The parameter name.</p>
+   */
+  TargetParameterName?: string;
+
+  /**
+   * <p>The MaxConcurrency value specified by the user when the execution started.</p>
+   */
+  MaxConcurrency?: string;
+
+  /**
+   * <p>A list of resolved targets in the rate control execution.</p>
+   */
+  ResolvedTargets?: ResolvedTargets;
 
   /**
    * <p>The time the execution started.</p>
@@ -1057,64 +1136,9 @@ export interface AutomationExecution {
   FailureMessage?: string;
 
   /**
-   * <p>The MaxConcurrency value specified by the user when the execution started.</p>
+   * <p>The version of the document to use during execution.</p>
    */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The MaxErrors value specified by the user when the execution started.</p>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>The automation execution mode.</p>
-   */
-  Mode?: ExecutionMode | string;
-
-  /**
-   * <p>The list of execution outputs as defined in the automation document.</p>
-   */
-  Outputs?: { [key: string]: string[] };
-
-  /**
-   * <p>The key-value map of execution parameters, which were supplied when calling
-   *    StartAutomationExecution.</p>
-   */
-  Parameters?: { [key: string]: string[] };
-
-  /**
-   * <p>The AutomationExecutionId of the parent automation.</p>
-   */
-  ParentAutomationExecutionId?: string;
-
-  /**
-   * <p>An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and
-   *    multi-account Automation execution.</p>
-   */
-  ProgressCounters?: ProgressCounters;
-
-  /**
-   * <p>A list of resolved targets in the rate control execution.</p>
-   */
-  ResolvedTargets?: ResolvedTargets;
-
-  /**
-   * <p>A list of details about the current state of all steps that comprise an execution. An
-   *    Automation document contains a list of steps that are run in order.</p>
-   */
-  StepExecutions?: StepExecution[];
-
-  /**
-   * <p>A boolean value that indicates if the response contains the full list of the Automation step
-   *    executions. If true, use the DescribeAutomationStepExecutions API action to get the full list of
-   *    step executions.</p>
-   */
-  StepExecutionsTruncated?: boolean;
-
-  /**
-   * <p>The target of the execution.</p>
-   */
-  Target?: string;
+  DocumentVersion?: string;
 
   /**
    * <p>The combination of AWS Regions and/or AWS accounts where you want to run the
@@ -1123,19 +1147,41 @@ export interface AutomationExecution {
   TargetLocations?: TargetLocation[];
 
   /**
-   * <p>The specified key-value mapping of document parameters to target resources.</p>
+   * <p>An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and
+   *    multi-account Automation execution.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  ProgressCounters?: ProgressCounters;
 
   /**
-   * <p>The parameter name.</p>
+   * <p>The action of the step that is currently running.</p>
    */
-  TargetParameterName?: string;
+  CurrentAction?: string;
 
   /**
-   * <p>The specified targets.</p>
+   * <p>A list of details about the current state of all steps that comprise an execution. An
+   *    Automation document contains a list of steps that are run in order.</p>
    */
-  Targets?: Target[];
+  StepExecutions?: StepExecution[];
+
+  /**
+   * <p>The MaxErrors value specified by the user when the execution started.</p>
+   */
+  MaxErrors?: string;
+
+  /**
+   * <p>The execution status of the Automation.</p>
+   */
+  AutomationExecutionStatus?: AutomationExecutionStatus | string;
+
+  /**
+   * <p>The time the execution finished.</p>
+   */
+  ExecutionEndTime?: Date;
+
+  /**
+   * <p>The target of the execution.</p>
+   */
+  Target?: string;
 }
 
 export namespace AutomationExecution {
@@ -1207,9 +1253,9 @@ export namespace AutomationExecutionLimitExceededException {
 export interface AutomationExecutionMetadata {
   __type?: "AutomationExecutionMetadata";
   /**
-   * <p>The execution ID.</p>
+   * <p>The list of execution outputs as defined in the Automation document.</p>
    */
-  AutomationExecutionId?: string;
+  TargetParameterName?: string;
 
   /**
    * <p>The status of the execution.</p>
@@ -1217,79 +1263,17 @@ export interface AutomationExecutionMetadata {
   AutomationExecutionStatus?: AutomationExecutionStatus | string;
 
   /**
+   * <p>The list of execution outputs as defined in the Automation document.</p>
+   */
+  Target?: string;
+
+  /**
    * <p>Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or
    *    CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and accounts. For
-   *    more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Executing
-   *     Automations in Multiple AWS Regions and Accounts</a> in the
+   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple AWS Regions and accounts</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
   AutomationType?: AutomationType | string;
-
-  /**
-   * <p>The action of the step that is currently running.</p>
-   */
-  CurrentAction?: string;
-
-  /**
-   * <p>The name of the step that is currently running.</p>
-   */
-  CurrentStepName?: string;
-
-  /**
-   * <p>The name of the Automation document used during execution.</p>
-   */
-  DocumentName?: string;
-
-  /**
-   * <p>The document version used during the execution.</p>
-   */
-  DocumentVersion?: string;
-
-  /**
-   * <p>The IAM role ARN of the user who ran the Automation.</p>
-   */
-  ExecutedBy?: string;
-
-  /**
-   * <p>The time the execution finished. This is not populated if the execution is still in
-   *    progress.</p>
-   */
-  ExecutionEndTime?: Date;
-
-  /**
-   * <p>The time the execution started.</p>
-   */
-  ExecutionStartTime?: Date;
-
-  /**
-   * <p>The list of execution outputs as defined in the Automation document.</p>
-   */
-  FailureMessage?: string;
-
-  /**
-   * <p>An Amazon S3 bucket where execution information is stored.</p>
-   */
-  LogFile?: string;
-
-  /**
-   * <p>The MaxConcurrency value specified by the user when starting the Automation.</p>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The MaxErrors value specified by the user when starting the Automation.</p>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>The Automation execution mode.</p>
-   */
-  Mode?: ExecutionMode | string;
-
-  /**
-   * <p>The list of execution outputs as defined in the Automation document.</p>
-   */
-  Outputs?: { [key: string]: string[] };
 
   /**
    * <p>The ExecutionId of the parent Automation.</p>
@@ -1302,9 +1286,49 @@ export interface AutomationExecutionMetadata {
   ResolvedTargets?: ResolvedTargets;
 
   /**
+   * <p>The document version used during the execution.</p>
+   */
+  DocumentVersion?: string;
+
+  /**
    * <p>The list of execution outputs as defined in the Automation document.</p>
    */
-  Target?: string;
+  Outputs?: { [key: string]: string[] };
+
+  /**
+   * <p>The list of execution outputs as defined in the Automation document.</p>
+   */
+  FailureMessage?: string;
+
+  /**
+   * <p>The IAM role ARN of the user who ran the Automation.</p>
+   */
+  ExecutedBy?: string;
+
+  /**
+   * <p>The name of the Automation document used during execution.</p>
+   */
+  DocumentName?: string;
+
+  /**
+   * <p>The action of the step that is currently running.</p>
+   */
+  CurrentAction?: string;
+
+  /**
+   * <p>The MaxErrors value specified by the user when starting the Automation.</p>
+   */
+  MaxErrors?: string;
+
+  /**
+   * <p>The Automation execution mode.</p>
+   */
+  Mode?: ExecutionMode | string;
+
+  /**
+   * <p>The time the execution started.</p>
+   */
+  ExecutionStartTime?: Date;
 
   /**
    * <p>The specified key-value mapping of document parameters to target resources.</p>
@@ -1312,14 +1336,35 @@ export interface AutomationExecutionMetadata {
   TargetMaps?: { [key: string]: string[] }[];
 
   /**
-   * <p>The list of execution outputs as defined in the Automation document.</p>
+   * <p>The MaxConcurrency value specified by the user when starting the Automation.</p>
    */
-  TargetParameterName?: string;
+  MaxConcurrency?: string;
 
   /**
    * <p>The targets defined by the user when starting the Automation.</p>
    */
   Targets?: Target[];
+
+  /**
+   * <p>The name of the step that is currently running.</p>
+   */
+  CurrentStepName?: string;
+
+  /**
+   * <p>The execution ID.</p>
+   */
+  AutomationExecutionId?: string;
+
+  /**
+   * <p>The time the execution finished. This is not populated if the execution is still in
+   *    progress.</p>
+   */
+  ExecutionEndTime?: Date;
+
+  /**
+   * <p>An S3 bucket where execution information is stored.</p>
+   */
+  LogFile?: string;
 }
 
 export namespace AutomationExecutionMetadata {
@@ -1391,15 +1436,15 @@ export enum CalendarState {
 export interface CancelCommandRequest {
   __type?: "CancelCommandRequest";
   /**
-   * <p>The ID of the command you want to cancel.</p>
-   */
-  CommandId: string | undefined;
-
-  /**
    * <p>(Optional) A list of instance IDs on which you want to cancel the command. If not provided,
    *    the command is canceled on every instance on which it was requested.</p>
    */
   InstanceIds?: string[];
+
+  /**
+   * <p>The ID of the command you want to cancel.</p>
+   */
+  CommandId: string | undefined;
 }
 
 export namespace CancelCommandRequest {
@@ -1462,16 +1507,16 @@ export namespace CancelMaintenanceWindowExecutionResult {
 export interface CloudWatchOutputConfig {
   __type?: "CloudWatchOutputConfig";
   /**
+   * <p>Enables Systems Manager to send command output to CloudWatch Logs.</p>
+   */
+  CloudWatchOutputEnabled?: boolean;
+
+  /**
    * <p>The name of the CloudWatch log group where you want to send command output. If you don't
    *    specify a group name, Systems Manager automatically creates a log group for you. The log group uses the
    *    following naming format: aws/ssm/<i>SystemsManagerDocumentName</i>.</p>
    */
   CloudWatchLogGroupName?: string;
-
-  /**
-   * <p>Enables Systems Manager to send command output to CloudWatch Logs.</p>
-   */
-  CloudWatchOutputEnabled?: boolean;
 }
 
 export namespace CloudWatchOutputConfig {
@@ -1487,20 +1532,58 @@ export namespace CloudWatchOutputConfig {
 export interface Command {
   __type?: "Command";
   /**
+   * <p>The <code>TimeoutSeconds</code> value specified for a command.</p>
+   */
+  TimeoutSeconds?: number;
+
+  /**
+   * <p>The S3 directory path inside the bucket where the responses to the command executions should
+   *    be stored. This was requested when issuing the command.</p>
+   */
+  OutputS3KeyPrefix?: string;
+
+  /**
+   * <p>The date and time the command was requested.</p>
+   */
+  RequestedDateTime?: Date;
+
+  /**
+   * <p>The S3 bucket where the responses to the command executions should be stored. This was
+   *    requested when issuing the command.</p>
+   */
+  OutputS3BucketName?: string;
+
+  /**
+   * <p>The name of the document requested for execution.</p>
+   */
+  DocumentName?: string;
+
+  /**
    * <p>CloudWatch Logs information where you want Systems Manager to send the command output.</p>
    */
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
 
   /**
+   * <p>The number of targets for which the status is Delivery Timed Out.</p>
+   */
+  DeliveryTimedOutCount?: number;
+
+  /**
+   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
+   *    automatically determines the Region of the S3 bucket.</p>
+   */
+  OutputS3Region?: string;
+
+  /**
+   * <p>The IAM service role that Run Command uses to act on your behalf when sending notifications
+   *    about command status changes. </p>
+   */
+  ServiceRole?: string;
+
+  /**
    * <p>A unique identifier for this command.</p>
    */
   CommandId?: string;
-
-  /**
-   * <p>User-specified information about the command, such as a brief description of what the
-   *    command should do.</p>
-   */
-  Comment?: string;
 
   /**
    * <p>The number of targets for which the command invocation reached a terminal state. Terminal
@@ -1510,24 +1593,9 @@ export interface Command {
   CompletedCount?: number;
 
   /**
-   * <p>The number of targets for which the status is Delivery Timed Out.</p>
-   */
-  DeliveryTimedOutCount?: number;
-
-  /**
-   * <p>The name of the document requested for execution.</p>
-   */
-  DocumentName?: string;
-
-  /**
    * <p>The SSM document version.</p>
    */
   DocumentVersion?: string;
-
-  /**
-   * <p>The number of targets for which the status is Failed or Execution Timed Out.</p>
-   */
-  ErrorCount?: number;
 
   /**
    * <p>If this time is reached and the command has not already started running, it will not run.
@@ -1536,64 +1604,10 @@ export interface Command {
   ExpiresAfter?: Date;
 
   /**
-   * <p>The instance IDs against which this command was requested.</p>
+   * <p>An array of search criteria that targets instances using a Key,Value combination that you
+   *    specify. Targets is required if you don't provide one or more instance IDs in the call.</p>
    */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of instances that are allowed to run the command at the same time. You
-   *    can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The
-   *    default value is 50. For more information about how to use MaxConcurrency, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running Commands Using Systems Manager Run Command</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The maximum number of errors allowed before the system stops sending the command to
-   *    additional targets. You can specify a number of errors, such as 10, or a percentage or errors,
-   *    such as 10%. The default value is 0. For more information about how to use MaxErrors, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running Commands Using Systems Manager Run Command</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>Configurations for sending notifications about command status changes. </p>
-   */
-  NotificationConfig?: NotificationConfig;
-
-  /**
-   * <p>The S3 bucket where the responses to the command executions should be stored. This was
-   *    requested when issuing the command.</p>
-   */
-  OutputS3BucketName?: string;
-
-  /**
-   * <p>The S3 directory path inside the bucket where the responses to the command executions should
-   *    be stored. This was requested when issuing the command.</p>
-   */
-  OutputS3KeyPrefix?: string;
-
-  /**
-   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
-   *    automatically determines the Amazon S3 bucket region.</p>
-   */
-  OutputS3Region?: string;
-
-  /**
-   * <p>The parameter values to be inserted in the document when running the command.</p>
-   */
-  Parameters?: { [key: string]: string[] };
-
-  /**
-   * <p>The date and time the command was requested.</p>
-   */
-  RequestedDateTime?: Date;
-
-  /**
-   * <p>The IAM service role that Run Command uses to act on your behalf when sending notifications
-   *    about command status changes. </p>
-   */
-  ServiceRole?: string;
+  Targets?: Target[];
 
   /**
    * <p>The status of the command.</p>
@@ -1601,12 +1615,32 @@ export interface Command {
   Status?: CommandStatus | string;
 
   /**
+   * <p>User-specified information about the command, such as a brief description of what the
+   *    command should do.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>The number of targets for which the status is Failed or Execution Timed Out.</p>
+   */
+  ErrorCount?: number;
+
+  /**
+   * <p>The instance IDs against which this command was requested.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The parameter values to be inserted in the document when running the command.</p>
+   */
+  Parameters?: { [key: string]: string[] };
+
+  /**
    * <p>A detailed status of the command execution. StatusDetails includes more information than
    *    Status because it includes states resulting from error and concurrency control parameters.
    *    StatusDetails can show different results than Status. For more information about these statuses,
-   *    see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding Command Statuses</a> in
-   *    the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the following
-   *    values:</p>
+   *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding command statuses</a> in the <i>AWS Systems Manager User Guide</i>.
+   *    StatusDetails can be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>Pending: The command has not been sent to any instances.</p>
@@ -1649,15 +1683,30 @@ export interface Command {
   StatusDetails?: string;
 
   /**
+   * <p>The maximum number of instances that are allowed to run the command at the same time. You
+   *    can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The
+   *    default value is 50. For more information about how to use MaxConcurrency, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running commands
+   *     using Systems Manager Run Command</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  MaxConcurrency?: string;
+
+  /**
+   * <p>Configurations for sending notifications about command status changes. </p>
+   */
+  NotificationConfig?: NotificationConfig;
+
+  /**
    * <p>The number of targets for the command.</p>
    */
   TargetCount?: number;
 
   /**
-   * <p>An array of search criteria that targets instances using a Key,Value combination that you
-   *    specify. Targets is required if you don't provide one or more instance IDs in the call.</p>
+   * <p>The maximum number of errors allowed before the system stops sending the command to
+   *    additional targets. You can specify a number of errors, such as 10, or a percentage or errors,
+   *    such as 10%. The default value is 0. For more information about how to use MaxErrors, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running commands
+   *     using Systems Manager Run Command</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  Targets?: Target[];
+  MaxErrors?: string;
 }
 
 export namespace Command {
@@ -1669,14 +1718,13 @@ export namespace Command {
 
 /**
  * <p>Describes a command filter.</p>
+ *          <note>
+ *             <p>An instance ID can't be specified when a command status is <code>Pending</code> because the
+ *     command hasn't run on the instance yet.</p>
+ *          </note>
  */
 export interface CommandFilter {
   __type?: "CommandFilter";
-  /**
-   * <p>The name of the filter.</p>
-   */
-  key: CommandFilterKey | string | undefined;
-
   /**
    * <p>The filter value. Valid values for each filter key are as follows:</p>
    *          <ul>
@@ -1761,6 +1809,11 @@ export interface CommandFilter {
    *          </ul>
    */
   value: string | undefined;
+
+  /**
+   * <p>The name of the filter.</p>
+   */
+  key: CommandFilterKey | string | undefined;
 }
 
 export namespace CommandFilter {
@@ -1788,21 +1841,11 @@ export enum CommandFilterKey {
 export interface CommandInvocation {
   __type?: "CommandInvocation";
   /**
-   * <p>CloudWatch Logs information where you want Systems Manager to send the command output.</p>
+   * <p>The URL to the plugin's StdOut file in Amazon S3, if the S3 bucket was defined for the parent
+   *    command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined
+   *    for the command, and the S3 bucket was defined for the command.</p>
    */
-  CloudWatchOutputConfig?: CloudWatchOutputConfig;
-
-  /**
-   * <p>The command against which this invocation was requested.</p>
-   */
-  CommandId?: string;
-
-  CommandPlugins?: CommandPlugin[];
-  /**
-   * <p>User-specified information about the command, such as a brief description of what the
-   *    command should do.</p>
-   */
-  Comment?: string;
+  StandardOutputUrl?: string;
 
   /**
    * <p>The document name that was requested for execution.</p>
@@ -1810,31 +1853,20 @@ export interface CommandInvocation {
   DocumentName?: string;
 
   /**
-   * <p>The SSM document version.</p>
+   * <p>The time and date the request was sent to this instance.</p>
    */
-  DocumentVersion?: string;
+  RequestedDateTime?: Date;
 
   /**
-   * <p>The instance ID in which this invocation was requested.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The name of the invocation target. For Amazon EC2 instances this is the value for the aws:Name
-   *    tag. For on-premises instances, this is the name of the instance.</p>
+   * <p>The name of the invocation target. For EC2 instances this is the value for the aws:Name tag.
+   *    For on-premises instances, this is the name of the instance.</p>
    */
   InstanceName?: string;
 
   /**
-   * <p>Configurations for sending notifications about command status changes on a per instance
-   *    basis.</p>
+   * <p>CloudWatch Logs information where you want Systems Manager to send the command output.</p>
    */
-  NotificationConfig?: NotificationConfig;
-
-  /**
-   * <p>The time and date the request was sent to this instance.</p>
-   */
-  RequestedDateTime?: Date;
+  CloudWatchOutputConfig?: CloudWatchOutputConfig;
 
   /**
    * <p>The IAM service role that Run Command uses to act on your behalf when sending notifications
@@ -1843,18 +1875,9 @@ export interface CommandInvocation {
   ServiceRole?: string;
 
   /**
-   * <p>The URL to the plugin's StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent
-   *    command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for
-   *    the command, and the Amazon S3 bucket was defined for the command.</p>
+   * <p>The command against which this invocation was requested.</p>
    */
-  StandardErrorUrl?: string;
-
-  /**
-   * <p>The URL to the plugin's StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent
-   *    command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined
-   *    for the command, and the Amazon S3 bucket was defined for the command.</p>
-   */
-  StandardOutputUrl?: string;
+  CommandId?: string;
 
   /**
    * <p>Whether or not the invocation succeeded, failed, or is pending.</p>
@@ -1862,11 +1885,34 @@ export interface CommandInvocation {
   Status?: CommandInvocationStatus | string;
 
   /**
+   * <p>The instance ID in which this invocation was requested.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p> Gets the trace output sent by the agent. </p>
+   */
+  TraceOutput?: string;
+
+  CommandPlugins?: CommandPlugin[];
+  /**
+   * <p>The SSM document version.</p>
+   */
+  DocumentVersion?: string;
+
+  /**
+   * <p>Configurations for sending notifications about command status changes on a per instance
+   *    basis.</p>
+   */
+  NotificationConfig?: NotificationConfig;
+
+  /**
    * <p>A detailed status of the command execution for each invocation (each instance targeted by
    *    the command). StatusDetails includes more information than Status because it includes states
    *    resulting from error and concurrency control parameters. StatusDetails can show different results
-   *    than Status. For more information about these statuses, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding Command Statuses</a> in the
-   *     <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the following values:</p>
+   *    than Status. For more information about these statuses, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding command
+   *     statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the
+   *    following values:</p>
    *          <ul>
    *             <li>
    *                <p>Pending: The command has not been sent to the instance.</p>
@@ -1915,9 +1961,17 @@ export interface CommandInvocation {
   StatusDetails?: string;
 
   /**
-   * <p> Gets the trace output sent by the agent. </p>
+   * <p>The URL to the plugin's StdErr file in Amazon S3, if the S3 bucket was defined for the parent
+   *    command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for
+   *    the command, and the S3 bucket was defined for the command.</p>
    */
-  TraceOutput?: string;
+  StandardErrorUrl?: string;
+
+  /**
+   * <p>User-specified information about the command, such as a brief description of what the
+   *    command should do.</p>
+   */
+  Comment?: string;
 }
 
 export namespace CommandInvocation {
@@ -1944,6 +1998,46 @@ export enum CommandInvocationStatus {
 export interface CommandPlugin {
   __type?: "CommandPlugin";
   /**
+   * <p>A numeric response code generated after running the plugin. </p>
+   */
+  ResponseCode?: number;
+
+  /**
+   * <p>The URL for the complete text written by the plugin to stdout in Amazon S3. If the S3 bucket for
+   *    the command was not specified, then this string is empty.</p>
+   */
+  StandardOutputUrl?: string;
+
+  /**
+   * <p>The S3 directory path inside the bucket where the responses to the command executions should
+   *    be stored. This was requested when issuing the command. For example, in the following
+   *    response:</p>
+   *          <p> test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript </p>
+   *          <p>test_folder is the name of the S3 bucket;</p>
+   *          <p>ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;</p>
+   *          <p>i-1234567876543 is the instance ID;</p>
+   *          <p>awsrunShellScript is the name of the plugin.</p>
+   */
+  OutputS3KeyPrefix?: string;
+
+  /**
+   * <p>The S3 bucket where the responses to the command executions should be stored. This was
+   *    requested when issuing the command. For example, in the following response:</p>
+   *          <p> test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript </p>
+   *          <p>test_folder is the name of the S3 bucket;</p>
+   *          <p>ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;</p>
+   *          <p>i-1234567876543 is the instance ID;</p>
+   *          <p>awsrunShellScript is the name of the plugin.</p>
+   */
+  OutputS3BucketName?: string;
+
+  /**
+   * <p>The URL for the complete text written by the plugin to stderr. If execution is not yet
+   *    complete, then this string is empty.</p>
+   */
+  StandardErrorUrl?: string;
+
+  /**
    * <p>The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin,
    *    aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch, aws:runShellScript, or
    *    aws:updateSSMAgent. </p>
@@ -1956,74 +2050,17 @@ export interface CommandPlugin {
   Output?: string;
 
   /**
-   * <p>The S3 bucket where the responses to the command executions should be stored. This was
-   *    requested when issuing the command. For example, in the following response:</p>
-   *          <p> test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript </p>
-   *          <p>test_folder is the name of the Amazon S3 bucket;</p>
-   *          <p> ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;</p>
-   *          <p>i-1234567876543 is the instance ID;</p>
-   *          <p>awsrunShellScript is the name of the plugin.</p>
-   */
-  OutputS3BucketName?: string;
-
-  /**
-   * <p>The S3 directory path inside the bucket where the responses to the command executions should
-   *    be stored. This was requested when issuing the command. For example, in the following
-   *    response:</p>
-   *          <p> test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript </p>
-   *          <p>test_folder is the name of the Amazon S3 bucket;</p>
-   *          <p> ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;</p>
-   *          <p>i-1234567876543 is the instance ID;</p>
-   *          <p>awsrunShellScript is the name of the plugin.</p>
-   */
-  OutputS3KeyPrefix?: string;
-
-  /**
-   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
-   *    automatically determines the Amazon S3 bucket region.</p>
-   */
-  OutputS3Region?: string;
-
-  /**
-   * <p>A numeric response code generated after running the plugin. </p>
-   */
-  ResponseCode?: number;
-
-  /**
    * <p>The time the plugin stopped running. Could stop prematurely if, for example, a cancel
    *    command was sent. </p>
    */
   ResponseFinishDateTime?: Date;
 
   /**
-   * <p>The time the plugin started running. </p>
-   */
-  ResponseStartDateTime?: Date;
-
-  /**
-   * <p>The URL for the complete text written by the plugin to stderr. If execution is not yet
-   *    complete, then this string is empty.</p>
-   */
-  StandardErrorUrl?: string;
-
-  /**
-   * <p>The URL for the complete text written by the plugin to stdout in Amazon S3. If the Amazon S3 bucket
-   *    for the command was not specified, then this string is empty.</p>
-   */
-  StandardOutputUrl?: string;
-
-  /**
-   * <p>The status of this plugin. You can run a document with multiple plugins.</p>
-   */
-  Status?: CommandPluginStatus | string;
-
-  /**
    * <p>A detailed status of the plugin execution. StatusDetails includes more information than
    *    Status because it includes states resulting from error and concurrency control parameters.
    *    StatusDetails can show different results than Status. For more information about these statuses,
-   *    see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding Command Statuses</a> in
-   *    the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the following
-   *    values:</p>
+   *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding command statuses</a> in the <i>AWS Systems Manager User Guide</i>.
+   *    StatusDetails can be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>Pending: The command has not been sent to the instance.</p>
@@ -2070,6 +2107,22 @@ export interface CommandPlugin {
    *          </ul>
    */
   StatusDetails?: string;
+
+  /**
+   * <p>The status of this plugin. You can run a document with multiple plugins.</p>
+   */
+  Status?: CommandPluginStatus | string;
+
+  /**
+   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
+   *    automatically determines the S3 bucket region.</p>
+   */
+  OutputS3Region?: string;
+
+  /**
+   * <p>The time the plugin started running. </p>
+   */
+  ResponseStartDateTime?: Date;
 }
 
 export namespace CommandPlugin {
@@ -2106,10 +2159,9 @@ export enum CommandStatus {
 export interface ComplianceExecutionSummary {
   __type?: "ComplianceExecutionSummary";
   /**
-   * <p>An ID created by the system when <code>PutComplianceItems</code> was called. For example,
-   *     <code>CommandID</code> is a valid execution ID. You can use this ID in subsequent calls.</p>
+   * <p>The type of execution. For example, <code>Command</code> is a valid execution type.</p>
    */
-  ExecutionId?: string;
+  ExecutionType?: string;
 
   /**
    * <p>The time the execution ran as a datetime object that is saved in the following format:
@@ -2118,9 +2170,10 @@ export interface ComplianceExecutionSummary {
   ExecutionTime: Date | undefined;
 
   /**
-   * <p>The type of execution. For example, <code>Command</code> is a valid execution type.</p>
+   * <p>An ID created by the system when <code>PutComplianceItems</code> was called. For example,
+   *     <code>CommandID</code> is a valid execution ID. You can use this ID in subsequent calls.</p>
    */
-  ExecutionType?: string;
+  ExecutionId?: string;
 }
 
 export namespace ComplianceExecutionSummary {
@@ -2133,37 +2186,14 @@ export namespace ComplianceExecutionSummary {
 /**
  * <p>Information about the compliance as defined by the resource type. For example, for a patch
  *    resource type, <code>Items</code> includes information about the PatchSeverity, Classification,
- *    etc.</p>
+ *    and so on.</p>
  */
 export interface ComplianceItem {
   __type?: "ComplianceItem";
   /**
-   * <p>The compliance type. For example, Association (for a State Manager association), Patch, or
-   *     Custom:<code>string</code> are all valid compliance types.</p>
-   */
-  ComplianceType?: string;
-
-  /**
    * <p>A "Key": "Value" tag combination for the compliance item.</p>
    */
   Details?: { [key: string]: string };
-
-  /**
-   * <p>A summary for the compliance item. The summary includes an execution ID, the execution type
-   *    (for example, command), and the execution time.</p>
-   */
-  ExecutionSummary?: ComplianceExecutionSummary;
-
-  /**
-   * <p>An ID for the compliance item. For example, if the compliance item is a Windows patch, the
-   *    ID could be the number of the KB article; for example: KB4010320.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>An ID for the resource. For a managed instance, this is the instance ID.</p>
-   */
-  ResourceId?: string;
 
   /**
    * <p>The type of resource. <code>ManagedInstance</code> is currently the only supported resource
@@ -2172,15 +2202,16 @@ export interface ComplianceItem {
   ResourceType?: string;
 
   /**
-   * <p>The severity of the compliance status. Severity can be one of the following: Critical, High,
-   *    Medium, Low, Informational, Unspecified.</p>
+   * <p>An ID for the compliance item. For example, if the compliance item is a Windows patch, the
+   *    ID could be the number of the KB article; for example: KB4010320.</p>
    */
-  Severity?: ComplianceSeverity | string;
+  Id?: string;
 
   /**
-   * <p>The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.</p>
+   * <p>A summary for the compliance item. The summary includes an execution ID, the execution type
+   *    (for example, command), and the execution time.</p>
    */
-  Status?: ComplianceStatus | string;
+  ExecutionSummary?: ComplianceExecutionSummary;
 
   /**
    * <p>A title for the compliance item. For example, if the compliance item is a Windows patch, the
@@ -2188,6 +2219,28 @@ export interface ComplianceItem {
    *    Directory Federation Services.</p>
    */
   Title?: string;
+
+  /**
+   * <p>The compliance type. For example, Association (for a State Manager association), Patch, or
+   *     Custom:<code>string</code> are all valid compliance types.</p>
+   */
+  ComplianceType?: string;
+
+  /**
+   * <p>An ID for the resource. For a managed instance, this is the instance ID.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.</p>
+   */
+  Status?: ComplianceStatus | string;
+
+  /**
+   * <p>The severity of the compliance status. Severity can be one of the following: Critical, High,
+   *    Medium, Low, Informational, Unspecified.</p>
+   */
+  Severity?: ComplianceSeverity | string;
 }
 
 export namespace ComplianceItem {
@@ -2203,11 +2256,6 @@ export namespace ComplianceItem {
 export interface ComplianceItemEntry {
   __type?: "ComplianceItemEntry";
   /**
-   * <p>A "Key": "Value" tag combination for the compliance item.</p>
-   */
-  Details?: { [key: string]: string };
-
-  /**
    * <p>The compliance item ID. For example, if the compliance item is a Windows patch, the ID could
    *    be the number of the KB article.</p>
    */
@@ -2220,16 +2268,21 @@ export interface ComplianceItemEntry {
   Severity: ComplianceSeverity | string | undefined;
 
   /**
-   * <p>The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.</p>
-   */
-  Status: ComplianceStatus | string | undefined;
-
-  /**
    * <p>The title of the compliance item. For example, if the compliance item is a Windows patch,
    *    the title could be the title of the KB article for the patch; for example: Security Update for
    *    Active Directory Federation Services. </p>
    */
   Title?: string;
+
+  /**
+   * <p>A "Key": "Value" tag combination for the compliance item.</p>
+   */
+  Details?: { [key: string]: string };
+
+  /**
+   * <p>The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.</p>
+   */
+  Status: ComplianceStatus | string | undefined;
 }
 
 export namespace ComplianceItemEntry {
@@ -2267,6 +2320,11 @@ export enum ComplianceStatus {
 export interface ComplianceStringFilter {
   __type?: "ComplianceStringFilter";
   /**
+   * <p>The value for which to search.</p>
+   */
+  Values?: string[];
+
+  /**
    * <p>The name of the filter.</p>
    */
   Key?: string;
@@ -2276,11 +2334,6 @@ export interface ComplianceStringFilter {
    *    LessThan, or GreaterThan.</p>
    */
   Type?: ComplianceQueryOperatorType | string;
-
-  /**
-   * <p>The value for which to search.</p>
-   */
-  Values?: string[];
 }
 
 export namespace ComplianceStringFilter {
@@ -2302,14 +2355,14 @@ export interface ComplianceSummaryItem {
   ComplianceType?: string;
 
   /**
-   * <p>A list of COMPLIANT items for the specified compliance type.</p>
-   */
-  CompliantSummary?: CompliantSummary;
-
-  /**
    * <p>A list of NON_COMPLIANT items for the specified compliance type.</p>
    */
   NonCompliantSummary?: NonCompliantSummary;
+
+  /**
+   * <p>A list of COMPLIANT items for the specified compliance type.</p>
+   */
+  CompliantSummary?: CompliantSummary;
 }
 
 export namespace ComplianceSummaryItem {
@@ -2335,6 +2388,11 @@ export namespace ComplianceTypeCountLimitExceededException {
   });
   export const isa = (o: any): o is ComplianceTypeCountLimitExceededException =>
     __isa(o, "ComplianceTypeCountLimitExceededException");
+}
+
+export enum ComplianceUploadType {
+  Complete = "COMPLETE",
+  Partial = "PARTIAL",
 }
 
 /**
@@ -2369,41 +2427,10 @@ export enum ConnectionStatus {
 export interface CreateActivationRequest {
   __type?: "CreateActivationRequest";
   /**
-   * <p>The name of the registered, managed instance as it will appear in the Systems Manager console or when
-   *    you use the AWS command line tools to list Systems Manager resources.</p>
-   *          <important>
-   *             <p>Do not enter personally identifiable information in this field.</p>
-   *          </important>
-   */
-  DefaultInstanceName?: string;
-
-  /**
-   * <p>A user-defined description of the resource that you want to register with Systems Manager. </p>
-   *          <important>
-   *             <p>Do not enter personally identifiable information in this field.</p>
-   *          </important>
-   */
-  Description?: string;
-
-  /**
    * <p>The date by which this activation request should expire. The default value is 24
    *    hours.</p>
    */
   ExpirationDate?: Date;
-
-  /**
-   * <p>The Amazon Identity and Access Management (IAM) role that you want to assign to the managed
-   *    instance. This IAM role must provide AssumeRole permissions for the Systems Manager service principal
-   *     <code>ssm.amazonaws.com</code>. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an IAM Service Role for a Hybrid
-   *     Environment</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  IamRole: string | undefined;
-
-  /**
-   * <p>Specify the maximum number of managed instances you want to register. The default value is 1
-   *    instance.</p>
-   */
-  RegistrationLimit?: number;
 
   /**
    * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
@@ -2436,6 +2463,37 @@ export interface CreateActivationRequest {
    *    instances, see <a>RemoveTagsFromResource</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Identity and Access Management (IAM) role that you want to assign to the managed
+   *    instance. This IAM role must provide AssumeRole permissions for the Systems Manager service principal
+   *     <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an IAM service role for a
+   *     hybrid environment</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  IamRole: string | undefined;
+
+  /**
+   * <p>A user-defined description of the resource that you want to register with Systems Manager. </p>
+   *          <important>
+   *             <p>Do not enter personally identifiable information in this field.</p>
+   *          </important>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the registered, managed instance as it will appear in the Systems Manager console or when
+   *    you use the AWS command line tools to list Systems Manager resources.</p>
+   *          <important>
+   *             <p>Do not enter personally identifiable information in this field.</p>
+   *          </important>
+   */
+  DefaultInstanceName?: string;
+
+  /**
+   * <p>Specify the maximum number of managed instances you want to register. The default value is 1
+   *    instance.</p>
+   */
+  RegistrationLimit?: number;
 }
 
 export namespace CreateActivationRequest {
@@ -2488,9 +2546,9 @@ export namespace CreateAssociationBatchRequest {
 export interface CreateAssociationBatchRequestEntry {
   __type?: "CreateAssociationBatchRequestEntry";
   /**
-   * <p>Specify a descriptive name for the association.</p>
+   * <p>The document version.</p>
    */
-  AssociationName?: string;
+  DocumentVersion?: string;
 
   /**
    * <p>Specify the target for the association. This target is required for associations that use an
@@ -2499,19 +2557,37 @@ export interface CreateAssociationBatchRequestEntry {
   AutomationTargetParameterName?: string;
 
   /**
-   * <p>The severity level to assign to the association.</p>
+   * <p>An S3 bucket where you want to store the results of this request.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
-
-  /**
-   * <p>The document version.</p>
-   */
-  DocumentVersion?: string;
+  OutputLocation?: InstanceAssociationOutputLocation;
 
   /**
    * <p>The ID of the instance. </p>
    */
   InstanceId?: string;
+
+  /**
+   * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
+   *     <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the association
+   *    execution to determine the compliance status. If the association execution runs successfully,
+   *    then the association is <code>COMPLIANT</code>. If the association execution doesn't run
+   *    successfully, the association is <code>NON-COMPLIANT</code>. </p>
+   *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
+   *    for the <a>PutComplianceItems</a> API action. In this case, compliance data is not
+   *    managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API action.</p>
+   *          <p>By default, all associations use <code>AUTO</code> mode.</p>
+   */
+  SyncCompliance?: AssociationSyncCompliance | string;
+
+  /**
+   * <p>The instances targeted by the request.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The severity level to assign to the association.</p>
+   */
+  ComplianceSeverity?: AssociationComplianceSeverity | string;
 
   /**
    * <p>The maximum number of targets allowed to run the association at the same time. You can
@@ -2525,19 +2601,11 @@ export interface CreateAssociationBatchRequestEntry {
   MaxConcurrency?: string;
 
   /**
-   * <p>The number of errors that are allowed before the system stops sending requests to run the
-   *    association on additional targets. You can specify either an absolute number of errors, for
-   *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
-   *    the system stops sending requests when the fourth error is received. If you specify 0, then the
-   *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    instances and set MaxError to 10%, then the system stops sending the request when the sixth error
-   *    is received.</p>
-   *          <p>Executions that are already running an association when MaxErrors is reached are allowed to
-   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
-   *    be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one
-   *    at a time.</p>
+   * <p>By default, when you create a new associations, the system runs it immediately after it is
+   *    created and then according to the schedule you specified. Specify this option if you don't want
+   *    an association to run immediately after you create it.</p>
    */
-  MaxErrors?: string;
+  ApplyOnlyAtCronInterval?: boolean;
 
   /**
    * <p>The name of the SSM document that contains the configuration information for the instance.
@@ -2561,9 +2629,14 @@ export interface CreateAssociationBatchRequestEntry {
   Name: string | undefined;
 
   /**
-   * <p>An Amazon S3 bucket where you want to store the results of this request.</p>
+   * <p>A cron expression that specifies a schedule when the association runs.</p>
    */
-  OutputLocation?: InstanceAssociationOutputLocation;
+  ScheduleExpression?: string;
+
+  /**
+   * <p>Specify a descriptive name for the association.</p>
+   */
+  AssociationName?: string;
 
   /**
    * <p>A description of the parameters for a document. </p>
@@ -2571,14 +2644,19 @@ export interface CreateAssociationBatchRequestEntry {
   Parameters?: { [key: string]: string[] };
 
   /**
-   * <p>A cron expression that specifies a schedule when the association runs.</p>
+   * <p>The number of errors that are allowed before the system stops sending requests to run the
+   *    association on additional targets. You can specify either an absolute number of errors, for
+   *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
+   *    the system stops sending requests when the fourth error is received. If you specify 0, then the
+   *    system stops sending requests after the first error is returned. If you run an association on 50
+   *    instances and set MaxError to 10%, then the system stops sending the request when the sixth error
+   *    is received.</p>
+   *          <p>Executions that are already running an association when MaxErrors is reached are allowed to
+   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
+   *    be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one
+   *    at a time.</p>
    */
-  ScheduleExpression?: string;
-
-  /**
-   * <p>The instances targeted by the request.</p>
-   */
-  Targets?: Target[];
+  MaxErrors?: string;
 }
 
 export namespace CreateAssociationBatchRequestEntry {
@@ -2612,26 +2690,43 @@ export namespace CreateAssociationBatchResult {
 export interface CreateAssociationRequest {
   __type?: "CreateAssociationRequest";
   /**
-   * <p>Specify a descriptive name for the association.</p>
-   */
-  AssociationName?: string;
-
-  /**
-   * <p>Specify the target for the association. This target is required for associations that use an
-   *    Automation document and target resources by using rate controls.</p>
-   */
-  AutomationTargetParameterName?: string;
-
-  /**
-   * <p>The severity level to assign to the association.</p>
-   */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
-
-  /**
    * <p>The document version you want to associate with the target(s). Can be a specific version or
    *    the default version.</p>
    */
   DocumentVersion?: string;
+
+  /**
+   * <p>An S3 bucket where you want to store the output details of the request.</p>
+   */
+  OutputLocation?: InstanceAssociationOutputLocation;
+
+  /**
+   * <p>By default, when you create a new associations, the system runs it immediately after it is
+   *    created and then according to the schedule you specified. Specify this option if you don't want
+   *    an association to run immediately after you create it.</p>
+   */
+  ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
+   *     <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the association
+   *    execution to determine the compliance status. If the association execution runs successfully,
+   *    then the association is <code>COMPLIANT</code>. If the association execution doesn't run
+   *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
+   *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
+   *    for the <a>PutComplianceItems</a> API action. In this case, compliance data is not
+   *    managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API action.</p>
+   *          <p>By default, all associations use <code>AUTO</code> mode.</p>
+   */
+  SyncCompliance?: AssociationSyncCompliance | string;
+
+  /**
+   * <p>The targets for the association. You can target instances by using tags, AWS Resource
+   *    Groups, all instances in an AWS account, or individual instance IDs. For more information about
+   *    choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using targets and rate controls with State Manager associations</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  Targets?: Target[];
 
   /**
    * <p>The instance ID.</p>
@@ -2650,30 +2745,9 @@ export interface CreateAssociationRequest {
   InstanceId?: string;
 
   /**
-   * <p>The maximum number of targets allowed to run the association at the same time. You can
-   *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
-   *    value is 100%, which means all targets run the association at the same time.</p>
-   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
-   *    MaxConcurrency associations, the association is allowed to run. During the next association
-   *    interval, the new instance will process its association within the limit specified for
-   *    MaxConcurrency.</p>
+   * <p>The severity level to assign to the association.</p>
    */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The number of errors that are allowed before the system stops sending requests to run the
-   *    association on additional targets. You can specify either an absolute number of errors, for
-   *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
-   *    the system stops sending requests when the fourth error is received. If you specify 0, then the
-   *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    instances and set MaxError to 10%, then the system stops sending the request when the sixth error
-   *    is received.</p>
-   *          <p>Executions that are already running an association when MaxErrors is reached are allowed to
-   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
-   *    be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one
-   *    at a time.</p>
-   */
-  MaxErrors?: string;
+  ComplianceSeverity?: AssociationComplianceSeverity | string;
 
   /**
    * <p>The name of the SSM document that contains the configuration information for the instance.
@@ -2697,14 +2771,19 @@ export interface CreateAssociationRequest {
   Name: string | undefined;
 
   /**
-   * <p>An Amazon S3 bucket where you want to store the output details of the request.</p>
+   * <p>The number of errors that are allowed before the system stops sending requests to run the
+   *    association on additional targets. You can specify either an absolute number of errors, for
+   *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
+   *    the system stops sending requests when the fourth error is received. If you specify 0, then the
+   *    system stops sending requests after the first error is returned. If you run an association on 50
+   *    instances and set MaxError to 10%, then the system stops sending the request when the sixth error
+   *    is received.</p>
+   *          <p>Executions that are already running an association when MaxErrors is reached are allowed to
+   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
+   *    be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one
+   *    at a time.</p>
    */
-  OutputLocation?: InstanceAssociationOutputLocation;
-
-  /**
-   * <p>The parameters for the runtime configuration of the document.</p>
-   */
-  Parameters?: { [key: string]: string[] };
+  MaxErrors?: string;
 
   /**
    * <p>A cron expression when the association will be applied to the target(s).</p>
@@ -2712,10 +2791,31 @@ export interface CreateAssociationRequest {
   ScheduleExpression?: string;
 
   /**
-   * <p>The targets (either instances or tags) for the association. You must specify a value for
-   *     <code>Targets</code> if you don't specify a value for <code>InstanceId</code>.</p>
+   * <p>Specify a descriptive name for the association.</p>
    */
-  Targets?: Target[];
+  AssociationName?: string;
+
+  /**
+   * <p>The parameters for the runtime configuration of the document.</p>
+   */
+  Parameters?: { [key: string]: string[] };
+
+  /**
+   * <p>Specify the target for the association. This target is required for associations that use an
+   *    Automation document and target resources by using rate controls.</p>
+   */
+  AutomationTargetParameterName?: string;
+
+  /**
+   * <p>The maximum number of targets allowed to run the association at the same time. You can
+   *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
+   *    value is 100%, which means all targets run the association at the same time.</p>
+   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
+   *    MaxConcurrency associations, the association is allowed to run. During the next association
+   *    interval, the new instance will process its association within the limit specified for
+   *    MaxConcurrency.</p>
+   */
+  MaxConcurrency?: string;
 }
 
 export namespace CreateAssociationRequest {
@@ -2743,35 +2843,74 @@ export namespace CreateAssociationResult {
 export interface CreateDocumentRequest {
   __type?: "CreateDocumentRequest";
   /**
+   * <p>An optional field specifying the version of the artifact you are creating with the document.
+   *    For example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    cannot be changed.</p>
+   */
+  VersionName?: string;
+
+  /**
+   * <p>The content for the new SSM document in JSON or YAML format. We recommend storing the
+   *    contents for your new document in an external JSON or YAML file and referencing the file in a
+   *    command.</p>
+   *          <p>For examples, see the following topics in the <i>AWS Systems Manager User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document
+   *       (AWS API)</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create an SSM document
+   *       (AWS CLI)</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document
+   *       (API)</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>A list of SSM documents required by a document. This parameter is used exclusively by AWS
+   *    AppConfig. When a user creates an AppConfig configuration in an SSM document, the user must also
+   *    specify a required document for validation purposes. In this case, an
+   *     <code>ApplicationConfiguration</code> document requires an
+   *     <code>ApplicationConfigurationSchema</code> document for validation purposes. For more
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html">AWS AppConfig</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  Requires?: DocumentRequires[];
+
+  /**
+   * <p>Specify a target type to define the kinds of resources the document can run on. For example,
+   *    to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you
+   *    specify a value of '/' the document can run on all types of resources. If you don't specify a
+   *    value, the document can't run on any resources. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
+   *     reference</a> in the <i>AWS CloudFormation User Guide</i>. </p>
+   */
+  TargetType?: string;
+
+  /**
    * <p>A list of key and value pairs that describe attachments to a version of a document.</p>
    */
   Attachments?: AttachmentsSource[];
 
   /**
-   * <p>A valid JSON or YAML string.</p>
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>Specify the document format for the request. The document format can be JSON, YAML, or TEXT.
-   *    JSON is the default format.</p>
-   */
-  DocumentFormat?: DocumentFormat | string;
-
-  /**
-   * <p>The type of document to create.</p>
-   */
-  DocumentType?: DocumentType | string;
-
-  /**
    * <p>A name for the Systems Manager document.</p>
    *          <important>
-   *             <p>Do not use the following to begin the names of documents you create. They are reserved by
-   *     AWS for use as document prefixes:</p>
+   *             <p>You can't use the following strings as document name prefixes. These are reserved by AWS
+   *     for use as document name prefixes:</p>
    *             <ul>
    *                <li>
    *                   <p>
-   *                      <code>aws</code>
+   *                      <code>aws-</code>
    *                   </p>
    *                </li>
    *                <li>
@@ -2790,11 +2929,9 @@ export interface CreateDocumentRequest {
   Name: string | undefined;
 
   /**
-   * <p>A list of SSM documents required by a document. For example, an
-   *     <code>ApplicationConfiguration</code> document requires an
-   *     <code>ApplicationConfigurationSchema</code> document.</p>
+   * <p>The type of document to create.</p>
    */
-  Requires?: DocumentRequires[];
+  DocumentType?: DocumentType | string;
 
   /**
    * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
@@ -2822,20 +2959,10 @@ export interface CreateDocumentRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Specify a target type to define the kinds of resources the document can run on. For example,
-   *    to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you
-   *    specify a value of '/' the document can run on all types of resources. If you don't specify a
-   *    value, the document can't run on any resources. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a> in
-   *    the <i>AWS CloudFormation User Guide</i>. </p>
+   * <p>Specify the document format for the request. The document format can be JSON, YAML, or TEXT.
+   *    JSON is the default format.</p>
    */
-  TargetType?: string;
-
-  /**
-   * <p>An optional field specifying the version of the artifact you are creating with the document.
-   *    For example, "Release 12, Update 6". This value is unique across all versions of a document, and
-   *    cannot be changed.</p>
-   */
-  VersionName?: string;
+  DocumentFormat?: DocumentFormat | string;
 }
 
 export namespace CreateDocumentRequest {
@@ -2863,67 +2990,10 @@ export namespace CreateDocumentResult {
 export interface CreateMaintenanceWindowRequest {
   __type?: "CreateMaintenanceWindowRequest";
   /**
-   * <p>Enables a maintenance window task to run on managed instances, even if you have not
-   *    registered those instances as targets. If enabled, then you must specify the unregistered
-   *    instances (by instance ID) when you register a task with the maintenance window.</p>
-   *          <p>If you don't enable this option, then you must specify previously-registered targets when
-   *    you register a task with the maintenance window.</p>
-   */
-  AllowUnassociatedTargets: boolean | undefined;
-
-  /**
-   * <p>User-provided idempotency token.</p>
-   */
-  ClientToken?: string;
-
-  /**
    * <p>The number of hours before the end of the maintenance window that Systems Manager stops scheduling new
    *    tasks for execution.</p>
    */
   Cutoff: number | undefined;
-
-  /**
-   * <p>An optional description for the maintenance window. We recommend specifying a description to
-   *    help you organize your maintenance windows. </p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The duration of the maintenance window in hours.</p>
-   */
-  Duration: number | undefined;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
-   *    become inactive. EndDate allows you to set a date and time in the future when the maintenance
-   *    window will no longer run.</p>
-   */
-  EndDate?: string;
-
-  /**
-   * <p>The name of the maintenance window.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
-   */
-  Schedule: string | undefined;
-
-  /**
-   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
-   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or
-   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
-   *     Zone Database</a> on the IANA website.</p>
-   */
-  ScheduleTimezone?: string;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
-   *    become active. StartDate allows you to delay activation of the maintenance window until the
-   *    specified future date.</p>
-   */
-  StartDate?: string;
 
   /**
    * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
@@ -2954,6 +3024,76 @@ export interface CreateMaintenanceWindowRequest {
    *          </note>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The duration of the maintenance window in hours.</p>
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
+   */
+  Schedule: string | undefined;
+
+  /**
+   * <p>Enables a maintenance window task to run on managed instances, even if you have not
+   *    registered those instances as targets. If enabled, then you must specify the unregistered
+   *    instances (by instance ID) when you register a task with the maintenance window.</p>
+   *          <p>If you don't enable this option, then you must specify previously-registered targets when
+   *    you register a task with the maintenance window.</p>
+   */
+  AllowUnassociatedTargets: boolean | undefined;
+
+  /**
+   * <p>An optional description for the maintenance window. We recommend specifying a description to
+   *    help you organize your maintenance windows. </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The number of days to wait after the date and time specified by a CRON expression before
+   *    running the maintenance window.</p>
+   *          <p>For example, the following cron expression schedules a maintenance window to run on the
+   *    third Tuesday of every month at 11:30 PM.</p>
+   *          <p>
+   *             <code>cron(0 30 23 ? * TUE#3 *)</code>
+   *          </p>
+   *          <p>If the schedule offset is <code>2</code>, the maintenance window won't run until two days
+   *    later.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>The name of the maintenance window.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
+   *    become active. StartDate allows you to delay activation of the maintenance window until the
+   *    specified future date.</p>
+   */
+  StartDate?: string;
+
+  /**
+   * <p>User-provided idempotency token.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
+   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or
+   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
+   *     Zone Database</a> on the IANA website.</p>
+   */
+  ScheduleTimezone?: string;
+
+  /**
+   * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
+   *    become inactive. EndDate allows you to set a date and time in the future when the maintenance
+   *    window will no longer run.</p>
+   */
+  EndDate?: string;
 }
 
 export namespace CreateMaintenanceWindowRequest {
@@ -2982,20 +3122,9 @@ export namespace CreateMaintenanceWindowResult {
 export interface CreateOpsItemRequest {
   __type?: "CreateOpsItemRequest";
   /**
-   * <p>Specify a category to assign to an OpsItem. </p>
-   */
-  Category?: string;
-
-  /**
    * <p>Information about the OpsItem. </p>
    */
   Description: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
-   *    OpsItem is edited or changed.</p>
-   */
-  Notifications?: OpsItemNotification[];
 
   /**
    * <p>Operational data is custom data that provides useful reference details about the OpsItem.
@@ -3015,35 +3144,21 @@ export interface CreateOpsItemRequest {
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
    *    Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see
-   *     <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems Manually</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   OperationalData?: { [key: string]: OpsItemDataValue };
 
   /**
-   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>One or more OpsItems that share something in common with the current OpsItems. For example,
-   *    related OpsItems can include OpsItems with similar error messages, impacted resources, or
-   *    statuses for the impacted resource.</p>
-   */
-  RelatedOpsItems?: RelatedOpsItem[];
-
-  /**
-   * <p>Specify a severity to assign to an OpsItem.</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>The origin of the OpsItem, such as Amazon EC2 or AWS Systems Manager.</p>
+   * <p>The origin of the OpsItem, such as Amazon EC2 or Systems Manager.</p>
+   *          <note>
+   *             <p>The source name can't contain the following strings: aws, amazon, and amzn. </p>
+   *          </note>
    */
   Source: string | undefined;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can restrict access to OpsItems by
-   *    using an inline IAM policy that specifies tags. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions">Getting Started with OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    using an inline IAM policy that specifies tags. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions">Getting started with OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Tags use a key-value pair. For example:</p>
    *
    *          <p>
@@ -3056,6 +3171,34 @@ export interface CreateOpsItemRequest {
    *          </note>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
+   *    OpsItem is edited or changed.</p>
+   */
+  Notifications?: OpsItemNotification[];
+
+  /**
+   * <p>Specify a severity to assign to an OpsItem.</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>One or more OpsItems that share something in common with the current OpsItems. For example,
+   *    related OpsItems can include OpsItems with similar error messages, impacted resources, or
+   *    statuses for the impacted resource.</p>
+   */
+  RelatedOpsItems?: RelatedOpsItem[];
+
+  /**
+   * <p>Specify a category to assign to an OpsItem. </p>
+   */
+  Category?: string;
+
+  /**
+   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
+   */
+  Priority?: number;
 
   /**
    * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
@@ -3088,50 +3231,10 @@ export namespace CreateOpsItemResponse {
 export interface CreatePatchBaselineRequest {
   __type?: "CreatePatchBaselineRequest";
   /**
-   * <p>A set of rules used to include patches in the baseline.</p>
+   * <p>Information about the patches to use to update the instances, including target operating
+   *    systems and source repositories. Applies to Linux instances only.</p>
    */
-  ApprovalRules?: PatchRuleGroup;
-
-  /**
-   * <p>A list of explicitly approved patches for the baseline.</p>
-   *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package Name Formats
-   *                         for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  ApprovedPatches?: string[];
-
-  /**
-   * <p>Defines the compliance level for approved patches. This means that if an approved patch is
-   *    reported as missing, this is the severity of the compliance violation. The default value is
-   *    UNSPECIFIED.</p>
-   */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
-
-  /**
-   * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
-   */
-  ApprovedPatchesEnableNonSecurity?: boolean;
-
-  /**
-   * <p>User-provided idempotency token.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>A description of the patch baseline.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A set of global filters used to include patches in the baseline.</p>
-   */
-  GlobalFilters?: PatchFilterGroup;
-
-  /**
-   * <p>The name of the patch baseline.</p>
-   */
-  Name: string | undefined;
+  Sources?: PatchSource[];
 
   /**
    * <p>Defines the operating system the patch baseline applies to. The Default value is
@@ -3142,10 +3245,62 @@ export interface CreatePatchBaselineRequest {
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package Name Formats
-   *                         for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
+   *                         package name formats for approved and rejected patch lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   RejectedPatches?: string[];
+
+  /**
+   * <p>A description of the patch baseline.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A set of rules used to include patches in the baseline.</p>
+   */
+  ApprovalRules?: PatchRuleGroup;
+
+  /**
+   * <p>The name of the patch baseline.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A set of global filters used to include patches in the baseline.</p>
+   */
+  GlobalFilters?: PatchFilterGroup;
+
+  /**
+   * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
+   *    different ways, such as by purpose, owner, or environment. For example, you might want to tag a
+   *    patch baseline to identify the severity level of patches it specifies and the operating system
+   *    family it applies to. In this case, you could specify the following key name/value pairs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Key=PatchSeverity,Value=Critical</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key=OS,Value=Windows</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a>
+   *     action.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A list of explicitly approved patches for the baseline.</p>
+   *          <p>For information about accepted formats for lists of approved patches and rejected patches,
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
+   *                         package name formats for approved and rejected patch lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  ApprovedPatches?: string[];
 
   /**
    * <p>The action for Patch Manager to take on patches included in the RejectedPackages
@@ -3171,34 +3326,22 @@ export interface CreatePatchBaselineRequest {
   RejectedPatchesAction?: PatchAction | string;
 
   /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
+   * <p>Defines the compliance level for approved patches. This means that if an approved patch is
+   *    reported as missing, this is the severity of the compliance violation. The default value is
+   *    UNSPECIFIED.</p>
    */
-  Sources?: PatchSource[];
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
 
   /**
-   * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
-   *    different ways, such as by purpose, owner, or environment. For example, you might want to tag a
-   *    patch baseline to identify the severity level of patches it specifies and the operating system
-   *    family it applies to. In this case, you could specify the following key name/value pairs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Key=PatchSeverity,Value=Critical</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Key=OS,Value=Windows</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a>
-   *     action.</p>
-   *          </note>
+   * <p>Indicates whether the list of approved patches includes non-security updates that should be
+   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
    */
-  Tags?: Tag[];
+  ApprovedPatchesEnableNonSecurity?: boolean;
+
+  /**
+   * <p>User-provided idempotency token.</p>
+   */
+  ClientToken?: string;
 }
 
 export namespace CreatePatchBaselineRequest {
@@ -3227,7 +3370,14 @@ export namespace CreatePatchBaselineResult {
 export interface CreateResourceDataSyncRequest {
   __type?: "CreateResourceDataSyncRequest";
   /**
-   * <p>Amazon S3 configuration details for the sync.</p>
+   * <p>Specify information about the data sources to synchronize. This parameter is required if the
+   *     <code>SyncType</code> value is SyncFromSource.</p>
+   */
+  SyncSource?: ResourceDataSyncSource;
+
+  /**
+   * <p>Amazon S3 configuration details for the sync. This parameter is required if the
+   *     <code>SyncType</code> value is SyncToDestination.</p>
    */
   S3Destination?: ResourceDataSyncS3Destination;
 
@@ -3237,14 +3387,12 @@ export interface CreateResourceDataSyncRequest {
   SyncName: string | undefined;
 
   /**
-   * <p>Specify information about the data sources to synchronize.</p>
-   */
-  SyncSource?: ResourceDataSyncSource;
-
-  /**
    * <p>Specify <code>SyncToDestination</code> to create a resource data sync that synchronizes data
-   *    from multiple AWS Regions to an Amazon S3 bucket. Specify <code>SyncFromSource</code> to
-   *    synchronize data from multiple AWS accounts and Regions, as listed in AWS Organizations.</p>
+   *    to an S3 bucket for Inventory. If you specify <code>SyncToDestination</code>, you must provide a
+   *    value for <code>S3Destination</code>. Specify <code>SyncFromSource</code> to synchronize data
+   *    from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in
+   *    AWS Organizations for Explorer. If you specify <code>SyncFromSource</code>, you must provide a value for
+   *     <code>SyncSource</code>. The default value is <code>SyncToDestination</code>.</p>
    */
   SyncType?: string;
 }
@@ -3319,14 +3467,14 @@ export interface DeleteAssociationRequest {
   AssociationId?: string;
 
   /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
    * <p>The name of the Systems Manager document.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
 }
 
 export namespace DeleteAssociationRequest {
@@ -3356,6 +3504,12 @@ export interface DeleteDocumentRequest {
   DocumentVersion?: string;
 
   /**
+   * <p>The version name of the document that you want to delete. If not provided, all versions of
+   *    the document are deleted.</p>
+   */
+  VersionName?: string;
+
+  /**
    * <p>Some SSM document types require that you specify a <code>Force</code> flag before you can
    *    delete the document. For example, you must specify a <code>Force</code> flag to delete a document
    *    of type <code>ApplicationConfigurationSchema</code>. You can restrict access to the
@@ -3367,12 +3521,6 @@ export interface DeleteDocumentRequest {
    * <p>The name of the document.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The version name of the document that you want to delete. If not provided, all versions of
-   *    the document are deleted.</p>
-   */
-  VersionName?: string;
 }
 
 export namespace DeleteDocumentRequest {
@@ -3401,6 +3549,12 @@ export interface DeleteInventoryRequest {
   ClientToken?: string;
 
   /**
+   * <p>The name of the custom inventory type for which you want to delete either all previously
+   *    collected data, or the inventory type itself. </p>
+   */
+  TypeName: string | undefined;
+
+  /**
    * <p>Use this option to view a summary of the deletion request without deleting any data or the
    *    data type. This option is useful when you only want to understand what will be deleted. Once you
    *    validate that the data to be deleted is what you intend to delete, you can run the same command
@@ -3419,12 +3573,6 @@ export interface DeleteInventoryRequest {
    *    can recreate the schema later, if you want.</p>
    */
   SchemaDeleteOption?: InventorySchemaDeleteOption | string;
-
-  /**
-   * <p>The name of the custom inventory type for which you want to delete either all previously
-   *    collected data, or the inventory type itself. </p>
-   */
-  TypeName: string | undefined;
 }
 
 export namespace DeleteInventoryRequest {
@@ -3444,15 +3592,14 @@ export interface DeleteInventoryResult {
   DeletionId?: string;
 
   /**
-   * <p>A summary of the delete operation. For more information about this summary, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary">Understanding
-   *     the Delete Inventory Summary</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  DeletionSummary?: InventoryDeletionSummary;
-
-  /**
    * <p>The name of the inventory data type specified in the request.</p>
    */
   TypeName?: string;
+
+  /**
+   * <p>A summary of the delete operation. For more information about this summary, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary">Deleting custom inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  DeletionSummary?: InventoryDeletionSummary;
 }
 
 export namespace DeleteInventoryResult {
@@ -3536,14 +3683,14 @@ export namespace DeleteParametersRequest {
 export interface DeleteParametersResult {
   __type?: "DeleteParametersResult";
   /**
-   * <p>The names of the deleted parameters.</p>
-   */
-  DeletedParameters?: string[];
-
-  /**
    * <p>The names of parameters that weren't deleted because the parameters are not valid.</p>
    */
   InvalidParameters?: string[];
+
+  /**
+   * <p>The names of the deleted parameters.</p>
+   */
+  DeletedParameters?: string[];
 }
 
 export namespace DeleteParametersResult {
@@ -3586,14 +3733,14 @@ export namespace DeletePatchBaselineResult {
 export interface DeleteResourceDataSyncRequest {
   __type?: "DeleteResourceDataSyncRequest";
   /**
-   * <p>The name of the configuration to delete.</p>
-   */
-  SyncName: string | undefined;
-
-  /**
    * <p>Specify the type of resource data sync to delete.</p>
    */
   SyncType?: string;
+
+  /**
+   * <p>The name of the configuration to delete.</p>
+   */
+  SyncName: string | undefined;
 }
 
 export namespace DeleteResourceDataSyncRequest {
@@ -3644,14 +3791,14 @@ export namespace DeregisterManagedInstanceResult {
 export interface DeregisterPatchBaselineForPatchGroupRequest {
   __type?: "DeregisterPatchBaselineForPatchGroupRequest";
   /**
-   * <p>The ID of the patch baseline to deregister the patch group from.</p>
-   */
-  BaselineId: string | undefined;
-
-  /**
    * <p>The name of the patch group that should be deregistered from the patch baseline.</p>
    */
   PatchGroup: string | undefined;
+
+  /**
+   * <p>The ID of the patch baseline to deregister the patch group from.</p>
+   */
+  BaselineId: string | undefined;
 }
 
 export namespace DeregisterPatchBaselineForPatchGroupRequest {
@@ -3686,16 +3833,16 @@ export namespace DeregisterPatchBaselineForPatchGroupResult {
 export interface DeregisterTargetFromMaintenanceWindowRequest {
   __type?: "DeregisterTargetFromMaintenanceWindowRequest";
   /**
+   * <p>The ID of the maintenance window the target should be removed from.</p>
+   */
+  WindowId: string | undefined;
+
+  /**
    * <p>The system checks if the target is being referenced by a task. If the target is being
    *    referenced, the system returns an error and does not deregister the target from the maintenance
    *    window.</p>
    */
   Safe?: boolean;
-
-  /**
-   * <p>The ID of the maintenance window the target should be removed from.</p>
-   */
-  WindowId: string | undefined;
 
   /**
    * <p>The ID of the target definition to remove.</p>
@@ -3714,14 +3861,14 @@ export namespace DeregisterTargetFromMaintenanceWindowRequest {
 export interface DeregisterTargetFromMaintenanceWindowResult {
   __type?: "DeregisterTargetFromMaintenanceWindowResult";
   /**
-   * <p>The ID of the maintenance window the target was removed from.</p>
-   */
-  WindowId?: string;
-
-  /**
    * <p>The ID of the removed target definition.</p>
    */
   WindowTargetId?: string;
+
+  /**
+   * <p>The ID of the maintenance window the target was removed from.</p>
+   */
+  WindowId?: string;
 }
 
 export namespace DeregisterTargetFromMaintenanceWindowResult {
@@ -3756,14 +3903,14 @@ export namespace DeregisterTaskFromMaintenanceWindowRequest {
 export interface DeregisterTaskFromMaintenanceWindowResult {
   __type?: "DeregisterTaskFromMaintenanceWindowResult";
   /**
-   * <p>The ID of the maintenance window the task was removed from.</p>
-   */
-  WindowId?: string;
-
-  /**
    * <p>The ID of the task removed from the maintenance window.</p>
    */
   WindowTaskId?: string;
+
+  /**
+   * <p>The ID of the maintenance window the task was removed from.</p>
+   */
+  WindowId?: string;
 }
 
 export namespace DeregisterTaskFromMaintenanceWindowResult {
@@ -3806,9 +3953,9 @@ export enum DescribeActivationsFilterKeys {
 export interface DescribeActivationsRequest {
   __type?: "DescribeActivationsRequest";
   /**
-   * <p>A filter to view information about your activations.</p>
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
-  Filters?: DescribeActivationsFilter[];
+  NextToken?: string;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -3817,9 +3964,9 @@ export interface DescribeActivationsRequest {
   MaxResults?: number;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   * <p>A filter to view information about your activations.</p>
    */
-  NextToken?: string;
+  Filters?: DescribeActivationsFilter[];
 }
 
 export namespace DescribeActivationsRequest {
@@ -3832,15 +3979,15 @@ export namespace DescribeActivationsRequest {
 export interface DescribeActivationsResult {
   __type?: "DescribeActivationsResult";
   /**
-   * <p>A list of activations for your AWS account.</p>
-   */
-  ActivationList?: Activation[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *    results. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of activations for your AWS account.</p>
+   */
+  ActivationList?: Activation[];
 }
 
 export namespace DescribeActivationsResult {
@@ -3853,11 +4000,6 @@ export namespace DescribeActivationsResult {
 export interface DescribeAssociationExecutionsRequest {
   __type?: "DescribeAssociationExecutionsRequest";
   /**
-   * <p>The association ID for which you want to view execution history details.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
    * <p>Filters for the request. You can specify the following filters and values.</p>
    *          <p>ExecutionId (EQUAL)</p>
    *          <p>Status (EQUAL)</p>
@@ -3866,15 +4008,20 @@ export interface DescribeAssociationExecutionsRequest {
   Filters?: AssociationExecutionFilter[];
 
   /**
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   * <p>The association ID for which you want to view execution history details.</p>
    */
-  NextToken?: string;
+  AssociationId: string | undefined;
 }
 
 export namespace DescribeAssociationExecutionsRequest {
@@ -3910,16 +4057,6 @@ export namespace DescribeAssociationExecutionsResult {
 export interface DescribeAssociationExecutionTargetsRequest {
   __type?: "DescribeAssociationExecutionTargetsRequest";
   /**
-   * <p>The association ID that includes the execution for which you want to view details.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>The execution ID for which you want to view details.</p>
-   */
-  ExecutionId: string | undefined;
-
-  /**
    * <p>Filters for the request. You can specify the following filters and values.</p>
    *          <p>Status (EQUAL)</p>
    *          <p>ResourceId (EQUAL)</p>
@@ -3928,15 +4065,25 @@ export interface DescribeAssociationExecutionTargetsRequest {
   Filters?: AssociationExecutionTargetsFilter[];
 
   /**
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   * <p>The association ID that includes the execution for which you want to view details.</p>
    */
-  NextToken?: string;
+  AssociationId: string | undefined;
+
+  /**
+   * <p>The execution ID for which you want to view details.</p>
+   */
+  ExecutionId: string | undefined;
 }
 
 export namespace DescribeAssociationExecutionTargetsRequest {
@@ -3950,15 +4097,15 @@ export namespace DescribeAssociationExecutionTargetsRequest {
 export interface DescribeAssociationExecutionTargetsResult {
   __type?: "DescribeAssociationExecutionTargetsResult";
   /**
-   * <p>Information about the execution.</p>
-   */
-  AssociationExecutionTargets?: AssociationExecutionTarget[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *    results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the execution.</p>
+   */
+  AssociationExecutionTargets?: AssociationExecutionTarget[];
 }
 
 export namespace DescribeAssociationExecutionTargetsResult {
@@ -3972,11 +4119,6 @@ export namespace DescribeAssociationExecutionTargetsResult {
 export interface DescribeAssociationRequest {
   __type?: "DescribeAssociationRequest";
   /**
-   * <p>The association ID for which you want information.</p>
-   */
-  AssociationId?: string;
-
-  /**
    * <p>Specify the association version to retrieve. To view the latest version, either specify
    *     <code>$LATEST</code> for this parameter, or omit this parameter. To view a list of all
    *    associations for an instance, use <a>ListAssociations</a>. To get a list of versions
@@ -3985,14 +4127,19 @@ export interface DescribeAssociationRequest {
   AssociationVersion?: string;
 
   /**
+   * <p>The name of the Systems Manager document.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The instance ID.</p>
    */
   InstanceId?: string;
 
   /**
-   * <p>The name of the Systems Manager document.</p>
+   * <p>The association ID for which you want information.</p>
    */
-  Name?: string;
+  AssociationId?: string;
 }
 
 export namespace DescribeAssociationRequest {
@@ -4020,9 +4167,10 @@ export namespace DescribeAssociationResult {
 export interface DescribeAutomationExecutionsRequest {
   __type?: "DescribeAutomationExecutionsRequest";
   /**
-   * <p>Filters used to limit the scope of executions that are requested.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
    */
-  Filters?: AutomationExecutionFilter[];
+  NextToken?: string;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4031,10 +4179,9 @@ export interface DescribeAutomationExecutionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
+   * <p>Filters used to limit the scope of executions that are requested.</p>
    */
-  NextToken?: string;
+  Filters?: AutomationExecutionFilter[];
 }
 
 export namespace DescribeAutomationExecutionsRequest {
@@ -4076,15 +4223,15 @@ export interface DescribeAutomationStepExecutionsRequest {
   AutomationExecutionId: string | undefined;
 
   /**
+   * <p>A boolean that indicates whether to list step executions in reverse order by start time. The
+   *    default value is false.</p>
+   */
+  ReverseOrder?: boolean;
+
+  /**
    * <p>One or more filters to limit the number of step executions returned by the request.</p>
    */
   Filters?: StepExecutionFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -4093,10 +4240,10 @@ export interface DescribeAutomationStepExecutionsRequest {
   NextToken?: string;
 
   /**
-   * <p>A boolean that indicates whether to list step executions in reverse order by start time. The
-   *    default value is false.</p>
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
    */
-  ReverseOrder?: boolean;
+  MaxResults?: number;
 }
 
 export namespace DescribeAutomationStepExecutionsRequest {
@@ -4206,8 +4353,8 @@ export interface DescribeDocumentPermissionResponse {
   AccountIds?: string[];
 
   /**
-   * <p>A list of of AWS accounts where the current document is shared and the version shared with
-   *    each account.</p>
+   * <p>A list of AWS accounts where the current document is shared and the version shared with each
+   *    account.</p>
    */
   AccountSharingInfoList?: AccountSharingInfo[];
 }
@@ -4223,15 +4370,15 @@ export namespace DescribeDocumentPermissionResponse {
 export interface DescribeDocumentRequest {
   __type?: "DescribeDocumentRequest";
   /**
+   * <p>The name of the Systems Manager document.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The document version for which you want information. Can be a specific version or the
    *    default version.</p>
    */
   DocumentVersion?: string;
-
-  /**
-   * <p>The name of the Systems Manager document.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>An optional field specifying the version of the artifact associated with the document. For
@@ -4294,15 +4441,15 @@ export namespace DescribeEffectiveInstanceAssociationsRequest {
 export interface DescribeEffectiveInstanceAssociationsResult {
   __type?: "DescribeEffectiveInstanceAssociationsResult";
   /**
-   * <p>The associations for the requested instance.</p>
-   */
-  Associations?: InstanceAssociation[];
-
-  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The associations for the requested instance.</p>
+   */
+  Associations?: InstanceAssociation[];
 }
 
 export namespace DescribeEffectiveInstanceAssociationsResult {
@@ -4343,15 +4490,15 @@ export namespace DescribeEffectivePatchesForPatchBaselineRequest {
 export interface DescribeEffectivePatchesForPatchBaselineResult {
   __type?: "DescribeEffectivePatchesForPatchBaselineResult";
   /**
-   * <p>An array of patches and patch status.</p>
-   */
-  EffectivePatches?: EffectivePatch[];
-
-  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of patches and patch status.</p>
+   */
+  EffectivePatches?: EffectivePatch[];
 }
 
 export namespace DescribeEffectivePatchesForPatchBaselineResult {
@@ -4365,15 +4512,15 @@ export namespace DescribeEffectivePatchesForPatchBaselineResult {
 export interface DescribeInstanceAssociationsStatusRequest {
   __type?: "DescribeInstanceAssociationsStatusRequest";
   /**
-   * <p>The instance IDs for which you want association status information.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The instance IDs for which you want association status information.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -4393,15 +4540,15 @@ export namespace DescribeInstanceAssociationsStatusRequest {
 export interface DescribeInstanceAssociationsStatusResult {
   __type?: "DescribeInstanceAssociationsStatusResult";
   /**
-   * <p>Status information about the association.</p>
-   */
-  InstanceAssociationStatusInfos?: InstanceAssociationStatusInfo[];
-
-  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Status information about the association.</p>
+   */
+  InstanceAssociationStatusInfos?: InstanceAssociationStatusInfo[];
 }
 
 export namespace DescribeInstanceAssociationsStatusResult {
@@ -4415,18 +4562,13 @@ export namespace DescribeInstanceAssociationsStatusResult {
 export interface DescribeInstanceInformationRequest {
   __type?: "DescribeInstanceInformationRequest";
   /**
-   * <p>One or more filters. Use a filter to return a more specific list of instances. You can
-   *    filter on Amazon EC2 tag. Specify tags by using a key-value mapping.</p>
-   */
-  Filters?: InstanceInformationStringFilter[];
-
-  /**
-   * <p>This is a legacy method. We recommend that you don't use this method. Instead, use the <a>InstanceInformationFilter</a> action. The <code>InstanceInformationFilter</code> action
-   *    enables you to return instance information by using tags that are specified as a key-value
-   *    mapping. </p>
-   *          <p>If you do use this method, then you can't use the <code>InstanceInformationFilter</code>
-   *    action. Using this method and the <code>InstanceInformationFilter</code> action causes an
-   *    exception error. </p>
+   * <p>This is a legacy method. We recommend that you don't use this method. Instead, use the
+   *     <code>Filters</code> data type. <code>Filters</code> enables you to return instance information
+   *    by filtering based on tags applied to managed instances.</p>
+   *          <note>
+   *             <p>Attempting to use <code>InstanceInformationFilterList</code> and <code>Filters</code> leads
+   *     to an exception error. </p>
+   *          </note>
    */
   InstanceInformationFilterList?: InstanceInformationFilter[];
 
@@ -4435,6 +4577,13 @@ export interface DescribeInstanceInformationRequest {
    *    can specify in a subsequent call to get the next set of results. </p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>One or more filters. Use a filter to return a more specific list of instances. You can
+   *    filter based on tags applied to EC2 instances. Use this <code>Filters</code> data type instead of
+   *     <code>InstanceInformationFilterList</code>, which is deprecated.</p>
+   */
+  Filters?: InstanceInformationStringFilter[];
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -4487,15 +4636,15 @@ export interface DescribeInstancePatchesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The maximum number of patches to return (per page).</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of patches to return (per page).</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeInstancePatchesRequest {
@@ -4544,15 +4693,15 @@ export interface DescribeInstancePatchStatesForPatchGroupRequest {
   Filters?: InstancePatchStateFilter[];
 
   /**
-   * <p>The maximum number of patches to return (per page).</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of patches to return (per page).</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The name of the patch group for which the patch state information should be
@@ -4597,11 +4746,6 @@ export namespace DescribeInstancePatchStatesForPatchGroupResult {
 export interface DescribeInstancePatchStatesRequest {
   __type?: "DescribeInstancePatchStatesRequest";
   /**
-   * <p>The ID of the instance whose patch state information should be retrieved.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
    * <p>The maximum number of instances to return (per page).</p>
    */
   MaxResults?: number;
@@ -4611,6 +4755,11 @@ export interface DescribeInstancePatchStatesRequest {
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The ID of the instance whose patch state information should be retrieved.</p>
+   */
+  InstanceIds: string[] | undefined;
 }
 
 export namespace DescribeInstancePatchStatesRequest {
@@ -4648,12 +4797,6 @@ export namespace DescribeInstancePatchStatesResult {
 export interface DescribeInventoryDeletionsRequest {
   __type?: "DescribeInventoryDeletionsRequest";
   /**
-   * <p>Specify the delete inventory ID for which you want information. This ID was returned by the
-   *     <code>DeleteInventory</code> action.</p>
-   */
-  DeletionId?: string;
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
@@ -4663,6 +4806,12 @@ export interface DescribeInventoryDeletionsRequest {
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Specify the delete inventory ID for which you want information. This ID was returned by the
+   *     <code>DeleteInventory</code> action.</p>
+   */
+  DeletionId?: string;
 }
 
 export namespace DescribeInventoryDeletionsRequest {
@@ -4675,15 +4824,15 @@ export namespace DescribeInventoryDeletionsRequest {
 export interface DescribeInventoryDeletionsResult {
   __type?: "DescribeInventoryDeletionsResult";
   /**
-   * <p>A list of status items for deleted inventory.</p>
-   */
-  InventoryDeletions?: InventoryDeletionStatusItem[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *    results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of status items for deleted inventory.</p>
+   */
+  InventoryDeletions?: InventoryDeletionStatusItem[];
 }
 
 export namespace DescribeInventoryDeletionsResult {
@@ -4696,6 +4845,12 @@ export namespace DescribeInventoryDeletionsResult {
 export interface DescribeMaintenanceWindowExecutionsRequest {
   __type?: "DescribeMaintenanceWindowExecutionsRequest";
   /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Each entry in the array is a structure containing:</p>
    *          <p>Key (string, between 1 and 128 characters)</p>
    *          <p>Values (array of strings, each string is between 1 and 256 characters)</p>
@@ -4703,12 +4858,6 @@ export interface DescribeMaintenanceWindowExecutionsRequest {
    *    string such as 2016-11-04T05:00:00Z.</p>
    */
   Filters?: MaintenanceWindowFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -4755,25 +4904,6 @@ export namespace DescribeMaintenanceWindowExecutionsResult {
 export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
   __type?: "DescribeMaintenanceWindowExecutionTaskInvocationsRequest";
   /**
-   * <p>Optional filters used to scope down the returned task invocations. The supported filter key
-   *    is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT,
-   *    CANCELLING, and CANCELLED.</p>
-   */
-  Filters?: MaintenanceWindowFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The ID of the specific task in the maintenance window task that should be retrieved.</p>
    */
   TaskId: string | undefined;
@@ -4782,6 +4912,25 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
    * <p>The ID of the maintenance window execution the task is part of.</p>
    */
   WindowExecutionId: string | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Optional filters used to scope down the returned task invocations. The supported filter key
+   *    is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT,
+   *    CANCELLING, and CANCELLED.</p>
+   */
+  Filters?: MaintenanceWindowFilter[];
 }
 
 export namespace DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
@@ -4795,15 +4944,15 @@ export namespace DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
 export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult {
   __type?: "DescribeMaintenanceWindowExecutionTaskInvocationsResult";
   /**
+   * <p>Information about the task invocation results per invocation.</p>
+   */
+  WindowExecutionTaskInvocationIdentities?: MaintenanceWindowExecutionTaskInvocationIdentity[];
+
+  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the task invocation results per invocation.</p>
-   */
-  WindowExecutionTaskInvocationIdentities?: MaintenanceWindowExecutionTaskInvocationIdentity[];
 }
 
 export namespace DescribeMaintenanceWindowExecutionTaskInvocationsResult {
@@ -4822,11 +4971,9 @@ export namespace DescribeMaintenanceWindowExecutionTaskInvocationsResult {
 export interface DescribeMaintenanceWindowExecutionTasksRequest {
   __type?: "DescribeMaintenanceWindowExecutionTasksRequest";
   /**
-   * <p>Optional filters used to scope down the returned tasks. The supported filter key is STATUS
-   *    with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT, CANCELLING, and
-   *    CANCELLED. </p>
+   * <p>The ID of the maintenance window execution whose task executions should be retrieved.</p>
    */
-  Filters?: MaintenanceWindowFilter[];
+  WindowExecutionId: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4835,15 +4982,17 @@ export interface DescribeMaintenanceWindowExecutionTasksRequest {
   MaxResults?: number;
 
   /**
+   * <p>Optional filters used to scope down the returned tasks. The supported filter key is STATUS
+   *    with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT, CANCELLING, and
+   *    CANCELLED. </p>
+   */
+  Filters?: MaintenanceWindowFilter[];
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The ID of the maintenance window execution whose task executions should be retrieved.</p>
-   */
-  WindowExecutionId: string | undefined;
 }
 
 export namespace DescribeMaintenanceWindowExecutionTasksRequest {
@@ -4879,6 +5028,17 @@ export namespace DescribeMaintenanceWindowExecutionTasksResult {
 export interface DescribeMaintenanceWindowScheduleRequest {
   __type?: "DescribeMaintenanceWindowScheduleRequest";
   /**
+   * <p>The type of resource you want to retrieve information about. For example, "INSTANCE".</p>
+   */
+  ResourceType?: MaintenanceWindowResourceType | string;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Filters used to limit the range of results. For example, you can limit maintenance window
    *    executions to only those scheduled before or after a certain date and time.</p>
    */
@@ -4889,17 +5049,6 @@ export interface DescribeMaintenanceWindowScheduleRequest {
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The type of resource you want to retrieve information about. For example, "INSTANCE".</p>
-   */
-  ResourceType?: MaintenanceWindowResourceType | string;
 
   /**
    * <p>The instance ID or key/value pair to retrieve information about.</p>
@@ -4923,15 +5072,15 @@ export namespace DescribeMaintenanceWindowScheduleRequest {
 export interface DescribeMaintenanceWindowScheduleResult {
   __type?: "DescribeMaintenanceWindowScheduleResult";
   /**
-   * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about maintenance window executions scheduled for the specified time
    *    range.</p>
    */
   ScheduledWindowExecutions?: ScheduledWindowExecution[];
+
+  /**
+   * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeMaintenanceWindowScheduleResult {
@@ -4945,26 +5094,26 @@ export namespace DescribeMaintenanceWindowScheduleResult {
 export interface DescribeMaintenanceWindowsForTargetRequest {
   __type?: "DescribeMaintenanceWindowsForTargetRequest";
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The type of resource you want to retrieve information about. For example, "INSTANCE".</p>
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
    */
-  ResourceType: MaintenanceWindowResourceType | string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The instance ID or key/value pair to retrieve information about.</p>
    */
   Targets: Target[] | undefined;
+
+  /**
+   * <p>The type of resource you want to retrieve information about. For example, "INSTANCE".</p>
+   */
+  ResourceType: MaintenanceWindowResourceType | string | undefined;
 }
 
 export namespace DescribeMaintenanceWindowsForTargetRequest {
@@ -5000,16 +5149,16 @@ export namespace DescribeMaintenanceWindowsForTargetResult {
 export interface DescribeMaintenanceWindowsRequest {
   __type?: "DescribeMaintenanceWindowsRequest";
   /**
-   * <p>Optional filters used to narrow down the scope of the returned maintenance windows.
-   *    Supported filter keys are <b>Name</b> and <b>Enabled</b>.</p>
-   */
-  Filters?: MaintenanceWindowFilter[];
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Optional filters used to narrow down the scope of the returned maintenance windows.
+   *    Supported filter keys are <b>Name</b> and <b>Enabled</b>.</p>
+   */
+  Filters?: MaintenanceWindowFilter[];
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -5028,15 +5177,15 @@ export namespace DescribeMaintenanceWindowsRequest {
 export interface DescribeMaintenanceWindowsResult {
   __type?: "DescribeMaintenanceWindowsResult";
   /**
+   * <p>Information about the maintenance windows.</p>
+   */
+  WindowIdentities?: MaintenanceWindowIdentity[];
+
+  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the maintenance windows.</p>
-   */
-  WindowIdentities?: MaintenanceWindowIdentity[];
 }
 
 export namespace DescribeMaintenanceWindowsResult {
@@ -5052,10 +5201,10 @@ export namespace DescribeMaintenanceWindowsResult {
 export interface DescribeMaintenanceWindowTargetsRequest {
   __type?: "DescribeMaintenanceWindowTargetsRequest";
   /**
-   * <p>Optional filters that can be used to narrow down the scope of the returned window targets.
-   *    The supported filter keys are Type, WindowTargetId and OwnerInformation.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
    */
-  Filters?: MaintenanceWindowFilter[];
+  NextToken?: string;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -5064,15 +5213,15 @@ export interface DescribeMaintenanceWindowTargetsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The ID of the maintenance window whose targets should be retrieved.</p>
    */
   WindowId: string | undefined;
+
+  /**
+   * <p>Optional filters that can be used to narrow down the scope of the returned window targets.
+   *    The supported filter keys are Type, WindowTargetId and OwnerInformation.</p>
+   */
+  Filters?: MaintenanceWindowFilter[];
 }
 
 export namespace DescribeMaintenanceWindowTargetsRequest {
@@ -5109,27 +5258,27 @@ export namespace DescribeMaintenanceWindowTargetsResult {
 export interface DescribeMaintenanceWindowTasksRequest {
   __type?: "DescribeMaintenanceWindowTasksRequest";
   /**
-   * <p>Optional filters used to narrow down the scope of the returned tasks. The supported filter
-   *    keys are WindowTaskId, TaskArn, Priority, and TaskType.</p>
-   */
-  Filters?: MaintenanceWindowFilter[];
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * <p>The ID of the maintenance window whose tasks should be retrieved.</p>
+   */
+  WindowId: string | undefined;
+
+  /**
+   * <p>Optional filters used to narrow down the scope of the returned tasks. The supported filter
+   *    keys are WindowTaskId, TaskArn, Priority, and TaskType.</p>
+   */
+  Filters?: MaintenanceWindowFilter[];
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The ID of the maintenance window whose tasks should be retrieved.</p>
-   */
-  WindowId: string | undefined;
 }
 
 export namespace DescribeMaintenanceWindowTasksRequest {
@@ -5166,18 +5315,12 @@ export namespace DescribeMaintenanceWindowTasksResult {
 export interface DescribeOpsItemsRequest {
   __type?: "DescribeOpsItemsRequest";
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>One or more filters to limit the reponse.</p>
+   * <p>One or more filters to limit the response.</p>
    *          <ul>
    *             <li>
    *                <p>Key: CreatedTime</p>
@@ -5236,6 +5379,12 @@ export interface DescribeOpsItemsRequest {
    *    by using the following JSON format: {"key":"key_name","value":"a_value"}</p>
    */
   OpsItemFilters?: OpsItemFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeOpsItemsRequest {
@@ -5248,15 +5397,15 @@ export namespace DescribeOpsItemsRequest {
 export interface DescribeOpsItemsResponse {
   __type?: "DescribeOpsItemsResponse";
   /**
+   * <p>A list of OpsItems.</p>
+   */
+  OpsItemSummaries?: OpsItemSummary[];
+
+  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *    results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of OpsItems.</p>
-   */
-  OpsItemSummaries?: OpsItemSummary[];
 }
 
 export namespace DescribeOpsItemsResponse {
@@ -5269,15 +5418,15 @@ export namespace DescribeOpsItemsResponse {
 export interface DescribeParametersRequest {
   __type?: "DescribeParametersRequest";
   /**
-   * <p>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</p>
-   */
-  Filters?: ParametersFilter[];
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Filters to limit the request results.</p>
+   */
+  ParameterFilters?: ParameterStringFilter[];
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -5286,9 +5435,9 @@ export interface DescribeParametersRequest {
   NextToken?: string;
 
   /**
-   * <p>Filters to limit the request results.</p>
+   * <p>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</p>
    */
-  ParameterFilters?: ParameterStringFilter[];
+  Filters?: ParametersFilter[];
 }
 
 export namespace DescribeParametersRequest {
@@ -5301,15 +5450,14 @@ export namespace DescribeParametersRequest {
 export interface DescribeParametersResult {
   __type?: "DescribeParametersResult";
   /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Parameters returned by the request.</p>
    */
   Parameters?: ParameterMetadata[];
+
+  /**
+   * <p>The token to use when requesting the next set of items.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeParametersResult {
@@ -5329,15 +5477,15 @@ export interface DescribePatchBaselinesRequest {
   Filters?: PatchOrchestratorFilter[];
 
   /**
-   * <p>The maximum number of patch baselines to return (per page).</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of patch baselines to return (per page).</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribePatchBaselinesRequest {
@@ -5350,15 +5498,15 @@ export namespace DescribePatchBaselinesRequest {
 export interface DescribePatchBaselinesResult {
   __type?: "DescribePatchBaselinesResult";
   /**
-   * <p>An array of PatchBaselineIdentity elements.</p>
-   */
-  BaselineIdentities?: PatchBaselineIdentity[];
-
-  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of PatchBaselineIdentity elements.</p>
+   */
+  BaselineIdentities?: PatchBaselineIdentity[];
 }
 
 export namespace DescribePatchBaselinesResult {
@@ -5371,14 +5519,39 @@ export namespace DescribePatchBaselinesResult {
 export interface DescribePatchGroupsRequest {
   __type?: "DescribePatchGroupsRequest";
   /**
-   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
-   */
-  Filters?: PatchOrchestratorFilter[];
-
-  /**
    * <p>The maximum number of patch groups to return (per page).</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
+   *          <p>For <code>DescribePatchGroups</code>,valid filter keys include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NAME_PREFIX</code>: The name of the patch group. Wildcards (*) are accepted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OPERATING_SYSTEM</code>: The supported operating system type to return results for.
+   *      For valid operating system values, see <a>GetDefaultPatchBaselineRequest$OperatingSystem</a> in <a>CreatePatchBaseline</a>.</p>
+   *                <p>Examples:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>--filters Key=NAME_PREFIX,Values=MyPatchGroup*</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: PatchOrchestratorFilter[];
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -5436,31 +5609,15 @@ export namespace DescribePatchGroupStateRequest {
 export interface DescribePatchGroupStateResult {
   __type?: "DescribePatchGroupStateResult";
   /**
-   * <p>The number of instances in the patch group.</p>
-   */
-  Instances?: number;
-
-  /**
-   * <p>The number of instances with patches from the patch baseline that failed to install.</p>
-   */
-  InstancesWithFailedPatches?: number;
-
-  /**
    * <p>The number of instances with patches installed that aren't defined in the patch
    *    baseline.</p>
    */
   InstancesWithInstalledOtherPatches?: number;
 
   /**
-   * <p>The number of instances with installed patches.</p>
+   * <p>The number of instances with patches that aren't applicable.</p>
    */
-  InstancesWithInstalledPatches?: number;
-
-  /**
-   * <p>The number of instances with patches installed by Patch Manager that have not been rebooted
-   *    after the patch installation. The status of these instances is NON_COMPLIANT.</p>
-   */
-  InstancesWithInstalledPendingRebootPatches?: number;
+  InstancesWithNotApplicablePatches?: number;
 
   /**
    * <p>The number of instances with patches installed that are specified in a RejectedPatches list.
@@ -5474,20 +5631,36 @@ export interface DescribePatchGroupStateResult {
   InstancesWithInstalledRejectedPatches?: number;
 
   /**
+   * <p>The number of instances with patches from the patch baseline that failed to install.</p>
+   */
+  InstancesWithFailedPatches?: number;
+
+  /**
    * <p>The number of instances with missing patches from the patch baseline.</p>
    */
   InstancesWithMissingPatches?: number;
 
   /**
-   * <p>The number of instances with patches that aren't applicable.</p>
+   * <p>The number of instances in the patch group.</p>
    */
-  InstancesWithNotApplicablePatches?: number;
+  Instances?: number;
 
   /**
    * <p>The number of instances with <code>NotApplicable</code> patches beyond the supported limit,
    *    which are not reported by name to Systems Manager Inventory.</p>
    */
   InstancesWithUnreportedNotApplicablePatches?: number;
+
+  /**
+   * <p>The number of instances with patches installed by Patch Manager that have not been rebooted
+   *    after the patch installation. The status of these instances is NON_COMPLIANT.</p>
+   */
+  InstancesWithInstalledPendingRebootPatches?: number;
+
+  /**
+   * <p>The number of instances with installed patches.</p>
+   */
+  InstancesWithInstalledPatches?: number;
 }
 
 export namespace DescribePatchGroupStateResult {
@@ -5500,16 +5673,16 @@ export namespace DescribePatchGroupStateResult {
 export interface DescribePatchPropertiesRequest {
   __type?: "DescribePatchPropertiesRequest";
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The operating system type for which to list patches.</p>
@@ -5558,11 +5731,6 @@ export namespace DescribePatchPropertiesResult {
 export interface DescribeSessionsRequest {
   __type?: "DescribeSessionsRequest";
   /**
-   * <p>One or more filters to limit the type of sessions returned by the request.</p>
-   */
-  Filters?: SessionFilter[];
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
@@ -5578,6 +5746,11 @@ export interface DescribeSessionsRequest {
    * <p>The session status to retrieve a list of sessions for. For example, "Active".</p>
    */
   State: SessionState | string | undefined;
+
+  /**
+   * <p>One or more filters to limit the type of sessions returned by the request.</p>
+   */
+  Filters?: SessionFilter[];
 }
 
 export namespace DescribeSessionsRequest {
@@ -5630,6 +5803,11 @@ export namespace DocumentAlreadyExists {
 export interface DocumentDefaultVersionDescription {
   __type?: "DocumentDefaultVersionDescription";
   /**
+   * <p>The name of the document.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The default version of the document.</p>
    */
   DefaultVersion?: string;
@@ -5638,11 +5816,6 @@ export interface DocumentDefaultVersionDescription {
    * <p>The default version of the artifact associated with the document.</p>
    */
   DefaultVersionName?: string;
-
-  /**
-   * <p>The name of the document.</p>
-   */
-  Name?: string;
 }
 
 export namespace DocumentDefaultVersionDescription {
@@ -5658,39 +5831,9 @@ export namespace DocumentDefaultVersionDescription {
 export interface DocumentDescription {
   __type?: "DocumentDescription";
   /**
-   * <p>Details about the document attachments, including names, locations, sizes, etc.</p>
+   * <p>The version of the artifact associated with the document.</p>
    */
-  AttachmentsInformation?: AttachmentInformation[];
-
-  /**
-   * <p>The date when the document was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>The default version.</p>
-   */
-  DefaultVersion?: string;
-
-  /**
-   * <p>A description of the document. </p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The document format, either JSON or YAML.</p>
-   */
-  DocumentFormat?: DocumentFormat | string;
-
-  /**
-   * <p>The type of document.</p>
-   */
-  DocumentType?: DocumentType | string;
-
-  /**
-   * <p>The document version.</p>
-   */
-  DocumentVersion?: string;
+  VersionName?: string;
 
   /**
    * <p>The Sha256 or Sha1 hash created by the system when the document was created. </p>
@@ -5699,6 +5842,56 @@ export interface DocumentDescription {
    *          </note>
    */
   Hash?: string;
+
+  /**
+   * <p>The name of the Systems Manager document.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The list of OS platforms compatible with this Systems Manager document. </p>
+   */
+  PlatformTypes?: (PlatformType | string)[];
+
+  /**
+   * <p>The AWS user account that created the document.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The tags, or metadata, that have been applied to the document.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The schema version.</p>
+   */
+  SchemaVersion?: string;
+
+  /**
+   * <p>The document format, either JSON or YAML.</p>
+   */
+  DocumentFormat?: DocumentFormat | string;
+
+  /**
+   * <p>The status of the Systems Manager document.</p>
+   */
+  Status?: DocumentStatus | string;
+
+  /**
+   * <p>The default version.</p>
+   */
+  DefaultVersion?: string;
+
+  /**
+   * <p>The date when the document was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The type of document.</p>
+   */
+  DocumentType?: DocumentType | string;
 
   /**
    * <p>The hash type of the document. Valid values include <code>Sha256</code> or
@@ -5710,29 +5903,31 @@ export interface DocumentDescription {
   HashType?: DocumentHashType | string;
 
   /**
-   * <p>The latest version of the document.</p>
+   * <p>The document version.</p>
    */
-  LatestVersion?: string;
+  DocumentVersion?: string;
 
   /**
-   * <p>The name of the Systems Manager document.</p>
+   * <p>A description of the document. </p>
    */
-  Name?: string;
+  Description?: string;
 
   /**
-   * <p>The AWS user account that created the document.</p>
+   * <p>The SHA1 hash of the document, which you can use for verification.</p>
    */
-  Owner?: string;
+  Sha1?: string;
+
+  /**
+   * <p>The target type which defines the kinds of resources the document can run on. For example,
+   *    /AWS::EC2::Instance. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
+   *     reference</a> in the <i>AWS CloudFormation User Guide</i>. </p>
+   */
+  TargetType?: string;
 
   /**
    * <p>A description of the parameters for a document.</p>
    */
   Parameters?: DocumentParameter[];
-
-  /**
-   * <p>The list of OS platforms compatible with this Systems Manager document. </p>
-   */
-  PlatformTypes?: (PlatformType | string)[];
 
   /**
    * <p>A list of SSM documents required by a document. For example, an
@@ -5742,19 +5937,9 @@ export interface DocumentDescription {
   Requires?: DocumentRequires[];
 
   /**
-   * <p>The schema version.</p>
+   * <p>The latest version of the document.</p>
    */
-  SchemaVersion?: string;
-
-  /**
-   * <p>The SHA1 hash of the document, which you can use for verification.</p>
-   */
-  Sha1?: string;
-
-  /**
-   * <p>The status of the Systems Manager document.</p>
-   */
-  Status?: DocumentStatus | string;
+  LatestVersion?: string;
 
   /**
    * <p>A message returned by AWS Systems Manager that explains the <code>Status</code> value. For example, a
@@ -5764,21 +5949,9 @@ export interface DocumentDescription {
   StatusInformation?: string;
 
   /**
-   * <p>The tags, or metadata, that have been applied to the document.</p>
+   * <p>Details about the document attachments, including names, locations, sizes, and so on.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>The target type which defines the kinds of resources the document can run on. For example,
-   *    /AWS::EC2::Instance. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a> in
-   *    the <i>AWS CloudFormation User Guide</i>. </p>
-   */
-  TargetType?: string;
-
-  /**
-   * <p>The version of the artifact associated with the document.</p>
-   */
-  VersionName?: string;
+  AttachmentsInformation?: AttachmentInformation[];
 }
 
 export namespace DocumentDescription {
@@ -5789,19 +5962,19 @@ export namespace DocumentDescription {
 }
 
 /**
- * <p>Describes a filter.</p>
+ * <p>This data type is deprecated. Instead, use <a>DocumentKeyValuesFilter</a>.</p>
  */
 export interface DocumentFilter {
   __type?: "DocumentFilter";
   /**
-   * <p>The name of the filter.</p>
-   */
-  key: DocumentFilterKey | string | undefined;
-
-  /**
    * <p>The value of the filter.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The name of the filter.</p>
+   */
+  key: DocumentFilterKey | string | undefined;
 }
 
 export namespace DocumentFilter {
@@ -5835,34 +6008,14 @@ export enum DocumentHashType {
 export interface DocumentIdentifier {
   __type?: "DocumentIdentifier";
   /**
+   * <p>The schema version.</p>
+   */
+  SchemaVersion?: string;
+
+  /**
    * <p>The document format, either JSON or YAML.</p>
    */
   DocumentFormat?: DocumentFormat | string;
-
-  /**
-   * <p>The document type.</p>
-   */
-  DocumentType?: DocumentType | string;
-
-  /**
-   * <p>The document version.</p>
-   */
-  DocumentVersion?: string;
-
-  /**
-   * <p>The name of the Systems Manager document.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The AWS user account that created the document.</p>
-   */
-  Owner?: string;
-
-  /**
-   * <p>The operating system platform. </p>
-   */
-  PlatformTypes?: (PlatformType | string)[];
 
   /**
    * <p>A list of SSM documents required by a document. For example, an
@@ -5872,9 +6025,9 @@ export interface DocumentIdentifier {
   Requires?: DocumentRequires[];
 
   /**
-   * <p>The schema version.</p>
+   * <p>The name of the Systems Manager document.</p>
    */
-  SchemaVersion?: string;
+  Name?: string;
 
   /**
    * <p>The tags, or metadata, that have been applied to the document.</p>
@@ -5883,8 +6036,8 @@ export interface DocumentIdentifier {
 
   /**
    * <p>The target type which defines the kinds of resources the document can run on. For example,
-   *    /AWS::EC2::Instance. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a> in
-   *    the <i>AWS CloudFormation User Guide</i>. </p>
+   *    /AWS::EC2::Instance. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
+   *     reference</a> in the <i>AWS CloudFormation User Guide</i>. </p>
    */
   TargetType?: string;
 
@@ -5894,6 +6047,26 @@ export interface DocumentIdentifier {
    *    cannot be changed.</p>
    */
   VersionName?: string;
+
+  /**
+   * <p>The operating system platform. </p>
+   */
+  PlatformTypes?: (PlatformType | string)[];
+
+  /**
+   * <p>The document type.</p>
+   */
+  DocumentType?: DocumentType | string;
+
+  /**
+   * <p>The AWS user account that created the document.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The document version.</p>
+   */
+  DocumentVersion?: string;
 }
 
 export namespace DocumentIdentifier {
@@ -5906,7 +6079,8 @@ export namespace DocumentIdentifier {
 /**
  * <p>One or more filters. Use a filter to return a more specific list of documents.</p>
  *          <p>For keys, you can specify one or more tags that have been applied to a document. </p>
- *          <p>Other valid values include Owner, Name, PlatformTypes, and DocumentType.</p>
+ *          <p>Other valid values include <code>Owner</code>, <code>Name</code>,
+ *    <code>PlatformTypes</code>, <code>DocumentType</code>, and <code>TargetType</code>.</p>
  *          <p>Note that only one Owner can be specified in a request. For example:
  *     <code>Key=Owner,Values=Self</code>.</p>
  *          <p>If you use Name as a key, you can use a name prefix to return a list of documents. For
@@ -5919,7 +6093,7 @@ export namespace DocumentIdentifier {
  *    returned in the results. If you specify more than two values for a key, documents that are
  *    identified by any of the values are returned in the results.</p>
  *          <p>To specify a custom key and value pair, use the format
- *     <code>Key=tag:[tagName],Values=[valueName]</code>.</p>
+ *     <code>Key=tag:tagName,Values=valueName</code>.</p>
  *          <p>For example, if you created a Key called region and are using the AWS CLI to call the
  *     <code>list-documents</code> command: </p>
  *          <p>
@@ -5982,14 +6156,14 @@ export interface DocumentParameter {
   Description?: string;
 
   /**
-   * <p>The name of the parameter.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The type of parameter. The type can be either String or StringList.</p>
    */
   Type?: DocumentParameterType | string;
+
+  /**
+   * <p>The name of the parameter.</p>
+   */
+  Name?: string;
 }
 
 export namespace DocumentParameter {
@@ -6072,29 +6246,20 @@ export enum DocumentType {
 export interface DocumentVersionInfo {
   __type?: "DocumentVersionInfo";
   /**
+   * <p>The version of the artifact associated with the document. For example, "Release 12, Update
+   *    6". This value is unique across all versions of a document, and cannot be changed.</p>
+   */
+  VersionName?: string;
+
+  /**
    * <p>The date the document was created.</p>
    */
   CreatedDate?: Date;
 
   /**
-   * <p>The document format, either JSON or YAML.</p>
-   */
-  DocumentFormat?: DocumentFormat | string;
-
-  /**
-   * <p>The document version.</p>
-   */
-  DocumentVersion?: string;
-
-  /**
    * <p>An identifier for the default version of the document.</p>
    */
   IsDefaultVersion?: boolean;
-
-  /**
-   * <p>The document name.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The status of the Systems Manager document, such as <code>Creating</code>, <code>Active</code>,
@@ -6110,10 +6275,19 @@ export interface DocumentVersionInfo {
   StatusInformation?: string;
 
   /**
-   * <p>The version of the artifact associated with the document. For example, "Release 12, Update
-   *    6". This value is unique across all versions of a document, and cannot be changed.</p>
+   * <p>The document format, either JSON or YAML.</p>
    */
-  VersionName?: string;
+  DocumentFormat?: DocumentFormat | string;
+
+  /**
+   * <p>The document version.</p>
+   */
+  DocumentVersion?: string;
+
+  /**
+   * <p>The document name.</p>
+   */
+  Name?: string;
 }
 
 export namespace DocumentVersionInfo {
@@ -6143,7 +6317,7 @@ export namespace DocumentVersionLimitExceeded {
 /**
  * <p>Error returned when the ID specified for a resource, such as a maintenance window or Patch
  *    baseline, doesn't exist.</p>
- *          <p>For information about resource quotas in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager Service Quotas</a> in the
+ *          <p>For information about resource quotas in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *         <i>AWS General Reference</i>.</p>
  */
 export interface DoesNotExistException extends __SmithyException, $MetadataBearer {
@@ -6217,17 +6391,17 @@ export namespace DuplicateInstanceId {
 export interface EffectivePatch {
   __type?: "EffectivePatch";
   /**
-   * <p>Provides metadata for a patch, including information such as the KB ID, severity,
-   *    classification and a URL for where more information can be obtained about the patch.</p>
-   */
-  Patch?: Patch;
-
-  /**
    * <p>The status of the patch in a patch baseline. This includes information about whether the
    *    patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly
    *    rejected and the date the patch was or will be approved.</p>
    */
   PatchStatus?: PatchStatus;
+
+  /**
+   * <p>Provides metadata for a patch, including information such as the KB ID, severity,
+   *    classification and a URL for where more information can be obtained about the patch.</p>
+   */
+  Patch?: Patch;
 }
 
 export namespace EffectivePatch {
@@ -6281,16 +6455,16 @@ export interface FailureDetails {
   Details?: { [key: string]: string[] };
 
   /**
-   * <p>The stage of the Automation execution when the failure occurred. The stages include the
-   *    following: InputValidation, PreVerification, Invocation, PostVerification.</p>
-   */
-  FailureStage?: string;
-
-  /**
    * <p>The type of Automation failure. Failure types include the following: Action, Permission,
    *    Throttling, Verification, Internal.</p>
    */
   FailureType?: string;
+
+  /**
+   * <p>The stage of the Automation execution when the failure occurred. The stages include the
+   *    following: InputValidation, PreVerification, Invocation, PostVerification.</p>
+   */
+  FailureStage?: string;
 }
 
 export namespace FailureDetails {
@@ -6354,16 +6528,16 @@ export namespace GetAutomationExecutionResult {
 export interface GetCalendarStateRequest {
   __type?: "GetCalendarStateRequest";
   /**
-   * <p>(Optional) The specific time for which you want to get calendar state information, in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. If you do not add
-   *     <code>AtTime</code>, the current time is assumed.</p>
-   */
-  AtTime?: string;
-
-  /**
    * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar
    *    entries for which you want to get the state.</p>
    */
   CalendarNames: string[] | undefined;
+
+  /**
+   * <p>(Optional) The specific time for which you want to get calendar state information, in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. If you do not add
+   *     <code>AtTime</code>, the current time is assumed.</p>
+   */
+  AtTime?: string;
 }
 
 export namespace GetCalendarStateRequest {
@@ -6383,19 +6557,19 @@ export interface GetCalendarStateResponse {
   AtTime?: string;
 
   /**
+   * <p>The state of the calendar. An <code>OPEN</code> calendar indicates that actions are allowed
+   *    to proceed, and a <code>CLOSED</code> calendar indicates that actions are not allowed to
+   *    proceed.</p>
+   */
+  State?: CalendarState | string;
+
+  /**
    * <p>The time, as an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> string,
    *    that the calendar state will change. If the current calendar state is <code>OPEN</code>,
    *     <code>NextTransitionTime</code> indicates when the calendar state changes to
    *    <code>CLOSED</code>, and vice-versa.</p>
    */
   NextTransitionTime?: string;
-
-  /**
-   * <p>The state of the calendar. An <code>OPEN</code> calendar indicates that actions are allowed
-   *    to proceed, and a <code>CLOSED</code> calendar indicates that actions are not allowed to
-   *    proceed.</p>
-   */
-  State?: CalendarState | string;
 }
 
 export namespace GetCalendarStateResponse {
@@ -6413,17 +6587,18 @@ export interface GetCommandInvocationRequest {
   CommandId: string | undefined;
 
   /**
+   * <p>(Optional) The name of the plugin for which you want detailed results. If the document
+   *    contains only one plugin, the name can be omitted and the details will be returned.</p>
+   *          <p>Plugin names are also referred to as step names in Systems Manager documents.</p>
+   */
+  PluginName?: string;
+
+  /**
    * <p>(Required) The ID of the managed instance targeted by the command. A managed instance can be
-   *    an Amazon EC2 instance or an instance in your hybrid environment that is configured for Systems
+   *    an EC2 instance or an instance in your hybrid environment that is configured for Systems
    *    Manager.</p>
    */
   InstanceId: string | undefined;
-
-  /**
-   * <p>(Optional) The name of the plugin for which you want detailed results. If the document
-   *    contains only one plugin, the name can be omitted and the details will be returned.</p>
-   */
-  PluginName?: string;
 }
 
 export namespace GetCommandInvocationRequest {
@@ -6436,45 +6611,10 @@ export namespace GetCommandInvocationRequest {
 export interface GetCommandInvocationResult {
   __type?: "GetCommandInvocationResult";
   /**
-   * <p>CloudWatch Logs information where Systems Manager sent the command output.</p>
+   * <p>The URL for the complete text written by the plugin to stdout in Amazon S3. If an S3 bucket was
+   *    not specified, then this string is empty.</p>
    */
-  CloudWatchOutputConfig?: CloudWatchOutputConfig;
-
-  /**
-   * <p>The parent command ID of the invocation plugin.</p>
-   */
-  CommandId?: string;
-
-  /**
-   * <p>The comment text for the command.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The name of the document that was run. For example, AWS-RunShellScript.</p>
-   */
-  DocumentName?: string;
-
-  /**
-   * <p>The SSM document version used in the request.</p>
-   */
-  DocumentVersion?: string;
-
-  /**
-   * <p>Duration since ExecutionStartDateTime.</p>
-   */
-  ExecutionElapsedTime?: string;
-
-  /**
-   * <p>The date and time the plugin was finished running. Date and time are written in ISO 8601
-   *    format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI
-   *    command uses the <code>InvokedAfter</code> filter.</p>
-   *          <p>
-   *             <code>aws ssm list-commands --filters key=InvokedAfter,value=2017-06-07T00:00:00Z</code>
-   *          </p>
-   *          <p>If the plugin has not started to run, the string is empty.</p>
-   */
-  ExecutionEndDateTime?: string;
+  StandardOutputUrl?: string;
 
   /**
    * <p>The date and time the plugin started running. Date and time are written in ISO 8601 format.
@@ -6488,28 +6628,19 @@ export interface GetCommandInvocationResult {
   ExecutionStartDateTime?: string;
 
   /**
-   * <p>The ID of the managed instance targeted by the command. A managed instance can be an Amazon EC2
-   *    instance or an instance in your hybrid environment that is configured for Systems Manager.</p>
+   * <p>CloudWatch Logs information where Systems Manager sent the command output.</p>
    */
-  InstanceId?: string;
+  CloudWatchOutputConfig?: CloudWatchOutputConfig;
 
   /**
-   * <p>The name of the plugin for which you want detailed results. For example, aws:RunShellScript
-   *    is a plugin.</p>
+   * <p>The SSM document version used in the request.</p>
    */
-  PluginName?: string;
+  DocumentVersion?: string;
 
   /**
-   * <p>The error level response code for the plugin script. If the response code is -1, then the
-   *    command has not started running on the instance, or it was not received by the instance.</p>
+   * <p>The parent command ID of the invocation plugin.</p>
    */
-  ResponseCode?: number;
-
-  /**
-   * <p>The first 8,000 characters written by the plugin to stderr. If the command has not finished
-   *    running, then this string is empty.</p>
-   */
-  StandardErrorContent?: string;
+  CommandId?: string;
 
   /**
    * <p>The URL for the complete text written by the plugin to stderr. If the command has not
@@ -6524,23 +6655,11 @@ export interface GetCommandInvocationResult {
   StandardOutputContent?: string;
 
   /**
-   * <p>The URL for the complete text written by the plugin to stdout in Amazon S3. If an Amazon S3 bucket was
-   *    not specified, then this string is empty.</p>
-   */
-  StandardOutputUrl?: string;
-
-  /**
-   * <p>The status of this invocation plugin. This status can be different than
-   *    StatusDetails.</p>
-   */
-  Status?: CommandInvocationStatus | string;
-
-  /**
    * <p>A detailed status of the command execution for an invocation. StatusDetails includes more
    *    information than Status because it includes states resulting from error and concurrency control
    *    parameters. StatusDetails can show different results than Status. For more information about
-   *    these statuses, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding Command
-   *     Statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the
+   *    these statuses, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding command
+   *     statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the
    *    following values:</p>
    *
    *          <ul>
@@ -6553,11 +6672,11 @@ export interface GetCommandInvocationResult {
    *             </li>
    *             <li>
    *                <p>Delayed: The system attempted to send the command to the target, but the target was not
-   *      available. The instance might not be available because of network issues, the instance was
-   *      stopped, etc. The system will try to deliver the command again.</p>
+   *      available. The instance might not be available because of network issues, because the instance
+   *      was stopped, or for similar reasons. The system will try to send the command again.</p>
    *             </li>
    *             <li>
-   *                <p>Success: The command or plugin was run successfully. This is a terminal state.</p>
+   *                <p>Success: The command or plugin ran successfully. This is a terminal state.</p>
    *             </li>
    *             <li>
    *                <p>Delivery Timed Out: The command was not delivered to the instance before the delivery
@@ -6593,6 +6712,62 @@ export interface GetCommandInvocationResult {
    *          </ul>
    */
   StatusDetails?: string;
+
+  /**
+   * <p>The name of the document that was run. For example, AWS-RunShellScript.</p>
+   */
+  DocumentName?: string;
+
+  /**
+   * <p>The first 8,000 characters written by the plugin to stderr. If the command has not finished
+   *    running, then this string is empty.</p>
+   */
+  StandardErrorContent?: string;
+
+  /**
+   * <p>The name of the plugin for which you want detailed results. For example, aws:RunShellScript
+   *    is a plugin.</p>
+   */
+  PluginName?: string;
+
+  /**
+   * <p>The comment text for the command.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>The error level response code for the plugin script. If the response code is -1, then the
+   *    command has not started running on the instance, or it was not received by the instance.</p>
+   */
+  ResponseCode?: number;
+
+  /**
+   * <p>Duration since ExecutionStartDateTime.</p>
+   */
+  ExecutionElapsedTime?: string;
+
+  /**
+   * <p>The ID of the managed instance targeted by the command. A managed instance can be an EC2
+   *    instance or an instance in your hybrid environment that is configured for Systems Manager.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The status of this invocation plugin. This status can be different than
+   *    StatusDetails.</p>
+   */
+  Status?: CommandInvocationStatus | string;
+
+  /**
+   * <p>The date and time the plugin was finished running. Date and time are written in ISO 8601
+   *    format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI
+   *    command uses the <code>InvokedAfter</code> filter.</p>
+   *          <p>
+   *             <code>aws ssm list-commands --filters key=InvokedAfter,value=2017-06-07T00:00:00Z</code>
+   *          </p>
+   *          <p>If the plugin has not started to run, the string is empty.</p>
+   */
+  ExecutionEndDateTime?: string;
 }
 
 export namespace GetCommandInvocationResult {
@@ -6656,14 +6831,14 @@ export namespace GetDefaultPatchBaselineRequest {
 export interface GetDefaultPatchBaselineResult {
   __type?: "GetDefaultPatchBaselineResult";
   /**
-   * <p>The ID of the default patch baseline.</p>
-   */
-  BaselineId?: string;
-
-  /**
    * <p>The operating system for the returned patch baseline. </p>
    */
   OperatingSystem?: OperatingSystem | string;
+
+  /**
+   * <p>The ID of the default patch baseline.</p>
+   */
+  BaselineId?: string;
 }
 
 export namespace GetDefaultPatchBaselineResult {
@@ -6676,14 +6851,14 @@ export namespace GetDefaultPatchBaselineResult {
 export interface GetDeployablePatchSnapshotForInstanceRequest {
   __type?: "GetDeployablePatchSnapshotForInstanceRequest";
   /**
-   * <p>The ID of the instance for which the appropriate patch snapshot should be retrieved.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The user-defined snapshot ID.</p>
    */
   SnapshotId: string | undefined;
+
+  /**
+   * <p>The ID of the instance for which the appropriate patch snapshot should be retrieved.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace GetDeployablePatchSnapshotForInstanceRequest {
@@ -6697,25 +6872,25 @@ export namespace GetDeployablePatchSnapshotForInstanceRequest {
 export interface GetDeployablePatchSnapshotForInstanceResult {
   __type?: "GetDeployablePatchSnapshotForInstanceResult";
   /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
    * <p>Returns the specific operating system (for example Windows Server 2012 or Amazon Linux
    *    2015.09) on the instance for the specified patch snapshot.</p>
    */
   Product?: string;
 
   /**
-   * <p>A pre-signed Amazon S3 URL that can be used to download the patch snapshot.</p>
+   * <p>The ID of the instance.</p>
    */
-  SnapshotDownloadUrl?: string;
+  InstanceId?: string;
 
   /**
    * <p>The user-defined snapshot ID.</p>
    */
   SnapshotId?: string;
+
+  /**
+   * <p>A pre-signed Amazon S3 URL that can be used to download the patch snapshot.</p>
+   */
+  SnapshotDownloadUrl?: string;
 }
 
 export namespace GetDeployablePatchSnapshotForInstanceResult {
@@ -6729,12 +6904,6 @@ export namespace GetDeployablePatchSnapshotForInstanceResult {
 export interface GetDocumentRequest {
   __type?: "GetDocumentRequest";
   /**
-   * <p>Returns the document in the specified format. The document format can be either JSON or
-   *    YAML. JSON is the default format.</p>
-   */
-  DocumentFormat?: DocumentFormat | string;
-
-  /**
    * <p>The document version for which you want information.</p>
    */
   DocumentVersion?: string;
@@ -6745,9 +6914,15 @@ export interface GetDocumentRequest {
   Name: string | undefined;
 
   /**
+   * <p>Returns the document in the specified format. The document format can be either JSON or
+   *    YAML. JSON is the default format.</p>
+   */
+  DocumentFormat?: DocumentFormat | string;
+
+  /**
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, "Release 12, Update 6". This value is unique across all versions of a document, and
-   *    cannot be changed.</p>
+   *    example, "Release 12, Update 6". This value is unique across all versions of a document and can't
+   *    be changed.</p>
    */
   VersionName?: string;
 }
@@ -6762,24 +6937,23 @@ export namespace GetDocumentRequest {
 export interface GetDocumentResult {
   __type?: "GetDocumentResult";
   /**
-   * <p>A description of the document attachments, including names, locations, sizes, etc.</p>
+   * <p>The version of the artifact associated with the document. For example, "Release 12, Update
+   *    6". This value is unique across all versions of a document, and cannot be changed.</p>
    */
-  AttachmentsContent?: AttachmentContent[];
+  VersionName?: string;
 
   /**
-   * <p>The contents of the Systems Manager document.</p>
+   * <p>A message returned by AWS Systems Manager that explains the <code>Status</code> value. For example, a
+   *     <code>Failed</code> status might be explained by the <code>StatusInformation</code> message,
+   *    "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."</p>
    */
-  Content?: string;
+  StatusInformation?: string;
 
   /**
-   * <p>The document format, either JSON or YAML.</p>
+   * <p>The status of the Systems Manager document, such as <code>Creating</code>, <code>Active</code>,
+   *     <code>Updating</code>, <code>Failed</code>, and <code>Deleting</code>.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
-
-  /**
-   * <p>The document type.</p>
-   */
-  DocumentType?: DocumentType | string;
+  Status?: DocumentStatus | string;
 
   /**
    * <p>The document version.</p>
@@ -6792,6 +6966,16 @@ export interface GetDocumentResult {
   Name?: string;
 
   /**
+   * <p>The document type.</p>
+   */
+  DocumentType?: DocumentType | string;
+
+  /**
+   * <p>The document format, either JSON or YAML.</p>
+   */
+  DocumentFormat?: DocumentFormat | string;
+
+  /**
    * <p>A list of SSM documents required by a document. For example, an
    *     <code>ApplicationConfiguration</code> document requires an
    *     <code>ApplicationConfigurationSchema</code> document.</p>
@@ -6799,23 +6983,15 @@ export interface GetDocumentResult {
   Requires?: DocumentRequires[];
 
   /**
-   * <p>The status of the Systems Manager document, such as <code>Creating</code>, <code>Active</code>,
-   *     <code>Updating</code>, <code>Failed</code>, and <code>Deleting</code>.</p>
+   * <p>A description of the document attachments, including names, locations, sizes, and so
+   *    on.</p>
    */
-  Status?: DocumentStatus | string;
+  AttachmentsContent?: AttachmentContent[];
 
   /**
-   * <p>A message returned by AWS Systems Manager that explains the <code>Status</code> value. For example, a
-   *     <code>Failed</code> status might be explained by the <code>StatusInformation</code> message,
-   *    "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."</p>
+   * <p>The contents of the Systems Manager document.</p>
    */
-  StatusInformation?: string;
-
-  /**
-   * <p>The version of the artifact associated with the document. For example, "Release 12, Update
-   *    6". This value is unique across all versions of a document, and cannot be changed.</p>
-   */
-  VersionName?: string;
+  Content?: string;
 }
 
 export namespace GetDocumentResult {
@@ -6836,15 +7012,14 @@ export interface GetInventoryRequest {
   Aggregators?: InventoryAggregator[];
 
   /**
+   * <p>The list of inventory item types to return.</p>
+   */
+  ResultAttributes?: ResultAttribute[];
+
+  /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    */
   Filters?: InventoryFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -6853,9 +7028,10 @@ export interface GetInventoryRequest {
   NextToken?: string;
 
   /**
-   * <p>The list of inventory item types to return.</p>
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
    */
-  ResultAttributes?: ResultAttribute[];
+  MaxResults?: number;
 }
 
 export namespace GetInventoryRequest {
@@ -6889,20 +7065,6 @@ export namespace GetInventoryResult {
 export interface GetInventorySchemaRequest {
   __type?: "GetInventorySchemaRequest";
   /**
-   * <p>Returns inventory schemas that support aggregation. For example, this call returns the
-   *     <code>AWS:InstanceInformation</code> type, because it supports aggregation based on the
-   *     <code>PlatformName</code>, <code>PlatformType</code>, and <code>PlatformVersion</code>
-   *    attributes.</p>
-   */
-  Aggregator?: boolean;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
@@ -6912,6 +7074,20 @@ export interface GetInventorySchemaRequest {
    * <p>Returns the sub-type schema for a specified inventory type.</p>
    */
   SubType?: boolean;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Returns inventory schemas that support aggregation. For example, this call returns the
+   *     <code>AWS:InstanceInformation</code> type, because it supports aggregation based on the
+   *     <code>PlatformName</code>, <code>PlatformType</code>, and <code>PlatformVersion</code>
+   *    attributes.</p>
+   */
+  Aggregator?: boolean;
 
   /**
    * <p>The type of inventory item to return.</p>
@@ -6929,15 +7105,15 @@ export namespace GetInventorySchemaRequest {
 export interface GetInventorySchemaResult {
   __type?: "GetInventorySchemaResult";
   /**
+   * <p>Inventory schemas returned by the request.</p>
+   */
+  Schemas?: InventoryItemSchema[];
+
+  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Inventory schemas returned by the request.</p>
-   */
-  Schemas?: InventoryItemSchema[];
 }
 
 export namespace GetInventorySchemaResult {
@@ -6966,26 +7142,6 @@ export namespace GetMaintenanceWindowExecutionRequest {
 export interface GetMaintenanceWindowExecutionResult {
   __type?: "GetMaintenanceWindowExecutionResult";
   /**
-   * <p>The time the maintenance window finished running.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The time the maintenance window started running.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The status of the maintenance window execution.</p>
-   */
-  Status?: MaintenanceWindowExecutionStatus | string;
-
-  /**
-   * <p>The details explaining the Status. Only available for certain status values.</p>
-   */
-  StatusDetails?: string;
-
-  /**
    * <p>The ID of the task executions from the maintenance window execution.</p>
    */
   TaskIds?: string[];
@@ -6994,6 +7150,26 @@ export interface GetMaintenanceWindowExecutionResult {
    * <p>The ID of the maintenance window execution.</p>
    */
   WindowExecutionId?: string;
+
+  /**
+   * <p>The time the maintenance window finished running.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The status of the maintenance window execution.</p>
+   */
+  Status?: MaintenanceWindowExecutionStatus | string;
+
+  /**
+   * <p>The time the maintenance window started running.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The details explaining the Status. Only available for certain status values.</p>
+   */
+  StatusDetails?: string;
 }
 
 export namespace GetMaintenanceWindowExecutionResult {
@@ -7033,46 +7209,9 @@ export namespace GetMaintenanceWindowExecutionTaskInvocationRequest {
 export interface GetMaintenanceWindowExecutionTaskInvocationResult {
   __type?: "GetMaintenanceWindowExecutionTaskInvocationResult";
   /**
-   * <p>The time that the task finished running on the target.</p>
-   */
-  EndTime?: Date;
-
-  /**
    * <p>The execution ID.</p>
    */
   ExecutionId?: string;
-
-  /**
-   * <p>The invocation ID.</p>
-   */
-  InvocationId?: string;
-
-  /**
-   * <p>User-provided value to be included in any CloudWatch events raised while running tasks for
-   *    these targets in this maintenance window. </p>
-   */
-  OwnerInformation?: string;
-
-  /**
-   * <p>The parameters used at the time that the task ran.</p>
-   */
-  Parameters?: string;
-
-  /**
-   * <p>The time that the task started running on the target.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The task status for an invocation.</p>
-   */
-  Status?: MaintenanceWindowExecutionStatus | string;
-
-  /**
-   * <p>The details explaining the status. Details are only available for certain status
-   *    values.</p>
-   */
-  StatusDetails?: string;
 
   /**
    * <p>The task execution ID.</p>
@@ -7080,10 +7219,9 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
   TaskExecutionId?: string;
 
   /**
-   * <p>Retrieves the task type for a maintenance window. Task types include the following: LAMBDA,
-   *    STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.</p>
+   * <p>The invocation ID.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  InvocationId?: string;
 
   /**
    * <p>The maintenance window execution ID.</p>
@@ -7094,13 +7232,51 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
    * <p>The maintenance window target ID.</p>
    */
   WindowTargetId?: string;
+
+  /**
+   * <p>The details explaining the status. Details are only available for certain status
+   *    values.</p>
+   */
+  StatusDetails?: string;
+
+  /**
+   * <p>Retrieves the task type for a maintenance window. Task types include the following: LAMBDA,
+   *    STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.</p>
+   */
+  TaskType?: MaintenanceWindowTaskType | string;
+
+  /**
+   * <p>The time that the task started running on the target.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The parameters used at the time that the task ran.</p>
+   */
+  Parameters?: string;
+
+  /**
+   * <p>The time that the task finished running on the target.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>User-provided value to be included in any CloudWatch events raised while running tasks for
+   *    these targets in this maintenance window. </p>
+   */
+  OwnerInformation?: string;
+
+  /**
+   * <p>The task status for an invocation.</p>
+   */
+  Status?: MaintenanceWindowExecutionStatus | string;
 }
 
 export namespace GetMaintenanceWindowExecutionTaskInvocationResult {
   export const filterSensitiveLog = (obj: GetMaintenanceWindowExecutionTaskInvocationResult): any => ({
     ...obj,
-    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
     ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is GetMaintenanceWindowExecutionTaskInvocationResult =>
     __isa(o, "GetMaintenanceWindowExecutionTaskInvocationResult");
@@ -7109,15 +7285,15 @@ export namespace GetMaintenanceWindowExecutionTaskInvocationResult {
 export interface GetMaintenanceWindowExecutionTaskRequest {
   __type?: "GetMaintenanceWindowExecutionTaskRequest";
   /**
+   * <p>The ID of the maintenance window execution that includes the task.</p>
+   */
+  WindowExecutionId: string | undefined;
+
+  /**
    * <p>The ID of the specific task execution in the maintenance window task that should be
    *    retrieved.</p>
    */
   TaskId: string | undefined;
-
-  /**
-   * <p>The ID of the maintenance window execution that includes the task.</p>
-   */
-  WindowExecutionId: string | undefined;
 }
 
 export namespace GetMaintenanceWindowExecutionTaskRequest {
@@ -7131,25 +7307,9 @@ export namespace GetMaintenanceWindowExecutionTaskRequest {
 export interface GetMaintenanceWindowExecutionTaskResult {
   __type?: "GetMaintenanceWindowExecutionTaskResult";
   /**
-   * <p>The time the task execution completed.</p>
+   * <p>The type of task that was run.</p>
    */
-  EndTime?: Date;
-
-  /**
-   * <p>The defined maximum number of task executions that could be run in parallel.</p>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The defined maximum number of task execution errors allowed before scheduling of the task
-   *    execution would have been stopped.</p>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>The priority of the task.</p>
-   */
-  Priority?: number;
+  Type?: MaintenanceWindowTaskType | string;
 
   /**
    * <p>The role that was assumed when running the task.</p>
@@ -7157,30 +7317,9 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   ServiceRole?: string;
 
   /**
-   * <p>The time the task execution started.</p>
+   * <p>The ID of the maintenance window execution that includes the task.</p>
    */
-  StartTime?: Date;
-
-  /**
-   * <p>The status of the task.</p>
-   */
-  Status?: MaintenanceWindowExecutionStatus | string;
-
-  /**
-   * <p>The details explaining the Status. Only available for certain status values.</p>
-   */
-  StatusDetails?: string;
-
-  /**
-   * <p>The ARN of the task that ran.</p>
-   */
-  TaskArn?: string;
-
-  /**
-   * <p>The ID of the specific task execution in the maintenance window task that was
-   *    retrieved.</p>
-   */
-  TaskExecutionId?: string;
+  WindowExecutionId?: string;
 
   /**
    * <p>The parameters passed to the task when it was run.</p>
@@ -7198,14 +7337,51 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression }[];
 
   /**
-   * <p>The type of task that was run.</p>
+   * <p>The status of the task.</p>
    */
-  Type?: MaintenanceWindowTaskType | string;
+  Status?: MaintenanceWindowExecutionStatus | string;
 
   /**
-   * <p>The ID of the maintenance window execution that includes the task.</p>
+   * <p>The defined maximum number of task execution errors allowed before scheduling of the task
+   *    execution would have been stopped.</p>
    */
-  WindowExecutionId?: string;
+  MaxErrors?: string;
+
+  /**
+   * <p>The priority of the task.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The ARN of the task that ran.</p>
+   */
+  TaskArn?: string;
+
+  /**
+   * <p>The ID of the specific task execution in the maintenance window task that was
+   *    retrieved.</p>
+   */
+  TaskExecutionId?: string;
+
+  /**
+   * <p>The details explaining the Status. Only available for certain status values.</p>
+   */
+  StatusDetails?: string;
+
+  /**
+   * <p>The time the task execution started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The defined maximum number of task executions that could be run in parallel.</p>
+   */
+  MaxConcurrency?: string;
+
+  /**
+   * <p>The time the task execution completed.</p>
+   */
+  EndTime?: Date;
 }
 
 export namespace GetMaintenanceWindowExecutionTaskResult {
@@ -7235,36 +7411,20 @@ export namespace GetMaintenanceWindowRequest {
 export interface GetMaintenanceWindowResult {
   __type?: "GetMaintenanceWindowResult";
   /**
-   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
-   *    for those targets.</p>
+   * <p>The number of days to wait to run a maintenance window after the scheduled CRON expression
+   *    date and time.</p>
    */
-  AllowUnassociatedTargets?: boolean;
+  ScheduleOffset?: number;
 
   /**
-   * <p>The date the maintenance window was created.</p>
+   * <p>The name of the maintenance window.</p>
    */
-  CreatedDate?: Date;
+  Name?: string;
 
   /**
-   * <p>The number of hours before the end of the maintenance window that Systems Manager stops scheduling new
-   *    tasks for execution.</p>
+   * <p>The ID of the created maintenance window.</p>
    */
-  Cutoff?: number;
-
-  /**
-   * <p>The description of the maintenance window.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The duration of the maintenance window in hours.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>Indicates whether the maintenance window is enabled.</p>
-   */
-  Enabled?: boolean;
+  WindowId?: string;
 
   /**
    * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
@@ -7273,25 +7433,47 @@ export interface GetMaintenanceWindowResult {
   EndDate?: string;
 
   /**
+   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
+   *    to become active. The maintenance window will not run before this specified time.</p>
+   */
+  StartDate?: string;
+
+  /**
    * <p>The date the maintenance window was last modified.</p>
    */
   ModifiedDate?: Date;
 
   /**
-   * <p>The name of the maintenance window.</p>
+   * <p>The duration of the maintenance window in hours.</p>
    */
-  Name?: string;
+  Duration?: number;
+
+  /**
+   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
+   */
+  Schedule?: string;
+
+  /**
+   * <p>Indicates whether the maintenance window is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
+   *    for those targets.</p>
+   */
+  AllowUnassociatedTargets?: boolean;
+
+  /**
+   * <p>The description of the maintenance window.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The next time the maintenance window will actually run, taking into account any specified
    *    times for the maintenance window to become active or inactive.</p>
    */
   NextExecutionTime?: string;
-
-  /**
-   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
-   */
-  Schedule?: string;
 
   /**
    * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
@@ -7302,15 +7484,15 @@ export interface GetMaintenanceWindowResult {
   ScheduleTimezone?: string;
 
   /**
-   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
-   *    to become active. The maintenance window will not run before this specified time.</p>
+   * <p>The number of hours before the end of the maintenance window that Systems Manager stops scheduling new
+   *    tasks for execution.</p>
    */
-  StartDate?: string;
+  Cutoff?: number;
 
   /**
-   * <p>The ID of the created maintenance window.</p>
+   * <p>The date the maintenance window was created.</p>
    */
-  WindowId?: string;
+  CreatedDate?: Date;
 }
 
 export namespace GetMaintenanceWindowResult {
@@ -7344,31 +7526,9 @@ export namespace GetMaintenanceWindowTaskRequest {
 export interface GetMaintenanceWindowTaskResult {
   __type?: "GetMaintenanceWindowTaskResult";
   /**
-   * <p>The retrieved task description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The location in Amazon S3 where the task results are logged.</p>
-   *          <note>
-   *             <p>
-   *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
-   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
-   *       For information about how Systems Manager handles these options for the supported maintenance
-   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   */
-  LoggingInfo?: LoggingInfo;
-
-  /**
    * <p>The maximum number of targets allowed to run this task in parallel.</p>
    */
   MaxConcurrency?: string;
-
-  /**
-   * <p>The maximum number of errors allowed before the task stops being scheduled.</p>
-   */
-  MaxErrors?: string;
 
   /**
    * <p>The retrieved task name.</p>
@@ -7376,21 +7536,15 @@ export interface GetMaintenanceWindowTaskResult {
   Name?: string;
 
   /**
+   * <p>The retrieved maintenance window task ID.</p>
+   */
+  WindowTaskId?: string;
+
+  /**
    * <p>The priority of the task when it runs. The lower the number, the higher the priority. Tasks
    *    that have the same priority are scheduled in parallel.</p>
    */
   Priority?: number;
-
-  /**
-   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
-   *    maintenance window Run Command tasks.</p>
-   */
-  ServiceRoleArn?: string;
-
-  /**
-   * <p>The targets where the task should run.</p>
-   */
-  Targets?: Target[];
 
   /**
    * <p>The resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types,
@@ -7417,9 +7571,10 @@ export interface GetMaintenanceWindowTaskResult {
   TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
 
   /**
-   * <p>The type of task to run.</p>
+   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
+   *    maintenance window Run Command tasks.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  ServiceRoleArn?: string;
 
   /**
    * <p>The retrieved maintenance window ID.</p>
@@ -7427,21 +7582,48 @@ export interface GetMaintenanceWindowTaskResult {
   WindowId?: string;
 
   /**
-   * <p>The retrieved maintenance window task ID.</p>
+   * <p>The targets where the task should run.</p>
    */
-  WindowTaskId?: string;
+  Targets?: Target[];
+
+  /**
+   * <p>The type of task to run.</p>
+   */
+  TaskType?: MaintenanceWindowTaskType | string;
+
+  /**
+   * <p>The maximum number of errors allowed before the task stops being scheduled.</p>
+   */
+  MaxErrors?: string;
+
+  /**
+   * <p>The location in Amazon S3 where the task results are logged.</p>
+   *          <note>
+   *             <p>
+   *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
+   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
+   *       For information about how Systems Manager handles these options for the supported maintenance
+   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *          </note>
+   */
+  LoggingInfo?: LoggingInfo;
+
+  /**
+   * <p>The retrieved task description.</p>
+   */
+  Description?: string;
 }
 
 export namespace GetMaintenanceWindowTaskResult {
   export const filterSensitiveLog = (obj: GetMaintenanceWindowTaskResult): any => ({
     ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
     ...(obj.TaskInvocationParameters && {
       TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
         obj.TaskInvocationParameters
       ),
     }),
     ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is GetMaintenanceWindowTaskResult => __isa(o, "GetMaintenanceWindowTaskResult");
 }
@@ -7479,14 +7661,24 @@ export namespace GetOpsItemResponse {
 export interface GetOpsSummaryRequest {
   __type?: "GetOpsSummaryRequest";
   /**
-   * <p>Optional aggregators that return counts of OpsItems based on one or more expressions.</p>
-   */
-  Aggregators?: OpsAggregator[];
-
-  /**
    * <p>Optional filters used to scope down the returned OpsItems. </p>
    */
   Filters?: OpsFilter[];
+
+  /**
+   * <p>Specify the name of a resource data sync to get.</p>
+   */
+  SyncName?: string;
+
+  /**
+   * <p>The OpsItem data type to return.</p>
+   */
+  ResultAttributes?: OpsResultAttribute[];
+
+  /**
+   * <p>Optional aggregators that return counts of OpsItems based on one or more expressions.</p>
+   */
+  Aggregators?: OpsAggregator[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -7498,16 +7690,6 @@ export interface GetOpsSummaryRequest {
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The OpsItem data type to return.</p>
-   */
-  ResultAttributes?: OpsResultAttribute[];
-
-  /**
-   * <p>Specify the name of a resource data sync to get.</p>
-   */
-  SyncName?: string;
 }
 
 export namespace GetOpsSummaryRequest {
@@ -7520,15 +7702,15 @@ export namespace GetOpsSummaryRequest {
 export interface GetOpsSummaryResult {
   __type?: "GetOpsSummaryResult";
   /**
-   * <p>The list of aggregated and filtered OpsItems.</p>
-   */
-  Entities?: OpsEntity[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *    results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of aggregated and filtered OpsItems.</p>
+   */
+  Entities?: OpsEntity[];
 }
 
 export namespace GetOpsSummaryResult {
@@ -7595,15 +7777,15 @@ export namespace GetParameterHistoryResult {
 export interface GetParameterRequest {
   __type?: "GetParameterRequest";
   /**
-   * <p>The name of the parameter you want to query.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Return decrypted values for secure string parameters. This flag is ignored for String and
    *    StringList parameter types.</p>
    */
   WithDecryption?: boolean;
+
+  /**
+   * <p>The name of the parameter you want to query.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace GetParameterRequest {
@@ -7631,20 +7813,14 @@ export namespace GetParameterResult {
 export interface GetParametersByPathRequest {
   __type?: "GetParametersByPathRequest";
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
 
   /**
-   * <p>Filters to limit the request results.</p>
+   * <p>Retrieve all parameters in a hierarchy with their value decrypted.</p>
    */
-  ParameterFilters?: ParameterStringFilter[];
+  WithDecryption?: boolean;
 
   /**
    * <p>The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the
@@ -7653,6 +7829,17 @@ export interface GetParametersByPathRequest {
    *          </p>
    */
   Path: string | undefined;
+
+  /**
+   * <p>Filters to limit the request results.</p>
+   */
+  ParameterFilters?: ParameterStringFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>Retrieve all parameters within a hierarchy.</p>
@@ -7665,11 +7852,6 @@ export interface GetParametersByPathRequest {
    *          </important>
    */
   Recursive?: boolean;
-
-  /**
-   * <p>Retrieve all parameters in a hierarchy with their value decrypted.</p>
-   */
-  WithDecryption?: boolean;
 }
 
 export namespace GetParametersByPathRequest {
@@ -7682,15 +7864,15 @@ export namespace GetParametersByPathRequest {
 export interface GetParametersByPathResult {
   __type?: "GetParametersByPathResult";
   /**
+   * <p>A list of parameters found in the specified hierarchy.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *    results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of parameters found in the specified hierarchy.</p>
-   */
-  Parameters?: Parameter[];
 }
 
 export namespace GetParametersByPathResult {
@@ -7724,15 +7906,15 @@ export namespace GetParametersRequest {
 export interface GetParametersResult {
   __type?: "GetParametersResult";
   /**
+   * <p>A list of details for a parameter.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
    * <p>A list of parameters that are not formatted correctly or do not run during an
    *    execution.</p>
    */
   InvalidParameters?: string[];
-
-  /**
-   * <p>A list of details for a parameter.</p>
-   */
-  Parameters?: Parameter[];
 }
 
 export namespace GetParametersResult {
@@ -7745,14 +7927,14 @@ export namespace GetParametersResult {
 export interface GetPatchBaselineForPatchGroupRequest {
   __type?: "GetPatchBaselineForPatchGroupRequest";
   /**
-   * <p>Returns he operating system rule specified for patch groups using the patch baseline.</p>
-   */
-  OperatingSystem?: OperatingSystem | string;
-
-  /**
    * <p>The name of the patch group whose patch baseline should be retrieved.</p>
    */
   PatchGroup: string | undefined;
+
+  /**
+   * <p>Returns he operating system rule specified for patch groups using the patch baseline.</p>
+   */
+  OperatingSystem?: OperatingSystem | string;
 }
 
 export namespace GetPatchBaselineForPatchGroupRequest {
@@ -7771,14 +7953,14 @@ export interface GetPatchBaselineForPatchGroupResult {
   BaselineId?: string;
 
   /**
-   * <p>The operating system rule specified for patch groups using the patch baseline.</p>
-   */
-  OperatingSystem?: OperatingSystem | string;
-
-  /**
    * <p>The name of the patch group.</p>
    */
   PatchGroup?: string;
+
+  /**
+   * <p>The operating system rule specified for patch groups using the patch baseline.</p>
+   */
+  OperatingSystem?: OperatingSystem | string;
 }
 
 export namespace GetPatchBaselineForPatchGroupResult {
@@ -7807,36 +7989,15 @@ export namespace GetPatchBaselineRequest {
 export interface GetPatchBaselineResult {
   __type?: "GetPatchBaselineResult";
   /**
-   * <p>A set of rules used to include patches in the baseline.</p>
-   */
-  ApprovalRules?: PatchRuleGroup;
-
-  /**
-   * <p>A list of explicitly approved patches for the baseline.</p>
-   */
-  ApprovedPatches?: string[];
-
-  /**
-   * <p>Returns the specified compliance severity level for approved patches in the patch
-   *    baseline.</p>
-   */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
-
-  /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
    *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
 
   /**
-   * <p>The ID of the retrieved patch baseline.</p>
+   * <p>A set of rules used to include patches in the baseline.</p>
    */
-  BaselineId?: string;
-
-  /**
-   * <p>The date the patch baseline was created.</p>
-   */
-  CreatedDate?: Date;
+  ApprovalRules?: PatchRuleGroup;
 
   /**
    * <p>A description of the patch baseline.</p>
@@ -7844,9 +8005,27 @@ export interface GetPatchBaselineResult {
   Description?: string;
 
   /**
-   * <p>A set of global filters used to exclude patches from the baseline.</p>
+   * <p>A list of explicitly approved patches for the baseline.</p>
    */
-  GlobalFilters?: PatchFilterGroup;
+  ApprovedPatches?: string[];
+
+  /**
+   * <p>The action specified to take on patches included in the RejectedPatches list. A patch can be
+   *    allowed only if it is a dependency of another package, or blocked entirely along with packages
+   *    that include it as a dependency.</p>
+   */
+  RejectedPatchesAction?: PatchAction | string;
+
+  /**
+   * <p>A list of explicitly rejected patches for the baseline.</p>
+   */
+  RejectedPatches?: string[];
+
+  /**
+   * <p>Information about the patches to use to update the instances, including target operating
+   *    systems and source repositories. Applies to Linux instances only.</p>
+   */
+  Sources?: PatchSource[];
 
   /**
    * <p>The date the patch baseline was last modified.</p>
@@ -7859,9 +8038,15 @@ export interface GetPatchBaselineResult {
   Name?: string;
 
   /**
-   * <p>Returns the operating system specified for the patch baseline.</p>
+   * <p>The date the patch baseline was created.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  CreatedDate?: Date;
+
+  /**
+   * <p>Returns the specified compliance severity level for approved patches in the patch
+   *    baseline.</p>
+   */
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
 
   /**
    * <p>Patch groups included in the patch baseline.</p>
@@ -7869,22 +8054,19 @@ export interface GetPatchBaselineResult {
   PatchGroups?: string[];
 
   /**
-   * <p>A list of explicitly rejected patches for the baseline.</p>
+   * <p>Returns the operating system specified for the patch baseline.</p>
    */
-  RejectedPatches?: string[];
+  OperatingSystem?: OperatingSystem | string;
 
   /**
-   * <p>The action specified to take on patches included in the RejectedPatches list. A patch can be
-   *    allowed only if it is a dependency of another package, or blocked entirely along with packages
-   *    that include it as a dependency.</p>
+   * <p>The ID of the retrieved patch baseline.</p>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  BaselineId?: string;
 
   /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
+   * <p>A set of global filters used to exclude patches from the baseline.</p>
    */
-  Sources?: PatchSource[];
+  GlobalFilters?: PatchFilterGroup;
 }
 
 export namespace GetPatchBaselineResult {
@@ -7901,7 +8083,10 @@ export namespace GetPatchBaselineResult {
 export interface GetServiceSettingRequest {
   __type?: "GetServiceSettingRequest";
   /**
-   * <p>The ID of the service setting to get.</p>
+   * <p>The ID of the service setting to get. The setting ID can be
+   *     <code>/ssm/parameter-store/default-parameter-tier</code>,
+   *     <code>/ssm/parameter-store/high-throughput-enabled</code>, or
+   *     <code>/ssm/managed-instance/activation-tier</code>.</p>
    */
   SettingId: string | undefined;
 }
@@ -7932,15 +8117,15 @@ export namespace GetServiceSettingResult {
 }
 
 /**
- * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and Constraints for
- *     Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>. </p>
+ * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and
+ *     constraints for parameter names</a> in the <i>AWS Systems Manager User Guide</i>. </p>
  */
 export interface HierarchyLevelLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "HierarchyLevelLimitExceededException";
   $fault: "client";
   /**
-   * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and Constraints for
-   *     Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>. </p>
+   * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and
+   *     constraints for parameter names</a> in the <i>AWS Systems Manager User Guide</i>. </p>
    */
   message?: string;
 }
@@ -7955,16 +8140,16 @@ export namespace HierarchyLevelLimitExceededException {
 
 /**
  * <p>Parameter Store does not support changing a parameter type in a hierarchy. For example, you
- *    can't change a parameter from a String type to a SecureString type. You must create a new, unique
- *    parameter.</p>
+ *    can't change a parameter from a <code>String</code> type to a <code>SecureString</code> type. You
+ *    must create a new, unique parameter.</p>
  */
 export interface HierarchyTypeMismatchException extends __SmithyException, $MetadataBearer {
   name: "HierarchyTypeMismatchException";
   $fault: "client";
   /**
    * <p>Parameter Store does not support changing a parameter type in a hierarchy. For example, you
-   *    can't change a parameter from a String type to a SecureString type. You must create a new, unique
-   *    parameter.</p>
+   *    can't change a parameter from a <code>String</code> type to a <code>SecureString</code> type. You
+   *    must create a new, unique parameter.</p>
    */
   message?: string;
 }
@@ -8045,6 +8230,11 @@ export interface InstanceAssociation {
   AssociationId?: string;
 
   /**
+   * <p>The instance ID.</p>
+   */
+  InstanceId?: string;
+
+  /**
    * <p>Version information for the association on the instance.</p>
    */
   AssociationVersion?: string;
@@ -8053,11 +8243,6 @@ export interface InstanceAssociation {
    * <p>The content of the association document for the instance(s).</p>
    */
   Content?: string;
-
-  /**
-   * <p>The instance ID.</p>
-   */
-  InstanceId?: string;
 }
 
 export namespace InstanceAssociation {
@@ -8068,12 +8253,12 @@ export namespace InstanceAssociation {
 }
 
 /**
- * <p>An Amazon S3 bucket where you want to store the results of this request.</p>
+ * <p>An S3 bucket where you want to store the results of this request.</p>
  */
 export interface InstanceAssociationOutputLocation {
   __type?: "InstanceAssociationOutputLocation";
   /**
-   * <p>An Amazon S3 bucket where you want to store the results of this request.</p>
+   * <p>An S3 bucket where you want to store the results of this request.</p>
    */
   S3Location?: S3OutputLocation;
 }
@@ -8086,12 +8271,12 @@ export namespace InstanceAssociationOutputLocation {
 }
 
 /**
- * <p>The URL of Amazon S3 bucket where you want to store the results of this request.</p>
+ * <p>The URL of S3 bucket where you want to store the results of this request.</p>
  */
 export interface InstanceAssociationOutputUrl {
   __type?: "InstanceAssociationOutputUrl";
   /**
-   * <p>The URL of Amazon S3 bucket where you want to store the results of this request.</p>
+   * <p>The URL of S3 bucket where you want to store the results of this request.</p>
    */
   S3OutputUrl?: S3OutputUrl;
 }
@@ -8109,24 +8294,39 @@ export namespace InstanceAssociationOutputUrl {
 export interface InstanceAssociationStatusInfo {
   __type?: "InstanceAssociationStatusInfo";
   /**
-   * <p>The association ID.</p>
+   * <p>Status information about the instance association.</p>
    */
-  AssociationId?: string;
+  Status?: string;
 
   /**
-   * <p>The name of the association applied to the instance.</p>
+   * <p>A URL for an S3 bucket where you want to store the results of this request.</p>
    */
-  AssociationName?: string;
+  OutputUrl?: InstanceAssociationOutputUrl;
 
   /**
-   * <p>The version of the association applied to the instance.</p>
+   * <p>The name of the association.</p>
    */
-  AssociationVersion?: string;
+  Name?: string;
 
   /**
    * <p>Detailed status information about the instance association.</p>
    */
   DetailedStatus?: string;
+
+  /**
+   * <p>Summary information about association execution.</p>
+   */
+  ExecutionSummary?: string;
+
+  /**
+   * <p>The association ID.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The instance ID where the association was created.</p>
+   */
+  InstanceId?: string;
 
   /**
    * <p>The association document versions.</p>
@@ -8144,29 +8344,14 @@ export interface InstanceAssociationStatusInfo {
   ExecutionDate?: Date;
 
   /**
-   * <p>Summary information about association execution.</p>
+   * <p>The name of the association applied to the instance.</p>
    */
-  ExecutionSummary?: string;
+  AssociationName?: string;
 
   /**
-   * <p>The instance ID where the association was created.</p>
+   * <p>The version of the association applied to the instance.</p>
    */
-  InstanceId?: string;
-
-  /**
-   * <p>The name of the association.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A URL for an Amazon S3 bucket where you want to store the results of this request.</p>
-   */
-  OutputUrl?: InstanceAssociationOutputUrl;
-
-  /**
-   * <p>Status information about the instance association.</p>
-   */
-  Status?: string;
+  AssociationVersion?: string;
 }
 
 export namespace InstanceAssociationStatusInfo {
@@ -8182,29 +8367,23 @@ export namespace InstanceAssociationStatusInfo {
 export interface InstanceInformation {
   __type?: "InstanceInformation";
   /**
-   * <p>The activation ID created by Systems Manager when the server or VM was registered.</p>
-   */
-  ActivationId?: string;
-
-  /**
    * <p>The version of SSM Agent running on your Linux instance. </p>
    */
   AgentVersion?: string;
 
   /**
-   * <p>Information about the association.</p>
+   * <p>The version of the OS platform running on your instance. </p>
    */
-  AssociationOverview?: InstanceAggregatedAssociationOverview;
+  PlatformVersion?: string;
 
   /**
-   * <p>The status of the association.</p>
+   * <p>The Amazon Identity and Access Management (IAM) role assigned to the on-premises Systems Manager
+   *    managed instance. This call does not return the IAM role for EC2 instances. To retrieve the IAM
+   *    role for an EC2 instance, use the Amazon EC2 <code>DescribeInstances</code> action. For information,
+   *    see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the
+   *     <i>Amazon EC2 API Reference</i> or <a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>AWS CLI Command Reference</i>.</p>
    */
-  AssociationStatus?: string;
-
-  /**
-   * <p>The fully qualified host name of the managed instance.</p>
-   */
-  ComputerName?: string;
+  IamRole?: string;
 
   /**
    * <p>The IP address of the managed instance.</p>
@@ -8212,33 +8391,34 @@ export interface InstanceInformation {
   IPAddress?: string;
 
   /**
-   * <p>The Amazon Identity and Access Management (IAM) role assigned to the on-premises Systems Manager
-   *    managed instances. This call does not return the IAM role for Amazon EC2 instances. </p>
-   */
-  IamRole?: string;
-
-  /**
-   * <p>The instance ID. </p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>Indicates whether the latest version of SSM Agent is running on your Linux Managed Instance.
-   *    This field does not indicate whether or not the latest version is installed on Windows managed
-   *    instances, because some older versions of Windows Server use the EC2Config service to process SSM
-   *    requests.</p>
-   */
-  IsLatestVersion?: boolean;
-
-  /**
    * <p>The date the association was last run.</p>
    */
   LastAssociationExecutionDate?: Date;
 
   /**
-   * <p>The date and time when agent last pinged Systems Manager service. </p>
+   * <p>The operating system platform type. </p>
    */
-  LastPingDateTime?: Date;
+  PlatformType?: PlatformType | string;
+
+  /**
+   * <p>The status of the association.</p>
+   */
+  AssociationStatus?: string;
+
+  /**
+   * <p>The activation ID created by Systems Manager when the server or VM was registered.</p>
+   */
+  ActivationId?: string;
+
+  /**
+   * <p>The type of instance. Instances are either EC2 instances or managed instances. </p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The date the server or VM was registered with AWS as a managed instance.</p>
+   */
+  RegistrationDate?: Date;
 
   /**
    * <p>The last date the association was successfully run.</p>
@@ -8246,9 +8426,19 @@ export interface InstanceInformation {
   LastSuccessfulAssociationExecutionDate?: Date;
 
   /**
-   * <p>The name of the managed instance.</p>
+   * <p>The instance ID. </p>
    */
-  Name?: string;
+  InstanceId?: string;
+
+  /**
+   * <p>The fully qualified host name of the managed instance.</p>
+   */
+  ComputerName?: string;
+
+  /**
+   * <p>Information about the association.</p>
+   */
+  AssociationOverview?: InstanceAggregatedAssociationOverview;
 
   /**
    * <p>Connection status of SSM Agent. </p>
@@ -8261,24 +8451,30 @@ export interface InstanceInformation {
   PlatformName?: string;
 
   /**
-   * <p>The operating system platform type. </p>
+   * <p>Indicates whether the latest version of SSM Agent is running on your Linux Managed Instance.
+   *    This field does not indicate whether or not the latest version is installed on Windows managed
+   *    instances, because some older versions of Windows Server use the EC2Config service to process SSM
+   *    requests.</p>
    */
-  PlatformType?: PlatformType | string;
+  IsLatestVersion?: boolean;
 
   /**
-   * <p>The version of the OS platform running on your instance. </p>
+   * <p>The name assigned to an on-premises server or virtual machine (VM) when it is activated as a
+   *    Systems Manager managed instance. The name is specified as the <code>DefaultInstanceName</code> property
+   *    using the <a>CreateActivation</a> command. It is applied to the managed instance by
+   *    specifying the Activation Code and Activation ID when you install SSM Agent on the instance, as
+   *    explained in <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html">Install SSM Agent for a
+   *     hybrid environment (Linux)</a> and <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html">Install SSM Agent for a hybrid environment
+   *     (Windows)</a>. To retrieve the Name tag of an EC2 instance, use the Amazon EC2
+   *     <code>DescribeInstances</code> action. For information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the
+   *     <i>Amazon EC2 API Reference</i> or <a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>AWS CLI Command Reference</i>.</p>
    */
-  PlatformVersion?: string;
+  Name?: string;
 
   /**
-   * <p>The date the server or VM was registered with AWS as a managed instance.</p>
+   * <p>The date and time when agent last pinged Systems Manager service. </p>
    */
-  RegistrationDate?: Date;
-
-  /**
-   * <p>The type of instance. Instances are either EC2 instances or managed instances. </p>
-   */
-  ResourceType?: ResourceType | string;
+  LastPingDateTime?: Date;
 }
 
 export namespace InstanceInformation {
@@ -8298,14 +8494,14 @@ export namespace InstanceInformation {
 export interface InstanceInformationFilter {
   __type?: "InstanceInformationFilter";
   /**
-   * <p>The name of the filter. </p>
-   */
-  key: InstanceInformationFilterKey | string | undefined;
-
-  /**
    * <p>The filter values.</p>
    */
   valueSet: string[] | undefined;
+
+  /**
+   * <p>The name of the filter. </p>
+   */
+  key: InstanceInformationFilterKey | string | undefined;
 }
 
 export namespace InstanceInformationFilter {
@@ -8359,106 +8555,16 @@ export namespace InstanceInformationStringFilter {
 export interface InstancePatchState {
   __type?: "InstancePatchState";
   /**
-   * <p>The ID of the patch baseline used to patch the instance.</p>
-   */
-  BaselineId: string | undefined;
-
-  /**
-   * <p>The number of patches from the patch baseline that were attempted to be installed during the
-   *    last patching operation, but failed to install.</p>
-   */
-  FailedCount?: number;
-
-  /**
-   * <p>An https URL or an Amazon S3 path-style URL to a list of patches to be installed. This patch
-   *    installation list, which you maintain in an Amazon S3 bucket in YAML format and specify in the SSM
-   *    document <code>AWS-RunPatchBaseline</code>, overrides the patches specified by the default patch
-   *    baseline.</p>
-   *          <p>For more information about the <code>InstallOverrideList</code> parameter, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html">About the SSM Document
-   *     AWS-RunPatchBaseline</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  InstallOverrideList?: string;
-
-  /**
-   * <p>The number of patches from the patch baseline that are installed on the instance.</p>
-   */
-  InstalledCount?: number;
-
-  /**
-   * <p>The number of patches not specified in the patch baseline that are installed on the
-   *    instance.</p>
-   */
-  InstalledOtherCount?: number;
-
-  /**
-   * <p>The number of patches installed by Patch Manager since the last time the instance was
-   *    rebooted.</p>
-   */
-  InstalledPendingRebootCount?: number;
-
-  /**
-   * <p>The number of instances with patches installed that are specified in a RejectedPatches list.
-   *    Patches with a status of <i>InstalledRejected</i> were typically installed before
-   *    they were added to a RejectedPatches list.</p>
-   *          <note>
-   *             <p>If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction, the value of
-   *     InstalledRejectedCount will always be 0 (zero).</p>
-   *          </note>
-   */
-  InstalledRejectedCount?: number;
-
-  /**
-   * <p>The ID of the managed instance the high-level patch compliance information was collected
-   *    for.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The time of the last attempt to patch the instance with <code>NoReboot</code> specified as
    *    the reboot option.</p>
    */
   LastNoRebootInstallOperationTime?: Date;
 
   /**
-   * <p>The number of patches from the patch baseline that are applicable for the instance but
-   *    aren't currently installed.</p>
+   * <p>The number of patches from the patch baseline that were attempted to be installed during the
+   *    last patching operation, but failed to install.</p>
    */
-  MissingCount?: number;
-
-  /**
-   * <p>The number of patches from the patch baseline that aren't applicable for the instance and
-   *    therefore aren't installed on the instance. This number may be truncated if the list of patch
-   *    names is very large. The number of patches beyond this limit are reported in
-   *     <code>UnreportedNotApplicableCount</code>.</p>
-   */
-  NotApplicableCount?: number;
-
-  /**
-   * <p>The type of patching operation that was performed: SCAN (assess patch compliance state) or
-   *    INSTALL (install missing patches).</p>
-   */
-  Operation: PatchOperationType | string | undefined;
-
-  /**
-   * <p>The time the most recent patching operation completed on the instance.</p>
-   */
-  OperationEndTime: Date | undefined;
-
-  /**
-   * <p>The time the most recent patching operation was started on the instance.</p>
-   */
-  OperationStartTime: Date | undefined;
-
-  /**
-   * <p>Placeholder information. This field will always be empty in the current release of the
-   *    service.</p>
-   */
-  OwnerInformation?: string;
-
-  /**
-   * <p>The name of the patch group the managed instance belongs to.</p>
-   */
-  PatchGroup: string | undefined;
+  FailedCount?: number;
 
   /**
    * <p>Indicates the reboot option specified in the patch baseline.</p>
@@ -8485,6 +8591,54 @@ export interface InstancePatchState {
   RebootOption?: RebootOption | string;
 
   /**
+   * <p>An https URL or an Amazon S3 path-style URL to a list of patches to be installed. This patch
+   *    installation list, which you maintain in an S3 bucket in YAML format and specify in the SSM
+   *    document <code>AWS-RunPatchBaseline</code>, overrides the patches specified by the default patch
+   *    baseline.</p>
+   *          <p>For more information about the <code>InstallOverrideList</code> parameter, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html">About the
+   *     SSM document AWS-RunPatchBaseline</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  InstallOverrideList?: string;
+
+  /**
+   * <p>The number of patches installed by Patch Manager since the last time the instance was
+   *    rebooted.</p>
+   */
+  InstalledPendingRebootCount?: number;
+
+  /**
+   * <p>The type of patching operation that was performed: SCAN (assess patch compliance state) or
+   *    INSTALL (install missing patches).</p>
+   */
+  Operation: PatchOperationType | string | undefined;
+
+  /**
+   * <p>The number of patches not specified in the patch baseline that are installed on the
+   *    instance.</p>
+   */
+  InstalledOtherCount?: number;
+
+  /**
+   * <p>Placeholder information. This field will always be empty in the current release of the
+   *    service.</p>
+   */
+  OwnerInformation?: string;
+
+  /**
+   * <p>The number of patches from the patch baseline that are applicable for the instance but
+   *    aren't currently installed.</p>
+   */
+  MissingCount?: number;
+
+  /**
+   * <p>The number of patches from the patch baseline that aren't applicable for the instance and
+   *    therefore aren't installed on the instance. This number may be truncated if the list of patch
+   *    names is very large. The number of patches beyond this limit are reported in
+   *     <code>UnreportedNotApplicableCount</code>.</p>
+   */
+  NotApplicableCount?: number;
+
+  /**
    * <p>The ID of the patch baseline snapshot used during the patching operation when this
    *    compliance data was collected.</p>
    */
@@ -8495,6 +8649,48 @@ export interface InstancePatchState {
    *    not reported by name to Systems Manager Inventory.</p>
    */
   UnreportedNotApplicableCount?: number;
+
+  /**
+   * <p>The time the most recent patching operation completed on the instance.</p>
+   */
+  OperationEndTime: Date | undefined;
+
+  /**
+   * <p>The number of patches from the patch baseline that are installed on the instance.</p>
+   */
+  InstalledCount?: number;
+
+  /**
+   * <p>The ID of the managed instance the high-level patch compliance information was collected
+   *    for.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The time the most recent patching operation was started on the instance.</p>
+   */
+  OperationStartTime: Date | undefined;
+
+  /**
+   * <p>The ID of the patch baseline used to patch the instance.</p>
+   */
+  BaselineId: string | undefined;
+
+  /**
+   * <p>The number of instances with patches installed that are specified in a RejectedPatches list.
+   *    Patches with a status of <i>InstalledRejected</i> were typically installed before
+   *    they were added to a RejectedPatches list.</p>
+   *          <note>
+   *             <p>If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction, the value of
+   *     InstalledRejectedCount will always be 0 (zero).</p>
+   *          </note>
+   */
+  InstalledRejectedCount?: number;
+
+  /**
+   * <p>The name of the patch group the managed instance belongs to.</p>
+   */
+  PatchGroup: string | undefined;
 }
 
 export namespace InstancePatchState {
@@ -8512,6 +8708,11 @@ export namespace InstancePatchState {
 export interface InstancePatchStateFilter {
   __type?: "InstancePatchStateFilter";
   /**
+   * <p>The value for the filter, must be an integer greater than or equal to 0.</p>
+   */
+  Values: string[] | undefined;
+
+  /**
    * <p>The key for the filter. Supported values are FailedCount, InstalledCount,
    *    InstalledOtherCount, MissingCount and NotApplicableCount.</p>
    */
@@ -8522,11 +8723,6 @@ export interface InstancePatchStateFilter {
    *    GreaterThan.</p>
    */
   Type: InstancePatchStateOperatorType | string | undefined;
-
-  /**
-   * <p>The value for the filter, must be an integer greater than or equal to 0.</p>
-   */
-  Values: string[] | undefined;
 }
 
 export namespace InstancePatchStateFilter {
@@ -9032,8 +9228,8 @@ export namespace InvalidInventoryRequestException {
 export interface InvalidItemContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidItemContentException";
   $fault: "client";
-  Message?: string;
   TypeName?: string;
+  Message?: string;
 }
 
 export namespace InvalidItemContentException {
@@ -9270,8 +9466,8 @@ export namespace InvalidResultAttributeException {
 /**
  * <p>The role name can't contain invalid characters. Also verify that you specified an IAM role
  *    for notifications that includes the required trust policy. For information about configuring the
- *    IAM role for Run Command notifications, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring Amazon SNS Notifications for Run Command</a> in the
- *     <i>AWS Systems Manager User Guide</i>.</p>
+ *    IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring Amazon SNS
+ *     Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.</p>
  */
 export interface InvalidRole extends __SmithyException, $MetadataBearer {
   name: "InvalidRole";
@@ -9303,8 +9499,8 @@ export namespace InvalidSchedule {
 }
 
 /**
- * <p>The target is not valid or does not exist. It might not be configured for EC2 Systems
- *    Manager or you might not have permission to perform the operation.</p>
+ * <p>The target is not valid or does not exist. It might not be configured for Systems Manager or you might
+ *    not have permission to perform the operation.</p>
  */
 export interface InvalidTarget extends __SmithyException, $MetadataBearer {
   name: "InvalidTarget";
@@ -9396,9 +9592,10 @@ export enum InventoryDeletionStatus {
 export interface InventoryDeletionStatusItem {
   __type?: "InventoryDeletionStatusItem";
   /**
-   * <p>The deletion ID returned by the <code>DeleteInventory</code> action.</p>
+   * <p>Information about the delete operation. For more information about this summary, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete">Understanding the delete inventory summary</a> in the
+   *    <i>AWS Systems Manager User Guide</i>.</p>
    */
-  DeletionId?: string;
+  DeletionSummary?: InventoryDeletionSummary;
 
   /**
    * <p>The UTC timestamp when the delete operation started.</p>
@@ -9406,10 +9603,9 @@ export interface InventoryDeletionStatusItem {
   DeletionStartTime?: Date;
 
   /**
-   * <p>Information about the delete operation. For more information about this summary, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete">Understanding the
-   *     Delete Inventory Summary</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   * <p>The UTC timestamp of when the last status report.</p>
    */
-  DeletionSummary?: InventoryDeletionSummary;
+  LastStatusUpdateTime?: Date;
 
   /**
    * <p>The status of the operation. Possible values are InProgress and Complete.</p>
@@ -9417,19 +9613,19 @@ export interface InventoryDeletionStatusItem {
   LastStatus?: InventoryDeletionStatus | string;
 
   /**
+   * <p>The name of the inventory data type.</p>
+   */
+  TypeName?: string;
+
+  /**
    * <p>Information about the status.</p>
    */
   LastStatusMessage?: string;
 
   /**
-   * <p>The UTC timestamp of when the last status report.</p>
+   * <p>The deletion ID returned by the <code>DeleteInventory</code> action.</p>
    */
-  LastStatusUpdateTime?: Date;
-
-  /**
-   * <p>The name of the inventory data type.</p>
-   */
-  TypeName?: string;
+  DeletionId?: string;
 }
 
 export namespace InventoryDeletionStatusItem {
@@ -9445,14 +9641,14 @@ export namespace InventoryDeletionStatusItem {
 export interface InventoryDeletionSummary {
   __type?: "InventoryDeletionSummary";
   /**
-   * <p>Remaining number of items to delete.</p>
-   */
-  RemainingCount?: number;
-
-  /**
    * <p>A list of counts and versions for deleted items.</p>
    */
   SummaryItems?: InventoryDeletionSummaryItem[];
+
+  /**
+   * <p>Remaining number of items to delete.</p>
+   */
+  RemainingCount?: number;
 
   /**
    * <p>The total number of items to delete. This count does not change during the delete
@@ -9474,9 +9670,9 @@ export namespace InventoryDeletionSummary {
 export interface InventoryDeletionSummaryItem {
   __type?: "InventoryDeletionSummaryItem";
   /**
-   * <p>A count of the number of deleted items.</p>
+   * <p>The inventory type version.</p>
    */
-  Count?: number;
+  Version?: string;
 
   /**
    * <p>The remaining number of items to delete.</p>
@@ -9484,9 +9680,9 @@ export interface InventoryDeletionSummaryItem {
   RemainingCount?: number;
 
   /**
-   * <p>The inventory type version.</p>
+   * <p>A count of the number of deleted items.</p>
    */
-  Version?: string;
+  Count?: number;
 }
 
 export namespace InventoryDeletionSummaryItem {
@@ -9502,21 +9698,26 @@ export namespace InventoryDeletionSummaryItem {
 export interface InventoryFilter {
   __type?: "InventoryFilter";
   /**
-   * <p>The name of the filter key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The type of filter.</p>
-   */
-  Type?: InventoryQueryOperatorType | string;
-
-  /**
    * <p>Inventory filter values. Example: inventory filter where instance IDs are specified as
    *    values Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
    *   </p>
    */
   Values: string[] | undefined;
+
+  /**
+   * <p>The type of filter.</p>
+   *          <note>
+   *             <p>The <code>Exists</code> filter must be used with aggregators. For more information, see
+   *      <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-aggregate.html">Aggregating inventory
+   *      data</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *          </note>
+   */
+  Type?: InventoryQueryOperatorType | string;
+
+  /**
+   * <p>The name of the filter key.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace InventoryFilter {
@@ -9558,9 +9759,11 @@ export namespace InventoryGroup {
 export interface InventoryItem {
   __type?: "InventoryItem";
   /**
-   * <p>The time the inventory information was collected.</p>
+   * <p>MD5 hash of the inventory item type contents. The content hash is used to determine whether
+   *    to update inventory information. The PutInventory API does not update the inventory item type
+   *    contents if the MD5 hash has not changed since last update. </p>
    */
-  CaptureTime: string | undefined;
+  ContentHash?: string;
 
   /**
    * <p>The inventory data of the inventory type.</p>
@@ -9568,11 +9771,9 @@ export interface InventoryItem {
   Content?: { [key: string]: string }[];
 
   /**
-   * <p>MD5 hash of the inventory item type contents. The content hash is used to determine whether
-   *    to update inventory information. The PutInventory API does not update the inventory item type
-   *    contents if the MD5 hash has not changed since last update. </p>
+   * <p>The time the inventory information was collected.</p>
    */
-  ContentHash?: string;
+  CaptureTime: string | undefined;
 
   /**
    * <p>A map of associated properties for a specified inventory type. For example, with this
@@ -9633,6 +9834,14 @@ export namespace InventoryItemAttribute {
 export interface InventoryItemSchema {
   __type?: "InventoryItemSchema";
   /**
+   * <p>The name of the inventory type. Default inventory item type names start with AWS. Custom
+   *    inventory type names will start with Custom. Default inventory item types include the following:
+   *    AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and
+   *    AWS:WindowsUpdate.</p>
+   */
+  TypeName: string | undefined;
+
+  /**
    * <p>The schema attributes for inventory. This contains data type and attribute name.</p>
    */
   Attributes: InventoryItemAttribute[] | undefined;
@@ -9641,14 +9850,6 @@ export interface InventoryItemSchema {
    * <p>The alias name of the inventory type. The alias name is used for display purposes.</p>
    */
   DisplayName?: string;
-
-  /**
-   * <p>The name of the inventory type. Default inventory item type names start with AWS. Custom
-   *    inventory type names will start with Custom. Default inventory item types include the following:
-   *    AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and
-   *    AWS:WindowsUpdate.</p>
-   */
-  TypeName: string | undefined;
 
   /**
    * <p>The schema version for the inventory item.</p>
@@ -9678,16 +9879,16 @@ export enum InventoryQueryOperatorType {
 export interface InventoryResultEntity {
   __type?: "InventoryResultEntity";
   /**
-   * <p>The data section in the inventory result entity JSON.</p>
-   */
-  Data?: { [key: string]: InventoryResultItem };
-
-  /**
    * <p>ID of the inventory result entity. For example, for managed instance inventory the result
    *    will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
    *   </p>
    */
   Id?: string;
+
+  /**
+   * <p>The data section in the inventory result entity JSON.</p>
+   */
+  Data?: { [key: string]: InventoryResultItem };
 }
 
 export namespace InventoryResultEntity {
@@ -9703,15 +9904,15 @@ export namespace InventoryResultEntity {
 export interface InventoryResultItem {
   __type?: "InventoryResultItem";
   /**
-   * <p>The time inventory item data was captured.</p>
-   */
-  CaptureTime?: string;
-
-  /**
    * <p>Contains all the inventory data of the item type. Results include attribute names and
    *    values. </p>
    */
   Content: { [key: string]: string }[] | undefined;
+
+  /**
+   * <p>The time inventory item data was captured.</p>
+   */
+  CaptureTime?: string;
 
   /**
    * <p>MD5 hash of the inventory item type contents. The content hash is used to determine whether
@@ -9796,11 +9997,6 @@ export namespace ItemSizeLimitExceededException {
 export interface LabelParameterVersionRequest {
   __type?: "LabelParameterVersionRequest";
   /**
-   * <p>One or more labels to attach to the specified parameter version.</p>
-   */
-  Labels: string[] | undefined;
-
-  /**
    * <p>The parameter name on which you want to attach one or more labels.</p>
    */
   Name: string | undefined;
@@ -9810,6 +10006,11 @@ export interface LabelParameterVersionRequest {
    *    version is specified, the system attaches the label to the latest version.</p>
    */
   ParameterVersion?: number;
+
+  /**
+   * <p>One or more labels to attach to the specified parameter version.</p>
+   */
+  Labels: string[] | undefined;
 }
 
 export namespace LabelParameterVersionRequest {
@@ -9823,8 +10024,8 @@ export interface LabelParameterVersionResult {
   __type?: "LabelParameterVersionResult";
   /**
    * <p>The label does not meet the requirements. For information about parameter label
-   *    requirements, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html">Labeling
-   *     Parameters</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    requirements, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html">Labeling parameters</a>
+   *    in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   InvalidLabels?: string[];
 
@@ -9855,16 +10056,16 @@ export interface ListAssociationsRequest {
   AssociationFilterList?: AssociationFilter[];
 
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListAssociationsRequest {
@@ -9898,15 +10099,15 @@ export namespace ListAssociationsResult {
 export interface ListAssociationVersionsRequest {
   __type?: "ListAssociationVersionsRequest";
   /**
-   * <p>The association ID for which you want to view all versions.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The association ID for which you want to view all versions.</p>
+   */
+  AssociationId: string | undefined;
 
   /**
    * <p>A token to start the list. Use this token to get the next set of results. </p>
@@ -9924,15 +10125,15 @@ export namespace ListAssociationVersionsRequest {
 export interface ListAssociationVersionsResult {
   __type?: "ListAssociationVersionsResult";
   /**
-   * <p>Information about all versions of the association for the specified association ID.</p>
-   */
-  AssociationVersions?: AssociationVersionInfo[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *    results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about all versions of the association for the specified association ID.</p>
+   */
+  AssociationVersions?: AssociationVersionInfo[];
 }
 
 export namespace ListAssociationVersionsResult {
@@ -9945,9 +10146,10 @@ export namespace ListAssociationVersionsResult {
 export interface ListCommandInvocationsRequest {
   __type?: "ListCommandInvocationsRequest";
   /**
-   * <p>(Optional) The invocations for a specific command ID.</p>
+   * <p>(Optional) The token for the next set of items to return. (You received this token from a
+   *    previous call.)</p>
    */
-  CommandId?: string;
+  NextToken?: string;
 
   /**
    * <p>(Optional) If set this returns the response of the command executions and any command
@@ -9956,15 +10158,15 @@ export interface ListCommandInvocationsRequest {
   Details?: boolean;
 
   /**
-   * <p>(Optional) One or more filters. Use a filter to return a more specific list of results. Note
-   *    that the <code>DocumentName</code> filter is not supported for ListCommandInvocations.</p>
+   * <p>(Optional) The invocations for a specific command ID.</p>
    */
-  Filters?: CommandFilter[];
+  CommandId?: string;
 
   /**
-   * <p>(Optional) The command execution details for a specific instance ID.</p>
+   * <p>(Optional) One or more filters. Use a filter to return a more specific list of
+   *    results.</p>
    */
-  InstanceId?: string;
+  Filters?: CommandFilter[];
 
   /**
    * <p>(Optional) The maximum number of items to return for this call. The call also returns a
@@ -9973,10 +10175,9 @@ export interface ListCommandInvocationsRequest {
   MaxResults?: number;
 
   /**
-   * <p>(Optional) The token for the next set of items to return. (You received this token from a
-   *    previous call.)</p>
+   * <p>(Optional) The command execution details for a specific instance ID.</p>
    */
-  NextToken?: string;
+  InstanceId?: string;
 }
 
 export namespace ListCommandInvocationsRequest {
@@ -9989,15 +10190,15 @@ export namespace ListCommandInvocationsRequest {
 export interface ListCommandInvocationsResult {
   __type?: "ListCommandInvocationsResult";
   /**
-   * <p>(Optional) A list of all invocations. </p>
-   */
-  CommandInvocations?: CommandInvocation[];
-
-  /**
    * <p>(Optional) The token for the next set of items to return. (You received this token from a
    *    previous call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>(Optional) A list of all invocations. </p>
+   */
+  CommandInvocations?: CommandInvocation[];
 }
 
 export namespace ListCommandInvocationsResult {
@@ -10010,20 +10211,16 @@ export namespace ListCommandInvocationsResult {
 export interface ListCommandsRequest {
   __type?: "ListCommandsRequest";
   /**
-   * <p>(Optional) If provided, lists only the specified command.</p>
-   */
-  CommandId?: string;
-
-  /**
    * <p>(Optional) One or more filters. Use a filter to return a more specific list of results.
    *   </p>
    */
   Filters?: CommandFilter[];
 
   /**
-   * <p>(Optional) Lists commands issued against this instance ID.</p>
+   * <p>(Optional) The token for the next set of items to return. (You received this token from a
+   *    previous call.)</p>
    */
-  InstanceId?: string;
+  NextToken?: string;
 
   /**
    * <p>(Optional) The maximum number of items to return for this call. The call also returns a
@@ -10032,10 +10229,18 @@ export interface ListCommandsRequest {
   MaxResults?: number;
 
   /**
-   * <p>(Optional) The token for the next set of items to return. (You received this token from a
-   *    previous call.)</p>
+   * <p>(Optional) Lists commands issued against this instance ID.</p>
+   *          <note>
+   *             <p>You can't specify an instance ID in the same command that you specify <code>Status</code> =
+   *      <code>Pending</code>. This is because the command has not reached the instance yet.</p>
+   *          </note>
    */
-  NextToken?: string;
+  InstanceId?: string;
+
+  /**
+   * <p>(Optional) If provided, lists only the specified command.</p>
+   */
+  CommandId?: string;
 }
 
 export namespace ListCommandsRequest {
@@ -10069,10 +10274,10 @@ export namespace ListCommandsResult {
 export interface ListComplianceItemsRequest {
   __type?: "ListComplianceItemsRequest";
   /**
-   * <p>One or more compliance filters. Use a filter to return a more specific list of
-   *    results.</p>
+   * <p>The ID for the resources from which to get compliance information. Currently, you can only
+   *    specify one resource ID.</p>
    */
-  Filters?: ComplianceStringFilter[];
+  ResourceIds?: string[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -10086,16 +10291,16 @@ export interface ListComplianceItemsRequest {
   NextToken?: string;
 
   /**
-   * <p>The ID for the resources from which to get compliance information. Currently, you can only
-   *    specify one resource ID.</p>
-   */
-  ResourceIds?: string[];
-
-  /**
    * <p>The type of resource from which to get compliance information. Currently, the only supported
    *    resource type is <code>ManagedInstance</code>.</p>
    */
   ResourceTypes?: string[];
+
+  /**
+   * <p>One or more compliance filters. Use a filter to return a more specific list of
+   *    results.</p>
+   */
+  Filters?: ComplianceStringFilter[];
 }
 
 export namespace ListComplianceItemsRequest {
@@ -10135,16 +10340,16 @@ export interface ListComplianceSummariesRequest {
   Filters?: ComplianceStringFilter[];
 
   /**
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of items to return for this call. Currently, you can specify null or 50.
    *    The call also returns a token that you can specify in a subsequent call to get the next set of
    *    results.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results. </p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListComplianceSummariesRequest {
@@ -10157,17 +10362,17 @@ export namespace ListComplianceSummariesRequest {
 export interface ListComplianceSummariesResult {
   __type?: "ListComplianceSummariesResult";
   /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *    results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>A list of compliant and non-compliant summary counts based on compliance types. For example,
    *    this call returns State Manager associations, patches, or custom compliance types according to
    *    the filter criteria that you specified.</p>
    */
   ComplianceSummaryItems?: ComplianceSummaryItem[];
-
-  /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *    results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListComplianceSummariesResult {
@@ -10180,26 +10385,31 @@ export namespace ListComplianceSummariesResult {
 export interface ListDocumentsRequest {
   __type?: "ListDocumentsRequest";
   /**
-   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
-   */
-  DocumentFilterList?: DocumentFilter[];
-
-  /**
-   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
-   */
-  Filters?: DocumentKeyValuesFilter[];
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * <p>One or more DocumentKeyValuesFilter objects. Use a filter to return a more specific list of
+   *    results. For keys, you can specify one or more key-value pair tags that have been applied to a
+   *    document. Other valid keys include <code>Owner</code>, <code>Name</code>,
+   *     <code>PlatformTypes</code>, <code>DocumentType</code>, and <code>TargetType</code>. For example,
+   *    to return documents you own use <code>Key=Owner,Values=Self</code>. To specify a custom key-value
+   *    pair, use the format <code>Key=tag:tagName,Values=valueName</code>.</p>
+   */
+  Filters?: DocumentKeyValuesFilter[];
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>This data type is deprecated. Instead, use <code>Filters</code>.</p>
+   */
+  DocumentFilterList?: DocumentFilter[];
 }
 
 export namespace ListDocumentsRequest {
@@ -10212,15 +10422,15 @@ export namespace ListDocumentsRequest {
 export interface ListDocumentsResult {
   __type?: "ListDocumentsResult";
   /**
-   * <p>The names of the Systems Manager documents.</p>
-   */
-  DocumentIdentifiers?: DocumentIdentifier[];
-
-  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The names of the Systems Manager documents.</p>
+   */
+  DocumentIdentifiers?: DocumentIdentifier[];
 }
 
 export namespace ListDocumentsResult {
@@ -10233,12 +10443,6 @@ export namespace ListDocumentsResult {
 export interface ListDocumentVersionsRequest {
   __type?: "ListDocumentVersionsRequest";
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The name of the document. You can specify an Amazon Resource Name (ARN).</p>
    */
   Name: string | undefined;
@@ -10248,6 +10452,12 @@ export interface ListDocumentVersionsRequest {
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListDocumentVersionsRequest {
@@ -10281,16 +10491,6 @@ export namespace ListDocumentVersionsResult {
 export interface ListInventoryEntriesRequest {
   __type?: "ListInventoryEntriesRequest";
   /**
-   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
-   */
-  Filters?: InventoryFilter[];
-
-  /**
-   * <p>The instance ID for which you want inventory information.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
@@ -10301,6 +10501,16 @@ export interface ListInventoryEntriesRequest {
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The instance ID for which you want inventory information.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
+   */
+  Filters?: InventoryFilter[];
 
   /**
    * <p>The type of inventory item for which you want information.</p>
@@ -10318,19 +10528,24 @@ export namespace ListInventoryEntriesRequest {
 export interface ListInventoryEntriesResult {
   __type?: "ListInventoryEntriesResult";
   /**
-   * <p>The time that inventory information was collected for the instance(s).</p>
-   */
-  CaptureTime?: string;
-
-  /**
-   * <p>A list of inventory items on the instance(s).</p>
-   */
-  Entries?: { [key: string]: string }[];
-
-  /**
    * <p>The instance ID targeted by the request to query inventory information.</p>
    */
   InstanceId?: string;
+
+  /**
+   * <p>The type of inventory item returned by the request.</p>
+   */
+  TypeName?: string;
+
+  /**
+   * <p>The inventory schema version used by the instance(s).</p>
+   */
+  SchemaVersion?: string;
+
+  /**
+   * <p>The time that inventory information was collected for the instance(s).</p>
+   */
+  CaptureTime?: string;
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -10339,14 +10554,9 @@ export interface ListInventoryEntriesResult {
   NextToken?: string;
 
   /**
-   * <p>The inventory schema version used by the instance(s).</p>
+   * <p>A list of inventory items on the instance(s).</p>
    */
-  SchemaVersion?: string;
-
-  /**
-   * <p>The type of inventory item returned by the request.</p>
-   */
-  TypeName?: string;
+  Entries?: { [key: string]: string }[];
 }
 
 export namespace ListInventoryEntriesResult {
@@ -10359,11 +10569,6 @@ export namespace ListInventoryEntriesResult {
 export interface ListResourceComplianceSummariesRequest {
   __type?: "ListResourceComplianceSummariesRequest";
   /**
-   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
-   */
-  Filters?: ComplianceStringFilter[];
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    */
@@ -10373,6 +10578,11 @@ export interface ListResourceComplianceSummariesRequest {
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>One or more filters. Use a filter to return a more specific list of results.</p>
+   */
+  Filters?: ComplianceStringFilter[];
 }
 
 export namespace ListResourceComplianceSummariesRequest {
@@ -10386,17 +10596,17 @@ export namespace ListResourceComplianceSummariesRequest {
 export interface ListResourceComplianceSummariesResult {
   __type?: "ListResourceComplianceSummariesResult";
   /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *    results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A summary count for specified or targeted managed instances. Summary count includes
    *    information about compliant and non-compliant State Manager associations, patch status, or custom
    *    items according to the filter criteria that you specify. </p>
    */
   ResourceComplianceSummaryItems?: ResourceComplianceSummaryItem[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *    results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListResourceComplianceSummariesResult {
@@ -10410,12 +10620,6 @@ export namespace ListResourceComplianceSummariesResult {
 export interface ListResourceDataSyncRequest {
   __type?: "ListResourceDataSyncRequest";
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
@@ -10423,10 +10627,16 @@ export interface ListResourceDataSyncRequest {
   /**
    * <p>View a list of resource data syncs according to the sync type. Specify
    *     <code>SyncToDestination</code> to view resource data syncs that synchronize data to an Amazon S3
-   *    buckets. Specify <code>SyncFromSource</code> to view resource data syncs from AWS Organizations
-   *    or from multiple AWS Regions. </p>
+   *    buckets. Specify <code>SyncFromSource</code> to view resource data syncs from AWS Organizations or from
+   *    multiple AWS Regions. </p>
    */
   SyncType?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListResourceDataSyncRequest {
@@ -10439,15 +10649,15 @@ export namespace ListResourceDataSyncRequest {
 export interface ListResourceDataSyncResult {
   __type?: "ListResourceDataSyncResult";
   /**
+   * <p>A list of your current Resource Data Sync configurations and their statuses.</p>
+   */
+  ResourceDataSyncItems?: ResourceDataSyncItem[];
+
+  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *    results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of your current Resource Data Sync configurations and their statuses.</p>
-   */
-  ResourceDataSyncItems?: ResourceDataSyncItem[];
 }
 
 export namespace ListResourceDataSyncResult {
@@ -10493,7 +10703,7 @@ export namespace ListTagsForResourceResult {
 }
 
 /**
- * <p>Information about an Amazon S3 bucket to write instance-level logs to.</p>
+ * <p>Information about an S3 bucket to write instance-level logs to.</p>
  *          <note>
  *             <p>
  *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
@@ -10505,19 +10715,19 @@ export namespace ListTagsForResourceResult {
 export interface LoggingInfo {
   __type?: "LoggingInfo";
   /**
-   * <p>The name of an Amazon S3 bucket where execution logs are stored .</p>
+   * <p>The Region where the S3 bucket is located.</p>
+   */
+  S3Region: string | undefined;
+
+  /**
+   * <p>The name of an S3 bucket where execution logs are stored .</p>
    */
   S3BucketName: string | undefined;
 
   /**
-   * <p>(Optional) The Amazon S3 bucket subfolder. </p>
+   * <p>(Optional) The S3 bucket subfolder. </p>
    */
   S3KeyPrefix?: string;
-
-  /**
-   * <p>The region where the Amazon S3 bucket is located.</p>
-   */
-  S3Region: string | undefined;
 }
 
 export namespace LoggingInfo {
@@ -10532,11 +10742,6 @@ export namespace LoggingInfo {
  */
 export interface MaintenanceWindowAutomationParameters {
   __type?: "MaintenanceWindowAutomationParameters";
-  /**
-   * <p>The version of an Automation document to use during task execution.</p>
-   */
-  DocumentVersion?: string;
-
   /**
    * <p>The parameters for the AUTOMATION task.</p>
    *
@@ -10557,6 +10762,11 @@ export interface MaintenanceWindowAutomationParameters {
    *          </note>
    */
   Parameters?: { [key: string]: string[] };
+
+  /**
+   * <p>The version of an Automation document to use during task execution.</p>
+   */
+  DocumentVersion?: string;
 }
 
 export namespace MaintenanceWindowAutomationParameters {
@@ -10573,9 +10783,9 @@ export namespace MaintenanceWindowAutomationParameters {
 export interface MaintenanceWindowExecution {
   __type?: "MaintenanceWindowExecution";
   /**
-   * <p>The time the execution finished.</p>
+   * <p>The ID of the maintenance window.</p>
    */
-  EndTime?: Date;
+  WindowId?: string;
 
   /**
    * <p>The time the execution started.</p>
@@ -10588,6 +10798,11 @@ export interface MaintenanceWindowExecution {
   Status?: MaintenanceWindowExecutionStatus | string;
 
   /**
+   * <p>The time the execution finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
    * <p>The details explaining the Status. Only available for certain status values.</p>
    */
   StatusDetails?: string;
@@ -10596,11 +10811,6 @@ export interface MaintenanceWindowExecution {
    * <p>The ID of the maintenance window execution.</p>
    */
   WindowExecutionId?: string;
-
-  /**
-   * <p>The ID of the maintenance window.</p>
-   */
-  WindowId?: string;
 }
 
 export namespace MaintenanceWindowExecution {
@@ -10628,9 +10838,10 @@ export enum MaintenanceWindowExecutionStatus {
 export interface MaintenanceWindowExecutionTaskIdentity {
   __type?: "MaintenanceWindowExecutionTaskIdentity";
   /**
-   * <p>The time the task execution finished.</p>
+   * <p>The details explaining the status of the task execution. Only available for certain status
+   *    values.</p>
    */
-  EndTime?: Date;
+  StatusDetails?: string;
 
   /**
    * <p>The time the task execution started.</p>
@@ -10638,20 +10849,19 @@ export interface MaintenanceWindowExecutionTaskIdentity {
   StartTime?: Date;
 
   /**
+   * <p>The type of task that ran.</p>
+   */
+  TaskType?: MaintenanceWindowTaskType | string;
+
+  /**
    * <p>The status of the task execution.</p>
    */
   Status?: MaintenanceWindowExecutionStatus | string;
 
   /**
-   * <p>The details explaining the status of the task execution. Only available for certain status
-   *    values.</p>
+   * <p>The time the task execution finished.</p>
    */
-  StatusDetails?: string;
-
-  /**
-   * <p>The ARN of the task that ran.</p>
-   */
-  TaskArn?: string;
+  EndTime?: Date;
 
   /**
    * <p>The ID of the specific task execution in the maintenance window execution.</p>
@@ -10659,9 +10869,9 @@ export interface MaintenanceWindowExecutionTaskIdentity {
   TaskExecutionId?: string;
 
   /**
-   * <p>The type of task that ran.</p>
+   * <p>The ARN of the task that ran.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskArn?: string;
 
   /**
    * <p>The ID of the maintenance window execution that ran the task.</p>
@@ -10684,9 +10894,10 @@ export namespace MaintenanceWindowExecutionTaskIdentity {
 export interface MaintenanceWindowExecutionTaskInvocationIdentity {
   __type?: "MaintenanceWindowExecutionTaskInvocationIdentity";
   /**
-   * <p>The time the invocation finished.</p>
+   * <p>The details explaining the status of the task invocation. Only available for certain Status
+   *    values. </p>
    */
-  EndTime?: Date;
+  StatusDetails?: string;
 
   /**
    * <p>The ID of the action performed in the service that actually handled the task invocation. If
@@ -10695,9 +10906,29 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
   ExecutionId?: string;
 
   /**
-   * <p>The ID of the task invocation.</p>
+   * <p>The time the invocation started.</p>
    */
-  InvocationId?: string;
+  StartTime?: Date;
+
+  /**
+   * <p>The task type.</p>
+   */
+  TaskType?: MaintenanceWindowTaskType | string;
+
+  /**
+   * <p>The parameters that were provided for the invocation when it was run.</p>
+   */
+  Parameters?: string;
+
+  /**
+   * <p>The time the invocation finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The status of the task invocation.</p>
+   */
+  Status?: MaintenanceWindowExecutionStatus | string;
 
   /**
    * <p>User-provided value that was specified when the target was registered with the maintenance
@@ -10706,35 +10937,15 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
   OwnerInformation?: string;
 
   /**
-   * <p>The parameters that were provided for the invocation when it was run.</p>
-   */
-  Parameters?: string;
-
-  /**
-   * <p>The time the invocation started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The status of the task invocation.</p>
-   */
-  Status?: MaintenanceWindowExecutionStatus | string;
-
-  /**
-   * <p>The details explaining the status of the task invocation. Only available for certain Status
-   *    values. </p>
-   */
-  StatusDetails?: string;
-
-  /**
    * <p>The ID of the specific task execution in the maintenance window execution.</p>
    */
   TaskExecutionId?: string;
 
   /**
-   * <p>The task type.</p>
+   * <p>The ID of the target definition in this maintenance window the invocation was performed
+   *    for.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  WindowTargetId?: string;
 
   /**
    * <p>The ID of the maintenance window execution that ran the task.</p>
@@ -10742,17 +10953,16 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
   WindowExecutionId?: string;
 
   /**
-   * <p>The ID of the target definition in this maintenance window the invocation was performed
-   *    for.</p>
+   * <p>The ID of the task invocation.</p>
    */
-  WindowTargetId?: string;
+  InvocationId?: string;
 }
 
 export namespace MaintenanceWindowExecutionTaskInvocationIdentity {
   export const filterSensitiveLog = (obj: MaintenanceWindowExecutionTaskInvocationIdentity): any => ({
     ...obj,
-    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
     ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is MaintenanceWindowExecutionTaskInvocationIdentity =>
     __isa(o, "MaintenanceWindowExecutionTaskInvocationIdentity");
@@ -10764,14 +10974,14 @@ export namespace MaintenanceWindowExecutionTaskInvocationIdentity {
 export interface MaintenanceWindowFilter {
   __type?: "MaintenanceWindowFilter";
   /**
-   * <p>The name of the filter.</p>
-   */
-  Key?: string;
-
-  /**
    * <p>The filter values.</p>
    */
   Values?: string[];
+
+  /**
+   * <p>The name of the filter.</p>
+   */
+  Key?: string;
 }
 
 export namespace MaintenanceWindowFilter {
@@ -10787,15 +10997,10 @@ export namespace MaintenanceWindowFilter {
 export interface MaintenanceWindowIdentity {
   __type?: "MaintenanceWindowIdentity";
   /**
-   * <p>The number of hours before the end of the maintenance window that Systems Manager stops scheduling new
-   *    tasks for execution.</p>
+   * <p>The next time the maintenance window will actually run, taking into account any specified
+   *    times for the maintenance window to become active or inactive.</p>
    */
-  Cutoff?: number;
-
-  /**
-   * <p>A description of the maintenance window.</p>
-   */
-  Description?: string;
+  NextExecutionTime?: string;
 
   /**
    * <p>The duration of the maintenance window in hours.</p>
@@ -10803,9 +11008,10 @@ export interface MaintenanceWindowIdentity {
   Duration?: number;
 
   /**
-   * <p>Indicates whether the maintenance window is enabled.</p>
+   * <p>The number of days to wait to run a maintenance window after the scheduled CRON expression
+   *    date and time.</p>
    */
-  Enabled?: boolean;
+  ScheduleOffset?: number;
 
   /**
    * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
@@ -10817,17 +11023,6 @@ export interface MaintenanceWindowIdentity {
    * <p>The name of the maintenance window.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The next time the maintenance window will actually run, taking into account any specified
-   *    times for the maintenance window to become active or inactive.</p>
-   */
-  NextExecutionTime?: string;
-
-  /**
-   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
-   */
-  Schedule?: string;
 
   /**
    * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
@@ -10842,9 +11037,30 @@ export interface MaintenanceWindowIdentity {
   StartDate?: string;
 
   /**
+   * <p>A description of the maintenance window.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The ID of the maintenance window.</p>
    */
   WindowId?: string;
+
+  /**
+   * <p>Indicates whether the maintenance window is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The number of hours before the end of the maintenance window that Systems Manager stops scheduling new
+   *    tasks for execution.</p>
+   */
+  Cutoff?: number;
+
+  /**
+   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
+   */
+  Schedule?: string;
 }
 
 export namespace MaintenanceWindowIdentity {
@@ -10861,14 +11077,14 @@ export namespace MaintenanceWindowIdentity {
 export interface MaintenanceWindowIdentityForTarget {
   __type?: "MaintenanceWindowIdentityForTarget";
   /**
-   * <p>The name of the maintenance window.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ID of the maintenance window.</p>
    */
   WindowId?: string;
+
+  /**
+   * <p>The name of the maintenance window.</p>
+   */
+  Name?: string;
 }
 
 export namespace MaintenanceWindowIdentityForTarget {
@@ -10900,6 +11116,14 @@ export namespace MaintenanceWindowIdentityForTarget {
 export interface MaintenanceWindowLambdaParameters {
   __type?: "MaintenanceWindowLambdaParameters";
   /**
+   * <p>(Optional) Specify a Lambda function version or alias name. If you specify a function
+   *    version, the action uses the qualified function ARN to invoke a specific Lambda function. If you
+   *    specify an alias name, the action uses the alias ARN to invoke the Lambda function version to
+   *    which the alias points.</p>
+   */
+  Qualifier?: string;
+
+  /**
    * <p>Pass client-specific information to the Lambda function that you are invoking. You can then
    *    process the client information in your Lambda function as you choose through the context
    *    variable.</p>
@@ -10910,14 +11134,6 @@ export interface MaintenanceWindowLambdaParameters {
    * <p>JSON to provide to your Lambda function as input.</p>
    */
   Payload?: Uint8Array;
-
-  /**
-   * <p>(Optional) Specify a Lambda function version or alias name. If you specify a function
-   *    version, the action uses the qualified function ARN to invoke a specific Lambda function. If you
-   *    specify an alias name, the action uses the alias ARN to invoke the Lambda function version to
-   *    which the alias points.</p>
-   */
-  Qualifier?: string;
 }
 
 export namespace MaintenanceWindowLambdaParameters {
@@ -10955,14 +11171,25 @@ export enum MaintenanceWindowResourceType {
 export interface MaintenanceWindowRunCommandParameters {
   __type?: "MaintenanceWindowRunCommandParameters";
   /**
-   * <p>Configuration options for sending command output to CloudWatch Logs.</p>
-   */
-  CloudWatchOutputConfig?: CloudWatchOutputConfig;
-
-  /**
    * <p>Information about the commands to run.</p>
    */
   Comment?: string;
+
+  /**
+   * <p>The parameters for the RUN_COMMAND task execution.</p>
+   */
+  Parameters?: { [key: string]: string[] };
+
+  /**
+   * <p>If this time is reached and the command has not already started running, it doesn't
+   *    run.</p>
+   */
+  TimeoutSeconds?: number;
+
+  /**
+   * <p>The S3 bucket subfolder.</p>
+   */
+  OutputS3KeyPrefix?: string;
 
   /**
    * <p>The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes
@@ -10971,9 +11198,9 @@ export interface MaintenanceWindowRunCommandParameters {
   DocumentHash?: string;
 
   /**
-   * <p>SHA-256 or SHA-1. SHA-1 hashes have been deprecated.</p>
+   * <p>The name of the S3 bucket.</p>
    */
-  DocumentHashType?: DocumentHashType | string;
+  OutputS3BucketName?: string;
 
   /**
    * <p>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a
@@ -10987,25 +11214,15 @@ export interface MaintenanceWindowRunCommandParameters {
   DocumentVersion?: string;
 
   /**
+   * <p>SHA-256 or SHA-1. SHA-1 hashes have been deprecated.</p>
+   */
+  DocumentHashType?: DocumentHashType | string;
+
+  /**
    * <p>Configurations for sending notifications about command status changes on a per-instance
    *    basis.</p>
    */
   NotificationConfig?: NotificationConfig;
-
-  /**
-   * <p>The name of the Amazon S3 bucket.</p>
-   */
-  OutputS3BucketName?: string;
-
-  /**
-   * <p>The Amazon S3 bucket subfolder.</p>
-   */
-  OutputS3KeyPrefix?: string;
-
-  /**
-   * <p>The parameters for the RUN_COMMAND task execution.</p>
-   */
-  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
@@ -11014,10 +11231,9 @@ export interface MaintenanceWindowRunCommandParameters {
   ServiceRoleArn?: string;
 
   /**
-   * <p>If this time is reached and the command has not already started running, it doesn't
-   *    run.</p>
+   * <p>Configuration options for sending command output to CloudWatch Logs.</p>
    */
-  TimeoutSeconds?: number;
+  CloudWatchOutputConfig?: CloudWatchOutputConfig;
 }
 
 export namespace MaintenanceWindowRunCommandParameters {
@@ -11050,14 +11266,14 @@ export namespace MaintenanceWindowRunCommandParameters {
 export interface MaintenanceWindowStepFunctionsParameters {
   __type?: "MaintenanceWindowStepFunctionsParameters";
   /**
-   * <p>The inputs for the STEP_FUNCTIONS task.</p>
-   */
-  Input?: string;
-
-  /**
    * <p>The name of the STEP_FUNCTIONS task.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The inputs for the STEP_FUNCTIONS task.</p>
+   */
+  Input?: string;
 }
 
 export namespace MaintenanceWindowStepFunctionsParameters {
@@ -11075,9 +11291,25 @@ export namespace MaintenanceWindowStepFunctionsParameters {
 export interface MaintenanceWindowTarget {
   __type?: "MaintenanceWindowTarget";
   /**
+   * <p>A user-provided value that will be included in any CloudWatch events that are raised while
+   *    running tasks for these targets in this maintenance window.</p>
+   */
+  OwnerInformation?: string;
+
+  /**
    * <p>A description for the target.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The ID of the maintenance window to register the target with.</p>
+   */
+  WindowId?: string;
+
+  /**
+   * <p>The type of target that is being registered with the maintenance window.</p>
+   */
+  ResourceType?: MaintenanceWindowResourceType | string;
 
   /**
    * <p>The name for the maintenance window target.</p>
@@ -11085,15 +11317,9 @@ export interface MaintenanceWindowTarget {
   Name?: string;
 
   /**
-   * <p>A user-provided value that will be included in any CloudWatch events that are raised while
-   *    running tasks for these targets in this maintenance window.</p>
+   * <p>The ID of the target.</p>
    */
-  OwnerInformation?: string;
-
-  /**
-   * <p>The type of target that is being registered with the maintenance window.</p>
-   */
-  ResourceType?: MaintenanceWindowResourceType | string;
+  WindowTargetId?: string;
 
   /**
    * <p>The targets, either instances or tags.</p>
@@ -11106,23 +11332,13 @@ export interface MaintenanceWindowTarget {
    *             <code>Key=<tag name>,Values=<tag value></code>.</p>
    */
   Targets?: Target[];
-
-  /**
-   * <p>The ID of the maintenance window to register the target with.</p>
-   */
-  WindowId?: string;
-
-  /**
-   * <p>The ID of the target.</p>
-   */
-  WindowTargetId?: string;
 }
 
 export namespace MaintenanceWindowTarget {
   export const filterSensitiveLog = (obj: MaintenanceWindowTarget): any => ({
     ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
     ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is MaintenanceWindowTarget => __isa(o, "MaintenanceWindowTarget");
 }
@@ -11133,12 +11349,28 @@ export namespace MaintenanceWindowTarget {
 export interface MaintenanceWindowTask {
   __type?: "MaintenanceWindowTask";
   /**
+   * <p>The priority of the task in the maintenance window. The lower the number, the higher the
+   *    priority. Tasks that have the same priority are scheduled in parallel.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The maximum number of targets this task can be run for, in parallel.</p>
+   */
+  MaxConcurrency?: string;
+
+  /**
    * <p>A description of the task.</p>
    */
   Description?: string;
 
   /**
-   * <p>Information about an Amazon S3 bucket to write task-level logs to.</p>
+   * <p>The maximum number of errors allowed before this task stops being scheduled.</p>
+   */
+  MaxErrors?: string;
+
+  /**
+   * <p>Information about an S3 bucket to write task-level logs to.</p>
    *          <note>
    *             <p>
    *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
@@ -11148,47 +11380,6 @@ export interface MaintenanceWindowTask {
    *          </note>
    */
   LoggingInfo?: LoggingInfo;
-
-  /**
-   * <p>The maximum number of targets this task can be run for, in parallel.</p>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The maximum number of errors allowed before this task stops being scheduled.</p>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>The task name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The priority of the task in the maintenance window. The lower the number, the higher the
-   *    priority. Tasks that have the same priority are scheduled in parallel.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
-   *    maintenance window Run Command tasks.</p>
-   */
-  ServiceRoleArn?: string;
-
-  /**
-   * <p>The targets (either instances or tags). Instances are specified using
-   *    Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using
-   *    Key=<tag name>,Values=<tag value>.</p>
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types,
-   *     <code>TaskArn</code> is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name
-   *    or ARN. For STEP_FUNCTIONS tasks, it's the state machine ARN.</p>
-   */
-  TaskArn?: string;
 
   /**
    * <p>The parameters that should be passed to the task when it is run.</p>
@@ -11209,14 +11400,39 @@ export interface MaintenanceWindowTask {
   Type?: MaintenanceWindowTaskType | string;
 
   /**
-   * <p>The ID of the maintenance window where the task is registered.</p>
+   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
+   *    maintenance window Run Command tasks.</p>
    */
-  WindowId?: string;
+  ServiceRoleArn?: string;
 
   /**
    * <p>The task ID.</p>
    */
   WindowTaskId?: string;
+
+  /**
+   * <p>The targets (either instances or tags). Instances are specified using
+   *    Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using
+   *    Key=<tag name>,Values=<tag value>.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The ID of the maintenance window where the task is registered.</p>
+   */
+  WindowId?: string;
+
+  /**
+   * <p>The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types,
+   *     <code>TaskArn</code> is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name
+   *    or ARN. For STEP_FUNCTIONS tasks, it's the state machine ARN.</p>
+   */
+  TaskArn?: string;
+
+  /**
+   * <p>The task name.</p>
+   */
+  Name?: string;
 }
 
 export namespace MaintenanceWindowTask {
@@ -11234,6 +11450,11 @@ export namespace MaintenanceWindowTask {
 export interface MaintenanceWindowTaskInvocationParameters {
   __type?: "MaintenanceWindowTaskInvocationParameters";
   /**
+   * <p>The parameters for a RUN_COMMAND task type.</p>
+   */
+  RunCommand?: MaintenanceWindowRunCommandParameters;
+
+  /**
    * <p>The parameters for an AUTOMATION task type.</p>
    */
   Automation?: MaintenanceWindowAutomationParameters;
@@ -11242,11 +11463,6 @@ export interface MaintenanceWindowTaskInvocationParameters {
    * <p>The parameters for a LAMBDA task type.</p>
    */
   Lambda?: MaintenanceWindowLambdaParameters;
-
-  /**
-   * <p>The parameters for a RUN_COMMAND task type.</p>
-   */
-  RunCommand?: MaintenanceWindowRunCommandParameters;
 
   /**
    * <p>The parameters for a STEP_FUNCTIONS task type.</p>
@@ -11313,12 +11529,6 @@ export namespace MaxDocumentSizeExceeded {
 export interface ModifyDocumentPermissionRequest {
   __type?: "ModifyDocumentPermissionRequest";
   /**
-   * <p>The AWS user accounts that should have access to the document. The account IDs can either be
-   *    a group of account IDs or <i>All</i>.</p>
-   */
-  AccountIdsToAdd?: string[];
-
-  /**
    * <p>The AWS user accounts that should no longer have access to the document. The AWS user
    *    account can either be a group of account IDs or <i>All</i>. This action has a
    *    higher priority than <i>AccountIdsToAdd</i>. If you specify an account ID to add
@@ -11327,15 +11537,21 @@ export interface ModifyDocumentPermissionRequest {
   AccountIdsToRemove?: string[];
 
   /**
-   * <p>The name of the document that you want to share.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The permission type for the document. The permission type can be
    *    <i>Share</i>.</p>
    */
   PermissionType: DocumentPermissionType | string | undefined;
+
+  /**
+   * <p>The AWS user accounts that should have access to the document. The account IDs can either be
+   *    a group of account IDs or <i>All</i>.</p>
+   */
+  AccountIdsToAdd?: string[];
+
+  /**
+   * <p>The name of the document that you want to share.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>(Optional) The version of the document to share. If it's not specified, the system choose
@@ -11392,16 +11608,11 @@ export namespace NonCompliantSummary {
 export interface NotificationConfig {
   __type?: "NotificationConfig";
   /**
-   * <p>An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes
-   *    notifications about command status changes to this topic.</p>
-   */
-  NotificationArn?: string;
-
-  /**
    * <p>The different events for which you can receive notifications. These events include the
    *    following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about
-   *    these events, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Configuring Amazon
-   *     SNS Notifications for AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    these events, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems
+   *     Manager status changes using Amazon SNS notifications</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
    */
   NotificationEvents?: (NotificationEvent | string)[];
 
@@ -11411,6 +11622,12 @@ export interface NotificationConfig {
    *    command changes. </p>
    */
   NotificationType?: NotificationType | string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes
+   *    notifications about command status changes to this topic.</p>
+   */
+  NotificationArn?: string;
 }
 
 export namespace NotificationConfig {
@@ -11438,6 +11655,8 @@ export enum OperatingSystem {
   AmazonLinux = "AMAZON_LINUX",
   AmazonLinux2 = "AMAZON_LINUX_2",
   CentOS = "CENTOS",
+  Debian = "DEBIAN",
+  OracleLinux = "ORACLE_LINUX",
   RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
   Suse = "SUSE",
   Ubuntu = "UBUNTU",
@@ -11452,14 +11671,9 @@ export enum OperatingSystem {
 export interface OpsAggregator {
   __type?: "OpsAggregator";
   /**
-   * <p>Either a Range or Count aggregator for limiting an OpsItem summary.</p>
+   * <p>The aggregator filters.</p>
    */
-  AggregatorType?: string;
-
-  /**
-   * <p>A nested aggregator for viewing counts of OpsItems.</p>
-   */
-  Aggregators?: OpsAggregator[];
+  Filters?: OpsFilter[];
 
   /**
    * <p>The name of an OpsItem attribute on which to limit the count of OpsItems.</p>
@@ -11467,19 +11681,24 @@ export interface OpsAggregator {
   AttributeName?: string;
 
   /**
-   * <p>The aggregator filters.</p>
+   * <p>Either a Range or Count aggregator for limiting an OpsItem summary.</p>
    */
-  Filters?: OpsFilter[];
-
-  /**
-   * <p>The data type name to use for viewing counts of OpsItems.</p>
-   */
-  TypeName?: string;
+  AggregatorType?: string;
 
   /**
    * <p>The aggregator value.</p>
    */
   Values?: { [key: string]: string };
+
+  /**
+   * <p>A nested aggregator for viewing counts of OpsItems.</p>
+   */
+  Aggregators?: OpsAggregator[];
+
+  /**
+   * <p>The data type name to use for viewing counts of OpsItems.</p>
+   */
+  TypeName?: string;
 }
 
 export namespace OpsAggregator {
@@ -11541,9 +11760,9 @@ export namespace OpsEntityItem {
 export interface OpsFilter {
   __type?: "OpsFilter";
   /**
-   * <p>The name of the filter.</p>
+   * <p>The filter value.</p>
    */
-  Key: string | undefined;
+  Values: string[] | undefined;
 
   /**
    * <p>The type of filter.</p>
@@ -11551,9 +11770,9 @@ export interface OpsFilter {
   Type?: OpsFilterOperatorType | string;
 
   /**
-   * <p>The filter value.</p>
+   * <p>The name of the filter.</p>
    */
-  Values: string[] | undefined;
+  Key: string | undefined;
 }
 
 export namespace OpsFilter {
@@ -11575,21 +11794,37 @@ export enum OpsFilterOperatorType {
 /**
  * <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
  *    operational issues impacting the performance and health of their AWS resources. For more
- *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+ *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
  *     <i>AWS Systems Manager User Guide</i>. </p>
  */
 export interface OpsItem {
   __type?: "OpsItem";
   /**
-   * <p>An OpsItem category. Category options include: Availability, Cost, Performance, Recovery,
-   *    Security.</p>
+   * <p>The date and time the OpsItem was last updated.</p>
    */
-  Category?: string;
+  LastModifiedTime?: Date;
 
   /**
-   * <p>The ARN of the AWS account that created the OpsItem.</p>
+   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
+   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  CreatedBy?: string;
+  Status?: OpsItemStatus | string;
+
+  /**
+   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The origin of the OpsItem, such as Amazon EC2 or Systems Manager. The impacted resource is a subset of
+   *    source.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
+   */
+  Title?: string;
 
   /**
    * <p>The date and time the OpsItem was created.</p>
@@ -11597,25 +11832,15 @@ export interface OpsItem {
   CreatedTime?: Date;
 
   /**
-   * <p>The OpsItem description.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ARN of the AWS account that last updated the OpsItem.</p>
    */
   LastModifiedBy?: string;
 
   /**
-   * <p>The date and time the OpsItem was last updated.</p>
+   * <p>The version of this OpsItem. Each time the OpsItem is edited the version number increments
+   *    by one.</p>
    */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
-   *    OpsItem is edited or changed.</p>
-   */
-  Notifications?: OpsItemNotification[];
+  Version?: string;
 
   /**
    * <p>Operational data is custom data that provides useful reference details about the OpsItem.
@@ -11635,7 +11860,7 @@ export interface OpsItem {
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
    *    Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see
-   *     <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems Manually</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   OperationalData?: { [key: string]: OpsItemDataValue };
 
@@ -11645,9 +11870,20 @@ export interface OpsItem {
   OpsItemId?: string;
 
   /**
-   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
+   * <p>The severity of the OpsItem. Severity options range from 1 to 4.</p>
    */
-  Priority?: number;
+  Severity?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
+   *    OpsItem is edited or changed.</p>
+   */
+  Notifications?: OpsItemNotification[];
+
+  /**
+   * <p>The OpsItem description.</p>
+   */
+  Description?: string;
 
   /**
    * <p>One or more OpsItems that share something in common with the current OpsItem. For example,
@@ -11657,33 +11893,15 @@ export interface OpsItem {
   RelatedOpsItems?: RelatedOpsItem[];
 
   /**
-   * <p>The severity of the OpsItem. Severity options range from 1 to 4.</p>
+   * <p>An OpsItem category. Category options include: Availability, Cost, Performance, Recovery,
+   *    Security.</p>
    */
-  Severity?: string;
+  Category?: string;
 
   /**
-   * <p>The origin of the OpsItem, such as Amazon EC2 or AWS Systems Manager. The impacted resource
-   *    is a subset of source.</p>
+   * <p>The ARN of the AWS account that created the OpsItem.</p>
    */
-  Source?: string;
-
-  /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem
-   *     Details</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  Status?: OpsItemStatus | string;
-
-  /**
-   * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
-   */
-  Title?: string;
-
-  /**
-   * <p>The version of this OpsItem. Each time the OpsItem is edited the version number increments
-   *    by one.</p>
-   */
-  Version?: string;
+  CreatedBy?: string;
 }
 
 export namespace OpsItem {
@@ -11699,8 +11917,8 @@ export namespace OpsItem {
 export interface OpsItemAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "OpsItemAlreadyExistsException";
   $fault: "client";
-  Message?: string;
   OpsItemId?: string;
+  Message?: string;
 }
 
 export namespace OpsItemAlreadyExistsException {
@@ -11745,9 +11963,9 @@ export namespace OpsItemDataValue {
 export interface OpsItemFilter {
   __type?: "OpsItemFilter";
   /**
-   * <p>The name of the filter.</p>
+   * <p>The filter value.</p>
    */
-  Key: OpsItemFilterKey | string | undefined;
+  Values: string[] | undefined;
 
   /**
    * <p>The operator used by the filter call.</p>
@@ -11755,9 +11973,9 @@ export interface OpsItemFilter {
   Operator: OpsItemFilterOperator | string | undefined;
 
   /**
-   * <p>The filter value.</p>
+   * <p>The name of the filter.</p>
    */
-  Values: string[] | undefined;
+  Key: OpsItemFilterKey | string | undefined;
 }
 
 export namespace OpsItemFilter {
@@ -11799,8 +12017,8 @@ export enum OpsItemFilterOperator {
 export interface OpsItemInvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "OpsItemInvalidParameterException";
   $fault: "client";
-  Message?: string;
   ParameterNames?: string[];
+  Message?: string;
 }
 
 export namespace OpsItemInvalidParameterException {
@@ -11812,16 +12030,15 @@ export namespace OpsItemInvalidParameterException {
 
 /**
  * <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
- *    quotas, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
- *     are the resource limits for OpsCenter?</a>.</p>
+ *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
  */
 export interface OpsItemLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "OpsItemLimitExceededException";
   $fault: "client";
+  ResourceTypes?: string[];
+  Message?: string;
   Limit?: number;
   LimitType?: string;
-  Message?: string;
-  ResourceTypes?: string[];
 }
 
 export namespace OpsItemLimitExceededException {
@@ -11878,14 +12095,14 @@ export enum OpsItemStatus {
 export interface OpsItemSummary {
   __type?: "OpsItemSummary";
   /**
-   * <p>A list of OpsItems by category.</p>
-   */
-  Category?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.</p>
    */
-  CreatedBy?: string;
+  LastModifiedBy?: string;
+
+  /**
+   * <p>The ID of the OpsItem.</p>
+   */
+  OpsItemId?: string;
 
   /**
    * <p>The date and time the OpsItem was created.</p>
@@ -11893,9 +12110,40 @@ export interface OpsItemSummary {
   CreatedTime?: Date;
 
   /**
+   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
+   *     <code>Resolved</code>.</p>
+   */
+  Status?: OpsItemStatus | string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.</p>
    */
-  LastModifiedBy?: string;
+  CreatedBy?: string;
+
+  /**
+   * <p>A list of OpsItems by category.</p>
+   */
+  Category?: string;
+
+  /**
+   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>The impacted AWS resource.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>A list of OpsItems by severity.</p>
+   */
+  Severity?: string;
 
   /**
    * <p>The date and time the OpsItem was last updated.</p>
@@ -11907,37 +12155,6 @@ export interface OpsItemSummary {
    *   </p>
    */
   OperationalData?: { [key: string]: OpsItemDataValue };
-
-  /**
-   * <p>The ID of the OpsItem.</p>
-   */
-  OpsItemId?: string;
-
-  /**
-   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>A list of OpsItems by severity.</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>The impacted AWS resource.</p>
-   */
-  Source?: string;
-
-  /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>.</p>
-   */
-  Status?: OpsItemStatus | string;
-
-  /**
-   * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
-   */
-  Title?: string;
 }
 
 export namespace OpsItemSummary {
@@ -11972,15 +12189,15 @@ export namespace OpsResultAttribute {
 export interface OutputSource {
   __type?: "OutputSource";
   /**
-   * <p>The ID of the output source, for example the URL of an Amazon S3 bucket.</p>
-   */
-  OutputSourceId?: string;
-
-  /**
    * <p>The type of source where the association execution details are stored, for example,
    *    Amazon S3.</p>
    */
   OutputSourceType?: string;
+
+  /**
+   * <p>The ID of the output source, for example the URL of an S3 bucket.</p>
+   */
+  OutputSourceId?: string;
 }
 
 export namespace OutputSource {
@@ -11991,19 +12208,20 @@ export namespace OutputSource {
 }
 
 /**
- * <p>An Amazon EC2 Systems Manager parameter in Parameter Store.</p>
+ * <p>An Systems Manager parameter in Parameter Store.</p>
  */
 export interface Parameter {
   __type?: "Parameter";
   /**
-   * <p>The Amazon Resource Name (ARN) of the parameter.</p>
+   * <p>The parameter value.</p>
    */
-  ARN?: string;
+  Value?: string;
 
   /**
-   * <p>Date the parameter was last changed or updated and the parameter version was created.</p>
+   * <p>The data type of the parameter, such as <code>text</code> or <code>aws:ec2:image</code>. The
+   *    default is <code>text</code>.</p>
    */
-  LastModifiedDate?: Date;
+  DataType?: string;
 
   /**
    * <p>The name of the parameter.</p>
@@ -12019,21 +12237,26 @@ export interface Parameter {
   Selector?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the parameter.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>The type of parameter. Valid values include the following: <code>String</code>,
+   *     <code>StringList</code>, and <code>SecureString</code>.</p>
+   */
+  Type?: ParameterType | string;
+
+  /**
    * <p>Applies to parameters that reference information in other AWS services. SourceResult is the
    *    raw result or response from the source.</p>
    */
   SourceResult?: string;
 
   /**
-   * <p>The type of parameter. Valid values include the following: String, String list, Secure
-   *    string.</p>
+   * <p>Date the parameter was last changed or updated and the parameter version was created.</p>
    */
-  Type?: ParameterType | string;
-
-  /**
-   * <p>The parameter value.</p>
-   */
-  Value?: string;
+  LastModifiedDate?: Date;
 
   /**
    * <p>The parameter version.</p>
@@ -12070,35 +12293,10 @@ export namespace ParameterAlreadyExists {
 export interface ParameterHistory {
   __type?: "ParameterHistory";
   /**
-   * <p>Parameter names can include the following letters and symbols.</p>
-   *          <p>a-zA-Z0-9_.-</p>
+   * <p>The data type of the parameter, such as <code>text</code> or <code>aws:ec2:image</code>. The
+   *    default is <code>text</code>.</p>
    */
-  AllowedPattern?: string;
-
-  /**
-   * <p>Information about the parameter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the query key used for this parameter.</p>
-   */
-  KeyId?: string;
-
-  /**
-   * <p>Labels assigned to the parameter version.</p>
-   */
-  Labels?: string[];
-
-  /**
-   * <p>Date the parameter was last changed or updated.</p>
-   */
-  LastModifiedDate?: Date;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the AWS user who last changed the parameter.</p>
-   */
-  LastModifiedUser?: string;
+  DataType?: string;
 
   /**
    * <p>The name of the parameter.</p>
@@ -12106,22 +12304,14 @@ export interface ParameterHistory {
   Name?: string;
 
   /**
-   * <p>Information about the policies assigned to a parameter.</p>
-   *          <p>
-   *             <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working with Parameter
-   *     Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   * <p>Labels assigned to the parameter version.</p>
    */
-  Policies?: ParameterInlinePolicy[];
+  Labels?: string[];
 
   /**
-   * <p>The parameter tier.</p>
+   * <p>Information about the parameter.</p>
    */
-  Tier?: ParameterTier | string;
-
-  /**
-   * <p>The type of parameter used.</p>
-   */
-  Type?: ParameterType | string;
+  Description?: string;
 
   /**
    * <p>The parameter value.</p>
@@ -12129,9 +12319,48 @@ export interface ParameterHistory {
   Value?: string;
 
   /**
+   * <p>Date the parameter was last changed or updated.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
+   * <p>The type of parameter used.</p>
+   */
+  Type?: ParameterType | string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the AWS user who last changed the parameter.</p>
+   */
+  LastModifiedUser?: string;
+
+  /**
+   * <p>Parameter names can include the following letters and symbols.</p>
+   *          <p>a-zA-Z0-9_.-</p>
+   */
+  AllowedPattern?: string;
+
+  /**
    * <p>The parameter version.</p>
    */
   Version?: number;
+
+  /**
+   * <p>The parameter tier.</p>
+   */
+  Tier?: ParameterTier | string;
+
+  /**
+   * <p>The ID of the query key used for this parameter.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>Information about the policies assigned to a parameter.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Assigning parameter
+   *     policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  Policies?: ParameterInlinePolicy[];
 }
 
 export namespace ParameterHistory {
@@ -12147,13 +12376,6 @@ export namespace ParameterHistory {
 export interface ParameterInlinePolicy {
   __type?: "ParameterInlinePolicy";
   /**
-   * <p>The status of the policy. Policies report the following statuses: Pending (the policy has
-   *    not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not
-   *    applied), or InProgress (the policy is being applied now). </p>
-   */
-  PolicyStatus?: string;
-
-  /**
    * <p>The JSON text of the policy.</p>
    */
   PolicyText?: string;
@@ -12163,6 +12385,13 @@ export interface ParameterInlinePolicy {
    *    ExpirationNotification, and NoChangeNotification. </p>
    */
   PolicyType?: string;
+
+  /**
+   * <p>The status of the policy. Policies report the following statuses: Pending (the policy has
+   *    not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not
+   *    applied), or InProgress (the policy is being applied now). </p>
+   */
+  PolicyStatus?: string;
 }
 
 export namespace ParameterInlinePolicy {
@@ -12212,10 +12441,37 @@ export namespace ParameterMaxVersionLimitExceeded {
 export interface ParameterMetadata {
   __type?: "ParameterMetadata";
   /**
+   * <p>The data type of the parameter, such as <code>text</code> or <code>aws:ec2:image</code>. The
+   *    default is <code>text</code>.</p>
+   */
+  DataType?: string;
+
+  /**
+   * <p>The type of parameter. Valid parameter types include the following: <code>String</code>,
+   *     <code>StringList</code>, and <code>SecureString</code>.</p>
+   */
+  Type?: ParameterType | string;
+
+  /**
+   * <p>Date the parameter was last changed or updated.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
+   * <p>The parameter version.</p>
+   */
+  Version?: number;
+
+  /**
    * <p>A parameter name can include only the following letters and symbols.</p>
    *          <p>a-zA-Z0-9_.-</p>
    */
   AllowedPattern?: string;
+
+  /**
+   * <p>A list of policies associated with a parameter.</p>
+   */
+  Policies?: ParameterInlinePolicy[];
 
   /**
    * <p>Description of the parameter actions.</p>
@@ -12228,14 +12484,9 @@ export interface ParameterMetadata {
   KeyId?: string;
 
   /**
-   * <p>Date the parameter was last changed or updated.</p>
+   * <p>The parameter tier.</p>
    */
-  LastModifiedDate?: Date;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the AWS user who last changed the parameter.</p>
-   */
-  LastModifiedUser?: string;
+  Tier?: ParameterTier | string;
 
   /**
    * <p>The parameter name.</p>
@@ -12243,25 +12494,9 @@ export interface ParameterMetadata {
   Name?: string;
 
   /**
-   * <p>A list of policies associated with a parameter.</p>
+   * <p>Amazon Resource Name (ARN) of the AWS user who last changed the parameter.</p>
    */
-  Policies?: ParameterInlinePolicy[];
-
-  /**
-   * <p>The parameter tier.</p>
-   */
-  Tier?: ParameterTier | string;
-
-  /**
-   * <p>The type of parameter. Valid parameter types include the following: String, String list,
-   *    Secure string.</p>
-   */
-  Type?: ParameterType | string;
-
-  /**
-   * <p>The parameter version.</p>
-   */
-  Version?: number;
+  LastModifiedUser?: string;
 }
 
 export namespace ParameterMetadata {
@@ -12312,14 +12547,14 @@ export namespace ParameterPatternMismatchException {
 export interface ParametersFilter {
   __type?: "ParametersFilter";
   /**
-   * <p>The name of the filter.</p>
-   */
-  Key: ParametersFilterKey | string | undefined;
-
-  /**
    * <p>The filter values.</p>
    */
   Values: string[] | undefined;
+
+  /**
+   * <p>The name of the filter.</p>
+   */
+  Key: ParametersFilterKey | string | undefined;
 }
 
 export namespace ParametersFilter {
@@ -12344,8 +12579,8 @@ export enum ParametersFilterKey {
  *     of <code>Label</code>.</p>
  *             <p>For <code>GetParametersByPath</code>, the following patterns listed for <code>Key</code>
  *     are not valid: <code>Name</code>, <code>Path</code>, and <code>Tier</code>.</p>
- *             <p>For examples of CLI commands demonstrating valid parameter filter constructions, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html">Searching for Systems Manager Parameters</a> in the
- *      <i>AWS Systems Manager User Guide</i>.</p>
+ *             <p>For examples of CLI commands demonstrating valid parameter filter constructions, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html">Searching for
+ *      Systems Manager parameters</a> in the <i>AWS Systems Manager User Guide</i>.</p>
  *          </important>
  */
 export interface ParameterStringFilter {
@@ -12432,40 +12667,9 @@ export namespace ParameterVersionNotFound {
 export interface Patch {
   __type?: "Patch";
   /**
-   * <p>The classification of the patch (for example, SecurityUpdates, Updates,
-   *    CriticalUpdates).</p>
+   * <p>The name of the vendor providing the patch.</p>
    */
-  Classification?: string;
-
-  /**
-   * <p>The URL where more information can be obtained about the patch.</p>
-   */
-  ContentUrl?: string;
-
-  /**
-   * <p>The description of the patch.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the patch (this is different than the Microsoft Knowledge Base ID).</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Microsoft Knowledge Base ID of the patch.</p>
-   */
-  KbNumber?: string;
-
-  /**
-   * <p>The language of the patch if it's language-specific.</p>
-   */
-  Language?: string;
-
-  /**
-   * <p>The ID of the MSRC bulletin the patch is related to.</p>
-   */
-  MsrcNumber?: string;
+  Vendor?: string;
 
   /**
    * <p>The severity of the patch (for example Critical, Important, Moderate).</p>
@@ -12473,9 +12677,14 @@ export interface Patch {
   MsrcSeverity?: string;
 
   /**
-   * <p>The specific product the patch is applicable for (for example, WindowsServer2016).</p>
+   * <p>The title of the patch.</p>
    */
-  Product?: string;
+  Title?: string;
+
+  /**
+   * <p>The Microsoft Knowledge Base ID of the patch.</p>
+   */
+  KbNumber?: string;
 
   /**
    * <p>The product family the patch is applicable for (for example, Windows).</p>
@@ -12483,19 +12692,45 @@ export interface Patch {
   ProductFamily?: string;
 
   /**
+   * <p>The specific product the patch is applicable for (for example, WindowsServer2016).</p>
+   */
+  Product?: string;
+
+  /**
+   * <p>The language of the patch if it's language-specific.</p>
+   */
+  Language?: string;
+
+  /**
+   * <p>The description of the patch.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the MSRC bulletin the patch is related to.</p>
+   */
+  MsrcNumber?: string;
+
+  /**
+   * <p>The ID of the patch (this is different than the Microsoft Knowledge Base ID).</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The classification of the patch (for example, SecurityUpdates, Updates,
+   *    CriticalUpdates).</p>
+   */
+  Classification?: string;
+
+  /**
    * <p>The date the patch was released.</p>
    */
   ReleaseDate?: Date;
 
   /**
-   * <p>The title of the patch.</p>
+   * <p>The URL where more information can be obtained about the patch.</p>
    */
-  Title?: string;
-
-  /**
-   * <p>The name of the vendor providing the patch.</p>
-   */
-  Vendor?: string;
+  ContentUrl?: string;
 }
 
 export namespace Patch {
@@ -12516,19 +12751,20 @@ export enum PatchAction {
 export interface PatchBaselineIdentity {
   __type?: "PatchBaselineIdentity";
   /**
-   * <p>The description of the patch baseline.</p>
+   * <p>The name of the patch baseline.</p>
    */
-  BaselineDescription?: string;
+  BaselineName?: string;
+
+  /**
+   * <p>Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+   *   </p>
+   */
+  OperatingSystem?: OperatingSystem | string;
 
   /**
    * <p>The ID of the patch baseline.</p>
    */
   BaselineId?: string;
-
-  /**
-   * <p>The name of the patch baseline.</p>
-   */
-  BaselineName?: string;
 
   /**
    * <p>Whether this is the default baseline. Note that Systems Manager supports creating multiple default
@@ -12538,10 +12774,9 @@ export interface PatchBaselineIdentity {
   DefaultBaseline?: boolean;
 
   /**
-   * <p>Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
-   *   </p>
+   * <p>The description of the patch baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  BaselineDescription?: string;
 }
 
 export namespace PatchBaselineIdentity {
@@ -12558,10 +12793,20 @@ export namespace PatchBaselineIdentity {
 export interface PatchComplianceData {
   __type?: "PatchComplianceData";
   /**
+   * <p>The operating system-specific ID of the patch.</p>
+   */
+  KBId: string | undefined;
+
+  /**
    * <p>The classification of the patch (for example, SecurityUpdates, Updates,
    *    CriticalUpdates).</p>
    */
   Classification: string | undefined;
+
+  /**
+   * <p>The severity of the patch (for example, Critical, Important, Moderate).</p>
+   */
+  Severity: string | undefined;
 
   /**
    * <p>The date/time the patch was installed on the instance. Note that not all operating systems
@@ -12570,19 +12815,8 @@ export interface PatchComplianceData {
   InstalledTime: Date | undefined;
 
   /**
-   * <p>The operating system-specific ID of the patch.</p>
-   */
-  KBId: string | undefined;
-
-  /**
-   * <p>The severity of the patch (for example, Critical, Important, Moderate).</p>
-   */
-  Severity: string | undefined;
-
-  /**
    * <p>The state of the patch on the instance, such as INSTALLED or FAILED.</p>
-   *          <p>For descriptions of each patch state, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch">About Patch
-   *     Compliance</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *          <p>For descriptions of each patch state, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch">About patch compliance</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   State: PatchComplianceDataState | string | undefined;
 
@@ -12641,18 +12875,18 @@ export enum PatchDeploymentStatus {
 export interface PatchFilter {
   __type?: "PatchFilter";
   /**
-   * <p>The key for the filter.</p>
-   *          <p>Run the <a>DescribePatchProperties</a> command to view lists of valid keys for
-   *    each operating system type.</p>
-   */
-  Key: PatchFilterKey | string | undefined;
-
-  /**
    * <p>The value for the filter key.</p>
    *          <p>Run the <a>DescribePatchProperties</a> command to view lists of valid values for
    *    each key based on operating system type.</p>
    */
   Values: string[] | undefined;
+
+  /**
+   * <p>The key for the filter.</p>
+   *          <p>Run the <a>DescribePatchProperties</a> command to view lists of valid keys for
+   *    each operating system type.</p>
+   */
+  Key: PatchFilterKey | string | undefined;
 }
 
 export namespace PatchFilter {
@@ -12727,14 +12961,14 @@ export enum PatchOperationType {
 export interface PatchOrchestratorFilter {
   __type?: "PatchOrchestratorFilter";
   /**
-   * <p>The key for the filter.</p>
-   */
-  Key?: string;
-
-  /**
    * <p>The value for the filter.</p>
    */
   Values?: string[];
+
+  /**
+   * <p>The key for the filter.</p>
+   */
+  Key?: string;
 }
 
 export namespace PatchOrchestratorFilter {
@@ -12761,16 +12995,27 @@ export interface PatchRule {
   /**
    * <p>The number of days after the release date of each patch matched by the rule that the patch
    *    is marked as approved in the patch baseline. For example, a value of <code>7</code> means that
-   *    patches are approved seven days after they are released. </p>
+   *    patches are approved seven days after they are released. Not supported on Ubuntu Server.</p>
    */
-  ApproveAfterDays: number | undefined;
+  ApproveAfterDays?: number;
 
   /**
-   * <p>A compliance severity level for all approved patches in a patch baseline. Valid compliance
-   *    severity levels include the following: Unspecified, Critical, High, Medium, Low, and
-   *    Informational.</p>
+   * <p>A compliance severity level for all approved patches in a patch baseline.</p>
    */
   ComplianceLevel?: PatchComplianceLevel | string;
+
+  /**
+   * <p>The patch filter group that defines the criteria for the rule.</p>
+   */
+  PatchFilterGroup: PatchFilterGroup | undefined;
+
+  /**
+   * <p>The cutoff date for auto approval of released patches. Any patches released on or before
+   *    this date are installed automatically. Not supported on Ubuntu Server.</p>
+   *          <p>Enter dates in the format <code>YYYY-MM-DD</code>. For example,
+   *    <code>2020-12-31</code>.</p>
+   */
+  ApproveUntilDate?: string;
 
   /**
    * <p>For instances identified by the approval rule filters, enables a patch baseline to apply
@@ -12778,11 +13023,6 @@ export interface PatchRule {
    *    to Linux instances only.</p>
    */
   EnableNonSecurity?: boolean;
-
-  /**
-   * <p>The patch filter group that defines the criteria for the rule.</p>
-   */
-  PatchFilterGroup: PatchFilterGroup | undefined;
 }
 
 export namespace PatchRule {
@@ -12822,6 +13062,18 @@ export enum PatchSet {
 export interface PatchSource {
   __type?: "PatchSource";
   /**
+   * <p>The specific operating system versions a patch repository applies to, such as "Ubuntu16.04",
+   *    "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product
+   *    values, see <a>PatchFilter</a>.</p>
+   */
+  Products: string[] | undefined;
+
+  /**
+   * <p>The name specified to identify the patch source.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The value of the yum repo configuration. For example:</p>
    *          <p>
    *             <code>[main]</code>
@@ -12837,18 +13089,6 @@ export interface PatchSource {
    *          </p>
    */
   Configuration: string | undefined;
-
-  /**
-   * <p>The name specified to identify the patch source.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The specific operating system versions a patch repository applies to, such as "Ubuntu16.04",
-   *    "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product
-   *    values, see <a>PatchFilter</a>.</p>
-   */
-  Products: string[] | undefined;
 }
 
 export namespace PatchSource {
@@ -12924,10 +13164,16 @@ export namespace PoliciesLimitExceededException {
 export interface ProgressCounters {
   __type?: "ProgressCounters";
   /**
-   * <p>The total number of steps that the system cancelled in all specified AWS Regions and
-   *    accounts for the current Automation execution.</p>
+   * <p>The total number of steps run in all specified AWS Regions and accounts for the current
+   *    Automation execution.</p>
    */
-  CancelledSteps?: number;
+  TotalSteps?: number;
+
+  /**
+   * <p>The total number of steps that timed out in all specified AWS Regions and accounts for the
+   *    current Automation execution.</p>
+   */
+  TimedOutSteps?: number;
 
   /**
    * <p>The total number of steps that failed to run in all specified AWS Regions and accounts for
@@ -12942,16 +13188,10 @@ export interface ProgressCounters {
   SuccessSteps?: number;
 
   /**
-   * <p>The total number of steps that timed out in all specified AWS Regions and accounts for the
-   *    current Automation execution.</p>
+   * <p>The total number of steps that the system cancelled in all specified AWS Regions and
+   *    accounts for the current Automation execution.</p>
    */
-  TimedOutSteps?: number;
-
-  /**
-   * <p>The total number of steps run in all specified AWS Regions and accounts for the current
-   *    Automation execution.</p>
-   */
-  TotalSteps?: number;
+  CancelledSteps?: number;
 }
 
 export namespace ProgressCounters {
@@ -12963,6 +13203,11 @@ export namespace ProgressCounters {
 
 export interface PutComplianceItemsRequest {
   __type?: "PutComplianceItemsRequest";
+  /**
+   * <p>Specify an ID for this resource. For a managed instance, this is the instance ID.</p>
+   */
+  ResourceId: string | undefined;
+
   /**
    * <p>Specify the compliance type. For example, specify Association (for a State Manager
    *    association), Patch, or Custom:<code>string</code>.</p>
@@ -12977,29 +13222,38 @@ export interface PutComplianceItemsRequest {
   ExecutionSummary: ComplianceExecutionSummary | undefined;
 
   /**
+   * <p>Specify the type of resource. <code>ManagedInstance</code> is currently the only supported
+   *    resource type.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The mode for uploading compliance items. You can specify <code>COMPLETE</code> or
+   *     <code>PARTIAL</code>. In <code>COMPLETE</code> mode, the system overwrites all existing
+   *    compliance information for the resource. You must provide a full list of compliance items each
+   *    time you send the request.</p>
+   *          <p>In <code>PARTIAL</code> mode, the system overwrites compliance information for a specific
+   *    association. The association must be configured with <code>SyncCompliance</code> set to
+   *     <code>MANUAL</code>. By default, all requests use <code>COMPLETE</code> mode.</p>
+   *          <note>
+   *             <p>This attribute is only valid for association compliance.</p>
+   *          </note>
+   */
+  UploadType?: ComplianceUploadType | string;
+
+  /**
+   * <p>Information about the compliance as defined by the resource type. For example, for a patch
+   *    compliance type, <code>Items</code> includes information about the PatchSeverity, Classification,
+   *    and so on.</p>
+   */
+  Items: ComplianceItemEntry[] | undefined;
+
+  /**
    * <p>MD5 or SHA-256 content hash. The content hash is used to determine if existing information
    *    should be overwritten or ignored. If the content hashes match, the request to put compliance
    *    information is ignored.</p>
    */
   ItemContentHash?: string;
-
-  /**
-   * <p>Information about the compliance as defined by the resource type. For example, for a patch
-   *    compliance type, <code>Items</code> includes information about the PatchSeverity, Classification,
-   *    etc.</p>
-   */
-  Items: ComplianceItemEntry[] | undefined;
-
-  /**
-   * <p>Specify an ID for this resource. For a managed instance, this is the instance ID.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>Specify the type of resource. <code>ManagedInstance</code> is currently the only supported
-   *    resource type.</p>
-   */
-  ResourceType: string | undefined;
 }
 
 export namespace PutComplianceItemsRequest {
@@ -13058,45 +13312,10 @@ export namespace PutInventoryResult {
 export interface PutParameterRequest {
   __type?: "PutParameterRequest";
   /**
-   * <p>A regular expression used to validate the parameter value. For example, for String types
-   *    with values restricted to numbers, you can specify the following: AllowedPattern=^\d+$ </p>
-   */
-  AllowedPattern?: string;
-
-  /**
-   * <p>Information about the parameter that you want to add to the system. Optional but
-   *    recommended.</p>
-   *          <important>
-   *             <p>Do not enter personally identifiable information in this field.</p>
-   *          </important>
-   */
-  Description?: string;
-
-  /**
-   * <p>The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key
-   *    Management Service (AWS KMS) key automatically assigned to your AWS account or a custom key.
-   *    Required for parameters that use the <code>SecureString</code> data type.</p>
-   *          <p>If you don't specify a key ID, the system uses the default key associated with your AWS
-   *    account.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To use your default AWS KMS key, choose the <code>SecureString</code> data
-   *      type, and do <i>not</i> specify the <code>Key ID</code> when you
-   *      create the parameter. The system automatically populates <code>Key ID</code> with
-   *      your default KMS key.</p>
-   *             </li>
-   *             <li>
-   *                <p>To use a custom KMS key, choose the <code>SecureString</code> data type with
-   *      the <code>Key ID</code> parameter.</p>
-   *             </li>
-   *          </ul>
-   */
-  KeyId?: string;
-
-  /**
    * <p>The fully qualified name of the parameter that you want to add to the system. The fully
-   *    qualified name includes the complete hierarchy of the parameter path and name. For example:
-   *     <code>/Dev/DBServer/MySQL/db-string13</code>
+   *    qualified name includes the complete hierarchy of the parameter path and name. For parameters in
+   *    a hierarchy, you must include a leading forward slash character (/) when you create or reference
+   *    a parameter. For example: <code>/Dev/DBServer/MySQL/db-string13</code>
    *          </p>
    *          <p>Naming Constraints:</p>
    *          <ul>
@@ -13121,14 +13340,13 @@ export interface PutParameterRequest {
    *                <p>Parameter hierarchies are limited to a maximum depth of fifteen levels.</p>
    *             </li>
    *          </ul>
-   *          <p>For additional information about valid values for parameter names, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and Constraints for
-   *     Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   *
+   *          <p>For additional information about valid values for parameter names, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">About requirements
+   *     and constraints for parameter names</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <note>
    *             <p>The maximum length constraint listed below includes capacity for additional system
-   *     attributes that are not part of the name. The maximum length for the fully qualified parameter
-   *     name is 1011 characters, including the full length of the parameter ARN. For example, the
-   *     following fully qualified parameter name is 65 characters, not 20 characters:</p>
+   *     attributes that are not part of the name. The maximum length for a parameter name, including the
+   *     full length of the parameter ARN, is 1011 characters. For example, the length of the following
+   *     parameter name is 65 characters, not 20 characters:</p>
    *             <p>
    *                <code>arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName</code>
    *             </p>
@@ -13137,61 +13355,31 @@ export interface PutParameterRequest {
   Name: string | undefined;
 
   /**
-   * <p>Overwrite an existing parameter. If not specified, will default to "false".</p>
-   */
-  Overwrite?: boolean;
-
-  /**
-   * <p>One or more policies to apply to a parameter. This action takes a JSON array. Parameter
-   *    Store supports the following policy types:</p>
-   *
-   *          <p>Expiration: This policy deletes the parameter after it expires. When you create the policy,
-   *    you specify the expiration date. You can update the expiration date and time by updating the
-   *    policy. Updating the <i>parameter</i> does not affect the expiration date and time.
-   *    When the expiration time is reached, Parameter Store deletes the parameter.</p>
-   *          <p>ExpirationNotification: This policy triggers an event in Amazon CloudWatch Events that
-   *    notifies you about the expiration. By using this policy, you can receive notification before or
-   *    after the expiration time is reached, in units of days or hours.</p>
-   *          <p>NoChangeNotification: This policy triggers a CloudWatch event if a parameter has not been
-   *    modified for a specified period of time. This policy type is useful when, for example, a secret
-   *    needs to be changed within a period of time, but it has not been changed.</p>
-   *
-   *          <p>All existing policies are preserved until you send new policies or an empty policy. For more
-   *    information about parameter policies, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-policies.html">Working with Parameter Policies</a>.
-   *   </p>
-   */
-  Policies?: string;
-
-  /**
-   * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
-   *    different ways, such as by purpose, owner, or environment. For example, you might want to tag a
-   *    Systems Manager parameter to identify the type of resource to which it applies, the environment, or the
-   *    type of configuration data referenced by the parameter. In this case, you could specify the
-   *    following key name/value pairs:</p>
-   *
+   * <p>The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key
+   *    Management Service (AWS KMS) key automatically assigned to your AWS account or a custom key.
+   *    Required for parameters that use the <code>SecureString</code> data type.</p>
+   *          <p>If you don't specify a key ID, the system uses the default key associated with your AWS
+   *    account.</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <code>Key=Resource,Value=S3bucket</code>
-   *                </p>
+   *                <p>To use your default AWS KMS key, choose the <code>SecureString</code> data
+   *      type, and do <i>not</i> specify the <code>Key ID</code> when you
+   *      create the parameter. The system automatically populates <code>Key ID</code> with
+   *      your default KMS key.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>Key=OS,Value=Windows</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Key=ParameterType,Value=LicenseKey</code>
-   *                </p>
+   *                <p>To use a custom KMS key, choose the <code>SecureString</code> data type with
+   *      the <code>Key ID</code> parameter.</p>
    *             </li>
    *          </ul>
-   *          <note>
-   *             <p>To add tags to an existing Systems Manager parameter, use the <a>AddTagsToResource</a>
-   *     action.</p>
-   *          </note>
    */
-  Tags?: Tag[];
+  KeyId?: string;
+
+  /**
+   * <p>The parameter value that you want to add to the system. Standard parameters have a value
+   *    limit of 4 KB. Advanced parameters have a value limit of 8 KB.</p>
+   */
+  Value: string | undefined;
 
   /**
    * <p>The parameter tier to assign to a parameter.</p>
@@ -13201,8 +13389,8 @@ export interface PutParameterRequest {
    *    Standard parameters are offered at no additional cost. </p>
    *          <p>Advanced parameters have a content size limit of 8 KB and can be configured to use parameter
    *    policies. You can create a maximum of 100,000 advanced parameters for each Region in an AWS
-   *    account. Advanced parameters incur a charge. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">About Advanced Parameters</a>
-   *    in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    account. Advanced parameters incur a charge. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Standard and
+   *     advanced parameter tiers</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>You can change a standard parameter to an advanced parameter any time. But you can't revert
    *    an advanced parameter to a standard parameter. Reverting an advanced parameter to a standard
    *    parameter would result in data loss because the system would truncate the size of the parameter
@@ -13250,29 +13438,126 @@ export interface PutParameterRequest {
    *      Region.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about configuring the default tier option, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying a Default Parameter Tier</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *          <p>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying a
+   *     default parameter tier</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   Tier?: ParameterTier | string;
 
   /**
+   * <p>Information about the parameter that you want to add to the system. Optional but
+   *    recommended.</p>
+   *          <important>
+   *             <p>Do not enter personally identifiable information in this field.</p>
+   *          </important>
+   */
+  Description?: string;
+
+  /**
+   * <p>One or more policies to apply to a parameter. This action takes a JSON array. Parameter
+   *    Store supports the following policy types:</p>
+   *
+   *          <p>Expiration: This policy deletes the parameter after it expires. When you create the policy,
+   *    you specify the expiration date. You can update the expiration date and time by updating the
+   *    policy. Updating the <i>parameter</i> does not affect the expiration date and time.
+   *    When the expiration time is reached, Parameter Store deletes the parameter.</p>
+   *          <p>ExpirationNotification: This policy triggers an event in Amazon CloudWatch Events that
+   *    notifies you about the expiration. By using this policy, you can receive notification before or
+   *    after the expiration time is reached, in units of days or hours.</p>
+   *          <p>NoChangeNotification: This policy triggers a CloudWatch event if a parameter has not been
+   *    modified for a specified period of time. This policy type is useful when, for example, a secret
+   *    needs to be changed within a period of time, but it has not been changed.</p>
+   *
+   *          <p>All existing policies are preserved until you send new policies or an empty policy. For more
+   *    information about parameter policies, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Assigning parameter
+   *     policies</a>. </p>
+   */
+  Policies?: string;
+
+  /**
+   * <p>A regular expression used to validate the parameter value. For example, for String types
+   *    with values restricted to numbers, you can specify the following: AllowedPattern=^\d+$ </p>
+   */
+  AllowedPattern?: string;
+
+  /**
+   * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
+   *    different ways, such as by purpose, owner, or environment. For example, you might want to tag a
+   *    Systems Manager parameter to identify the type of resource to which it applies, the environment, or the
+   *    type of configuration data referenced by the parameter. In this case, you could specify the
+   *    following key name/value pairs:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Key=Resource,Value=S3bucket</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key=OS,Value=Windows</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key=ParameterType,Value=LicenseKey</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>To add tags to an existing Systems Manager parameter, use the <a>AddTagsToResource</a>
+   *     action.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Overwrite an existing parameter. If not specified, will default to "false".</p>
+   */
+  Overwrite?: boolean;
+
+  /**
+   * <p>The data type for a <code>String</code> parameter. Supported data types include plain text
+   *    and Amazon Machine Image IDs.</p>
+   *          <p>
+   *             <b>The following data type values are supported.</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>text</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws:ec2:image</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
+   *    Systems Manager validates the parameter value is in the required format, such as
+   *     <code>ami-12345abcdeEXAMPLE</code>, and that the specified AMI is available in your AWS account.
+   *    For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native
+   *     parameter support for Amazon Machine Image IDs</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  DataType?: string;
+
+  /**
    * <p>The type of parameter that you want to add to the system.</p>
-   *          <p>Items in a <code>StringList</code> must be separated by a comma (,). You can't
-   *    use other punctuation or special character to escape items in the list. If you have a parameter
-   *    value that requires a comma, then use the <code>String</code> data type.</p>
    *          <note>
    *             <p>
    *                <code>SecureString</code> is not currently supported for AWS CloudFormation templates or
    *     in the China Regions.</p>
    *          </note>
+   *          <p>Items in a <code>StringList</code> must be separated by a comma (,). You can't
+   *    use other punctuation or special character to escape items in the list. If you have a parameter
+   *    value that requires a comma, then use the <code>String</code> data type.</p>
+   *          <important>
+   *             <p>Specifying a parameter type is not required when updating a parameter. You must specify a
+   *     parameter type when creating a parameter.</p>
+   *          </important>
    */
-  Type: ParameterType | string | undefined;
-
-  /**
-   * <p>The parameter value that you want to add to the system. Standard parameters have a value
-   *    limit of 4 KB. Advanced parameters have a value limit of 8 KB.</p>
-   */
-  Value: string | undefined;
+  Type?: ParameterType | string;
 }
 
 export namespace PutParameterRequest {
@@ -13285,11 +13570,6 @@ export namespace PutParameterRequest {
 export interface PutParameterResult {
   __type?: "PutParameterResult";
   /**
-   * <p>The tier assigned to the parameter.</p>
-   */
-  Tier?: ParameterTier | string;
-
-  /**
    * <p>The new version number of a parameter. If you edit a parameter value, Parameter Store
    *    automatically creates a new version and assigns this new version a unique ID. You can reference a
    *    parameter version ID in API actions or in Systems Manager documents (SSM documents). By default, if you
@@ -13297,6 +13577,11 @@ export interface PutParameterResult {
    *    is called.</p>
    */
   Version?: number;
+
+  /**
+   * <p>The tier assigned to the parameter.</p>
+   */
+  Tier?: ParameterTier | string;
 }
 
 export namespace PutParameterResult {
@@ -13346,14 +13631,14 @@ export namespace RegisterDefaultPatchBaselineResult {
 export interface RegisterPatchBaselineForPatchGroupRequest {
   __type?: "RegisterPatchBaselineForPatchGroupRequest";
   /**
-   * <p>The ID of the patch baseline to register the patch group with.</p>
-   */
-  BaselineId: string | undefined;
-
-  /**
    * <p>The name of the patch group that should be registered with the patch baseline.</p>
    */
   PatchGroup: string | undefined;
+
+  /**
+   * <p>The ID of the patch baseline to register the patch group with.</p>
+   */
+  BaselineId: string | undefined;
 }
 
 export namespace RegisterPatchBaselineForPatchGroupRequest {
@@ -13367,14 +13652,14 @@ export namespace RegisterPatchBaselineForPatchGroupRequest {
 export interface RegisterPatchBaselineForPatchGroupResult {
   __type?: "RegisterPatchBaselineForPatchGroupResult";
   /**
-   * <p>The ID of the patch baseline the patch group was registered with.</p>
-   */
-  BaselineId?: string;
-
-  /**
    * <p>The name of the patch group registered with the patch baseline.</p>
    */
   PatchGroup?: string;
+
+  /**
+   * <p>The ID of the patch baseline the patch group was registered with.</p>
+   */
+  BaselineId?: string;
 }
 
 export namespace RegisterPatchBaselineForPatchGroupResult {
@@ -13388,25 +13673,24 @@ export namespace RegisterPatchBaselineForPatchGroupResult {
 export interface RegisterTargetWithMaintenanceWindowRequest {
   __type?: "RegisterTargetWithMaintenanceWindowRequest";
   /**
-   * <p>User-provided idempotency token.</p>
-   */
-  ClientToken?: string;
-
-  /**
    * <p>An optional description for the target.</p>
    */
   Description?: string;
 
   /**
+   * <p>The ID of the maintenance window the target should be registered with.</p>
+   */
+  WindowId: string | undefined;
+
+  /**
+   * <p>User-provided idempotency token.</p>
+   */
+  ClientToken?: string;
+
+  /**
    * <p>An optional name for the target.</p>
    */
   Name?: string;
-
-  /**
-   * <p>User-provided value that will be included in any CloudWatch events raised while running
-   *    tasks for these targets in this maintenance window.</p>
-   */
-  OwnerInformation?: string;
 
   /**
    * <p>The type of target being registered with the maintenance window.</p>
@@ -13461,14 +13745,15 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
    *
    *          <p>For more information about these examples formats, including the best use case for each one,
    *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register
-   *     Targets with a Maintenance Window</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     targets with a maintenance window</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   Targets: Target[] | undefined;
 
   /**
-   * <p>The ID of the maintenance window the target should be registered with.</p>
+   * <p>User-provided value that will be included in any CloudWatch events raised while running
+   *    tasks for these targets in this maintenance window.</p>
    */
-  WindowId: string | undefined;
+  OwnerInformation?: string;
 }
 
 export namespace RegisterTargetWithMaintenanceWindowRequest {
@@ -13500,17 +13785,29 @@ export namespace RegisterTargetWithMaintenanceWindowResult {
 export interface RegisterTaskWithMaintenanceWindowRequest {
   __type?: "RegisterTaskWithMaintenanceWindowRequest";
   /**
+   * <p>The priority of the task in the maintenance window, the lower the number the higher the
+   *    priority. Tasks in a maintenance window are scheduled in priority order with tasks that have the
+   *    same priority scheduled in parallel.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The ARN of the task to run.</p>
+   */
+  TaskArn: string | undefined;
+
+  /**
+   * <p>The maximum number of targets this task can be run for in parallel.</p>
+   */
+  MaxConcurrency: string | undefined;
+
+  /**
    * <p>User-provided idempotency token.</p>
    */
   ClientToken?: string;
 
   /**
-   * <p>An optional description for the task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A structure containing information about an Amazon S3 bucket to write instance-level logs to. </p>
+   * <p>A structure containing information about an S3 bucket to write instance-level logs to. </p>
    *          <note>
    *             <p>
    *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
@@ -13522,9 +13819,9 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   LoggingInfo?: LoggingInfo;
 
   /**
-   * <p>The maximum number of targets this task can be run for in parallel.</p>
+   * <p>An optional description for the task.</p>
    */
-  MaxConcurrency: string | undefined;
+  Description?: string;
 
   /**
    * <p>The maximum number of errors allowed before this task stops being scheduled.</p>
@@ -13532,39 +13829,10 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   MaxErrors: string | undefined;
 
   /**
-   * <p>An optional name for the task.</p>
+   * <p>The parameters that the task should use during execution. Populate only the fields that
+   *    match the task type. All other fields should be empty. </p>
    */
-  Name?: string;
-
-  /**
-   * <p>The priority of the task in the maintenance window, the lower the number the higher the
-   *    priority. Tasks in a maintenance window are scheduled in priority order with tasks that have the
-   *    same priority scheduled in parallel.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The ARN of the IAM service role for Systems Manager to assume when running a
-   *   maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's
-   *   service-linked role.  If no service-linked role for Systems Manager exists in your account, it is created when you run
-   *   <code>RegisterTaskWithMaintenanceWindow</code>.</p>
-   *          <p>For more information, see the following topics in the in the <i>AWS Systems Manager User Guide</i>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Service-Linked Role
-   *     Permissions for Systems Manager</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?
-   *    </a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ServiceRoleArn?: string;
+  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
 
   /**
    * <p>The targets (either instances or maintenance window targets).</p>
@@ -13580,15 +13848,37 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   Targets: Target[] | undefined;
 
   /**
-   * <p>The ARN of the task to run.</p>
+   * <p>The ARN of the IAM service role for Systems Manager to assume when running a
+   *   maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's
+   *   service-linked role.  If no service-linked role for Systems Manager exists in your account, it is created when you run
+   *   <code>RegisterTaskWithMaintenanceWindow</code>.</p>
+   *          <p>For more information, see the following topics in the in the <i>AWS Systems Manager User Guide</i>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
+   *     service-linked roles for Systems Manager</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should I use a service-linked role or a custom service role to run maintenance window tasks?
+   *    </a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  TaskArn: string | undefined;
+  ServiceRoleArn?: string;
 
   /**
-   * <p>The parameters that the task should use during execution. Populate only the fields that
-   *    match the task type. All other fields should be empty. </p>
+   * <p>The type of task being registered.</p>
    */
-  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
+  TaskType: MaintenanceWindowTaskType | string | undefined;
+
+  /**
+   * <p>An optional name for the task.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The parameters that should be passed to the task when it is run.</p>
@@ -13601,11 +13891,6 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *          </note>
    */
   TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
-
-  /**
-   * <p>The type of task being registered.</p>
-   */
-  TaskType: MaintenanceWindowTaskType | string | undefined;
 
   /**
    * <p>The ID of the maintenance window the task should be added to.</p>
@@ -13720,7 +14005,11 @@ export namespace RemoveTagsFromResourceResult {
 export interface ResetServiceSettingRequest {
   __type?: "ResetServiceSettingRequest";
   /**
-   * <p>The ID of the service setting to reset.</p>
+   * <p>The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be
+   *     <code>/ssm/parameter-store/default-parameter-tier</code>,
+   *     <code>/ssm/parameter-store/high-throughput-enabled</code>, or
+   *     <code>/ssm/managed-instance/activation-tier</code>. For example,
+   *     <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>.</p>
    */
   SettingId: string | undefined;
 }
@@ -13781,35 +14070,10 @@ export namespace ResolvedTargets {
 export interface ResourceComplianceSummaryItem {
   __type?: "ResourceComplianceSummaryItem";
   /**
-   * <p>The compliance type.</p>
-   */
-  ComplianceType?: string;
-
-  /**
-   * <p>A list of items that are compliant for the resource.</p>
-   */
-  CompliantSummary?: CompliantSummary;
-
-  /**
-   * <p>Information about the execution.</p>
-   */
-  ExecutionSummary?: ComplianceExecutionSummary;
-
-  /**
-   * <p>A list of items that aren't compliant for the resource.</p>
-   */
-  NonCompliantSummary?: NonCompliantSummary;
-
-  /**
    * <p>The highest severity item found for the resource. The resource is compliant for this
    *    item.</p>
    */
   OverallSeverity?: ComplianceSeverity | string;
-
-  /**
-   * <p>The resource ID.</p>
-   */
-  ResourceId?: string;
 
   /**
    * <p>The resource type.</p>
@@ -13820,6 +14084,31 @@ export interface ResourceComplianceSummaryItem {
    * <p>The compliance status for the resource.</p>
    */
   Status?: ComplianceStatus | string;
+
+  /**
+   * <p>The compliance type.</p>
+   */
+  ComplianceType?: string;
+
+  /**
+   * <p>The resource ID.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>A list of items that aren't compliant for the resource.</p>
+   */
+  NonCompliantSummary?: NonCompliantSummary;
+
+  /**
+   * <p>Information about the execution.</p>
+   */
+  ExecutionSummary?: ComplianceExecutionSummary;
+
+  /**
+   * <p>A list of items that are compliant for the resource.</p>
+   */
+  CompliantSummary?: CompliantSummary;
 }
 
 export namespace ResourceComplianceSummaryItem {
@@ -13848,11 +14137,16 @@ export namespace ResourceDataSyncAlreadyExistsException {
 
 /**
  * <p>Information about the AwsOrganizationsSource resource data sync source. A sync source of
- *    this type can synchronize data from AWS Organizations or, if an AWS Organization is not present,
- *    from multiple AWS Regions.</p>
+ *    this type can synchronize data from AWS Organizations or, if an AWS Organization is not present, from
+ *    multiple AWS Regions.</p>
  */
 export interface ResourceDataSyncAwsOrganizationsSource {
   __type?: "ResourceDataSyncAwsOrganizationsSource";
+  /**
+   * <p>The AWS Organizations organization units included in the sync.</p>
+   */
+  OrganizationalUnits?: ResourceDataSyncOrganizationalUnit[];
+
   /**
    * <p>If an AWS Organization is present, this is either <code>OrganizationalUnits</code> or
    *     <code>EntireOrganization</code>. For <code>OrganizationalUnits</code>, the data is aggregated
@@ -13860,11 +14154,6 @@ export interface ResourceDataSyncAwsOrganizationsSource {
    *    from the entire AWS Organization. </p>
    */
   OrganizationSourceType: string | undefined;
-
-  /**
-   * <p>The AWS Organizations organization units included in the sync.</p>
-   */
-  OrganizationalUnits?: ResourceDataSyncOrganizationalUnit[];
 }
 
 export namespace ResourceDataSyncAwsOrganizationsSource {
@@ -13910,6 +14199,27 @@ export namespace ResourceDataSyncCountExceededException {
 }
 
 /**
+ * <p>Synchronize Systems Manager Inventory data from multiple AWS accounts defined in AWS Organizations to
+ *    a centralized S3 bucket. Data is synchronized to individual key prefixes in the central bucket.
+ *    Each key prefix represents a different AWS account ID.</p>
+ */
+export interface ResourceDataSyncDestinationDataSharing {
+  __type?: "ResourceDataSyncDestinationDataSharing";
+  /**
+   * <p>The sharing data type. Only <code>Organization</code> is supported.</p>
+   */
+  DestinationDataSharingType?: string;
+}
+
+export namespace ResourceDataSyncDestinationDataSharing {
+  export const filterSensitiveLog = (obj: ResourceDataSyncDestinationDataSharing): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ResourceDataSyncDestinationDataSharing =>
+    __isa(o, "ResourceDataSyncDestinationDataSharing");
+}
+
+/**
  * <p>The specified sync configuration is invalid.</p>
  */
 export interface ResourceDataSyncInvalidConfigurationException extends __SmithyException, $MetadataBearer {
@@ -13933,34 +14243,22 @@ export namespace ResourceDataSyncInvalidConfigurationException {
 export interface ResourceDataSyncItem {
   __type?: "ResourceDataSyncItem";
   /**
+   * <p>Configuration information for the target S3 bucket.</p>
+   */
+  S3Destination?: ResourceDataSyncS3Destination;
+
+  /**
    * <p>The status reported by the last sync.</p>
    */
   LastStatus?: LastResourceDataSyncStatus | string;
 
   /**
-   * <p>The last time the sync operations returned a status of <code>SUCCESSFUL</code> (UTC).</p>
+   * <p>The type of resource data sync. If <code>SyncType</code> is <code>SyncToDestination</code>,
+   *    then the resource data sync synchronizes data to an S3 bucket. If the <code>SyncType</code> is
+   *     <code>SyncFromSource</code> then the resource data sync synchronizes data from AWS Organizations or from
+   *    multiple AWS Regions.</p>
    */
-  LastSuccessfulSyncTime?: Date;
-
-  /**
-   * <p>The status message details reported by the last sync.</p>
-   */
-  LastSyncStatusMessage?: string;
-
-  /**
-   * <p>The last time the configuration attempted to sync (UTC).</p>
-   */
-  LastSyncTime?: Date;
-
-  /**
-   * <p>Configuration information for the target Amazon S3 bucket.</p>
-   */
-  S3Destination?: ResourceDataSyncS3Destination;
-
-  /**
-   * <p>The date and time the configuration was created (UTC).</p>
-   */
-  SyncCreatedTime?: Date;
+  SyncType?: string;
 
   /**
    * <p>The date and time the resource data sync was changed. </p>
@@ -13968,9 +14266,9 @@ export interface ResourceDataSyncItem {
   SyncLastModifiedTime?: Date;
 
   /**
-   * <p>The name of the Resource Data Sync.</p>
+   * <p>The status message details reported by the last sync.</p>
    */
-  SyncName?: string;
+  LastSyncStatusMessage?: string;
 
   /**
    * <p>Information about the source where the data was synchronized. </p>
@@ -13978,12 +14276,24 @@ export interface ResourceDataSyncItem {
   SyncSource?: ResourceDataSyncSourceWithState;
 
   /**
-   * <p>The type of resource data sync. If <code>SyncType</code> is <code>SyncToDestination</code>,
-   *    then the resource data sync synchronizes data to an Amazon S3 bucket. If the
-   *     <code>SyncType</code> is <code>SyncFromSource</code> then the resource data sync synchronizes
-   *    data from AWS Organizations or from multiple AWS Regions.</p>
+   * <p>The date and time the configuration was created (UTC).</p>
    */
-  SyncType?: string;
+  SyncCreatedTime?: Date;
+
+  /**
+   * <p>The name of the Resource Data Sync.</p>
+   */
+  SyncName?: string;
+
+  /**
+   * <p>The last time the configuration attempted to sync (UTC).</p>
+   */
+  LastSyncTime?: Date;
+
+  /**
+   * <p>The last time the sync operations returned a status of <code>SUCCESSFUL</code> (UTC).</p>
+   */
+  LastSuccessfulSyncTime?: Date;
 }
 
 export namespace ResourceDataSyncItem {
@@ -13999,9 +14309,9 @@ export namespace ResourceDataSyncItem {
 export interface ResourceDataSyncNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceDataSyncNotFoundException";
   $fault: "client";
+  SyncType?: string;
   Message?: string;
   SyncName?: string;
-  SyncType?: string;
 }
 
 export namespace ResourceDataSyncNotFoundException {
@@ -14031,28 +14341,12 @@ export namespace ResourceDataSyncOrganizationalUnit {
 }
 
 /**
- * <p>Information about the target Amazon S3 bucket for the Resource Data Sync.</p>
+ * <p>Information about the target S3 bucket for the Resource Data Sync.</p>
  */
 export interface ResourceDataSyncS3Destination {
   __type?: "ResourceDataSyncS3Destination";
   /**
-   * <p>The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as
-   *    the destination Amazon S3 bucket.</p>
-   */
-  AWSKMSKeyARN?: string;
-
-  /**
-   * <p>The name of the Amazon S3 bucket where the aggregated data is stored.</p>
-   */
-  BucketName: string | undefined;
-
-  /**
-   * <p>An Amazon S3 prefix for the bucket.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>The AWS Region with the Amazon S3 bucket targeted by the Resource Data Sync.</p>
+   * <p>The AWS Region with the S3 bucket targeted by the Resource Data Sync.</p>
    */
   Region: string | undefined;
 
@@ -14060,6 +14354,27 @@ export interface ResourceDataSyncS3Destination {
    * <p>A supported sync format. The following format is currently supported: JsonSerDe</p>
    */
   SyncFormat: ResourceDataSyncS3Format | string | undefined;
+
+  /**
+   * <p>An Amazon S3 prefix for the bucket.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>Enables destination data sharing. By default, this field is <code>null</code>.</p>
+   */
+  DestinationDataSharing?: ResourceDataSyncDestinationDataSharing;
+
+  /**
+   * <p>The name of the S3 bucket where the aggregated data is stored.</p>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as
+   *    the destination S3 bucket.</p>
+   */
+  AWSKMSKeyARN?: string;
 }
 
 export namespace ResourceDataSyncS3Destination {
@@ -14079,12 +14394,6 @@ export enum ResourceDataSyncS3Format {
 export interface ResourceDataSyncSource {
   __type?: "ResourceDataSyncSource";
   /**
-   * <p>The field name in <code>SyncSource</code> for the
-   *     <code>ResourceDataSyncAwsOrganizationsSource</code> type.</p>
-   */
-  AwsOrganizationsSource?: ResourceDataSyncAwsOrganizationsSource;
-
-  /**
    * <p>Whether to automatically synchronize and aggregate data from new AWS Regions when those
    *    Regions come online.</p>
    */
@@ -14101,6 +14410,12 @@ export interface ResourceDataSyncSource {
    *     <code>singleAccountMultiRegions</code>.</p>
    */
   SourceType: string | undefined;
+
+  /**
+   * <p>Information about the AwsOrganizationsSource resource data sync source. A sync source of
+   *    this type can synchronize data from AWS Organizations.</p>
+   */
+  AwsOrganizationsSource?: ResourceDataSyncAwsOrganizationsSource;
 }
 
 export namespace ResourceDataSyncSource {
@@ -14123,17 +14438,11 @@ export namespace ResourceDataSyncSource {
  *             <code>InvalidOrganizationalUnit</code> (You specified or selected an invalid unit in the
  *    resource data sync configuration.)</p>
  *          <p>
- *             <code>TrustedAccessDisabled</code> (You disabled Systems Manager access in the organization
- *    in AWS Organizations.)</p>
+ *             <code>TrustedAccessDisabled</code> (You disabled Systems Manager access in the organization in
+ *    AWS Organizations.)</p>
  */
 export interface ResourceDataSyncSourceWithState {
   __type?: "ResourceDataSyncSourceWithState";
-  /**
-   * <p>The field name in <code>SyncSource</code> for the
-   *     <code>ResourceDataSyncAwsOrganizationsSource</code> type.</p>
-   */
-  AwsOrganizationsSource?: ResourceDataSyncAwsOrganizationsSource;
-
   /**
    * <p>Whether to automatically synchronize and aggregate data from new AWS Regions when those
    *    Regions come online.</p>
@@ -14144,13 +14453,6 @@ export interface ResourceDataSyncSourceWithState {
    * <p>The <code>SyncSource</code> AWS Regions included in the resource data sync.</p>
    */
   SourceRegions?: string[];
-
-  /**
-   * <p>The type of data source for the resource data sync. <code>SourceType</code> is either
-   *     <code>AwsOrganizations</code> (if an organization is present in AWS Organizations) or
-   *     <code>singleAccountMultiRegions</code>.</p>
-   */
-  SourceType?: string;
 
   /**
    * <p>The data type name for including resource data sync state. There are four sync
@@ -14165,10 +14467,23 @@ export interface ResourceDataSyncSourceWithState {
    *             <code>InvalidOrganizationalUnit</code>: You specified or selected an invalid unit in the
    *    resource data sync configuration.</p>
    *          <p>
-   *             <code>TrustedAccessDisabled</code>: You disabled Systems Manager access in the organization
-   *    in AWS Organizations.</p>
+   *             <code>TrustedAccessDisabled</code>: You disabled Systems Manager access in the organization in
+   *    AWS Organizations.</p>
    */
   State?: string;
+
+  /**
+   * <p>The field name in <code>SyncSource</code> for the
+   *     <code>ResourceDataSyncAwsOrganizationsSource</code> type.</p>
+   */
+  AwsOrganizationsSource?: ResourceDataSyncAwsOrganizationsSource;
+
+  /**
+   * <p>The type of data source for the resource data sync. <code>SourceType</code> is either
+   *     <code>AwsOrganizations</code> (if an organization is present in AWS Organizations) or
+   *     <code>singleAccountMultiRegions</code>.</p>
+   */
+  SourceType?: string;
 }
 
 export namespace ResourceDataSyncSourceWithState {
@@ -14198,7 +14513,7 @@ export namespace ResourceInUseException {
 /**
  * <p>Error returned when the caller has exceeded the default resource quotas. For example, too
  *    many maintenance windows or patch baselines have been created.</p>
- *          <p>For information about resource quotas in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager Service Quotas</a> in the
+ *          <p>For information about resource quotas in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *         <i>AWS General Reference</i>.</p>
  */
 export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
@@ -14271,24 +14586,24 @@ export interface ResumeSessionResponse {
   SessionId?: string;
 
   /**
+   * <p>An encrypted token value containing session and caller information. Used to authenticate the
+   *    connection to the instance.</p>
+   */
+  TokenValue?: string;
+
+  /**
    * <p>A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and
    *    receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>.</p>
    *          <p>
    *             <b>region</b> represents the Region identifier for an
    * 						AWS Region supported by AWS Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
-   * 						For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region">Systems Manager Service Endpoints</a> in the
+   * 						For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region">Systems Manager service endpoints</a> in the
    *         <i>AWS General Reference</i>.</p>
    *          <p>
    *             <b>session-id</b> represents the ID of a Session Manager session, such as
    *     <code>1a2b3c4dEXAMPLE</code>.</p>
    */
   StreamUrl?: string;
-
-  /**
-   * <p>An encrypted token value containing session and caller information. Used to authenticate the
-   *    connection to the instance.</p>
-   */
-  TokenValue?: string;
 }
 
 export namespace ResumeSessionResponse {
@@ -14299,25 +14614,25 @@ export namespace ResumeSessionResponse {
 }
 
 /**
- * <p>An Amazon S3 bucket where you want to store the results of this request.</p>
+ * <p>An S3 bucket where you want to store the results of this request.</p>
  */
 export interface S3OutputLocation {
   __type?: "S3OutputLocation";
   /**
-   * <p>The name of the Amazon S3 bucket.</p>
+   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
+   *    automatically determines the Region of the S3 bucket.</p>
+   */
+  OutputS3Region?: string;
+
+  /**
+   * <p>The name of the S3 bucket.</p>
    */
   OutputS3BucketName?: string;
 
   /**
-   * <p>The Amazon S3 bucket subfolder.</p>
+   * <p>The S3 bucket subfolder.</p>
    */
   OutputS3KeyPrefix?: string;
-
-  /**
-   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
-   *    automatically determines the Amazon S3 bucket region.</p>
-   */
-  OutputS3Region?: string;
 }
 
 export namespace S3OutputLocation {
@@ -14328,12 +14643,12 @@ export namespace S3OutputLocation {
 }
 
 /**
- * <p>A URL for the Amazon S3 bucket where you want to store the results of this request.</p>
+ * <p>A URL for the S3 bucket where you want to store the results of this request.</p>
  */
 export interface S3OutputUrl {
   __type?: "S3OutputUrl";
   /**
-   * <p>A URL for an Amazon S3 bucket where you want to store the results of this request.</p>
+   * <p>A URL for an S3 bucket where you want to store the results of this request.</p>
    */
   OutputUrl?: string;
 }
@@ -14351,12 +14666,6 @@ export namespace S3OutputUrl {
 export interface ScheduledWindowExecution {
   __type?: "ScheduledWindowExecution";
   /**
-   * <p>The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be
-   *    run.</p>
-   */
-  ExecutionTime?: string;
-
-  /**
    * <p>The name of the maintenance window to be run.</p>
    */
   Name?: string;
@@ -14365,6 +14674,12 @@ export interface ScheduledWindowExecution {
    * <p>The ID of the maintenance window to be run.</p>
    */
   WindowId?: string;
+
+  /**
+   * <p>The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be
+   *    run.</p>
+   */
+  ExecutionTime?: string;
 }
 
 export namespace ScheduledWindowExecution {
@@ -14377,10 +14692,9 @@ export namespace ScheduledWindowExecution {
 export interface SendAutomationSignalRequest {
   __type?: "SendAutomationSignalRequest";
   /**
-   * <p>The unique identifier for an existing Automation execution that you want to send the signal
-   *    to.</p>
+   * <p>The type of signal to send to an Automation execution. </p>
    */
-  AutomationExecutionId: string | undefined;
+  SignalType: SignalType | string | undefined;
 
   /**
    * <p>The data sent with the signal. The data schema depends on the type of signal used in the
@@ -14404,9 +14718,10 @@ export interface SendAutomationSignalRequest {
   Payload?: { [key: string]: string[] };
 
   /**
-   * <p>The type of signal to send to an Automation execution. </p>
+   * <p>The unique identifier for an existing Automation execution that you want to send the signal
+   *    to.</p>
    */
-  SignalType: SignalType | string | undefined;
+  AutomationExecutionId: string | undefined;
 }
 
 export namespace SendAutomationSignalRequest {
@@ -14430,25 +14745,6 @@ export namespace SendAutomationSignalResult {
 export interface SendCommandRequest {
   __type?: "SendCommandRequest";
   /**
-   * <p>Enables Systems Manager to send Run Command output to Amazon CloudWatch Logs. </p>
-   */
-  CloudWatchOutputConfig?: CloudWatchOutputConfig;
-
-  /**
-   * <p>User-specified information about the command, such as a brief description of what the
-   *    command should do.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The Sha256 or Sha1 hash created by the system when the document was created. </p>
-   *          <note>
-   *             <p>Sha1 hashes have been deprecated.</p>
-   *          </note>
-   */
-  DocumentHash?: string;
-
-  /**
    * <p>Sha256 or Sha1.</p>
    *          <note>
    *             <p>Sha1 hashes have been deprecated.</p>
@@ -14457,10 +14753,28 @@ export interface SendCommandRequest {
   DocumentHashType?: DocumentHashType | string;
 
   /**
-   * <p>Required. The name of the Systems Manager document to run. This can be a public document or a custom
-   *    document.</p>
+   * <p>An array of search criteria that targets instances using a <code>Key,Value</code>
+   *    combination that you specify. Specifying targets is most useful when you want to send a command
+   *    to a large number of instances at once. Using <code>Targets</code>, which accepts tag key-value
+   *    pairs to identify instances, you can send a command to tens, hundreds, or thousands of instances
+   *    at once.</p>
+   *          <p>To send a command to a smaller number of instances, you can use the <code>InstanceIds</code>
+   *    option instead.</p>
+   *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending commands to a
+   *     fleet</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  DocumentName: string | undefined;
+  Targets?: Target[];
+
+  /**
+   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for Run
+   *    Command commands.</p>
+   */
+  ServiceRoleArn?: string;
+
+  /**
+   * <p>Configurations for sending notifications.</p>
+   */
+  NotificationConfig?: NotificationConfig;
 
   /**
    * <p>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a
@@ -14474,35 +14788,46 @@ export interface SendCommandRequest {
   DocumentVersion?: string;
 
   /**
-   * <p>The instance IDs where the command should run. You can specify a maximum of 50 IDs. If you
-   *    prefer not to list individual instance IDs, you can instead send commands to a fleet of instances
-   *    using the Targets parameter, which accepts EC2 tags. For more information about how to use
-   *    targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending Commands to a
-   *     Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   * <p>The required and optional parameters specified in the document being run.</p>
+   */
+  Parameters?: { [key: string]: string[] };
+
+  /**
+   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
+   *    automatically determines the Region of the S3 bucket.</p>
+   */
+  OutputS3Region?: string;
+
+  /**
+   * <p>The IDs of the instances where the command should run. Specifying instance IDs is most
+   *    useful when you are targeting a limited number of instances, though you can specify up to 50
+   *    IDs.</p>
+   *          <p>To target a larger number of instances, or if you prefer not to list individual instance
+   *    IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
+   *    which accepts tag key-value pairs to identify the instances to send commands to, you can a send
+   *    command to tens, hundreds, or thousands of instances at once.</p>
+   *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using targets and rate
+   *     controls to send commands to a fleet</a> in the
+   *    <i>AWS Systems Manager User Guide</i>.</p>
    */
   InstanceIds?: string[];
 
   /**
-   * <p>(Optional) The maximum number of instances that are allowed to run the command at the same
-   *    time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50.
-   *    For more information about how to use MaxConcurrency, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using Concurrency
-   *     Controls</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   * <p>The Sha256 or Sha1 hash created by the system when the document was created. </p>
+   *          <note>
+   *             <p>Sha1 hashes have been deprecated.</p>
+   *          </note>
    */
-  MaxConcurrency?: string;
+  DocumentHash?: string;
 
   /**
    * <p>The maximum number of errors allowed without the command failing. When the command fails one
    *    more time beyond the value of MaxErrors, the systems stops sending the command to additional
    *    targets. You can specify a number like 10 or a percentage like 10%. The default value is 0. For
-   *    more information about how to use MaxErrors, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors">Using Error
-   *     Controls</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    more information about how to use MaxErrors, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors">Using
+   *     error controls</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   MaxErrors?: string;
-
-  /**
-   * <p>Configurations for sending notifications.</p>
-   */
-  NotificationConfig?: NotificationConfig;
 
   /**
    * <p>The name of the S3 bucket where command execution responses should be stored.</p>
@@ -14510,34 +14835,34 @@ export interface SendCommandRequest {
   OutputS3BucketName?: string;
 
   /**
+   * <p>User-specified information about the command, such as a brief description of what the
+   *    command should do.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>Required. The name of the Systems Manager document to run. This can be a public document or a custom
+   *    document.</p>
+   */
+  DocumentName: string | undefined;
+
+  /**
    * <p>The directory structure within the S3 bucket where the responses should be stored.</p>
    */
   OutputS3KeyPrefix?: string;
 
   /**
-   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
-   *    automatically determines the Amazon S3 bucket region.</p>
+   * <p>(Optional) The maximum number of instances that are allowed to run the command at the same
+   *    time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50.
+   *    For more information about how to use MaxConcurrency, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
+   *     concurrency controls</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  OutputS3Region?: string;
+  MaxConcurrency?: string;
 
   /**
-   * <p>The required and optional parameters specified in the document being run.</p>
+   * <p>Enables Systems Manager to send Run Command output to Amazon CloudWatch Logs. </p>
    */
-  Parameters?: { [key: string]: string[] };
-
-  /**
-   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for Run
-   *    Command commands.</p>
-   */
-  ServiceRoleArn?: string;
-
-  /**
-   * <p>(Optional) An array of search criteria that targets instances using a Key,Value combination
-   *    that you specify. Targets is required if you don't provide one or more instance IDs in the call.
-   *    For more information about how to use targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending Commands to a Fleet</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  Targets?: Target[];
+  CloudWatchOutputConfig?: CloudWatchOutputConfig;
 
   /**
    * <p>If this time is reached and the command has not already started running, it will not
@@ -14588,6 +14913,12 @@ export namespace SendCommandResult {
 export interface ServiceSetting {
   __type?: "ServiceSetting";
   /**
+   * <p>The ARN of the last modified user. This field is populated only if the setting value was
+   *    overwritten.</p>
+   */
+  LastModifiedUser?: string;
+
+  /**
    * <p>The ARN of the service setting.</p>
    */
   ARN?: string;
@@ -14596,22 +14927,6 @@ export interface ServiceSetting {
    * <p>The last time the service setting was modified.</p>
    */
   LastModifiedDate?: Date;
-
-  /**
-   * <p>The ARN of the last modified user. This field is populated only if the setting value was
-   *    overwritten.</p>
-   */
-  LastModifiedUser?: string;
-
-  /**
-   * <p>The ID of the service setting.</p>
-   */
-  SettingId?: string;
-
-  /**
-   * <p>The value of the service setting.</p>
-   */
-  SettingValue?: string;
 
   /**
    * <p>The status of the service setting. The value can be Default, Customized or
@@ -14631,6 +14946,16 @@ export interface ServiceSetting {
    *          </ul>
    */
   Status?: string;
+
+  /**
+   * <p>The value of the service setting.</p>
+   */
+  SettingValue?: string;
+
+  /**
+   * <p>The ID of the service setting.</p>
+   */
+  SettingId?: string;
 }
 
 export namespace ServiceSetting {
@@ -14663,9 +14988,29 @@ export namespace ServiceSettingNotFound {
 export interface Session {
   __type?: "Session";
   /**
+   * <p>The instance that the Session Manager session connected to.</p>
+   */
+  Target?: string;
+
+  /**
+   * <p>The status of the session. For example, "Connected" or "Terminated".</p>
+   */
+  Status?: SessionStatus | string;
+
+  /**
    * <p>Reserved for future use.</p>
    */
   Details?: string;
+
+  /**
+   * <p>The ID of the AWS user account that started the session.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The date and time, in ISO-8601 Extended format, when the session began.</p>
+   */
+  StartDate?: Date;
 
   /**
    * <p>The name of the Session Manager SSM document used to define the parameters and plugin settings for the
@@ -14674,39 +15019,19 @@ export interface Session {
   DocumentName?: string;
 
   /**
-   * <p>The date and time, in ISO-8601 Extended format, when the session was terminated.</p>
-   */
-  EndDate?: Date;
-
-  /**
    * <p>Reserved for future use.</p>
    */
   OutputUrl?: SessionManagerOutputUrl;
 
   /**
-   * <p>The ID of the AWS user account that started the session.</p>
+   * <p>The date and time, in ISO-8601 Extended format, when the session was terminated.</p>
    */
-  Owner?: string;
+  EndDate?: Date;
 
   /**
    * <p>The ID of the session.</p>
    */
   SessionId?: string;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, when the session began.</p>
-   */
-  StartDate?: Date;
-
-  /**
-   * <p>The status of the session. For example, "Connected" or "Terminated".</p>
-   */
-  Status?: SessionStatus | string;
-
-  /**
-   * <p>The instance that the Session Manager session connected to.</p>
-   */
-  Target?: string;
 }
 
 export namespace Session {
@@ -14831,10 +15156,10 @@ export enum SessionStatus {
 export interface SeveritySummary {
   __type?: "SeveritySummary";
   /**
-   * <p>The total number of resources or compliance items that have a severity level of critical.
-   *    Critical severity is determined by the organization that published the compliance items.</p>
+   * <p>The total number of resources or compliance items that have a severity level of medium.
+   *    Medium severity is determined by the organization that published the compliance items.</p>
    */
-  CriticalCount?: number;
+  MediumCount?: number;
 
   /**
    * <p>The total number of resources or compliance items that have a severity level of high. High
@@ -14850,23 +15175,23 @@ export interface SeveritySummary {
   InformationalCount?: number;
 
   /**
+   * <p>The total number of resources or compliance items that have a severity level of unspecified.
+   *    Unspecified severity is determined by the organization that published the compliance
+   *    items.</p>
+   */
+  UnspecifiedCount?: number;
+
+  /**
    * <p>The total number of resources or compliance items that have a severity level of low. Low
    *    severity is determined by the organization that published the compliance items.</p>
    */
   LowCount?: number;
 
   /**
-   * <p>The total number of resources or compliance items that have a severity level of medium.
-   *    Medium severity is determined by the organization that published the compliance items.</p>
+   * <p>The total number of resources or compliance items that have a severity level of critical.
+   *    Critical severity is determined by the organization that published the compliance items.</p>
    */
-  MediumCount?: number;
-
-  /**
-   * <p>The total number of resources or compliance items that have a severity level of unspecified.
-   *    Unspecified severity is determined by the organization that published the compliance
-   *    items.</p>
-   */
-  UnspecifiedCount?: number;
+  CriticalCount?: number;
 }
 
 export namespace SeveritySummary {
@@ -14913,20 +15238,15 @@ export namespace StartAssociationsOnceResult {
 export interface StartAutomationExecutionRequest {
   __type?: "StartAutomationExecutionRequest";
   /**
-   * <p>User-provided idempotency token. The token must be unique, is case insensitive, enforces the
-   *    UUID format, and can't be reused.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The name of the Automation document to use for this execution.</p>
-   */
-  DocumentName: string | undefined;
-
-  /**
    * <p>The version of the Automation document to use for this execution.</p>
    */
   DocumentVersion?: string;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    cannot be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 
   /**
    * <p>The maximum number of targets allowed to run this task in parallel. You can specify a
@@ -14935,31 +15255,18 @@ export interface StartAutomationExecutionRequest {
   MaxConcurrency?: string;
 
   /**
-   * <p>The number of errors that are allowed before the system stops running the automation on
-   *    additional targets. You can specify either an absolute number of errors, for example 10, or a
-   *    percentage of the target set, for example 10%. If you specify 3, for example, the system stops
-   *    running the automation when the fourth error is received. If you specify 0, then the system stops
-   *    running the automation on additional targets after the first error result is returned. If you run
-   *    an automation on 50 resources and set max-errors to 10%, then the system stops running the
-   *    automation on additional targets when the sixth error is received.</p>
-   *          <p>Executions that are already running an automation when max-errors is reached are allowed to
-   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
-   *    be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one
-   *    at a time.</p>
+   * <p>A location is a combination of AWS Regions and/or AWS accounts where you want to run the
+   *    Automation. Use this action to start an Automation in multiple Regions and multiple accounts. For
+   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple AWS Regions and accounts</a> in the
+   *     <i>AWS Systems Manager User Guide</i>. </p>
    */
-  MaxErrors?: string;
+  TargetLocations?: TargetLocation[];
 
   /**
-   * <p>The execution mode of the automation. Valid modes include the following: Auto and
-   *    Interactive. The default mode is Auto.</p>
+   * <p>User-provided idempotency token. The token must be unique, is case insensitive, enforces the
+   *    UUID format, and can't be reused.</p>
    */
-  Mode?: ExecutionMode | string;
-
-  /**
-   * <p>A key-value map of execution parameters, which match the declared parameters in the
-   *    Automation document.</p>
-   */
-  Parameters?: { [key: string]: string[] };
+  ClientToken?: string;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for
@@ -14987,19 +15294,36 @@ export interface StartAutomationExecutionRequest {
   Tags?: Tag[];
 
   /**
-   * <p>A location is a combination of AWS Regions and/or AWS accounts where you want to run the
-   *    Automation. Use this action to start an Automation in multiple Regions and multiple accounts. For
-   *    more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Executing
-   *     Automations in Multiple AWS Regions and Accounts</a> in the
-   *     <i>AWS Systems Manager User Guide</i>. </p>
+   * <p>A key-value map of execution parameters, which match the declared parameters in the
+   *    Automation document.</p>
    */
-  TargetLocations?: TargetLocation[];
+  Parameters?: { [key: string]: string[] };
 
   /**
-   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
-   *    cannot be specified together.</p>
+   * <p>The execution mode of the automation. Valid modes include the following: Auto and
+   *    Interactive. The default mode is Auto.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  Mode?: ExecutionMode | string;
+
+  /**
+   * <p>The name of the Automation document to use for this execution.</p>
+   */
+  DocumentName: string | undefined;
+
+  /**
+   * <p>The number of errors that are allowed before the system stops running the automation on
+   *    additional targets. You can specify either an absolute number of errors, for example 10, or a
+   *    percentage of the target set, for example 10%. If you specify 3, for example, the system stops
+   *    running the automation when the fourth error is received. If you specify 0, then the system stops
+   *    running the automation on additional targets after the first error result is returned. If you run
+   *    an automation on 50 resources and set max-errors to 10%, then the system stops running the
+   *    automation on additional targets when the sixth error is received.</p>
+   *          <p>Executions that are already running an automation when max-errors is reached are allowed to
+   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
+   *    be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one
+   *    at a time.</p>
+   */
+  MaxErrors?: string;
 
   /**
    * <p>The name of the parameter used as the target resource for the rate-controlled execution.
@@ -15038,13 +15362,6 @@ export namespace StartAutomationExecutionResult {
 export interface StartSessionRequest {
   __type?: "StartSessionRequest";
   /**
-   * <p>The name of the SSM document to define the parameters and plugin settings for the session.
-   *    For example, <code>SSM-SessionManagerRunShell</code>. If no document name is provided, a shell to
-   *    the instance is launched by default.</p>
-   */
-  DocumentName?: string;
-
-  /**
    * <p>Reserved for future use.</p>
    */
   Parameters?: { [key: string]: string[] };
@@ -15053,6 +15370,13 @@ export interface StartSessionRequest {
    * <p>The instance to connect to for the session.</p>
    */
   Target: string | undefined;
+
+  /**
+   * <p>The name of the SSM document to define the parameters and plugin settings for the session.
+   *    For example, <code>SSM-SessionManagerRunShell</code>. You can call the <a>GetDocument</a> API to verify the document exists before attempting to start a session.
+   *    If no document name is provided, a shell to the instance is launched by default.</p>
+   */
+  DocumentName?: string;
 }
 
 export namespace StartSessionRequest {
@@ -15070,25 +15394,25 @@ export interface StartSessionResponse {
   SessionId?: string;
 
   /**
+   * <p>An encrypted token value containing session and caller information. Used to authenticate the
+   *    connection to the instance.</p>
+   */
+  TokenValue?: string;
+
+  /**
    * <p>A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and
    *    receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>
    *          </p>
    *          <p>
    *             <b>region</b> represents the Region identifier for an
    * 						AWS Region supported by AWS Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
-   * 						For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region">Systems Manager Service Endpoints</a> in the
+   * 						For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region">Systems Manager service endpoints</a> in the
    *         <i>AWS General Reference</i>.</p>
    *          <p>
    *             <b>session-id</b> represents the ID of a Session Manager session, such as
    *     <code>1a2b3c4dEXAMPLE</code>.</p>
    */
   StreamUrl?: string;
-
-  /**
-   * <p>An encrypted token value containing session and caller information. Used to authenticate the
-   *    connection to the instance.</p>
-   */
-  TokenValue?: string;
 }
 
 export namespace StartSessionResponse {
@@ -15119,68 +15443,15 @@ export namespace StatusUnchanged {
 export interface StepExecution {
   __type?: "StepExecution";
   /**
-   * <p>The action this step performs. The action determines the behavior of the step.</p>
+   * <p>The unique ID of a step execution.</p>
    */
-  Action?: string;
+  StepExecutionId?: string;
 
   /**
    * <p>If a step has finished execution, this contains the time the execution ended. If the step
    *    has not yet concluded, this field is not populated.</p>
    */
   ExecutionEndTime?: Date;
-
-  /**
-   * <p>If a step has begun execution, this contains the time the step started. If the step is in
-   *    Pending status, this field is not populated.</p>
-   */
-  ExecutionStartTime?: Date;
-
-  /**
-   * <p>Information about the Automation failure.</p>
-   */
-  FailureDetails?: FailureDetails;
-
-  /**
-   * <p>If a step failed, this message explains why the execution failed.</p>
-   */
-  FailureMessage?: string;
-
-  /**
-   * <p>Fully-resolved values passed into the step before execution.</p>
-   */
-  Inputs?: { [key: string]: string };
-
-  /**
-   * <p>The flag which can be used to help decide whether the failure of current step leads to the
-   *    Automation failure.</p>
-   */
-  IsCritical?: boolean;
-
-  /**
-   * <p>The flag which can be used to end automation no matter whether the step succeeds or
-   *    fails.</p>
-   */
-  IsEnd?: boolean;
-
-  /**
-   * <p>The maximum number of tries to run the action of the step. The default value is 1.</p>
-   */
-  MaxAttempts?: number;
-
-  /**
-   * <p>The next step after the step succeeds.</p>
-   */
-  NextStep?: string;
-
-  /**
-   * <p>The action to take if the step fails. The default value is Abort.</p>
-   */
-  OnFailure?: string;
-
-  /**
-   * <p>Returned values from the execution of the step.</p>
-   */
-  Outputs?: { [key: string]: string[] };
 
   /**
    * <p>A user-specified list of parameters to override when running a step.</p>
@@ -15193,14 +15464,70 @@ export interface StepExecution {
   Response?: string;
 
   /**
-   * <p>The response code returned by the execution of the step.</p>
+   * <p>Strategies used when step fails, we support Continue and Abort. Abort will fail the
+   *    automation when the step fails. Continue will ignore the failure of current step and allow
+   *    automation to run the next step. With conditional branching, we add step:stepName to support the
+   *    automation to go to another specific step.</p>
    */
-  ResponseCode?: string;
+  ValidNextSteps?: string[];
 
   /**
-   * <p>The unique ID of a step execution.</p>
+   * <p>The execution status for this step.</p>
    */
-  StepExecutionId?: string;
+  StepStatus?: AutomationExecutionStatus | string;
+
+  /**
+   * <p>If a step has begun execution, this contains the time the step started. If the step is in
+   *    Pending status, this field is not populated.</p>
+   */
+  ExecutionStartTime?: Date;
+
+  /**
+   * <p>If a step failed, this message explains why the execution failed.</p>
+   */
+  FailureMessage?: string;
+
+  /**
+   * <p>The flag which can be used to help decide whether the failure of current step leads to the
+   *    Automation failure.</p>
+   */
+  IsCritical?: boolean;
+
+  /**
+   * <p>The maximum number of tries to run the action of the step. The default value is 1.</p>
+   */
+  MaxAttempts?: number;
+
+  /**
+   * <p>The targets for the step execution.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The action this step performs. The action determines the behavior of the step.</p>
+   */
+  Action?: string;
+
+  /**
+   * <p>Information about the Automation failure.</p>
+   */
+  FailureDetails?: FailureDetails;
+
+  /**
+   * <p>The flag which can be used to end automation no matter whether the step succeeds or
+   *    fails.</p>
+   */
+  IsEnd?: boolean;
+
+  /**
+   * <p>The timeout seconds of the step.</p>
+   */
+  TimeoutSeconds?: number;
+
+  /**
+   * <p>The next step after the step succeeds.</p>
+   */
+  NextStep?: string;
 
   /**
    * <p>The name of this execution step.</p>
@@ -15208,9 +15535,9 @@ export interface StepExecution {
   StepName?: string;
 
   /**
-   * <p>The execution status for this step.</p>
+   * <p>Fully-resolved values passed into the step before execution.</p>
    */
-  StepStatus?: AutomationExecutionStatus | string;
+  Inputs?: { [key: string]: string };
 
   /**
    * <p>The combination of AWS Regions and accounts targeted by the current Automation
@@ -15219,22 +15546,19 @@ export interface StepExecution {
   TargetLocation?: TargetLocation;
 
   /**
-   * <p>The targets for the step execution.</p>
+   * <p>The action to take if the step fails. The default value is Abort.</p>
    */
-  Targets?: Target[];
+  OnFailure?: string;
 
   /**
-   * <p>The timeout seconds of the step.</p>
+   * <p>The response code returned by the execution of the step.</p>
    */
-  TimeoutSeconds?: number;
+  ResponseCode?: string;
 
   /**
-   * <p>Strategies used when step fails, we support Continue and Abort. Abort will fail the
-   *    automation when the step fails. Continue will ignore the failure of current step and allow
-   *    automation to run the next step. With conditional branching, we add step:stepName to support the
-   *    automation to go to another specific step.</p>
+   * <p>Returned values from the execution of the step.</p>
    */
-  ValidNextSteps?: string[];
+  Outputs?: { [key: string]: string[] };
 }
 
 export namespace StepExecution {
@@ -15250,15 +15574,15 @@ export namespace StepExecution {
 export interface StepExecutionFilter {
   __type?: "StepExecutionFilter";
   /**
+   * <p>The values of the filter key.</p>
+   */
+  Values: string[] | undefined;
+
+  /**
    * <p>One or more keys to limit the results. Valid filter keys include the following: StepName,
    *    Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.</p>
    */
   Key: StepExecutionFilterKey | string | undefined;
-
-  /**
-   * <p>The values of the filter key.</p>
-   */
-  Values: string[] | undefined;
 }
 
 export namespace StepExecutionFilter {
@@ -15333,9 +15657,9 @@ export namespace SubTypeCountLimitExceededException {
 
 /**
  * <p>Metadata that you assign to your AWS resources. Tags enable you to categorize your resources
- *    in different ways, for example, by purpose, owner, or environment. In Systems Manager, you can
- *    apply tags to documents, managed instances, maintenance windows, Parameter Store parameters, and
- *    patch baselines.</p>
+ *    in different ways, for example, by purpose, owner, or environment. In Systems Manager, you can apply tags
+ *    to documents, managed instances, maintenance windows, Parameter Store parameters, and patch
+ *    baselines.</p>
  */
 export interface Tag {
   __type?: "Tag";
@@ -15382,14 +15706,23 @@ export namespace Tag {
  *                </p>
  *             </li>
  *             <li>
- *                <p>(Maintenance window targets only)
+ *                <p>
+ *                   <b>Run Command and Maintenance window targets only</b>:
  *        <code>Key=resource-groups:Name,Values=<i>resource-group-name</i>
  *                   </code>
  *                </p>
  *             </li>
  *             <li>
- *                <p>(Maintenance window targets only)
+ *                <p>
+ *                   <b>Maintenance window targets only</b>:
  *        <code>Key=resource-groups:ResourceTypeFilters,Values=<i>resource-type-1</i>,<i>resource-type-2</i>
+ *                   </code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Automation targets only</b>:
+ *        <code>Key=ResourceGroup;Values=<i>resource-group-name</i>
  *                   </code>
  *                </p>
  *             </li>
@@ -15412,21 +15745,30 @@ export namespace Tag {
  *                </p>
  *             </li>
  *             <li>
- *                <p>(Maintenance window targets only)
+ *                <p>
+ *                   <b>Run Command and Maintenance window targets only</b>:
  *       <code>Key=resource-groups:Name,Values=ProductionResourceGroup</code>
  *                </p>
  *                <p>This example demonstrates how to target all resources in the resource group <b>ProductionResourceGroup</b> in your maintenance window.</p>
  *             </li>
  *             <li>
- *                <p>(Maintenance window targets only)
+ *                <p>
+ *                   <b>Maintenance window targets only</b>:
  *        <code>Key=resource-groups:ResourceTypeFilters,Values=<i>AWS::EC2::INSTANCE</i>,<i>AWS::EC2::VPC</i>
  *                   </code>
  *                </p>
- *                <p>This example demonstrates how to target only Amazon EC2 instances and VPCs in your maintenance
+ *                <p>This example demonstrates how to target only EC2 instances and VPCs in your maintenance
  *      window.</p>
  *             </li>
  *             <li>
- *                <p>(State Manager association targets only)
+ *                <p>
+ *                   <b>Automation targets only</b>:
+ *       <code>Key=ResourceGroup,Values=MyResourceGroup</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>State Manager association targets only</b>:
  *        <code>Key=InstanceIds,Values=<i>*</i>
  *                   </code>
  *                </p>
@@ -15434,10 +15776,8 @@ export namespace Tag {
  *      association was created.</p>
  *             </li>
  *          </ul>
- *          <p>For information about how to send commands that target instances using
- *     <code>Key,Value</code> parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting">Using
- *     Targets and Rate Controls to Send Commands to a Fleet</a> in the
- *     <i>AWS Systems Manager User Guide</i>.</p>
+ *          <p>For more information about how to send commands that target instances using
+ *     <code>Key,Value</code> parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting">Targeting multiple instances</a> in the <i>AWS Systems Manager User Guide</i>.</p>
  */
 export interface Target {
   __type?: "Target";
@@ -15450,7 +15790,7 @@ export interface Target {
   /**
    * <p>User-defined criteria that maps to <code>Key</code>. For example, if you specified
    *     <code>tag:ServerRole</code>, you could specify <code>value:WebServer</code> to run a command on
-   *    instances that include Amazon EC2 tags of <code>ServerRole,WebServer</code>. </p>
+   *    instances that include EC2 tags of <code>ServerRole,WebServer</code>. </p>
    */
   Values?: string[];
 }
@@ -15491,9 +15831,10 @@ export interface TargetLocation {
   Accounts?: string[];
 
   /**
-   * <p>The Automation execution role used by the currently running Automation.</p>
+   * <p>The maximum number of errors allowed before the system stops queueing additional Automation
+   *    executions for the currently running Automation. </p>
    */
-  ExecutionRoleName?: string;
+  TargetLocationMaxErrors?: string;
 
   /**
    * <p>The AWS Regions targeted by the current Automation execution.</p>
@@ -15501,16 +15842,15 @@ export interface TargetLocation {
   Regions?: string[];
 
   /**
+   * <p>The Automation execution role used by the currently running Automation.</p>
+   */
+  ExecutionRoleName?: string;
+
+  /**
    * <p>The maximum number of AWS accounts and AWS regions allowed to run the Automation
    *    concurrently </p>
    */
   TargetLocationMaxConcurrency?: string;
-
-  /**
-   * <p>The maximum number of errors allowed before the system stops queueing additional Automation
-   *    executions for the currently running Automation. </p>
-   */
-  TargetLocationMaxErrors?: string;
 }
 
 export namespace TargetLocation {
@@ -15522,8 +15862,8 @@ export namespace TargetLocation {
 
 /**
  * <p>The specified target instance for the session is not fully configured for use with Session Manager.
- *    For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting
- *     Started with Session Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting started with
+ *     Session Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
  */
 export interface TargetNotConnected extends __SmithyException, $MetadataBearer {
   name: "TargetNotConnected";
@@ -15633,10 +15973,10 @@ export namespace UnsupportedCalendarException {
 }
 
 /**
- * <p>Microsoft application patching is only available on EC2 instances and Advanced Instances. To
- *    patch Microsoft applications on on-premises servers and VMs, you must enable Advanced Instances.
- *    For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Using the Advanced-Instances
- *     Tier</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ * <p>Microsoft application patching is only available on EC2 instances and advanced instances. To
+ *    patch Microsoft applications on on-premises servers and VMs, you must enable advanced instances.
+ *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Using the
+ *     advanced-instances tier</a> in the <i>AWS Systems Manager User Guide</i>.</p>
  */
 export interface UnsupportedFeatureRequiredException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedFeatureRequiredException";
@@ -15744,14 +16084,43 @@ export namespace UnsupportedPlatformType {
 export interface UpdateAssociationRequest {
   __type?: "UpdateAssociationRequest";
   /**
+   * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
+   *     <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the association
+   *    execution to determine the compliance status. If the association execution runs successfully,
+   *    then the association is <code>COMPLIANT</code>. If the association execution doesn't run
+   *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
+   *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
+   *    for the <a>PutComplianceItems</a> API action. In this case, compliance data is not
+   *    managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API action.</p>
+   *          <p>By default, all associations use <code>AUTO</code> mode.</p>
+   */
+  SyncCompliance?: AssociationSyncCompliance | string;
+
+  /**
+   * <p>Specify the target for the association. This target is required for associations that use an
+   *    Automation document and target resources by using rate controls.</p>
+   */
+  AutomationTargetParameterName?: string;
+
+  /**
+   * <p>The targets of the association.</p>
+   */
+  Targets?: Target[];
+
+  /**
    * <p>The ID of the association you want to update. </p>
    */
   AssociationId: string | undefined;
 
   /**
-   * <p>The name of the association that you want to update.</p>
+   * <p>An S3 bucket where you want to store the results of this request.</p>
    */
-  AssociationName?: string;
+  OutputLocation?: InstanceAssociationOutputLocation;
+
+  /**
+   * <p>The document version you want update for the association. </p>
+   */
+  DocumentVersion?: string;
 
   /**
    * <p>This parameter is provided for concurrency control purposes. You must specify the latest
@@ -15761,20 +16130,9 @@ export interface UpdateAssociationRequest {
   AssociationVersion?: string;
 
   /**
-   * <p>Specify the target for the association. This target is required for associations that use an
-   *    Automation document and target resources by using rate controls.</p>
-   */
-  AutomationTargetParameterName?: string;
-
-  /**
    * <p>The severity level to assign to the association.</p>
    */
   ComplianceSeverity?: AssociationComplianceSeverity | string;
-
-  /**
-   * <p>The document version you want update for the association. </p>
-   */
-  DocumentVersion?: string;
 
   /**
    * <p>The maximum number of targets allowed to run the association at the same time. You can
@@ -15788,19 +16146,15 @@ export interface UpdateAssociationRequest {
   MaxConcurrency?: string;
 
   /**
-   * <p>The number of errors that are allowed before the system stops sending requests to run the
-   *    association on additional targets. You can specify either an absolute number of errors, for
-   *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
-   *    the system stops sending requests when the fourth error is received. If you specify 0, then the
-   *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    instances and set MaxError to 10%, then the system stops sending the request when the sixth error
-   *    is received.</p>
-   *          <p>Executions that are already running an association when MaxErrors is reached are allowed to
-   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
-   *    be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one
-   *    at a time.</p>
+   * <p>By default, when you update an association, the system runs it immediately after it is
+   *    updated and then according to the schedule you specified. Specify this option if you don't want
+   *    an association to run immediately after you update it.</p>
+   *          <p>Also, if you specified this option when you created the association, you can reset it. To do
+   *    so, specify the <code>no-apply-only-at-cron-interval</code> parameter when you update the
+   *    association from the command line. This parameter forces the association to run immediately after
+   *    updating it and according to the interval specified.</p>
    */
-  MaxErrors?: string;
+  ApplyOnlyAtCronInterval?: boolean;
 
   /**
    * <p>The name of the SSM document that contains the configuration information for the instance.
@@ -15824,9 +16178,19 @@ export interface UpdateAssociationRequest {
   Name?: string;
 
   /**
-   * <p>An Amazon S3 bucket where you want to store the results of this request.</p>
+   * <p>The number of errors that are allowed before the system stops sending requests to run the
+   *    association on additional targets. You can specify either an absolute number of errors, for
+   *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
+   *    the system stops sending requests when the fourth error is received. If you specify 0, then the
+   *    system stops sending requests after the first error is returned. If you run an association on 50
+   *    instances and set MaxError to 10%, then the system stops sending the request when the sixth error
+   *    is received.</p>
+   *          <p>Executions that are already running an association when MaxErrors is reached are allowed to
+   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
+   *    be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one
+   *    at a time.</p>
    */
-  OutputLocation?: InstanceAssociationOutputLocation;
+  MaxErrors?: string;
 
   /**
    * <p>The parameters you want to update for the association. If you create a parameter using
@@ -15840,9 +16204,9 @@ export interface UpdateAssociationRequest {
   ScheduleExpression?: string;
 
   /**
-   * <p>The targets of the association.</p>
+   * <p>The name of the association that you want to update.</p>
    */
-  Targets?: Target[];
+  AssociationName?: string;
 }
 
 export namespace UpdateAssociationRequest {
@@ -15870,14 +16234,14 @@ export namespace UpdateAssociationResult {
 export interface UpdateAssociationStatusRequest {
   __type?: "UpdateAssociationStatusRequest";
   /**
-   * <p>The association status.</p>
-   */
-  AssociationStatus: AssociationStatus | undefined;
-
-  /**
    * <p>The ID of the instance.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The association status.</p>
+   */
+  AssociationStatus: AssociationStatus | undefined;
 
   /**
    * <p>The name of the Systems Manager document.</p>
@@ -15952,9 +16316,11 @@ export interface UpdateDocumentRequest {
   Attachments?: AttachmentsSource[];
 
   /**
-   * <p>A valid JSON or YAML string.</p>
+   * <p>(Required) The latest version of the document that you want to update. The latest document
+   *    version can be specified using the $LATEST variable or by the version number. Updating a previous
+   *    version of a document is not supported.</p>
    */
-  Content: string | undefined;
+  DocumentVersion?: string;
 
   /**
    * <p>Specify the document format for the new document version. Systems Manager supports JSON and YAML
@@ -15963,9 +16329,16 @@ export interface UpdateDocumentRequest {
   DocumentFormat?: DocumentFormat | string;
 
   /**
-   * <p>(Required) The version of the document that you want to update. </p>
+   * <p>An optional field specifying the version of the artifact you are updating with the document.
+   *    For example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    cannot be changed.</p>
    */
-  DocumentVersion?: string;
+  VersionName?: string;
+
+  /**
+   * <p>A valid JSON or YAML string.</p>
+   */
+  Content: string | undefined;
 
   /**
    * <p>The name of the document that you want to update.</p>
@@ -15976,13 +16349,6 @@ export interface UpdateDocumentRequest {
    * <p>Specify a new target type for the document.</p>
    */
   TargetType?: string;
-
-  /**
-   * <p>An optional field specifying the version of the artifact you are updating with the document.
-   *    For example, "Release 12, Update 6". This value is unique across all versions of a document, and
-   *    cannot be changed.</p>
-   */
-  VersionName?: string;
 }
 
 export namespace UpdateDocumentRequest {
@@ -16010,31 +16376,22 @@ export namespace UpdateDocumentResult {
 export interface UpdateMaintenanceWindowRequest {
   __type?: "UpdateMaintenanceWindowRequest";
   /**
-   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
-   *    for those targets.</p>
-   */
-  AllowUnassociatedTargets?: boolean;
-
-  /**
-   * <p>The number of hours before the end of the maintenance window that Systems Manager stops scheduling new
-   *    tasks for execution.</p>
-   */
-  Cutoff?: number;
-
-  /**
    * <p>An optional description for the update request.</p>
    */
   Description?: string;
 
   /**
+   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
+   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or
+   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
+   *     Zone Database</a> on the IANA website.</p>
+   */
+  ScheduleTimezone?: string;
+
+  /**
    * <p>The duration of the maintenance window in hours.</p>
    */
   Duration?: number;
-
-  /**
-   * <p>Whether the maintenance window is enabled.</p>
-   */
-  Enabled?: boolean;
 
   /**
    * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
@@ -16049,23 +16406,39 @@ export interface UpdateMaintenanceWindowRequest {
   Name?: string;
 
   /**
+   * <p>Whether the maintenance window is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The number of days to wait after the date and time specified by a CRON expression before
+   *    running the maintenance window.</p>
+   *          <p>For example, the following cron expression schedules a maintenance window to run the third
+   *    Tuesday of every month at 11:30 PM.</p>
+   *          <p>
+   *             <code>cron(0 30 23 ? * TUE#3 *)</code>
+   *          </p>
+   *          <p>If the schedule offset is <code>2</code>, the maintenance window won't run until two days
+   *    later.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>The number of hours before the end of the maintenance window that Systems Manager stops scheduling new
+   *    tasks for execution.</p>
+   */
+  Cutoff?: number;
+
+  /**
    * <p>If True, then all fields that are required by the CreateMaintenanceWindow action are also
    *    required for this API request. Optional fields that are not specified are set to null. </p>
    */
   Replace?: boolean;
 
   /**
-   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
+   * <p>The ID of the maintenance window to update.</p>
    */
-  Schedule?: string;
-
-  /**
-   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
-   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or
-   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
-   *     Zone Database</a> on the IANA website.</p>
-   */
-  ScheduleTimezone?: string;
+  WindowId: string | undefined;
 
   /**
    * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
@@ -16076,9 +16449,15 @@ export interface UpdateMaintenanceWindowRequest {
   StartDate?: string;
 
   /**
-   * <p>The ID of the maintenance window to update.</p>
+   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
    */
-  WindowId: string | undefined;
+  Schedule?: string;
+
+  /**
+   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
+   *    for those targets.</p>
+   */
+  AllowUnassociatedTargets?: boolean;
 }
 
 export namespace UpdateMaintenanceWindowRequest {
@@ -16092,16 +16471,43 @@ export namespace UpdateMaintenanceWindowRequest {
 export interface UpdateMaintenanceWindowResult {
   __type?: "UpdateMaintenanceWindowResult";
   /**
-   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
-   *    for those targets.</p>
+   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
+   *    to become inactive. The maintenance window will not run after this specified time.</p>
    */
-  AllowUnassociatedTargets?: boolean;
+  EndDate?: string;
+
+  /**
+   * <p>Whether the maintenance window is enabled.</p>
+   */
+  Enabled?: boolean;
 
   /**
    * <p>The number of hours before the end of the maintenance window that Systems Manager stops scheduling new
    *    tasks for execution.</p>
    */
   Cutoff?: number;
+
+  /**
+   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
+   */
+  Schedule?: string;
+
+  /**
+   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
+   *    for those targets.</p>
+   */
+  AllowUnassociatedTargets?: boolean;
+
+  /**
+   * <p>The ID of the created maintenance window.</p>
+   */
+  WindowId?: string;
+
+  /**
+   * <p>The number of days to wait to run a maintenance window after the scheduled CRON expression
+   *    date and time.</p>
+   */
+  ScheduleOffset?: number;
 
   /**
    * <p>An optional description of the update.</p>
@@ -16114,27 +16520,6 @@ export interface UpdateMaintenanceWindowResult {
   Duration?: number;
 
   /**
-   * <p>Whether the maintenance window is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
-   *    to become inactive. The maintenance window will not run after this specified time.</p>
-   */
-  EndDate?: string;
-
-  /**
-   * <p>The name of the maintenance window.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
-   */
-  Schedule?: string;
-
-  /**
    * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
    *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or
    *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
@@ -16143,15 +16528,15 @@ export interface UpdateMaintenanceWindowResult {
   ScheduleTimezone?: string;
 
   /**
+   * <p>The name of the maintenance window.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
    *    to become active. The maintenance window will not run before this specified time.</p>
    */
   StartDate?: string;
-
-  /**
-   * <p>The ID of the created maintenance window.</p>
-   */
-  WindowId?: string;
 }
 
 export namespace UpdateMaintenanceWindowResult {
@@ -16165,14 +16550,29 @@ export namespace UpdateMaintenanceWindowResult {
 export interface UpdateMaintenanceWindowTargetRequest {
   __type?: "UpdateMaintenanceWindowTargetRequest";
   /**
-   * <p>An optional description for the update.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>A name for the update.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The target ID to modify.</p>
+   */
+  WindowTargetId: string | undefined;
+
+  /**
+   * <p>The targets to add or replace.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The maintenance window ID with which to modify the target.</p>
+   */
+  WindowId: string | undefined;
+
+  /**
+   * <p>An optional description for the update.</p>
+   */
+  Description?: string;
 
   /**
    * <p>User-provided value that will be included in any CloudWatch events raised while running
@@ -16186,21 +16586,6 @@ export interface UpdateMaintenanceWindowTargetRequest {
    *    null.</p>
    */
   Replace?: boolean;
-
-  /**
-   * <p>The targets to add or replace.</p>
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>The maintenance window ID with which to modify the target.</p>
-   */
-  WindowId: string | undefined;
-
-  /**
-   * <p>The target ID to modify.</p>
-   */
-  WindowTargetId: string | undefined;
 }
 
 export namespace UpdateMaintenanceWindowTargetRequest {
@@ -16216,19 +16601,19 @@ export namespace UpdateMaintenanceWindowTargetRequest {
 export interface UpdateMaintenanceWindowTargetResult {
   __type?: "UpdateMaintenanceWindowTargetResult";
   /**
+   * <p>The updated owner.</p>
+   */
+  OwnerInformation?: string;
+
+  /**
    * <p>The updated description.</p>
    */
   Description?: string;
 
   /**
-   * <p>The updated name.</p>
+   * <p>The maintenance window ID specified in the update request.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The updated owner.</p>
-   */
-  OwnerInformation?: string;
+  WindowId?: string;
 
   /**
    * <p>The updated targets.</p>
@@ -16236,9 +16621,9 @@ export interface UpdateMaintenanceWindowTargetResult {
   Targets?: Target[];
 
   /**
-   * <p>The maintenance window ID specified in the update request.</p>
+   * <p>The updated name.</p>
    */
-  WindowId?: string;
+  Name?: string;
 
   /**
    * <p>The target ID specified in the update request.</p>
@@ -16249,8 +16634,8 @@ export interface UpdateMaintenanceWindowTargetResult {
 export namespace UpdateMaintenanceWindowTargetResult {
   export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTargetResult): any => ({
     ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
     ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is UpdateMaintenanceWindowTargetResult =>
     __isa(o, "UpdateMaintenanceWindowTargetResult");
@@ -16259,51 +16644,16 @@ export namespace UpdateMaintenanceWindowTargetResult {
 export interface UpdateMaintenanceWindowTaskRequest {
   __type?: "UpdateMaintenanceWindowTaskRequest";
   /**
-   * <p>The new task description to specify.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The new logging location in Amazon S3 to specify.</p>
-   *          <note>
-   *             <p>
-   *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
-   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
-   *       For information about how Systems Manager handles these options for the supported maintenance
-   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   */
-  LoggingInfo?: LoggingInfo;
-
-  /**
-   * <p>The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code>
-   *    is the number of targets that are allowed to run this task in parallel.</p>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum
-   *    number of errors that are allowed before the task stops being scheduled.</p>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>The new task name to specify.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The new task priority to specify. The lower the number, the higher the priority. Tasks that
    *    have the same priority are scheduled in parallel.</p>
    */
   Priority?: number;
 
   /**
-   * <p>If True, then all fields that are required by the RegisterTaskWithMaintenanceWndow action
-   *    are also required for this API request. Optional fields that are not specified are set to
-   *    null.</p>
+   * <p>The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code>
+   *    is the number of targets that are allowed to run this task in parallel.</p>
    */
-  Replace?: boolean;
+  MaxConcurrency?: string;
 
   /**
    * <p>The ARN of the IAM service role for Systems Manager to assume when running a
@@ -16314,19 +16664,24 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Service-Linked Role
-   *     Permissions for Systems Manager</a>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
+   *     service-linked roles for Systems Manager</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should I use a service-linked role or a custom service role to run maintenance window tasks?
    *    </a>
    *                </p>
    *             </li>
    *          </ul>
    */
   ServiceRoleArn?: string;
+
+  /**
+   * <p>The task ID to modify.</p>
+   */
+  WindowTaskId: string | undefined;
 
   /**
    * <p>The targets (either instances or tags) to modify. Instances are specified using
@@ -16336,15 +16691,32 @@ export interface UpdateMaintenanceWindowTaskRequest {
   Targets?: Target[];
 
   /**
-   * <p>The task ARN to modify.</p>
+   * <p>The maintenance window ID that contains the task to modify.</p>
    */
-  TaskArn?: string;
+  WindowId: string | undefined;
+
+  /**
+   * <p>If True, then all fields that are required by the RegisterTaskWithMaintenanceWndow action
+   *    are also required for this API request. Optional fields that are not specified are set to
+   *    null.</p>
+   */
+  Replace?: boolean;
 
   /**
    * <p>The parameters that the task should use during execution. Populate only the fields that
    *    match the task type. All other fields should be empty.</p>
    */
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
+
+  /**
+   * <p>The new task name to specify.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The task ARN to modify.</p>
+   */
+  TaskArn?: string;
 
   /**
    * <p>The parameters to modify.</p>
@@ -16362,26 +16734,39 @@ export interface UpdateMaintenanceWindowTaskRequest {
   TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
 
   /**
-   * <p>The maintenance window ID that contains the task to modify.</p>
+   * <p>The new task description to specify.</p>
    */
-  WindowId: string | undefined;
+  Description?: string;
 
   /**
-   * <p>The task ID to modify.</p>
+   * <p>The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum
+   *    number of errors that are allowed before the task stops being scheduled.</p>
    */
-  WindowTaskId: string | undefined;
+  MaxErrors?: string;
+
+  /**
+   * <p>The new logging location in Amazon S3 to specify.</p>
+   *          <note>
+   *             <p>
+   *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
+   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
+   *       For information about how Systems Manager handles these options for the supported maintenance
+   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *          </note>
+   */
+  LoggingInfo?: LoggingInfo;
 }
 
 export namespace UpdateMaintenanceWindowTaskRequest {
   export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTaskRequest): any => ({
     ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
     ...(obj.TaskInvocationParameters && {
       TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
         obj.TaskInvocationParameters
       ),
     }),
     ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is UpdateMaintenanceWindowTaskRequest =>
     __isa(o, "UpdateMaintenanceWindowTaskRequest");
@@ -16390,9 +16775,62 @@ export namespace UpdateMaintenanceWindowTaskRequest {
 export interface UpdateMaintenanceWindowTaskResult {
   __type?: "UpdateMaintenanceWindowTaskResult";
   /**
-   * <p>The updated task description.</p>
+   * <p>The updated parameter values.</p>
    */
-  Description?: string;
+  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
+
+  /**
+   * <p>The task ID of the maintenance window that was updated.</p>
+   */
+  WindowTaskId?: string;
+
+  /**
+   * <p>The updated task name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
+   *    maintenance window Run Command tasks.</p>
+   */
+  ServiceRoleArn?: string;
+
+  /**
+   * <p>The updated parameter values.</p>
+   *          <note>
+   *             <p>
+   *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
+   *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
+   *       about how Systems Manager handles these options for the supported maintenance window task
+   *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *          </note>
+   */
+  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+
+  /**
+   * <p>The updated target values.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The ID of the maintenance window that was updated.</p>
+   */
+  WindowId?: string;
+
+  /**
+   * <p>The updated task ARN value.</p>
+   */
+  TaskArn?: string;
+
+  /**
+   * <p>The updated MaxErrors value.</p>
+   */
+  MaxErrors?: string;
+
+  /**
+   * <p>The updated priority value.</p>
+   */
+  Priority?: number;
 
   /**
    * <p>The updated logging information in Amazon S3.</p>
@@ -16412,74 +16850,21 @@ export interface UpdateMaintenanceWindowTaskResult {
   MaxConcurrency?: string;
 
   /**
-   * <p>The updated MaxErrors value.</p>
+   * <p>The updated task description.</p>
    */
-  MaxErrors?: string;
-
-  /**
-   * <p>The updated task name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The updated priority value.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
-   *    maintenance window Run Command tasks.</p>
-   */
-  ServiceRoleArn?: string;
-
-  /**
-   * <p>The updated target values.</p>
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>The updated task ARN value.</p>
-   */
-  TaskArn?: string;
-
-  /**
-   * <p>The updated parameter values.</p>
-   */
-  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
-
-  /**
-   * <p>The updated parameter values.</p>
-   *          <note>
-   *             <p>
-   *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
-   *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
-   *       about how Systems Manager handles these options for the supported maintenance window task
-   *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
-
-  /**
-   * <p>The ID of the maintenance window that was updated.</p>
-   */
-  WindowId?: string;
-
-  /**
-   * <p>The task ID of the maintenance window that was updated.</p>
-   */
-  WindowTaskId?: string;
+  Description?: string;
 }
 
 export namespace UpdateMaintenanceWindowTaskResult {
   export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTaskResult): any => ({
     ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
     ...(obj.TaskInvocationParameters && {
       TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
         obj.TaskInvocationParameters
       ),
     }),
     ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is UpdateMaintenanceWindowTaskResult => __isa(o, "UpdateMaintenanceWindowTaskResult");
 }
@@ -16487,14 +16872,14 @@ export namespace UpdateMaintenanceWindowTaskResult {
 export interface UpdateManagedInstanceRoleRequest {
   __type?: "UpdateManagedInstanceRoleRequest";
   /**
-   * <p>The IAM role you want to assign or change.</p>
-   */
-  IamRole: string | undefined;
-
-  /**
    * <p>The ID of the managed instance where you want to update the role.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The IAM role you want to assign or change.</p>
+   */
+  IamRole: string | undefined;
 }
 
 export namespace UpdateManagedInstanceRoleRequest {
@@ -16523,16 +16908,31 @@ export interface UpdateOpsItemRequest {
   Category?: string;
 
   /**
-   * <p>Update the information about the OpsItem. Provide enough information so that users reading
-   *    this OpsItem for the first time understand the issue. </p>
+   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
+   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details">Editing OpsItem details</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  Description?: string;
+  Status?: OpsItemStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
    *    OpsItem is edited or changed.</p>
    */
   Notifications?: OpsItemNotification[];
+
+  /**
+   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>Specify a new severity for an OpsItem.</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>The ID of the OpsItem.</p>
+   */
+  OpsItemId: string | undefined;
 
   /**
    * <p>Add new keys or edit existing key-value pairs of the OperationalData map in the OpsItem
@@ -16556,7 +16956,7 @@ export interface UpdateOpsItemRequest {
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
    *    Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see
-   *     <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems Manually</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   OperationalData?: { [key: string]: OpsItemDataValue };
 
@@ -16566,14 +16966,10 @@ export interface UpdateOpsItemRequest {
   OperationalDataToDelete?: string[];
 
   /**
-   * <p>The ID of the OpsItem.</p>
+   * <p>Update the information about the OpsItem. Provide enough information so that users reading
+   *    this OpsItem for the first time understand the issue. </p>
    */
-  OpsItemId: string | undefined;
-
-  /**
-   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
-   */
-  Priority?: number;
+  Description?: string;
 
   /**
    * <p>One or more OpsItems that share something in common with the current OpsItems. For example,
@@ -16581,18 +16977,6 @@ export interface UpdateOpsItemRequest {
    *    statuses for the impacted resource.</p>
    */
   RelatedOpsItems?: RelatedOpsItem[];
-
-  /**
-   * <p>Specify a new severity for an OpsItem.</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem
-   *     Details</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  Status?: OpsItemStatus | string;
 
   /**
    * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
@@ -16621,17 +17005,9 @@ export namespace UpdateOpsItemResponse {
 export interface UpdatePatchBaselineRequest {
   __type?: "UpdatePatchBaselineRequest";
   /**
-   * <p>A set of rules used to include patches in the baseline.</p>
+   * <p>The name of the patch baseline.</p>
    */
-  ApprovalRules?: PatchRuleGroup;
-
-  /**
-   * <p>A list of explicitly approved patches for the baseline.</p>
-   *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package Name Formats
-   *                         for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  ApprovedPatches?: string[];
+  Name?: string;
 
   /**
    * <p>Assigns a new compliance severity level to an existing patch baseline.</p>
@@ -16639,38 +17015,25 @@ export interface UpdatePatchBaselineRequest {
   ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
 
   /**
-   * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
-   */
-  ApprovedPatchesEnableNonSecurity?: boolean;
-
-  /**
-   * <p>The ID of the patch baseline to update.</p>
-   */
-  BaselineId: string | undefined;
-
-  /**
-   * <p>A description of the patch baseline.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A set of global filters used to include patches in the baseline.</p>
-   */
-  GlobalFilters?: PatchFilterGroup;
-
-  /**
-   * <p>The name of the patch baseline.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package Name Formats
-   *                         for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
+   *                         package name formats for approved and rejected patch lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   RejectedPatches?: string[];
+
+  /**
+   * <p>A set of rules used to include patches in the baseline.</p>
+   */
+  ApprovalRules?: PatchRuleGroup;
+
+  /**
+   * <p>A list of explicitly approved patches for the baseline.</p>
+   *          <p>For information about accepted formats for lists of approved patches and rejected patches,
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
+   *                         package name formats for approved and rejected patch lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  ApprovedPatches?: string[];
 
   /**
    * <p>The action for Patch Manager to take on patches included in the RejectedPackages
@@ -16696,16 +17059,37 @@ export interface UpdatePatchBaselineRequest {
   RejectedPatchesAction?: PatchAction | string;
 
   /**
-   * <p>If True, then all fields that are required by the CreatePatchBaseline action are also
-   *    required for this API request. Optional fields that are not specified are set to null.</p>
+   * <p>Indicates whether the list of approved patches includes non-security updates that should be
+   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
    */
-  Replace?: boolean;
+  ApprovedPatchesEnableNonSecurity?: boolean;
 
   /**
    * <p>Information about the patches to use to update the instances, including target operating
    *    systems and source repositories. Applies to Linux instances only.</p>
    */
   Sources?: PatchSource[];
+
+  /**
+   * <p>A set of global filters used to include patches in the baseline.</p>
+   */
+  GlobalFilters?: PatchFilterGroup;
+
+  /**
+   * <p>A description of the patch baseline.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the patch baseline to update.</p>
+   */
+  BaselineId: string | undefined;
+
+  /**
+   * <p>If True, then all fields that are required by the CreatePatchBaseline action are also
+   *    required for this API request. Optional fields that are not specified are set to null.</p>
+   */
+  Replace?: boolean;
 }
 
 export namespace UpdatePatchBaselineRequest {
@@ -16719,9 +17103,42 @@ export namespace UpdatePatchBaselineRequest {
 export interface UpdatePatchBaselineResult {
   __type?: "UpdatePatchBaselineResult";
   /**
+   * <p>A description of the Patch Baseline.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>A set of rules used to include patches in the baseline.</p>
    */
   ApprovalRules?: PatchRuleGroup;
+
+  /**
+   * <p>The name of the patch baseline.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Information about the patches to use to update the instances, including target operating
+   *    systems and source repositories. Applies to Linux instances only.</p>
+   */
+  Sources?: PatchSource[];
+
+  /**
+   * <p>A list of explicitly rejected patches for the baseline.</p>
+   */
+  RejectedPatches?: string[];
+
+  /**
+   * <p>The date when the patch baseline was last modified.</p>
+   */
+  ModifiedDate?: Date;
+
+  /**
+   * <p>The action specified to take on patches included in the RejectedPatches list. A patch can be
+   *    allowed only if it is a dependency of another package, or blocked entirely along with packages
+   *    that include it as a dependency.</p>
+   */
+  RejectedPatchesAction?: PatchAction | string;
 
   /**
    * <p>A list of explicitly approved patches for the baseline.</p>
@@ -16735,25 +17152,15 @@ export interface UpdatePatchBaselineResult {
   ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
 
   /**
-   * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
-   */
-  ApprovedPatchesEnableNonSecurity?: boolean;
-
-  /**
-   * <p>The ID of the deleted patch baseline.</p>
-   */
-  BaselineId?: string;
-
-  /**
    * <p>The date when the patch baseline was created.</p>
    */
   CreatedDate?: Date;
 
   /**
-   * <p>A description of the Patch Baseline.</p>
+   * <p>Indicates whether the list of approved patches includes non-security updates that should be
+   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
    */
-  Description?: string;
+  ApprovedPatchesEnableNonSecurity?: boolean;
 
   /**
    * <p>A set of global filters used to exclude patches from the baseline.</p>
@@ -16761,37 +17168,14 @@ export interface UpdatePatchBaselineResult {
   GlobalFilters?: PatchFilterGroup;
 
   /**
-   * <p>The date when the patch baseline was last modified.</p>
+   * <p>The ID of the deleted patch baseline.</p>
    */
-  ModifiedDate?: Date;
-
-  /**
-   * <p>The name of the patch baseline.</p>
-   */
-  Name?: string;
+  BaselineId?: string;
 
   /**
    * <p>The operating system rule used by the updated patch baseline.</p>
    */
   OperatingSystem?: OperatingSystem | string;
-
-  /**
-   * <p>A list of explicitly rejected patches for the baseline.</p>
-   */
-  RejectedPatches?: string[];
-
-  /**
-   * <p>The action specified to take on patches included in the RejectedPatches list. A patch can be
-   *    allowed only if it is a dependency of another package, or blocked entirely along with packages
-   *    that include it as a dependency.</p>
-   */
-  RejectedPatchesAction?: PatchAction | string;
-
-  /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
-   */
-  Sources?: PatchSource[];
 }
 
 export namespace UpdatePatchBaselineResult {
@@ -16805,22 +17189,20 @@ export namespace UpdatePatchBaselineResult {
 export interface UpdateResourceDataSyncRequest {
   __type?: "UpdateResourceDataSyncRequest";
   /**
-   * <p>The name of the resource data sync you want to update.</p>
-   */
-  SyncName: string | undefined;
-
-  /**
    * <p>Specify information about the data sources to synchronize.</p>
    */
   SyncSource: ResourceDataSyncSource | undefined;
 
   /**
-   * <p>The type of resource data sync. If <code>SyncType</code> is <code>SyncToDestination</code>,
-   *    then the resource data sync synchronizes data to an Amazon S3 bucket. If the
-   *     <code>SyncType</code> is <code>SyncFromSource</code> then the resource data sync synchronizes
-   *    data from AWS Organizations or from multiple AWS Regions.</p>
+   * <p>The type of resource data sync. The supported <code>SyncType</code> is
+   *    SyncFromSource.</p>
    */
   SyncType: string | undefined;
+
+  /**
+   * <p>The name of the resource data sync you want to update.</p>
+   */
+  SyncName: string | undefined;
 }
 
 export namespace UpdateResourceDataSyncRequest {
@@ -16847,12 +17229,47 @@ export namespace UpdateResourceDataSyncResult {
 export interface UpdateServiceSettingRequest {
   __type?: "UpdateServiceSettingRequest";
   /**
-   * <p>The ID of the service setting to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the service setting to reset. For example,
+   *     <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>.
+   *    The setting ID can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/default-parameter-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   SettingId: string | undefined;
 
   /**
-   * <p>The new value to specify for the service setting.</p>
+   * <p>The new value to specify for the service setting. For the
+   *     <code>/ssm/parameter-store/default-parameter-tier</code> setting ID, the setting value can be
+   *    one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Standard</p>
+   *             </li>
+   *             <li>
+   *                <p>Advanced</p>
+   *             </li>
+   *             <li>
+   *                <p>Intelligent-Tiering</p>
+   *             </li>
+   *          </ul>
+   *          <p>For the <code>/ssm/parameter-store/high-throughput-enabled</code>, and
+   *     <code>/ssm/managed-instance/activation-tier</code> setting IDs, the setting value can be true or
+   *    false.</p>
    */
   SettingValue: string | undefined;
 }

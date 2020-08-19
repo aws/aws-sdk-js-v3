@@ -64,23 +64,6 @@ export namespace DescribeObjectRequest {
 export interface DescribeObjectResponse {
   __type?: "DescribeObjectResponse";
   /**
-   * <p>An optional <code>CacheControl</code> header that allows the caller to control the
-   *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
-   *          <p>Headers with a custom user-defined value are also accepted.</p>
-   */
-  CacheControl?: string;
-
-  /**
-   * <p>The length of the object in bytes.</p>
-   */
-  ContentLength?: number;
-
-  /**
-   * <p>The content type of the object.</p>
-   */
-  ContentType?: string;
-
-  /**
    * <p>The ETag that represents a unique instance of the object.</p>
    */
   ETag?: string;
@@ -89,6 +72,23 @@ export interface DescribeObjectResponse {
    * <p>The date and time that the object was last modified.</p>
    */
   LastModified?: Date;
+
+  /**
+   * <p>The content type of the object.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The length of the object in bytes.</p>
+   */
+  ContentLength?: number;
+
+  /**
+   * <p>An optional <code>CacheControl</code> header that allows the caller to control the
+   *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
+   *          <p>Headers with a custom user-defined value are also accepted.</p>
+   */
+  CacheControl?: string;
 }
 
 export namespace DescribeObjectResponse {
@@ -100,6 +100,12 @@ export namespace DescribeObjectResponse {
 
 export interface GetObjectRequest {
   __type?: "GetObjectRequest";
+  /**
+   * <p>The range bytes of an object to retrieve. For more information about the
+   *             <code>Range</code> header, go to <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
+   */
+  Range?: string;
+
   /**
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
@@ -121,12 +127,6 @@ export interface GetObjectRequest {
    *          name. The file name can include or omit an extension. </p>
    */
   Path: string | undefined;
-
-  /**
-   * <p>The range bytes of an object to retrieve. For more information about the
-   *             <code>Range</code> header, go to <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
-   */
-  Range?: string;
 }
 
 export namespace GetObjectRequest {
@@ -139,9 +139,19 @@ export namespace GetObjectRequest {
 export interface GetObjectResponse {
   __type?: "GetObjectResponse";
   /**
+   * <p>The date and time that the object was last modified.</p>
+   */
+  LastModified?: Date;
+
+  /**
    * <p>The bytes of the object. </p>
    */
   Body?: Readable | ReadableStream | Blob;
+
+  /**
+   * <p>The length of the object in bytes.</p>
+   */
+  ContentLength?: number;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -151,9 +161,9 @@ export interface GetObjectResponse {
   CacheControl?: string;
 
   /**
-   * <p>The length of the object in bytes.</p>
+   * <p>The content type of the object.</p>
    */
-  ContentLength?: number;
+  ContentType?: string;
 
   /**
    * <p>The range of bytes to retrieve.</p>
@@ -161,19 +171,9 @@ export interface GetObjectResponse {
   ContentRange?: string;
 
   /**
-   * <p>The content type of the object.</p>
-   */
-  ContentType?: string;
-
-  /**
    * <p>The ETag that represents a unique instance of the object.</p>
    */
   ETag?: string;
-
-  /**
-   * <p>The date and time that the object was last modified.</p>
-   */
-  LastModified?: Date;
 }
 
 export namespace GetObjectResponse {
@@ -205,14 +205,14 @@ export namespace InternalServerError {
 export interface Item {
   __type?: "Item";
   /**
-   * <p>The length of the item in bytes.</p>
-   */
-  ContentLength?: number;
-
-  /**
    * <p>The content type of the item.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The length of the item in bytes.</p>
+   */
+  ContentLength?: number;
 
   /**
    * <p>The ETag that represents a unique instance of the item.</p>
@@ -288,11 +288,6 @@ export namespace ListItemsRequest {
 export interface ListItemsResponse {
   __type?: "ListItemsResponse";
   /**
-   * <p>The metadata entries for the folders and objects at the requested path.</p>
-   */
-  Items?: Item[];
-
-  /**
    * <p>The token that can be used in a request to view the next set of results. For example,
    *          you submit a <code>ListItems</code> request that matches 2,000 items with
    *             <code>MaxResults</code> set at 500. The service returns the first batch of results (up
@@ -300,6 +295,11 @@ export interface ListItemsResponse {
    *          results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The metadata entries for the folders and objects at the requested path.</p>
+   */
+  Items?: Item[];
 }
 
 export namespace ListItemsResponse {
@@ -328,11 +328,6 @@ export namespace ObjectNotFoundException {
 export interface PutObjectRequest {
   __type?: "PutObjectRequest";
   /**
-   * <p>The bytes to be stored. </p>
-   */
-  Body: Readable | ReadableStream | Blob | undefined;
-
-  /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
    *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
    *          <p>Headers with a custom user-defined value are also accepted.</p>
@@ -343,6 +338,18 @@ export interface PutObjectRequest {
    * <p>The content type of the object.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The bytes to be stored. </p>
+   */
+  Body: Readable | ReadableStream | Blob | undefined;
+
+  /**
+   * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
+   *          high-performance temporal storage class, and objects are persisted into durable storage
+   *          shortly after being received.</p>
+   */
+  StorageClass?: StorageClass | string;
 
   /**
    * <p>The path (including the file name) where the object is stored in the container.
@@ -365,13 +372,6 @@ export interface PutObjectRequest {
    *          name. The file name can include or omit an extension. </p>
    */
   Path: string | undefined;
-
-  /**
-   * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
-   *          high-performance temporal storage class, and objects are persisted into durable storage
-   *          shortly after being received.</p>
-   */
-  StorageClass?: StorageClass | string;
 }
 
 export namespace PutObjectRequest {

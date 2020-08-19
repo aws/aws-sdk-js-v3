@@ -1,4 +1,8 @@
 import { BatchDeleteBuildsCommandInput, BatchDeleteBuildsCommandOutput } from "./commands/BatchDeleteBuildsCommand";
+import {
+  BatchGetBuildBatchesCommandInput,
+  BatchGetBuildBatchesCommandOutput,
+} from "./commands/BatchGetBuildBatchesCommand";
 import { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "./commands/BatchGetBuildsCommand";
 import { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "./commands/BatchGetProjectsCommand";
 import {
@@ -9,6 +13,7 @@ import { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "./com
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import { CreateReportGroupCommandInput, CreateReportGroupCommandOutput } from "./commands/CreateReportGroupCommand";
 import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand";
+import { DeleteBuildBatchCommandInput, DeleteBuildBatchCommandOutput } from "./commands/DeleteBuildBatchCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import { DeleteReportCommandInput, DeleteReportCommandOutput } from "./commands/DeleteReportCommand";
 import { DeleteReportGroupCommandInput, DeleteReportGroupCommandOutput } from "./commands/DeleteReportGroupCommand";
@@ -21,6 +26,10 @@ import {
   DeleteSourceCredentialsCommandOutput,
 } from "./commands/DeleteSourceCredentialsCommand";
 import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
+import {
+  DescribeCodeCoveragesCommandInput,
+  DescribeCodeCoveragesCommandOutput,
+} from "./commands/DescribeCodeCoveragesCommand";
 import { DescribeTestCasesCommandInput, DescribeTestCasesCommandOutput } from "./commands/DescribeTestCasesCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
@@ -31,6 +40,11 @@ import {
   InvalidateProjectCacheCommandInput,
   InvalidateProjectCacheCommandOutput,
 } from "./commands/InvalidateProjectCacheCommand";
+import { ListBuildBatchesCommandInput, ListBuildBatchesCommandOutput } from "./commands/ListBuildBatchesCommand";
+import {
+  ListBuildBatchesForProjectCommandInput,
+  ListBuildBatchesForProjectCommandOutput,
+} from "./commands/ListBuildBatchesForProjectCommand";
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import {
   ListBuildsForProjectCommandInput,
@@ -57,7 +71,11 @@ import {
   ListSourceCredentialsCommandOutput,
 } from "./commands/ListSourceCredentialsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import { RetryBuildBatchCommandInput, RetryBuildBatchCommandOutput } from "./commands/RetryBuildBatchCommand";
+import { RetryBuildCommandInput, RetryBuildCommandOutput } from "./commands/RetryBuildCommand";
+import { StartBuildBatchCommandInput, StartBuildBatchCommandOutput } from "./commands/StartBuildBatchCommand";
 import { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
+import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "./commands/StopBuildBatchCommand";
 import { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import { UpdateReportGroupCommandInput, UpdateReportGroupCommandOutput } from "./commands/UpdateReportGroupCommand";
@@ -111,6 +129,7 @@ import {
 
 export type ServiceInputTypes =
   | BatchDeleteBuildsCommandInput
+  | BatchGetBuildBatchesCommandInput
   | BatchGetBuildsCommandInput
   | BatchGetProjectsCommandInput
   | BatchGetReportGroupsCommandInput
@@ -118,16 +137,20 @@ export type ServiceInputTypes =
   | CreateProjectCommandInput
   | CreateReportGroupCommandInput
   | CreateWebhookCommandInput
+  | DeleteBuildBatchCommandInput
   | DeleteProjectCommandInput
   | DeleteReportCommandInput
   | DeleteReportGroupCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteSourceCredentialsCommandInput
   | DeleteWebhookCommandInput
+  | DescribeCodeCoveragesCommandInput
   | DescribeTestCasesCommandInput
   | GetResourcePolicyCommandInput
   | ImportSourceCredentialsCommandInput
   | InvalidateProjectCacheCommandInput
+  | ListBuildBatchesCommandInput
+  | ListBuildBatchesForProjectCommandInput
   | ListBuildsCommandInput
   | ListBuildsForProjectCommandInput
   | ListCuratedEnvironmentImagesCommandInput
@@ -139,7 +162,11 @@ export type ServiceInputTypes =
   | ListSharedReportGroupsCommandInput
   | ListSourceCredentialsCommandInput
   | PutResourcePolicyCommandInput
+  | RetryBuildBatchCommandInput
+  | RetryBuildCommandInput
+  | StartBuildBatchCommandInput
   | StartBuildCommandInput
+  | StopBuildBatchCommandInput
   | StopBuildCommandInput
   | UpdateProjectCommandInput
   | UpdateReportGroupCommandInput
@@ -147,6 +174,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | BatchDeleteBuildsCommandOutput
+  | BatchGetBuildBatchesCommandOutput
   | BatchGetBuildsCommandOutput
   | BatchGetProjectsCommandOutput
   | BatchGetReportGroupsCommandOutput
@@ -154,16 +182,20 @@ export type ServiceOutputTypes =
   | CreateProjectCommandOutput
   | CreateReportGroupCommandOutput
   | CreateWebhookCommandOutput
+  | DeleteBuildBatchCommandOutput
   | DeleteProjectCommandOutput
   | DeleteReportCommandOutput
   | DeleteReportGroupCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteSourceCredentialsCommandOutput
   | DeleteWebhookCommandOutput
+  | DescribeCodeCoveragesCommandOutput
   | DescribeTestCasesCommandOutput
   | GetResourcePolicyCommandOutput
   | ImportSourceCredentialsCommandOutput
   | InvalidateProjectCacheCommandOutput
+  | ListBuildBatchesCommandOutput
+  | ListBuildBatchesForProjectCommandOutput
   | ListBuildsCommandOutput
   | ListBuildsForProjectCommandOutput
   | ListCuratedEnvironmentImagesCommandOutput
@@ -175,7 +207,11 @@ export type ServiceOutputTypes =
   | ListSharedReportGroupsCommandOutput
   | ListSourceCredentialsCommandOutput
   | PutResourcePolicyCommandOutput
+  | RetryBuildBatchCommandOutput
+  | RetryBuildCommandOutput
+  | StartBuildBatchCommandOutput
   | StartBuildCommandOutput
+  | StopBuildBatchCommandOutput
   | StopBuildCommandOutput
   | UpdateProjectCommandOutput
   | UpdateReportGroupCommandOutput
@@ -290,183 +326,188 @@ export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<__Http
 
 /**
  * <fullname>AWS CodeBuild</fullname>
- *          <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
- *          runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need
- *          to provision, manage, and scale your own build servers. It provides prepackaged build
- *          environments for the most popular programming languages and build tools, such as Apache
- *          Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use
- *          your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You pay only
- *          for the build time you consume. For more information about AWS CodeBuild, see the <i>
- *                <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User Guide</a>.</i>
+ *         <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
+ *             runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the
+ *             need to provision, manage, and scale your own build servers. It provides prepackaged
+ *             build environments for the most popular programming languages and build tools, such as
+ *             Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild
+ *             to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You
+ *             pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>
+ *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User
+ *                     Guide</a>.</i>
  *          </p>
- *          <p>AWS CodeBuild supports these operations:</p>
- *          <ul>
+ *         <p>AWS CodeBuild supports these operations:</p>
+ *         <ul>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>BatchDeleteBuilds</code>: Deletes one or more builds.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>BatchGetBuilds</code>: Gets information about one or more builds.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetProjects</code>: Gets information about one or more build projects.
- *                A <i>build project</i> defines how AWS CodeBuild runs a build. This includes
- *                information such as where to get the source code to build, the build environment to
- *                use, the build commands to run, and where to store the build output. A
- *                <i>build environment</i> is a representation of operating system,
- *                programming language runtime, and tools that AWS CodeBuild uses to run a build. You can add
- *                tags to build projects to help manage your resources and costs.</p>
+ *                 <p>
+ *                   <code>BatchGetProjects</code>: Gets information about one or more build
+ *                     projects. A <i>build project</i> defines how AWS CodeBuild runs a build.
+ *                     This includes information such as where to get the source code to build, the
+ *                     build environment to use, the build commands to run, and where to store the
+ *                     build output. A <i>build environment</i> is a representation of
+ *                     operating system, programming language runtime, and tools that AWS CodeBuild uses to run
+ *                     a build. You can add tags to build projects to help manage your resources and
+ *                     costs.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetReportGroups</code>: Returns an array of report groups.
- *             </p>
+ *                 <p>
+ *                     <code>BatchGetReportGroups</code>: Returns an array of report groups. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetReports</code>: Returns an array of reports.
- *             </p>
+ *                 <p>
+ *                     <code>BatchGetReports</code>: Returns an array of reports. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>CreateProject</code>: Creates a build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>CreateReportGroup</code>: Creates a report group. A report group contains a collection of reports.
- *             </p>
+ *                 <p>
+ *                     <code>CreateReportGroup</code>: Creates a report group. A report group contains
+ *                     a collection of reports. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has its
- *                source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start
- *                rebuilding the source code every time a code change is pushed to the
- *                repository.</p>
+ *                     source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start
+ *                     rebuilding the source code every time a code change is pushed to the
+ *                     repository.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>DeleteProject</code>: Deletes a build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteReport</code>: Deletes a report.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteReport</code>: Deletes a report. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteReportGroup</code>: Deletes a report group.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteReportGroup</code>: Deletes a report group. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteResourcePolicy</code>:  Deletes a resource policy that is identified by its resource ARN.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteResourcePolicy</code>: Deletes a resource policy that is identified
+ *                     by its resource ARN. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub Enterprise,
- *                or Bitbucket source credentials.</p>
+ *                 <p>
+ *                   <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub
+ *                     Enterprise, or Bitbucket source credentials.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has its
- *                source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding
- *                the source code every time a code change is pushed to the repository.</p>
+ *                     source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from
+ *                     rebuilding the source code every time a code change is pushed to the
+ *                     repository.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DescribeTestCases</code>: Returns a list of details about test cases for a report.
- *             </p>
+ *                 <p>
+ *                     <code>DescribeTestCases</code>: Returns a list of details about test cases for a
+ *                     report. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>GetResourcePolicy</code>:  Gets a resource policy that is identified by its resource ARN.
- *             </p>
+ *                 <p>
+ *                     <code>GetResourcePolicy</code>: Gets a resource policy that is identified by its
+ *                     resource ARN. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ImportSourceCredentials</code>: Imports the source repository credentials for an AWS CodeBuild project that has its source code stored
- *                in a GitHub, GitHub Enterprise, or Bitbucket repository.</p>
+ *                 <p>
+ *                   <code>ImportSourceCredentials</code>: Imports the source repository
+ *                     credentials for an AWS CodeBuild project that has its source code stored in a
+ *                     GitHub, GitHub Enterprise, or Bitbucket repository.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>InvalidateProjectCache</code>: Resets the cache for a project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListBuilds</code>: Gets a list of build IDs, with each build ID representing
- *                a single build.</p>
+ *                 <p>
+ *                   <code>ListBuilds</code>: Gets a list of build IDs, with each build ID
+ *                     representing a single build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>ListBuildsForProject</code>: Gets a list of build IDs for the specified
- *                build project, with each build ID representing a single build.</p>
+ *                     build project, with each build ID representing a single build.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListCuratedEnvironmentImages</code>: Gets information about Docker images
- *                that are managed by AWS CodeBuild.</p>
+ *                 <p>
+ *                   <code>ListCuratedEnvironmentImages</code>: Gets information about Docker
+ *                     images that are managed by AWS CodeBuild.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>ListProjects</code>: Gets a list of build project names, with each build
- *                project name representing a single build project.</p>
+ *                     project name representing a single build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReportGroups</code>: Gets a list ARNs for the report groups in the current AWS account.
- *             </p>
+ *                 <p>
+ *                     <code>ListReportGroups</code>: Gets a list ARNs for the report groups in the
+ *                     current AWS account. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReports</code>: Gets a list ARNs for the reports in the current AWS account.
- *             </p>
+ *                 <p>
+ *                     <code>ListReports</code>: Gets a list ARNs for the reports in the current AWS
+ *                     account. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReportsForReportGroup</code>: Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
- *             </p>
+ *                 <p>
+ *                     <code>ListReportsForReportGroup</code>: Returns a list of ARNs for the reports
+ *                     that belong to a <code>ReportGroup</code>. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects shared with the current AWS account or user.</p>
+ *                 <p>
+ *                   <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects
+ *                     shared with the current AWS account or user.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with report groups shared with the current AWS account or user</p>
+ *                 <p>
+ *                   <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with
+ *                     report groups shared with the current AWS account or user</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSourceCredentials</code>: Returns a list of <code>SourceCredentialsInfo</code> objects. Each <code>SourceCredentialsInfo</code> object includes
- *                the authentication type, token ARN, and type of source provider for one set of credentials.</p>
+ *                 <p>
+ *                   <code>ListSourceCredentials</code>: Returns a list of
+ *                         <code>SourceCredentialsInfo</code> objects. Each
+ *                         <code>SourceCredentialsInfo</code> object includes the authentication type,
+ *                     token ARN, and type of source provider for one set of credentials.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>PutResourcePolicy</code>:  Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code> object.
- *             </p>
+ *                 <p>
+ *                     <code>PutResourcePolicy</code>: Stores a resource policy for the ARN of a
+ *                         <code>Project</code> or <code>ReportGroup</code> object. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>StartBuild</code>: Starts running a build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>StopBuild</code>: Attempts to stop running a build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>UpdateProject</code>: Changes the settings of an existing build
- *                project.</p>
+ *                     project.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>UpdateReportGroup</code>: Changes a report group.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>UpdateWebhook</code>: Changes the settings of an existing webhook.</p>
+ *                 <p>
+ *                   <code>UpdateWebhook</code>: Changes the settings of an existing
+ *                     webhook.</p>
  *             </li>
  *          </ul>
  */

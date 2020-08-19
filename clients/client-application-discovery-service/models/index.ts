@@ -9,6 +9,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AgentConfigurationStatus {
   __type?: "AgentConfigurationStatus";
   /**
+   * <p>Information about the status of the <code>StartDataCollection</code> and
+   *         <code>StopDataCollection</code> operations. The system has recorded the data collection
+   *       operation. The agent/connector receives this command the next time it polls for a new command.
+   *     </p>
+   */
+  operationSucceeded?: boolean;
+
+  /**
    * <p>The agent/connector ID.</p>
    */
   agentId?: string;
@@ -17,14 +25,6 @@ export interface AgentConfigurationStatus {
    * <p>A description of the operation performed.</p>
    */
   description?: string;
-
-  /**
-   * <p>Information about the status of the <code>StartDataCollection</code> and
-   *         <code>StopDataCollection</code> operations. The system has recorded the data collection
-   *       operation. The agent/connector receives this command the next time it polls for a new command.
-   *     </p>
-   */
-  operationSucceeded?: boolean;
 }
 
 export namespace AgentConfigurationStatus {
@@ -43,14 +43,9 @@ export namespace AgentConfigurationStatus {
 export interface AgentInfo {
   __type?: "AgentInfo";
   /**
-   * <p>The agent or connector ID.</p>
+   * <p>The agent or connector version.</p>
    */
-  agentId?: string;
-
-  /**
-   * <p>Network details about the host where the agent or connector resides.</p>
-   */
-  agentNetworkInfoList?: AgentNetworkInfo[];
+  version?: string;
 
   /**
    * <p>Type of agent.</p>
@@ -58,9 +53,9 @@ export interface AgentInfo {
   agentType?: string;
 
   /**
-   * <p>Status of the collection process for an agent or connector.</p>
+   * <p>Agent's first registration timestamp in UTC.</p>
    */
-  collectionStatus?: string;
+  registeredTime?: string;
 
   /**
    * <p>The ID of the connector.</p>
@@ -68,9 +63,9 @@ export interface AgentInfo {
   connectorId?: string;
 
   /**
-   * <p>The health of the agent or connector.</p>
+   * <p>Status of the collection process for an agent or connector.</p>
    */
-  health?: AgentStatus | string;
+  collectionStatus?: string;
 
   /**
    * <p>The name of the host where the agent or connector resides. The host can be a server or
@@ -79,19 +74,24 @@ export interface AgentInfo {
   hostName?: string;
 
   /**
+   * <p>Network details about the host where the agent or connector resides.</p>
+   */
+  agentNetworkInfoList?: AgentNetworkInfo[];
+
+  /**
+   * <p>The health of the agent or connector.</p>
+   */
+  health?: AgentStatus | string;
+
+  /**
    * <p>Time since agent or connector health was reported.</p>
    */
   lastHealthPingTime?: string;
 
   /**
-   * <p>Agent's first registration timestamp in UTC.</p>
+   * <p>The agent or connector ID.</p>
    */
-  registeredTime?: string;
-
-  /**
-   * <p>The agent or connector version.</p>
-   */
-  version?: string;
+  agentId?: string;
 }
 
 export namespace AgentInfo {
@@ -136,14 +136,14 @@ export enum AgentStatus {
 export interface AssociateConfigurationItemsToApplicationRequest {
   __type?: "AssociateConfigurationItemsToApplicationRequest";
   /**
-   * <p>The configuration ID of an application with which items are to be associated.</p>
-   */
-  applicationConfigurationId: string | undefined;
-
-  /**
    * <p>The ID of each configuration item to be associated with an application.</p>
    */
   configurationIds: string[] | undefined;
+
+  /**
+   * <p>The configuration ID of an application with which items are to be associated.</p>
+   */
+  applicationConfigurationId: string | undefined;
 }
 
 export namespace AssociateConfigurationItemsToApplicationRequest {
@@ -190,6 +190,11 @@ export namespace AuthorizationErrorException {
 export interface BatchDeleteImportDataError {
   __type?: "BatchDeleteImportDataError";
   /**
+   * <p>The unique import ID associated with the error that occurred.</p>
+   */
+  importTaskId?: string;
+
+  /**
    * <p>The type of error that occurred for a specific import task.</p>
    */
   errorCode?: BatchDeleteImportDataErrorCode | string;
@@ -198,11 +203,6 @@ export interface BatchDeleteImportDataError {
    * <p>The description of the error that occurred for a specific import task.</p>
    */
   errorDescription?: string;
-
-  /**
-   * <p>The unique import ID associated with the error that occurred.</p>
-   */
-  importTaskId?: string;
 }
 
 export namespace BatchDeleteImportDataError {
@@ -263,10 +263,10 @@ export enum ConfigurationItemType {
 export interface ConfigurationTag {
   __type?: "ConfigurationTag";
   /**
-   * <p>The configuration ID for the item to tag. You can specify a list of keys and
-   *       values.</p>
+   * <p>A type of tag on which to filter. For example,
+   *       <i>serverType</i>.</p>
    */
-  configurationId?: string;
+  key?: string;
 
   /**
    * <p>A type of IT asset to tag.</p>
@@ -274,22 +274,22 @@ export interface ConfigurationTag {
   configurationType?: ConfigurationItemType | string;
 
   /**
-   * <p>A type of tag on which to filter. For example,
-   *       <i>serverType</i>.</p>
+   * <p>A value on which to filter. For example <i>key = serverType</i> and
+   *         <i>value = web server</i>.</p>
    */
-  key?: string;
+  value?: string;
+
+  /**
+   * <p>The configuration ID for the item to tag. You can specify a list of keys and
+   *       values.</p>
+   */
+  configurationId?: string;
 
   /**
    * <p>The time the configuration tag was created in Coordinated Universal Time
    *       (UTC).</p>
    */
   timeOfCreation?: Date;
-
-  /**
-   * <p>A value on which to filter. For example <i>key = serverType</i> and
-   *         <i>value = web server</i>.</p>
-   */
-  value?: string;
 }
 
 export namespace ConfigurationTag {
@@ -320,39 +320,6 @@ export namespace ConflictErrorException {
  */
 export interface ContinuousExportDescription {
   __type?: "ContinuousExportDescription";
-  /**
-   * <p>The type of data collector used to gather this data (currently only offered for
-   *       AGENT).</p>
-   */
-  dataSource?: DataSource | string;
-
-  /**
-   * <p>The unique ID assigned to this export.</p>
-   */
-  exportId?: string;
-
-  /**
-   * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
-   */
-  s3Bucket?: string;
-
-  /**
-   * <p>An object which describes how the data is stored.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>databaseName</code> - the name of the Glue database used to store the
-   *           schema.</p>
-   *             </li>
-   *          </ul>
-   */
-  schemaStorageConfig?: { [key: string]: string };
-
-  /**
-   * <p>The timestamp representing when the continuous export was started.</p>
-   */
-  startTime?: Date;
-
   /**
    * <p>Describes the status of the export. Can be one of the following values:</p>
    *          <ul>
@@ -433,9 +400,42 @@ export interface ContinuousExportDescription {
   statusDetail?: string;
 
   /**
+   * <p>An object which describes how the data is stored.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>databaseName</code> - the name of the Glue database used to store the
+   *           schema.</p>
+   *             </li>
+   *          </ul>
+   */
+  schemaStorageConfig?: { [key: string]: string };
+
+  /**
+   * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
+   */
+  s3Bucket?: string;
+
+  /**
+   * <p>The unique ID assigned to this export.</p>
+   */
+  exportId?: string;
+
+  /**
+   * <p>The type of data collector used to gather this data (currently only offered for
+   *       AGENT).</p>
+   */
+  dataSource?: DataSource | string;
+
+  /**
    * <p>The timestamp that represents when this continuous export was stopped.</p>
    */
   stopTime?: Date;
+
+  /**
+   * <p>The timestamp representing when the continuous export was started.</p>
+   */
+  startTime?: Date;
 }
 
 export namespace ContinuousExportDescription {
@@ -458,14 +458,14 @@ export enum ContinuousExportStatus {
 export interface CreateApplicationRequest {
   __type?: "CreateApplicationRequest";
   /**
-   * <p>Description of the application to be created.</p>
-   */
-  description?: string;
-
-  /**
    * <p>Name of the application to be created.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>Description of the application to be created.</p>
+   */
+  description?: string;
 }
 
 export namespace CreateApplicationRequest {
@@ -493,11 +493,6 @@ export namespace CreateApplicationResponse {
 export interface CreateTagsRequest {
   __type?: "CreateTagsRequest";
   /**
-   * <p>A list of configuration items that you want to tag.</p>
-   */
-  configurationIds: string[] | undefined;
-
-  /**
    * <p>Tags that you want to associate with one or more configuration items. Specify the tags
    *       that you want to create in a <i>key</i>-<i>value</i> format. For
    *       example:</p>
@@ -506,6 +501,11 @@ export interface CreateTagsRequest {
    *          </p>
    */
   tags: Tag[] | undefined;
+
+  /**
+   * <p>A list of configuration items that you want to tag.</p>
+   */
+  configurationIds: string[] | undefined;
 }
 
 export namespace CreateTagsRequest {
@@ -532,24 +532,9 @@ export namespace CreateTagsResponse {
 export interface CustomerAgentInfo {
   __type?: "CustomerAgentInfo";
   /**
-   * <p>Number of active discovery agents.</p>
+   * <p>Number of unknown discovery agents.</p>
    */
-  activeAgents: number | undefined;
-
-  /**
-   * <p>Number of blacklisted discovery agents.</p>
-   */
-  blackListedAgents: number | undefined;
-
-  /**
-   * <p>Number of healthy discovery agents</p>
-   */
-  healthyAgents: number | undefined;
-
-  /**
-   * <p>Number of discovery agents with status SHUTDOWN.</p>
-   */
-  shutdownAgents: number | undefined;
+  unknownAgents: number | undefined;
 
   /**
    * <p>Total number of discovery agents.</p>
@@ -557,14 +542,29 @@ export interface CustomerAgentInfo {
   totalAgents: number | undefined;
 
   /**
+   * <p>Number of discovery agents with status SHUTDOWN.</p>
+   */
+  shutdownAgents: number | undefined;
+
+  /**
+   * <p>Number of blacklisted discovery agents.</p>
+   */
+  blackListedAgents: number | undefined;
+
+  /**
    * <p>Number of unhealthy discovery agents.</p>
    */
   unhealthyAgents: number | undefined;
 
   /**
-   * <p>Number of unknown discovery agents.</p>
+   * <p>Number of active discovery agents.</p>
    */
-  unknownAgents: number | undefined;
+  activeAgents: number | undefined;
+
+  /**
+   * <p>Number of healthy discovery agents</p>
+   */
+  healthyAgents: number | undefined;
 }
 
 export namespace CustomerAgentInfo {
@@ -580,14 +580,9 @@ export namespace CustomerAgentInfo {
 export interface CustomerConnectorInfo {
   __type?: "CustomerConnectorInfo";
   /**
-   * <p>Number of active discovery connectors.</p>
+   * <p>Number of discovery connectors with status SHUTDOWN,</p>
    */
-  activeConnectors: number | undefined;
-
-  /**
-   * <p>Number of blacklisted discovery connectors.</p>
-   */
-  blackListedConnectors: number | undefined;
+  shutdownConnectors: number | undefined;
 
   /**
    * <p>Number of healthy discovery connectors.</p>
@@ -595,9 +590,14 @@ export interface CustomerConnectorInfo {
   healthyConnectors: number | undefined;
 
   /**
-   * <p>Number of discovery connectors with status SHUTDOWN,</p>
+   * <p>Number of blacklisted discovery connectors.</p>
    */
-  shutdownConnectors: number | undefined;
+  blackListedConnectors: number | undefined;
+
+  /**
+   * <p>Number of unknown discovery connectors.</p>
+   */
+  unknownConnectors: number | undefined;
 
   /**
    * <p>Total number of discovery connectors.</p>
@@ -610,9 +610,9 @@ export interface CustomerConnectorInfo {
   unhealthyConnectors: number | undefined;
 
   /**
-   * <p>Number of unknown discovery connectors.</p>
+   * <p>Number of active discovery connectors.</p>
    */
-  unknownConnectors: number | undefined;
+  activeConnectors: number | undefined;
 }
 
 export namespace CustomerConnectorInfo {
@@ -691,11 +691,10 @@ export namespace DeleteTagsResponse {
 export interface DescribeAgentsRequest {
   __type?: "DescribeAgentsRequest";
   /**
-   * <p>The agent or the Connector IDs for which you want information. If you specify no IDs,
-   *       the system returns information about all agents/Connectors associated with your AWS user
-   *       account.</p>
+   * <p>The total number of agents/Connectors to return in a single page of output. The maximum
+   *       value is 100.</p>
    */
-  agentIds?: string[];
+  maxResults?: number;
 
   /**
    * <p>You can filter the request using various logical operators and a
@@ -707,18 +706,19 @@ export interface DescribeAgentsRequest {
   filters?: Filter[];
 
   /**
-   * <p>The total number of agents/Connectors to return in a single page of output. The maximum
-   *       value is 100.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>Token to retrieve the next set of results. For example, if you previously specified 100
    *       IDs for <code>DescribeAgentsRequest$agentIds</code> but set
    *         <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along
    *       with a token. Use that token in this query to get the next set of 10.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The agent or the Connector IDs for which you want information. If you specify no IDs,
+   *       the system returns information about all agents/Connectors associated with your AWS user
+   *       account.</p>
+   */
+  agentIds?: string[];
 }
 
 export namespace DescribeAgentsRequest {
@@ -731,20 +731,20 @@ export namespace DescribeAgentsRequest {
 export interface DescribeAgentsResponse {
   __type?: "DescribeAgentsResponse";
   /**
-   * <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your
-   *       user account if you did not specify an agent/Connector ID. The output includes agent/Connector
-   *       IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name
-   *       where the agent/Connector resides, and the version number of each agent/Connector.</p>
-   */
-  agentsInfo?: AgentInfo[];
-
-  /**
    * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
    *         <code>DescribeAgentsRequest$agentIds</code> but set
    *         <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along
    *       with this token. Use this token in the next query to retrieve the next set of 10.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your
+   *       user account if you did not specify an agent/Connector ID. The output includes agent/Connector
+   *       IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name
+   *       where the agent/Connector resides, and the version number of each agent/Connector.</p>
+   */
+  agentsInfo?: AgentInfo[];
 }
 
 export namespace DescribeAgentsResponse {
@@ -787,9 +787,9 @@ export namespace DescribeConfigurationsResponse {
 export interface DescribeContinuousExportsRequest {
   __type?: "DescribeContinuousExportsRequest";
   /**
-   * <p>The unique IDs assigned to the exports.</p>
+   * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
    */
-  exportIds?: string[];
+  nextToken?: string;
 
   /**
    * <p>A number between 1 and 100 specifying the maximum number of continuous export
@@ -798,9 +798,9 @@ export interface DescribeContinuousExportsRequest {
   maxResults?: number;
 
   /**
-   * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
+   * <p>The unique IDs assigned to the exports.</p>
    */
-  nextToken?: string;
+  exportIds?: string[];
 }
 
 export namespace DescribeContinuousExportsRequest {
@@ -813,14 +813,14 @@ export namespace DescribeContinuousExportsRequest {
 export interface DescribeContinuousExportsResponse {
   __type?: "DescribeContinuousExportsResponse";
   /**
-   * <p>A list of continuous export descriptions.</p>
-   */
-  descriptions?: ContinuousExportDescription[];
-
-  /**
    * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of continuous export descriptions.</p>
+   */
+  descriptions?: ContinuousExportDescription[];
 }
 
 export namespace DescribeContinuousExportsResponse {
@@ -833,15 +833,15 @@ export namespace DescribeContinuousExportsResponse {
 export interface DescribeExportConfigurationsRequest {
   __type?: "DescribeExportConfigurationsRequest";
   /**
-   * <p>A list of continuous export IDs to search for.</p>
-   */
-  exportIds?: string[];
-
-  /**
    * <p>A number between 1 and 100 specifying the maximum number of continuous export
    *       descriptions returned.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>A list of continuous export IDs to search for.</p>
+   */
+  exportIds?: string[];
 
   /**
    * <p>The token from the previous call to describe-export-tasks.</p>
@@ -860,14 +860,14 @@ export namespace DescribeExportConfigurationsRequest {
 export interface DescribeExportConfigurationsResponse {
   __type?: "DescribeExportConfigurationsResponse";
   /**
-   * <p></p>
-   */
-  exportsInfo?: ExportInfo[];
-
-  /**
    * <p>The token from the previous call to describe-export-tasks.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p></p>
+   */
+  exportsInfo?: ExportInfo[];
 }
 
 export namespace DescribeExportConfigurationsResponse {
@@ -880,6 +880,23 @@ export namespace DescribeExportConfigurationsResponse {
 
 export interface DescribeExportTasksRequest {
   __type?: "DescribeExportTasksRequest";
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *         <code>DescribeExportTasks</code> request where <code>maxResults</code> was used and the
+   *       results exceeded the value of that parameter. Pagination continues from the end of the
+   *       previous results that returned the <code>nextToken</code> value. This value is null when there
+   *       are no more results to return.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of volume results returned by <code>DescribeExportTasks</code> in
+   *       paginated output. When this parameter is used, <code>DescribeExportTasks</code> only returns
+   *         <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+   *       response element.</p>
+   */
+  maxResults?: number;
+
   /**
    * <p>One or more unique identifiers used to query the status of an export request.</p>
    */
@@ -896,23 +913,6 @@ export interface DescribeExportTasksRequest {
    *          </ul>
    */
   filters?: ExportFilter[];
-
-  /**
-   * <p>The maximum number of volume results returned by <code>DescribeExportTasks</code> in
-   *       paginated output. When this parameter is used, <code>DescribeExportTasks</code> only returns
-   *         <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-   *       response element.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *         <code>DescribeExportTasks</code> request where <code>maxResults</code> was used and the
-   *       results exceeded the value of that parameter. Pagination continues from the end of the
-   *       previous results that returned the <code>nextToken</code> value. This value is null when there
-   *       are no more results to return.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace DescribeExportTasksRequest {
@@ -958,14 +958,14 @@ export interface DescribeImportTasksRequest {
   filters?: ImportTaskFilter[];
 
   /**
-   * <p>The maximum number of results that you want this request to return, up to 100.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The token to request a specific page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results that you want this request to return, up to 100.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace DescribeImportTasksRequest {
@@ -999,13 +999,6 @@ export namespace DescribeImportTasksResponse {
 export interface DescribeTagsRequest {
   __type?: "DescribeTagsRequest";
   /**
-   * <p>You can filter the list using a <i>key</i>-<i>value</i>
-   *       format. You can separate these items by using logical operators. Allowed filters include
-   *         <code>tagKey</code>, <code>tagValue</code>, and <code>configurationId</code>. </p>
-   */
-  filters?: TagFilter[];
-
-  /**
    * <p>The total number of items to return in a single page of output. The maximum value is
    *       100.</p>
    */
@@ -1015,6 +1008,13 @@ export interface DescribeTagsRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>You can filter the list using a <i>key</i>-<i>value</i>
+   *       format. You can separate these items by using logical operators. Allowed filters include
+   *         <code>tagKey</code>, <code>tagValue</code>, and <code>configurationId</code>. </p>
+   */
+  filters?: TagFilter[];
 }
 
 export namespace DescribeTagsRequest {
@@ -1027,15 +1027,15 @@ export namespace DescribeTagsRequest {
 export interface DescribeTagsResponse {
   __type?: "DescribeTagsResponse";
   /**
-   * <p>The call returns a token. Use this token to get the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Depending on the input, this is a list of configuration items tagged with a specific
    *       tag, or a list of tags for a specific configuration item.</p>
    */
   tags?: ConfigurationTag[];
+
+  /**
+   * <p>The call returns a token. Use this token to get the next set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeTagsResponse {
@@ -1048,14 +1048,14 @@ export namespace DescribeTagsResponse {
 export interface DisassociateConfigurationItemsFromApplicationRequest {
   __type?: "DisassociateConfigurationItemsFromApplicationRequest";
   /**
-   * <p>Configuration ID of an application from which each item is disassociated.</p>
-   */
-  applicationConfigurationId: string | undefined;
-
-  /**
    * <p>Configuration ID of each item to be disassociated from an application.</p>
    */
   configurationIds: string[] | undefined;
+
+  /**
+   * <p>Configuration ID of an application from which each item is disassociated.</p>
+   */
+  applicationConfigurationId: string | undefined;
 }
 
 export namespace DisassociateConfigurationItemsFromApplicationRequest {
@@ -1138,15 +1138,9 @@ export namespace ExportFilter {
 export interface ExportInfo {
   __type?: "ExportInfo";
   /**
-   * <p>A URL for an Amazon S3 bucket where you can review the exported data. The URL is
-   *       displayed only if the export succeeded.</p>
+   * <p>A status message provided for API callers.</p>
    */
-  configurationsDownloadUrl?: string;
-
-  /**
-   * <p>A unique identifier used to query an export.</p>
-   */
-  exportId: string | undefined;
+  statusMessage: string | undefined;
 
   /**
    * <p>The time that the data export was initiated.</p>
@@ -1154,9 +1148,9 @@ export interface ExportInfo {
   exportRequestTime: Date | undefined;
 
   /**
-   * <p>The status of the data export job.</p>
+   * <p>A unique identifier used to query an export.</p>
    */
-  exportStatus: ExportStatus | string | undefined;
+  exportId: string | undefined;
 
   /**
    * <p>If true, the export of agent information exceeded the size limit for a single export
@@ -1167,13 +1161,6 @@ export interface ExportInfo {
   isTruncated?: boolean;
 
   /**
-   * <p>The <code>endTime</code> used in the <code>StartExportTask</code> request. If no
-   *         <code>endTime</code> was requested, this result does not appear in
-   *       <code>ExportInfo</code>.</p>
-   */
-  requestedEndTime?: Date;
-
-  /**
    * <p>The value of <code>startTime</code> parameter in the <code>StartExportTask</code>
    *       request. If no <code>startTime</code> was requested, this result does not appear in
    *         <code>ExportInfo</code>.</p>
@@ -1181,9 +1168,22 @@ export interface ExportInfo {
   requestedStartTime?: Date;
 
   /**
-   * <p>A status message provided for API callers.</p>
+   * <p>The status of the data export job.</p>
    */
-  statusMessage: string | undefined;
+  exportStatus: ExportStatus | string | undefined;
+
+  /**
+   * <p>The <code>endTime</code> used in the <code>StartExportTask</code> request. If no
+   *         <code>endTime</code> was requested, this result does not appear in
+   *       <code>ExportInfo</code>.</p>
+   */
+  requestedEndTime?: Date;
+
+  /**
+   * <p>A URL for an Amazon S3 bucket where you can review the exported data. The URL is
+   *       displayed only if the export succeeded.</p>
+   */
+  configurationsDownloadUrl?: string;
 }
 
 export namespace ExportInfo {
@@ -1208,6 +1208,13 @@ export enum ExportStatus {
 export interface Filter {
   __type?: "Filter";
   /**
+   * <p>A string value on which to filter. For example, if you choose the
+   *         <code>destinationServer.osVersion</code> filter name, you could specify <code>Ubuntu</code>
+   *       for the value.</p>
+   */
+  values: string[] | undefined;
+
+  /**
    * <p>A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS,
    *       CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as
    *       though concatenated by <i>AND</i>. If you specify multiple values for a
@@ -1221,13 +1228,6 @@ export interface Filter {
    * <p>The name of the filter.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>A string value on which to filter. For example, if you choose the
-   *         <code>destinationServer.osVersion</code> filter name, you could specify <code>Ubuntu</code>
-   *       for the value.</p>
-   */
-  values: string[] | undefined;
 }
 
 export namespace Filter {
@@ -1251,24 +1251,14 @@ export namespace GetDiscoverySummaryRequest {
 export interface GetDiscoverySummaryResponse {
   __type?: "GetDiscoverySummaryResponse";
   /**
-   * <p>Details about discovered agents, including agent status and health.</p>
-   */
-  agentSummary?: CustomerAgentInfo;
-
-  /**
-   * <p>The number of applications discovered.</p>
-   */
-  applications?: number;
-
-  /**
    * <p>Details about discovered connectors, including connector status and health.</p>
    */
   connectorSummary?: CustomerConnectorInfo;
 
   /**
-   * <p>The number of servers discovered.</p>
+   * <p>Details about discovered agents, including agent status and health.</p>
    */
-  servers?: number;
+  agentSummary?: CustomerAgentInfo;
 
   /**
    * <p>The number of servers mapped to applications.</p>
@@ -1276,9 +1266,19 @@ export interface GetDiscoverySummaryResponse {
   serversMappedToApplications?: number;
 
   /**
+   * <p>The number of applications discovered.</p>
+   */
+  applications?: number;
+
+  /**
    * <p>The number of servers mapped to tags.</p>
    */
   serversMappedtoTags?: number;
+
+  /**
+   * <p>The number of servers discovered.</p>
+   */
+  servers?: number;
 }
 
 export namespace GetDiscoverySummaryResponse {
@@ -1325,10 +1325,44 @@ export enum ImportStatus {
 export interface ImportTask {
   __type?: "ImportTask";
   /**
-   * <p>The total number of application records in the import file that failed to be
+   * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
+   */
+  importUrl?: string;
+
+  /**
+   * <p>The time that the import task request was made, presented in the Unix time stamp
+   *       format.</p>
+   */
+  importRequestTime?: Date;
+
+  /**
+   * <p>A unique token used to prevent the same import request from occurring more than once. If
+   *       you didn't provide a token, a token was automatically generated when the import task request
+   *       was sent.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The status of the import task. An import can have the status of
+   *         <code>IMPORT_COMPLETE</code> and still have some records fail to import from the overall
+   *       request. More information can be found in the downloadable archive defined in the
+   *         <code>errorsAndFailedEntriesZip</code> field, or in the Migration Hub management
+   *       console.</p>
+   */
+  status?: ImportStatus | string;
+
+  /**
+   * <p>A descriptive name for an import task. You can use this name to filter future requests
+   *       related to this import task, such as identifying applications and servers that were included
+   *       in this import task. We recommend that you use a meaningful name for each import task.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The total number of server records in the import file that were successfully
    *       imported.</p>
    */
-  applicationImportFailure?: number;
+  serverImportSuccess?: number;
 
   /**
    * <p>The total number of application records in the import file that were successfully
@@ -1337,11 +1371,22 @@ export interface ImportTask {
   applicationImportSuccess?: number;
 
   /**
-   * <p>A unique token used to prevent the same import request from occurring more than once. If
-   *       you didn't provide a token, a token was automatically generated when the import task request
-   *       was sent.</p>
+   * <p>The time that the import task request finished, presented in the Unix time stamp
+   *       format.</p>
    */
-  clientRequestToken?: string;
+  importCompletionTime?: Date;
+
+  /**
+   * <p>The unique ID for a specific import task. These IDs aren't globally unique, but they are
+   *       unique within an AWS account.</p>
+   */
+  importTaskId?: string;
+
+  /**
+   * <p>The time that the import task request was deleted, presented in the Unix time stamp
+   *       format.</p>
+   */
+  importDeletedTime?: Date;
 
   /**
    * <p>A link to a compressed archive folder (in the ZIP format) that contains an error log and a
@@ -1359,60 +1404,15 @@ export interface ImportTask {
   errorsAndFailedEntriesZip?: string;
 
   /**
-   * <p>The time that the import task request finished, presented in the Unix time stamp
-   *       format.</p>
-   */
-  importCompletionTime?: Date;
-
-  /**
-   * <p>The time that the import task request was deleted, presented in the Unix time stamp
-   *       format.</p>
-   */
-  importDeletedTime?: Date;
-
-  /**
-   * <p>The time that the import task request was made, presented in the Unix time stamp
-   *       format.</p>
-   */
-  importRequestTime?: Date;
-
-  /**
-   * <p>The unique ID for a specific import task. These IDs aren't globally unique, but they are
-   *       unique within an AWS account.</p>
-   */
-  importTaskId?: string;
-
-  /**
-   * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
-   */
-  importUrl?: string;
-
-  /**
-   * <p>A descriptive name for an import task. You can use this name to filter future requests
-   *       related to this import task, such as identifying applications and servers that were included
-   *       in this import task. We recommend that you use a meaningful name for each import task.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The total number of server records in the import file that failed to be imported.</p>
    */
   serverImportFailure?: number;
 
   /**
-   * <p>The total number of server records in the import file that were successfully
+   * <p>The total number of application records in the import file that failed to be
    *       imported.</p>
    */
-  serverImportSuccess?: number;
-
-  /**
-   * <p>The status of the import task. An import can have the status of
-   *         <code>IMPORT_COMPLETE</code> and still have some records fail to import from the overall
-   *       request. More information can be found in the downloadable archive defined in the
-   *         <code>errorsAndFailedEntriesZip</code> field, or in the Migration Hub management
-   *       console.</p>
-   */
-  status?: ImportStatus | string;
+  applicationImportFailure?: number;
 }
 
 export namespace ImportTask {
@@ -1433,15 +1433,15 @@ export namespace ImportTask {
 export interface ImportTaskFilter {
   __type?: "ImportTaskFilter";
   /**
-   * <p>The name, status, or import task ID for a specific import task.</p>
-   */
-  name?: ImportTaskFilterName | string;
-
-  /**
    * <p>An array of strings that you can provide to match against a specific name, status, or
    *       import task ID to filter the results for your import task queries.</p>
    */
   values?: string[];
+
+  /**
+   * <p>The name, status, or import task ID for a specific import task.</p>
+   */
+  name?: ImportTaskFilterName | string;
 }
 
 export namespace ImportTaskFilter {
@@ -1498,6 +1498,14 @@ export interface ListConfigurationsRequest {
   configurationType: ConfigurationItemType | string | undefined;
 
   /**
+   * <p>Token to retrieve the next set of results. For example, if a previous call to
+   *       ListConfigurations returned 100 items, but you set
+   *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
+   *       along with a token. Use that token in this query to get the next set of 10.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>You can filter the request using various logical operators and a
    *         <i>key</i>-<i>value</i> format. For example: </p>
    *          <p>
@@ -1513,14 +1521,6 @@ export interface ListConfigurationsRequest {
    * <p>The total number of items to return. The maximum value is 100.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>Token to retrieve the next set of results. For example, if a previous call to
-   *       ListConfigurations returned 100 items, but you set
-   *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
-   *       along with a token. Use that token in this query to get the next set of 10.</p>
-   */
-  nextToken?: string;
 
   /**
    * <p>Certain filter criteria return output that can be sorted in ascending or descending
@@ -1540,12 +1540,6 @@ export namespace ListConfigurationsRequest {
 export interface ListConfigurationsResponse {
   __type?: "ListConfigurationsResponse";
   /**
-   * <p>Returns configuration details, including the configuration ID, attribute names, and
-   *       attribute values.</p>
-   */
-  configurations?: { [key: string]: string }[];
-
-  /**
    * <p>Token to retrieve the next set of results. For example, if your call to
    *       ListConfigurations returned 100 items, but you set
    *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
@@ -1553,6 +1547,12 @@ export interface ListConfigurationsResponse {
    *       10.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Returns configuration details, including the configuration ID, attribute names, and
+   *       attribute values.</p>
+   */
+  configurations?: { [key: string]: string }[];
 }
 
 export namespace ListConfigurationsResponse {
@@ -1565,9 +1565,12 @@ export namespace ListConfigurationsResponse {
 export interface ListServerNeighborsRequest {
   __type?: "ListServerNeighborsRequest";
   /**
-   * <p>Configuration ID of the server for which neighbors are being listed.</p>
+   * <p>Token to retrieve the next set of results. For example, if you previously specified 100
+   *       IDs for <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
+   *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
+   *       along with a token. Use that token in this query to get the next set of 10.</p>
    */
-  configurationId: string | undefined;
+  nextToken?: string;
 
   /**
    * <p>Maximum number of results to return in a single page of output.</p>
@@ -1580,18 +1583,15 @@ export interface ListServerNeighborsRequest {
   neighborConfigurationIds?: string[];
 
   /**
-   * <p>Token to retrieve the next set of results. For example, if you previously specified 100
-   *       IDs for <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
-   *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
-   *       along with a token. Use that token in this query to get the next set of 10.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Flag to indicate if port and protocol information is needed as part of the
    *       response.</p>
    */
   portInformationNeeded?: boolean;
+
+  /**
+   * <p>Configuration ID of the server for which neighbors are being listed.</p>
+   */
+  configurationId: string | undefined;
 }
 
 export namespace ListServerNeighborsRequest {
@@ -1604,16 +1604,6 @@ export namespace ListServerNeighborsRequest {
 export interface ListServerNeighborsResponse {
   __type?: "ListServerNeighborsResponse";
   /**
-   * <p>Count of distinct servers that are one hop away from the given server.</p>
-   */
-  knownDependencyCount?: number;
-
-  /**
-   * <p>List of distinct servers that are one hop away from the given server.</p>
-   */
-  neighbors: NeighborConnectionDetail[] | undefined;
-
-  /**
    * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
    *         <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
    *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
@@ -1621,6 +1611,16 @@ export interface ListServerNeighborsResponse {
    *       10.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>List of distinct servers that are one hop away from the given server.</p>
+   */
+  neighbors: NeighborConnectionDetail[] | undefined;
+
+  /**
+   * <p>Count of distinct servers that are one hop away from the given server.</p>
+   */
+  knownDependencyCount?: number;
 }
 
 export namespace ListServerNeighborsResponse {
@@ -1636,9 +1636,9 @@ export namespace ListServerNeighborsResponse {
 export interface NeighborConnectionDetail {
   __type?: "NeighborConnectionDetail";
   /**
-   * <p>The number of open network connections with the neighboring server.</p>
+   * <p>The network protocol used for the connection.</p>
    */
-  connectionsCount: number | undefined;
+  transportProtocol?: string;
 
   /**
    * <p>The destination network port for the connection.</p>
@@ -1656,9 +1656,9 @@ export interface NeighborConnectionDetail {
   sourceServerId: string | undefined;
 
   /**
-   * <p>The network protocol used for the connection.</p>
+   * <p>The number of open network connections with the neighboring server.</p>
    */
-  transportProtocol?: string;
+  connectionsCount: number | undefined;
 }
 
 export namespace NeighborConnectionDetail {
@@ -1690,14 +1690,14 @@ export namespace OperationNotPermittedException {
 export interface OrderByElement {
   __type?: "OrderByElement";
   /**
-   * <p>The field on which to order.</p>
-   */
-  fieldName: string | undefined;
-
-  /**
    * <p>Ordering direction.</p>
    */
   sortOrder?: OrderString | string;
+
+  /**
+   * <p>The field on which to order.</p>
+   */
+  fieldName: string | undefined;
 }
 
 export namespace OrderByElement {
@@ -1779,10 +1779,14 @@ export namespace StartContinuousExportRequest {
 export interface StartContinuousExportResponse {
   __type?: "StartContinuousExportResponse";
   /**
-   * <p>The type of data collector used to gather this data (currently only offered for
-   *       AGENT).</p>
+   * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
    */
-  dataSource?: DataSource | string;
+  s3Bucket?: string;
+
+  /**
+   * <p>The timestamp representing when the continuous export was started.</p>
+   */
+  startTime?: Date;
 
   /**
    * <p>The unique ID assigned to this export.</p>
@@ -1790,9 +1794,10 @@ export interface StartContinuousExportResponse {
   exportId?: string;
 
   /**
-   * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
+   * <p>The type of data collector used to gather this data (currently only offered for
+   *       AGENT).</p>
    */
-  s3Bucket?: string;
+  dataSource?: DataSource | string;
 
   /**
    * <p>A dictionary which describes how the data is stored.</p>
@@ -1805,11 +1810,6 @@ export interface StartContinuousExportResponse {
    *          </ul>
    */
   schemaStorageConfig?: { [key: string]: string };
-
-  /**
-   * <p>The timestamp representing when the continuous export was started.</p>
-   */
-  startTime?: Date;
 }
 
 export namespace StartContinuousExportResponse {
@@ -1862,23 +1862,6 @@ export namespace StartDataCollectionByAgentIdsResponse {
 export interface StartExportTaskRequest {
   __type?: "StartExportTaskRequest";
   /**
-   * <p>The end timestamp for exported data from the single Application Discovery Agent
-   *       selected in the filters. If no value is specified, exported data includes the most recent data
-   *       collected by the agent.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>The file format for the returned export data. Default value is <code>CSV</code>.
-   *         <b>Note:</b>
-   *             <i>The</i>
-   *             <code>GRAPHML</code>
-   *             <i>option has been deprecated.</i>
-   *          </p>
-   */
-  exportDataFormat?: (ExportDataFormat | string)[];
-
-  /**
    * <p>If a filter is present, it selects the single <code>agentId</code> of the Application
    *       Discovery Agent for which data is exported. The <code>agentId</code> can be found in the
    *       results of the <code>DescribeAgents</code> API or CLI. If no filter is present,
@@ -1889,11 +1872,28 @@ export interface StartExportTaskRequest {
   filters?: ExportFilter[];
 
   /**
+   * <p>The end timestamp for exported data from the single Application Discovery Agent
+   *       selected in the filters. If no value is specified, exported data includes the most recent data
+   *       collected by the agent.</p>
+   */
+  endTime?: Date;
+
+  /**
    * <p>The start timestamp for exported data from the single Application Discovery Agent
    *       selected in the filters. If no value is specified, data is exported starting from the first
    *       data collected by the agent.</p>
    */
   startTime?: Date;
+
+  /**
+   * <p>The file format for the returned export data. Default value is <code>CSV</code>.
+   *         <b>Note:</b>
+   *             <i>The</i>
+   *             <code>GRAPHML</code>
+   *             <i>option has been deprecated.</i>
+   *          </p>
+   */
+  exportDataFormat?: (ExportDataFormat | string)[];
 }
 
 export namespace StartExportTaskRequest {
@@ -1921,15 +1921,11 @@ export namespace StartExportTaskResponse {
 export interface StartImportTaskRequest {
   __type?: "StartImportTaskRequest";
   /**
-   * <p>Optional. A unique token that you can provide to prevent the same import request from
-   *       occurring more than once. If you don't provide a token, a token is automatically
-   *       generated.</p>
-   *
-   *          <p>Sending more than one <code>StartImportTask</code> request with the same client request
-   *       token will return information about the original import task with that client request
-   *       token.</p>
+   * <p>A descriptive name for this request. You can use this name to filter future requests
+   *       related to this import task, such as identifying applications and servers that were included
+   *       in this import task. We recommend that you use a meaningful name for each import task.</p>
    */
-  clientRequestToken?: string;
+  name: string | undefined;
 
   /**
    * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
@@ -1943,11 +1939,15 @@ export interface StartImportTaskRequest {
   importUrl: string | undefined;
 
   /**
-   * <p>A descriptive name for this request. You can use this name to filter future requests
-   *       related to this import task, such as identifying applications and servers that were included
-   *       in this import task. We recommend that you use a meaningful name for each import task.</p>
+   * <p>Optional. A unique token that you can provide to prevent the same import request from
+   *       occurring more than once. If you don't provide a token, a token is automatically
+   *       generated.</p>
+   *
+   *          <p>Sending more than one <code>StartImportTask</code> request with the same client request
+   *       token will return information about the original import task with that client request
+   *       token.</p>
    */
-  name: string | undefined;
+  clientRequestToken?: string;
 }
 
 export namespace StartImportTaskRequest {
@@ -2049,14 +2049,14 @@ export namespace StopDataCollectionByAgentIdsResponse {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The type of tag on which to filter.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>A value for a tag key on which to filter.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The type of tag on which to filter.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Tag {
@@ -2098,14 +2098,14 @@ export interface UpdateApplicationRequest {
   configurationId: string | undefined;
 
   /**
-   * <p>New description of the application to be updated.</p>
-   */
-  description?: string;
-
-  /**
    * <p>New name of the application to be updated.</p>
    */
   name?: string;
+
+  /**
+   * <p>New description of the application to be updated.</p>
+   */
+  description?: string;
 }
 
 export namespace UpdateApplicationRequest {

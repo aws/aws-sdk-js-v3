@@ -285,20 +285,20 @@ export const deserializeAws_restJson1DescribeObjectCommand = async (
     ETag: undefined,
     LastModified: undefined,
   };
-  if (output.headers["cache-control"] !== undefined) {
-    contents.CacheControl = output.headers["cache-control"];
-  }
-  if (output.headers["content-length"] !== undefined) {
-    contents.ContentLength = parseInt(output.headers["content-length"], 10);
-  }
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
   }
   if (output.headers["last-modified"] !== undefined) {
     contents.LastModified = new Date(output.headers["last-modified"]);
+  }
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
+  }
+  if (output.headers["content-length"] !== undefined) {
+    contents.ContentLength = parseInt(output.headers["content-length"], 10);
+  }
+  if (output.headers["cache-control"] !== undefined) {
+    contents.CacheControl = output.headers["cache-control"];
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -375,23 +375,23 @@ export const deserializeAws_restJson1GetObjectCommand = async (
     ETag: undefined,
     LastModified: undefined,
   };
-  if (output.headers["cache-control"] !== undefined) {
-    contents.CacheControl = output.headers["cache-control"];
+  if (output.headers["last-modified"] !== undefined) {
+    contents.LastModified = new Date(output.headers["last-modified"]);
   }
   if (output.headers["content-length"] !== undefined) {
     contents.ContentLength = parseInt(output.headers["content-length"], 10);
   }
-  if (output.headers["content-range"] !== undefined) {
-    contents.ContentRange = output.headers["content-range"];
+  if (output.headers["cache-control"] !== undefined) {
+    contents.CacheControl = output.headers["cache-control"];
   }
   if (output.headers["content-type"] !== undefined) {
     contents.ContentType = output.headers["content-type"];
   }
+  if (output.headers["content-range"] !== undefined) {
+    contents.ContentRange = output.headers["content-range"];
+  }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
-  }
-  if (output.headers["last-modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["last-modified"]);
   }
   const data: any = output.body;
   contents.Body = data;

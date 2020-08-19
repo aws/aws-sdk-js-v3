@@ -7,6 +7,10 @@ import {
   ApplyEnvironmentManagedActionCommandOutput,
 } from "../commands/ApplyEnvironmentManagedActionCommand";
 import {
+  AssociateEnvironmentOperationsRoleCommandInput,
+  AssociateEnvironmentOperationsRoleCommandOutput,
+} from "../commands/AssociateEnvironmentOperationsRoleCommand";
+import {
   CheckDNSAvailabilityCommandInput,
   CheckDNSAvailabilityCommandOutput,
 } from "../commands/CheckDNSAvailabilityCommand";
@@ -99,9 +103,17 @@ import {
   DescribePlatformVersionCommandOutput,
 } from "../commands/DescribePlatformVersionCommand";
 import {
+  DisassociateEnvironmentOperationsRoleCommandInput,
+  DisassociateEnvironmentOperationsRoleCommandOutput,
+} from "../commands/DisassociateEnvironmentOperationsRoleCommand";
+import {
   ListAvailableSolutionStacksCommandInput,
   ListAvailableSolutionStacksCommandOutput,
 } from "../commands/ListAvailableSolutionStacksCommand";
+import {
+  ListPlatformBranchesCommandInput,
+  ListPlatformBranchesCommandOutput,
+} from "../commands/ListPlatformBranchesCommand";
 import {
   ListPlatformVersionsCommandInput,
   ListPlatformVersionsCommandOutput,
@@ -164,6 +176,7 @@ import {
   ApplicationVersionLifecycleConfig,
   ApplyEnvironmentManagedActionRequest,
   ApplyEnvironmentManagedActionResult,
+  AssociateEnvironmentOperationsRoleMessage,
   AutoScalingGroup,
   BuildConfiguration,
   Builder,
@@ -211,6 +224,7 @@ import {
   DescribeInstancesHealthResult,
   DescribePlatformVersionRequest,
   DescribePlatformVersionResult,
+  DisassociateEnvironmentOperationsRoleMessage,
   ElasticBeanstalkServiceException,
   EnvironmentDescription,
   EnvironmentDescriptionsMessage,
@@ -232,6 +246,8 @@ import {
   LaunchConfiguration,
   LaunchTemplate,
   ListAvailableSolutionStacksResultMessage,
+  ListPlatformBranchesRequest,
+  ListPlatformBranchesResult,
   ListPlatformVersionsRequest,
   ListPlatformVersionsResult,
   ListTagsForResourceMessage,
@@ -246,6 +262,7 @@ import {
   OperationInProgressException,
   OptionRestrictionRegex,
   OptionSpecification,
+  PlatformBranchSummary,
   PlatformDescription,
   PlatformFilter,
   PlatformFramework,
@@ -266,6 +283,7 @@ import {
   S3Location,
   S3LocationNotInServiceRegionException,
   S3SubscriptionRequiredException,
+  SearchFilter,
   SingleInstanceHealth,
   SolutionStackDescription,
   SourceBuildInformation,
@@ -336,6 +354,22 @@ export const serializeAws_queryApplyEnvironmentManagedActionCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryApplyEnvironmentManagedActionRequest(input, context),
     Action: "ApplyEnvironmentManagedAction",
+    Version: "2010-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryAssociateEnvironmentOperationsRoleCommand = async (
+  input: AssociateEnvironmentOperationsRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryAssociateEnvironmentOperationsRoleMessage(input, context),
+    Action: "AssociateEnvironmentOperationsRole",
     Version: "2010-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -753,6 +787,22 @@ export const serializeAws_queryDescribePlatformVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDisassociateEnvironmentOperationsRoleCommand = async (
+  input: DisassociateEnvironmentOperationsRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDisassociateEnvironmentOperationsRoleMessage(input, context),
+    Action: "DisassociateEnvironmentOperationsRole",
+    Version: "2010-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryListAvailableSolutionStacksCommand = async (
   input: ListAvailableSolutionStacksCommandInput,
   context: __SerdeContext
@@ -762,6 +812,22 @@ export const serializeAws_queryListAvailableSolutionStacksCommand = async (
   };
   const body = buildFormUrlencodedString({
     Action: "ListAvailableSolutionStacks",
+    Version: "2010-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryListPlatformBranchesCommand = async (
+  input: ListPlatformBranchesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListPlatformBranchesRequest(input, context),
+    Action: "ListPlatformBranches",
     Version: "2010-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1100,6 +1166,57 @@ const deserializeAws_queryApplyEnvironmentManagedActionCommandError = async (
     case "com.amazonaws.elasticbeanstalk#ManagedActionInvalidStateException":
       response = {
         ...(await deserializeAws_queryManagedActionInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryAssociateEnvironmentOperationsRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateEnvironmentOperationsRoleCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryAssociateEnvironmentOperationsRoleCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: AssociateEnvironmentOperationsRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryAssociateEnvironmentOperationsRoleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateEnvironmentOperationsRoleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InsufficientPrivilegesException":
+    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2664,6 +2781,57 @@ const deserializeAws_queryDescribePlatformVersionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDisassociateEnvironmentOperationsRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDisassociateEnvironmentOperationsRoleCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DisassociateEnvironmentOperationsRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDisassociateEnvironmentOperationsRoleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InsufficientPrivilegesException":
+    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
+      response = {
+        ...(await deserializeAws_queryInsufficientPrivilegesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryListAvailableSolutionStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2689,6 +2857,53 @@ const deserializeAws_queryListAvailableSolutionStacksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAvailableSolutionStacksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryListPlatformBranchesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlatformBranchesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryListPlatformBranchesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListPlatformBranchesResult(data.ListPlatformBranchesResult, context);
+  const response: ListPlatformBranchesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListPlatformBranchesResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListPlatformBranchesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlatformBranchesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3847,11 +4062,11 @@ const serializeAws_queryAbortEnvironmentUpdateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentId !== undefined) {
-    entries["EnvironmentId"] = input.EnvironmentId;
-  }
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
+  }
+  if (input.EnvironmentId !== undefined) {
+    entries["EnvironmentId"] = input.EnvironmentId;
   }
   return entries;
 };
@@ -3871,15 +4086,15 @@ const serializeAws_queryApplicationResourceLifecycleConfig = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServiceRole !== undefined) {
-    entries["ServiceRole"] = input.ServiceRole;
-  }
   if (input.VersionLifecycleConfig !== undefined) {
     const memberEntries = serializeAws_queryApplicationVersionLifecycleConfig(input.VersionLifecycleConfig, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLifecycleConfig.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ServiceRole !== undefined) {
+    entries["ServiceRole"] = input.ServiceRole;
   }
   return entries;
 };
@@ -3889,17 +4104,17 @@ const serializeAws_queryApplicationVersionLifecycleConfig = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxAgeRule !== undefined) {
-    const memberEntries = serializeAws_queryMaxAgeRule(input.MaxAgeRule, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `MaxAgeRule.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.MaxCountRule !== undefined) {
     const memberEntries = serializeAws_queryMaxCountRule(input.MaxCountRule, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MaxCountRule.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxAgeRule !== undefined) {
+    const memberEntries = serializeAws_queryMaxAgeRule(input.MaxAgeRule, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MaxAgeRule.${key}`;
       entries[loc] = value;
     });
   }
@@ -3923,19 +4138,33 @@ const serializeAws_queryApplyEnvironmentManagedActionRequest = (
   return entries;
 };
 
+const serializeAws_queryAssociateEnvironmentOperationsRoleMessage = (
+  input: AssociateEnvironmentOperationsRoleMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.EnvironmentName !== undefined) {
+    entries["EnvironmentName"] = input.EnvironmentName;
+  }
+  if (input.OperationsRole !== undefined) {
+    entries["OperationsRole"] = input.OperationsRole;
+  }
+  return entries;
+};
+
 const serializeAws_queryBuildConfiguration = (input: BuildConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ArtifactName !== undefined) {
-    entries["ArtifactName"] = input.ArtifactName;
-  }
   if (input.CodeBuildServiceRole !== undefined) {
     entries["CodeBuildServiceRole"] = input.CodeBuildServiceRole;
+  }
+  if (input.Image !== undefined) {
+    entries["Image"] = input.Image;
   }
   if (input.ComputeType !== undefined) {
     entries["ComputeType"] = input.ComputeType;
   }
-  if (input.Image !== undefined) {
-    entries["Image"] = input.Image;
+  if (input.ArtifactName !== undefined) {
+    entries["ArtifactName"] = input.ArtifactName;
   }
   if (input.TimeoutInMinutes !== undefined) {
     entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
@@ -3959,18 +4188,18 @@ const serializeAws_queryComposeEnvironmentsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
-  if (input.GroupName !== undefined) {
-    entries["GroupName"] = input.GroupName;
-  }
   if (input.VersionLabels !== undefined) {
     const memberEntries = serializeAws_queryVersionLabels(input.VersionLabels, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLabels.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
+  }
+  if (input.GroupName !== undefined) {
+    entries["GroupName"] = input.GroupName;
   }
   return entries;
 };
@@ -3983,14 +4212,14 @@ const serializeAws_queryConfigurationOptionSetting = (
   if (input.Namespace !== undefined) {
     entries["Namespace"] = input.Namespace;
   }
+  if (input.Value !== undefined) {
+    entries["Value"] = input.Value;
+  }
   if (input.OptionName !== undefined) {
     entries["OptionName"] = input.OptionName;
   }
   if (input.ResourceName !== undefined) {
     entries["ResourceName"] = input.ResourceName;
-  }
-  if (input.Value !== undefined) {
-    entries["Value"] = input.Value;
   }
   return entries;
 };
@@ -4013,23 +4242,23 @@ const serializeAws_queryConfigurationOptionSettingsList = (
 
 const serializeAws_queryCreateApplicationMessage = (input: CreateApplicationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
   if (input.Description !== undefined) {
     entries["Description"] = input.Description;
-  }
-  if (input.ResourceLifecycleConfig !== undefined) {
-    const memberEntries = serializeAws_queryApplicationResourceLifecycleConfig(input.ResourceLifecycleConfig, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ResourceLifecycleConfig.${key}`;
-      entries[loc] = value;
-    });
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
+  }
+  if (input.ResourceLifecycleConfig !== undefined) {
+    const memberEntries = serializeAws_queryApplicationResourceLifecycleConfig(input.ResourceLifecycleConfig, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceLifecycleConfig.${key}`;
       entries[loc] = value;
     });
   }
@@ -4041,8 +4270,38 @@ const serializeAws_queryCreateApplicationVersionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTags(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.VersionLabel !== undefined) {
+    entries["VersionLabel"] = input.VersionLabel;
+  }
+  if (input.SourceBuildInformation !== undefined) {
+    const memberEntries = serializeAws_querySourceBuildInformation(input.SourceBuildInformation, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourceBuildInformation.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.ApplicationName !== undefined) {
     entries["ApplicationName"] = input.ApplicationName;
+  }
+  if (input.Description !== undefined) {
+    entries["Description"] = input.Description;
+  }
+  if (input.SourceBundle !== undefined) {
+    const memberEntries = serializeAws_queryS3Location(input.SourceBundle, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourceBundle.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Process !== undefined) {
+    entries["Process"] = input.Process;
   }
   if (input.AutoCreateApplication !== undefined) {
     entries["AutoCreateApplication"] = input.AutoCreateApplication;
@@ -4054,36 +4313,6 @@ const serializeAws_queryCreateApplicationVersionMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Description !== undefined) {
-    entries["Description"] = input.Description;
-  }
-  if (input.Process !== undefined) {
-    entries["Process"] = input.Process;
-  }
-  if (input.SourceBuildInformation !== undefined) {
-    const memberEntries = serializeAws_querySourceBuildInformation(input.SourceBuildInformation, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SourceBuildInformation.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.SourceBundle !== undefined) {
-    const memberEntries = serializeAws_queryS3Location(input.SourceBundle, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SourceBundle.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.VersionLabel !== undefined) {
-    entries["VersionLabel"] = input.VersionLabel;
-  }
   return entries;
 };
 
@@ -4092,6 +4321,26 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTags(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TemplateName !== undefined) {
+    entries["TemplateName"] = input.TemplateName;
+  }
+  if (input.PlatformArn !== undefined) {
+    entries["PlatformArn"] = input.PlatformArn;
+  }
+  if (input.OptionSettings !== undefined) {
+    const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OptionSettings.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.ApplicationName !== undefined) {
     entries["ApplicationName"] = input.ApplicationName;
   }
@@ -4101,19 +4350,6 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
   if (input.EnvironmentId !== undefined) {
     entries["EnvironmentId"] = input.EnvironmentId;
   }
-  if (input.OptionSettings !== undefined) {
-    const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `OptionSettings.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.PlatformArn !== undefined) {
-    entries["PlatformArn"] = input.PlatformArn;
-  }
-  if (input.SolutionStackName !== undefined) {
-    entries["SolutionStackName"] = input.SolutionStackName;
-  }
   if (input.SourceConfiguration !== undefined) {
     const memberEntries = serializeAws_querySourceConfiguration(input.SourceConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4121,56 +4357,14 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.TemplateName !== undefined) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input.SolutionStackName !== undefined) {
+    entries["SolutionStackName"] = input.SolutionStackName;
   }
   return entries;
 };
 
 const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
-  if (input.CNAMEPrefix !== undefined) {
-    entries["CNAMEPrefix"] = input.CNAMEPrefix;
-  }
-  if (input.Description !== undefined) {
-    entries["Description"] = input.Description;
-  }
-  if (input.EnvironmentName !== undefined) {
-    entries["EnvironmentName"] = input.EnvironmentName;
-  }
-  if (input.GroupName !== undefined) {
-    entries["GroupName"] = input.GroupName;
-  }
-  if (input.OptionSettings !== undefined) {
-    const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `OptionSettings.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.OptionsToRemove !== undefined) {
-    const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `OptionsToRemove.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.PlatformArn !== undefined) {
-    entries["PlatformArn"] = input.PlatformArn;
-  }
-  if (input.SolutionStackName !== undefined) {
-    entries["SolutionStackName"] = input.SolutionStackName;
-  }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4178,8 +4372,8 @@ const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMess
       entries[loc] = value;
     });
   }
-  if (input.TemplateName !== undefined) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input.SolutionStackName !== undefined) {
+    entries["SolutionStackName"] = input.SolutionStackName;
   }
   if (input.Tier !== undefined) {
     const memberEntries = serializeAws_queryEnvironmentTier(input.Tier, context);
@@ -4188,8 +4382,46 @@ const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMess
       entries[loc] = value;
     });
   }
+  if (input.OptionSettings !== undefined) {
+    const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OptionSettings.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.OperationsRole !== undefined) {
+    entries["OperationsRole"] = input.OperationsRole;
+  }
+  if (input.TemplateName !== undefined) {
+    entries["TemplateName"] = input.TemplateName;
+  }
+  if (input.CNAMEPrefix !== undefined) {
+    entries["CNAMEPrefix"] = input.CNAMEPrefix;
+  }
+  if (input.EnvironmentName !== undefined) {
+    entries["EnvironmentName"] = input.EnvironmentName;
+  }
   if (input.VersionLabel !== undefined) {
     entries["VersionLabel"] = input.VersionLabel;
+  }
+  if (input.Description !== undefined) {
+    entries["Description"] = input.Description;
+  }
+  if (input.GroupName !== undefined) {
+    entries["GroupName"] = input.GroupName;
+  }
+  if (input.PlatformArn !== undefined) {
+    entries["PlatformArn"] = input.PlatformArn;
+  }
+  if (input.OptionsToRemove !== undefined) {
+    const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OptionsToRemove.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
   }
   return entries;
 };
@@ -4202,12 +4434,15 @@ const serializeAws_queryCreatePlatformVersionRequest = (
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
   }
-  if (input.OptionSettings !== undefined) {
-    const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `OptionSettings.${key}`;
+      const loc = `Tags.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.PlatformName !== undefined) {
+    entries["PlatformName"] = input.PlatformName;
   }
   if (input.PlatformDefinitionBundle !== undefined) {
     const memberEntries = serializeAws_queryS3Location(input.PlatformDefinitionBundle, context);
@@ -4216,16 +4451,13 @@ const serializeAws_queryCreatePlatformVersionRequest = (
       entries[loc] = value;
     });
   }
-  if (input.PlatformName !== undefined) {
-    entries["PlatformName"] = input.PlatformName;
-  }
   if (input.PlatformVersion !== undefined) {
     entries["PlatformVersion"] = input.PlatformVersion;
   }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTags(input.Tags, context);
+  if (input.OptionSettings !== undefined) {
+    const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
+      const loc = `OptionSettings.${key}`;
       entries[loc] = value;
     });
   }
@@ -4234,11 +4466,11 @@ const serializeAws_queryCreatePlatformVersionRequest = (
 
 const serializeAws_queryDeleteApplicationMessage = (input: DeleteApplicationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
   if (input.TerminateEnvByForce !== undefined) {
     entries["TerminateEnvByForce"] = input.TerminateEnvByForce;
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
   }
   return entries;
 };
@@ -4248,14 +4480,14 @@ const serializeAws_queryDeleteApplicationVersionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
   if (input.DeleteSourceBundle !== undefined) {
     entries["DeleteSourceBundle"] = input.DeleteSourceBundle;
   }
   if (input.VersionLabel !== undefined) {
     entries["VersionLabel"] = input.VersionLabel;
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
   }
   return entries;
 };
@@ -4265,11 +4497,11 @@ const serializeAws_queryDeleteConfigurationTemplateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
   if (input.TemplateName !== undefined) {
     entries["TemplateName"] = input.TemplateName;
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
   }
   return entries;
 };
@@ -4319,12 +4551,6 @@ const serializeAws_queryDescribeApplicationVersionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
   }
@@ -4334,6 +4560,12 @@ const serializeAws_queryDescribeApplicationVersionsMessage = (
       const loc = `VersionLabels.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
   }
   return entries;
 };
@@ -4349,6 +4581,12 @@ const serializeAws_queryDescribeConfigurationOptionsMessage = (
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
   }
+  if (input.PlatformArn !== undefined) {
+    entries["PlatformArn"] = input.PlatformArn;
+  }
+  if (input.TemplateName !== undefined) {
+    entries["TemplateName"] = input.TemplateName;
+  }
   if (input.Options !== undefined) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.Options, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4356,14 +4594,8 @@ const serializeAws_queryDescribeConfigurationOptionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.PlatformArn !== undefined) {
-    entries["PlatformArn"] = input.PlatformArn;
-  }
   if (input.SolutionStackName !== undefined) {
     entries["SolutionStackName"] = input.SolutionStackName;
-  }
-  if (input.TemplateName !== undefined) {
-    entries["TemplateName"] = input.TemplateName;
   }
   return entries;
 };
@@ -4373,14 +4605,14 @@ const serializeAws_queryDescribeConfigurationSettingsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
   }
   if (input.TemplateName !== undefined) {
     entries["TemplateName"] = input.TemplateName;
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
   }
   return entries;
 };
@@ -4411,17 +4643,17 @@ const serializeAws_queryDescribeEnvironmentManagedActionHistoryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentId !== undefined) {
-    entries["EnvironmentId"] = input.EnvironmentId;
-  }
-  if (input.EnvironmentName !== undefined) {
-    entries["EnvironmentName"] = input.EnvironmentName;
-  }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
   }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
+  }
+  if (input.EnvironmentId !== undefined) {
+    entries["EnvironmentId"] = input.EnvironmentId;
+  }
+  if (input.EnvironmentName !== undefined) {
+    entries["EnvironmentName"] = input.EnvironmentName;
   }
   return entries;
 };
@@ -4431,14 +4663,14 @@ const serializeAws_queryDescribeEnvironmentManagedActionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentId !== undefined) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input.Status !== undefined) {
+    entries["Status"] = input.Status;
   }
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
   }
-  if (input.Status !== undefined) {
-    entries["Status"] = input.Status;
+  if (input.EnvironmentId !== undefined) {
+    entries["EnvironmentId"] = input.EnvironmentId;
   }
   return entries;
 };
@@ -4465,12 +4697,27 @@ const serializeAws_queryDescribeEnvironmentsMessage = (
   if (input.ApplicationName !== undefined) {
     entries["ApplicationName"] = input.ApplicationName;
   }
+  if (input.VersionLabel !== undefined) {
+    entries["VersionLabel"] = input.VersionLabel;
+  }
+  if (input.IncludeDeleted !== undefined) {
+    entries["IncludeDeleted"] = input.IncludeDeleted;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
   if (input.EnvironmentIds !== undefined) {
     const memberEntries = serializeAws_queryEnvironmentIdList(input.EnvironmentIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnvironmentIds.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.IncludedDeletedBackTo !== undefined) {
+    entries["IncludedDeletedBackTo"] = input.IncludedDeletedBackTo.toISOString().split(".")[0] + "Z";
   }
   if (input.EnvironmentNames !== undefined) {
     const memberEntries = serializeAws_queryEnvironmentNamesList(input.EnvironmentNames, context);
@@ -4479,31 +4726,19 @@ const serializeAws_queryDescribeEnvironmentsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.IncludeDeleted !== undefined) {
-    entries["IncludeDeleted"] = input.IncludeDeleted;
-  }
-  if (input.IncludedDeletedBackTo !== undefined) {
-    entries["IncludedDeletedBackTo"] = input.IncludedDeletedBackTo.toISOString().split(".")[0] + "Z";
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
-  if (input.VersionLabel !== undefined) {
-    entries["VersionLabel"] = input.VersionLabel;
-  }
   return entries;
 };
 
 const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input.VersionLabel !== undefined) {
+    entries["VersionLabel"] = input.VersionLabel;
   }
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.RequestId !== undefined) {
+    entries["RequestId"] = input.RequestId;
   }
   if (input.EnvironmentId !== undefined) {
     entries["EnvironmentId"] = input.EnvironmentId;
@@ -4511,29 +4746,26 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
   }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
-  if (input.PlatformArn !== undefined) {
-    entries["PlatformArn"] = input.PlatformArn;
-  }
-  if (input.RequestId !== undefined) {
-    entries["RequestId"] = input.RequestId;
+  if (input.StartTime !== undefined) {
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Severity !== undefined) {
     entries["Severity"] = input.Severity;
   }
-  if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
+  }
+  if (input.PlatformArn !== undefined) {
+    entries["PlatformArn"] = input.PlatformArn;
   }
   if (input.TemplateName !== undefined) {
     entries["TemplateName"] = input.TemplateName;
-  }
-  if (input.VersionLabel !== undefined) {
-    entries["VersionLabel"] = input.VersionLabel;
   }
   return entries;
 };
@@ -4543,21 +4775,21 @@ const serializeAws_queryDescribeInstancesHealthRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.EnvironmentName !== undefined) {
+    entries["EnvironmentName"] = input.EnvironmentName;
+  }
+  if (input.EnvironmentId !== undefined) {
+    entries["EnvironmentId"] = input.EnvironmentId;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
   if (input.AttributeNames !== undefined) {
     const memberEntries = serializeAws_queryInstancesHealthAttributes(input.AttributeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeNames.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.EnvironmentId !== undefined) {
-    entries["EnvironmentId"] = input.EnvironmentId;
-  }
-  if (input.EnvironmentName !== undefined) {
-    entries["EnvironmentName"] = input.EnvironmentName;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -4569,6 +4801,17 @@ const serializeAws_queryDescribePlatformVersionRequest = (
   const entries: any = {};
   if (input.PlatformArn !== undefined) {
     entries["PlatformArn"] = input.PlatformArn;
+  }
+  return entries;
+};
+
+const serializeAws_queryDisassociateEnvironmentOperationsRoleMessage = (
+  input: DisassociateEnvironmentOperationsRoleMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.EnvironmentName !== undefined) {
+    entries["EnvironmentName"] = input.EnvironmentName;
   }
   return entries;
 };
@@ -4608,14 +4851,14 @@ const serializeAws_queryEnvironmentNamesList = (input: string[], context: __Serd
 
 const serializeAws_queryEnvironmentTier = (input: EnvironmentTier, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
-    entries["Name"] = input.Name;
+  if (input.Version !== undefined) {
+    entries["Version"] = input.Version;
   }
   if (input.Type !== undefined) {
     entries["Type"] = input.Type;
   }
-  if (input.Version !== undefined) {
-    entries["Version"] = input.Version;
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
   }
   return entries;
 };
@@ -4633,6 +4876,27 @@ const serializeAws_queryInstancesHealthAttributes = (
   return entries;
 };
 
+const serializeAws_queryListPlatformBranchesRequest = (
+  input: ListPlatformBranchesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Filters !== undefined) {
+    const memberEntries = serializeAws_querySearchFilters(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryListPlatformVersionsRequest = (
   input: ListPlatformVersionsRequest,
   context: __SerdeContext
@@ -4645,11 +4909,11 @@ const serializeAws_queryListPlatformVersionsRequest = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
   }
   return entries;
 };
@@ -4681,28 +4945,28 @@ const serializeAws_queryMaxAgeRule = (input: MaxAgeRule, context: __SerdeContext
 
 const serializeAws_queryMaxCountRule = (input: MaxCountRule, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DeleteSourceFromS3 !== undefined) {
-    entries["DeleteSourceFromS3"] = input.DeleteSourceFromS3;
+  if (input.MaxCount !== undefined) {
+    entries["MaxCount"] = input.MaxCount;
   }
   if (input.Enabled !== undefined) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.MaxCount !== undefined) {
-    entries["MaxCount"] = input.MaxCount;
+  if (input.DeleteSourceFromS3 !== undefined) {
+    entries["DeleteSourceFromS3"] = input.DeleteSourceFromS3;
   }
   return entries;
 };
 
 const serializeAws_queryOptionSpecification = (input: OptionSpecification, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
+  if (input.ResourceName !== undefined) {
+    entries["ResourceName"] = input.ResourceName;
   }
   if (input.OptionName !== undefined) {
     entries["OptionName"] = input.OptionName;
   }
-  if (input.ResourceName !== undefined) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
   }
   return entries;
 };
@@ -4722,18 +4986,18 @@ const serializeAws_queryOptionsSpecifierList = (input: OptionSpecification[], co
 
 const serializeAws_queryPlatformFilter = (input: PlatformFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Operator !== undefined) {
-    entries["Operator"] = input.Operator;
-  }
-  if (input.Type !== undefined) {
-    entries["Type"] = input.Type;
-  }
   if (input.Values !== undefined) {
     const memberEntries = serializeAws_queryPlatformFilterValueList(input.Values, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.Type !== undefined) {
+    entries["Type"] = input.Type;
+  }
+  if (input.Operator !== undefined) {
+    entries["Operator"] = input.Operator;
   }
   return entries;
 };
@@ -4794,11 +5058,11 @@ const serializeAws_queryRequestEnvironmentInfoMessage = (
 
 const serializeAws_queryRestartAppServerMessage = (input: RestartAppServerMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentId !== undefined) {
-    entries["EnvironmentId"] = input.EnvironmentId;
-  }
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
+  }
+  if (input.EnvironmentId !== undefined) {
+    entries["EnvironmentId"] = input.EnvironmentId;
   }
   return entries;
 };
@@ -4808,14 +5072,14 @@ const serializeAws_queryRetrieveEnvironmentInfoMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentId !== undefined) {
-    entries["EnvironmentId"] = input.EnvironmentId;
-  }
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
   }
   if (input.InfoType !== undefined) {
     entries["InfoType"] = input.InfoType;
+  }
+  if (input.EnvironmentId !== undefined) {
+    entries["EnvironmentId"] = input.EnvironmentId;
   }
   return entries;
 };
@@ -4831,27 +5095,68 @@ const serializeAws_queryS3Location = (input: S3Location, context: __SerdeContext
   return entries;
 };
 
+const serializeAws_querySearchFilter = (input: SearchFilter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Operator !== undefined) {
+    entries["Operator"] = input.Operator;
+  }
+  if (input.Values !== undefined) {
+    const memberEntries = serializeAws_querySearchFilterValues(input.Values, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Values.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Attribute !== undefined) {
+    entries["Attribute"] = input.Attribute;
+  }
+  return entries;
+};
+
+const serializeAws_querySearchFilters = (input: SearchFilter[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    const memberEntries = serializeAws_querySearchFilter(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_querySearchFilterValues = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_querySourceBuildInformation = (input: SourceBuildInformation, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceLocation !== undefined) {
-    entries["SourceLocation"] = input.SourceLocation;
+  if (input.SourceType !== undefined) {
+    entries["SourceType"] = input.SourceType;
   }
   if (input.SourceRepository !== undefined) {
     entries["SourceRepository"] = input.SourceRepository;
   }
-  if (input.SourceType !== undefined) {
-    entries["SourceType"] = input.SourceType;
+  if (input.SourceLocation !== undefined) {
+    entries["SourceLocation"] = input.SourceLocation;
   }
   return entries;
 };
 
 const serializeAws_querySourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
   if (input.TemplateName !== undefined) {
     entries["TemplateName"] = input.TemplateName;
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
   }
   return entries;
 };
@@ -4861,14 +5166,14 @@ const serializeAws_querySwapEnvironmentCNAMEsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DestinationEnvironmentId !== undefined) {
-    entries["DestinationEnvironmentId"] = input.DestinationEnvironmentId;
+  if (input.SourceEnvironmentId !== undefined) {
+    entries["SourceEnvironmentId"] = input.SourceEnvironmentId;
   }
   if (input.DestinationEnvironmentName !== undefined) {
     entries["DestinationEnvironmentName"] = input.DestinationEnvironmentName;
   }
-  if (input.SourceEnvironmentId !== undefined) {
-    entries["SourceEnvironmentId"] = input.SourceEnvironmentId;
+  if (input.DestinationEnvironmentId !== undefined) {
+    entries["DestinationEnvironmentId"] = input.DestinationEnvironmentId;
   }
   if (input.SourceEnvironmentName !== undefined) {
     entries["SourceEnvironmentName"] = input.SourceEnvironmentName;
@@ -4878,11 +5183,11 @@ const serializeAws_querySwapEnvironmentCNAMEsMessage = (
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
-    entries["Key"] = input.Key;
-  }
   if (input.Value !== undefined) {
     entries["Value"] = input.Value;
+  }
+  if (input.Key !== undefined) {
+    entries["Key"] = input.Key;
   }
   return entries;
 };
@@ -4931,14 +5236,14 @@ const serializeAws_queryTerminateEnvironmentMessage = (
   if (input.EnvironmentId !== undefined) {
     entries["EnvironmentId"] = input.EnvironmentId;
   }
+  if (input.TerminateResources !== undefined) {
+    entries["TerminateResources"] = input.TerminateResources;
+  }
   if (input.EnvironmentName !== undefined) {
     entries["EnvironmentName"] = input.EnvironmentName;
   }
   if (input.ForceTerminate !== undefined) {
     entries["ForceTerminate"] = input.ForceTerminate;
-  }
-  if (input.TerminateResources !== undefined) {
-    entries["TerminateResources"] = input.TerminateResources;
   }
   return entries;
 };
@@ -4977,14 +5282,14 @@ const serializeAws_queryUpdateApplicationVersionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.VersionLabel !== undefined) {
+    entries["VersionLabel"] = input.VersionLabel;
+  }
   if (input.ApplicationName !== undefined) {
     entries["ApplicationName"] = input.ApplicationName;
   }
   if (input.Description !== undefined) {
     entries["Description"] = input.Description;
-  }
-  if (input.VersionLabel !== undefined) {
-    entries["VersionLabel"] = input.VersionLabel;
   }
   return entries;
 };
@@ -4994,9 +5299,6 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
   if (input.Description !== undefined) {
     entries["Description"] = input.Description;
   }
@@ -5006,6 +5308,9 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
   }
   if (input.OptionsToRemove !== undefined) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
@@ -5022,20 +5327,8 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
 
 const serializeAws_queryUpdateEnvironmentMessage = (input: UpdateEnvironmentMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName !== undefined) {
-    entries["ApplicationName"] = input.ApplicationName;
-  }
   if (input.Description !== undefined) {
     entries["Description"] = input.Description;
-  }
-  if (input.EnvironmentId !== undefined) {
-    entries["EnvironmentId"] = input.EnvironmentId;
-  }
-  if (input.EnvironmentName !== undefined) {
-    entries["EnvironmentName"] = input.EnvironmentName;
-  }
-  if (input.GroupName !== undefined) {
-    entries["GroupName"] = input.GroupName;
   }
   if (input.OptionSettings !== undefined) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
@@ -5043,6 +5336,31 @@ const serializeAws_queryUpdateEnvironmentMessage = (input: UpdateEnvironmentMess
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.VersionLabel !== undefined) {
+    entries["VersionLabel"] = input.VersionLabel;
+  }
+  if (input.SolutionStackName !== undefined) {
+    entries["SolutionStackName"] = input.SolutionStackName;
+  }
+  if (input.EnvironmentId !== undefined) {
+    entries["EnvironmentId"] = input.EnvironmentId;
+  }
+  if (input.Tier !== undefined) {
+    const memberEntries = serializeAws_queryEnvironmentTier(input.Tier, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tier.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.EnvironmentName !== undefined) {
+    entries["EnvironmentName"] = input.EnvironmentName;
+  }
+  if (input.ApplicationName !== undefined) {
+    entries["ApplicationName"] = input.ApplicationName;
+  }
+  if (input.GroupName !== undefined) {
+    entries["GroupName"] = input.GroupName;
   }
   if (input.OptionsToRemove !== undefined) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
@@ -5054,21 +5372,8 @@ const serializeAws_queryUpdateEnvironmentMessage = (input: UpdateEnvironmentMess
   if (input.PlatformArn !== undefined) {
     entries["PlatformArn"] = input.PlatformArn;
   }
-  if (input.SolutionStackName !== undefined) {
-    entries["SolutionStackName"] = input.SolutionStackName;
-  }
   if (input.TemplateName !== undefined) {
     entries["TemplateName"] = input.TemplateName;
-  }
-  if (input.Tier !== undefined) {
-    const memberEntries = serializeAws_queryEnvironmentTier(input.Tier, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tier.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.VersionLabel !== undefined) {
-    entries["VersionLabel"] = input.VersionLabel;
   }
   return entries;
 };
@@ -5106,8 +5411,8 @@ const serializeAws_queryValidateConfigurationSettingsMessage = (
   if (input.ApplicationName !== undefined) {
     entries["ApplicationName"] = input.ApplicationName;
   }
-  if (input.EnvironmentName !== undefined) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input.TemplateName !== undefined) {
+    entries["TemplateName"] = input.TemplateName;
   }
   if (input.OptionSettings !== undefined) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
@@ -5116,8 +5421,8 @@ const serializeAws_queryValidateConfigurationSettingsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.TemplateName !== undefined) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input.EnvironmentName !== undefined) {
+    entries["EnvironmentName"] = input.EnvironmentName;
   }
   return entries;
 };
@@ -5145,20 +5450,20 @@ const serializeAws_queryVersionLabelsList = (input: string[], context: __SerdeCo
 const deserializeAws_queryApplicationDescription = (output: any, context: __SerdeContext): ApplicationDescription => {
   let contents: any = {
     __type: "ApplicationDescription",
-    ApplicationArn: undefined,
-    ApplicationName: undefined,
-    ConfigurationTemplates: undefined,
-    DateCreated: undefined,
-    DateUpdated: undefined,
     Description: undefined,
-    ResourceLifecycleConfig: undefined,
+    DateCreated: undefined,
+    ConfigurationTemplates: undefined,
+    DateUpdated: undefined,
+    ApplicationName: undefined,
     Versions: undefined,
+    ApplicationArn: undefined,
+    ResourceLifecycleConfig: undefined,
   };
-  if (output["ApplicationArn"] !== undefined) {
-    contents.ApplicationArn = output["ApplicationArn"];
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = output["ApplicationName"];
+  if (output["DateCreated"] !== undefined) {
+    contents.DateCreated = new Date(output["DateCreated"]);
   }
   if (output.ConfigurationTemplates === "") {
     contents.ConfigurationTemplates = [];
@@ -5169,20 +5474,11 @@ const deserializeAws_queryApplicationDescription = (output: any, context: __Serd
       context
     );
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = new Date(output["DateCreated"]);
-  }
   if (output["DateUpdated"] !== undefined) {
     contents.DateUpdated = new Date(output["DateUpdated"]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["ResourceLifecycleConfig"] !== undefined) {
-    contents.ResourceLifecycleConfig = deserializeAws_queryApplicationResourceLifecycleConfig(
-      output["ResourceLifecycleConfig"],
-      context
-    );
+  if (output["ApplicationName"] !== undefined) {
+    contents.ApplicationName = output["ApplicationName"];
   }
   if (output.Versions === "") {
     contents.Versions = [];
@@ -5190,6 +5486,15 @@ const deserializeAws_queryApplicationDescription = (output: any, context: __Serd
   if (output["Versions"] !== undefined && output["Versions"]["member"] !== undefined) {
     contents.Versions = deserializeAws_queryVersionLabelsList(
       __getArrayIfSingleItem(output["Versions"]["member"]),
+      context
+    );
+  }
+  if (output["ApplicationArn"] !== undefined) {
+    contents.ApplicationArn = output["ApplicationArn"];
+  }
+  if (output["ResourceLifecycleConfig"] !== undefined) {
+    contents.ResourceLifecycleConfig = deserializeAws_queryApplicationResourceLifecycleConfig(
+      output["ResourceLifecycleConfig"],
       context
     );
   }
@@ -5240,19 +5545,19 @@ const deserializeAws_queryApplicationDescriptionsMessage = (
 const deserializeAws_queryApplicationMetrics = (output: any, context: __SerdeContext): ApplicationMetrics => {
   let contents: any = {
     __type: "ApplicationMetrics",
-    Duration: undefined,
-    Latency: undefined,
     RequestCount: undefined,
+    Latency: undefined,
+    Duration: undefined,
     StatusCodes: undefined,
   };
-  if (output["Duration"] !== undefined) {
-    contents.Duration = parseInt(output["Duration"]);
+  if (output["RequestCount"] !== undefined) {
+    contents.RequestCount = parseInt(output["RequestCount"]);
   }
   if (output["Latency"] !== undefined) {
     contents.Latency = deserializeAws_queryLatency(output["Latency"], context);
   }
-  if (output["RequestCount"] !== undefined) {
-    contents.RequestCount = parseInt(output["RequestCount"]);
+  if (output["Duration"] !== undefined) {
+    contents.Duration = parseInt(output["Duration"]);
   }
   if (output["StatusCodes"] !== undefined) {
     contents.StatusCodes = deserializeAws_queryStatusCodes(output["StatusCodes"], context);
@@ -5266,17 +5571,17 @@ const deserializeAws_queryApplicationResourceLifecycleConfig = (
 ): ApplicationResourceLifecycleConfig => {
   let contents: any = {
     __type: "ApplicationResourceLifecycleConfig",
-    ServiceRole: undefined,
     VersionLifecycleConfig: undefined,
+    ServiceRole: undefined,
   };
-  if (output["ServiceRole"] !== undefined) {
-    contents.ServiceRole = output["ServiceRole"];
-  }
   if (output["VersionLifecycleConfig"] !== undefined) {
     contents.VersionLifecycleConfig = deserializeAws_queryApplicationVersionLifecycleConfig(
       output["VersionLifecycleConfig"],
       context
     );
+  }
+  if (output["ServiceRole"] !== undefined) {
+    contents.ServiceRole = output["ServiceRole"];
   }
   return contents;
 };
@@ -5287,17 +5592,17 @@ const deserializeAws_queryApplicationResourceLifecycleDescriptionMessage = (
 ): ApplicationResourceLifecycleDescriptionMessage => {
   let contents: any = {
     __type: "ApplicationResourceLifecycleDescriptionMessage",
-    ApplicationName: undefined,
     ResourceLifecycleConfig: undefined,
+    ApplicationName: undefined,
   };
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = output["ApplicationName"];
-  }
   if (output["ResourceLifecycleConfig"] !== undefined) {
     contents.ResourceLifecycleConfig = deserializeAws_queryApplicationResourceLifecycleConfig(
       output["ResourceLifecycleConfig"],
       context
     );
+  }
+  if (output["ApplicationName"] !== undefined) {
+    contents.ApplicationName = output["ApplicationName"];
   }
   return contents;
 };
@@ -5308,34 +5613,25 @@ const deserializeAws_queryApplicationVersionDescription = (
 ): ApplicationVersionDescription => {
   let contents: any = {
     __type: "ApplicationVersionDescription",
-    ApplicationName: undefined,
-    ApplicationVersionArn: undefined,
-    BuildArn: undefined,
     DateCreated: undefined,
-    DateUpdated: undefined,
-    Description: undefined,
+    BuildArn: undefined,
+    ApplicationVersionArn: undefined,
     SourceBuildInformation: undefined,
-    SourceBundle: undefined,
     Status: undefined,
+    DateUpdated: undefined,
+    ApplicationName: undefined,
+    Description: undefined,
+    SourceBundle: undefined,
     VersionLabel: undefined,
   };
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = output["ApplicationName"];
-  }
-  if (output["ApplicationVersionArn"] !== undefined) {
-    contents.ApplicationVersionArn = output["ApplicationVersionArn"];
+  if (output["DateCreated"] !== undefined) {
+    contents.DateCreated = new Date(output["DateCreated"]);
   }
   if (output["BuildArn"] !== undefined) {
     contents.BuildArn = output["BuildArn"];
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = new Date(output["DateCreated"]);
-  }
-  if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = new Date(output["DateUpdated"]);
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+  if (output["ApplicationVersionArn"] !== undefined) {
+    contents.ApplicationVersionArn = output["ApplicationVersionArn"];
   }
   if (output["SourceBuildInformation"] !== undefined) {
     contents.SourceBuildInformation = deserializeAws_querySourceBuildInformation(
@@ -5343,11 +5639,20 @@ const deserializeAws_queryApplicationVersionDescription = (
       context
     );
   }
-  if (output["SourceBundle"] !== undefined) {
-    contents.SourceBundle = deserializeAws_queryS3Location(output["SourceBundle"], context);
-  }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
+  }
+  if (output["DateUpdated"] !== undefined) {
+    contents.DateUpdated = new Date(output["DateUpdated"]);
+  }
+  if (output["ApplicationName"] !== undefined) {
+    contents.ApplicationName = output["ApplicationName"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["SourceBundle"] !== undefined) {
+    contents.SourceBundle = deserializeAws_queryS3Location(output["SourceBundle"], context);
   }
   if (output["VersionLabel"] !== undefined) {
     contents.VersionLabel = output["VersionLabel"];
@@ -5409,14 +5714,14 @@ const deserializeAws_queryApplicationVersionLifecycleConfig = (
 ): ApplicationVersionLifecycleConfig => {
   let contents: any = {
     __type: "ApplicationVersionLifecycleConfig",
-    MaxAgeRule: undefined,
     MaxCountRule: undefined,
+    MaxAgeRule: undefined,
   };
-  if (output["MaxAgeRule"] !== undefined) {
-    contents.MaxAgeRule = deserializeAws_queryMaxAgeRule(output["MaxAgeRule"], context);
-  }
   if (output["MaxCountRule"] !== undefined) {
     contents.MaxCountRule = deserializeAws_queryMaxCountRule(output["MaxCountRule"], context);
+  }
+  if (output["MaxAgeRule"] !== undefined) {
+    contents.MaxAgeRule = deserializeAws_queryMaxAgeRule(output["MaxAgeRule"], context);
   }
   return contents;
 };
@@ -5427,22 +5732,22 @@ const deserializeAws_queryApplyEnvironmentManagedActionResult = (
 ): ApplyEnvironmentManagedActionResult => {
   let contents: any = {
     __type: "ApplyEnvironmentManagedActionResult",
+    Status: undefined,
+    ActionType: undefined,
     ActionDescription: undefined,
     ActionId: undefined,
-    ActionType: undefined,
-    Status: undefined,
   };
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["ActionType"] !== undefined) {
+    contents.ActionType = output["ActionType"];
+  }
   if (output["ActionDescription"] !== undefined) {
     contents.ActionDescription = output["ActionDescription"];
   }
   if (output["ActionId"] !== undefined) {
     contents.ActionId = output["ActionId"];
-  }
-  if (output["ActionType"] !== undefined) {
-    contents.ActionType = output["ActionType"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -5494,14 +5799,14 @@ const deserializeAws_queryCheckDNSAvailabilityResultMessage = (
 ): CheckDNSAvailabilityResultMessage => {
   let contents: any = {
     __type: "CheckDNSAvailabilityResultMessage",
-    Available: undefined,
     FullyQualifiedCNAME: undefined,
+    Available: undefined,
   };
-  if (output["Available"] !== undefined) {
-    contents.Available = output["Available"] == "true";
-  }
   if (output["FullyQualifiedCNAME"] !== undefined) {
     contents.FullyQualifiedCNAME = output["FullyQualifiedCNAME"];
+  }
+  if (output["Available"] !== undefined) {
+    contents.Available = output["Available"] == "true";
   }
   return contents;
 };
@@ -5526,44 +5831,29 @@ const deserializeAws_queryConfigurationOptionDescription = (
 ): ConfigurationOptionDescription => {
   let contents: any = {
     __type: "ConfigurationOptionDescription",
-    ChangeSeverity: undefined,
-    DefaultValue: undefined,
     MaxLength: undefined,
-    MaxValue: undefined,
+    ChangeSeverity: undefined,
+    Regex: undefined,
+    ValueType: undefined,
+    ValueOptions: undefined,
+    UserDefined: undefined,
     MinValue: undefined,
     Name: undefined,
+    DefaultValue: undefined,
     Namespace: undefined,
-    Regex: undefined,
-    UserDefined: undefined,
-    ValueOptions: undefined,
-    ValueType: undefined,
+    MaxValue: undefined,
   };
-  if (output["ChangeSeverity"] !== undefined) {
-    contents.ChangeSeverity = output["ChangeSeverity"];
-  }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = output["DefaultValue"];
-  }
   if (output["MaxLength"] !== undefined) {
     contents.MaxLength = parseInt(output["MaxLength"]);
   }
-  if (output["MaxValue"] !== undefined) {
-    contents.MaxValue = parseInt(output["MaxValue"]);
-  }
-  if (output["MinValue"] !== undefined) {
-    contents.MinValue = parseInt(output["MinValue"]);
-  }
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
-  }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = output["Namespace"];
+  if (output["ChangeSeverity"] !== undefined) {
+    contents.ChangeSeverity = output["ChangeSeverity"];
   }
   if (output["Regex"] !== undefined) {
     contents.Regex = deserializeAws_queryOptionRestrictionRegex(output["Regex"], context);
   }
-  if (output["UserDefined"] !== undefined) {
-    contents.UserDefined = output["UserDefined"] == "true";
+  if (output["ValueType"] !== undefined) {
+    contents.ValueType = output["ValueType"];
   }
   if (output.ValueOptions === "") {
     contents.ValueOptions = [];
@@ -5574,8 +5864,23 @@ const deserializeAws_queryConfigurationOptionDescription = (
       context
     );
   }
-  if (output["ValueType"] !== undefined) {
-    contents.ValueType = output["ValueType"];
+  if (output["UserDefined"] !== undefined) {
+    contents.UserDefined = output["UserDefined"] == "true";
+  }
+  if (output["MinValue"] !== undefined) {
+    contents.MinValue = parseInt(output["MinValue"]);
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
+  }
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = output["DefaultValue"];
+  }
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = output["Namespace"];
+  }
+  if (output["MaxValue"] !== undefined) {
+    contents.MaxValue = parseInt(output["MaxValue"]);
   }
   return contents;
 };
@@ -5597,10 +5902,13 @@ const deserializeAws_queryConfigurationOptionsDescription = (
 ): ConfigurationOptionsDescription => {
   let contents: any = {
     __type: "ConfigurationOptionsDescription",
+    SolutionStackName: undefined,
     Options: undefined,
     PlatformArn: undefined,
-    SolutionStackName: undefined,
   };
+  if (output["SolutionStackName"] !== undefined) {
+    contents.SolutionStackName = output["SolutionStackName"];
+  }
   if (output.Options === "") {
     contents.Options = [];
   }
@@ -5613,9 +5921,6 @@ const deserializeAws_queryConfigurationOptionsDescription = (
   if (output["PlatformArn"] !== undefined) {
     contents.PlatformArn = output["PlatformArn"];
   }
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = output["SolutionStackName"];
-  }
   return contents;
 };
 
@@ -5626,21 +5931,21 @@ const deserializeAws_queryConfigurationOptionSetting = (
   let contents: any = {
     __type: "ConfigurationOptionSetting",
     Namespace: undefined,
+    Value: undefined,
     OptionName: undefined,
     ResourceName: undefined,
-    Value: undefined,
   };
   if (output["Namespace"] !== undefined) {
     contents.Namespace = output["Namespace"];
+  }
+  if (output["Value"] !== undefined) {
+    contents.Value = output["Value"];
   }
   if (output["OptionName"] !== undefined) {
     contents.OptionName = output["OptionName"];
   }
   if (output["ResourceName"] !== undefined) {
     contents.ResourceName = output["ResourceName"];
-  }
-  if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -5658,34 +5963,19 @@ const deserializeAws_queryConfigurationSettingsDescription = (
 ): ConfigurationSettingsDescription => {
   let contents: any = {
     __type: "ConfigurationSettingsDescription",
-    ApplicationName: undefined,
-    DateCreated: undefined,
-    DateUpdated: undefined,
-    DeploymentStatus: undefined,
-    Description: undefined,
-    EnvironmentName: undefined,
-    OptionSettings: undefined,
-    PlatformArn: undefined,
     SolutionStackName: undefined,
+    OptionSettings: undefined,
+    DateCreated: undefined,
+    ApplicationName: undefined,
+    DeploymentStatus: undefined,
+    PlatformArn: undefined,
     TemplateName: undefined,
+    Description: undefined,
+    DateUpdated: undefined,
+    EnvironmentName: undefined,
   };
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = output["ApplicationName"];
-  }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = new Date(output["DateCreated"]);
-  }
-  if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = new Date(output["DateUpdated"]);
-  }
-  if (output["DeploymentStatus"] !== undefined) {
-    contents.DeploymentStatus = output["DeploymentStatus"];
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = output["EnvironmentName"];
+  if (output["SolutionStackName"] !== undefined) {
+    contents.SolutionStackName = output["SolutionStackName"];
   }
   if (output.OptionSettings === "") {
     contents.OptionSettings = [];
@@ -5696,14 +5986,29 @@ const deserializeAws_queryConfigurationSettingsDescription = (
       context
     );
   }
+  if (output["DateCreated"] !== undefined) {
+    contents.DateCreated = new Date(output["DateCreated"]);
+  }
+  if (output["ApplicationName"] !== undefined) {
+    contents.ApplicationName = output["ApplicationName"];
+  }
+  if (output["DeploymentStatus"] !== undefined) {
+    contents.DeploymentStatus = output["DeploymentStatus"];
+  }
   if (output["PlatformArn"] !== undefined) {
     contents.PlatformArn = output["PlatformArn"];
   }
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = output["SolutionStackName"];
-  }
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = output["TemplateName"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["DateUpdated"] !== undefined) {
+    contents.DateUpdated = new Date(output["DateUpdated"]);
+  }
+  if (output["EnvironmentName"] !== undefined) {
+    contents.EnvironmentName = output["EnvironmentName"];
   }
   return contents;
 };
@@ -5763,28 +6068,28 @@ const deserializeAws_queryCPUUtilization = (output: any, context: __SerdeContext
   let contents: any = {
     __type: "CPUUtilization",
     IOWait: undefined,
-    IRQ: undefined,
-    Idle: undefined,
     Nice: undefined,
-    Privileged: undefined,
+    IRQ: undefined,
+    User: undefined,
+    Idle: undefined,
     SoftIRQ: undefined,
     System: undefined,
-    User: undefined,
+    Privileged: undefined,
   };
   if (output["IOWait"] !== undefined) {
     contents.IOWait = parseFloat(output["IOWait"]);
   }
-  if (output["IRQ"] !== undefined) {
-    contents.IRQ = parseFloat(output["IRQ"]);
-  }
-  if (output["Idle"] !== undefined) {
-    contents.Idle = parseFloat(output["Idle"]);
-  }
   if (output["Nice"] !== undefined) {
     contents.Nice = parseFloat(output["Nice"]);
   }
-  if (output["Privileged"] !== undefined) {
-    contents.Privileged = parseFloat(output["Privileged"]);
+  if (output["IRQ"] !== undefined) {
+    contents.IRQ = parseFloat(output["IRQ"]);
+  }
+  if (output["User"] !== undefined) {
+    contents.User = parseFloat(output["User"]);
+  }
+  if (output["Idle"] !== undefined) {
+    contents.Idle = parseFloat(output["Idle"]);
   }
   if (output["SoftIRQ"] !== undefined) {
     contents.SoftIRQ = parseFloat(output["SoftIRQ"]);
@@ -5792,8 +6097,8 @@ const deserializeAws_queryCPUUtilization = (output: any, context: __SerdeContext
   if (output["System"] !== undefined) {
     contents.System = parseFloat(output["System"]);
   }
-  if (output["User"] !== undefined) {
-    contents.User = parseFloat(output["User"]);
+  if (output["Privileged"] !== undefined) {
+    contents.Privileged = parseFloat(output["Privileged"]);
   }
   return contents;
 };
@@ -5833,14 +6138,14 @@ const deserializeAws_queryCreateStorageLocationResultMessage = (
 const deserializeAws_queryCustomAmi = (output: any, context: __SerdeContext): CustomAmi => {
   let contents: any = {
     __type: "CustomAmi",
-    ImageId: undefined,
     VirtualizationType: undefined,
+    ImageId: undefined,
   };
-  if (output["ImageId"] !== undefined) {
-    contents.ImageId = output["ImageId"];
-  }
   if (output["VirtualizationType"] !== undefined) {
     contents.VirtualizationType = output["VirtualizationType"];
+  }
+  if (output["ImageId"] !== undefined) {
+    contents.ImageId = output["ImageId"];
   }
   return contents;
 };
@@ -5906,17 +6211,20 @@ const deserializeAws_queryDescribeEnvironmentHealthResult = (
 ): DescribeEnvironmentHealthResult => {
   let contents: any = {
     __type: "DescribeEnvironmentHealthResult",
-    ApplicationMetrics: undefined,
-    Causes: undefined,
-    Color: undefined,
-    EnvironmentName: undefined,
-    HealthStatus: undefined,
     InstancesHealth: undefined,
-    RefreshedAt: undefined,
+    HealthStatus: undefined,
+    Causes: undefined,
+    ApplicationMetrics: undefined,
+    EnvironmentName: undefined,
+    Color: undefined,
     Status: undefined,
+    RefreshedAt: undefined,
   };
-  if (output["ApplicationMetrics"] !== undefined) {
-    contents.ApplicationMetrics = deserializeAws_queryApplicationMetrics(output["ApplicationMetrics"], context);
+  if (output["InstancesHealth"] !== undefined) {
+    contents.InstancesHealth = deserializeAws_queryInstanceHealthSummary(output["InstancesHealth"], context);
+  }
+  if (output["HealthStatus"] !== undefined) {
+    contents.HealthStatus = output["HealthStatus"];
   }
   if (output.Causes === "") {
     contents.Causes = [];
@@ -5924,23 +6232,20 @@ const deserializeAws_queryDescribeEnvironmentHealthResult = (
   if (output["Causes"] !== undefined && output["Causes"]["member"] !== undefined) {
     contents.Causes = deserializeAws_queryCauses(__getArrayIfSingleItem(output["Causes"]["member"]), context);
   }
-  if (output["Color"] !== undefined) {
-    contents.Color = output["Color"];
+  if (output["ApplicationMetrics"] !== undefined) {
+    contents.ApplicationMetrics = deserializeAws_queryApplicationMetrics(output["ApplicationMetrics"], context);
   }
   if (output["EnvironmentName"] !== undefined) {
     contents.EnvironmentName = output["EnvironmentName"];
   }
-  if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus = output["HealthStatus"];
-  }
-  if (output["InstancesHealth"] !== undefined) {
-    contents.InstancesHealth = deserializeAws_queryInstanceHealthSummary(output["InstancesHealth"], context);
-  }
-  if (output["RefreshedAt"] !== undefined) {
-    contents.RefreshedAt = new Date(output["RefreshedAt"]);
+  if (output["Color"] !== undefined) {
+    contents.Color = output["Color"];
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
+  }
+  if (output["RefreshedAt"] !== undefined) {
+    contents.RefreshedAt = new Date(output["RefreshedAt"]);
   }
   return contents;
 };
@@ -5998,10 +6303,16 @@ const deserializeAws_queryDescribeInstancesHealthResult = (
 ): DescribeInstancesHealthResult => {
   let contents: any = {
     __type: "DescribeInstancesHealthResult",
-    InstanceHealthList: undefined,
-    NextToken: undefined,
     RefreshedAt: undefined,
+    NextToken: undefined,
+    InstanceHealthList: undefined,
   };
+  if (output["RefreshedAt"] !== undefined) {
+    contents.RefreshedAt = new Date(output["RefreshedAt"]);
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.InstanceHealthList === "") {
     contents.InstanceHealthList = [];
   }
@@ -6010,12 +6321,6 @@ const deserializeAws_queryDescribeInstancesHealthResult = (
       __getArrayIfSingleItem(output["InstanceHealthList"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
-  if (output["RefreshedAt"] !== undefined) {
-    contents.RefreshedAt = new Date(output["RefreshedAt"]);
   }
   return contents;
 };
@@ -6051,38 +6356,60 @@ const deserializeAws_queryElasticBeanstalkServiceException = (
 const deserializeAws_queryEnvironmentDescription = (output: any, context: __SerdeContext): EnvironmentDescription => {
   let contents: any = {
     __type: "EnvironmentDescription",
+    EnvironmentId: undefined,
     AbortableOperationInProgress: undefined,
+    SolutionStackName: undefined,
     ApplicationName: undefined,
-    CNAME: undefined,
-    DateCreated: undefined,
+    Health: undefined,
+    EnvironmentArn: undefined,
+    HealthStatus: undefined,
+    VersionLabel: undefined,
+    PlatformArn: undefined,
+    EnvironmentName: undefined,
+    EndpointURL: undefined,
     DateUpdated: undefined,
     Description: undefined,
-    EndpointURL: undefined,
-    EnvironmentArn: undefined,
-    EnvironmentId: undefined,
-    EnvironmentLinks: undefined,
-    EnvironmentName: undefined,
-    Health: undefined,
-    HealthStatus: undefined,
-    PlatformArn: undefined,
-    Resources: undefined,
-    SolutionStackName: undefined,
-    Status: undefined,
+    DateCreated: undefined,
     TemplateName: undefined,
+    CNAME: undefined,
+    OperationsRole: undefined,
     Tier: undefined,
-    VersionLabel: undefined,
+    Resources: undefined,
+    Status: undefined,
+    EnvironmentLinks: undefined,
   };
+  if (output["EnvironmentId"] !== undefined) {
+    contents.EnvironmentId = output["EnvironmentId"];
+  }
   if (output["AbortableOperationInProgress"] !== undefined) {
     contents.AbortableOperationInProgress = output["AbortableOperationInProgress"] == "true";
+  }
+  if (output["SolutionStackName"] !== undefined) {
+    contents.SolutionStackName = output["SolutionStackName"];
   }
   if (output["ApplicationName"] !== undefined) {
     contents.ApplicationName = output["ApplicationName"];
   }
-  if (output["CNAME"] !== undefined) {
-    contents.CNAME = output["CNAME"];
+  if (output["Health"] !== undefined) {
+    contents.Health = output["Health"];
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = new Date(output["DateCreated"]);
+  if (output["EnvironmentArn"] !== undefined) {
+    contents.EnvironmentArn = output["EnvironmentArn"];
+  }
+  if (output["HealthStatus"] !== undefined) {
+    contents.HealthStatus = output["HealthStatus"];
+  }
+  if (output["VersionLabel"] !== undefined) {
+    contents.VersionLabel = output["VersionLabel"];
+  }
+  if (output["PlatformArn"] !== undefined) {
+    contents.PlatformArn = output["PlatformArn"];
+  }
+  if (output["EnvironmentName"] !== undefined) {
+    contents.EnvironmentName = output["EnvironmentName"];
+  }
+  if (output["EndpointURL"] !== undefined) {
+    contents.EndpointURL = output["EndpointURL"];
   }
   if (output["DateUpdated"] !== undefined) {
     contents.DateUpdated = new Date(output["DateUpdated"]);
@@ -6090,14 +6417,26 @@ const deserializeAws_queryEnvironmentDescription = (output: any, context: __Serd
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
-  if (output["EndpointURL"] !== undefined) {
-    contents.EndpointURL = output["EndpointURL"];
+  if (output["DateCreated"] !== undefined) {
+    contents.DateCreated = new Date(output["DateCreated"]);
   }
-  if (output["EnvironmentArn"] !== undefined) {
-    contents.EnvironmentArn = output["EnvironmentArn"];
+  if (output["TemplateName"] !== undefined) {
+    contents.TemplateName = output["TemplateName"];
   }
-  if (output["EnvironmentId"] !== undefined) {
-    contents.EnvironmentId = output["EnvironmentId"];
+  if (output["CNAME"] !== undefined) {
+    contents.CNAME = output["CNAME"];
+  }
+  if (output["OperationsRole"] !== undefined) {
+    contents.OperationsRole = output["OperationsRole"];
+  }
+  if (output["Tier"] !== undefined) {
+    contents.Tier = deserializeAws_queryEnvironmentTier(output["Tier"], context);
+  }
+  if (output["Resources"] !== undefined) {
+    contents.Resources = deserializeAws_queryEnvironmentResourcesDescription(output["Resources"], context);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   if (output.EnvironmentLinks === "") {
     contents.EnvironmentLinks = [];
@@ -6107,36 +6446,6 @@ const deserializeAws_queryEnvironmentDescription = (output: any, context: __Serd
       __getArrayIfSingleItem(output["EnvironmentLinks"]["member"]),
       context
     );
-  }
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = output["EnvironmentName"];
-  }
-  if (output["Health"] !== undefined) {
-    contents.Health = output["Health"];
-  }
-  if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus = output["HealthStatus"];
-  }
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = output["PlatformArn"];
-  }
-  if (output["Resources"] !== undefined) {
-    contents.Resources = deserializeAws_queryEnvironmentResourcesDescription(output["Resources"], context);
-  }
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = output["SolutionStackName"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
-  }
-  if (output["Tier"] !== undefined) {
-    contents.Tier = deserializeAws_queryEnvironmentTier(output["Tier"], context);
-  }
-  if (output["VersionLabel"] !== undefined) {
-    contents.VersionLabel = output["VersionLabel"];
   }
   return contents;
 };
@@ -6154,9 +6463,12 @@ const deserializeAws_queryEnvironmentDescriptionsMessage = (
 ): EnvironmentDescriptionsMessage => {
   let contents: any = {
     __type: "EnvironmentDescriptionsMessage",
-    Environments: undefined,
     NextToken: undefined,
+    Environments: undefined,
   };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.Environments === "") {
     contents.Environments = [];
   }
@@ -6165,9 +6477,6 @@ const deserializeAws_queryEnvironmentDescriptionsMessage = (
       __getArrayIfSingleItem(output["Environments"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -6208,14 +6517,14 @@ const deserializeAws_queryEnvironmentInfoDescriptionList = (
 const deserializeAws_queryEnvironmentLink = (output: any, context: __SerdeContext): EnvironmentLink => {
   let contents: any = {
     __type: "EnvironmentLink",
-    EnvironmentName: undefined,
     LinkName: undefined,
+    EnvironmentName: undefined,
   };
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = output["EnvironmentName"];
-  }
   if (output["LinkName"] !== undefined) {
     contents.LinkName = output["LinkName"];
+  }
+  if (output["EnvironmentName"] !== undefined) {
+    contents.EnvironmentName = output["EnvironmentName"];
   }
   return contents;
 };
@@ -6230,42 +6539,33 @@ const deserializeAws_queryEnvironmentResourceDescription = (
 ): EnvironmentResourceDescription => {
   let contents: any = {
     __type: "EnvironmentResourceDescription",
-    AutoScalingGroups: undefined,
     EnvironmentName: undefined,
-    Instances: undefined,
-    LaunchConfigurations: undefined,
-    LaunchTemplates: undefined,
     LoadBalancers: undefined,
+    AutoScalingGroups: undefined,
+    LaunchTemplates: undefined,
+    LaunchConfigurations: undefined,
+    Instances: undefined,
     Queues: undefined,
     Triggers: undefined,
   };
+  if (output["EnvironmentName"] !== undefined) {
+    contents.EnvironmentName = output["EnvironmentName"];
+  }
+  if (output.LoadBalancers === "") {
+    contents.LoadBalancers = [];
+  }
+  if (output["LoadBalancers"] !== undefined && output["LoadBalancers"]["member"] !== undefined) {
+    contents.LoadBalancers = deserializeAws_queryLoadBalancerList(
+      __getArrayIfSingleItem(output["LoadBalancers"]["member"]),
+      context
+    );
+  }
   if (output.AutoScalingGroups === "") {
     contents.AutoScalingGroups = [];
   }
   if (output["AutoScalingGroups"] !== undefined && output["AutoScalingGroups"]["member"] !== undefined) {
     contents.AutoScalingGroups = deserializeAws_queryAutoScalingGroupList(
       __getArrayIfSingleItem(output["AutoScalingGroups"]["member"]),
-      context
-    );
-  }
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = output["EnvironmentName"];
-  }
-  if (output.Instances === "") {
-    contents.Instances = [];
-  }
-  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = deserializeAws_queryInstanceList(
-      __getArrayIfSingleItem(output["Instances"]["member"]),
-      context
-    );
-  }
-  if (output.LaunchConfigurations === "") {
-    contents.LaunchConfigurations = [];
-  }
-  if (output["LaunchConfigurations"] !== undefined && output["LaunchConfigurations"]["member"] !== undefined) {
-    contents.LaunchConfigurations = deserializeAws_queryLaunchConfigurationList(
-      __getArrayIfSingleItem(output["LaunchConfigurations"]["member"]),
       context
     );
   }
@@ -6278,12 +6578,21 @@ const deserializeAws_queryEnvironmentResourceDescription = (
       context
     );
   }
-  if (output.LoadBalancers === "") {
-    contents.LoadBalancers = [];
+  if (output.LaunchConfigurations === "") {
+    contents.LaunchConfigurations = [];
   }
-  if (output["LoadBalancers"] !== undefined && output["LoadBalancers"]["member"] !== undefined) {
-    contents.LoadBalancers = deserializeAws_queryLoadBalancerList(
-      __getArrayIfSingleItem(output["LoadBalancers"]["member"]),
+  if (output["LaunchConfigurations"] !== undefined && output["LaunchConfigurations"]["member"] !== undefined) {
+    contents.LaunchConfigurations = deserializeAws_queryLaunchConfigurationList(
+      __getArrayIfSingleItem(output["LaunchConfigurations"]["member"]),
+      context
+    );
+  }
+  if (output.Instances === "") {
+    contents.Instances = [];
+  }
+  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
+    contents.Instances = deserializeAws_queryInstanceList(
+      __getArrayIfSingleItem(output["Instances"]["member"]),
       context
     );
   }
@@ -6336,18 +6645,18 @@ const deserializeAws_queryEnvironmentResourcesDescription = (
 const deserializeAws_queryEnvironmentTier = (output: any, context: __SerdeContext): EnvironmentTier => {
   let contents: any = {
     __type: "EnvironmentTier",
-    Name: undefined,
-    Type: undefined,
     Version: undefined,
+    Type: undefined,
+    Name: undefined,
   };
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+  if (output["Version"] !== undefined) {
+    contents.Version = output["Version"];
   }
   if (output["Type"] !== undefined) {
     contents.Type = output["Type"];
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = output["Version"];
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -6355,39 +6664,39 @@ const deserializeAws_queryEnvironmentTier = (output: any, context: __SerdeContex
 const deserializeAws_queryEventDescription = (output: any, context: __SerdeContext): EventDescription => {
   let contents: any = {
     __type: "EventDescription",
-    ApplicationName: undefined,
-    EnvironmentName: undefined,
+    RequestId: undefined,
     EventDate: undefined,
+    TemplateName: undefined,
+    Severity: undefined,
+    EnvironmentName: undefined,
+    ApplicationName: undefined,
     Message: undefined,
     PlatformArn: undefined,
-    RequestId: undefined,
-    Severity: undefined,
-    TemplateName: undefined,
     VersionLabel: undefined,
   };
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = output["ApplicationName"];
+  if (output["RequestId"] !== undefined) {
+    contents.RequestId = output["RequestId"];
+  }
+  if (output["EventDate"] !== undefined) {
+    contents.EventDate = new Date(output["EventDate"]);
+  }
+  if (output["TemplateName"] !== undefined) {
+    contents.TemplateName = output["TemplateName"];
+  }
+  if (output["Severity"] !== undefined) {
+    contents.Severity = output["Severity"];
   }
   if (output["EnvironmentName"] !== undefined) {
     contents.EnvironmentName = output["EnvironmentName"];
   }
-  if (output["EventDate"] !== undefined) {
-    contents.EventDate = new Date(output["EventDate"]);
+  if (output["ApplicationName"] !== undefined) {
+    contents.ApplicationName = output["ApplicationName"];
   }
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
   }
   if (output["PlatformArn"] !== undefined) {
     contents.PlatformArn = output["PlatformArn"];
-  }
-  if (output["RequestId"] !== undefined) {
-    contents.RequestId = output["RequestId"];
-  }
-  if (output["Severity"] !== undefined) {
-    contents.Severity = output["Severity"];
-  }
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
   }
   if (output["VersionLabel"] !== undefined) {
     contents.VersionLabel = output["VersionLabel"];
@@ -6441,38 +6750,38 @@ const deserializeAws_queryInstanceHealthList = (output: any, context: __SerdeCon
 const deserializeAws_queryInstanceHealthSummary = (output: any, context: __SerdeContext): InstanceHealthSummary => {
   let contents: any = {
     __type: "InstanceHealthSummary",
-    Degraded: undefined,
-    Info: undefined,
     NoData: undefined,
-    Ok: undefined,
-    Pending: undefined,
     Severe: undefined,
-    Unknown: undefined,
+    Info: undefined,
+    Pending: undefined,
     Warning: undefined,
+    Ok: undefined,
+    Degraded: undefined,
+    Unknown: undefined,
   };
-  if (output["Degraded"] !== undefined) {
-    contents.Degraded = parseInt(output["Degraded"]);
-  }
-  if (output["Info"] !== undefined) {
-    contents.Info = parseInt(output["Info"]);
-  }
   if (output["NoData"] !== undefined) {
     contents.NoData = parseInt(output["NoData"]);
-  }
-  if (output["Ok"] !== undefined) {
-    contents.Ok = parseInt(output["Ok"]);
-  }
-  if (output["Pending"] !== undefined) {
-    contents.Pending = parseInt(output["Pending"]);
   }
   if (output["Severe"] !== undefined) {
     contents.Severe = parseInt(output["Severe"]);
   }
-  if (output["Unknown"] !== undefined) {
-    contents.Unknown = parseInt(output["Unknown"]);
+  if (output["Info"] !== undefined) {
+    contents.Info = parseInt(output["Info"]);
+  }
+  if (output["Pending"] !== undefined) {
+    contents.Pending = parseInt(output["Pending"]);
   }
   if (output["Warning"] !== undefined) {
     contents.Warning = parseInt(output["Warning"]);
+  }
+  if (output["Ok"] !== undefined) {
+    contents.Ok = parseInt(output["Ok"]);
+  }
+  if (output["Degraded"] !== undefined) {
+    contents.Degraded = parseInt(output["Degraded"]);
+  }
+  if (output["Unknown"] !== undefined) {
+    contents.Unknown = parseInt(output["Unknown"]);
   }
   return contents;
 };
@@ -6510,37 +6819,37 @@ const deserializeAws_queryLatency = (output: any, context: __SerdeContext): Late
   let contents: any = {
     __type: "Latency",
     P10: undefined,
-    P50: undefined,
     P75: undefined,
-    P85: undefined,
-    P90: undefined,
-    P95: undefined,
     P99: undefined,
+    P90: undefined,
+    P50: undefined,
     P999: undefined,
+    P85: undefined,
+    P95: undefined,
   };
   if (output["P10"] !== undefined) {
     contents.P10 = parseFloat(output["P10"]);
   }
-  if (output["P50"] !== undefined) {
-    contents.P50 = parseFloat(output["P50"]);
-  }
   if (output["P75"] !== undefined) {
     contents.P75 = parseFloat(output["P75"]);
-  }
-  if (output["P85"] !== undefined) {
-    contents.P85 = parseFloat(output["P85"]);
-  }
-  if (output["P90"] !== undefined) {
-    contents.P90 = parseFloat(output["P90"]);
-  }
-  if (output["P95"] !== undefined) {
-    contents.P95 = parseFloat(output["P95"]);
   }
   if (output["P99"] !== undefined) {
     contents.P99 = parseFloat(output["P99"]);
   }
+  if (output["P90"] !== undefined) {
+    contents.P90 = parseFloat(output["P90"]);
+  }
+  if (output["P50"] !== undefined) {
+    contents.P50 = parseFloat(output["P50"]);
+  }
   if (output["P999"] !== undefined) {
     contents.P999 = parseFloat(output["P999"]);
+  }
+  if (output["P85"] !== undefined) {
+    contents.P85 = parseFloat(output["P85"]);
+  }
+  if (output["P95"] !== undefined) {
+    contents.P95 = parseFloat(output["P95"]);
   }
   return contents;
 };
@@ -6581,24 +6890,24 @@ const deserializeAws_queryListAvailableSolutionStacksResultMessage = (
 ): ListAvailableSolutionStacksResultMessage => {
   let contents: any = {
     __type: "ListAvailableSolutionStacksResultMessage",
-    SolutionStackDetails: undefined,
     SolutionStacks: undefined,
+    SolutionStackDetails: undefined,
   };
-  if (output.SolutionStackDetails === "") {
-    contents.SolutionStackDetails = [];
-  }
-  if (output["SolutionStackDetails"] !== undefined && output["SolutionStackDetails"]["member"] !== undefined) {
-    contents.SolutionStackDetails = deserializeAws_queryAvailableSolutionStackDetailsList(
-      __getArrayIfSingleItem(output["SolutionStackDetails"]["member"]),
-      context
-    );
-  }
   if (output.SolutionStacks === "") {
     contents.SolutionStacks = [];
   }
   if (output["SolutionStacks"] !== undefined && output["SolutionStacks"]["member"] !== undefined) {
     contents.SolutionStacks = deserializeAws_queryAvailableSolutionStackNamesList(
       __getArrayIfSingleItem(output["SolutionStacks"]["member"]),
+      context
+    );
+  }
+  if (output.SolutionStackDetails === "") {
+    contents.SolutionStackDetails = [];
+  }
+  if (output["SolutionStackDetails"] !== undefined && output["SolutionStackDetails"]["member"] !== undefined) {
+    contents.SolutionStackDetails = deserializeAws_queryAvailableSolutionStackDetailsList(
+      __getArrayIfSingleItem(output["SolutionStackDetails"]["member"]),
       context
     );
   }
@@ -6620,18 +6929,42 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
   return contents;
 };
 
+const deserializeAws_queryListPlatformBranchesResult = (
+  output: any,
+  context: __SerdeContext
+): ListPlatformBranchesResult => {
+  let contents: any = {
+    __type: "ListPlatformBranchesResult",
+    NextToken: undefined,
+    PlatformBranchSummaryList: undefined,
+  };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
+  if (output.PlatformBranchSummaryList === "") {
+    contents.PlatformBranchSummaryList = [];
+  }
+  if (
+    output["PlatformBranchSummaryList"] !== undefined &&
+    output["PlatformBranchSummaryList"]["member"] !== undefined
+  ) {
+    contents.PlatformBranchSummaryList = deserializeAws_queryPlatformBranchSummaryList(
+      __getArrayIfSingleItem(output["PlatformBranchSummaryList"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryListPlatformVersionsResult = (
   output: any,
   context: __SerdeContext
 ): ListPlatformVersionsResult => {
   let contents: any = {
     __type: "ListPlatformVersionsResult",
-    NextToken: undefined,
     PlatformSummaryList: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.PlatformSummaryList === "") {
     contents.PlatformSummaryList = [];
   }
@@ -6640,6 +6973,9 @@ const deserializeAws_queryListPlatformVersionsResult = (
       __getArrayIfSingleItem(output["PlatformSummaryList"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -6662,12 +6998,12 @@ const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext):
 const deserializeAws_queryLoadBalancerDescription = (output: any, context: __SerdeContext): LoadBalancerDescription => {
   let contents: any = {
     __type: "LoadBalancerDescription",
-    Domain: undefined,
-    Listeners: undefined,
     LoadBalancerName: undefined,
+    Listeners: undefined,
+    Domain: undefined,
   };
-  if (output["Domain"] !== undefined) {
-    contents.Domain = output["Domain"];
+  if (output["LoadBalancerName"] !== undefined) {
+    contents.LoadBalancerName = output["LoadBalancerName"];
   }
   if (output.Listeners === "") {
     contents.Listeners = [];
@@ -6678,8 +7014,8 @@ const deserializeAws_queryLoadBalancerDescription = (output: any, context: __Ser
       context
     );
   }
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = output["LoadBalancerName"];
+  if (output["Domain"] !== undefined) {
+    contents.Domain = output["Domain"];
   }
   return contents;
 };
@@ -6695,23 +7031,23 @@ const deserializeAws_queryLoadBalancerListenersDescription = (output: any, conte
 const deserializeAws_queryManagedAction = (output: any, context: __SerdeContext): ManagedAction => {
   let contents: any = {
     __type: "ManagedAction",
-    ActionDescription: undefined,
     ActionId: undefined,
-    ActionType: undefined,
     Status: undefined,
+    ActionType: undefined,
+    ActionDescription: undefined,
     WindowStartTime: undefined,
   };
-  if (output["ActionDescription"] !== undefined) {
-    contents.ActionDescription = output["ActionDescription"];
-  }
   if (output["ActionId"] !== undefined) {
     contents.ActionId = output["ActionId"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   if (output["ActionType"] !== undefined) {
     contents.ActionType = output["ActionType"];
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+  if (output["ActionDescription"] !== undefined) {
+    contents.ActionDescription = output["ActionDescription"];
   }
   if (output["WindowStartTime"] !== undefined) {
     contents.WindowStartTime = new Date(output["WindowStartTime"]);
@@ -6725,38 +7061,38 @@ const deserializeAws_queryManagedActionHistoryItem = (
 ): ManagedActionHistoryItem => {
   let contents: any = {
     __type: "ManagedActionHistoryItem",
-    ActionDescription: undefined,
-    ActionId: undefined,
-    ActionType: undefined,
-    ExecutedTime: undefined,
     FailureDescription: undefined,
-    FailureType: undefined,
-    FinishedTime: undefined,
     Status: undefined,
+    FailureType: undefined,
+    ActionDescription: undefined,
+    FinishedTime: undefined,
+    ActionType: undefined,
+    ActionId: undefined,
+    ExecutedTime: undefined,
   };
-  if (output["ActionDescription"] !== undefined) {
-    contents.ActionDescription = output["ActionDescription"];
-  }
-  if (output["ActionId"] !== undefined) {
-    contents.ActionId = output["ActionId"];
-  }
-  if (output["ActionType"] !== undefined) {
-    contents.ActionType = output["ActionType"];
-  }
-  if (output["ExecutedTime"] !== undefined) {
-    contents.ExecutedTime = new Date(output["ExecutedTime"]);
-  }
   if (output["FailureDescription"] !== undefined) {
     contents.FailureDescription = output["FailureDescription"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   if (output["FailureType"] !== undefined) {
     contents.FailureType = output["FailureType"];
   }
+  if (output["ActionDescription"] !== undefined) {
+    contents.ActionDescription = output["ActionDescription"];
+  }
   if (output["FinishedTime"] !== undefined) {
     contents.FinishedTime = new Date(output["FinishedTime"]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+  if (output["ActionType"] !== undefined) {
+    contents.ActionType = output["ActionType"];
+  }
+  if (output["ActionId"] !== undefined) {
+    contents.ActionId = output["ActionId"];
+  }
+  if (output["ExecutedTime"] !== undefined) {
+    contents.ExecutedTime = new Date(output["ExecutedTime"]);
   }
   return contents;
 };
@@ -6808,18 +7144,18 @@ const deserializeAws_queryMaxAgeRule = (output: any, context: __SerdeContext): M
 const deserializeAws_queryMaxCountRule = (output: any, context: __SerdeContext): MaxCountRule => {
   let contents: any = {
     __type: "MaxCountRule",
-    DeleteSourceFromS3: undefined,
-    Enabled: undefined,
     MaxCount: undefined,
+    Enabled: undefined,
+    DeleteSourceFromS3: undefined,
   };
-  if (output["DeleteSourceFromS3"] !== undefined) {
-    contents.DeleteSourceFromS3 = output["DeleteSourceFromS3"] == "true";
+  if (output["MaxCount"] !== undefined) {
+    contents.MaxCount = parseInt(output["MaxCount"]);
   }
   if (output["Enabled"] !== undefined) {
     contents.Enabled = output["Enabled"] == "true";
   }
-  if (output["MaxCount"] !== undefined) {
-    contents.MaxCount = parseInt(output["MaxCount"]);
+  if (output["DeleteSourceFromS3"] !== undefined) {
+    contents.DeleteSourceFromS3 = output["DeleteSourceFromS3"] == "true";
   }
   return contents;
 };
@@ -6853,45 +7189,79 @@ const deserializeAws_queryOptionRestrictionRegex = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeContext): PlatformDescription => {
+const deserializeAws_queryPlatformBranchSummary = (output: any, context: __SerdeContext): PlatformBranchSummary => {
   let contents: any = {
-    __type: "PlatformDescription",
-    CustomAmiList: undefined,
-    DateCreated: undefined,
-    DateUpdated: undefined,
-    Description: undefined,
-    Frameworks: undefined,
-    Maintainer: undefined,
-    OperatingSystemName: undefined,
-    OperatingSystemVersion: undefined,
-    PlatformArn: undefined,
-    PlatformCategory: undefined,
+    __type: "PlatformBranchSummary",
+    LifecycleState: undefined,
+    BranchName: undefined,
+    BranchOrder: undefined,
     PlatformName: undefined,
-    PlatformOwner: undefined,
-    PlatformStatus: undefined,
-    PlatformVersion: undefined,
-    ProgrammingLanguages: undefined,
-    SolutionStackName: undefined,
-    SupportedAddonList: undefined,
     SupportedTierList: undefined,
   };
-  if (output.CustomAmiList === "") {
-    contents.CustomAmiList = [];
+  if (output["LifecycleState"] !== undefined) {
+    contents.LifecycleState = output["LifecycleState"];
   }
-  if (output["CustomAmiList"] !== undefined && output["CustomAmiList"]["member"] !== undefined) {
-    contents.CustomAmiList = deserializeAws_queryCustomAmiList(
-      __getArrayIfSingleItem(output["CustomAmiList"]["member"]),
+  if (output["BranchName"] !== undefined) {
+    contents.BranchName = output["BranchName"];
+  }
+  if (output["BranchOrder"] !== undefined) {
+    contents.BranchOrder = parseInt(output["BranchOrder"]);
+  }
+  if (output["PlatformName"] !== undefined) {
+    contents.PlatformName = output["PlatformName"];
+  }
+  if (output.SupportedTierList === "") {
+    contents.SupportedTierList = [];
+  }
+  if (output["SupportedTierList"] !== undefined && output["SupportedTierList"]["member"] !== undefined) {
+    contents.SupportedTierList = deserializeAws_querySupportedTierList(
+      __getArrayIfSingleItem(output["SupportedTierList"]["member"]),
       context
     );
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = new Date(output["DateCreated"]);
+  return contents;
+};
+
+const deserializeAws_queryPlatformBranchSummaryList = (
+  output: any,
+  context: __SerdeContext
+): PlatformBranchSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryPlatformBranchSummary(entry, context));
+};
+
+const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeContext): PlatformDescription => {
+  let contents: any = {
+    __type: "PlatformDescription",
+    SupportedTierList: undefined,
+    Frameworks: undefined,
+    PlatformName: undefined,
+    SolutionStackName: undefined,
+    PlatformStatus: undefined,
+    CustomAmiList: undefined,
+    PlatformBranchName: undefined,
+    PlatformOwner: undefined,
+    PlatformArn: undefined,
+    DateUpdated: undefined,
+    SupportedAddonList: undefined,
+    OperatingSystemName: undefined,
+    ProgrammingLanguages: undefined,
+    DateCreated: undefined,
+    PlatformVersion: undefined,
+    OperatingSystemVersion: undefined,
+    Description: undefined,
+    PlatformLifecycleState: undefined,
+    PlatformCategory: undefined,
+    PlatformBranchLifecycleState: undefined,
+    Maintainer: undefined,
+  };
+  if (output.SupportedTierList === "") {
+    contents.SupportedTierList = [];
   }
-  if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = new Date(output["DateUpdated"]);
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+  if (output["SupportedTierList"] !== undefined && output["SupportedTierList"]["member"] !== undefined) {
+    contents.SupportedTierList = deserializeAws_querySupportedTierList(
+      __getArrayIfSingleItem(output["SupportedTierList"]["member"]),
+      context
+    );
   }
   if (output.Frameworks === "") {
     contents.Frameworks = [];
@@ -6902,44 +7272,35 @@ const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeCo
       context
     );
   }
-  if (output["Maintainer"] !== undefined) {
-    contents.Maintainer = output["Maintainer"];
-  }
-  if (output["OperatingSystemName"] !== undefined) {
-    contents.OperatingSystemName = output["OperatingSystemName"];
-  }
-  if (output["OperatingSystemVersion"] !== undefined) {
-    contents.OperatingSystemVersion = output["OperatingSystemVersion"];
-  }
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = output["PlatformArn"];
-  }
-  if (output["PlatformCategory"] !== undefined) {
-    contents.PlatformCategory = output["PlatformCategory"];
-  }
   if (output["PlatformName"] !== undefined) {
     contents.PlatformName = output["PlatformName"];
   }
-  if (output["PlatformOwner"] !== undefined) {
-    contents.PlatformOwner = output["PlatformOwner"];
+  if (output["SolutionStackName"] !== undefined) {
+    contents.SolutionStackName = output["SolutionStackName"];
   }
   if (output["PlatformStatus"] !== undefined) {
     contents.PlatformStatus = output["PlatformStatus"];
   }
-  if (output["PlatformVersion"] !== undefined) {
-    contents.PlatformVersion = output["PlatformVersion"];
+  if (output.CustomAmiList === "") {
+    contents.CustomAmiList = [];
   }
-  if (output.ProgrammingLanguages === "") {
-    contents.ProgrammingLanguages = [];
-  }
-  if (output["ProgrammingLanguages"] !== undefined && output["ProgrammingLanguages"]["member"] !== undefined) {
-    contents.ProgrammingLanguages = deserializeAws_queryPlatformProgrammingLanguages(
-      __getArrayIfSingleItem(output["ProgrammingLanguages"]["member"]),
+  if (output["CustomAmiList"] !== undefined && output["CustomAmiList"]["member"] !== undefined) {
+    contents.CustomAmiList = deserializeAws_queryCustomAmiList(
+      __getArrayIfSingleItem(output["CustomAmiList"]["member"]),
       context
     );
   }
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = output["SolutionStackName"];
+  if (output["PlatformBranchName"] !== undefined) {
+    contents.PlatformBranchName = output["PlatformBranchName"];
+  }
+  if (output["PlatformOwner"] !== undefined) {
+    contents.PlatformOwner = output["PlatformOwner"];
+  }
+  if (output["PlatformArn"] !== undefined) {
+    contents.PlatformArn = output["PlatformArn"];
+  }
+  if (output["DateUpdated"] !== undefined) {
+    contents.DateUpdated = new Date(output["DateUpdated"]);
   }
   if (output.SupportedAddonList === "") {
     contents.SupportedAddonList = [];
@@ -6950,14 +7311,41 @@ const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeCo
       context
     );
   }
-  if (output.SupportedTierList === "") {
-    contents.SupportedTierList = [];
+  if (output["OperatingSystemName"] !== undefined) {
+    contents.OperatingSystemName = output["OperatingSystemName"];
   }
-  if (output["SupportedTierList"] !== undefined && output["SupportedTierList"]["member"] !== undefined) {
-    contents.SupportedTierList = deserializeAws_querySupportedTierList(
-      __getArrayIfSingleItem(output["SupportedTierList"]["member"]),
+  if (output.ProgrammingLanguages === "") {
+    contents.ProgrammingLanguages = [];
+  }
+  if (output["ProgrammingLanguages"] !== undefined && output["ProgrammingLanguages"]["member"] !== undefined) {
+    contents.ProgrammingLanguages = deserializeAws_queryPlatformProgrammingLanguages(
+      __getArrayIfSingleItem(output["ProgrammingLanguages"]["member"]),
       context
     );
+  }
+  if (output["DateCreated"] !== undefined) {
+    contents.DateCreated = new Date(output["DateCreated"]);
+  }
+  if (output["PlatformVersion"] !== undefined) {
+    contents.PlatformVersion = output["PlatformVersion"];
+  }
+  if (output["OperatingSystemVersion"] !== undefined) {
+    contents.OperatingSystemVersion = output["OperatingSystemVersion"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["PlatformLifecycleState"] !== undefined) {
+    contents.PlatformLifecycleState = output["PlatformLifecycleState"];
+  }
+  if (output["PlatformCategory"] !== undefined) {
+    contents.PlatformCategory = output["PlatformCategory"];
+  }
+  if (output["PlatformBranchLifecycleState"] !== undefined) {
+    contents.PlatformBranchLifecycleState = output["PlatformBranchLifecycleState"];
+  }
+  if (output["Maintainer"] !== undefined) {
+    contents.Maintainer = output["Maintainer"];
   }
   return contents;
 };
@@ -7009,32 +7397,39 @@ const deserializeAws_queryPlatformProgrammingLanguages = (
 const deserializeAws_queryPlatformSummary = (output: any, context: __SerdeContext): PlatformSummary => {
   let contents: any = {
     __type: "PlatformSummary",
-    OperatingSystemName: undefined,
+    PlatformLifecycleState: undefined,
+    PlatformBranchName: undefined,
+    PlatformStatus: undefined,
+    PlatformOwner: undefined,
+    SupportedTierList: undefined,
+    SupportedAddonList: undefined,
     OperatingSystemVersion: undefined,
     PlatformArn: undefined,
+    PlatformBranchLifecycleState: undefined,
+    PlatformVersion: undefined,
     PlatformCategory: undefined,
-    PlatformOwner: undefined,
-    PlatformStatus: undefined,
-    SupportedAddonList: undefined,
-    SupportedTierList: undefined,
+    OperatingSystemName: undefined,
   };
-  if (output["OperatingSystemName"] !== undefined) {
-    contents.OperatingSystemName = output["OperatingSystemName"];
+  if (output["PlatformLifecycleState"] !== undefined) {
+    contents.PlatformLifecycleState = output["PlatformLifecycleState"];
   }
-  if (output["OperatingSystemVersion"] !== undefined) {
-    contents.OperatingSystemVersion = output["OperatingSystemVersion"];
+  if (output["PlatformBranchName"] !== undefined) {
+    contents.PlatformBranchName = output["PlatformBranchName"];
   }
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = output["PlatformArn"];
-  }
-  if (output["PlatformCategory"] !== undefined) {
-    contents.PlatformCategory = output["PlatformCategory"];
+  if (output["PlatformStatus"] !== undefined) {
+    contents.PlatformStatus = output["PlatformStatus"];
   }
   if (output["PlatformOwner"] !== undefined) {
     contents.PlatformOwner = output["PlatformOwner"];
   }
-  if (output["PlatformStatus"] !== undefined) {
-    contents.PlatformStatus = output["PlatformStatus"];
+  if (output.SupportedTierList === "") {
+    contents.SupportedTierList = [];
+  }
+  if (output["SupportedTierList"] !== undefined && output["SupportedTierList"]["member"] !== undefined) {
+    contents.SupportedTierList = deserializeAws_querySupportedTierList(
+      __getArrayIfSingleItem(output["SupportedTierList"]["member"]),
+      context
+    );
   }
   if (output.SupportedAddonList === "") {
     contents.SupportedAddonList = [];
@@ -7045,14 +7440,23 @@ const deserializeAws_queryPlatformSummary = (output: any, context: __SerdeContex
       context
     );
   }
-  if (output.SupportedTierList === "") {
-    contents.SupportedTierList = [];
+  if (output["OperatingSystemVersion"] !== undefined) {
+    contents.OperatingSystemVersion = output["OperatingSystemVersion"];
   }
-  if (output["SupportedTierList"] !== undefined && output["SupportedTierList"]["member"] !== undefined) {
-    contents.SupportedTierList = deserializeAws_querySupportedTierList(
-      __getArrayIfSingleItem(output["SupportedTierList"]["member"]),
-      context
-    );
+  if (output["PlatformArn"] !== undefined) {
+    contents.PlatformArn = output["PlatformArn"];
+  }
+  if (output["PlatformBranchLifecycleState"] !== undefined) {
+    contents.PlatformBranchLifecycleState = output["PlatformBranchLifecycleState"];
+  }
+  if (output["PlatformVersion"] !== undefined) {
+    contents.PlatformVersion = output["PlatformVersion"];
+  }
+  if (output["PlatformCategory"] !== undefined) {
+    contents.PlatformCategory = output["PlatformCategory"];
+  }
+  if (output["OperatingSystemName"] !== undefined) {
+    contents.OperatingSystemName = output["OperatingSystemName"];
   }
   return contents;
 };
@@ -7123,16 +7527,13 @@ const deserializeAws_queryResourceQuotas = (output: any, context: __SerdeContext
   let contents: any = {
     __type: "ResourceQuotas",
     ApplicationQuota: undefined,
-    ApplicationVersionQuota: undefined,
     ConfigurationTemplateQuota: undefined,
     CustomPlatformQuota: undefined,
     EnvironmentQuota: undefined,
+    ApplicationVersionQuota: undefined,
   };
   if (output["ApplicationQuota"] !== undefined) {
     contents.ApplicationQuota = deserializeAws_queryResourceQuota(output["ApplicationQuota"], context);
-  }
-  if (output["ApplicationVersionQuota"] !== undefined) {
-    contents.ApplicationVersionQuota = deserializeAws_queryResourceQuota(output["ApplicationVersionQuota"], context);
   }
   if (output["ConfigurationTemplateQuota"] !== undefined) {
     contents.ConfigurationTemplateQuota = deserializeAws_queryResourceQuota(
@@ -7146,6 +7547,9 @@ const deserializeAws_queryResourceQuotas = (output: any, context: __SerdeContext
   if (output["EnvironmentQuota"] !== undefined) {
     contents.EnvironmentQuota = deserializeAws_queryResourceQuota(output["EnvironmentQuota"], context);
   }
+  if (output["ApplicationVersionQuota"] !== undefined) {
+    contents.ApplicationVersionQuota = deserializeAws_queryResourceQuota(output["ApplicationVersionQuota"], context);
+  }
   return contents;
 };
 
@@ -7155,12 +7559,9 @@ const deserializeAws_queryResourceTagsDescriptionMessage = (
 ): ResourceTagsDescriptionMessage => {
   let contents: any = {
     __type: "ResourceTagsDescriptionMessage",
-    ResourceArn: undefined,
     ResourceTags: undefined,
+    ResourceArn: undefined,
   };
-  if (output["ResourceArn"] !== undefined) {
-    contents.ResourceArn = output["ResourceArn"];
-  }
   if (output.ResourceTags === "") {
     contents.ResourceTags = [];
   }
@@ -7169,6 +7570,9 @@ const deserializeAws_queryResourceTagsDescriptionMessage = (
       __getArrayIfSingleItem(output["ResourceTags"]["member"]),
       context
     );
+  }
+  if (output["ResourceArn"] !== undefined) {
+    contents.ResourceArn = output["ResourceArn"];
   }
   return contents;
 };
@@ -7253,40 +7657,22 @@ const deserializeAws_queryS3SubscriptionRequiredException = (
 const deserializeAws_querySingleInstanceHealth = (output: any, context: __SerdeContext): SingleInstanceHealth => {
   let contents: any = {
     __type: "SingleInstanceHealth",
-    ApplicationMetrics: undefined,
-    AvailabilityZone: undefined,
-    Causes: undefined,
     Color: undefined,
-    Deployment: undefined,
-    HealthStatus: undefined,
-    InstanceId: undefined,
+    System: undefined,
     InstanceType: undefined,
     LaunchedAt: undefined,
-    System: undefined,
+    HealthStatus: undefined,
+    Causes: undefined,
+    Deployment: undefined,
+    ApplicationMetrics: undefined,
+    AvailabilityZone: undefined,
+    InstanceId: undefined,
   };
-  if (output["ApplicationMetrics"] !== undefined) {
-    contents.ApplicationMetrics = deserializeAws_queryApplicationMetrics(output["ApplicationMetrics"], context);
-  }
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = output["AvailabilityZone"];
-  }
-  if (output.Causes === "") {
-    contents.Causes = [];
-  }
-  if (output["Causes"] !== undefined && output["Causes"]["member"] !== undefined) {
-    contents.Causes = deserializeAws_queryCauses(__getArrayIfSingleItem(output["Causes"]["member"]), context);
-  }
   if (output["Color"] !== undefined) {
     contents.Color = output["Color"];
   }
-  if (output["Deployment"] !== undefined) {
-    contents.Deployment = deserializeAws_queryDeployment(output["Deployment"], context);
-  }
-  if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus = output["HealthStatus"];
-  }
-  if (output["InstanceId"] !== undefined) {
-    contents.InstanceId = output["InstanceId"];
+  if (output["System"] !== undefined) {
+    contents.System = deserializeAws_querySystemStatus(output["System"], context);
   }
   if (output["InstanceType"] !== undefined) {
     contents.InstanceType = output["InstanceType"];
@@ -7294,8 +7680,26 @@ const deserializeAws_querySingleInstanceHealth = (output: any, context: __SerdeC
   if (output["LaunchedAt"] !== undefined) {
     contents.LaunchedAt = new Date(output["LaunchedAt"]);
   }
-  if (output["System"] !== undefined) {
-    contents.System = deserializeAws_querySystemStatus(output["System"], context);
+  if (output["HealthStatus"] !== undefined) {
+    contents.HealthStatus = output["HealthStatus"];
+  }
+  if (output.Causes === "") {
+    contents.Causes = [];
+  }
+  if (output["Causes"] !== undefined && output["Causes"]["member"] !== undefined) {
+    contents.Causes = deserializeAws_queryCauses(__getArrayIfSingleItem(output["Causes"]["member"]), context);
+  }
+  if (output["Deployment"] !== undefined) {
+    contents.Deployment = deserializeAws_queryDeployment(output["Deployment"], context);
+  }
+  if (output["ApplicationMetrics"] !== undefined) {
+    contents.ApplicationMetrics = deserializeAws_queryApplicationMetrics(output["ApplicationMetrics"], context);
+  }
+  if (output["AvailabilityZone"] !== undefined) {
+    contents.AvailabilityZone = output["AvailabilityZone"];
+  }
+  if (output["InstanceId"] !== undefined) {
+    contents.InstanceId = output["InstanceId"];
   }
   return contents;
 };
@@ -7331,18 +7735,18 @@ const deserializeAws_querySolutionStackFileTypeList = (output: any, context: __S
 const deserializeAws_querySourceBuildInformation = (output: any, context: __SerdeContext): SourceBuildInformation => {
   let contents: any = {
     __type: "SourceBuildInformation",
-    SourceLocation: undefined,
-    SourceRepository: undefined,
     SourceType: undefined,
+    SourceRepository: undefined,
+    SourceLocation: undefined,
   };
-  if (output["SourceLocation"] !== undefined) {
-    contents.SourceLocation = output["SourceLocation"];
+  if (output["SourceType"] !== undefined) {
+    contents.SourceType = output["SourceType"];
   }
   if (output["SourceRepository"] !== undefined) {
     contents.SourceRepository = output["SourceRepository"];
   }
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = output["SourceType"];
+  if (output["SourceLocation"] !== undefined) {
+    contents.SourceLocation = output["SourceLocation"];
   }
   return contents;
 };
@@ -7364,22 +7768,22 @@ const deserializeAws_querySourceBundleDeletionException = (
 const deserializeAws_queryStatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
   let contents: any = {
     __type: "StatusCodes",
-    Status2xx: undefined,
     Status3xx: undefined,
-    Status4xx: undefined,
+    Status2xx: undefined,
     Status5xx: undefined,
+    Status4xx: undefined,
   };
-  if (output["Status2xx"] !== undefined) {
-    contents.Status2xx = parseInt(output["Status2xx"]);
-  }
   if (output["Status3xx"] !== undefined) {
     contents.Status3xx = parseInt(output["Status3xx"]);
   }
-  if (output["Status4xx"] !== undefined) {
-    contents.Status4xx = parseInt(output["Status4xx"]);
+  if (output["Status2xx"] !== undefined) {
+    contents.Status2xx = parseInt(output["Status2xx"]);
   }
   if (output["Status5xx"] !== undefined) {
     contents.Status5xx = parseInt(output["Status5xx"]);
+  }
+  if (output["Status4xx"] !== undefined) {
+    contents.Status4xx = parseInt(output["Status4xx"]);
   }
   return contents;
 };
@@ -7416,14 +7820,14 @@ const deserializeAws_querySystemStatus = (output: any, context: __SerdeContext):
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
     __type: "Tag",
-    Key: undefined,
     Value: undefined,
+    Key: undefined,
   };
-  if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
-  }
   if (output["Value"] !== undefined) {
     contents.Value = output["Value"];
+  }
+  if (output["Key"] !== undefined) {
+    contents.Key = output["Key"];
   }
   return contents;
 };
@@ -7543,21 +7947,21 @@ const deserializeAws_queryValidationMessage = (output: any, context: __SerdeCont
   let contents: any = {
     __type: "ValidationMessage",
     Message: undefined,
-    Namespace: undefined,
     OptionName: undefined,
     Severity: undefined,
+    Namespace: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
-  }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = output["Namespace"];
   }
   if (output["OptionName"] !== undefined) {
     contents.OptionName = output["OptionName"];
   }
   if (output["Severity"] !== undefined) {
     contents.Severity = output["Severity"];
+  }
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = output["Namespace"];
   }
   return contents;
 };

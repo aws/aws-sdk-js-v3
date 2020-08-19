@@ -4,20 +4,15 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface CreateSavingsPlanRequest {
   __type?: "CreateSavingsPlanRequest";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot specify more
    *         than three digits after the decimal point.</p>
    */
   commitment: string | undefined;
 
   /**
-   * <p>The ID of the offering.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
-  savingsPlanOfferingId: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>One or more tags.</p>
@@ -29,6 +24,11 @@ export interface CreateSavingsPlanRequest {
    *        This parameter is supported only if the payment option is <code>Partial Upfront</code>.</p>
    */
   upfrontPaymentAmount?: string;
+
+  /**
+   * <p>The ID of the offering.</p>
+   */
+  savingsPlanOfferingId: string | undefined;
 }
 
 export namespace CreateSavingsPlanRequest {
@@ -58,9 +58,9 @@ export type CurrencyCode = "CNY" | "USD";
 export interface DescribeSavingsPlanRatesRequest {
   __type?: "DescribeSavingsPlanRatesRequest";
   /**
-   * <p>The filters.</p>
+   * <p>The ID of the Savings Plan.</p>
    */
-  filters?: SavingsPlanRateFilter[];
+  savingsPlanId: string | undefined;
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
@@ -74,9 +74,9 @@ export interface DescribeSavingsPlanRatesRequest {
   nextToken?: string;
 
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * <p>The filters.</p>
    */
-  savingsPlanId: string | undefined;
+  filters?: SavingsPlanRateFilter[];
 }
 
 export namespace DescribeSavingsPlanRatesRequest {
@@ -89,15 +89,15 @@ export namespace DescribeSavingsPlanRatesRequest {
 export interface DescribeSavingsPlanRatesResponse {
   __type?: "DescribeSavingsPlanRatesResponse";
   /**
+   * <p>The ID of the Savings Plan.</p>
+   */
+  savingsPlanId?: string;
+
+  /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *          results to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The ID of the Savings Plan.</p>
-   */
-  savingsPlanId?: string;
 
   /**
    * <p>Information about the Savings Plans rates.</p>
@@ -115,15 +115,25 @@ export namespace DescribeSavingsPlanRatesResponse {
 export interface DescribeSavingsPlansOfferingRatesRequest {
   __type?: "DescribeSavingsPlansOfferingRatesRequest";
   /**
+   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
+   *        call with the returned token value.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The filters.</p>
    */
   filters?: SavingsPlanOfferingRateFilterElement[];
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
-   *        call with the returned token value.</p>
+   * <p>The specific AWS operation for the line item in the billing report.</p>
    */
-  maxResults?: number;
+  operations?: string[];
+
+  /**
+   * <p>The services.</p>
+   */
+  serviceCodes?: (SavingsPlanRateServiceCode | string)[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -131,9 +141,19 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   nextToken?: string;
 
   /**
-   * <p>The specific AWS operation for the line item in the billing report.</p>
+   * <p>The plan types.</p>
    */
-  operations?: string[];
+  savingsPlanTypes?: (SavingsPlanType | string)[];
+
+  /**
+   * <p>The usage details of the line item in the billing report.</p>
+   */
+  usageTypes?: string[];
+
+  /**
+   * <p>The payment options.</p>
+   */
+  savingsPlanPaymentOptions?: (SavingsPlanPaymentOption | string)[];
 
   /**
    * <p>The AWS products.</p>
@@ -144,26 +164,6 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
    * <p>The IDs of the offerings.</p>
    */
   savingsPlanOfferingIds?: string[];
-
-  /**
-   * <p>The payment options.</p>
-   */
-  savingsPlanPaymentOptions?: (SavingsPlanPaymentOption | string)[];
-
-  /**
-   * <p>The plan types.</p>
-   */
-  savingsPlanTypes?: (SavingsPlanType | string)[];
-
-  /**
-   * <p>The services.</p>
-   */
-  serviceCodes?: (SavingsPlanRateServiceCode | string)[];
-
-  /**
-   * <p>The usage details of the line item in the billing report.</p>
-   */
-  usageTypes?: string[];
 }
 
 export namespace DescribeSavingsPlansOfferingRatesRequest {
@@ -214,30 +214,9 @@ export interface DescribeSavingsPlansOfferingsRequest {
   durations?: number[];
 
   /**
-   * <p>The filters.</p>
-   */
-  filters?: SavingsPlanOfferingFilterElement[];
-
-  /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
-   *        call with the returned token value.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The IDs of the offerings.</p>
    */
   offeringIds?: string[];
-
-  /**
-   * <p>The specific AWS operation for the line item in the billing report.</p>
-   */
-  operations?: string[];
 
   /**
    * <p>The payment options.</p>
@@ -250,19 +229,40 @@ export interface DescribeSavingsPlansOfferingsRequest {
   planTypes?: (SavingsPlanType | string)[];
 
   /**
-   * <p>The product type.</p>
+   * <p>The filters.</p>
    */
-  productType?: SavingsPlanProductType | string;
-
-  /**
-   * <p>The services.</p>
-   */
-  serviceCodes?: string[];
+  filters?: SavingsPlanOfferingFilterElement[];
 
   /**
    * <p>The usage details of the line item in the billing report.</p>
    */
   usageTypes?: string[];
+
+  /**
+   * <p>The specific AWS operation for the line item in the billing report.</p>
+   */
+  operations?: string[];
+
+  /**
+   * <p>The product type.</p>
+   */
+  productType?: SavingsPlanProductType | string;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
+   *        call with the returned token value.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The services.</p>
+   */
+  serviceCodes?: string[];
 }
 
 export namespace DescribeSavingsPlansOfferingsRequest {
@@ -276,15 +276,15 @@ export namespace DescribeSavingsPlansOfferingsRequest {
 export interface DescribeSavingsPlansOfferingsResponse {
   __type?: "DescribeSavingsPlansOfferingsResponse";
   /**
+   * <p>Information about the Savings Plans offerings.</p>
+   */
+  searchResults?: SavingsPlanOffering[];
+
+  /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Information about the Savings Plans offerings.</p>
-   */
-  searchResults?: SavingsPlanOffering[];
 }
 
 export namespace DescribeSavingsPlansOfferingsResponse {
@@ -298,9 +298,9 @@ export namespace DescribeSavingsPlansOfferingsResponse {
 export interface DescribeSavingsPlansRequest {
   __type?: "DescribeSavingsPlansRequest";
   /**
-   * <p>The filters.</p>
+   * <p>The token for the next page of results.</p>
    */
-  filters?: SavingsPlanFilter[];
+  nextToken?: string;
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
@@ -309,9 +309,9 @@ export interface DescribeSavingsPlansRequest {
   maxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The filters.</p>
    */
-  nextToken?: string;
+  filters?: SavingsPlanFilter[];
 
   /**
    * <p>The Amazon Resource Names (ARN) of the Savings Plans.</p>
@@ -339,15 +339,15 @@ export namespace DescribeSavingsPlansRequest {
 export interface DescribeSavingsPlansResponse {
   __type?: "DescribeSavingsPlansResponse";
   /**
+   * <p>Information about the Savings Plans.</p>
+   */
+  savingsPlans?: SavingsPlan[];
+
+  /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Information about the Savings Plans.</p>
-   */
-  savingsPlans?: SavingsPlan[];
 }
 
 export namespace DescribeSavingsPlansResponse {
@@ -409,14 +409,14 @@ export namespace ListTagsForResourceResponse {
 export interface ParentSavingsPlanOffering {
   __type?: "ParentSavingsPlanOffering";
   /**
+   * <p>The plan type.</p>
+   */
+  planType?: SavingsPlanType | string;
+
+  /**
    * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
-
-  /**
-   * <p>The duration, in seconds.</p>
-   */
-  durationSeconds?: number;
 
   /**
    * <p>The ID of the offering.</p>
@@ -424,19 +424,19 @@ export interface ParentSavingsPlanOffering {
   offeringId?: string;
 
   /**
-   * <p>The payment option.</p>
-   */
-  paymentOption?: SavingsPlanPaymentOption | string;
-
-  /**
    * <p>The description.</p>
    */
   planDescription?: string;
 
   /**
-   * <p>The plan type.</p>
+   * <p>The payment option.</p>
    */
-  planType?: SavingsPlanType | string;
+  paymentOption?: SavingsPlanPaymentOption | string;
+
+  /**
+   * <p>The duration, in seconds.</p>
+   */
+  durationSeconds?: number;
 }
 
 export namespace ParentSavingsPlanOffering {
@@ -468,9 +468,29 @@ export namespace ResourceNotFoundException {
 export interface SavingsPlan {
   __type?: "SavingsPlan";
   /**
+   * <p>The end time.</p>
+   */
+  end?: string;
+
+  /**
+   * <p>The recurring payment amount.</p>
+   */
+  recurringPaymentAmount?: string;
+
+  /**
    * <p>The hourly commitment, in USD.</p>
    */
   commitment?: string;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The payment option.</p>
+   */
+  paymentOption?: SavingsPlanPaymentOption | string;
 
   /**
    * <p>The currency.</p>
@@ -483,39 +503,9 @@ export interface SavingsPlan {
   description?: string;
 
   /**
-   * <p>The EC2 instance family.</p>
+   * <p>The state.</p>
    */
-  ec2InstanceFamily?: string;
-
-  /**
-   * <p>The end time.</p>
-   */
-  end?: string;
-
-  /**
-   * <p>The ID of the offering.</p>
-   */
-  offeringId?: string;
-
-  /**
-   * <p>The payment option.</p>
-   */
-  paymentOption?: SavingsPlanPaymentOption | string;
-
-  /**
-   * <p>The product types.</p>
-   */
-  productTypes?: (SavingsPlanProductType | string)[];
-
-  /**
-   * <p>The recurring payment amount.</p>
-   */
-  recurringPaymentAmount?: string;
-
-  /**
-   * <p>The AWS Region.</p>
-   */
-  region?: string;
+  state?: SavingsPlanState | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Savings Plan.</p>
@@ -523,9 +513,24 @@ export interface SavingsPlan {
   savingsPlanArn?: string;
 
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * <p>The duration of the term, in seconds.</p>
    */
-  savingsPlanId?: string;
+  termDurationInSeconds?: number;
+
+  /**
+   * <p>The AWS Region.</p>
+   */
+  region?: string;
+
+  /**
+   * <p>The EC2 instance family.</p>
+   */
+  ec2InstanceFamily?: string;
+
+  /**
+   * <p>The up-front payment amount.</p>
+   */
+  upfrontPaymentAmount?: string;
 
   /**
    * <p>The plan type.</p>
@@ -533,29 +538,24 @@ export interface SavingsPlan {
   savingsPlanType?: SavingsPlanType | string;
 
   /**
+   * <p>The ID of the offering.</p>
+   */
+  offeringId?: string;
+
+  /**
+   * <p>The ID of the Savings Plan.</p>
+   */
+  savingsPlanId?: string;
+
+  /**
    * <p>The start time.</p>
    */
   start?: string;
 
   /**
-   * <p>The state.</p>
+   * <p>The product types.</p>
    */
-  state?: SavingsPlanState | string;
-
-  /**
-   * <p>One or more tags.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The duration of the term, in seconds.</p>
-   */
-  termDurationInSeconds?: number;
-
-  /**
-   * <p>The up-front payment amount.</p>
-   */
-  upfrontPaymentAmount?: string;
+  productTypes?: (SavingsPlanProductType | string)[];
 }
 
 export namespace SavingsPlan {
@@ -594,44 +594,9 @@ export namespace SavingsPlanFilter {
 export interface SavingsPlanOffering {
   __type?: "SavingsPlanOffering";
   /**
-   * <p>The currency.</p>
-   */
-  currency?: CurrencyCode | string;
-
-  /**
    * <p>The description.</p>
    */
   description?: string;
-
-  /**
-   * <p>The duration, in seconds.</p>
-   */
-  durationSeconds?: number;
-
-  /**
-   * <p>The ID of the offering.</p>
-   */
-  offeringId?: string;
-
-  /**
-   * <p>The specific AWS operation for the line item in the billing report.</p>
-   */
-  operation?: string;
-
-  /**
-   * <p>The payment option.</p>
-   */
-  paymentOption?: SavingsPlanPaymentOption | string;
-
-  /**
-   * <p>The plan type.</p>
-   */
-  planType?: SavingsPlanType | string;
-
-  /**
-   * <p>The product type.</p>
-   */
-  productTypes?: (SavingsPlanProductType | string)[];
 
   /**
    * <p>The properties.</p>
@@ -639,14 +604,49 @@ export interface SavingsPlanOffering {
   properties?: SavingsPlanOfferingProperty[];
 
   /**
+   * <p>The usage details of the line item in the billing report.</p>
+   */
+  usageType?: string;
+
+  /**
+   * <p>The currency.</p>
+   */
+  currency?: CurrencyCode | string;
+
+  /**
+   * <p>The ID of the offering.</p>
+   */
+  offeringId?: string;
+
+  /**
+   * <p>The payment option.</p>
+   */
+  paymentOption?: SavingsPlanPaymentOption | string;
+
+  /**
    * <p>The service.</p>
    */
   serviceCode?: string;
 
   /**
-   * <p>The usage details of the line item in the billing report.</p>
+   * <p>The duration, in seconds.</p>
    */
-  usageType?: string;
+  durationSeconds?: number;
+
+  /**
+   * <p>The product type.</p>
+   */
+  productTypes?: (SavingsPlanProductType | string)[];
+
+  /**
+   * <p>The plan type.</p>
+   */
+  planType?: SavingsPlanType | string;
+
+  /**
+   * <p>The specific AWS operation for the line item in the billing report.</p>
+   */
+  operation?: string;
 }
 
 export namespace SavingsPlanOffering {
@@ -718,6 +718,11 @@ export enum SavingsPlanOfferingPropertyKey {
 export interface SavingsPlanOfferingRate {
   __type?: "SavingsPlanOfferingRate";
   /**
+   * <p>The unit.</p>
+   */
+  unit?: SavingsPlanRateUnit | string;
+
+  /**
    * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operation?: string;
@@ -728,14 +733,19 @@ export interface SavingsPlanOfferingRate {
   productType?: SavingsPlanProductType | string;
 
   /**
+   * <p>The Savings Plan rate.</p>
+   */
+  rate?: string;
+
+  /**
    * <p>The properties.</p>
    */
   properties?: SavingsPlanOfferingRateProperty[];
 
   /**
-   * <p>The Savings Plan rate.</p>
+   * <p>The usage details of the line item in the billing report.</p>
    */
-  rate?: string;
+  usageType?: string;
 
   /**
    * <p>The Savings Plan offering.</p>
@@ -746,16 +756,6 @@ export interface SavingsPlanOfferingRate {
    * <p>The service.</p>
    */
   serviceCode?: SavingsPlanRateServiceCode | string;
-
-  /**
-   * <p>The unit.</p>
-   */
-  unit?: SavingsPlanRateUnit | string;
-
-  /**
-   * <p>The usage details of the line item in the billing report.</p>
-   */
-  usageType?: string;
 }
 
 export namespace SavingsPlanOfferingRate {
@@ -771,14 +771,14 @@ export namespace SavingsPlanOfferingRate {
 export interface SavingsPlanOfferingRateFilterElement {
   __type?: "SavingsPlanOfferingRateFilterElement";
   /**
-   * <p>The filter name.</p>
-   */
-  name?: SavingsPlanRateFilterAttribute | string;
-
-  /**
    * <p>The filter values.</p>
    */
   values?: string[];
+
+  /**
+   * <p>The filter name.</p>
+   */
+  name?: SavingsPlanRateFilterAttribute | string;
 }
 
 export namespace SavingsPlanOfferingRateFilterElement {
@@ -821,6 +821,7 @@ export enum SavingsPlanPaymentOption {
 export enum SavingsPlanProductType {
   EC2 = "EC2",
   FARGATE = "Fargate",
+  LAMBDA = "Lambda",
 }
 
 /**
@@ -829,9 +830,9 @@ export enum SavingsPlanProductType {
 export interface SavingsPlanRate {
   __type?: "SavingsPlanRate";
   /**
-   * <p>The currency.</p>
+   * <p>The unit.</p>
    */
-  currency?: CurrencyCode | string;
+  unit?: SavingsPlanRateUnit | string;
 
   /**
    * <p>The specific AWS operation for the line item in the billing report.</p>
@@ -842,6 +843,16 @@ export interface SavingsPlanRate {
    * <p>The product type.</p>
    */
   productType?: SavingsPlanProductType | string;
+
+  /**
+   * <p>The usage details of the line item in the billing report.</p>
+   */
+  usageType?: string;
+
+  /**
+   * <p>The currency.</p>
+   */
+  currency?: CurrencyCode | string;
 
   /**
    * <p>The properties.</p>
@@ -857,16 +868,6 @@ export interface SavingsPlanRate {
    * <p>The service.</p>
    */
   serviceCode?: SavingsPlanRateServiceCode | string;
-
-  /**
-   * <p>The unit.</p>
-   */
-  unit?: SavingsPlanRateUnit | string;
-
-  /**
-   * <p>The usage details of the line item in the billing report.</p>
-   */
-  usageType?: string;
 }
 
 export namespace SavingsPlanRate {
@@ -925,14 +926,14 @@ export enum SavingsPlanRateFilterName {
 export interface SavingsPlanRateProperty {
   __type?: "SavingsPlanRateProperty";
   /**
-   * <p>The property name.</p>
-   */
-  name?: SavingsPlanRatePropertyKey | string;
-
-  /**
    * <p>The property value.</p>
    */
   value?: string;
+
+  /**
+   * <p>The property name.</p>
+   */
+  name?: SavingsPlanRatePropertyKey | string;
 }
 
 export namespace SavingsPlanRateProperty {
@@ -953,10 +954,13 @@ export enum SavingsPlanRatePropertyKey {
 export enum SavingsPlanRateServiceCode {
   EC2 = "AmazonEC2",
   FARGATE = "AmazonECS",
+  LAMBDA = "AWSLambda",
 }
 
 export enum SavingsPlanRateUnit {
   HOURS = "Hrs",
+  LAMBDA_GB_SECOND = "Lambda-GB-Second",
+  REQUEST = "Request",
 }
 
 export enum SavingsPlansFilterName {
@@ -1033,14 +1037,14 @@ export namespace TagResourceResponse {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The tag keys.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {

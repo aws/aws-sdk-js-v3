@@ -136,19 +136,21 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon Elastic Container Registry</fullname>
- *         <p>Amazon Elastic Container Registry (Amazon ECR) is a managed Docker registry service. Customers can use the familiar
- *             Docker CLI to push, pull, and manage images. Amazon ECR provides a secure, scalable, and
- *             reliable registry. Amazon ECR supports private Docker repositories with resource-based
+ *         <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Customers can use the
+ *             familiar Docker CLI, or their preferred client, to push, pull, and manage images. Amazon ECR
+ *             provides a secure, scalable, and reliable registry for your Docker or Open Container
+ *             Initiative (OCI) images. Amazon ECR supports private repositories with resource-based
  *             permissions using IAM so that specific users or Amazon EC2 instances can access
- *             repositories and images. Developers can use the Docker CLI to author and manage
- *             images.</p>
+ *             repositories and images.</p>
  */
 export class ECR extends ECRClient {
   /**
-   * <p>Check the availability of multiple image layers in a specified registry and
-   *             repository.</p>
+   * <p>Checks the availability of one or more image layers in a repository.</p>
+   *         <p>When an image is pushed to a repository, each image layer is checked to verify if it
+   *             has been uploaded before. If it has been uploaded, then the image layer is
+   *             skipped.</p>
    *          <note>
-   *             <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by
+   *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
    */
@@ -182,8 +184,8 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Deletes a list of specified images within a specified repository. Images are specified
-   *             with either <code>imageTag</code> or <code>imageDigest</code>.</p>
+   * <p>Deletes a list of specified images within a repository. Images are specified with
+   *             either an <code>imageTag</code> or <code>imageDigest</code>.</p>
    *         <p>You can remove a tag from an image by specifying the image's tag in your request. When
    *             you remove the last tag from an image, the image is deleted from your repository.</p>
    *         <p>You can completely delete an image (and all of its tags) by specifying the image's
@@ -219,8 +221,10 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Gets detailed information for specified images within a specified repository. Images
-   *             are specified with either <code>imageTag</code> or <code>imageDigest</code>.</p>
+   * <p>Gets detailed information for an image. Images are specified with either an
+   *                 <code>imageTag</code> or <code>imageDigest</code>.</p>
+   *         <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
+   *             manifest.</p>
    */
   public batchGetImage(
     args: BatchGetImageCommandInput,
@@ -255,8 +259,10 @@ export class ECR extends ECRClient {
    * <p>Informs Amazon ECR that the image layer upload has completed for a specified registry,
    *             repository name, and upload ID. You can optionally provide a <code>sha256</code> digest
    *             of the image layer for data validation purposes.</p>
+   *         <p>When an image is pushed, the CompleteLayerUpload API is called once per each new image
+   *             layer to verify that the upload has completed.</p>
    *          <note>
-   *             <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by
+   *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
    */
@@ -290,8 +296,7 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Creates an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR Repositories</a> in the
+   * <p>Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR Repositories</a> in the
    *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
    */
   public createRepository(
@@ -324,7 +329,7 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Deletes the specified lifecycle policy.</p>
+   * <p>Deletes the lifecycle policy associated with the specified repository.</p>
    */
   public deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
@@ -356,8 +361,9 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Deletes an existing image repository. If a repository contains images, you must use
-   *             the <code>force</code> option to delete it.</p>
+   * <p>Deletes a repository. If the repository contains images, you must either delete all
+   *             images in the repository or use the <code>force</code> option to delete the
+   *             repository.</p>
    */
   public deleteRepository(
     args: DeleteRepositoryCommandInput,
@@ -389,7 +395,7 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Deletes the repository policy from a specified repository.</p>
+   * <p>Deletes the repository policy associated with the specified repository.</p>
    */
   public deleteRepositoryPolicy(
     args: DeleteRepositoryPolicyCommandInput,
@@ -421,8 +427,7 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Returns metadata about the images in a repository, including image size, image tags,
-   *             and creation date.</p>
+   * <p>Returns metadata about the images in a repository.</p>
    *         <note>
    *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers
    *                 before pushing them to a V2 Docker registry. The output of the <code>docker
@@ -460,7 +465,7 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Describes the image scan findings for the specified image.</p>
+   * <p>Returns the scan findings for the specified image.</p>
    */
   public describeImageScanFindings(
     args: DescribeImageScanFindingsCommandInput,
@@ -524,13 +529,14 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Retrieves a token that is valid for a specified registry for 12 hours. This command
-   *             allows you to use the <code>docker</code> CLI to push and pull images with Amazon ECR.
-   *             If you do not specify a registry, the default registry is assumed.</p>
-   *         <p>The <code>authorizationToken</code> returned for each registry specified is a base64
-   *             encoded string that can be decoded and used in a <code>docker login</code> command to
-   *             authenticate to a registry. The AWS CLI offers an <code>aws ecr get-login</code> command
-   *             that simplifies the login process.</p>
+   * <p>Retrieves an authorization token. An authorization token represents your IAM
+   *             authentication credentials and can be used to access any Amazon ECR registry that your IAM
+   *             principal has access to. The authorization token is valid for 12 hours.</p>
+   *         <p>The <code>authorizationToken</code> returned is a base64 encoded string that can be
+   *             decoded and used in a <code>docker login</code> command to authenticate to a registry.
+   *             The AWS CLI offers an <code>get-login-password</code> command that simplifies the login
+   *             process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
+   *                 Authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
    */
   public getAuthorizationToken(
     args: GetAuthorizationTokenCommandInput,
@@ -564,8 +570,10 @@ export class ECR extends ECRClient {
   /**
    * <p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You
    *             can only get URLs for image layers that are referenced in an image.</p>
-   *         <note>
-   *             <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by
+   *         <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
+   *             that is not already cached.</p>
+   *          <note>
+   *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
    */
@@ -599,7 +607,7 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Retrieves the specified lifecycle policy.</p>
+   * <p>Retrieves the lifecycle policy for the specified repository.</p>
    */
   public getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
@@ -631,7 +639,8 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Retrieves the results of the specified lifecycle policy preview request.</p>
+   * <p>Retrieves the results of the lifecycle policy preview request for the specified
+   *             repository.</p>
    */
   public getLifecyclePolicyPreview(
     args: GetLifecyclePolicyPreviewCommandInput,
@@ -663,7 +672,7 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Retrieves the repository policy for a specified repository.</p>
+   * <p>Retrieves the repository policy for the specified repository.</p>
    */
   public getRepositoryPolicy(
     args: GetRepositoryPolicyCommandInput,
@@ -695,9 +704,12 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Notify Amazon ECR that you intend to upload an image layer.</p>
+   * <p>Notifies Amazon ECR that you intend to upload an image layer.</p>
+   *         <p>When an image is pushed, the InitiateLayerUpload API is called once per image layer
+   *             that has not already been uploaded. Whether or not an image layer has been uploaded is
+   *             determined by the BatchCheckLayerAvailability API action.</p>
    *          <note>
-   *             <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by
+   *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
    */
@@ -731,13 +743,13 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Lists all the image IDs for a given repository.</p>
-   *         <p>You can filter images based on whether or not they are tagged by setting the
-   *                 <code>tagStatus</code> parameter to <code>TAGGED</code> or <code>UNTAGGED</code>.
-   *             For example, you can filter your results to return only <code>UNTAGGED</code> images and
-   *             then pipe that result to a <a>BatchDeleteImage</a> operation to delete them.
-   *             Or, you can filter your results to return only <code>TAGGED</code> images to list all of
-   *             the tags in your repository.</p>
+   * <p>Lists all the image IDs for the specified repository.</p>
+   *         <p>You can filter images based on whether or not they are tagged by using the
+   *                 <code>tagStatus</code> filter and specifying either <code>TAGGED</code>,
+   *                 <code>UNTAGGED</code> or <code>ANY</code>. For example, you can filter your results
+   *             to return only <code>UNTAGGED</code> images and then pipe that result to a <a>BatchDeleteImage</a> operation to delete them. Or, you can filter your
+   *             results to return only <code>TAGGED</code> images to list all of the tags in your
+   *             repository.</p>
    */
   public listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
   public listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
@@ -796,9 +808,12 @@ export class ECR extends ECRClient {
 
   /**
    * <p>Creates or updates the image manifest and tags associated with an image.</p>
+   *         <p>When an image is pushed and all new image layers have been uploaded, the PutImage API
+   *             is called once to create or update the image manifest and the tags associated with the
+   *             image.</p>
    *
    *         <note>
-   *             <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by
+   *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
    */
@@ -826,7 +841,7 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Updates the image scanning configuration for a repository.</p>
+   * <p>Updates the image scanning configuration for the specified repository.</p>
    */
   public putImageScanningConfiguration(
     args: PutImageScanningConfigurationCommandInput,
@@ -858,9 +873,8 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Updates the image tag mutability settings for a repository. When a repository is
-   *             configured with tag immutability, all image tags within the repository will be prevented
-   *             them from being overwritten. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image Tag
+   * <p>Updates the image tag mutability settings for the specified repository. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image Tag
    *                 Mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
    */
   public putImageTagMutability(
@@ -893,8 +907,9 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Creates or updates a lifecycle policy. For information about lifecycle policy syntax,
-   *             see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle Policy Template</a>.</p>
+   * <p>Creates or updates the lifecycle policy for the specified repository. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle Policy
+   *                 Template</a>.</p>
    */
   public putLifecyclePolicy(
     args: PutLifecyclePolicyCommandInput,
@@ -926,9 +941,9 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Applies a repository policy on a specified repository to control access permissions.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicies.html">Amazon ECR Repository Policies</a> in the
-   *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
+   * <p>Applies a repository policy to the specified repository to control access permissions.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html">Amazon ECR Repository
+   *                 Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
    */
   public setRepositoryPolicy(
     args: SetRepositoryPolicyCommandInput,
@@ -995,8 +1010,8 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Starts a preview of the specified lifecycle policy. This allows you to see the results
-   *             before creating the lifecycle policy.</p>
+   * <p>Starts a preview of a lifecycle policy for the specified repository. This allows you
+   *             to see the results before associating the lifecycle policy with the repository.</p>
    */
   public startLifecyclePolicyPreview(
     args: StartLifecyclePolicyPreviewCommandInput,
@@ -1088,8 +1103,11 @@ export class ECR extends ECRClient {
 
   /**
    * <p>Uploads an image layer part to Amazon ECR.</p>
+   *         <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size
+   *             of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API
+   *             is called once per each new image layer part.</p>
    *          <note>
-   *             <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by
+   *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
    */

@@ -12,6 +12,7 @@ export * from "./commands/CreateRuleGroupCommand";
 export * from "./commands/CreateSizeConstraintSetCommand";
 export * from "./commands/CreateSqlInjectionMatchSetCommand";
 export * from "./commands/CreateWebACLCommand";
+export * from "./commands/CreateWebACLMigrationStackCommand";
 export * from "./commands/CreateXssMatchSetCommand";
 export * from "./commands/DeleteByteMatchSetCommand";
 export * from "./commands/DeleteGeoMatchSetCommand";

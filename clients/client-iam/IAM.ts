@@ -623,62 +623,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS Identity and Access Management</fullname>
- *          <p>AWS Identity and Access Management (IAM) is a web service that you can use to manage
- *       users and user permissions under your AWS account. This guide provides descriptions of IAM
- *       actions that you can call programmatically. For general information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a>. For the user
- *       guide for IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">Using IAM</a>. </p>
- *          <note>
- *             <p>AWS provides SDKs that consist of libraries and sample code for various programming
- *         languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a
- *         convenient way to create programmatic access to IAM and AWS. For example, the SDKs take care
- *         of tasks such as cryptographically signing requests (see below), managing errors, and
- *         retrying requests automatically. For information about the AWS SDKs, including how to
- *         download and install them, see the <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
- *           Services</a> page. </p>
- *          </note>
- *          <p>We recommend that you use the AWS SDKs to make programmatic API calls to IAM. However,
- *       you can also use the IAM Query API to make direct calls to the IAM web service. To learn more
- *       about the IAM Query API, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in the
- *         <i>Using IAM</i> guide. IAM supports GET and POST requests for all actions.
- *       That is, the API does not require you to use GET for some actions and POST for others.
- *       However, GET requests are subject to the limitation size of a URL. Therefore, for operations
- *       that require larger sizes, use a POST request. </p>
- *          <p>
- *             <b>Signing Requests</b>
- *          </p>
- *          <p>Requests must be signed using an access key ID and a secret access key. We strongly
- *       recommend that you do not use your AWS account access key ID and secret access key for
- *       everyday work with IAM. You can use the access key ID and secret access key for an IAM user or
- *       you can use the AWS Security Token Service to generate temporary security credentials and use
- *       those to sign requests.</p>
- *          <p>To sign requests, we recommend that you use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>. If you have an
- *       existing application that uses Signature Version 2, you do not have to update it to use
- *       Signature Version 4. However, some operations now require Signature Version 4. The
- *       documentation for operations that require version 4 indicate this requirement. </p>
- *          <p>
- *             <b>Additional Resources</b>
- *          </p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS
- *             Security Credentials</a>. This topic provides general information about the types of
- *           credentials used for accessing AWS. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html">IAM Best
- *             Practices</a>. This topic presents a list of suggestions for using the IAM service
- *           to help secure your AWS resources. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
- *             AWS API Requests</a>. This set of topics walk you through the process of signing a
- *           request using an access key ID and secret access key. </p>
- *             </li>
- *          </ul>
+ *          <p>AWS Identity and Access Management (IAM) is a web service for securely controlling
+ *       access to AWS services. With IAM, you can centrally manage users, security credentials
+ *       such as access keys, and permissions that control which AWS resources users and
+ *       applications can access. For more information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a> and the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">AWS Identity and Access Management User Guide</a>.</p>
  */
 export class IAM extends IAMClient {
   /**
@@ -718,7 +666,7 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Adds the specified IAM role to the specified instance profile. An instance profile can
-   *          contain only one role, and this limit cannot be increased. You can remove the existing role
+   *          contain only one role. (The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.) You can remove the existing role
    *          and then add a different role to an instance profile. You must then wait for the change to
    *          appear across all of AWS because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual consistency</a>.
    *          To force the change, you must <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">disassociate
@@ -950,8 +898,7 @@ export class IAM extends IAMClient {
    *          the AWS access key ID signing the request. This operation works for access keys under the
    *          AWS account. Consequently, you can use this operation to manage AWS account root user
    *          credentials. This is true even if the AWS account has no associated users.</p>
-   *          <p> For information about limits on the number of keys you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
-   *             IAM Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    *          <important>
    *             <p>To ensure the security of your AWS account, the secret access key is accessible
    *             only during key and user creation. You must save the key (for example, in a text file)
@@ -1025,8 +972,7 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Creates a new group.</p>
-   *          <p> For information about the number of groups you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
-   *             IAM Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
   public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
   public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
@@ -1054,8 +1000,7 @@ export class IAM extends IAMClient {
   /**
    * <p> Creates a new instance profile. For information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance
    *             Profiles</a>.</p>
-   *          <p> For information about the number of instance profiles you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
-   *             IAM Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
   public createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
@@ -1135,7 +1080,7 @@ export class IAM extends IAMClient {
    *                applications that are allowed to authenticate using the OIDC provider</p>
    *             </li>
    *             <li>
-   *                <p>A list of thumbprints of the server certificate(s) that the IdP uses</p>
+   *                <p>A list of thumbprints of one or more server certificates that the IdP uses</p>
    *             </li>
    *          </ul>
    *          <p>You get all of this information from the OIDC IdP that you want to use to access
@@ -1251,9 +1196,7 @@ export class IAM extends IAMClient {
   /**
    * <p>Creates a new role for your AWS account. For more information about roles, go to
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
-   *             Roles</a>. For information about limitations on role names and the number of roles
-   *          you can create, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM Entities</a> in
-   *          the <i>IAM User Guide</i>.</p>
+   *                Roles</a>. The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
   public createRole(args: CreateRoleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoleCommandOutput>;
   public createRole(args: CreateRoleCommandInput, cb: (err: any, data?: CreateRoleCommandOutput) => void): void;
@@ -1410,9 +1353,7 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Creates a new IAM user for your AWS account.</p>
-   *          <p> For information about limitations on the number of IAM users you can create, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-   *             on IAM Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
   public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
@@ -1442,8 +1383,7 @@ export class IAM extends IAMClient {
    *          use <a>EnableMFADevice</a> to attach the MFA device to an IAM user. For more
    *          information about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a Virtual MFA
    *             Device</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>For information about limits on the number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
-   *             Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    *          <important>
    *             <p>The seed information contained in the QR code and the Base32 string should be treated
    *             like any other secret access information. In other words, protect the seed information
@@ -2756,7 +2696,10 @@ export class IAM extends IAMClient {
    *                   <a>GetServiceLastAccessedDetails</a> – Use this operation for
    *                users, groups, roles, or policies to list every AWS service that the resource could
    *                access using permissions policies. For each service, the response includes
-   *                information about the most recent access attempt. </p>
+   *                information about the most recent access attempt.</p>
+   *                <p>The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code>
+   *                must be used by the same role within a session, or by the same user when used to call
+   *                   <code>GetServiceLastAccessedDetail</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2777,8 +2720,9 @@ export class IAM extends IAMClient {
    *             and AWS STS assume role policies. It only applies permissions policy logic. For more
    *             about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating Policies</a> in the <i>IAM User Guide</i>.</p>
    *          </note>
-   *          <p>For more information about service last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing Policy Scope by
-   *             Viewing User Activity</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+   *             Permissions Using Service Last Accessed Data</a> in the
+   *             <i>IAM User Guide</i>.</p>
    */
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
@@ -2925,8 +2869,7 @@ export class IAM extends IAMClient {
   /**
    * <p>Retrieves information about IAM entity usage and IAM quotas in the AWS
    *          account.</p>
-   *          <p> For information about limitations on IAM entities, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM Entities</a> in
-   *          the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
   public getAccountSummary(
     args: GetAccountSummaryCommandInput,
@@ -3582,6 +3525,13 @@ export class IAM extends IAMClient {
    *             </li>
    *          </ul>
    *          <p>By default, the list is sorted by service namespace.</p>
+   *          <p>If you specified <code>ACTION_LEVEL</code> granularity when you generated the report,
+   *          this operation returns service and action last accessed data. This includes the most recent
+   *          access attempt for each tracked action within a service. Otherwise, this operation returns
+   *          only service data.</p>
+   *          <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+   *             Permissions Using Service Last Accessed Data</a> in the
+   *             <i>IAM User Guide</i>.</p>
    */
   public getServiceLastAccessedDetails(
     args: GetServiceLastAccessedDetailsCommandInput,
@@ -5372,12 +5322,12 @@ export class IAM extends IAMClient {
    *          permissions. The policies are provided as strings.</p>
    *          <p>The simulation does not perform the API operations; it only checks the authorization to
    *          determine if the simulated policies allow or deny the operations.</p>
-   *          <p>If you want to simulate existing policies attached to an IAM user, group, or role, use
-   *             <a>SimulatePrincipalPolicy</a> instead.</p>
-   *          <p>Context keys are variables maintained by AWS and its services that provide details
-   *          about the context of an API query request. You can use the <code>Condition</code> element
-   *          of an IAM policy to evaluate context keys. To get the list of context keys that the
-   *          policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.</p>
+   *          <p>If you want to simulate existing policies that are attached to an IAM user, group, or
+   *          role, use <a>SimulatePrincipalPolicy</a> instead.</p>
+   *          <p>Context keys are variables that are maintained by AWS and its services and which
+   *          provide details about the context of an API query request. You can use the
+   *             <code>Condition</code> element of an IAM policy to evaluate context keys. To get the
+   *          list of context keys that the policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.</p>
    *          <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code>
    *          parameters to paginate the results.</p>
    */

@@ -53,6 +53,12 @@ import {
   RejectInvitationCommandOutput,
 } from "./commands/RejectInvitationCommand";
 import {
+  UpdateMemberCommand,
+  UpdateMemberCommandInput,
+  UpdateMemberCommandOutput,
+} from "./commands/UpdateMemberCommand";
+import { UpdateNodeCommand, UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
+import {
   VoteOnProposalCommand,
   VoteOnProposalCommandInput,
   VoteOnProposalCommandOutput,
@@ -541,6 +547,61 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
     cb?: (err: any, data?: RejectInvitationCommandOutput) => void
   ): Promise<RejectInvitationCommandOutput> | void {
     const command = new RejectInvitationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a member configuration with new parameters.</p>
+   */
+  public updateMember(
+    args: UpdateMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMemberCommandOutput>;
+  public updateMember(args: UpdateMemberCommandInput, cb: (err: any, data?: UpdateMemberCommandOutput) => void): void;
+  public updateMember(
+    args: UpdateMemberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMemberCommandOutput) => void
+  ): void;
+  public updateMember(
+    args: UpdateMemberCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMemberCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMemberCommandOutput) => void
+  ): Promise<UpdateMemberCommandOutput> | void {
+    const command = new UpdateMemberCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a node configuration with new parameters.</p>
+   */
+  public updateNode(args: UpdateNodeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateNodeCommandOutput>;
+  public updateNode(args: UpdateNodeCommandInput, cb: (err: any, data?: UpdateNodeCommandOutput) => void): void;
+  public updateNode(
+    args: UpdateNodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNodeCommandOutput) => void
+  ): void;
+  public updateNode(
+    args: UpdateNodeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNodeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateNodeCommandOutput) => void
+  ): Promise<UpdateNodeCommandOutput> | void {
+    const command = new UpdateNodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

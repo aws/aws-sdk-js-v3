@@ -21,15 +21,9 @@ export namespace ClientLimitExceededException {
 export interface GetIceServerConfigRequest {
   __type?: "GetIceServerConfigRequest";
   /**
-   * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
-   *             configured peers. </p>
+   * <p>An optional user ID to be associated with the credentials.</p>
    */
-  ChannelARN: string | undefined;
-
-  /**
-   * <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
-   */
-  ClientId?: string;
+  Username?: string;
 
   /**
    * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
@@ -38,9 +32,15 @@ export interface GetIceServerConfigRequest {
   Service?: Service | string;
 
   /**
-   * <p>An optional user ID to be associated with the credentials.</p>
+   * <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
    */
-  Username?: string;
+  ClientId?: string;
+
+  /**
+   * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
+   *             configured peers. </p>
+   */
+  ChannelARN: string | undefined;
 }
 
 export namespace GetIceServerConfigRequest {
@@ -71,6 +71,17 @@ export namespace GetIceServerConfigResponse {
 export interface IceServer {
   __type?: "IceServer";
   /**
+   * <p>A username to login to the ICE server.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
+   *             addresses and/or protocols that can be used to reach the TURN server.</p>
+   */
+  Uris?: string[];
+
+  /**
    * <p>A password to login to the ICE server.</p>
    */
   Password?: string;
@@ -80,17 +91,6 @@ export interface IceServer {
    *             valid.</p>
    */
   Ttl?: number;
-
-  /**
-   * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
-   *             addresses and/or protocols that can be used to reach the TURN server.</p>
-   */
-  Uris?: string[];
-
-  /**
-   * <p>A username to login to the ICE server.</p>
-   */
-  Username?: string;
 }
 
 export namespace IceServer {
@@ -173,14 +173,14 @@ export interface SendAlexaOfferToMasterRequest {
   ChannelARN: string | undefined;
 
   /**
-   * <p>The base64-encoded SDP offer content.</p>
-   */
-  MessagePayload: string | undefined;
-
-  /**
    * <p>The unique identifier for the sender client.</p>
    */
   SenderClientId: string | undefined;
+
+  /**
+   * <p>The base64-encoded SDP offer content.</p>
+   */
+  MessagePayload: string | undefined;
 }
 
 export namespace SendAlexaOfferToMasterRequest {

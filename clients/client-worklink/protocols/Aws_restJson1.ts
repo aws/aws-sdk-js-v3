@@ -48,6 +48,10 @@ import { ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/L
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   ListWebsiteAuthorizationProvidersCommandInput,
   ListWebsiteAuthorizationProvidersCommandOutput,
 } from "../commands/ListWebsiteAuthorizationProvidersCommand";
@@ -61,6 +65,8 @@ import {
 } from "../commands/RestoreDomainAccessCommand";
 import { RevokeDomainAccessCommandInput, RevokeDomainAccessCommandOutput } from "../commands/RevokeDomainAccessCommand";
 import { SignOutUserCommandInput, SignOutUserCommandOutput } from "../commands/SignOutUserCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateAuditStreamConfigurationCommandInput,
   UpdateAuditStreamConfigurationCommandOutput,
@@ -99,7 +105,10 @@ import {
   WebsiteCaSummary,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -203,6 +212,7 @@ export const serializeAws_restJson1CreateFleetCommand = async (
     ...(input.OptimizeForEndUserLocation !== undefined && {
       OptimizeForEndUserLocation: input.OptimizeForEndUserLocation,
     }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -587,6 +597,36 @@ export const serializeAws_restJson1ListFleetsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand = async (
   input: ListWebsiteAuthorizationProvidersCommandInput,
   context: __SerdeContext
@@ -710,6 +750,73 @@ export const serializeAws_restJson1SignOutUserCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1852,6 +1959,7 @@ export const deserializeAws_restJson1DescribeFleetMetadataCommand = async (
     FleetStatus: undefined,
     LastUpdatedTime: undefined,
     OptimizeForEndUserLocation: undefined,
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.CompanyCode !== undefined && data.CompanyCode !== null) {
@@ -1874,6 +1982,9 @@ export const deserializeAws_restJson1DescribeFleetMetadataCommand = async (
   }
   if (data.OptimizeForEndUserLocation !== undefined && data.OptimizeForEndUserLocation !== null) {
     contents.OptimizeForEndUserLocation = data.OptimizeForEndUserLocation;
+  }
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -2542,6 +2653,14 @@ const deserializeAws_restJson1ListDomainsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.worklink#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.worklink#TooManyRequestsException":
       response = {
@@ -2638,6 +2757,62 @@ const deserializeAws_restJson1ListFleetsCommandError = async (
     case "com.amazonaws.worklink#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.worklink#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3072,6 +3247,110 @@ const deserializeAws_restJson1SignOutUserCommandError = async (
     case "com.amazonaws.worklink#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.worklink#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.worklink#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3707,6 +3986,16 @@ const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContex
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
   return {
     __type: "DeviceSummary",
@@ -3752,6 +4041,10 @@ const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeConte
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
   } as any;
 };
 
@@ -3765,6 +4058,16 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1WebsiteAuthorizationProvidersSummaryList = (

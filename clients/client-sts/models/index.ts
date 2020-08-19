@@ -53,6 +53,97 @@ export interface AssumeRoleRequest {
   DurationSeconds?: number;
 
   /**
+   * <p>An identifier for the assumed role session.</p>
+   *          <p>Use the role session name to uniquely identify a session when the same role is assumed
+   *          by different principals or for different reasons. In cross-account scenarios, the role
+   *          session name is visible to, and can be logged by the account that owns the role. The role
+   *          session name is also used in the ARN of the assumed role principal. This means that
+   *          subsequent cross-account API requests that use the temporary security credentials will
+   *          expose the role session name to the external account in their AWS CloudTrail logs.</p>
+   *          <p>The regex used to validate this parameter is a string of characters
+   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
+   *     also include underscores or any of the following characters: =,.@-</p>
+   */
+  RoleSessionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role to assume.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The value provided by the MFA device, if the trust policy of the role being assumed
+   *          requires MFA (that is, if the policy includes a condition that tests for MFA). If the role
+   *          being assumed requires MFA and if the <code>TokenCode</code> value is missing or expired,
+   *          the <code>AssumeRole</code> call returns an "access denied" error.</p>
+   *          <p>The format for this parameter, as described by its regex pattern, is a sequence of six
+   *          numeric digits.</p>
+   */
+  TokenCode?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as
+   *          managed session policies. The policies must exist in the same account as the role.</p>
+   *          <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the
+   *          plain text that you use for both inline and managed session policies can't exceed 2,048
+   *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
+   *             Service Namespaces</a> in the AWS General Reference.</p>
+   *
+   *          <note>
+   *             <p>An AWS conversion compresses the passed session policies and session tags into a
+   *             packed binary format that has a separate limit. Your request can fail for this limit
+   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             response element indicates by percentage how close the policies and tags for your
+   *             request are to the upper size limit.
+   *             </p>
+   *          </note>
+   *
+   *          <p>Passing policies to this operation returns new
+   *          temporary credentials. The resulting session's permissions are the intersection of the
+   *          role's identity-based policy and the session policies. You can use the role's temporary
+   *          credentials in subsequent AWS API calls to access resources in the account that owns
+   *          the role. You cannot use session policies to grant more permissions than those allowed
+   *          by the identity-based policy of the role that is being assumed. For more information, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+   *             Policies</a> in the <i>IAM User Guide</i>.</p>
+   */
+  PolicyArns?: PolicyDescriptorType[];
+
+  /**
+   * <p>A list of session tags that you want to pass. Each session tag consists of a key name
+   *          and an associated value. For more information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Tagging AWS STS
+   *             Sessions</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>This parameter is optional. You can pass up to 50 session tags. The plain text session
+   *          tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these
+   *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
+   *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
+   *
+   *          <note>
+   *             <p>An AWS conversion compresses the passed session policies and session tags into a
+   *             packed binary format that has a separate limit. Your request can fail for this limit
+   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             response element indicates by percentage how close the policies and tags for your
+   *             request are to the upper size limit.
+   *             </p>
+   *          </note>
+   *
+   *          <p>You can pass a session tag with the same key as a tag that is already attached to the
+   *          role. When you do, session tags override a role tag with the same key. </p>
+   *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
+   *          cannot have separate <code>Department</code> and <code>department</code> tag keys. Assume
+   *          that the role has the <code>Department</code>=<code>Marketing</code> tag and you pass the
+   *             <code>department</code>=<code>engineering</code> session tag. <code>Department</code>
+   *          and <code>department</code> are not saved as separate tags, and the session tag passed in
+   *          the request takes precedence over the role tag.</p>
+   *          <p>Additionally, if you used temporary credentials to perform this operation, the new
+   *          session inherits any transitive session tags from the calling session. If you pass a
+   *          session tag with the same key as an inherited tag, the operation fails. To view the
+   *          inherited tags for a session, see the AWS CloudTrail logs. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs">Viewing Session Tags in CloudTrail</a> in the
+   *          <i>IAM User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>A unique identifier that might be required when you assume a role in another account. If
    *          the administrator of the account to which the role belongs provided you with an external
    *          ID, then provide that value in the <code>ExternalId</code> parameter. This value can be any
@@ -97,53 +188,6 @@ export interface AssumeRoleRequest {
   Policy?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as
-   *          managed session policies. The policies must exist in the same account as the role.</p>
-   *          <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the
-   *          plain text that you use for both inline and managed session policies can't exceed 2,048
-   *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
-   *             Service Namespaces</a> in the AWS General Reference.</p>
-   *
-   *          <note>
-   *             <p>An AWS conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
-   *          </note>
-   *
-   *          <p>Passing policies to this operation returns new
-   *          temporary credentials. The resulting session's permissions are the intersection of the
-   *          role's identity-based policy and the session policies. You can use the role's temporary
-   *          credentials in subsequent AWS API calls to access resources in the account that owns
-   *          the role. You cannot use session policies to grant more permissions than those allowed
-   *          by the identity-based policy of the role that is being assumed. For more information, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
-   *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   */
-  PolicyArns?: PolicyDescriptorType[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role to assume.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>An identifier for the assumed role session.</p>
-   *          <p>Use the role session name to uniquely identify a session when the same role is assumed
-   *          by different principals or for different reasons. In cross-account scenarios, the role
-   *          session name is visible to, and can be logged by the account that owns the role. The role
-   *          session name is also used in the ARN of the assumed role principal. This means that
-   *          subsequent cross-account API requests that use the temporary security credentials will
-   *          expose the role session name to the external account in their AWS CloudTrail logs.</p>
-   *          <p>The regex used to validate this parameter is a string of characters
-   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-   *     also include underscores or any of the following characters: =,.@-</p>
-   */
-  RoleSessionName: string | undefined;
-
-  /**
    * <p>The identification number of the MFA device that is associated with the user who is
    *          making the <code>AssumeRole</code> call. Specify this value if the trust policy of the role
    *          being assumed includes a condition that requires MFA authentication. The value is either
@@ -155,50 +199,6 @@ export interface AssumeRoleRequest {
    *     also include underscores or any of the following characters: =,.@-</p>
    */
   SerialNumber?: string;
-
-  /**
-   * <p>A list of session tags that you want to pass. Each session tag consists of a key name
-   *          and an associated value. For more information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Tagging AWS STS
-   *             Sessions</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>This parameter is optional. You can pass up to 50 session tags. The plain text session
-   *          tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these
-   *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
-   *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *          <note>
-   *             <p>An AWS conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
-   *          </note>
-   *
-   *          <p>You can pass a session tag with the same key as a tag that is already attached to the
-   *          role. When you do, session tags override a role tag with the same key. </p>
-   *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
-   *          cannot have separate <code>Department</code> and <code>department</code> tag keys. Assume
-   *          that the role has the <code>Department</code>=<code>Marketing</code> tag and you pass the
-   *             <code>department</code>=<code>engineering</code> session tag. <code>Department</code>
-   *          and <code>department</code> are not saved as separate tags, and the session tag passed in
-   *          the request takes precedence over the role tag.</p>
-   *          <p>Additionally, if you used temporary credentials to perform this operation, the new
-   *          session inherits any transitive session tags from the calling session. If you pass a
-   *          session tag with the same key as an inherited tag, the operation fails. To view the
-   *          inherited tags for a session, see the AWS CloudTrail logs. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs">Viewing Session Tags in CloudTrail</a> in the
-   *          <i>IAM User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The value provided by the MFA device, if the trust policy of the role being assumed
-   *          requires MFA (that is, if the policy includes a condition that tests for MFA). If the role
-   *          being assumed requires MFA and if the <code>TokenCode</code> value is missing or expired,
-   *          the <code>AssumeRole</code> call returns an "access denied" error.</p>
-   *          <p>The format for this parameter, as described by its regex pattern, is a sequence of six
-   *          numeric digits.</p>
-   */
-  TokenCode?: string;
 
   /**
    * <p>A list of keys for session tags that you want to set as transitive. If you set a tag key
@@ -227,15 +227,6 @@ export namespace AssumeRoleRequest {
 export interface AssumeRoleResponse {
   __type?: "AssumeRoleResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
-   *          can use to refer to the resulting temporary security credentials. For example, you can
-   *          reference these credentials as a principal in a resource-based policy by using the ARN or
-   *          assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified
-   *          when you called <code>AssumeRole</code>. </p>
-   */
-  AssumedRoleUser?: AssumedRoleUser;
-
-  /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
    *          <note>
@@ -251,6 +242,15 @@ export interface AssumeRoleResponse {
    *       which means the policies and tags exceeded the allowed space.</p>
    */
   PackedPolicySize?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
+   *          can use to refer to the resulting temporary security credentials. For example, you can
+   *          reference these credentials as a principal in a resource-based policy by using the ARN or
+   *          assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified
+   *          when you called <code>AssumeRole</code>. </p>
+   */
+  AssumedRoleUser?: AssumedRoleUser;
 }
 
 export namespace AssumeRoleResponse {
@@ -262,31 +262,6 @@ export namespace AssumeRoleResponse {
 
 export interface AssumeRoleWithSAMLRequest {
   __type?: "AssumeRoleWithSAMLRequest";
-  /**
-   * <p>The duration, in seconds, of the role session. Your role session lasts for the duration
-   *          that you specify for the <code>DurationSeconds</code> parameter, or until the time
-   *          specified in the SAML authentication response's <code>SessionNotOnOrAfter</code> value,
-   *          whichever is shorter. You can provide a <code>DurationSeconds</code> value from 900 seconds
-   *          (15 minutes) up to the maximum session duration setting for the role. This setting can have
-   *          a value from 1 hour to 12 hours. If you specify a value higher than this setting, the
-   *          operation fails. For example, if you specify a session duration of 12 hours, but your
-   *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
-   *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
-   *             Maximum Session Duration Setting for a Role</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   *          <p>By default, the value is set to <code>3600</code> seconds. </p>
-   *          <note>
-   *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
-   *             session that you might request using the returned credentials. The request to the
-   *             federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
-   *             parameter that specifies the maximum length of the console session. For more
-   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating a URL
-   *                that Enables Federated Users to Access the AWS Management Console</a> in the
-   *                <i>IAM User Guide</i>.</p>
-   *          </note>
-   */
-  DurationSeconds?: number;
-
   /**
    * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
    *          <p>This parameter is optional. Passing policies to this operation returns new
@@ -312,6 +287,11 @@ export interface AssumeRoleWithSAMLRequest {
    *          </note>
    */
   Policy?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
+   */
+  RoleArn: string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as
@@ -347,109 +327,12 @@ export interface AssumeRoleWithSAMLRequest {
   PrincipalArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The base-64 encoded SAML authentication response provided by the IdP.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html">Configuring a Relying Party and
-   *             Adding Claims</a> in the <i>IAM User Guide</i>. </p>
-   */
-  SAMLAssertion: string | undefined;
-}
-
-export namespace AssumeRoleWithSAMLRequest {
-  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is AssumeRoleWithSAMLRequest => __isa(o, "AssumeRoleWithSAMLRequest");
-}
-
-/**
- * <p>Contains the response to a successful <a>AssumeRoleWithSAML</a> request,
- *       including temporary AWS credentials that can be used to make AWS requests. </p>
- */
-export interface AssumeRoleWithSAMLResponse {
-  __type?: "AssumeRoleWithSAMLResponse";
-  /**
-   * <p>The identifiers for the temporary security credentials that the operation
-   *          returns.</p>
-   */
-  AssumedRoleUser?: AssumedRoleUser;
-
-  /**
-   * <p> The value of the <code>Recipient</code> attribute of the
-   *             <code>SubjectConfirmationData</code> element of the SAML assertion. </p>
-   */
-  Audience?: string;
-
-  /**
-   * <p>The temporary security credentials, which include an access key ID, a secret access key,
-   *          and a security (or session) token.</p>
-   *          <note>
-   *             <p>The size of the security token that STS API operations return is not fixed. We
-   *         strongly recommend that you make no assumptions about the maximum size.</p>
-   *          </note>
-   */
-  Credentials?: Credentials;
-
-  /**
-   * <p>The value of the <code>Issuer</code> element of the SAML assertion.</p>
-   */
-  Issuer?: string;
-
-  /**
-   * <p>A hash value based on the concatenation of the <code>Issuer</code> response value, the
-   *          AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in
-   *          IAM. The combination of <code>NameQualifier</code> and <code>Subject</code> can be used
-   *          to uniquely identify a federated user. </p>
-   *          <p>The following pseudocode shows how the hash value is calculated:</p>
-   *          <p>
-   *             <code>BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )</code>
-   *          </p>
-   */
-  NameQualifier?: string;
-
-  /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
-   */
-  PackedPolicySize?: number;
-
-  /**
-   * <p>The value of the <code>NameID</code> element in the <code>Subject</code> element of the
-   *          SAML assertion.</p>
-   */
-  Subject?: string;
-
-  /**
-   * <p> The format of the name ID, as defined by the <code>Format</code> attribute in the
-   *             <code>NameID</code> element of the SAML assertion. Typical examples of the format are
-   *             <code>transient</code> or <code>persistent</code>. </p>
-   *          <p> If the format includes the prefix
-   *             <code>urn:oasis:names:tc:SAML:2.0:nameid-format</code>, that prefix is removed. For
-   *          example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as
-   *             <code>transient</code>. If the format includes any other prefix, the format is returned
-   *          with no modifications.</p>
-   */
-  SubjectType?: string;
-}
-
-export namespace AssumeRoleWithSAMLResponse {
-  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is AssumeRoleWithSAMLResponse => __isa(o, "AssumeRoleWithSAMLResponse");
-}
-
-export interface AssumeRoleWithWebIdentityRequest {
-  __type?: "AssumeRoleWithWebIdentityRequest";
-  /**
-   * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15
-   *          minutes) up to the maximum session duration setting for the role. This setting can have a
-   *          value from 1 hour to 12 hours. If you specify a value higher than this setting, the
+   * <p>The duration, in seconds, of the role session. Your role session lasts for the duration
+   *          that you specify for the <code>DurationSeconds</code> parameter, or until the time
+   *          specified in the SAML authentication response's <code>SessionNotOnOrAfter</code> value,
+   *          whichever is shorter. You can provide a <code>DurationSeconds</code> value from 900 seconds
+   *          (15 minutes) up to the maximum session duration setting for the role. This setting can have
+   *          a value from 1 hour to 12 hours. If you specify a value higher than this setting, the
    *          operation fails. For example, if you specify a session duration of 12 hours, but your
    *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
    *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
@@ -469,31 +352,101 @@ export interface AssumeRoleWithWebIdentityRequest {
   DurationSeconds?: number;
 
   /**
-   * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
-   *          <p>This parameter is optional. Passing policies to this operation returns new
-   *          temporary credentials. The resulting session's permissions are the intersection of the
-   *          role's identity-based policy and the session policies. You can use the role's temporary
-   *          credentials in subsequent AWS API calls to access resources in the account that owns
-   *          the role. You cannot use session policies to grant more permissions than those allowed
-   *          by the identity-based policy of the role that is being assumed. For more information, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
-   *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>The plain text that you use for both inline and managed session policies can't exceed
-   *          2,048 characters. The JSON policy characters can be any ASCII character from the space
-   *          character to the end of the valid character list (\u0020 through \u00FF). It can also
-   *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
-   *          characters.</p>
+   * <p>The base-64 encoded SAML authentication response provided by the IdP.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html">Configuring a Relying Party and
+   *             Adding Claims</a> in the <i>IAM User Guide</i>. </p>
+   */
+  SAMLAssertion: string | undefined;
+}
+
+export namespace AssumeRoleWithSAMLRequest {
+  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
+    ...obj,
+    ...(obj.SAMLAssertion && { SAMLAssertion: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is AssumeRoleWithSAMLRequest => __isa(o, "AssumeRoleWithSAMLRequest");
+}
+
+/**
+ * <p>Contains the response to a successful <a>AssumeRoleWithSAML</a> request,
+ *       including temporary AWS credentials that can be used to make AWS requests. </p>
+ */
+export interface AssumeRoleWithSAMLResponse {
+  __type?: "AssumeRoleWithSAMLResponse";
+  /**
+   * <p>The value of the <code>NameID</code> element in the <code>Subject</code> element of the
+   *          SAML assertion.</p>
+   */
+  Subject?: string;
+
+  /**
+   * <p>The temporary security credentials, which include an access key ID, a secret access key,
+   *          and a security (or session) token.</p>
    *          <note>
-   *             <p>An AWS conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
+   *             <p>The size of the security token that STS API operations return is not fixed. We
+   *         strongly recommend that you make no assumptions about the maximum size.</p>
    *          </note>
    */
-  Policy?: string;
+  Credentials?: Credentials;
 
+  /**
+   * <p>The identifiers for the temporary security credentials that the operation
+   *          returns.</p>
+   */
+  AssumedRoleUser?: AssumedRoleUser;
+
+  /**
+   * <p> The format of the name ID, as defined by the <code>Format</code> attribute in the
+   *             <code>NameID</code> element of the SAML assertion. Typical examples of the format are
+   *             <code>transient</code> or <code>persistent</code>. </p>
+   *          <p> If the format includes the prefix
+   *             <code>urn:oasis:names:tc:SAML:2.0:nameid-format</code>, that prefix is removed. For
+   *          example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as
+   *             <code>transient</code>. If the format includes any other prefix, the format is returned
+   *          with no modifications.</p>
+   */
+  SubjectType?: string;
+
+  /**
+   * <p>A hash value based on the concatenation of the <code>Issuer</code> response value, the
+   *          AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in
+   *          IAM. The combination of <code>NameQualifier</code> and <code>Subject</code> can be used
+   *          to uniquely identify a federated user. </p>
+   *          <p>The following pseudocode shows how the hash value is calculated:</p>
+   *          <p>
+   *             <code>BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )</code>
+   *          </p>
+   */
+  NameQualifier?: string;
+
+  /**
+   * <p>The value of the <code>Issuer</code> element of the SAML assertion.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p> The value of the <code>Recipient</code> attribute of the
+   *             <code>SubjectConfirmationData</code> element of the SAML assertion. </p>
+   */
+  Audience?: string;
+
+  /**
+   * <p>A percentage value that indicates the packed size of the session policies and session
+   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
+   *       which means the policies and tags exceeded the allowed space.</p>
+   */
+  PackedPolicySize?: number;
+}
+
+export namespace AssumeRoleWithSAMLResponse {
+  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssumeRoleWithSAMLResponse => __isa(o, "AssumeRoleWithSAMLResponse");
+}
+
+export interface AssumeRoleWithWebIdentityRequest {
+  __type?: "AssumeRoleWithWebIdentityRequest";
   /**
    * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as
    *          managed session policies. The policies must exist in the same account as the role.</p>
@@ -522,6 +475,14 @@ export interface AssumeRoleWithWebIdentityRequest {
   PolicyArns?: PolicyDescriptorType[];
 
   /**
+   * <p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity
+   *          provider. Your application must get this token by authenticating the user who is using your
+   *          application with a web identity provider before the application makes an
+   *             <code>AssumeRoleWithWebIdentity</code> call. </p>
+   */
+  WebIdentityToken: string | undefined;
+
+  /**
    * <p>The fully qualified host component of the domain name of the identity provider.</p>
    *          <p>Specify this value only for OAuth 2.0 access tokens. Currently
    *             <code>www.amazon.com</code> and <code>graph.facebook.com</code> are the only supported
@@ -532,9 +493,30 @@ export interface AssumeRoleWithWebIdentityRequest {
   ProviderId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
+   * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
+   *          <p>This parameter is optional. Passing policies to this operation returns new
+   *          temporary credentials. The resulting session's permissions are the intersection of the
+   *          role's identity-based policy and the session policies. You can use the role's temporary
+   *          credentials in subsequent AWS API calls to access resources in the account that owns
+   *          the role. You cannot use session policies to grant more permissions than those allowed
+   *          by the identity-based policy of the role that is being assumed. For more information, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+   *             Policies</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The plain text that you use for both inline and managed session policies can't exceed
+   *          2,048 characters. The JSON policy characters can be any ASCII character from the space
+   *          character to the end of the valid character list (\u0020 through \u00FF). It can also
+   *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
+   *          characters.</p>
+   *          <note>
+   *             <p>An AWS conversion compresses the passed session policies and session tags into a
+   *             packed binary format that has a separate limit. Your request can fail for this limit
+   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             response element indicates by percentage how close the policies and tags for your
+   *             request are to the upper size limit.
+   *             </p>
+   *          </note>
    */
-  RoleArn: string | undefined;
+  Policy?: string;
 
   /**
    * <p>An identifier for the assumed role session. Typically, you pass the name or identifier
@@ -549,17 +531,37 @@ export interface AssumeRoleWithWebIdentityRequest {
   RoleSessionName: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity
-   *          provider. Your application must get this token by authenticating the user who is using your
-   *          application with a web identity provider before the application makes an
-   *             <code>AssumeRoleWithWebIdentity</code> call. </p>
+   * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
    */
-  WebIdentityToken: string | undefined;
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15
+   *          minutes) up to the maximum session duration setting for the role. This setting can have a
+   *          value from 1 hour to 12 hours. If you specify a value higher than this setting, the
+   *          operation fails. For example, if you specify a session duration of 12 hours, but your
+   *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
+   *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
+   *             Maximum Session Duration Setting for a Role</a> in the
+   *             <i>IAM User Guide</i>.</p>
+   *          <p>By default, the value is set to <code>3600</code> seconds. </p>
+   *          <note>
+   *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
+   *             session that you might request using the returned credentials. The request to the
+   *             federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
+   *             parameter that specifies the maximum length of the console session. For more
+   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating a URL
+   *                that Enables Federated Users to Access the AWS Management Console</a> in the
+   *                <i>IAM User Guide</i>.</p>
+   *          </note>
+   */
+  DurationSeconds?: number;
 }
 
 export namespace AssumeRoleWithWebIdentityRequest {
   export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityRequest): any => ({
     ...obj,
+    ...(obj.WebIdentityToken && { WebIdentityToken: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is AssumeRoleWithWebIdentityRequest => __isa(o, "AssumeRoleWithWebIdentityRequest");
 }
@@ -571,13 +573,12 @@ export namespace AssumeRoleWithWebIdentityRequest {
 export interface AssumeRoleWithWebIdentityResponse {
   __type?: "AssumeRoleWithWebIdentityResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
-   *          can use to refer to the resulting temporary security credentials. For example, you can
-   *          reference these credentials as a principal in a resource-based policy by using the ARN or
-   *          assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified
-   *          when you called <code>AssumeRole</code>. </p>
+   * <p> The issuing authority of the web identity token presented. For OpenID Connect ID
+   *          tokens, this contains the value of the <code>iss</code> field. For OAuth 2.0 access tokens,
+   *          this contains the value of the <code>ProviderId</code> parameter that was passed in the
+   *             <code>AssumeRoleWithWebIdentity</code> request.</p>
    */
-  AssumedRoleUser?: AssumedRoleUser;
+  Provider?: string;
 
   /**
    * <p>The intended audience (also known as client ID) of the web identity token. This is
@@ -587,29 +588,11 @@ export interface AssumeRoleWithWebIdentityResponse {
   Audience?: string;
 
   /**
-   * <p>The temporary security credentials, which include an access key ID, a secret access key,
-   *          and a security token.</p>
-   *          <note>
-   *             <p>The size of the security token that STS API operations return is not fixed. We
-   *         strongly recommend that you make no assumptions about the maximum size.</p>
-   *          </note>
-   */
-  Credentials?: Credentials;
-
-  /**
    * <p>A percentage value that indicates the packed size of the session policies and session
    *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
    *       which means the policies and tags exceeded the allowed space.</p>
    */
   PackedPolicySize?: number;
-
-  /**
-   * <p> The issuing authority of the web identity token presented. For OpenID Connect ID
-   *          tokens, this contains the value of the <code>iss</code> field. For OAuth 2.0 access tokens,
-   *          this contains the value of the <code>ProviderId</code> parameter that was passed in the
-   *             <code>AssumeRoleWithWebIdentity</code> request.</p>
-   */
-  Provider?: string;
 
   /**
    * <p>The unique user identifier that is returned by the identity provider. This identifier is
@@ -620,6 +603,25 @@ export interface AssumeRoleWithWebIdentityResponse {
    *          identity provider as the token's <code>sub</code> (Subject) claim. </p>
    */
   SubjectFromWebIdentityToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
+   *          can use to refer to the resulting temporary security credentials. For example, you can
+   *          reference these credentials as a principal in a resource-based policy by using the ARN or
+   *          assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified
+   *          when you called <code>AssumeRole</code>. </p>
+   */
+  AssumedRoleUser?: AssumedRoleUser;
+
+  /**
+   * <p>The temporary security credentials, which include an access key ID, a secret access key,
+   *          and a security token.</p>
+   *          <note>
+   *             <p>The size of the security token that STS API operations return is not fixed. We
+   *         strongly recommend that you make no assumptions about the maximum size.</p>
+   *          </note>
+   */
+  Credentials?: Credentials;
 }
 
 export namespace AssumeRoleWithWebIdentityResponse {
@@ -635,25 +637,25 @@ export namespace AssumeRoleWithWebIdentityResponse {
 export interface Credentials {
   __type?: "Credentials";
   /**
-   * <p>The access key ID that identifies the temporary security credentials.</p>
-   */
-  AccessKeyId: string | undefined;
-
-  /**
    * <p>The date on which the current credentials expire.</p>
    */
   Expiration: Date | undefined;
-
-  /**
-   * <p>The secret access key that can be used to sign requests.</p>
-   */
-  SecretAccessKey: string | undefined;
 
   /**
    * <p>The token that users must pass to the service API to use the temporary
    *          credentials.</p>
    */
   SessionToken: string | undefined;
+
+  /**
+   * <p>The access key ID that identifies the temporary security credentials.</p>
+   */
+  AccessKeyId: string | undefined;
+
+  /**
+   * <p>The secret access key that can be used to sign requests.</p>
+   */
+  SecretAccessKey: string | undefined;
 }
 
 export namespace Credentials {
@@ -721,17 +723,17 @@ export namespace ExpiredTokenException {
 export interface FederatedUser {
   __type?: "FederatedUser";
   /**
+   * <p>The string that identifies the federated user associated with the credentials, similar
+   *          to the unique ID of an IAM user.</p>
+   */
+  FederatedUserId: string | undefined;
+
+  /**
    * <p>The ARN that specifies the federated user that is associated with the credentials. For
    *          more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *             Identifiers</a> in the <i>IAM User Guide</i>. </p>
    */
   Arn: string | undefined;
-
-  /**
-   * <p>The string that identifies the federated user associated with the credentials, similar
-   *          to the unique ID of an IAM user.</p>
-   */
-  FederatedUserId: string | undefined;
 }
 
 export namespace FederatedUser {
@@ -791,12 +793,6 @@ export namespace GetCallerIdentityRequest {
 export interface GetCallerIdentityResponse {
   __type?: "GetCallerIdentityResponse";
   /**
-   * <p>The AWS account ID number of the account that owns or contains the calling
-   *          entity.</p>
-   */
-  Account?: string;
-
-  /**
    * <p>The AWS ARN associated with the calling entity.</p>
    */
   Arn?: string;
@@ -808,6 +804,12 @@ export interface GetCallerIdentityResponse {
    *          page in the <i>IAM User Guide</i>.</p>
    */
   UserId?: string;
+
+  /**
+   * <p>The AWS account ID number of the account that owns or contains the calling
+   *          entity.</p>
+   */
+  Account?: string;
 }
 
 export namespace GetCallerIdentityResponse {
@@ -819,26 +821,6 @@ export namespace GetCallerIdentityResponse {
 
 export interface GetFederationTokenRequest {
   __type?: "GetFederationTokenRequest";
-  /**
-   * <p>The duration, in seconds, that the session should last. Acceptable durations for
-   *          federation sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with
-   *          43,200 seconds (12 hours) as the default. Sessions obtained using AWS account root user
-   *          credentials are restricted to a maximum of 3,600 seconds (one hour). If the specified
-   *          duration is longer than one hour, the session obtained by using root user credentials
-   *          defaults to one hour.</p>
-   */
-  DurationSeconds?: number;
-
-  /**
-   * <p>The name of the federated user. The name is used as an identifier for the temporary
-   *          security credentials (such as <code>Bob</code>). For example, you can reference the
-   *          federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.</p>
-   *          <p>The regex used to validate this parameter is a string of characters
-   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-   *     also include underscores or any of the following characters: =,.@-</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
    *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
@@ -873,6 +855,45 @@ export interface GetFederationTokenRequest {
    *          </note>
    */
   Policy?: string;
+
+  /**
+   * <p>A list of session tags. Each session tag consists of a key name and an associated value.
+   *          For more information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in the
+   *             <i>IAM User Guide</i>.</p>
+   *          <p>This parameter is optional. You can pass up to 50 session tags. The plain text session
+   *          tag keys can’t exceed 128 characters and the values can’t exceed 256 characters. For these
+   *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
+   *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
+   *
+   *          <note>
+   *             <p>An AWS conversion compresses the passed session policies and session tags into a
+   *             packed binary format that has a separate limit. Your request can fail for this limit
+   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             response element indicates by percentage how close the policies and tags for your
+   *             request are to the upper size limit.
+   *             </p>
+   *          </note>
+   *
+   *          <p>You can pass a session tag with the same key as a tag that is already attached to the
+   *          user you are federating. When you do, session tags override a user tag with the same key. </p>
+   *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
+   *          cannot have separate <code>Department</code> and <code>department</code> tag keys. Assume
+   *          that the role has the <code>Department</code>=<code>Marketing</code> tag and you pass the
+   *             <code>department</code>=<code>engineering</code> session tag. <code>Department</code>
+   *          and <code>department</code> are not saved as separate tags, and the session tag passed in
+   *          the request takes precedence over the role tag.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the federated user. The name is used as an identifier for the temporary
+   *          security credentials (such as <code>Bob</code>). For example, you can reference the
+   *          federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.</p>
+   *          <p>The regex used to validate this parameter is a string of characters
+   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
+   *     also include underscores or any of the following characters: =,.@-</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as a
@@ -910,33 +931,14 @@ export interface GetFederationTokenRequest {
   PolicyArns?: PolicyDescriptorType[];
 
   /**
-   * <p>A list of session tags. Each session tag consists of a key name and an associated value.
-   *          For more information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   *          <p>This parameter is optional. You can pass up to 50 session tags. The plain text session
-   *          tag keys can’t exceed 128 characters and the values can’t exceed 256 characters. For these
-   *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
-   *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *          <note>
-   *             <p>An AWS conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
-   *          </note>
-   *
-   *          <p>You can pass a session tag with the same key as a tag that is already attached to the
-   *          user you are federating. When you do, session tags override a user tag with the same key. </p>
-   *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
-   *          cannot have separate <code>Department</code> and <code>department</code> tag keys. Assume
-   *          that the role has the <code>Department</code>=<code>Marketing</code> tag and you pass the
-   *             <code>department</code>=<code>engineering</code> session tag. <code>Department</code>
-   *          and <code>department</code> are not saved as separate tags, and the session tag passed in
-   *          the request takes precedence over the role tag.</p>
+   * <p>The duration, in seconds, that the session should last. Acceptable durations for
+   *          federation sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with
+   *          43,200 seconds (12 hours) as the default. Sessions obtained using AWS account root user
+   *          credentials are restricted to a maximum of 3,600 seconds (one hour). If the specified
+   *          duration is longer than one hour, the session obtained by using root user credentials
+   *          defaults to one hour.</p>
    */
-  Tags?: Tag[];
+  DurationSeconds?: number;
 }
 
 export namespace GetFederationTokenRequest {
@@ -963,19 +965,19 @@ export interface GetFederationTokenResponse {
   Credentials?: Credentials;
 
   /**
+   * <p>A percentage value that indicates the packed size of the session policies and session
+   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
+   *       which means the policies and tags exceeded the allowed space.</p>
+   */
+  PackedPolicySize?: number;
+
+  /**
    * <p>Identifiers for the federated user associated with the credentials (such as
    *             <code>arn:aws:sts::123456789012:federated-user/Bob</code> or
    *             <code>123456789012:Bob</code>). You can use the federated user's ARN in your
    *          resource-based policies, such as an Amazon S3 bucket policy. </p>
    */
   FederatedUser?: FederatedUser;
-
-  /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
-   */
-  PackedPolicySize?: number;
 }
 
 export namespace GetFederationTokenResponse {
@@ -987,15 +989,6 @@ export namespace GetFederationTokenResponse {
 
 export interface GetSessionTokenRequest {
   __type?: "GetSessionTokenRequest";
-  /**
-   * <p>The duration, in seconds, that the credentials should remain valid. Acceptable durations
-   *          for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours),
-   *          with 43,200 seconds (12 hours) as the default. Sessions for AWS account owners are
-   *          restricted to a maximum of 3,600 seconds (one hour). If the duration is longer than one
-   *          hour, the session for AWS account owners defaults to one hour.</p>
-   */
-  DurationSeconds?: number;
-
   /**
    * <p>The identification number of the MFA device that is associated with the IAM user who
    *          is making the <code>GetSessionToken</code> call. Specify this value if the IAM user has a
@@ -1009,6 +1002,15 @@ export interface GetSessionTokenRequest {
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
   SerialNumber?: string;
+
+  /**
+   * <p>The duration, in seconds, that the credentials should remain valid. Acceptable durations
+   *          for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours),
+   *          with 43,200 seconds (12 hours) as the default. Sessions for AWS account owners are
+   *          restricted to a maximum of 3,600 seconds (one hour). If the duration is longer than one
+   *          hour, the session for AWS account owners defaults to one hour.</p>
+   */
+  DurationSeconds?: number;
 
   /**
    * <p>The value provided by the MFA device, if MFA is required. If any policy requires the

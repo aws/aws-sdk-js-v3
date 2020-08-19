@@ -2726,6 +2726,14 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2834,6 +2842,14 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
     case "com.amazonaws.kms#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4946,6 +4962,14 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

@@ -2,6 +2,68 @@ import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } 
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>An object that contains information about your account details.</p>
+ */
+export interface AccountDetails {
+  __type?: "AccountDetails";
+  /**
+   * <p>Information about the review of the latest details you submitted.</p>
+   */
+  ReviewDetails?: ReviewDetails;
+
+  /**
+   * <p>The type of email your account is sending. The mail type can be one of the
+   *             following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>MARKETING</code> – Most of your sending traffic is to keep your
+   *                     customers informed of your latest offering.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TRANSACTIONAL</code> – Most of your sending traffic is to
+   *                     communicate during a transaction with a customer.</p>
+   *             </li>
+   *          </ul>
+   */
+  MailType?: MailType | string;
+
+  /**
+   * <p>A description of the types of email that you plan to send.</p>
+   */
+  UseCaseDescription?: string;
+
+  /**
+   * <p>The URL of your website. This information helps us better understand the type of
+   *             content that you plan to send.</p>
+   */
+  WebsiteURL?: string;
+
+  /**
+   * <p>The language you would prefer for the case. The contact language can be one of
+   *                 <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
+   */
+  ContactLanguage?: ContactLanguage | string;
+
+  /**
+   * <p>Additional email addresses where updates are sent about your account review
+   *             process.</p>
+   */
+  AdditionalContactEmailAddresses?: string[];
+}
+
+export namespace AccountDetails {
+  export const filterSensitiveLog = (obj: AccountDetails): any => ({
+    ...obj,
+    ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
+    ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
+    ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is AccountDetails => __isa(o, "AccountDetails");
+}
+
+/**
  * <p>The message can't be sent because the account's ability to send email has been
  *             permanently restricted.</p>
  */
@@ -62,6 +124,11 @@ export enum BehaviorOnMxFailure {
 export interface BlacklistEntry {
   __type?: "BlacklistEntry";
   /**
+   * <p>The name of the blacklist that the IP address appears on.</p>
+   */
+  RblName?: string;
+
+  /**
    * <p>Additional information about the blacklisting event, as provided by the blacklist
    *             maintainer.</p>
    */
@@ -71,11 +138,6 @@ export interface BlacklistEntry {
    * <p>The time when the blacklisting event occurred, shown in Unix time format.</p>
    */
   ListingTime?: Date;
-
-  /**
-   * <p>The name of the blacklist that the IP address appears on.</p>
-   */
-  RblName?: string;
 }
 
 export namespace BlacklistEntry {
@@ -92,17 +154,17 @@ export interface Body {
   __type?: "Body";
   /**
    * <p>An object that represents the version of the message that is displayed in email
-   *             clients that support HTML. HTML messages can include formatted text, hyperlinks, images,
-   *             and more. </p>
-   */
-  Html?: Content;
-
-  /**
-   * <p>An object that represents the version of the message that is displayed in email
    *             clients that don't support HTML, or clients where the recipient has disabled HTML
    *             rendering.</p>
    */
   Text?: Content;
+
+  /**
+   * <p>An object that represents the version of the message that is displayed in email
+   *             clients that support HTML. HTML messages can include formatted text, hyperlinks, images,
+   *             and more. </p>
+   */
+  Html?: Content;
 }
 
 export namespace Body {
@@ -110,6 +172,171 @@ export namespace Body {
     ...obj,
   });
   export const isa = (o: any): o is Body => __isa(o, "Body");
+}
+
+/**
+ * <p>An object that contains the body of the message. You can specify a template
+ *             message.</p>
+ */
+export interface BulkEmailContent {
+  __type?: "BulkEmailContent";
+  /**
+   * <p>The template to use for the bulk email message.</p>
+   */
+  Template?: Template;
+}
+
+export namespace BulkEmailContent {
+  export const filterSensitiveLog = (obj: BulkEmailContent): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is BulkEmailContent => __isa(o, "BulkEmailContent");
+}
+
+export interface BulkEmailEntry {
+  __type?: "BulkEmailEntry";
+  /**
+   * <p>The <code>ReplacementEmailContent</code> associated with a
+   *             <code>BulkEmailEntry</code>.</p>
+   */
+  ReplacementEmailContent?: ReplacementEmailContent;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendBulkTemplatedEmail</code> operation. Tags correspond to
+   *             characteristics of the email that you define, so that you can publish email sending
+   *             events.</p>
+   */
+  ReplacementTags?: MessageTag[];
+
+  /**
+   * <p>Represents the destination of the message, consisting of To:, CC:, and BCC:
+   *             fields.</p>
+   *         <note>
+   *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
+   *                 local part of a destination email address (the part of the email address that
+   *                 precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
+   *                     characters</a>. If the domain part of an address (the part after the @ sign)
+   *                 contains non-ASCII characters, they must be encoded using Punycode, as described in
+   *                     <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p>
+   *         </note>
+   */
+  Destination: Destination | undefined;
+}
+
+export namespace BulkEmailEntry {
+  export const filterSensitiveLog = (obj: BulkEmailEntry): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is BulkEmailEntry => __isa(o, "BulkEmailEntry");
+}
+
+/**
+ * <p>The result of the <code>SendBulkEmail</code> operation of each specified
+ *                 <code>BulkEmailEntry</code>.</p>
+ */
+export interface BulkEmailEntryResult {
+  __type?: "BulkEmailEntryResult";
+  /**
+   * <p>A description of an error that prevented a message being sent using the
+   *                 <code>SendBulkTemplatedEmail</code> operation.</p>
+   */
+  Error?: string;
+
+  /**
+   * <p>The status of a message sent using the <code>SendBulkTemplatedEmail</code>
+   *             operation.</p>
+   *         <p>Possible values for this parameter include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>SUCCESS: Amazon SES accepted the message, and will attempt to deliver it to
+   *                     the recipients.</p>
+   *             </li>
+   *             <li>
+   *                 <p>MESSAGE_REJECTED: The message was rejected because it contained a
+   *                     virus.</p>
+   *             </li>
+   *             <li>
+   *                 <p>MAIL_FROM_DOMAIN_NOT_VERIFIED: The sender's email address or domain was not
+   *                     verified.</p>
+   *             </li>
+   *             <li>
+   *                 <p>CONFIGURATION_SET_DOES_NOT_EXIST: The configuration set you specified does not
+   *                     exist.</p>
+   *             </li>
+   *             <li>
+   *                 <p>TEMPLATE_DOES_NOT_EXIST: The template you specified does not exist.</p>
+   *             </li>
+   *             <li>
+   *                 <p>ACCOUNT_SUSPENDED: Your account has been shut down because of issues related
+   *                     to your email sending practices.</p>
+   *             </li>
+   *             <li>
+   *                 <p>ACCOUNT_THROTTLED: The number of emails you can send has been reduced because
+   *                     your account has exceeded its allocated sending limit.</p>
+   *             </li>
+   *             <li>
+   *                 <p>ACCOUNT_DAILY_QUOTA_EXCEEDED: You have reached or exceeded the maximum number
+   *                     of emails you can send from your account in a 24-hour period.</p>
+   *             </li>
+   *             <li>
+   *                 <p>INVALID_SENDING_POOL_NAME: The configuration set you specified refers to an IP
+   *                     pool that does not exist.</p>
+   *             </li>
+   *             <li>
+   *                 <p>ACCOUNT_SENDING_PAUSED: Email sending for the Amazon SES account was disabled
+   *                     using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateAccountSendingEnabled.html">UpdateAccountSendingEnabled</a> operation.</p>
+   *             </li>
+   *             <li>
+   *                 <p>CONFIGURATION_SET_SENDING_PAUSED: Email sending for this configuration set was
+   *                     disabled using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateConfigurationSetSendingEnabled.html">UpdateConfigurationSetSendingEnabled</a> operation.</p>
+   *             </li>
+   *             <li>
+   *                 <p>INVALID_PARAMETER_VALUE: One or more of the parameters you specified when
+   *                     calling this operation was invalid. See the error message for additional
+   *                     information.</p>
+   *             </li>
+   *             <li>
+   *                 <p>TRANSIENT_FAILURE: Amazon SES was unable to process your request because of a
+   *                     temporary issue.</p>
+   *             </li>
+   *             <li>
+   *                 <p>FAILED: Amazon SES was unable to process your request. See the error message
+   *                     for additional information.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: BulkEmailStatus | string;
+
+  /**
+   * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
+   *             operation.</p>
+   */
+  MessageId?: string;
+}
+
+export namespace BulkEmailEntryResult {
+  export const filterSensitiveLog = (obj: BulkEmailEntryResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is BulkEmailEntryResult => __isa(o, "BulkEmailEntryResult");
+}
+
+export enum BulkEmailStatus {
+  ACCOUNT_DAILY_QUOTA_EXCEEDED = "ACCOUNT_DAILY_QUOTA_EXCEEDED",
+  ACCOUNT_SENDING_PAUSED = "ACCOUNT_SENDING_PAUSED",
+  ACCOUNT_SUSPENDED = "ACCOUNT_SUSPENDED",
+  ACCOUNT_THROTTLED = "ACCOUNT_THROTTLED",
+  CONFIGURATION_SET_NOT_FOUND = "CONFIGURATION_SET_NOT_FOUND",
+  CONFIGURATION_SET_SENDING_PAUSED = "CONFIGURATION_SET_SENDING_PAUSED",
+  FAILED = "FAILED",
+  INVALID_PARAMETER = "INVALID_PARAMETER",
+  INVALID_SENDING_POOL_NAME = "INVALID_SENDING_POOL_NAME",
+  MAIL_FROM_DOMAIN_NOT_VERIFIED = "MAIL_FROM_DOMAIN_NOT_VERIFIED",
+  MESSAGE_REJECTED = "MESSAGE_REJECTED",
+  SUCCESS = "SUCCESS",
+  TEMPLATE_NOT_FOUND = "TEMPLATE_NOT_FOUND",
+  TRANSIENT_FAILURE = "TRANSIENT_FAILURE",
 }
 
 /**
@@ -138,6 +365,16 @@ export namespace CloudWatchDestination {
  */
 export interface CloudWatchDimensionConfiguration {
   __type?: "CloudWatchDimensionConfiguration";
+  /**
+   * <p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. If
+   *             you want to use the message tags that you specify using an
+   *                 <code>X-SES-MESSAGE-TAGS</code> header or a parameter to the <code>SendEmail</code>
+   *             or <code>SendRawEmail</code> API, choose <code>messageTag</code>. If you want to use
+   *             your own email headers, choose <code>emailHeader</code>. If you want to use link tags,
+   *             choose <code>linkTags</code>.</p>
+   */
+  DimensionValueSource: DimensionValueSource | string | undefined;
+
   /**
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the
    *             value of the dimension when you send an email. This value has to meet the following
@@ -168,16 +405,6 @@ export interface CloudWatchDimensionConfiguration {
    *          </ul>
    */
   DimensionName: string | undefined;
-
-  /**
-   * <p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. If
-   *             you want to use the message tags that you specify using an
-   *                 <code>X-SES-MESSAGE-TAGS</code> header or a parameter to the <code>SendEmail</code>
-   *             or <code>SendRawEmail</code> API, choose <code>messageTag</code>. If you want to use
-   *             your own email headers, choose <code>emailHeader</code>. If you want to use link tags,
-   *             choose <code>linkTags</code>.</p>
-   */
-  DimensionValueSource: DimensionValueSource | string | undefined;
 }
 
 export namespace CloudWatchDimensionConfiguration {
@@ -204,11 +431,37 @@ export namespace ConcurrentModificationException {
 }
 
 /**
+ * <p>If there is already an ongoing account details update under review.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
+}
+
+export enum ContactLanguage {
+  EN = "EN",
+  JA = "JA",
+}
+
+/**
  * <p>An object that represents the content of the email, and optionally a character set
  *             specification.</p>
  */
 export interface Content {
   __type?: "Content";
+  /**
+   * <p>The content of the message itself.</p>
+   */
+  Data: string | undefined;
+
   /**
    * <p>The character set for the content. Because of the constraints of the SMTP protocol,
    *             Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of the ASCII
@@ -216,11 +469,6 @@ export interface Content {
    *                 <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</p>
    */
   Charset?: string;
-
-  /**
-   * <p>The content of the message itself.</p>
-   */
-  Data: string | undefined;
 }
 
 export namespace Content {
@@ -241,14 +489,14 @@ export interface CreateConfigurationSetEventDestinationRequest {
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>An object that defines the event destination.</p>
-   */
-  EventDestination: EventDestinationDefinition | undefined;
-
-  /**
    * <p>A name that identifies the event destination within the configuration set.</p>
    */
   EventDestinationName: string | undefined;
+
+  /**
+   * <p>An object that defines the event destination.</p>
+   */
+  EventDestination: EventDestinationDefinition | undefined;
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
@@ -281,9 +529,10 @@ export namespace CreateConfigurationSetEventDestinationResponse {
 export interface CreateConfigurationSetRequest {
   __type?: "CreateConfigurationSetRequest";
   /**
-   * <p>The name of the configuration set.</p>
+   * <p>An object that defines the open and click tracking options for emails that you send
+   *             using the configuration set.</p>
    */
-  ConfigurationSetName: string | undefined;
+  TrackingOptions?: TrackingOptions;
 
   /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
@@ -310,16 +559,15 @@ export interface CreateConfigurationSetRequest {
   SuppressionOptions?: SuppressionOptions;
 
   /**
+   * <p>The name of the configuration set.</p>
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
    * <p>An array of objects that define the tags (keys and values) that you want to associate
    *             with the configuration set.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>An object that defines the open and click tracking options for emails that you send
-   *             using the configuration set.</p>
-   */
-  TrackingOptions?: TrackingOptions;
 }
 
 export namespace CreateConfigurationSetRequest {
@@ -345,20 +593,85 @@ export namespace CreateConfigurationSetResponse {
 }
 
 /**
+ * <p>Represents a request to create a custom verification email template.</p>
+ */
+export interface CreateCustomVerificationEmailTemplateRequest {
+  __type?: "CreateCustomVerificationEmailTemplateRequest";
+  /**
+   * <p>The name of the custom verification email template.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is successfully verified.</p>
+   */
+  SuccessRedirectionURL: string | undefined;
+
+  /**
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
+   */
+  FailureRedirectionURL: string | undefined;
+
+  /**
+   * <p>The subject line of the custom verification email.</p>
+   */
+  TemplateSubject: string | undefined;
+
+  /**
+   * <p>The email address that the custom verification email is sent from.</p>
+   */
+  FromEmailAddress: string | undefined;
+
+  /**
+   * <p>The content of the custom verification email. The total size of the email must be less
+   *             than 10 MB. The message body may contain HTML, with some limitations. For more
+   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES
+   *                 Developer Guide</i>.</p>
+   */
+  TemplateContent: string | undefined;
+}
+
+export namespace CreateCustomVerificationEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: CreateCustomVerificationEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateCustomVerificationEmailTemplateRequest =>
+    __isa(o, "CreateCustomVerificationEmailTemplateRequest");
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ */
+export interface CreateCustomVerificationEmailTemplateResponse {
+  __type?: "CreateCustomVerificationEmailTemplateResponse";
+}
+
+export namespace CreateCustomVerificationEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: CreateCustomVerificationEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateCustomVerificationEmailTemplateResponse =>
+    __isa(o, "CreateCustomVerificationEmailTemplateResponse");
+}
+
+/**
  * <p>A request to create a new dedicated IP pool.</p>
  */
 export interface CreateDedicatedIpPoolRequest {
   __type?: "CreateDedicatedIpPoolRequest";
   /**
-   * <p>The name of the dedicated IP pool.</p>
-   */
-  PoolName: string | undefined;
-
-  /**
    * <p>An object that defines the tags (keys and values) that you want to associate with the
    *             pool.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The name of the dedicated IP pool.</p>
+   */
+  PoolName: string | undefined;
 }
 
 export namespace CreateDedicatedIpPoolRequest {
@@ -400,9 +713,10 @@ export interface CreateDeliverabilityTestReportRequest {
   Content: EmailContent | undefined;
 
   /**
-   * <p>The email address that the predictive inbox placement test email was sent from.</p>
+   * <p>An array of objects that define the tags (keys and values) that you want to associate
+   *             with the predictive inbox placement test.</p>
    */
-  FromEmailAddress: string | undefined;
+  Tags?: Tag[];
 
   /**
    * <p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the
@@ -411,10 +725,9 @@ export interface CreateDeliverabilityTestReportRequest {
   ReportName?: string;
 
   /**
-   * <p>An array of objects that define the tags (keys and values) that you want to associate
-   *             with the predictive inbox placement test.</p>
+   * <p>The email address that the predictive inbox placement test email was sent from.</p>
    */
-  Tags?: Tag[];
+  FromEmailAddress: string | undefined;
 }
 
 export namespace CreateDeliverabilityTestReportRequest {
@@ -431,17 +744,17 @@ export namespace CreateDeliverabilityTestReportRequest {
 export interface CreateDeliverabilityTestReportResponse {
   __type?: "CreateDeliverabilityTestReportResponse";
   /**
+   * <p>A unique string that identifies the predictive inbox placement test.</p>
+   */
+  ReportId: string | undefined;
+
+  /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
   DeliverabilityTestStatus: DeliverabilityTestStatus | string | undefined;
-
-  /**
-   * <p>A unique string that identifies the predictive inbox placement test.</p>
-   */
-  ReportId: string | undefined;
 }
 
 export namespace CreateDeliverabilityTestReportResponse {
@@ -453,11 +766,66 @@ export namespace CreateDeliverabilityTestReportResponse {
 }
 
 /**
+ * <p>Represents a request to create a sending authorization policy for an identity. Sending
+ *             authorization is an Amazon SES feature that enables you to authorize other senders to use
+ *             your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
+ */
+export interface CreateEmailIdentityPolicyRequest {
+  __type?: "CreateEmailIdentityPolicyRequest";
+  /**
+   * <p>The name of the policy.</p>
+   *
+   *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
+   *             characters, dashes, and underscores.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
+   *         <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  Policy: string | undefined;
+
+  /**
+   * <p>The email identity for which you want to create a policy.</p>
+   */
+  EmailIdentity: string | undefined;
+}
+
+export namespace CreateEmailIdentityPolicyRequest {
+  export const filterSensitiveLog = (obj: CreateEmailIdentityPolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateEmailIdentityPolicyRequest => __isa(o, "CreateEmailIdentityPolicyRequest");
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ */
+export interface CreateEmailIdentityPolicyResponse {
+  __type?: "CreateEmailIdentityPolicyResponse";
+}
+
+export namespace CreateEmailIdentityPolicyResponse {
+  export const filterSensitiveLog = (obj: CreateEmailIdentityPolicyResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateEmailIdentityPolicyResponse => __isa(o, "CreateEmailIdentityPolicyResponse");
+}
+
+/**
  * <p>A request to begin the verification process for an email identity (an email address or
  *             domain).</p>
  */
 export interface CreateEmailIdentityRequest {
   __type?: "CreateEmailIdentityRequest";
+  /**
+   * <p>The email address or domain that you want to verify.</p>
+   */
+  EmailIdentity: string | undefined;
+
   /**
    * <p>If your request includes this object, Amazon SES configures the identity to use Bring Your
    *             Own DKIM (BYODKIM) for DKIM authentication purposes, as opposed to the default method,
@@ -467,11 +835,6 @@ export interface CreateEmailIdentityRequest {
    *             address.</p>
    */
   DkimSigningAttributes?: DkimSigningAttributes;
-
-  /**
-   * <p>The email address or domain that you want to verify.</p>
-   */
-  EmailIdentity: string | undefined;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that you want to associate
@@ -498,6 +861,13 @@ export namespace CreateEmailIdentityRequest {
 export interface CreateEmailIdentityResponse {
   __type?: "CreateEmailIdentityResponse";
   /**
+   * <p>Specifies whether or not the identity is verified. You can only send email from
+   *             verified email addresses or domains. For more information about verifying identities,
+   *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
+   */
+  VerifiedForSendingStatus?: boolean;
+
+  /**
    * <p>An object that contains information about the DKIM attributes for the identity.</p>
    */
   DkimAttributes?: DkimAttributes;
@@ -506,13 +876,6 @@ export interface CreateEmailIdentityResponse {
    * <p>The email identity type.</p>
    */
   IdentityType?: IdentityType | string;
-
-  /**
-   * <p>Specifies whether or not the identity is verified. You can only send email from
-   *             verified email addresses or domains. For more information about verifying identities,
-   *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
-   */
-  VerifiedForSendingStatus?: boolean;
 }
 
 export namespace CreateEmailIdentityResponse {
@@ -523,16 +886,97 @@ export namespace CreateEmailIdentityResponse {
 }
 
 /**
+ * <p>Represents a request to create an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ */
+export interface CreateEmailTemplateRequest {
+  __type?: "CreateEmailTemplateRequest";
+  /**
+   * <p>The name of the template you want to create.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The content of the email template, composed of a subject line, an HTML part, and a
+   *             text-only part.</p>
+   */
+  TemplateContent: EmailTemplateContent | undefined;
+}
+
+export namespace CreateEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: CreateEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateEmailTemplateRequest => __isa(o, "CreateEmailTemplateRequest");
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ */
+export interface CreateEmailTemplateResponse {
+  __type?: "CreateEmailTemplateResponse";
+}
+
+export namespace CreateEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: CreateEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateEmailTemplateResponse => __isa(o, "CreateEmailTemplateResponse");
+}
+
+/**
+ * <p>Contains information about a custom verification email template.</p>
+ */
+export interface CustomVerificationEmailTemplateMetadata {
+  __type?: "CustomVerificationEmailTemplateMetadata";
+  /**
+   * <p>The name of the custom verification email template.</p>
+   */
+  TemplateName?: string;
+
+  /**
+   * <p>The subject line of the custom verification email.</p>
+   */
+  TemplateSubject?: string;
+
+  /**
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
+   */
+  FailureRedirectionURL?: string;
+
+  /**
+   * <p>The email address that the custom verification email is sent from.</p>
+   */
+  FromEmailAddress?: string;
+
+  /**
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is successfully verified.</p>
+   */
+  SuccessRedirectionURL?: string;
+}
+
+export namespace CustomVerificationEmailTemplateMetadata {
+  export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateMetadata): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CustomVerificationEmailTemplateMetadata =>
+    __isa(o, "CustomVerificationEmailTemplateMetadata");
+}
+
+/**
  * <p>An object that contains information about the volume of email sent on each day of the
  *             analysis period.</p>
  */
 export interface DailyVolume {
   __type?: "DailyVolume";
   /**
-   * <p>An object that contains inbox placement metrics for a specified day in the analysis
-   *             period, broken out by the recipient's email provider.</p>
+   * <p>An object that contains inbox placement metrics for a specific day in the analysis
+   *             period.</p>
    */
-  DomainIspPlacements?: DomainIspPlacement[];
+  VolumeStatistics?: VolumeStatistics;
 
   /**
    * <p>The date that the DailyVolume metrics apply to, in Unix time.</p>
@@ -540,10 +984,10 @@ export interface DailyVolume {
   StartDate?: Date;
 
   /**
-   * <p>An object that contains inbox placement metrics for a specific day in the analysis
-   *             period.</p>
+   * <p>An object that contains inbox placement metrics for a specified day in the analysis
+   *             period, broken out by the recipient's email provider.</p>
    */
-  VolumeStatistics?: VolumeStatistics;
+  DomainIspPlacements?: DomainIspPlacement[];
 }
 
 export namespace DailyVolume {
@@ -568,15 +1012,15 @@ export interface DedicatedIp {
   Ip: string | undefined;
 
   /**
-   * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
-   */
-  PoolName?: string;
-
-  /**
    * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
    *             the address has completed the warm-up process and is ready for use.</p>
    */
   WarmupPercentage: number | undefined;
+
+  /**
+   * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
+   */
+  PoolName?: string;
 
   /**
    * <p>The warm-up status of a dedicated IP address. The status can have one of the following
@@ -679,6 +1123,41 @@ export namespace DeleteConfigurationSetResponse {
 }
 
 /**
+ * <p>Represents a request to delete an existing custom verification email template.</p>
+ */
+export interface DeleteCustomVerificationEmailTemplateRequest {
+  __type?: "DeleteCustomVerificationEmailTemplateRequest";
+  /**
+   * <p>The name of the custom verification email template that you want to delete.</p>
+   */
+  TemplateName: string | undefined;
+}
+
+export namespace DeleteCustomVerificationEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: DeleteCustomVerificationEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteCustomVerificationEmailTemplateRequest =>
+    __isa(o, "DeleteCustomVerificationEmailTemplateRequest");
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ */
+export interface DeleteCustomVerificationEmailTemplateResponse {
+  __type?: "DeleteCustomVerificationEmailTemplateResponse";
+}
+
+export namespace DeleteCustomVerificationEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: DeleteCustomVerificationEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteCustomVerificationEmailTemplateResponse =>
+    __isa(o, "DeleteCustomVerificationEmailTemplateResponse");
+}
+
+/**
  * <p>A request to delete a dedicated IP pool.</p>
  */
 export interface DeleteDedicatedIpPoolRequest {
@@ -709,6 +1188,49 @@ export namespace DeleteDedicatedIpPoolResponse {
     ...obj,
   });
   export const isa = (o: any): o is DeleteDedicatedIpPoolResponse => __isa(o, "DeleteDedicatedIpPoolResponse");
+}
+
+/**
+ * <p>Represents a request to delete a sending authorization policy for an identity. Sending
+ *             authorization is an Amazon SES feature that enables you to authorize other senders to
+ *             use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
+ */
+export interface DeleteEmailIdentityPolicyRequest {
+  __type?: "DeleteEmailIdentityPolicyRequest";
+  /**
+   * <p>The name of the policy.</p>
+   *
+   *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
+   *             characters, dashes, and underscores.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The email identity for which you want to delete a policy.</p>
+   */
+  EmailIdentity: string | undefined;
+}
+
+export namespace DeleteEmailIdentityPolicyRequest {
+  export const filterSensitiveLog = (obj: DeleteEmailIdentityPolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteEmailIdentityPolicyRequest => __isa(o, "DeleteEmailIdentityPolicyRequest");
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ */
+export interface DeleteEmailIdentityPolicyResponse {
+  __type?: "DeleteEmailIdentityPolicyResponse";
+}
+
+export namespace DeleteEmailIdentityPolicyResponse {
+  export const filterSensitiveLog = (obj: DeleteEmailIdentityPolicyResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteEmailIdentityPolicyResponse => __isa(o, "DeleteEmailIdentityPolicyResponse");
 }
 
 /**
@@ -744,6 +1266,40 @@ export namespace DeleteEmailIdentityResponse {
     ...obj,
   });
   export const isa = (o: any): o is DeleteEmailIdentityResponse => __isa(o, "DeleteEmailIdentityResponse");
+}
+
+/**
+ * <p>Represents a request to delete an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ */
+export interface DeleteEmailTemplateRequest {
+  __type?: "DeleteEmailTemplateRequest";
+  /**
+   * <p>The name of the template to be deleted.</p>
+   */
+  TemplateName: string | undefined;
+}
+
+export namespace DeleteEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: DeleteEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteEmailTemplateRequest => __isa(o, "DeleteEmailTemplateRequest");
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ */
+export interface DeleteEmailTemplateResponse {
+  __type?: "DeleteEmailTemplateResponse";
+}
+
+export namespace DeleteEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: DeleteEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteEmailTemplateResponse => __isa(o, "DeleteEmailTemplateResponse");
 }
 
 /**
@@ -807,16 +1363,6 @@ export interface DeliverabilityTestReport {
   DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
 
   /**
-   * <p>The sender address that you specified for the predictive inbox placement test.</p>
-   */
-  FromEmailAddress?: string;
-
-  /**
-   * <p>A unique string that identifies the predictive inbox placement test.</p>
-   */
-  ReportId?: string;
-
-  /**
    * <p>A name that helps you identify a predictive inbox placement test report.</p>
    */
   ReportName?: string;
@@ -825,6 +1371,16 @@ export interface DeliverabilityTestReport {
    * <p>The subject line for an email that you submitted in a predictive inbox placement test.</p>
    */
   Subject?: string;
+
+  /**
+   * <p>The sender address that you specified for the predictive inbox placement test.</p>
+   */
+  FromEmailAddress?: string;
+
+  /**
+   * <p>A unique string that identifies the predictive inbox placement test.</p>
+   */
+  ReportId?: string;
 }
 
 export namespace DeliverabilityTestReport {
@@ -845,18 +1401,18 @@ export enum DeliverabilityTestStatus {
 export interface DeliveryOptions {
   __type?: "DeliveryOptions";
   /**
-   * <p>The name of the dedicated IP pool that you want to associate with the configuration
-   *             set.</p>
-   */
-  SendingPoolName?: string;
-
-  /**
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
   TlsPolicy?: TlsPolicy | string;
+
+  /**
+   * <p>The name of the dedicated IP pool that you want to associate with the configuration
+   *             set.</p>
+   */
+  SendingPoolName?: string;
 }
 
 export namespace DeliveryOptions {
@@ -917,31 +1473,6 @@ export enum DimensionValueSource {
 export interface DkimAttributes {
   __type?: "DkimAttributes";
   /**
-   * <p>A string that indicates how DKIM was configured for the identity. There are two
-   *             possible values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>AWS_SES</code> – Indicates that DKIM was configured for the
-   *                     identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>EXTERNAL</code> – Indicates that DKIM was configured for the
-   *                     identity by using Bring Your Own DKIM (BYODKIM).</p>
-   *             </li>
-   *          </ul>
-   */
-  SigningAttributesOrigin?: DkimSigningAttributesOrigin | string;
-
-  /**
-   * <p>If the value is <code>true</code>, then the messages that you send from the identity
-   *             are signed using DKIM. If the value is <code>false</code>, then the messages that you
-   *             send from the identity aren't DKIM-signed.</p>
-   */
-  SigningEnabled?: boolean;
-
-  /**
    * <p>Describes whether or not Amazon SES has successfully located the DKIM records in the DNS
    *             records for the domain. The status can be one of the following:</p>
    *         <ul>
@@ -977,6 +1508,13 @@ export interface DkimAttributes {
   Status?: DkimStatus | string;
 
   /**
+   * <p>If the value is <code>true</code>, then the messages that you send from the identity
+   *             are signed using DKIM. If the value is <code>false</code>, then the messages that you
+   *             send from the identity aren't DKIM-signed.</p>
+   */
+  SigningEnabled?: boolean;
+
+  /**
    * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
    *             contains a set of unique strings that you use to create a set of CNAME records that you
    *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
@@ -988,6 +1526,24 @@ export interface DkimAttributes {
    *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
    */
   Tokens?: string[];
+
+  /**
+   * <p>A string that indicates how DKIM was configured for the identity. There are two
+   *             possible values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AWS_SES</code> – Indicates that DKIM was configured for the
+   *                     identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EXTERNAL</code> – Indicates that DKIM was configured for the
+   *                     identity by using Bring Your Own DKIM (BYODKIM).</p>
+   *             </li>
+   *          </ul>
+   */
+  SigningAttributesOrigin?: DkimSigningAttributesOrigin | string;
 }
 
 export namespace DkimAttributes {
@@ -1004,17 +1560,17 @@ export namespace DkimAttributes {
 export interface DkimSigningAttributes {
   __type?: "DkimSigningAttributes";
   /**
+   * <p>A string that's used to identify a public key in the DNS configuration for a
+   *             domain.</p>
+   */
+  DomainSigningSelector: string | undefined;
+
+  /**
    * <p>A private key that's used to generate a DKIM signature.</p>
    *         <p>The private key must use 1024-bit RSA encryption, and must be encoded using base64
    *             encoding.</p>
    */
   DomainSigningPrivateKey: string | undefined;
-
-  /**
-   * <p>A string that's used to identify a public key in the DNS configuration for a
-   *             domain.</p>
-   */
-  DomainSigningSelector: string | undefined;
 }
 
 export namespace DkimSigningAttributes {
@@ -1047,22 +1603,11 @@ export enum DkimStatus {
 export interface DomainDeliverabilityCampaign {
   __type?: "DomainDeliverabilityCampaign";
   /**
-   * <p>The unique identifier for the campaign. The Deliverability dashboard automatically generates
-   *             and assigns this identifier to a campaign.</p>
+   * <p>The percentage of email messages that were opened and then deleted by recipients. Due
+   *             to technical limitations, this value only includes recipients who opened the message by
+   *             using an email client that supports images.</p>
    */
-  CampaignId?: string;
-
-  /**
-   * <p>The percentage of email messages that were deleted by recipients, without being opened
-   *             first. Due to technical limitations, this value only includes recipients who opened the
-   *             message by using an email client that supports images.</p>
-   */
-  DeleteRate?: number;
-
-  /**
-   * <p>The major email providers who handled the email message.</p>
-   */
-  Esps?: string[];
+  ReadDeleteRate?: number;
 
   /**
    * <p>The first time, in Unix time format, when the email message was delivered to any
@@ -1072,20 +1617,24 @@ export interface DomainDeliverabilityCampaign {
   FirstSeenDateTime?: Date;
 
   /**
-   * <p>The verified email address that the email message was sent from.</p>
-   */
-  FromAddress?: string;
-
-  /**
-   * <p>The URL of an image that contains a snapshot of the email message that was
-   *             sent.</p>
-   */
-  ImageUrl?: string;
-
-  /**
    * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
    */
   InboxCount?: number;
+
+  /**
+   * <p>The IP addresses that were used to send the email message.</p>
+   */
+  SendingIps?: string[];
+
+  /**
+   * <p>The projected number of recipients that the email message was sent to.</p>
+   */
+  ProjectedVolume?: number;
+
+  /**
+   * <p>The verified email address that the email message was sent from.</p>
+   */
+  FromAddress?: string;
 
   /**
    * <p>The last time, in Unix time format, when the email message was delivered to any
@@ -1095,18 +1644,6 @@ export interface DomainDeliverabilityCampaign {
   LastSeenDateTime?: Date;
 
   /**
-   * <p>The projected number of recipients that the email message was sent to.</p>
-   */
-  ProjectedVolume?: number;
-
-  /**
-   * <p>The percentage of email messages that were opened and then deleted by recipients. Due
-   *             to technical limitations, this value only includes recipients who opened the message by
-   *             using an email client that supports images.</p>
-   */
-  ReadDeleteRate?: number;
-
-  /**
    * <p>The percentage of email messages that were opened by recipients. Due to technical
    *             limitations, this value only includes recipients who opened the message by using an
    *             email client that supports images.</p>
@@ -1114,9 +1651,9 @@ export interface DomainDeliverabilityCampaign {
   ReadRate?: number;
 
   /**
-   * <p>The IP addresses that were used to send the email message.</p>
+   * <p>The major email providers who handled the email message.</p>
    */
-  SendingIps?: string[];
+  Esps?: string[];
 
   /**
    * <p>The number of email messages that were delivered to recipients' spam or junk mail
@@ -1125,9 +1662,28 @@ export interface DomainDeliverabilityCampaign {
   SpamCount?: number;
 
   /**
+   * <p>The percentage of email messages that were deleted by recipients, without being opened
+   *             first. Due to technical limitations, this value only includes recipients who opened the
+   *             message by using an email client that supports images.</p>
+   */
+  DeleteRate?: number;
+
+  /**
    * <p>The subject line, or title, of the email message.</p>
    */
   Subject?: string;
+
+  /**
+   * <p>The URL of an image that contains a snapshot of the email message that was
+   *             sent.</p>
+   */
+  ImageUrl?: string;
+
+  /**
+   * <p>The unique identifier for the campaign. The Deliverability dashboard automatically generates
+   *             and assigns this identifier to a campaign.</p>
+   */
+  CampaignId?: string;
 }
 
 export namespace DomainDeliverabilityCampaign {
@@ -1146,12 +1702,6 @@ export namespace DomainDeliverabilityCampaign {
 export interface DomainDeliverabilityTrackingOption {
   __type?: "DomainDeliverabilityTrackingOption";
   /**
-   * <p>A verified domain that’s associated with your AWS account and currently has an
-   *             active Deliverability dashboard subscription.</p>
-   */
-  Domain?: string;
-
-  /**
    * <p>An object that contains information about the inbox placement data settings for the
    *             domain.</p>
    */
@@ -1162,6 +1712,12 @@ export interface DomainDeliverabilityTrackingOption {
    *             domain.</p>
    */
   SubscriptionStartDate?: Date;
+
+  /**
+   * <p>A verified domain that’s associated with your AWS account and currently has an
+   *             active Deliverability dashboard subscription.</p>
+   */
+  Domain?: string;
 }
 
 export namespace DomainDeliverabilityTrackingOption {
@@ -1179,21 +1735,21 @@ export namespace DomainDeliverabilityTrackingOption {
 export interface DomainIspPlacement {
   __type?: "DomainIspPlacement";
   /**
+   * <p>The name of the email provider that the inbox placement data applies to.</p>
+   */
+  IspName?: string;
+
+  /**
+   * <p>The total number of messages that were sent from the selected domain to the specified
+   *             email provider that arrived in recipients' spam or junk mail folders.</p>
+   */
+  SpamRawCount?: number;
+
+  /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' inboxes.</p>
    */
   InboxPercentage?: number;
-
-  /**
-   * <p>The total number of messages that were sent from the selected domain to the specified
-   *             email provider that arrived in recipients' inboxes.</p>
-   */
-  InboxRawCount?: number;
-
-  /**
-   * <p>The name of the email provider that the inbox placement data applies to.</p>
-   */
-  IspName?: string;
 
   /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
@@ -1203,9 +1759,9 @@ export interface DomainIspPlacement {
 
   /**
    * <p>The total number of messages that were sent from the selected domain to the specified
-   *             email provider that arrived in recipients' spam or junk mail folders.</p>
+   *             email provider that arrived in recipients' inboxes.</p>
    */
-  SpamRawCount?: number;
+  InboxRawCount?: number;
 }
 
 export namespace DomainIspPlacement {
@@ -1224,6 +1780,16 @@ export namespace DomainIspPlacement {
  */
 export interface EmailContent {
   __type?: "EmailContent";
+  /**
+   * <p>The simple email message. The message consists of a subject and a message body.</p>
+   */
+  Simple?: Message;
+
+  /**
+   * <p>The template to use for the email message.</p>
+   */
+  Template?: Template;
+
   /**
    * <p>The raw email message. The message has to meet the following criteria:</p>
    *         <ul>
@@ -1257,16 +1823,6 @@ export interface EmailContent {
    *          </ul>
    */
   Raw?: RawMessage;
-
-  /**
-   * <p>The simple email message. The message consists of a subject and a message body.</p>
-   */
-  Simple?: Message;
-
-  /**
-   * <p>The template to use for the email message.</p>
-   */
-  Template?: Template;
 }
 
 export namespace EmailContent {
@@ -1277,35 +1833,67 @@ export namespace EmailContent {
 }
 
 /**
+ * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
+ *             part.</p>
+ */
+export interface EmailTemplateContent {
+  __type?: "EmailTemplateContent";
+  /**
+   * <p>The email body that will be visible to recipients whose email clients do not display
+   *             HTML.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>The HTML body of the email.</p>
+   */
+  Html?: string;
+
+  /**
+   * <p>The subject line of the email.</p>
+   */
+  Subject?: string;
+}
+
+export namespace EmailTemplateContent {
+  export const filterSensitiveLog = (obj: EmailTemplateContent): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EmailTemplateContent => __isa(o, "EmailTemplateContent");
+}
+
+/**
+ * <p>Contains information about an email template.</p>
+ */
+export interface EmailTemplateMetadata {
+  __type?: "EmailTemplateMetadata";
+  /**
+   * <p>The name of the template.</p>
+   */
+  TemplateName?: string;
+
+  /**
+   * <p>The time and date the template was created.</p>
+   */
+  CreatedTimestamp?: Date;
+}
+
+export namespace EmailTemplateMetadata {
+  export const filterSensitiveLog = (obj: EmailTemplateMetadata): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EmailTemplateMetadata => __isa(o, "EmailTemplateMetadata");
+}
+
+/**
  * <p>In the Amazon SES API v2, <i>events</i> include message sends, deliveries, opens,
- *             clicks, bounces, and complaints. <i>Event destinations</i> are places that
+ *             clicks, bounces, complaints and delivery delays. <i>Event destinations</i> are places that
  *             you can send information about these events to. For example, you can send event data to
  *             Amazon SNS to receive notifications when you receive bounces or complaints, or you can use
  *             Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.</p>
  */
 export interface EventDestination {
   __type?: "EventDestination";
-  /**
-   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
-   *             monitor and gain insights on your email sending metrics.</p>
-   */
-  CloudWatchDestination?: CloudWatchDestination;
-
-  /**
-   * <p>If <code>true</code>, the event destination is enabled. When the event destination is
-   *             enabled, the specified event types are sent to the destinations in this
-   *                 <code>EventDestinationDefinition</code>.</p>
-   *         <p>If <code>false</code>, the event destination is disabled. When the event destination
-   *             is disabled, events aren't sent to the specified destinations.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
-   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
-   */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
-
   /**
    * <p>The types of events that Amazon SES sends to the specified event destinations.</p>
    */
@@ -1317,6 +1905,21 @@ export interface EventDestination {
   Name: string | undefined;
 
   /**
+   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
+   *             send notification when certain email events occur.</p>
+   */
+  SnsDestination?: SnsDestination;
+
+  /**
+   * <p>If <code>true</code>, the event destination is enabled. When the event destination is
+   *             enabled, the specified event types are sent to the destinations in this
+   *                 <code>EventDestinationDefinition</code>.</p>
+   *         <p>If <code>false</code>, the event destination is disabled. When the event destination
+   *             is disabled, events aren't sent to the specified destinations.</p>
+   */
+  Enabled?: boolean;
+
+  /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
    *             email event data to a Amazon Pinpoint project to view metrics using the Transactional Messaging
    *             dashboards that are built in to Amazon Pinpoint. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html">Transactional
@@ -1325,10 +1928,16 @@ export interface EventDestination {
   PinpointDestination?: PinpointDestination;
 
   /**
-   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
+   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
+   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
-  SnsDestination?: SnsDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+
+  /**
+   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
+   *             monitor and gain insights on your email sending metrics.</p>
+   */
+  CloudWatchDestination?: CloudWatchDestination;
 }
 
 export namespace EventDestination {
@@ -1353,25 +1962,16 @@ export interface EventDestinationDefinition {
   CloudWatchDestination?: CloudWatchDestination;
 
   /**
-   * <p>If <code>true</code>, the event destination is enabled. When the event destination is
-   *             enabled, the specified event types are sent to the destinations in this
-   *                 <code>EventDestinationDefinition</code>.</p>
-   *         <p>If <code>false</code>, the event destination is disabled. When the event destination
-   *             is disabled, events aren't sent to the specified destinations.</p>
-   */
-  Enabled?: boolean;
-
-  /**
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
    *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
 
   /**
-   * <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in
-   *             this <code>EventDestinationDefinition</code>.</p>
+   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
+   *             send notification when certain email events occur.</p>
    */
-  MatchingEventTypes?: (EventType | string)[];
+  SnsDestination?: SnsDestination;
 
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -1382,10 +1982,19 @@ export interface EventDestinationDefinition {
   PinpointDestination?: PinpointDestination;
 
   /**
-   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
+   * <p>If <code>true</code>, the event destination is enabled. When the event destination is
+   *             enabled, the specified event types are sent to the destinations in this
+   *                 <code>EventDestinationDefinition</code>.</p>
+   *         <p>If <code>false</code>, the event destination is disabled. When the event destination
+   *             is disabled, events aren't sent to the specified destinations.</p>
    */
-  SnsDestination?: SnsDestination;
+  Enabled?: boolean;
+
+  /**
+   * <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in
+   *             this <code>EventDestinationDefinition</code>.</p>
+   */
+  MatchingEventTypes?: (EventType | string)[];
 }
 
 export namespace EventDestinationDefinition {
@@ -1400,6 +2009,7 @@ export enum EventType {
   CLICK = "CLICK",
   COMPLAINT = "COMPLAINT",
   DELIVERY = "DELIVERY",
+  DELIVERY_DELAY = "DELIVERY_DELAY",
   OPEN = "OPEN",
   REJECT = "REJECT",
   RENDERING_FAILURE = "RENDERING_FAILURE",
@@ -1428,10 +2038,36 @@ export namespace GetAccountRequest {
 export interface GetAccountResponse {
   __type?: "GetAccountResponse";
   /**
+   * <p>An object that contains information about the per-day and per-second sending limits
+   *             for your Amazon SES account in the current AWS Region.</p>
+   */
+  SendQuota?: SendQuota;
+
+  /**
+   * <p>Indicates whether or not email sending is enabled for your Amazon SES account in the
+   *             current AWS Region.</p>
+   */
+  SendingEnabled?: boolean;
+
+  /**
    * <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP
    *             addresses that are associated with your account.</p>
    */
   DedicatedIpAutoWarmupEnabled?: boolean;
+
+  /**
+   * <p>Indicates whether or not your account has production access in the current AWS
+   *             Region.</p>
+   *         <p>If the value is <code>false</code>, then your account is in the
+   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
+   *             email to verified identities. Additionally, the maximum number of emails you can send in
+   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
+   *             send per second (your maximum sending rate) is 1.</p>
+   *         <p>If the value is <code>true</code>, then your account has production access. When your
+   *             account has production access, you can send email to any address. The sending quota and
+   *             maximum sending rate for your account vary based on your specific use case.</p>
+   */
+  ProductionAccessEnabled?: boolean;
 
   /**
    * <p>The reputation status of your Amazon SES account. The status can be one of the
@@ -1460,30 +2096,9 @@ export interface GetAccountResponse {
   EnforcementStatus?: string;
 
   /**
-   * <p>Indicates whether or not your account has production access in the current AWS
-   *             Region.</p>
-   *         <p>If the value is <code>false</code>, then your account is in the
-   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
-   *             email to verified identities. Additionally, the maximum number of emails you can send in
-   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
-   *             send per second (your maximum sending rate) is 1.</p>
-   *         <p>If the value is <code>true</code>, then your account has production access. When your
-   *             account has production access, you can send email to any address. The sending quota and
-   *             maximum sending rate for your account vary based on your specific use case.</p>
+   * <p>An object that defines your account details.</p>
    */
-  ProductionAccessEnabled?: boolean;
-
-  /**
-   * <p>An object that contains information about the per-day and per-second sending limits
-   *             for your Amazon SES account in the current AWS Region.</p>
-   */
-  SendQuota?: SendQuota;
-
-  /**
-   * <p>Indicates whether or not email sending is enabled for your Amazon SES account in the
-   *             current AWS Region.</p>
-   */
-  SendingEnabled?: boolean;
+  Details?: AccountDetails;
 
   /**
    * <p>An object that contains information about the email address suppression preferences
@@ -1495,6 +2110,7 @@ export interface GetAccountResponse {
 export namespace GetAccountResponse {
   export const filterSensitiveLog = (obj: GetAccountResponse): any => ({
     ...obj,
+    ...(obj.Details && { Details: AccountDetails.filterSensitiveLog(obj.Details) }),
   });
   export const isa = (o: any): o is GetAccountResponse => __isa(o, "GetAccountResponse");
 }
@@ -1604,27 +2220,10 @@ export namespace GetConfigurationSetRequest {
 export interface GetConfigurationSetResponse {
   __type?: "GetConfigurationSetResponse";
   /**
-   * <p>The name of the configuration set.</p>
+   * <p>An array of objects that define the tags (keys and values) that are associated with
+   *             the configuration set.</p>
    */
-  ConfigurationSetName?: string;
-
-  /**
-   * <p>An object that defines the dedicated IP pool that is used to send emails that you send
-   *             using the configuration set.</p>
-   */
-  DeliveryOptions?: DeliveryOptions;
-
-  /**
-   * <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails
-   *             that you send that use the configuration set.</p>
-   */
-  ReputationOptions?: ReputationOptions;
-
-  /**
-   * <p>An object that defines whether or not Amazon SES can send email that you send using the
-   *             configuration set.</p>
-   */
-  SendingOptions?: SendingOptions;
+  Tags?: Tag[];
 
   /**
    * <p>An object that contains information about the suppression list preferences for your
@@ -1633,16 +2232,33 @@ export interface GetConfigurationSetResponse {
   SuppressionOptions?: SuppressionOptions;
 
   /**
-   * <p>An array of objects that define the tags (keys and values) that are associated with
-   *             the configuration set.</p>
+   * <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails
+   *             that you send that use the configuration set.</p>
    */
-  Tags?: Tag[];
+  ReputationOptions?: ReputationOptions;
+
+  /**
+   * <p>An object that defines the dedicated IP pool that is used to send emails that you send
+   *             using the configuration set.</p>
+   */
+  DeliveryOptions?: DeliveryOptions;
+
+  /**
+   * <p>The name of the configuration set.</p>
+   */
+  ConfigurationSetName?: string;
 
   /**
    * <p>An object that defines the open and click tracking options for emails that you send
    *             using the configuration set.</p>
    */
   TrackingOptions?: TrackingOptions;
+
+  /**
+   * <p>An object that defines whether or not Amazon SES can send email that you send using the
+   *             configuration set.</p>
+   */
+  SendingOptions?: SendingOptions;
 }
 
 export namespace GetConfigurationSetResponse {
@@ -1650,6 +2266,72 @@ export namespace GetConfigurationSetResponse {
     ...obj,
   });
   export const isa = (o: any): o is GetConfigurationSetResponse => __isa(o, "GetConfigurationSetResponse");
+}
+
+/**
+ * <p>Represents a request to retrieve an existing custom verification email
+ *             template.</p>
+ */
+export interface GetCustomVerificationEmailTemplateRequest {
+  __type?: "GetCustomVerificationEmailTemplateRequest";
+  /**
+   * <p>The name of the custom verification email template that you want to retrieve.</p>
+   */
+  TemplateName: string | undefined;
+}
+
+export namespace GetCustomVerificationEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetCustomVerificationEmailTemplateRequest =>
+    __isa(o, "GetCustomVerificationEmailTemplateRequest");
+}
+
+/**
+ * <p>The following elements are returned by the service.</p>
+ */
+export interface GetCustomVerificationEmailTemplateResponse {
+  __type?: "GetCustomVerificationEmailTemplateResponse";
+  /**
+   * <p>The content of the custom verification email.</p>
+   */
+  TemplateContent?: string;
+
+  /**
+   * <p>The subject line of the custom verification email.</p>
+   */
+  TemplateSubject?: string;
+
+  /**
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
+   */
+  FailureRedirectionURL?: string;
+
+  /**
+   * <p>The name of the custom verification email template.</p>
+   */
+  TemplateName?: string;
+
+  /**
+   * <p>The email address that the custom verification email is sent from.</p>
+   */
+  FromEmailAddress?: string;
+
+  /**
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is successfully verified.</p>
+   */
+  SuccessRedirectionURL?: string;
+}
+
+export namespace GetCustomVerificationEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetCustomVerificationEmailTemplateResponse =>
+    __isa(o, "GetCustomVerificationEmailTemplateResponse");
 }
 
 /**
@@ -1695,18 +2377,18 @@ export namespace GetDedicatedIpResponse {
 export interface GetDedicatedIpsRequest {
   __type?: "GetDedicatedIpsRequest";
   /**
-   * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
-   *             position of the dedicated IP pool in the list of IP pools.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
    *             additional results.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
+   *             position of the dedicated IP pool in the list of IP pools.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The name of the IP pool that the dedicated IP address is associated with.</p>
@@ -1728,16 +2410,16 @@ export namespace GetDedicatedIpsRequest {
 export interface GetDedicatedIpsResponse {
   __type?: "GetDedicatedIpsResponse";
   /**
-   * <p>A list of dedicated IP addresses that are associated with your AWS account.</p>
-   */
-  DedicatedIps?: DedicatedIp[];
-
-  /**
    * <p>A token that indicates that there are additional dedicated IP addresses to list. To
    *             view additional addresses, issue another request to <code>GetDedicatedIps</code>,
    *             passing this token in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of dedicated IP addresses that are associated with your AWS account.</p>
+   */
+  DedicatedIps?: DedicatedIp[];
 }
 
 export namespace GetDedicatedIpsResponse {
@@ -1782,23 +2464,17 @@ export interface GetDeliverabilityDashboardOptionsResponse {
 
   /**
    * <p>An array of objects, one for each verified domain that you use to send email and
-   *             currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at
-   *             the end of the current calendar month.</p>
-   */
-  ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
-
-  /**
-   * <p>Specifies whether the Deliverability dashboard is enabled. If this value is <code>true</code>,
-   *             the dashboard is enabled.</p>
-   */
-  DashboardEnabled: boolean | undefined;
-
-  /**
-   * <p>An array of objects, one for each verified domain that you use to send email and
    *             currently has an active Deliverability dashboard subscription that's scheduled to expire at the
    *             end of the current calendar month.</p>
    */
   PendingExpirationSubscribedDomains?: DomainDeliverabilityTrackingOption[];
+
+  /**
+   * <p>An array of objects, one for each verified domain that you use to send email and
+   *             currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at
+   *             the end of the current calendar month.</p>
+   */
+  ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
 
   /**
    * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
@@ -1807,6 +2483,12 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *             due to expire at the end of the month.</p>
    */
   SubscriptionExpiryDate?: Date;
+
+  /**
+   * <p>Specifies whether the Deliverability dashboard is enabled. If this value is <code>true</code>,
+   *             the dashboard is enabled.</p>
+   */
+  DashboardEnabled: boolean | undefined;
 }
 
 export namespace GetDeliverabilityDashboardOptionsResponse {
@@ -1842,6 +2524,12 @@ export namespace GetDeliverabilityTestReportRequest {
 export interface GetDeliverabilityTestReportResponse {
   __type?: "GetDeliverabilityTestReportResponse";
   /**
+   * <p>An array of objects that define the tags (keys and values) that are associated with
+   *             the predictive inbox placement test.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>An object that contains the results of the predictive inbox placement test.</p>
    */
   DeliverabilityTestReport: DeliverabilityTestReport | undefined;
@@ -1864,12 +2552,6 @@ export interface GetDeliverabilityTestReportResponse {
    *             how many weren't delivered.</p>
    */
   OverallPlacement: PlacementStatistics | undefined;
-
-  /**
-   * <p>An array of objects that define the tags (keys and values) that are associated with
-   *             the predictive inbox placement test.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace GetDeliverabilityTestReportResponse {
@@ -1930,6 +2612,12 @@ export namespace GetDomainDeliverabilityCampaignResponse {
 export interface GetDomainStatisticsReportRequest {
   __type?: "GetDomainStatisticsReportRequest";
   /**
+   * <p>The first day (in Unix time) that you want to obtain domain deliverability metrics
+   *             for.</p>
+   */
+  StartDate: Date | undefined;
+
+  /**
    * <p>The domain that you want to obtain deliverability metrics for.</p>
    */
   Domain: string | undefined;
@@ -1940,12 +2628,6 @@ export interface GetDomainStatisticsReportRequest {
    *             the <code>StartDate</code>.</p>
    */
   EndDate: Date | undefined;
-
-  /**
-   * <p>The first day (in Unix time) that you want to obtain domain deliverability metrics
-   *             for.</p>
-   */
-  StartDate: Date | undefined;
 }
 
 export namespace GetDomainStatisticsReportRequest {
@@ -1981,6 +2663,42 @@ export namespace GetDomainStatisticsReportResponse {
     ...obj,
   });
   export const isa = (o: any): o is GetDomainStatisticsReportResponse => __isa(o, "GetDomainStatisticsReportResponse");
+}
+
+/**
+ * <p>A request to return the policies of an email identity.</p>
+ */
+export interface GetEmailIdentityPoliciesRequest {
+  __type?: "GetEmailIdentityPoliciesRequest";
+  /**
+   * <p>The email identity that you want to retrieve policies for.</p>
+   */
+  EmailIdentity: string | undefined;
+}
+
+export namespace GetEmailIdentityPoliciesRequest {
+  export const filterSensitiveLog = (obj: GetEmailIdentityPoliciesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEmailIdentityPoliciesRequest => __isa(o, "GetEmailIdentityPoliciesRequest");
+}
+
+/**
+ * <p>Identity policies associated with email identity.</p>
+ */
+export interface GetEmailIdentityPoliciesResponse {
+  __type?: "GetEmailIdentityPoliciesResponse";
+  /**
+   * <p>A map of policy names to policies.</p>
+   */
+  Policies?: { [key: string]: string };
+}
+
+export namespace GetEmailIdentityPoliciesResponse {
+  export const filterSensitiveLog = (obj: GetEmailIdentityPoliciesResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEmailIdentityPoliciesResponse => __isa(o, "GetEmailIdentityPoliciesResponse");
 }
 
 /**
@@ -2024,15 +2742,16 @@ export interface GetEmailIdentityResponse {
   FeedbackForwardingStatus?: boolean;
 
   /**
+   * <p>Specifies whether or not the identity is verified. You can only send email from
+   *             verified email addresses or domains. For more information about verifying identities,
+   *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
+   */
+  VerifiedForSendingStatus?: boolean;
+
+  /**
    * <p>The email identity type.</p>
    */
   IdentityType?: IdentityType | string;
-
-  /**
-   * <p>An object that contains information about the Mail-From attributes for the email
-   *             identity.</p>
-   */
-  MailFromAttributes?: MailFromAttributes;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
@@ -2041,11 +2760,15 @@ export interface GetEmailIdentityResponse {
   Tags?: Tag[];
 
   /**
-   * <p>Specifies whether or not the identity is verified. You can only send email from
-   *             verified email addresses or domains. For more information about verifying identities,
-   *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
+   * <p>A map of policy names to policies.</p>
    */
-  VerifiedForSendingStatus?: boolean;
+  Policies?: { [key: string]: string };
+
+  /**
+   * <p>An object that contains information about the Mail-From attributes for the email
+   *             identity.</p>
+   */
+  MailFromAttributes?: MailFromAttributes;
 }
 
 export namespace GetEmailIdentityResponse {
@@ -2053,6 +2776,49 @@ export namespace GetEmailIdentityResponse {
     ...obj,
   });
   export const isa = (o: any): o is GetEmailIdentityResponse => __isa(o, "GetEmailIdentityResponse");
+}
+
+/**
+ * <p>Represents a request to display the template object (which includes the subject line,
+ *             HTML part and text part) for the template you specify.</p>
+ */
+export interface GetEmailTemplateRequest {
+  __type?: "GetEmailTemplateRequest";
+  /**
+   * <p>The name of the template you want to retrieve.</p>
+   */
+  TemplateName: string | undefined;
+}
+
+export namespace GetEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: GetEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEmailTemplateRequest => __isa(o, "GetEmailTemplateRequest");
+}
+
+/**
+ * <p>The following element is returned by the service.</p>
+ */
+export interface GetEmailTemplateResponse {
+  __type?: "GetEmailTemplateResponse";
+  /**
+   * <p>The content of the email template, composed of a subject line, an HTML part, and a
+   *             text-only part.</p>
+   */
+  TemplateContent: EmailTemplateContent | undefined;
+
+  /**
+   * <p>The name of the template you want to retrieve.</p>
+   */
+  TemplateName: string | undefined;
+}
+
+export namespace GetEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: GetEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEmailTemplateResponse => __isa(o, "GetEmailTemplateResponse");
 }
 
 /**
@@ -2098,11 +2864,6 @@ export namespace GetSuppressedDestinationResponse {
 export interface IdentityInfo {
   __type?: "IdentityInfo";
   /**
-   * <p>The address or domain of the identity.</p>
-   */
-  IdentityName?: string;
-
-  /**
    * <p>The email identity type. The identity type can be one of the following:</p>
    *         <ul>
    *             <li>
@@ -2121,6 +2882,11 @@ export interface IdentityInfo {
    *          </ul>
    */
   IdentityType?: IdentityType | string;
+
+  /**
+   * <p>The address or domain of the identity.</p>
+   */
+  IdentityName?: string;
 
   /**
    * <p>Indicates whether or not you can send email from the identity.</p>
@@ -2152,15 +2918,15 @@ export enum IdentityType {
 export interface InboxPlacementTrackingOption {
   __type?: "InboxPlacementTrackingOption";
   /**
-   * <p>Specifies whether inbox placement data is being tracked for the domain.</p>
-   */
-  Global?: boolean;
-
-  /**
    * <p>An array of strings, one for each major email provider that the inbox placement data
    *             applies to.</p>
    */
   TrackedIsps?: string[];
+
+  /**
+   * <p>Specifies whether inbox placement data is being tracked for the domain.</p>
+   */
+  Global?: boolean;
 }
 
 export namespace InboxPlacementTrackingOption {
@@ -2193,14 +2959,14 @@ export namespace InvalidNextTokenException {
 export interface IspPlacement {
   __type?: "IspPlacement";
   /**
-   * <p>The name of the email provider that the inbox placement data applies to.</p>
-   */
-  IspName?: string;
-
-  /**
    * <p>An object that contains inbox placement metrics for a specific email provider.</p>
    */
   PlacementStatistics?: PlacementStatistics;
+
+  /**
+   * <p>The name of the email provider that the inbox placement data applies to.</p>
+   */
+  IspName?: string;
 }
 
 export namespace IspPlacement {
@@ -2217,16 +2983,16 @@ export namespace IspPlacement {
 export interface KinesisFirehoseDestination {
   __type?: "KinesisFirehoseDestination";
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email
-   *             events to.</p>
-   */
-  DeliveryStreamArn: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email
    *             events to the Amazon Kinesis Data Firehose stream.</p>
    */
   IamRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email
+   *             events to.</p>
+   */
+  DeliveryStreamArn: string | undefined;
 }
 
 export namespace KinesisFirehoseDestination {
@@ -2286,18 +3052,18 @@ export namespace ListConfigurationSetsRequest {
 export interface ListConfigurationSetsResponse {
   __type?: "ListConfigurationSetsResponse";
   /**
-   * <p>An array that contains all of the configuration sets in your Amazon SES account in the
-   *             current AWS Region.</p>
-   */
-  ConfigurationSets?: string[];
-
-  /**
    * <p>A token that indicates that there are additional configuration sets to list. To view
    *             additional configuration sets, issue another request to
    *                 <code>ListConfigurationSets</code>, and pass this token in the
    *                 <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array that contains all of the configuration sets in your Amazon SES account in the
+   *             current AWS Region.</p>
+   */
+  ConfigurationSets?: string[];
 }
 
 export namespace ListConfigurationSetsResponse {
@@ -2308,16 +3074,69 @@ export namespace ListConfigurationSetsResponse {
 }
 
 /**
+ * <p>Represents a request to list the existing custom verification email templates for your
+ *             account.</p>
+ */
+export interface ListCustomVerificationEmailTemplatesRequest {
+  __type?: "ListCustomVerificationEmailTemplatesRequest";
+  /**
+   * <p>A token returned from a previous call to
+   *                 <code>ListCustomVerificationEmailTemplates</code> to indicate the position in the
+   *             list of custom verification email templates.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of results to show in a single call to
+   *                 <code>ListCustomVerificationEmailTemplates</code>. If the number of results is
+   *             larger than the number you specified in this parameter, then the response includes a
+   *                 <code>NextToken</code> element, which you can use to obtain additional
+   *             results.</p>
+   *         <p>The value you specify has to be at least 1, and can be no more than 50.</p>
+   */
+  PageSize?: number;
+}
+
+export namespace ListCustomVerificationEmailTemplatesRequest {
+  export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListCustomVerificationEmailTemplatesRequest =>
+    __isa(o, "ListCustomVerificationEmailTemplatesRequest");
+}
+
+/**
+ * <p>The following elements are returned by the service.</p>
+ */
+export interface ListCustomVerificationEmailTemplatesResponse {
+  __type?: "ListCustomVerificationEmailTemplatesResponse";
+  /**
+   * <p>A token indicating that there are additional custom verification email templates
+   *             available to be listed. Pass this token to a subsequent call to
+   *                 <code>ListCustomVerificationEmailTemplates</code> to retrieve the next 50 custom
+   *             verification email templates.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of the custom verification email templates that exist in your account.</p>
+   */
+  CustomVerificationEmailTemplates?: CustomVerificationEmailTemplateMetadata[];
+}
+
+export namespace ListCustomVerificationEmailTemplatesResponse {
+  export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListCustomVerificationEmailTemplatesResponse =>
+    __isa(o, "ListCustomVerificationEmailTemplatesResponse");
+}
+
+/**
  * <p>A request to obtain a list of dedicated IP pools.</p>
  */
 export interface ListDedicatedIpPoolsRequest {
   __type?: "ListDedicatedIpPoolsRequest";
-  /**
-   * <p>A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate
-   *             the position in the list of dedicated IP pools.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>The number of results to show in a single call to <code>ListDedicatedIpPools</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
@@ -2325,6 +3144,12 @@ export interface ListDedicatedIpPoolsRequest {
    *             additional results.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate
+   *             the position in the list of dedicated IP pools.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDedicatedIpPoolsRequest {
@@ -2340,17 +3165,17 @@ export namespace ListDedicatedIpPoolsRequest {
 export interface ListDedicatedIpPoolsResponse {
   __type?: "ListDedicatedIpPoolsResponse";
   /**
-   * <p>A list of all of the dedicated IP pools that are associated with your AWS account in
-   *             the current Region.</p>
-   */
-  DedicatedIpPools?: string[];
-
-  /**
    * <p>A token that indicates that there are additional IP pools to list. To view additional
    *             IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token
    *             in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of all of the dedicated IP pools that are associated with your AWS account in
+   *             the current Region.</p>
+   */
+  DedicatedIpPools?: string[];
 }
 
 export namespace ListDedicatedIpPoolsResponse {
@@ -2397,16 +3222,16 @@ export namespace ListDeliverabilityTestReportsRequest {
 export interface ListDeliverabilityTestReportsResponse {
   __type?: "ListDeliverabilityTestReportsResponse";
   /**
-   * <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
-   */
-  DeliverabilityTestReports: DeliverabilityTestReport[] | undefined;
-
-  /**
    * <p>A token that indicates that there are additional predictive inbox placement tests to list. To view additional
    *             predictive inbox placement tests, issue another request to <code>ListDeliverabilityTestReports</code>, and pass
    *             this token in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
+   */
+  DeliverabilityTestReports: DeliverabilityTestReport[] | undefined;
 }
 
 export namespace ListDeliverabilityTestReportsResponse {
@@ -2425,18 +3250,9 @@ export namespace ListDeliverabilityTestReportsResponse {
 export interface ListDomainDeliverabilityCampaignsRequest {
   __type?: "ListDomainDeliverabilityCampaignsRequest";
   /**
-   * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
-   *             This value has to be less than or equal to 30 days after the value of the
-   *                 <code>StartDate</code> parameter.</p>
+   * <p>The domain to obtain deliverability data for.</p>
    */
-  EndDate: Date | undefined;
-
-  /**
-   * <p>A token that’s returned from a previous call to the
-   *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
-   *             position of a campaign in the list of campaigns.</p>
-   */
-  NextToken?: string;
+  SubscribedDomain: string | undefined;
 
   /**
    * <p>The maximum number of results to include in response to a single call to the
@@ -2454,9 +3270,18 @@ export interface ListDomainDeliverabilityCampaignsRequest {
   StartDate: Date | undefined;
 
   /**
-   * <p>The domain to obtain deliverability data for.</p>
+   * <p>A token that’s returned from a previous call to the
+   *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
+   *             position of a campaign in the list of campaigns.</p>
    */
-  SubscribedDomain: string | undefined;
+  NextToken?: string;
+
+  /**
+   * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
+   *             This value has to be less than or equal to 30 days after the value of the
+   *                 <code>StartDate</code> parameter.</p>
+   */
+  EndDate: Date | undefined;
 }
 
 export namespace ListDomainDeliverabilityCampaignsRequest {
@@ -2475,17 +3300,17 @@ export namespace ListDomainDeliverabilityCampaignsRequest {
 export interface ListDomainDeliverabilityCampaignsResponse {
   __type?: "ListDomainDeliverabilityCampaignsResponse";
   /**
-   * <p>An array of responses, one for each campaign that used the domain to send email during
-   *             the specified time range.</p>
-   */
-  DomainDeliverabilityCampaigns: DomainDeliverabilityCampaign[] | undefined;
-
-  /**
    * <p>A token that’s returned from a previous call to the
    *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
    *             position of the campaign in the list of campaigns.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of responses, one for each campaign that used the domain to send email during
+   *             the specified time range.</p>
+   */
+  DomainDeliverabilityCampaigns: DomainDeliverabilityCampaign[] | undefined;
 }
 
 export namespace ListDomainDeliverabilityCampaignsResponse {
@@ -2504,12 +3329,6 @@ export namespace ListDomainDeliverabilityCampaignsResponse {
 export interface ListEmailIdentitiesRequest {
   __type?: "ListEmailIdentitiesRequest";
   /**
-   * <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate
-   *             the position in the list of identities.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If
    *             the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
@@ -2517,6 +3336,12 @@ export interface ListEmailIdentitiesRequest {
    *         <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate
+   *             the position in the list of identities.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListEmailIdentitiesRequest {
@@ -2533,18 +3358,18 @@ export namespace ListEmailIdentitiesRequest {
 export interface ListEmailIdentitiesResponse {
   __type?: "ListEmailIdentitiesResponse";
   /**
-   * <p>An array that includes all of the email identities associated with your AWS
-   *             account.</p>
-   */
-  EmailIdentities?: IdentityInfo[];
-
-  /**
    * <p>A token that indicates that there are additional configuration sets to list. To view
    *             additional configuration sets, issue another request to
    *             <code>ListEmailIdentities</code>, and pass this token in the <code>NextToken</code>
    *             parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array that includes all of the email identities associated with your AWS
+   *             account.</p>
+   */
+  EmailIdentities?: IdentityInfo[];
 }
 
 export namespace ListEmailIdentitiesResponse {
@@ -2555,11 +3380,87 @@ export namespace ListEmailIdentitiesResponse {
 }
 
 /**
+ * <p>Represents a request to list the email templates present in your Amazon SES account in the
+ *             current AWS Region. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ */
+export interface ListEmailTemplatesRequest {
+  __type?: "ListEmailTemplatesRequest";
+  /**
+   * <p>A token returned from a previous call to <code>ListEmailTemplates</code> to indicate
+   *             the position in the list of email templates.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of
+   *             results is larger than the number you specified in this parameter, then the response
+   *             includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   *         <p>The value you specify has to be at least 1, and can be no more than 10.</p>
+   */
+  PageSize?: number;
+}
+
+export namespace ListEmailTemplatesRequest {
+  export const filterSensitiveLog = (obj: ListEmailTemplatesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListEmailTemplatesRequest => __isa(o, "ListEmailTemplatesRequest");
+}
+
+/**
+ * <p>The following elements are returned by the service.</p>
+ */
+export interface ListEmailTemplatesResponse {
+  __type?: "ListEmailTemplatesResponse";
+  /**
+   * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
+   *             account.</p>
+   */
+  TemplatesMetadata?: EmailTemplateMetadata[];
+
+  /**
+   * <p>A token indicating that there are additional email templates available to be listed.
+   *             Pass this token to a subsequent <code>ListEmailTemplates</code> call to retrieve the
+   *             next 10 email templates.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEmailTemplatesResponse {
+  export const filterSensitiveLog = (obj: ListEmailTemplatesResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListEmailTemplatesResponse => __isa(o, "ListEmailTemplatesResponse");
+}
+
+/**
  * <p>A request to obtain a list of email destinations that are on the suppression list for
  *             your account.</p>
  */
 export interface ListSuppressedDestinationsRequest {
   __type?: "ListSuppressedDestinationsRequest";
+  /**
+   * <p>The factors that caused the email address to be added to .</p>
+   */
+  Reasons?: (SuppressionListReason | string)[];
+
+  /**
+   * <p>The number of results to show in a single call to
+   *                 <code>ListSuppressedDestinations</code>. If the number of results is larger than the
+   *             number you specified in this parameter, then the response includes a
+   *                 <code>NextToken</code> element, which you can use to obtain additional
+   *             results.</p>
+   */
+  PageSize?: number;
+
+  /**
+   * <p>Used to filter the list of suppressed email destinations so that it only includes
+   *             addresses that were added to the list after a specific date. The date that you specify
+   *             should be in Unix time format.</p>
+   */
+  StartDate?: Date;
+
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
    *             addresses that were added to the list before a specific date. The date that you specify
@@ -2572,27 +3473,6 @@ export interface ListSuppressedDestinationsRequest {
    *             indicate the position in the list of suppressed email addresses.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The number of results to show in a single call to
-   *                 <code>ListSuppressedDestinations</code>. If the number of results is larger than the
-   *             number you specified in this parameter, then the response includes a
-   *                 <code>NextToken</code> element, which you can use to obtain additional
-   *             results.</p>
-   */
-  PageSize?: number;
-
-  /**
-   * <p>The factors that caused the email address to be added to .</p>
-   */
-  Reasons?: (SuppressionListReason | string)[];
-
-  /**
-   * <p>Used to filter the list of suppressed email destinations so that it only includes
-   *             addresses that were added to the list after a specific date. The date that you specify
-   *             should be in Unix time format.</p>
-   */
-  StartDate?: Date;
 }
 
 export namespace ListSuppressedDestinationsRequest {
@@ -2745,6 +3625,11 @@ export enum MailFromDomainStatus {
   TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
 }
 
+export enum MailType {
+  MARKETING = "MARKETING",
+  TRANSACTIONAL = "TRANSACTIONAL",
+}
+
 /**
  * <p>Represents the email message that you're sending. The <code>Message</code> object
  *             consists of a subject line and a message body.</p>
@@ -2752,17 +3637,17 @@ export enum MailFromDomainStatus {
 export interface Message {
   __type?: "Message";
   /**
-   * <p>The body of the message. You can specify an HTML version of the message, a text-only
-   *             version of the message, or both.</p>
-   */
-  Body: Body | undefined;
-
-  /**
    * <p>The subject line of the email. The subject line can only contain 7-bit ASCII
    *             characters. However, you can specify non-ASCII characters in the subject line by using
    *             encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>.</p>
    */
   Subject: Content | undefined;
+
+  /**
+   * <p>The body of the message. You can specify an HTML version of the message, a text-only
+   *             version of the message, or both.</p>
+   */
+  Body: Body | undefined;
 }
 
 export namespace Message {
@@ -2796,21 +3681,6 @@ export namespace MessageRejected {
 export interface MessageTag {
   __type?: "MessageTag";
   /**
-   * <p>The name of the message tag. The message tag name has to meet the following
-   *             criteria:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>It can contain no more than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The value of the message tag. The message tag value has to meet the following
    *             criteria:</p>
    *         <ul>
@@ -2824,6 +3694,21 @@ export interface MessageTag {
    *          </ul>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The name of the message tag. The message tag name has to meet the following
+   *             criteria:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>It can contain no more than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: string | undefined;
 }
 
 export namespace MessageTag {
@@ -2856,12 +3741,6 @@ export namespace NotFoundException {
 export interface OverallVolume {
   __type?: "OverallVolume";
   /**
-   * <p>An object that contains inbox and junk mail placement metrics for individual email
-   *             providers.</p>
-   */
-  DomainIspPlacements?: DomainIspPlacement[];
-
-  /**
    * <p>The percentage of emails that were sent from the domain that were read by their
    *             recipients.</p>
    */
@@ -2872,6 +3751,12 @@ export interface OverallVolume {
    *             recipients' inboxes and junk mail folders.</p>
    */
   VolumeStatistics?: VolumeStatistics;
+
+  /**
+   * <p>An object that contains inbox and junk mail placement metrics for individual email
+   *             providers.</p>
+   */
+  DomainIspPlacements?: DomainIspPlacement[];
 }
 
 export namespace OverallVolume {
@@ -2909,6 +3794,18 @@ export namespace PinpointDestination {
 export interface PlacementStatistics {
   __type?: "PlacementStatistics";
   /**
+   * <p>The percentage of emails that were authenticated by using Sender Policy Framework
+   *             (SPF) during the predictive inbox placement test.</p>
+   */
+  SpfPercentage?: number;
+
+  /**
+   * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
+   *             predictive inbox placement test.</p>
+   */
+  MissingPercentage?: number;
+
+  /**
    * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
    *             (DKIM) during the predictive inbox placement test.</p>
    */
@@ -2920,22 +3817,10 @@ export interface PlacementStatistics {
   InboxPercentage?: number;
 
   /**
-   * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
-   *             predictive inbox placement test.</p>
-   */
-  MissingPercentage?: number;
-
-  /**
    * <p>The percentage of emails that arrived in recipients' spam or junk mail folders during
    *             the predictive inbox placement test.</p>
    */
   SpamPercentage?: number;
-
-  /**
-   * <p>The percentage of emails that were authenticated by using Sender Policy Framework
-   *             (SPF) during the predictive inbox placement test.</p>
-   */
-  SpfPercentage?: number;
 }
 
 export namespace PlacementStatistics {
@@ -2981,6 +3866,78 @@ export namespace PutAccountDedicatedIpWarmupAttributesResponse {
   });
   export const isa = (o: any): o is PutAccountDedicatedIpWarmupAttributesResponse =>
     __isa(o, "PutAccountDedicatedIpWarmupAttributesResponse");
+}
+
+/**
+ * <p>A request to submit new account details.</p>
+ */
+export interface PutAccountDetailsRequest {
+  __type?: "PutAccountDetailsRequest";
+  /**
+   * <p>Additional email addresses that you would like to be notified regarding Amazon SES
+   *             matters.</p>
+   */
+  AdditionalContactEmailAddresses?: string[];
+
+  /**
+   * <p>The URL of your website. This information helps us better understand the type of
+   *             content that you plan to send.</p>
+   */
+  WebsiteURL: string | undefined;
+
+  /**
+   * <p>The language you would prefer to be contacted with.</p>
+   */
+  ContactLanguage?: ContactLanguage | string;
+
+  /**
+   * <p>A description of the types of email that you plan to send.</p>
+   */
+  UseCaseDescription: string | undefined;
+
+  /**
+   * <p>The type of email your account will send.</p>
+   */
+  MailType: MailType | string | undefined;
+
+  /**
+   * <p>Indicates whether or not your account should have production access in the current
+   *             AWS Region.</p>
+   *         <p>If the value is <code>false</code>, then your account is in the
+   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
+   *             email to verified identities. Additionally, the maximum number of emails you can send in
+   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
+   *             send per second (your maximum sending rate) is 1.</p>
+   *         <p>If the value is <code>true</code>, then your account has production access. When your
+   *             account has production access, you can send email to any address. The sending quota and
+   *             maximum sending rate for your account vary based on your specific use case.</p>
+   */
+  ProductionAccessEnabled?: boolean;
+}
+
+export namespace PutAccountDetailsRequest {
+  export const filterSensitiveLog = (obj: PutAccountDetailsRequest): any => ({
+    ...obj,
+    ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
+    ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
+    ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is PutAccountDetailsRequest => __isa(o, "PutAccountDetailsRequest");
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ */
+export interface PutAccountDetailsResponse {
+  __type?: "PutAccountDetailsResponse";
+}
+
+export namespace PutAccountDetailsResponse {
+  export const filterSensitiveLog = (obj: PutAccountDetailsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutAccountDetailsResponse => __isa(o, "PutAccountDetailsResponse");
 }
 
 /**
@@ -3080,16 +4037,16 @@ export namespace PutAccountSuppressionAttributesResponse {
 export interface PutConfigurationSetDeliveryOptionsRequest {
   __type?: "PutConfigurationSetDeliveryOptionsRequest";
   /**
-   * <p>The name of the configuration set that you want to associate with a dedicated IP
-   *             pool.</p>
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
    *             set.</p>
    */
   SendingPoolName?: string;
+
+  /**
+   * <p>The name of the configuration set that you want to associate with a dedicated IP
+   *             pool.</p>
+   */
+  ConfigurationSetName: string | undefined;
 
   /**
    * <p>Specifies whether messages that use the configuration set are required to use
@@ -3131,17 +4088,17 @@ export namespace PutConfigurationSetDeliveryOptionsResponse {
 export interface PutConfigurationSetReputationOptionsRequest {
   __type?: "PutConfigurationSetReputationOptionsRequest";
   /**
-   * <p>The name of the configuration set that you want to enable or disable reputation metric
-   *             tracking for.</p>
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
    * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
    *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
    *             configuration set.</p>
    */
   ReputationMetricsEnabled?: boolean;
+
+  /**
+   * <p>The name of the configuration set that you want to enable or disable reputation metric
+   *             tracking for.</p>
+   */
+  ConfigurationSetName: string | undefined;
 }
 
 export namespace PutConfigurationSetReputationOptionsRequest {
@@ -3175,16 +4132,16 @@ export namespace PutConfigurationSetReputationOptionsResponse {
 export interface PutConfigurationSetSendingOptionsRequest {
   __type?: "PutConfigurationSetSendingOptionsRequest";
   /**
-   * <p>The name of the configuration set that you want to enable or disable email sending
-   *             for.</p>
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
    * <p>If <code>true</code>, email sending is enabled for the configuration set. If
    *                 <code>false</code>, email sending is disabled for the configuration set.</p>
    */
   SendingEnabled?: boolean;
+
+  /**
+   * <p>The name of the configuration set that you want to enable or disable email sending
+   *             for.</p>
+   */
+  ConfigurationSetName: string | undefined;
 }
 
 export namespace PutConfigurationSetSendingOptionsRequest {
@@ -3276,15 +4233,15 @@ export namespace PutConfigurationSetSuppressionOptionsResponse {
 export interface PutConfigurationSetTrackingOptionsRequest {
   __type?: "PutConfigurationSetTrackingOptionsRequest";
   /**
+   * <p>The domain that you want to use to track open and click events.</p>
+   */
+  CustomRedirectDomain?: string;
+
+  /**
    * <p>The name of the configuration set that you want to add a custom tracking domain
    *             to.</p>
    */
   ConfigurationSetName: string | undefined;
-
-  /**
-   * <p>The domain that you want to use to track open and click events.</p>
-   */
-  CustomRedirectDomain?: string;
 }
 
 export namespace PutConfigurationSetTrackingOptionsRequest {
@@ -3489,11 +4446,6 @@ export namespace PutEmailIdentityDkimAttributesResponse {
 export interface PutEmailIdentityDkimSigningAttributesRequest {
   __type?: "PutEmailIdentityDkimSigningAttributesRequest";
   /**
-   * <p>The email identity that you want to configure DKIM for.</p>
-   */
-  EmailIdentity: string | undefined;
-
-  /**
    * <p>An object that contains information about the private key and selector that you want
    *             to use to configure DKIM for the identity. This object is only required if you want to
    *             configure Bring Your Own DKIM (BYODKIM) for the identity.</p>
@@ -3517,6 +4469,11 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
    *          </ul>
    */
   SigningAttributesOrigin: DkimSigningAttributesOrigin | string | undefined;
+
+  /**
+   * <p>The email identity that you want to configure DKIM for.</p>
+   */
+  EmailIdentity: string | undefined;
 }
 
 export namespace PutEmailIdentityDkimSigningAttributesRequest {
@@ -3536,6 +4493,19 @@ export namespace PutEmailIdentityDkimSigningAttributesRequest {
  */
 export interface PutEmailIdentityDkimSigningAttributesResponse {
   __type?: "PutEmailIdentityDkimSigningAttributesResponse";
+  /**
+   * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
+   *             contains a set of unique strings that you use to create a set of CNAME records that you
+   *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
+   *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
+   *         <p>If you configured DKIM authentication for the domain by providing your own
+   *             public-private key pair, then this object contains the selector that's associated with
+   *             your public key.</p>
+   *         <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
+   *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
+   */
+  DkimTokens?: string[];
+
   /**
    * <p>The DKIM authentication status of the identity. Amazon SES determines the authentication
    *             status by searching for specific records in the DNS configuration for your domain. If
@@ -3578,19 +4548,6 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    *          </ul>
    */
   DkimStatus?: DkimStatus | string;
-
-  /**
-   * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
-   *             contains a set of unique strings that you use to create a set of CNAME records that you
-   *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
-   *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
-   *         <p>If you configured DKIM authentication for the domain by providing your own
-   *             public-private key pair, then this object contains the selector that's associated with
-   *             your public key.</p>
-   *         <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
-   *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
-   */
-  DkimTokens?: string[];
 }
 
 export namespace PutEmailIdentityDkimSigningAttributesResponse {
@@ -3608,6 +4565,12 @@ export namespace PutEmailIdentityDkimSigningAttributesResponse {
 export interface PutEmailIdentityFeedbackAttributesRequest {
   __type?: "PutEmailIdentityFeedbackAttributesRequest";
   /**
+   * <p>The email identity that you want to configure bounce and complaint feedback forwarding
+   *             for.</p>
+   */
+  EmailIdentity: string | undefined;
+
+  /**
    * <p>Sets the feedback forwarding configuration for the identity.</p>
    *         <p>If the value is <code>true</code>, you receive email notifications when bounce or
    *             complaint events occur. These notifications are sent to the address that you specified
@@ -3618,12 +4581,6 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
    *             occur (even if this setting is disabled).</p>
    */
   EmailForwardingEnabled?: boolean;
-
-  /**
-   * <p>The email identity that you want to configure bounce and complaint feedback forwarding
-   *             for.</p>
-   */
-  EmailIdentity: string | undefined;
 }
 
 export namespace PutEmailIdentityFeedbackAttributesRequest {
@@ -3656,6 +4613,24 @@ export namespace PutEmailIdentityFeedbackAttributesResponse {
 export interface PutEmailIdentityMailFromAttributesRequest {
   __type?: "PutEmailIdentityMailFromAttributesRequest";
   /**
+   * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
+   *             domain must meet the following criteria:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>It has to be a subdomain of the verified identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>It can't be used to receive email.</p>
+   *             </li>
+   *             <li>
+   *                 <p>It can't be used in a "From" address if the MAIL FROM domain is a destination
+   *                     for feedback forwarding emails.</p>
+   *             </li>
+   *          </ul>
+   */
+  MailFromDomain?: string;
+
+  /**
    * <p>The action that you want to take if the required MX record isn't found when you send
    *             an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent
    *             using <i>amazonses.com</i> as the MAIL FROM domain. When you set this
@@ -3673,24 +4648,6 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *             for.</p>
    */
   EmailIdentity: string | undefined;
-
-  /**
-   * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
-   *             domain must meet the following criteria:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>It has to be a subdomain of the verified identity.</p>
-   *             </li>
-   *             <li>
-   *                 <p>It can't be used to receive email.</p>
-   *             </li>
-   *             <li>
-   *                 <p>It can't be used in a "From" address if the MAIL FROM domain is a destination
-   *                     for feedback forwarding emails.</p>
-   *             </li>
-   *          </ul>
-   */
-  MailFromDomain?: string;
 }
 
 export namespace PutEmailIdentityMailFromAttributesRequest {
@@ -3723,16 +4680,16 @@ export namespace PutEmailIdentityMailFromAttributesResponse {
 export interface PutSuppressedDestinationRequest {
   __type?: "PutSuppressedDestinationRequest";
   /**
-   * <p>The email address that should be added to the suppression list for your
-   *             account.</p>
-   */
-  EmailAddress: string | undefined;
-
-  /**
    * <p>The factors that should cause the email address to be added to the suppression list
    *             for your account.</p>
    */
   Reason: SuppressionListReason | string | undefined;
+
+  /**
+   * <p>The email address that should be added to the suppression list for your
+   *             account.</p>
+   */
+  EmailAddress: string | undefined;
 }
 
 export namespace PutSuppressedDestinationRequest {
@@ -3803,6 +4760,48 @@ export namespace RawMessage {
 }
 
 /**
+ * <p>The <code>ReplaceEmailContent</code> object to be used for a specific
+ *                 <code>BulkEmailEntry</code>. The <code>ReplacementTemplate</code> can be specified
+ *             within this object.</p>
+ */
+export interface ReplacementEmailContent {
+  __type?: "ReplacementEmailContent";
+  /**
+   * <p>The <code>ReplacementTemplate</code> associated with
+   *                 <code>ReplacementEmailContent</code>.</p>
+   */
+  ReplacementTemplate?: ReplacementTemplate;
+}
+
+export namespace ReplacementEmailContent {
+  export const filterSensitiveLog = (obj: ReplacementEmailContent): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ReplacementEmailContent => __isa(o, "ReplacementEmailContent");
+}
+
+/**
+ * <p>An object which contains <code>ReplacementTemplateData</code> to be used for a
+ *             specific <code>BulkEmailEntry</code>.</p>
+ */
+export interface ReplacementTemplate {
+  __type?: "ReplacementTemplate";
+  /**
+   * <p>A list of replacement values to apply to the template. This parameter is a JSON
+   *             object, typically consisting of key-value pairs in which the keys correspond to
+   *             replacement tags in the email template.</p>
+   */
+  ReplacementTemplateData?: string;
+}
+
+export namespace ReplacementTemplate {
+  export const filterSensitiveLog = (obj: ReplacementTemplate): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ReplacementTemplate => __isa(o, "ReplacementTemplate");
+}
+
+/**
  * <p>Enable or disable collection of reputation metrics for emails that you send using this
  *             configuration set in the current AWS Region. </p>
  */
@@ -3831,37 +4830,235 @@ export namespace ReputationOptions {
 }
 
 /**
- * <p>A request to send an email message.</p>
+ * <p>An object that contains information about your account details review.</p>
  */
-export interface SendEmailRequest {
-  __type?: "SendEmailRequest";
+export interface ReviewDetails {
+  __type?: "ReviewDetails";
+  /**
+   * <p>The associated support center case ID (if any).</p>
+   */
+  CaseId?: string;
+
+  /**
+   * <p>The status of the latest review of your account. The status can be one of the
+   *             following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING</code> – We have received your appeal and are in the
+   *                     process of reviewing it.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>GRANTED</code> – Your appeal has been reviewed and your production
+   *                     access has been granted.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DENIED</code> – Your appeal has been reviewed and your production
+   *                     access has been denied.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILED</code> – An internal error occurred and we didn't receive
+   *                     your appeal. You can submit your appeal again.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: ReviewStatus | string;
+}
+
+export namespace ReviewDetails {
+  export const filterSensitiveLog = (obj: ReviewDetails): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ReviewDetails => __isa(o, "ReviewDetails");
+}
+
+export enum ReviewStatus {
+  DENIED = "DENIED",
+  FAILED = "FAILED",
+  GRANTED = "GRANTED",
+  PENDING = "PENDING",
+}
+
+/**
+ * <p>Represents a request to send email messages to multiple destinations using Amazon SES. For
+ *             more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ */
+export interface SendBulkEmailRequest {
+  __type?: "SendBulkEmailRequest";
+  /**
+   * <p>The list of bulk email entry objects.</p>
+   */
+  BulkEmailEntries: BulkEmailEntry[] | undefined;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FromEmailAddress</code> parameter.</p>
+   *         <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use sender@example.com, then you would specify the
+   *                 <code>FromEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FromEmailAddress</code> to be sender@example.com.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  FromEmailAddressIdentityArn?: string;
+
+  /**
+   * <p>The email address that you want to use as the "From" address for the email. The
+   *             address that you specify has to be verified.</p>
+   */
+  FromEmailAddress?: string;
+
+  /**
+   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
+   */
+  FeedbackForwardingEmailAddress?: string;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             email that you define, so that you can publish email sending events.</p>
+   */
+  DefaultEmailTags?: MessageTag[];
+
+  /**
+   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
+   *             message, each Reply-to address receives the reply.</p>
+   */
+  ReplyToAddresses?: string[];
+
   /**
    * <p>The name of the configuration set that you want to use when sending the email.</p>
    */
   ConfigurationSetName?: string;
 
   /**
-   * <p>An object that contains the body of the message. You can send either a Simple message
-   *             or a Raw message.</p>
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
+   *             parameter.</p>
+   *         <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use feedback@example.com, then you would specify the
+   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
    */
-  Content: EmailContent | undefined;
+  FeedbackForwardingEmailAddressIdentityArn?: string;
 
   /**
-   * <p>An object that contains the recipients of the email message.</p>
+   * <p>An object that contains the body of the message. You can specify a template
+   *             message.</p>
    */
-  Destination: Destination | undefined;
+  DefaultContent: BulkEmailContent | undefined;
+}
+
+export namespace SendBulkEmailRequest {
+  export const filterSensitiveLog = (obj: SendBulkEmailRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SendBulkEmailRequest => __isa(o, "SendBulkEmailRequest");
+}
+
+/**
+ * <p>The following data is returned in JSON format by the service.</p>
+ */
+export interface SendBulkEmailResponse {
+  __type?: "SendBulkEmailResponse";
+  /**
+   * <p>A list of <code>BulkMailEntry</code> objects.</p>
+   */
+  BulkEmailEntryResults: BulkEmailEntryResult[] | undefined;
+}
+
+export namespace SendBulkEmailResponse {
+  export const filterSensitiveLog = (obj: SendBulkEmailResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SendBulkEmailResponse => __isa(o, "SendBulkEmailResponse");
+}
+
+/**
+ * <p>Represents a request to send a custom verification email to a specified
+ *             recipient.</p>
+ */
+export interface SendCustomVerificationEmailRequest {
+  __type?: "SendCustomVerificationEmailRequest";
+  /**
+   * <p>The name of the custom verification email template to use when sending the
+   *             verification email.</p>
+   */
+  TemplateName: string | undefined;
 
   /**
-   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
-   *             email that you define, so that you can publish email sending events. </p>
+   * <p>Name of a configuration set to use when sending the verification email.</p>
    */
-  EmailTags?: MessageTag[];
+  ConfigurationSetName?: string;
 
   /**
-   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
+   * <p>The email address to verify.</p>
    */
-  FeedbackForwardingEmailAddress?: string;
+  EmailAddress: string | undefined;
+}
+
+export namespace SendCustomVerificationEmailRequest {
+  export const filterSensitiveLog = (obj: SendCustomVerificationEmailRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SendCustomVerificationEmailRequest =>
+    __isa(o, "SendCustomVerificationEmailRequest");
+}
+
+/**
+ * <p>The following element is returned by the service.</p>
+ */
+export interface SendCustomVerificationEmailResponse {
+  __type?: "SendCustomVerificationEmailResponse";
+  /**
+   * <p>The unique message identifier returned from the
+   *                 <code>SendCustomVerificationEmail</code> operation.</p>
+   */
+  MessageId?: string;
+}
+
+export namespace SendCustomVerificationEmailResponse {
+  export const filterSensitiveLog = (obj: SendCustomVerificationEmailResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SendCustomVerificationEmailResponse =>
+    __isa(o, "SendCustomVerificationEmailResponse");
+}
+
+/**
+ * <p>Represents a request to send a single formatted email using Amazon SES. For more
+ *             information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ */
+export interface SendEmailRequest {
+  __type?: "SendEmailRequest";
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
+   *             parameter.</p>
+   *         <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use feedback@example.com, then you would specify the
+   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  FeedbackForwardingEmailAddressIdentityArn?: string;
 
   /**
    * <p>The email address that you want to use as the "From" address for the email. The
@@ -3871,10 +5068,56 @@ export interface SendEmailRequest {
   FromEmailAddress?: string;
 
   /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             email that you define, so that you can publish email sending events. </p>
+   */
+  EmailTags?: MessageTag[];
+
+  /**
+   * <p>The name of the configuration set that you want to use when sending the email.</p>
+   */
+  ConfigurationSetName?: string;
+
+  /**
+   * <p>An object that contains the body of the message. You can send either a Simple message
+   *             Raw message or a template Message.</p>
+   */
+  Content: EmailContent | undefined;
+
+  /**
+   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
+   */
+  FeedbackForwardingEmailAddress?: string;
+
+  /**
    * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
    *             message, each Reply-to address receives the reply.</p>
    */
   ReplyToAddresses?: string[];
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FromEmailAddress</code> parameter.</p>
+   *         <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use sender@example.com, then you would specify the
+   *                 <code>FromEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FromEmailAddress</code> to be sender@example.com.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *         <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the
+   *             X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message
+   *             content.</p>
+   */
+  FromEmailAddressIdentityArn?: string;
+
+  /**
+   * <p>An object that contains the recipients of the email message.</p>
+   */
+  Destination?: Destination;
 }
 
 export namespace SendEmailRequest {
@@ -3953,6 +5196,12 @@ export namespace SendingPausedException {
 export interface SendQuota {
   __type?: "SendQuota";
   /**
+   * <p>The number of emails sent from your Amazon SES account in the current AWS Region over the
+   *             past 24 hours.</p>
+   */
+  SentLast24Hours?: number;
+
+  /**
    * <p>The maximum number of emails that you can send in the current AWS Region over a
    *             24-hour period. This value is also called your <i>sending
    *             quota</i>.</p>
@@ -3965,12 +5214,6 @@ export interface SendQuota {
    *                 <i>maximum TPS (transactions per second) rate</i>.</p>
    */
   MaxSendRate?: number;
-
-  /**
-   * <p>The number of emails sent from your Amazon SES account in the current AWS Region over the
-   *             past 24 hours.</p>
-   */
-  SentLast24Hours?: number;
 }
 
 export namespace SendQuota {
@@ -4008,15 +5251,14 @@ export namespace SnsDestination {
 export interface SuppressedDestination {
   __type?: "SuppressedDestination";
   /**
-   * <p>An optional value that can contain additional information about the reasons that the
-   *             address was added to the suppression list for your account.</p>
-   */
-  Attributes?: SuppressedDestinationAttributes;
-
-  /**
    * <p>The email address that is on the suppression list for your account.</p>
    */
   EmailAddress: string | undefined;
+
+  /**
+   * <p>The reason that the address was added to the suppression list for your account.</p>
+   */
+  Reason: SuppressionListReason | string | undefined;
 
   /**
    * <p>The date and time when the suppressed destination was last updated, shown in Unix time
@@ -4025,9 +5267,10 @@ export interface SuppressedDestination {
   LastUpdateTime: Date | undefined;
 
   /**
-   * <p>The reason that the address was added to the suppression list for your account.</p>
+   * <p>An optional value that can contain additional information about the reasons that the
+   *             address was added to the suppression list for your account.</p>
    */
-  Reason: SuppressionListReason | string | undefined;
+  Attributes?: SuppressedDestinationAttributes;
 }
 
 export namespace SuppressedDestination {
@@ -4069,15 +5312,15 @@ export namespace SuppressedDestinationAttributes {
 export interface SuppressedDestinationSummary {
   __type?: "SuppressedDestinationSummary";
   /**
-   * <p>The email address that's on the suppression list for your account.</p>
-   */
-  EmailAddress: string | undefined;
-
-  /**
    * <p>The date and time when the suppressed destination was last updated, shown in Unix time
    *             format.</p>
    */
   LastUpdateTime: Date | undefined;
+
+  /**
+   * <p>The email address that's on the suppression list for your account.</p>
+   */
+  EmailAddress: string | undefined;
 
   /**
    * <p>The reason that the address was added to the suppression list for your account.</p>
@@ -4229,18 +5472,18 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags
-   *             to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>A list of the tags that you want to add to the resource. A tag consists of a required
    *             tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
    *             length of a tag key is 128 characters. The maximum length of a tag value is 256
    *             characters.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags
+   *             to.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4270,9 +5513,11 @@ export namespace TagResourceResponse {
 export interface Template {
   __type?: "Template";
   /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * <p>The name of the template. You will refer to this name when you send email using the
+   *                 <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.
+   *         </p>
    */
-  TemplateArn?: string;
+  TemplateName?: string;
 
   /**
    * <p>An object that defines the values to use for message variables in the template. This
@@ -4280,6 +5525,11 @@ export interface Template {
    *             The corresponding value defines the value to use for that variable.</p>
    */
   TemplateData?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   */
+  TemplateArn?: string;
 }
 
 export namespace Template {
@@ -4287,6 +5537,52 @@ export namespace Template {
     ...obj,
   });
   export const isa = (o: any): o is Template => __isa(o, "Template");
+}
+
+/**
+ * <p>>Represents a request to create a preview of the MIME content of an email when
+ *             provided with a template and a set of replacement data.</p>
+ */
+export interface TestRenderEmailTemplateRequest {
+  __type?: "TestRenderEmailTemplateRequest";
+  /**
+   * <p>The name of the template that you want to render.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>A list of replacement values to apply to the template. This parameter is a JSON
+   *             object, typically consisting of key-value pairs in which the keys correspond to
+   *             replacement tags in the email template.</p>
+   */
+  TemplateData: string | undefined;
+}
+
+export namespace TestRenderEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: TestRenderEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TestRenderEmailTemplateRequest => __isa(o, "TestRenderEmailTemplateRequest");
+}
+
+/**
+ * <p>The following element is returned by the service.</p>
+ */
+export interface TestRenderEmailTemplateResponse {
+  __type?: "TestRenderEmailTemplateResponse";
+  /**
+   * <p>The complete MIME message rendered by applying the data in the
+   *                 <code>TemplateData</code> parameter to the template specified in the TemplateName
+   *             parameter.</p>
+   */
+  RenderedTemplate: string | undefined;
+}
+
+export namespace TestRenderEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: TestRenderEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TestRenderEmailTemplateResponse => __isa(o, "TestRenderEmailTemplateResponse");
 }
 
 export enum TlsPolicy {
@@ -4337,12 +5633,6 @@ export namespace TrackingOptions {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more
-   *             tags from.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag
    *             key, the action removes both that key and its associated tag value.</p>
    *         <p>To remove more than one tag from the resource, append the <code>TagKeys</code>
@@ -4352,6 +5642,12 @@ export interface UntagResourceRequest {
    *         </p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more
+   *             tags from.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4379,6 +5675,11 @@ export namespace UntagResourceResponse {
 export interface UpdateConfigurationSetEventDestinationRequest {
   __type?: "UpdateConfigurationSetEventDestinationRequest";
   /**
+   * <p>The name of the event destination that you want to modify.</p>
+   */
+  EventDestinationName: string | undefined;
+
+  /**
    * <p>The name of the configuration set that contains the event destination that you want to
    *             modify.</p>
    */
@@ -4388,11 +5689,6 @@ export interface UpdateConfigurationSetEventDestinationRequest {
    * <p>An object that defines the event destination.</p>
    */
   EventDestination: EventDestinationDefinition | undefined;
-
-  /**
-   * <p>The name of the event destination that you want to modify.</p>
-   */
-  EventDestinationName: string | undefined;
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
@@ -4420,11 +5716,172 @@ export namespace UpdateConfigurationSetEventDestinationResponse {
 }
 
 /**
+ * <p>Represents a request to update an existing custom verification email template.</p>
+ */
+export interface UpdateCustomVerificationEmailTemplateRequest {
+  __type?: "UpdateCustomVerificationEmailTemplateRequest";
+  /**
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is successfully verified.</p>
+   */
+  SuccessRedirectionURL: string | undefined;
+
+  /**
+   * <p>The content of the custom verification email. The total size of the email must be less
+   *             than 10 MB. The message body may contain HTML, with some limitations. For more
+   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES
+   *                 Developer Guide</i>.</p>
+   */
+  TemplateContent: string | undefined;
+
+  /**
+   * <p>The name of the custom verification email template that you want to update.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The email address that the custom verification email is sent from.</p>
+   */
+  FromEmailAddress: string | undefined;
+
+  /**
+   * <p>The subject line of the custom verification email.</p>
+   */
+  TemplateSubject: string | undefined;
+
+  /**
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
+   */
+  FailureRedirectionURL: string | undefined;
+}
+
+export namespace UpdateCustomVerificationEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: UpdateCustomVerificationEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateCustomVerificationEmailTemplateRequest =>
+    __isa(o, "UpdateCustomVerificationEmailTemplateRequest");
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ */
+export interface UpdateCustomVerificationEmailTemplateResponse {
+  __type?: "UpdateCustomVerificationEmailTemplateResponse";
+}
+
+export namespace UpdateCustomVerificationEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: UpdateCustomVerificationEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateCustomVerificationEmailTemplateResponse =>
+    __isa(o, "UpdateCustomVerificationEmailTemplateResponse");
+}
+
+/**
+ * <p>Represents a request to update a sending authorization policy for an identity. Sending
+ *             authorization is an Amazon SES feature that enables you to authorize other senders to use
+ *             your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
+ */
+export interface UpdateEmailIdentityPolicyRequest {
+  __type?: "UpdateEmailIdentityPolicyRequest";
+  /**
+   * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
+   *         <p> For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  Policy: string | undefined;
+
+  /**
+   * <p>The email identity for which you want to update policy.</p>
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The name of the policy.</p>
+   *
+   *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
+   *             characters, dashes, and underscores.</p>
+   */
+  PolicyName: string | undefined;
+}
+
+export namespace UpdateEmailIdentityPolicyRequest {
+  export const filterSensitiveLog = (obj: UpdateEmailIdentityPolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateEmailIdentityPolicyRequest => __isa(o, "UpdateEmailIdentityPolicyRequest");
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ */
+export interface UpdateEmailIdentityPolicyResponse {
+  __type?: "UpdateEmailIdentityPolicyResponse";
+}
+
+export namespace UpdateEmailIdentityPolicyResponse {
+  export const filterSensitiveLog = (obj: UpdateEmailIdentityPolicyResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateEmailIdentityPolicyResponse => __isa(o, "UpdateEmailIdentityPolicyResponse");
+}
+
+/**
+ * <p>Represents a request to update an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ */
+export interface UpdateEmailTemplateRequest {
+  __type?: "UpdateEmailTemplateRequest";
+  /**
+   * <p>The content of the email template, composed of a subject line, an HTML part, and a
+   *             text-only part.</p>
+   */
+  TemplateContent: EmailTemplateContent | undefined;
+
+  /**
+   * <p>The name of the template you want to update.</p>
+   */
+  TemplateName: string | undefined;
+}
+
+export namespace UpdateEmailTemplateRequest {
+  export const filterSensitiveLog = (obj: UpdateEmailTemplateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateEmailTemplateRequest => __isa(o, "UpdateEmailTemplateRequest");
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ */
+export interface UpdateEmailTemplateResponse {
+  __type?: "UpdateEmailTemplateResponse";
+}
+
+export namespace UpdateEmailTemplateResponse {
+  export const filterSensitiveLog = (obj: UpdateEmailTemplateResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateEmailTemplateResponse => __isa(o, "UpdateEmailTemplateResponse");
+}
+
+/**
  * <p>An object that contains information about the amount of email that was delivered to
  *             recipients.</p>
  */
 export interface VolumeStatistics {
   __type?: "VolumeStatistics";
+  /**
+   * <p>The total number of emails that arrived in recipients' spam or junk mail
+   *             folders.</p>
+   */
+  SpamRawCount?: number;
+
   /**
    * <p>The total number of emails that arrived in recipients' inboxes.</p>
    */
@@ -4441,12 +5898,6 @@ export interface VolumeStatistics {
    *             in recipients' spam or junk mail folders.</p>
    */
   ProjectedSpam?: number;
-
-  /**
-   * <p>The total number of emails that arrived in recipients' spam or junk mail
-   *             folders.</p>
-   */
-  SpamRawCount?: number;
 }
 
 export namespace VolumeStatistics {

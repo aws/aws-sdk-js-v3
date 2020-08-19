@@ -369,8 +369,8 @@ export const serializeAws_restJson1ListPresetsCommand = async (
   };
   let resolvedPath = "/2012-09-25/presets";
   const query: any = {
-    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
     ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

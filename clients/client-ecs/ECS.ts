@@ -30,6 +30,11 @@ import {
   DeleteAttributesCommandOutput,
 } from "./commands/DeleteAttributesCommand";
 import {
+  DeleteCapacityProviderCommand,
+  DeleteCapacityProviderCommandInput,
+  DeleteCapacityProviderCommandOutput,
+} from "./commands/DeleteCapacityProviderCommand";
+import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
@@ -324,7 +329,7 @@ export class ECS extends ECSClient {
    * <p>Runs and maintains a desired number of tasks from a specified task definition. If the
    *             number of tasks running in a service drops below the <code>desiredCount</code>, Amazon ECS
    *             runs another copy of the task in the specified cluster. To update an existing service,
-   *             see <a>UpdateService</a>.</p>
+   *             see the UpdateService action.</p>
    *         <p>In addition to maintaining the desired count of tasks in your service, you can
    *             optionally run your service behind one or more load balancers. The load balancers
    *             distribute traffic across the tasks that are associated with the service. For more
@@ -350,9 +355,11 @@ export class ECS extends ECSClient {
    *                 <p>
    *                   <code>DAEMON</code> - The daemon scheduling strategy deploys exactly one
    *                     task on each active container instance that meets all of the task placement
-   *                     constraints that you specify in your cluster. When using this strategy, you
-   *                     don't need to specify a desired number of tasks, a task placement strategy, or
-   *                     use Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service Scheduler Concepts</a> in the
+   *                     constraints that you specify in your cluster. The service scheduler also
+   *                     evaluates the task placement constraints for running tasks and will stop tasks
+   *                     that do not meet the placement constraints. When using this strategy, you don't
+   *                     need to specify a desired number of tasks, a task placement strategy, or use
+   *                     Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service Scheduler Concepts</a> in the
    *                         <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *             </li>
    *          </ul>
@@ -545,6 +552,52 @@ export class ECS extends ECSClient {
     cb?: (err: any, data?: DeleteAttributesCommandOutput) => void
   ): Promise<DeleteAttributesCommandOutput> | void {
     const command = new DeleteAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified capacity provider.</p>
+   *         <note>
+   *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
+   *                 reserved and cannot be deleted. You can disassociate them from a cluster using
+   *                 either the <a>PutClusterCapacityProviders</a> API or by deleting the
+   *                 cluster.</p>
+   *         </note>
+   *         <p>Prior to a capacity provider being deleted, the capacity provider must be removed from
+   *             the capacity provider strategy from all services. The <a>UpdateService</a>
+   *             API can be used to remove a capacity provider from a service's capacity provider
+   *             strategy. When updating a service, the <code>forceNewDeployment</code> option can be
+   *             used to ensure that any tasks using the Amazon EC2 instance capacity provided by the capacity
+   *             provider are transitioned to use the capacity from the remaining capacity providers.
+   *             Only capacity providers that are not associated with a cluster can be deleted. To remove
+   *             a capacity provider from a cluster, you can either use <a>PutClusterCapacityProviders</a> or delete the cluster.</p>
+   */
+  public deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCapacityProviderCommandOutput>;
+  public deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    cb: (err: any, data?: DeleteCapacityProviderCommandOutput) => void
+  ): void;
+  public deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCapacityProviderCommandOutput) => void
+  ): void;
+  public deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCapacityProviderCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCapacityProviderCommandOutput) => void
+  ): Promise<DeleteCapacityProviderCommandOutput> | void {
+    const command = new DeleteCapacityProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2038,19 +2091,26 @@ export class ECS extends ECSClient {
   }
 
   /**
-   * <p>Modifies the parameters of a service.</p>
+   * <important>
+   *             <p>Updating the task placement strategies and constraints on an Amazon ECS service remains
+   *                 in preview and is a Beta Service as defined by and subject to the Beta Service
+   *                 Participation Service Terms located at <a href="https://aws.amazon.com/service-terms">https://aws.amazon.com/service-terms</a> ("Beta Terms"). These Beta Terms
+   *                 apply to your participation in this preview.</p>
+   *         </important>
+   *         <p>Modifies the parameters of a service.</p>
    *         <p>For services using the rolling update (<code>ECS</code>) deployment controller, the
-   *             desired count, deployment configuration, network configuration, or task definition used
-   *             can be updated.</p>
+   *             desired count, deployment configuration, network configuration, task placement
+   *             constraints and strategies, or task definition used can be updated.</p>
    *         <p>For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
-   *             only the desired count, deployment configuration, and health check grace period can be
-   *             updated using this API. If the network configuration, platform version, or task
-   *             definition need to be updated, a new AWS CodeDeploy deployment should be created. For more
-   *             information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a> in the <i>AWS CodeDeploy API Reference</i>.</p>
+   *             only the desired count, deployment configuration, task placement constraints and
+   *             strategies, and health check grace period can be updated using this API. If the network
+   *             configuration, platform version, or task definition need to be updated, a new AWS CodeDeploy
+   *             deployment should be created. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a> in the <i>AWS CodeDeploy API Reference</i>.</p>
    *         <p>For services using an external deployment controller, you can update only the desired
-   *             count and health check grace period using this API. If the launch type, load balancer,
-   *             network configuration, platform version, or task definition need to be updated, you
-   *             should create a new task set. For more information, see <a>CreateTaskSet</a>.</p>
+   *             count, task placement constraints and strategies, and health check grace period using
+   *             this API. If the launch type, load balancer, network configuration, platform version, or
+   *             task definition need to be updated, you should create a new task set. For more
+   *             information, see <a>CreateTaskSet</a>.</p>
    *         <p>You can add to or subtract from the number of instantiations of a task definition in a
    *             service by specifying the cluster that the service is running in and a new
    *                 <code>desiredCount</code> parameter.</p>

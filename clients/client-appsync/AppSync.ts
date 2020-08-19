@@ -267,7 +267,8 @@ export class AppSync extends AppSyncClient {
 
   /**
    * <p>Creates a <code>Function</code> object.</p>
-   *         <p>A function is a reusable entity. Multiple functions can be used to compose the resolver logic.</p>
+   *          <p>A function is a reusable entity. Multiple functions can be used to compose the resolver
+   *          logic.</p>
    */
   public createFunction(
     args: CreateFunctionCommandInput,

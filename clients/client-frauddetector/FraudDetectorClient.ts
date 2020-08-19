@@ -7,14 +7,17 @@ import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import { CreateModelVersionCommandInput, CreateModelVersionCommandOutput } from "./commands/CreateModelVersionCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import { CreateVariableCommandInput, CreateVariableCommandOutput } from "./commands/CreateVariableCommand";
+import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "./commands/DeleteDetectorCommand";
 import {
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput,
 } from "./commands/DeleteDetectorVersionCommand";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import { DescribeDetectorCommandInput, DescribeDetectorCommandOutput } from "./commands/DescribeDetectorCommand";
 import {
   DescribeModelVersionsCommandInput,
@@ -22,17 +25,36 @@ import {
 } from "./commands/DescribeModelVersionsCommand";
 import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from "./commands/GetDetectorVersionCommand";
 import { GetDetectorsCommandInput, GetDetectorsCommandOutput } from "./commands/GetDetectorsCommand";
+import { GetEntityTypesCommandInput, GetEntityTypesCommandOutput } from "./commands/GetEntityTypesCommand";
+import { GetEventPredictionCommandInput, GetEventPredictionCommandOutput } from "./commands/GetEventPredictionCommand";
+import { GetEventTypesCommandInput, GetEventTypesCommandOutput } from "./commands/GetEventTypesCommand";
 import { GetExternalModelsCommandInput, GetExternalModelsCommandOutput } from "./commands/GetExternalModelsCommand";
+import {
+  GetKMSEncryptionKeyCommandInput,
+  GetKMSEncryptionKeyCommandOutput,
+} from "./commands/GetKMSEncryptionKeyCommand";
+import { GetLabelsCommandInput, GetLabelsCommandOutput } from "./commands/GetLabelsCommand";
 import { GetModelVersionCommandInput, GetModelVersionCommandOutput } from "./commands/GetModelVersionCommand";
 import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import { GetOutcomesCommandInput, GetOutcomesCommandOutput } from "./commands/GetOutcomesCommand";
-import { GetPredictionCommandInput, GetPredictionCommandOutput } from "./commands/GetPredictionCommand";
 import { GetRulesCommandInput, GetRulesCommandOutput } from "./commands/GetRulesCommand";
 import { GetVariablesCommandInput, GetVariablesCommandOutput } from "./commands/GetVariablesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { PutDetectorCommandInput, PutDetectorCommandOutput } from "./commands/PutDetectorCommand";
+import { PutEntityTypeCommandInput, PutEntityTypeCommandOutput } from "./commands/PutEntityTypeCommand";
+import { PutEventTypeCommandInput, PutEventTypeCommandOutput } from "./commands/PutEventTypeCommand";
 import { PutExternalModelCommandInput, PutExternalModelCommandOutput } from "./commands/PutExternalModelCommand";
-import { PutModelCommandInput, PutModelCommandOutput } from "./commands/PutModelCommand";
+import {
+  PutKMSEncryptionKeyCommandInput,
+  PutKMSEncryptionKeyCommandOutput,
+} from "./commands/PutKMSEncryptionKeyCommand";
+import { PutLabelCommandInput, PutLabelCommandOutput } from "./commands/PutLabelCommand";
 import { PutOutcomeCommandInput, PutOutcomeCommandOutput } from "./commands/PutOutcomeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateDetectorVersionCommandInput,
   UpdateDetectorVersionCommandOutput,
@@ -45,7 +67,12 @@ import {
   UpdateDetectorVersionStatusCommandInput,
   UpdateDetectorVersionStatusCommandOutput,
 } from "./commands/UpdateDetectorVersionStatusCommand";
+import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import { UpdateModelVersionCommandInput, UpdateModelVersionCommandOutput } from "./commands/UpdateModelVersionCommand";
+import {
+  UpdateModelVersionStatusCommandInput,
+  UpdateModelVersionStatusCommandOutput,
+} from "./commands/UpdateModelVersionStatusCommand";
 import { UpdateRuleMetadataCommandInput, UpdateRuleMetadataCommandOutput } from "./commands/UpdateRuleMetadataCommand";
 import { UpdateRuleVersionCommandInput, UpdateRuleVersionCommandOutput } from "./commands/UpdateRuleVersionCommand";
 import { UpdateVariableCommandInput, UpdateVariableCommandOutput } from "./commands/UpdateVariableCommand";
@@ -100,30 +127,45 @@ export type ServiceInputTypes =
   | BatchCreateVariableCommandInput
   | BatchGetVariableCommandInput
   | CreateDetectorVersionCommandInput
+  | CreateModelCommandInput
   | CreateModelVersionCommandInput
   | CreateRuleCommandInput
   | CreateVariableCommandInput
+  | DeleteDetectorCommandInput
   | DeleteDetectorVersionCommandInput
   | DeleteEventCommandInput
+  | DeleteRuleCommandInput
   | DescribeDetectorCommandInput
   | DescribeModelVersionsCommandInput
   | GetDetectorVersionCommandInput
   | GetDetectorsCommandInput
+  | GetEntityTypesCommandInput
+  | GetEventPredictionCommandInput
+  | GetEventTypesCommandInput
   | GetExternalModelsCommandInput
+  | GetKMSEncryptionKeyCommandInput
+  | GetLabelsCommandInput
   | GetModelVersionCommandInput
   | GetModelsCommandInput
   | GetOutcomesCommandInput
-  | GetPredictionCommandInput
   | GetRulesCommandInput
   | GetVariablesCommandInput
+  | ListTagsForResourceCommandInput
   | PutDetectorCommandInput
+  | PutEntityTypeCommandInput
+  | PutEventTypeCommandInput
   | PutExternalModelCommandInput
-  | PutModelCommandInput
+  | PutKMSEncryptionKeyCommandInput
+  | PutLabelCommandInput
   | PutOutcomeCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateDetectorVersionCommandInput
   | UpdateDetectorVersionMetadataCommandInput
   | UpdateDetectorVersionStatusCommandInput
+  | UpdateModelCommandInput
   | UpdateModelVersionCommandInput
+  | UpdateModelVersionStatusCommandInput
   | UpdateRuleMetadataCommandInput
   | UpdateRuleVersionCommandInput
   | UpdateVariableCommandInput;
@@ -132,30 +174,45 @@ export type ServiceOutputTypes =
   | BatchCreateVariableCommandOutput
   | BatchGetVariableCommandOutput
   | CreateDetectorVersionCommandOutput
+  | CreateModelCommandOutput
   | CreateModelVersionCommandOutput
   | CreateRuleCommandOutput
   | CreateVariableCommandOutput
+  | DeleteDetectorCommandOutput
   | DeleteDetectorVersionCommandOutput
   | DeleteEventCommandOutput
+  | DeleteRuleCommandOutput
   | DescribeDetectorCommandOutput
   | DescribeModelVersionsCommandOutput
   | GetDetectorVersionCommandOutput
   | GetDetectorsCommandOutput
+  | GetEntityTypesCommandOutput
+  | GetEventPredictionCommandOutput
+  | GetEventTypesCommandOutput
   | GetExternalModelsCommandOutput
+  | GetKMSEncryptionKeyCommandOutput
+  | GetLabelsCommandOutput
   | GetModelVersionCommandOutput
   | GetModelsCommandOutput
   | GetOutcomesCommandOutput
-  | GetPredictionCommandOutput
   | GetRulesCommandOutput
   | GetVariablesCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutDetectorCommandOutput
+  | PutEntityTypeCommandOutput
+  | PutEventTypeCommandOutput
   | PutExternalModelCommandOutput
-  | PutModelCommandOutput
+  | PutKMSEncryptionKeyCommandOutput
+  | PutLabelCommandOutput
   | PutOutcomeCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateDetectorVersionCommandOutput
   | UpdateDetectorVersionMetadataCommandOutput
   | UpdateDetectorVersionStatusCommandOutput
+  | UpdateModelCommandOutput
   | UpdateModelVersionCommandOutput
+  | UpdateModelVersionStatusCommandOutput
   | UpdateRuleMetadataCommandOutput
   | UpdateRuleVersionCommandOutput
   | UpdateVariableCommandOutput;

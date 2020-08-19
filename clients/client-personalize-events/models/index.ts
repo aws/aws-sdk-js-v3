@@ -13,18 +13,23 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface Event {
   __type?: "Event";
   /**
-   * <p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates
-   *       a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses
-   *       the event ID to distinquish unique events. Any subsequent events after the first with the
-   *       same event ID are not used in model training.</p>
+   * <p>The timestamp on the client side when the event occurred.</p>
    */
-  eventId?: string;
+  sentAt: Date | undefined;
 
   /**
    * <p>The type of event. This property corresponds to the <code>EVENT_TYPE</code>
    *       field of the Interactions schema.</p>
    */
   eventType: string | undefined;
+
+  /**
+   * <p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates
+   *       a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses
+   *       the event ID to distinquish unique events. Any subsequent events after the first with the
+   *       same event ID are not used in model training.</p>
+   */
+  eventId?: string;
 
   /**
    * <p>A string map of event-specific data that you might choose to record. For example, if a
@@ -48,11 +53,6 @@ export interface Event {
    *       'NUMBER_OF_RATINGS' field defined in the Interactions schema.</p>
    */
   properties: __LazyJsonString | string | undefined;
-
-  /**
-   * <p>The timestamp on the client side when the event occurred.</p>
-   */
-  sentAt: Date | undefined;
 }
 
 export namespace Event {
@@ -86,6 +86,11 @@ export interface PutEventsRequest {
   eventList: Event[] | undefined;
 
   /**
+   * <p>The user associated with the event.</p>
+   */
+  userId?: string;
+
+  /**
    * <p>The session ID associated with the user's visit.</p>
    */
   sessionId: string | undefined;
@@ -96,11 +101,6 @@ export interface PutEventsRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a> API.</p>
    */
   trackingId: string | undefined;
-
-  /**
-   * <p>The user associated with the event.</p>
-   */
-  userId?: string;
 }
 
 export namespace PutEventsRequest {

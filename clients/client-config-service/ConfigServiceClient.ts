@@ -265,6 +265,10 @@ import {
   PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
 import {
+  SelectAggregateResourceConfigCommandInput,
+  SelectAggregateResourceConfigCommandOutput,
+} from "./commands/SelectAggregateResourceConfigCommand";
+import {
   SelectResourceConfigCommandInput,
   SelectResourceConfigCommandOutput,
 } from "./commands/SelectResourceConfigCommand";
@@ -405,6 +409,7 @@ export type ServiceInputTypes =
   | PutRemediationExceptionsCommandInput
   | PutResourceConfigCommandInput
   | PutRetentionConfigurationCommandInput
+  | SelectAggregateResourceConfigCommandInput
   | SelectResourceConfigCommandInput
   | StartConfigRulesEvaluationCommandInput
   | StartConfigurationRecorderCommandInput
@@ -485,6 +490,7 @@ export type ServiceOutputTypes =
   | PutRemediationExceptionsCommandOutput
   | PutResourceConfigCommandOutput
   | PutRetentionConfigurationCommandOutput
+  | SelectAggregateResourceConfigCommandOutput
   | SelectResourceConfigCommandOutput
   | StartConfigRulesEvaluationCommandOutput
   | StartConfigurationRecorderCommandOutput

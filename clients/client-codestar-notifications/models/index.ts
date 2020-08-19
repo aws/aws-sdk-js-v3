@@ -54,6 +54,12 @@ export namespace ConfigurationException {
 export interface CreateNotificationRuleRequest {
   __type?: "CreateNotificationRuleRequest";
   /**
+   * <p>The name for the notification rule. Notifictaion rule names must be unique in your AWS
+   *             account.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request with the same
    *             parameters is received and a token is included, the request returns information about
@@ -66,29 +72,17 @@ export interface CreateNotificationRuleRequest {
   ClientRequestToken?: string;
 
   /**
+   * <p>A list of Amazon Resource Names (ARNs) of SNS topics to associate with the
+   *       notification rule.</p>
+   */
+  Targets: Target[] | undefined;
+
+  /**
    * <p>The level of detail to include in the notifications for this resource. BASIC will include only the
    *         contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information
    *         provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
   DetailType: DetailType | string | undefined;
-
-  /**
-   * <p>A list of event types associated with this notification rule. For a list of allowed
-   *             events, see <a>EventTypeSummary</a>.</p>
-   */
-  EventTypeIds: string[] | undefined;
-
-  /**
-   * <p>The name for the notification rule. Notifictaion rule names must be unique in your AWS
-   *             account.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline,
-   *       repositories in AWS CodeCommit, and build projects in AWS CodeBuild.</p>
-   */
-  Resource: string | undefined;
 
   /**
    * <p>The status of the notification rule. The default value is ENABLED. If the status is
@@ -97,15 +91,21 @@ export interface CreateNotificationRuleRequest {
   Status?: NotificationRuleStatus | string;
 
   /**
+   * <p>A list of event types associated with this notification rule. For a list of allowed
+   *             events, see <a>EventTypeSummary</a>.</p>
+   */
+  EventTypeIds: string[] | undefined;
+
+  /**
    * <p>A list of tags to apply to this notification rule. Key names cannot start with "aws". </p>
    */
   Tags?: { [key: string]: string };
 
   /**
-   * <p>A list of Amazon Resource Names (ARNs) of SNS topics to associate with the
-   *       notification rule.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline,
+   *       repositories in AWS CodeCommit, and build projects in AWS CodeBuild.</p>
    */
-  Targets: Target[] | undefined;
+  Resource: string | undefined;
 }
 
 export namespace CreateNotificationRuleRequest {
@@ -165,16 +165,16 @@ export namespace DeleteNotificationRuleResult {
 export interface DeleteTargetRequest {
   __type?: "DeleteTargetRequest";
   /**
+   * <p>The Amazon Resource Name (ARN) of the SNS topic to delete.</p>
+   */
+  TargetAddress: string | undefined;
+
+  /**
    * <p>A Boolean value that can be used to delete all associations with this SNS topic. The
    *             default value is FALSE. If set to TRUE, all associations between that target and every
    *             notification rule in your AWS account are deleted.</p>
    */
   ForceUnsubscribeAll?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic to delete.</p>
-   */
-  TargetAddress: string | undefined;
 }
 
 export namespace DeleteTargetRequest {
@@ -214,9 +214,9 @@ export namespace DescribeNotificationRuleRequest {
 export interface DescribeNotificationRuleResult {
   __type?: "DescribeNotificationRuleResult";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
+   * <p>The tags associated with the notification rule.</p>
    */
-  Arn: string | undefined;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The name or email alias of the person who created the notification rule.</p>
@@ -229,6 +229,12 @@ export interface DescribeNotificationRuleResult {
   CreatedTimestamp?: Date;
 
   /**
+   * <p>The status of the notification rule. Valid statuses are on (sending notifications) or off
+   *       (not sending notifications).</p>
+   */
+  Status?: NotificationRuleStatus | string;
+
+  /**
    * <p>The level of detail included in the notifications for this resource. BASIC will include only the
    *             contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
@@ -236,20 +242,14 @@ export interface DescribeNotificationRuleResult {
   DetailType?: DetailType | string;
 
   /**
+   * <p>A list of the SNS topics associated with the notification rule.</p>
+   */
+  Targets?: TargetSummary[];
+
+  /**
    * <p>A list of the event types associated with the notification rule.</p>
    */
   EventTypes?: EventTypeSummary[];
-
-  /**
-   * <p>The date and time the notification rule was most recently updated, in timestamp
-   *             format.</p>
-   */
-  LastModifiedTimestamp?: Date;
-
-  /**
-   * <p>The name of the notification rule.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource associated with the notification
@@ -258,27 +258,27 @@ export interface DescribeNotificationRuleResult {
   Resource?: string;
 
   /**
-   * <p>The status of the notification rule. Valid statuses are on (sending notifications) or off
-   *       (not sending notifications).</p>
+   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
    */
-  Status?: NotificationRuleStatus | string;
+  Arn: string | undefined;
 
   /**
-   * <p>The tags associated with the notification rule.</p>
+   * <p>The name of the notification rule.</p>
    */
-  Tags?: { [key: string]: string };
+  Name?: string;
 
   /**
-   * <p>A list of the SNS topics associated with the notification rule.</p>
+   * <p>The date and time the notification rule was most recently updated, in timestamp
+   *             format.</p>
    */
-  Targets?: TargetSummary[];
+  LastModifiedTimestamp?: Date;
 }
 
 export namespace DescribeNotificationRuleResult {
   export const filterSensitiveLog = (obj: DescribeNotificationRuleResult): any => ({
     ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)) }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DescribeNotificationRuleResult => __isa(o, "DescribeNotificationRuleResult");
 }
@@ -299,11 +299,6 @@ export interface EventTypeSummary {
   EventTypeId?: string;
 
   /**
-   * <p>The name of the event.</p>
-   */
-  EventTypeName?: string;
-
-  /**
    * <p>The resource type of the event.</p>
    */
   ResourceType?: string;
@@ -312,6 +307,11 @@ export interface EventTypeSummary {
    * <p>The name of the service for which the event applies.</p>
    */
   ServiceName?: string;
+
+  /**
+   * <p>The name of the event.</p>
+   */
+  EventTypeName?: string;
 }
 
 export namespace EventTypeSummary {
@@ -388,11 +388,6 @@ export enum ListEventTypesFilterName {
 export interface ListEventTypesRequest {
   __type?: "ListEventTypesRequest";
   /**
-   * <p>The filters to use to return information by service or resource type.</p>
-   */
-  Filters?: ListEventTypesFilter[];
-
-  /**
    * <p>A non-negative integer used to limit the number of returned results. The default number is 50. The maximum number of
    *       results that can be returned is 100.</p>
    */
@@ -403,6 +398,11 @@ export interface ListEventTypesRequest {
    *             results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The filters to use to return information by service or resource type.</p>
+   */
+  Filters?: ListEventTypesFilter[];
 }
 
 export namespace ListEventTypesRequest {
@@ -440,15 +440,15 @@ export namespace ListEventTypesResult {
 export interface ListNotificationRulesFilter {
   __type?: "ListNotificationRulesFilter";
   /**
-   * <p>The name of the attribute you want to use to filter the returned notification rules.</p>
-   */
-  Name: ListNotificationRulesFilterName | string | undefined;
-
-  /**
    * <p>The value of the attribute you want to use to filter the returned notification rules. For example, if you specify filtering by <i>RESOURCE</i>
    *           in Name, you might specify the ARN of a pipeline in AWS CodePipeline for the value.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The name of the attribute you want to use to filter the returned notification rules.</p>
+   */
+  Name: ListNotificationRulesFilterName | string | undefined;
 }
 
 export namespace ListNotificationRulesFilter {
@@ -477,16 +477,16 @@ export interface ListNotificationRulesRequest {
   Filters?: ListNotificationRulesFilter[];
 
   /**
-   * <p>A non-negative integer used to limit the number of returned results. The maximum number of
-   *       results that can be returned is 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A non-negative integer used to limit the number of returned results. The maximum number of
+   *       results that can be returned is 100.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListNotificationRulesRequest {
@@ -556,16 +556,16 @@ export namespace ListTagsForResourceResult {
 export interface ListTargetsFilter {
   __type?: "ListTargetsFilter";
   /**
-   * <p>The name of the attribute you want to use to filter the returned targets.</p>
-   */
-  Name: ListTargetsFilterName | string | undefined;
-
-  /**
    * <p>The value of the attribute you want to use to filter the returned targets. For example,
    *             if you specify <i>SNS</i> for the Target type, you could specify an Amazon
    *             Resource Name (ARN) for a topic as the value.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The name of the attribute you want to use to filter the returned targets.</p>
+   */
+  Name: ListTargetsFilterName | string | undefined;
 }
 
 export namespace ListTargetsFilter {
@@ -584,6 +584,12 @@ export enum ListTargetsFilterName {
 export interface ListTargetsRequest {
   __type?: "ListTargetsRequest";
   /**
+   * <p>A non-negative integer used to limit the number of returned results. The maximum number of
+   *       results that can be returned is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The filters to use to return information by service or resource type. Valid filters
    *             include target type, target address, and target status.</p>
    *          <note>
@@ -591,12 +597,6 @@ export interface ListTargetsRequest {
    *          </note>
    */
   Filters?: ListTargetsFilter[];
-
-  /**
-   * <p>A non-negative integer used to limit the number of returned results. The maximum number of
-   *       results that can be returned is 100.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
@@ -615,15 +615,15 @@ export namespace ListTargetsRequest {
 export interface ListTargetsResult {
   __type?: "ListTargetsResult";
   /**
+   * <p>The list of notification rule targets. </p>
+   */
+  Targets?: TargetSummary[];
+
+  /**
    * <p>An enumeration token that can be used in a request to return the next batch of
    *             results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The list of notification rule targets. </p>
-   */
-  Targets?: TargetSummary[];
 }
 
 export namespace ListTargetsResult {
@@ -645,14 +645,14 @@ export enum NotificationRuleStatus {
 export interface NotificationRuleSummary {
   __type?: "NotificationRuleSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>The unique ID of the notification rule.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
+   */
+  Arn?: string;
 }
 
 export namespace NotificationRuleSummary {
@@ -698,11 +698,6 @@ export namespace ResourceNotFoundException {
 export interface SubscribeRequest {
   __type?: "SubscribeRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule for which you want to create the association.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    */
@@ -712,6 +707,11 @@ export interface SubscribeRequest {
    * <p>Information about the SNS topics associated with a  notification rule.</p>
    */
   Target: Target | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notification rule for which you want to create the association.</p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace SubscribeRequest {
@@ -740,14 +740,14 @@ export namespace SubscribeResult {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>The list of tags to associate with the resource. Tag key names cannot start with "aws".</p>
    */
   Tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -778,14 +778,14 @@ export namespace TagResourceResult {
 export interface Target {
   __type?: "Target";
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
-   */
-  TargetAddress?: string;
-
-  /**
    * <p>The target type. Can be an Amazon SNS topic.</p>
    */
   TargetType?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
+   */
+  TargetAddress?: string;
 }
 
 export namespace Target {
@@ -810,9 +810,9 @@ export enum TargetStatus {
 export interface TargetSummary {
   __type?: "TargetSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
+   * <p>The type of the target (for example, SNS).</p>
    */
-  TargetAddress?: string;
+  TargetType?: string;
 
   /**
    * <p>The status of the target.</p>
@@ -820,9 +820,9 @@ export interface TargetSummary {
   TargetStatus?: TargetStatus | string;
 
   /**
-   * <p>The type of the target (for example, SNS).</p>
+   * <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
    */
-  TargetType?: string;
+  TargetAddress?: string;
 }
 
 export namespace TargetSummary {
@@ -836,14 +836,14 @@ export namespace TargetSummary {
 export interface UnsubscribeRequest {
   __type?: "UnsubscribeRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>The ARN of the SNS topic to unsubscribe from the notification rule.</p>
    */
   TargetAddress: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace UnsubscribeRequest {
@@ -872,15 +872,15 @@ export namespace UnsubscribeResult {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
+   * <p>The key names of the tags to remove.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the notification rule from which to remove the
    *       tags.</p>
    */
   Arn: string | undefined;
-
-  /**
-   * <p>The key names of the tags to remove.</p>
-   */
-  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -904,11 +904,6 @@ export namespace UntagResourceResult {
 export interface UpdateNotificationRuleRequest {
   __type?: "UpdateNotificationRuleRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>The level of detail to include in the notifications for this resource. BASIC will include only the
    *             contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
@@ -921,6 +916,17 @@ export interface UpdateNotificationRuleRequest {
   EventTypeIds?: string[];
 
   /**
+   * <p>The address and type of the targets to receive notifications from this notification
+   *       rule.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
+   */
+  Arn: string | undefined;
+
+  /**
    * <p>The name of the notification rule.</p>
    */
   Name?: string;
@@ -930,19 +936,13 @@ export interface UpdateNotificationRuleRequest {
    *       disabled (not sending notifications).</p>
    */
   Status?: NotificationRuleStatus | string;
-
-  /**
-   * <p>The address and type of the targets to receive notifications from this notification
-   *       rule.</p>
-   */
-  Targets?: Target[];
 }
 
 export namespace UpdateNotificationRuleRequest {
   export const filterSensitiveLog = (obj: UpdateNotificationRuleRequest): any => ({
     ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.Targets && { Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)) }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is UpdateNotificationRuleRequest => __isa(o, "UpdateNotificationRuleRequest");
 }

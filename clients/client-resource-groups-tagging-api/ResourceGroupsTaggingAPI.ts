@@ -39,6 +39,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Resource Groups Tagging API</fullname>
+ *
  *         <p>This guide describes the API operations for the resource groups tagging.</p>
  *         <p>A tag is a label that you assign to an AWS resource. A tag consists of a key and a
  *             value, both of which you define. For example, if you have two Amazon EC2 instances, you might
@@ -48,6 +49,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             management, access management and cost allocation. </p>
  *         <p>You can use the resource groups tagging API operations to complete the following
  *             tasks:</p>
+ *
  *         <ul>
  *             <li>
  *                 <p>Tag and untag supported resources located in the specified Region for the
@@ -66,8 +68,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                     AWS account.</p>
  *             </li>
  *          </ul>
+ *
  *         <p>To use resource groups tagging API operations, you must add the following permissions
  *             to your IAM policy:</p>
+ *
  *         <ul>
  *             <li>
  *                 <p>
@@ -95,12 +99,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                </p>
  *             </li>
  *          </ul>
+ *
  *         <p>You'll also need permissions to access the resources of individual services so that
  *             you can tag and untag those resources.</p>
  *         <p>For more information on IAM policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html">Managing IAM
  *                 Policies</a> in the <i>IAM User Guide</i>.</p>
  *         <p>You can use the Resource Groups Tagging API to tag resources for the following AWS
  *             services.</p>
+ *
  *         <ul>
  *             <li>
  *                 <p>Alexa for Business (a4b)</p>
@@ -181,6 +187,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                 <p>AWS Config</p>
  *             </li>
  *             <li>
+ *                 <p>AWS Data Exchange</p>
+ *             </li>
+ *             <li>
  *                 <p>AWS Data Pipeline</p>
  *             </li>
  *             <li>
@@ -188,6 +197,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                 <p>AWS DataSync</p>
+ *             </li>
+ *             <li>
+ *                 <p>AWS Device Farm</p>
  *             </li>
  *             <li>
  *                 <p>AWS Direct Connect</p>
@@ -209,6 +221,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                 <p>Amazon ECS</p>
+ *             </li>
+ *             <li>
+ *                 <p>Amazon EKS</p>
  *             </li>
  *             <li>
  *                 <p>AWS Elastic Beanstalk</p>
@@ -269,6 +284,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                 <p>AWS IoT Greengrass</p>
+ *             </li>
+ *             <li>
+ *                 <p>AWS IoT 1-Click</p>
+ *             </li>
+ *             <li>
+ *                 <p>AWS IoT Things Graph</p>
  *             </li>
  *             <li>
  *                 <p>AWS Key Management Service</p>
@@ -346,10 +367,16 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                 <p>AWS Service Catalog</p>
  *             </li>
  *             <li>
+ *                 <p>Amazon Simple Email Service (SES)</p>
+ *             </li>
+ *             <li>
  *                 <p>Amazon Simple Notification Service (SNS)</p>
  *             </li>
  *             <li>
  *                 <p>Amazon Simple Queue Service (SQS)</p>
+ *             </li>
+ *             <li>
+ *                 <p>Amazon Simple Workflow Service</p>
  *             </li>
  *             <li>
  *                 <p>AWS Step Functions</p>
@@ -362,6 +389,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                 <p>AWS Transfer for SFTP</p>
+ *             </li>
+ *             <li>
+ *                 <p>AWS WAF Regional</p>
  *             </li>
  *             <li>
  *                 <p>Amazon VPC</p>
@@ -599,8 +629,8 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
    *             </li>
    *             <li>
    *                 <p>Each resource can have up to 50 tags. For other limits, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage
-   *                         Conventions</a>
-   *                     in the <i>AWS General Reference.</i>
+   *                         Conventions</a> in the <i>AWS General
+   *                     Reference.</i>
    *                </p>
    *             </li>
    *             <li>

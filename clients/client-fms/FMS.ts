@@ -5,6 +5,11 @@ import {
   AssociateAdminAccountCommandOutput,
 } from "./commands/AssociateAdminAccountCommand";
 import {
+  DeleteAppsListCommand,
+  DeleteAppsListCommandInput,
+  DeleteAppsListCommandOutput,
+} from "./commands/DeleteAppsListCommand";
+import {
   DeleteNotificationChannelCommand,
   DeleteNotificationChannelCommandInput,
   DeleteNotificationChannelCommandOutput,
@@ -15,6 +20,11 @@ import {
   DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  DeleteProtocolsListCommand,
+  DeleteProtocolsListCommandInput,
+  DeleteProtocolsListCommandOutput,
+} from "./commands/DeleteProtocolsListCommand";
+import {
   DisassociateAdminAccountCommand,
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
@@ -24,6 +34,7 @@ import {
   GetAdminAccountCommandInput,
   GetAdminAccountCommandOutput,
 } from "./commands/GetAdminAccountCommand";
+import { GetAppsListCommand, GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
 import {
   GetComplianceDetailCommand,
   GetComplianceDetailCommandInput,
@@ -41,6 +52,21 @@ import {
   GetProtectionStatusCommandOutput,
 } from "./commands/GetProtectionStatusCommand";
 import {
+  GetProtocolsListCommand,
+  GetProtocolsListCommandInput,
+  GetProtocolsListCommandOutput,
+} from "./commands/GetProtocolsListCommand";
+import {
+  GetViolationDetailsCommand,
+  GetViolationDetailsCommandInput,
+  GetViolationDetailsCommandOutput,
+} from "./commands/GetViolationDetailsCommand";
+import {
+  ListAppsListsCommand,
+  ListAppsListsCommandInput,
+  ListAppsListsCommandOutput,
+} from "./commands/ListAppsListsCommand";
+import {
   ListComplianceStatusCommand,
   ListComplianceStatusCommandInput,
   ListComplianceStatusCommandOutput,
@@ -56,16 +82,27 @@ import {
   ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
+  ListProtocolsListsCommand,
+  ListProtocolsListsCommandInput,
+  ListProtocolsListsCommandOutput,
+} from "./commands/ListProtocolsListsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutAppsListCommand, PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommand,
   PutNotificationChannelCommandInput,
   PutNotificationChannelCommandOutput,
 } from "./commands/PutNotificationChannelCommand";
 import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import {
+  PutProtocolsListCommand,
+  PutProtocolsListCommandInput,
+  PutProtocolsListCommandOutput,
+} from "./commands/PutProtocolsListCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -79,8 +116,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for
  *       developers who need detailed information about the AWS Firewall Manager API actions, data
  *       types, and errors. For detailed information about AWS Firewall Manager features, see the
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall
- *         Manager Developer Guide</a>.</p>
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall Manager Developer Guide</a>.</p>
  */
 export class FMS extends FMSClient {
   /**
@@ -111,6 +147,38 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: AssociateAdminAccountCommandOutput) => void
   ): Promise<AssociateAdminAccountCommandOutput> | void {
     const command = new AssociateAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Permanently deletes an AWS Firewall Manager applications list.</p>
+   */
+  public deleteAppsList(
+    args: DeleteAppsListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppsListCommandOutput>;
+  public deleteAppsList(
+    args: DeleteAppsListCommandInput,
+    cb: (err: any, data?: DeleteAppsListCommandOutput) => void
+  ): void;
+  public deleteAppsList(
+    args: DeleteAppsListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppsListCommandOutput) => void
+  ): void;
+  public deleteAppsList(
+    args: DeleteAppsListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppsListCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppsListCommandOutput) => void
+  ): Promise<DeleteAppsListCommandOutput> | void {
+    const command = new DeleteAppsListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -184,6 +252,38 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * <p>Permanently deletes an AWS Firewall Manager protocols list.</p>
+   */
+  public deleteProtocolsList(
+    args: DeleteProtocolsListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProtocolsListCommandOutput>;
+  public deleteProtocolsList(
+    args: DeleteProtocolsListCommandInput,
+    cb: (err: any, data?: DeleteProtocolsListCommandOutput) => void
+  ): void;
+  public deleteProtocolsList(
+    args: DeleteProtocolsListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProtocolsListCommandOutput) => void
+  ): void;
+  public deleteProtocolsList(
+    args: DeleteProtocolsListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProtocolsListCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProtocolsListCommandOutput) => void
+  ): Promise<DeleteProtocolsListCommandOutput> | void {
+    const command = new DeleteProtocolsListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates the account that has been set as the AWS Firewall Manager administrator
    *       account. To set a different account as the administrator account, you must submit an
    *         <code>AssociateAdminAccount</code> request.</p>
@@ -240,6 +340,32 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: GetAdminAccountCommandOutput) => void
   ): Promise<GetAdminAccountCommandOutput> | void {
     const command = new GetAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about the specified AWS Firewall Manager applications list.</p>
+   */
+  public getAppsList(args: GetAppsListCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsListCommandOutput>;
+  public getAppsList(args: GetAppsListCommandInput, cb: (err: any, data?: GetAppsListCommandOutput) => void): void;
+  public getAppsList(
+    args: GetAppsListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAppsListCommandOutput) => void
+  ): void;
+  public getAppsList(
+    args: GetAppsListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppsListCommandOutput) => void),
+    cb?: (err: any, data?: GetAppsListCommandOutput) => void
+  ): Promise<GetAppsListCommandOutput> | void {
+    const command = new GetAppsListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -381,7 +507,103 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Returns an array of <code>PolicyComplianceStatus</code> objects in the response. Use
+   * <p>Returns information about the specified AWS Firewall Manager protocols list.</p>
+   */
+  public getProtocolsList(
+    args: GetProtocolsListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProtocolsListCommandOutput>;
+  public getProtocolsList(
+    args: GetProtocolsListCommandInput,
+    cb: (err: any, data?: GetProtocolsListCommandOutput) => void
+  ): void;
+  public getProtocolsList(
+    args: GetProtocolsListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProtocolsListCommandOutput) => void
+  ): void;
+  public getProtocolsList(
+    args: GetProtocolsListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProtocolsListCommandOutput) => void),
+    cb?: (err: any, data?: GetProtocolsListCommandOutput) => void
+  ): Promise<GetProtocolsListCommandOutput> | void {
+    const command = new GetProtocolsListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves violations for a resource based on the specified AWS Firewall Manager policy and AWS account.</p>
+   */
+  public getViolationDetails(
+    args: GetViolationDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetViolationDetailsCommandOutput>;
+  public getViolationDetails(
+    args: GetViolationDetailsCommandInput,
+    cb: (err: any, data?: GetViolationDetailsCommandOutput) => void
+  ): void;
+  public getViolationDetails(
+    args: GetViolationDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetViolationDetailsCommandOutput) => void
+  ): void;
+  public getViolationDetails(
+    args: GetViolationDetailsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetViolationDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GetViolationDetailsCommandOutput) => void
+  ): Promise<GetViolationDetailsCommandOutput> | void {
+    const command = new GetViolationDetailsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of <code>AppsListDataSummary</code> objects.</p>
+   */
+  public listAppsLists(
+    args: ListAppsListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppsListsCommandOutput>;
+  public listAppsLists(
+    args: ListAppsListsCommandInput,
+    cb: (err: any, data?: ListAppsListsCommandOutput) => void
+  ): void;
+  public listAppsLists(
+    args: ListAppsListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppsListsCommandOutput) => void
+  ): void;
+  public listAppsLists(
+    args: ListAppsListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppsListsCommandOutput) => void),
+    cb?: (err: any, data?: ListAppsListsCommandOutput) => void
+  ): Promise<ListAppsListsCommandOutput> | void {
+    const command = new ListAppsListsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
    *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
    *       by the specified policy. </p>
    */
@@ -450,7 +672,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Returns an array of <code>PolicySummary</code> objects in the response.</p>
+   * <p>Returns an array of <code>PolicySummary</code> objects.</p>
    */
   public listPolicies(
     args: ListPoliciesCommandInput,
@@ -468,6 +690,38 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: ListPoliciesCommandOutput) => void
   ): Promise<ListPoliciesCommandOutput> | void {
     const command = new ListPoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>
+   */
+  public listProtocolsLists(
+    args: ListProtocolsListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProtocolsListsCommandOutput>;
+  public listProtocolsLists(
+    args: ListProtocolsListsCommandInput,
+    cb: (err: any, data?: ListProtocolsListsCommandOutput) => void
+  ): void;
+  public listProtocolsLists(
+    args: ListProtocolsListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProtocolsListsCommandOutput) => void
+  ): void;
+  public listProtocolsLists(
+    args: ListProtocolsListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProtocolsListsCommandOutput) => void),
+    cb?: (err: any, data?: ListProtocolsListsCommandOutput) => void
+  ): Promise<ListProtocolsListsCommandOutput> | void {
+    const command = new ListProtocolsListsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -500,6 +754,32 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an AWS Firewall Manager applications list.</p>
+   */
+  public putAppsList(args: PutAppsListCommandInput, options?: __HttpHandlerOptions): Promise<PutAppsListCommandOutput>;
+  public putAppsList(args: PutAppsListCommandInput, cb: (err: any, data?: PutAppsListCommandOutput) => void): void;
+  public putAppsList(
+    args: PutAppsListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAppsListCommandOutput) => void
+  ): void;
+  public putAppsList(
+    args: PutAppsListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAppsListCommandOutput) => void),
+    cb?: (err: any, data?: PutAppsListCommandOutput) => void
+  ): Promise<PutAppsListCommandOutput> | void {
+    const command = new PutAppsListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -552,19 +832,23 @@ export class FMS extends FMSClient {
    *           accounts and resources</p>
    *             </li>
    *             <li>
-   *                <p>An AWS WAF policy, which contains a rule group and defines which resources are to be
-   *           protected by that rule group</p>
+   *                <p>An AWS WAF policy (type WAFV2), which defines rule groups to run first in the
+   *               corresponding AWS WAF web ACL and rule groups to run last in the web ACL.</p>
+   *             </li>
+   *             <li>
+   *                <p>An AWS WAF Classic policy (type WAF), which defines a rule group. </p>
    *             </li>
    *             <li>
    *                <p>A security group policy, which manages VPC security groups across your AWS
    *           organization. </p>
    *             </li>
    *          </ul>
-   *          <p>Each policy is specific to one of the three types. If you want to enforce more than one
-   *       policy type across accounts, you can create multiple policies. You can create multiple
+   *          <p>Each policy is specific to one of the types. If you want to enforce more than one
+   *       policy type across accounts, create multiple policies. You can create multiple
    *       policies for each type.</p>
    *          <p>You must be subscribed to Shield Advanced to create a Shield Advanced policy. For more
-   *       information about subscribing to Shield Advanced, see <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.</p>
+   *         information about subscribing to Shield Advanced, see
+   *     <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.</p>
    */
   public putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
   public putPolicy(args: PutPolicyCommandInput, cb: (err: any, data?: PutPolicyCommandOutput) => void): void;
@@ -579,6 +863,38 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: PutPolicyCommandOutput) => void
   ): Promise<PutPolicyCommandOutput> | void {
     const command = new PutPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an AWS Firewall Manager protocols list.</p>
+   */
+  public putProtocolsList(
+    args: PutProtocolsListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutProtocolsListCommandOutput>;
+  public putProtocolsList(
+    args: PutProtocolsListCommandInput,
+    cb: (err: any, data?: PutProtocolsListCommandOutput) => void
+  ): void;
+  public putProtocolsList(
+    args: PutProtocolsListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutProtocolsListCommandOutput) => void
+  ): void;
+  public putProtocolsList(
+    args: PutProtocolsListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutProtocolsListCommandOutput) => void),
+    cb?: (err: any, data?: PutProtocolsListCommandOutput) => void
+  ): Promise<PutProtocolsListCommandOutput> | void {
+    const command = new PutProtocolsListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

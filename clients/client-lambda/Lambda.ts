@@ -252,10 +252,9 @@ export class Lambda extends LambdaClient {
    *
    *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS
    *       services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or
-   *         <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN or owning account of the
-   *       associated resource as the <code>SourceArn</code> or <code>SourceAccount</code>. If you grant permission to a
-   *       service principal without specifying the source, other accounts could potentially configure resources in their
-   *       account to invoke your Lambda function.</p>
+   *         <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the
+   *         <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other
+   *       accounts could potentially configure resources in their account to invoke your Lambda function.</p>
    *
    *          <p>This action adds a statement to a resource-based permissions policy for the function. For more information
    *       about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
@@ -806,8 +805,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns details about the concurrency configuration for a function. To set a concurrency limit for a function,
-   *       use <a>PutFunctionConcurrency</a>.</p>
+   * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
+   *       function, use <a>PutFunctionConcurrency</a>.</p>
    */
   public getFunctionConcurrency(
     args: GetFunctionConcurrencyCommandInput,
@@ -1091,7 +1090,7 @@ export class Lambda extends LambdaClient {
    *       waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
    *       connections with timeout or keep-alive settings.</p>
    *
-   *          <p>This operation requires permission for the <code>lambda:InvokeFunction</code> action.</p>
+   *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action.</p>
    */
   public invoke(args: InvokeCommandInput, options?: __HttpHandlerOptions): Promise<InvokeCommandOutput>;
   public invoke(args: InvokeCommandInput, cb: (err: any, data?: InvokeCommandOutput) => void): void;
@@ -1239,7 +1238,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns a list of Lambda functions, with the version-specific configuration of each.</p>
+   * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
+   *       functions per call.</p>
    *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
    *       addition to the unpublished version. To get more information about a function or version, use <a>GetFunction</a>.</p>
    */
@@ -1395,7 +1395,7 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
-   *       with the version-specific configuration of each. </p>
+   *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
    */
   public listVersionsByFunction(
     args: ListVersionsByFunctionCommandInput,
@@ -1543,11 +1543,16 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Configures options for <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous
-   *         invocation</a> on a function, version, or alias.</p>
+   *         invocation</a> on a function, version, or alias. If a configuration already exists for a function, version,
+   *       or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without
+   *       affecting existing settings for other options, use <a>UpdateFunctionEventInvokeConfig</a>.</p>
    *          <p>By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains
    *       events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous
    *       invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with
    *         <a>UpdateFunctionConfiguration</a>.</p>
+   *          <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>. You can configure separate destinations for successful invocations (on-success) and events
+   *       that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a
+   *       dead-letter queue.</p>
    */
   public putFunctionEventInvokeConfig(
     args: PutFunctionEventInvokeConfigCommandInput,

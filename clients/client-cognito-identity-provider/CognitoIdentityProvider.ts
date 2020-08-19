@@ -528,8 +528,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Confirms user registration as an admin without using a confirmation code. Works on
-   *             any user.</p>
+   * <p>Confirms user registration as an admin without using a confirmation code. Works on any
+   *             user.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
   public adminConfirmSignUp(
@@ -1183,7 +1183,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA options are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
+   * <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA
+   *             options are enabled and if any are preferred. Only one factor can be set as preferred.
+   *             The preferred MFA factor will be used to authenticate a user if multiple factors are
+   *             enabled. If multiple options are enabled and no preference is set, a challenge to choose
+   *             an MFA option will be returned during sign in.</p>
    */
   public adminSetUserMFAPreference(
     args: AdminSetUserMFAPreferenceCommandInput,
@@ -1362,8 +1366,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *             administrator. Works on any user.</p>
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
-   *         <p>In addition to updating user attributes, this API can also be used to mark phone
-   *             and email as verified.</p>
+   *         <p>In addition to updating user attributes, this API can also be used to mark phone and
+   *             email as verified.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
   public adminUpdateUserAttributes(
@@ -1396,7 +1400,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
+   * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh
+   *             tokens issued to a user. The user's current access and Id tokens remain valid until
+   *             their expiry. Access and Id tokens expire one hour after they are issued.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
   public adminUserGlobalSignOut(
@@ -2313,11 +2319,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Calling this API causes a message to be sent to the end user with a confirmation code
    *             that is required to change the user's password. For the <code>Username</code> parameter,
-   *             you can use the username or user alias. If a verified phone number exists for the user,
-   *             the confirmation code is sent to the phone number. Otherwise, if a verified email
-   *             exists, the confirmation code is sent to the email. If neither a verified phone number
-   *             nor a verified email exists, <code>InvalidParameterException</code> is thrown. To use
-   *             the confirmation code for resetting the password, call .</p>
+   *             you can use the username or user alias. The method used to send the confirmation code is
+   *             sent according to the specified AccountRecoverySetting. For more information, see <a href="">Recovering User Accounts</a> in the <i>Amazon Cognito Developer
+   *                 Guide</i>. If neither a verified phone number nor a verified email exists, an
+   *                 <code>InvalidParameterException</code> is thrown. To use the confirmation code for
+   *             resetting the password, call .</p>
    */
   public forgotPassword(
     args: ForgotPasswordCommandInput,
@@ -2621,7 +2627,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
+   * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a
+   *             user. The user's current access and Id tokens remain valid until their expiry. Access
+   *             and Id tokens expire one hour after they are issued.</p>
    */
   public globalSignOut(
     args: GlobalSignOutCommandInput,
@@ -3134,7 +3142,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Set the user's multi-factor authentication (MFA) method preference, including which MFA factors are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
+   * <p>Set the user's multi-factor authentication (MFA) method preference, including which
+   *             MFA factors are enabled and if any are preferred. Only one factor can be set as
+   *             preferred. The preferred MFA factor will be used to authenticate a user if multiple
+   *             factors are enabled. If multiple options are enabled and no preference is set, a
+   *             challenge to choose an MFA option will be returned during sign in.</p>
    */
   public setUserMFAPreference(
     args: SetUserMFAPreferenceCommandInput,
@@ -3464,9 +3476,10 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Updates the specified group with the specified attributes.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *          <important>
-   *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
-   *          </important>
+   *         <important>
+   *             <p>If you don't provide a value for an attribute, it will be set to the default
+   *                 value.</p>
+   *         </important>
    */
   public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
   public updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
@@ -3525,9 +3538,10 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
 
   /**
    * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
-   *          <important>
-   *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
-   *          </important>
+   *         <important>
+   *             <p>If you don't provide a value for an attribute, it will be set to the default
+   *                 value.</p>
+   *         </important>
    */
   public updateResourceServer(
     args: UpdateResourceServerCommandInput,
@@ -3591,11 +3605,12 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Updates the specified user pool with the specified attributes. You can get a list of the
-   *             current user pool settings with .</p>
-   *          <important>
-   *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
-   *          </important>
+   * <p>Updates the specified user pool with the specified attributes. You can get a list of
+   *             the current user pool settings with .</p>
+   *         <important>
+   *             <p>If you don't provide a value for an attribute, it will be set to the default
+   *                 value.</p>
+   *         </important>
    */
   public updateUserPool(
     args: UpdateUserPoolCommandInput,
@@ -3627,11 +3642,12 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Updates the specified user pool app client with the specified attributes. You can get a
-   *             list of the current user pool app client settings with .</p>
-   *          <important>
-   *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
-   *          </important>
+   * <p>Updates the specified user pool app client with the specified attributes. You can get
+   *             a list of the current user pool app client settings with .</p>
+   *         <important>
+   *             <p>If you don't provide a value for an attribute, it will be set to the default
+   *                 value.</p>
+   *         </important>
    */
   public updateUserPoolClient(
     args: UpdateUserPoolClientCommandInput,

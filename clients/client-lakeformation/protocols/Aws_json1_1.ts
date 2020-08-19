@@ -73,6 +73,7 @@ import {
   RevokePermissionsRequest,
   RevokePermissionsResponse,
   TableResource,
+  TableWildcard,
   TableWithColumnsResource,
   UpdateResourceRequest,
   UpdateResourceResponse,
@@ -1366,6 +1367,7 @@ const serializeAws_json1_1ColumnWildcard = (input: ColumnWildcard, context: __Se
 
 const serializeAws_json1_1DatabaseResource = (input: DatabaseResource, context: __SerdeContext): any => {
   return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -1399,11 +1401,15 @@ const serializeAws_json1_1DataLakeSettings = (input: DataLakeSettings, context: 
     ...(input.DataLakeAdmins !== undefined && {
       DataLakeAdmins: serializeAws_json1_1DataLakePrincipalList(input.DataLakeAdmins, context),
     }),
+    ...(input.TrustedResourceOwners !== undefined && {
+      TrustedResourceOwners: serializeAws_json1_1TrustedResourceOwners(input.TrustedResourceOwners, context),
+    }),
   };
 };
 
 const serializeAws_json1_1DataLocationResource = (input: DataLocationResource, context: __SerdeContext): any => {
   return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
   };
 };
@@ -1575,9 +1581,17 @@ const serializeAws_json1_1StringValueList = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1TableResource = (input: TableResource, context: __SerdeContext): any => {
   return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.TableWildcard !== undefined && {
+      TableWildcard: serializeAws_json1_1TableWildcard(input.TableWildcard, context),
+    }),
   };
+};
+
+const serializeAws_json1_1TableWildcard = (input: TableWildcard, context: __SerdeContext): any => {
+  return {};
 };
 
 const serializeAws_json1_1TableWithColumnsResource = (
@@ -1585,6 +1599,7 @@ const serializeAws_json1_1TableWithColumnsResource = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.ColumnNames !== undefined && {
       ColumnNames: serializeAws_json1_1ColumnNames(input.ColumnNames, context),
     }),
@@ -1594,6 +1609,10 @@ const serializeAws_json1_1TableWithColumnsResource = (
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
+};
+
+const serializeAws_json1_1TrustedResourceOwners = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1UpdateResourceRequest = (input: UpdateResourceRequest, context: __SerdeContext): any => {
@@ -1719,6 +1738,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 const deserializeAws_json1_1DatabaseResource = (output: any, context: __SerdeContext): DatabaseResource => {
   return {
     __type: "DatabaseResource",
+    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -1752,12 +1772,17 @@ const deserializeAws_json1_1DataLakeSettings = (output: any, context: __SerdeCon
       output.DataLakeAdmins !== undefined && output.DataLakeAdmins !== null
         ? deserializeAws_json1_1DataLakePrincipalList(output.DataLakeAdmins, context)
         : undefined,
+    TrustedResourceOwners:
+      output.TrustedResourceOwners !== undefined && output.TrustedResourceOwners !== null
+        ? deserializeAws_json1_1TrustedResourceOwners(output.TrustedResourceOwners, context)
+        : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DataLocationResource = (output: any, context: __SerdeContext): DataLocationResource => {
   return {
     __type: "DataLocationResource",
+    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
   } as any;
 };
@@ -2019,8 +2044,19 @@ const deserializeAws_json1_1RevokePermissionsResponse = (
 const deserializeAws_json1_1TableResource = (output: any, context: __SerdeContext): TableResource => {
   return {
     __type: "TableResource",
+    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    TableWildcard:
+      output.TableWildcard !== undefined && output.TableWildcard !== null
+        ? deserializeAws_json1_1TableWildcard(output.TableWildcard, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TableWildcard = (output: any, context: __SerdeContext): TableWildcard => {
+  return {
+    __type: "TableWildcard",
   } as any;
 };
 
@@ -2030,6 +2066,7 @@ const deserializeAws_json1_1TableWithColumnsResource = (
 ): TableWithColumnsResource => {
   return {
     __type: "TableWithColumnsResource",
+    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     ColumnNames:
       output.ColumnNames !== undefined && output.ColumnNames !== null
         ? deserializeAws_json1_1ColumnNames(output.ColumnNames, context)
@@ -2041,6 +2078,10 @@ const deserializeAws_json1_1TableWithColumnsResource = (
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1TrustedResourceOwners = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1UpdateResourceResponse = (output: any, context: __SerdeContext): UpdateResourceResponse => {

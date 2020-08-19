@@ -156,15 +156,6 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
   };
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
   if (input.EventDestinationName !== undefined) {
     const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
@@ -173,6 +164,15 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
     resolvedPath = resolvedPath.replace("{EventDestinationName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: EventDestinationName.");
+  }
+  if (input.ConfigurationSetName !== undefined) {
+    const labelValue: string = input.ConfigurationSetName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -226,8 +226,8 @@ export const serializeAws_restJson1ListConfigurationSetsCommand = async (
   };
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

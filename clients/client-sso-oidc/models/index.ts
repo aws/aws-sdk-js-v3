@@ -7,8 +7,8 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
-  error?: string;
   error_description?: string;
+  error?: string;
 }
 
 export namespace AccessDeniedException {
@@ -38,9 +38,10 @@ export namespace AuthorizationPendingException {
 export interface CreateTokenRequest {
   __type?: "CreateTokenRequest";
   /**
-   * <p>The unique identifier string for each client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>
+   * <p>The list of scopes that is defined by the client. Upon authorization, this list is used to
+   *       restrict permissions when granting an access token.</p>
    */
-  clientId: string | undefined;
+  scope?: string[];
 
   /**
    * <p>A secret string generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>
@@ -48,9 +49,9 @@ export interface CreateTokenRequest {
   clientSecret: string | undefined;
 
   /**
-   * <p>The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.</p>
+   * <p>The unique identifier string for each client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>
    */
-  code?: string;
+  clientId: string | undefined;
 
   /**
    * <p>Used only when calling this API for the device code grant type. This short-term code is
@@ -60,9 +61,14 @@ export interface CreateTokenRequest {
   deviceCode: string | undefined;
 
   /**
-   * <p>Supports grant types for authorization code, refresh token, and device code request.</p>
+   * <p>The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service.</p>
    */
-  grantType: string | undefined;
+  refreshToken?: string;
+
+  /**
+   * <p>The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.</p>
+   */
+  code?: string;
 
   /**
    * <p>The location of the application that will receive the authorization code. Users authorize
@@ -71,15 +77,9 @@ export interface CreateTokenRequest {
   redirectUri?: string;
 
   /**
-   * <p>The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service.</p>
+   * <p>Supports grant types for authorization code, refresh token, and device code request.</p>
    */
-  refreshToken?: string;
-
-  /**
-   * <p>The list of scopes that is defined by the client. Upon authorization, this list is used to
-   *       restrict permissions when granting an access token.</p>
-   */
-  scope?: string[];
+  grantType: string | undefined;
 }
 
 export namespace CreateTokenRequest {
@@ -92,9 +92,10 @@ export namespace CreateTokenRequest {
 export interface CreateTokenResponse {
   __type?: "CreateTokenResponse";
   /**
-   * <p>An opaque token to access AWS SSO resources assigned to a user.</p>
+   * <p>Used to notify the client that the returned token is an access token. The supported type
+   *       is <code>BearerToken</code>.</p>
    */
-  accessToken?: string;
+  tokenType?: string;
 
   /**
    * <p>Indicates the time in seconds when an access token will expire.</p>
@@ -107,16 +108,15 @@ export interface CreateTokenResponse {
   idToken?: string;
 
   /**
+   * <p>An opaque token to access AWS SSO resources assigned to a user.</p>
+   */
+  accessToken?: string;
+
+  /**
    * <p>A token that, if present, can be used to refresh a previously issued access token that
    *       might have expired.</p>
    */
   refreshToken?: string;
-
-  /**
-   * <p>Used to notify the client that the returned token is an access token. The supported type
-   *       is <code>BearerToken</code>.</p>
-   */
-  tokenType?: string;
 }
 
 export namespace CreateTokenResponse {
@@ -132,8 +132,8 @@ export namespace CreateTokenResponse {
 export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredTokenException";
   $fault: "client";
-  error?: string;
   error_description?: string;
+  error?: string;
 }
 
 export namespace ExpiredTokenException {
@@ -168,8 +168,8 @@ export namespace InternalServerException {
 export interface InvalidClientException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientException";
   $fault: "client";
-  error?: string;
   error_description?: string;
+  error?: string;
 }
 
 export namespace InvalidClientException {
@@ -202,8 +202,8 @@ export namespace InvalidClientMetadataException {
 export interface InvalidGrantException extends __SmithyException, $MetadataBearer {
   name: "InvalidGrantException";
   $fault: "client";
-  error?: string;
   error_description?: string;
+  error?: string;
 }
 
 export namespace InvalidGrantException {
@@ -220,8 +220,8 @@ export namespace InvalidGrantException {
 export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
-  error?: string;
   error_description?: string;
+  error?: string;
 }
 
 export namespace InvalidRequestException {
@@ -237,8 +237,8 @@ export namespace InvalidRequestException {
 export interface InvalidScopeException extends __SmithyException, $MetadataBearer {
   name: "InvalidScopeException";
   $fault: "client";
-  error?: string;
   error_description?: string;
+  error?: string;
 }
 
 export namespace InvalidScopeException {
@@ -277,11 +277,6 @@ export namespace RegisterClientRequest {
 export interface RegisterClientResponse {
   __type?: "RegisterClientResponse";
   /**
-   * <p>The endpoint where the client can request authorization.</p>
-   */
-  authorizationEndpoint?: string;
-
-  /**
    * <p>The unique identifier string for each client. This client uses this identifier to get
    *       authenticated by the service in subsequent calls.</p>
    */
@@ -293,15 +288,20 @@ export interface RegisterClientResponse {
   clientIdIssuedAt?: number;
 
   /**
+   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will become invalid.</p>
+   */
+  clientSecretExpiresAt?: number;
+
+  /**
+   * <p>The endpoint where the client can request authorization.</p>
+   */
+  authorizationEndpoint?: string;
+
+  /**
    * <p>A secret string generated for the client. The client will use this string to get
    *       authenticated by the service in subsequent calls.</p>
    */
   clientSecret?: string;
-
-  /**
-   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will become invalid.</p>
-   */
-  clientSecretExpiresAt?: number;
 
   /**
    * <p>The endpoint where the client can get an access token.</p>
@@ -322,8 +322,8 @@ export namespace RegisterClientResponse {
 export interface SlowDownException extends __SmithyException, $MetadataBearer {
   name: "SlowDownException";
   $fault: "client";
-  error?: string;
   error_description?: string;
+  error?: string;
 }
 
 export namespace SlowDownException {
@@ -343,16 +343,16 @@ export interface StartDeviceAuthorizationRequest {
   clientId: string | undefined;
 
   /**
-   * <p>A secret string that is generated for the client. This value should come from the
-   *       persisted result of the <a>RegisterClient</a> API operation.</p>
-   */
-  clientSecret: string | undefined;
-
-  /**
    * <p>The URL for the AWS SSO user portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
    *         the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>.</p>
    */
   startUrl: string | undefined;
+
+  /**
+   * <p>A secret string that is generated for the client. This value should come from the
+   *       persisted result of the <a>RegisterClient</a> API operation.</p>
+   */
+  clientSecret: string | undefined;
 }
 
 export namespace StartDeviceAuthorizationRequest {
@@ -365,19 +365,14 @@ export namespace StartDeviceAuthorizationRequest {
 export interface StartDeviceAuthorizationResponse {
   __type?: "StartDeviceAuthorizationResponse";
   /**
-   * <p>The short-lived code that is used by the device when polling for a session token.</p>
-   */
-  deviceCode?: string;
-
-  /**
-   * <p>Indicates the number of seconds in which the verification code will become invalid.</p>
-   */
-  expiresIn?: number;
-
-  /**
    * <p>Indicates the number of seconds the client must wait between attempts when polling for a session.</p>
    */
   interval?: number;
+
+  /**
+   * <p>The short-lived code that is used by the device when polling for a session token.</p>
+   */
+  deviceCode?: string;
 
   /**
    * <p>A one-time user verification code. This is needed to authorize an in-use device.</p>
@@ -385,16 +380,21 @@ export interface StartDeviceAuthorizationResponse {
   userCode?: string;
 
   /**
-   * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the device.</p>
-   */
-  verificationUri?: string;
-
-  /**
    * <p>An alternate URL that the client can use to automatically launch a browser. This process
    *       skips the manual step in which the user visits the verification page and enters their
    *       code.</p>
    */
   verificationUriComplete?: string;
+
+  /**
+   * <p>Indicates the number of seconds in which the verification code will become invalid.</p>
+   */
+  expiresIn?: number;
+
+  /**
+   * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the device.</p>
+   */
+  verificationUri?: string;
 }
 
 export namespace StartDeviceAuthorizationResponse {
@@ -428,8 +428,8 @@ export namespace UnauthorizedClientException {
 export interface UnsupportedGrantTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedGrantTypeException";
   $fault: "client";
-  error?: string;
   error_description?: string;
+  error?: string;
 }
 
 export namespace UnsupportedGrantTypeException {

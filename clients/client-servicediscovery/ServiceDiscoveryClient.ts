@@ -27,7 +27,13 @@ import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./command
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { RegisterInstanceCommandInput, RegisterInstanceCommandOutput } from "./commands/RegisterInstanceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateInstanceCustomHealthStatusCommandInput,
   UpdateInstanceCustomHealthStatusCommandOutput,
@@ -98,7 +104,10 @@ export type ServiceInputTypes =
   | ListNamespacesCommandInput
   | ListOperationsCommandInput
   | ListServicesCommandInput
+  | ListTagsForResourceCommandInput
   | RegisterInstanceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateInstanceCustomHealthStatusCommandInput
   | UpdateServiceCommandInput;
 
@@ -120,7 +129,10 @@ export type ServiceOutputTypes =
   | ListNamespacesCommandOutput
   | ListOperationsCommandOutput
   | ListServicesCommandOutput
+  | ListTagsForResourceCommandOutput
   | RegisterInstanceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateInstanceCustomHealthStatusCommandOutput
   | UpdateServiceCommandOutput;
 
@@ -232,11 +244,11 @@ export type ServiceDiscoveryClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in.
- * 			When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map.
- * 			For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check.
- * 			Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to
- * 			eight healthy records. </p>
+ * <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications
+ *    run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance
+ *    with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional
+ *    health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer
+ *    that contains up to eight healthy records. </p>
  */
 export class ServiceDiscoveryClient extends __Client<
   __HttpHandlerOptions,

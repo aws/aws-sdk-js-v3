@@ -52,6 +52,7 @@ import {
   Certificate,
   ClientException,
   Cluster,
+  EncryptionConfig,
   ErrorDetail,
   FargateProfile,
   FargateProfileSelector,
@@ -68,6 +69,7 @@ import {
   NodegroupScalingConfig,
   NotFoundException,
   OIDC,
+  Provider,
   RemoteAccessConfig,
   ResourceInUseException,
   ResourceLimitExceededException,
@@ -105,6 +107,9 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.encryptionConfig !== undefined && {
+      encryptionConfig: serializeAws_restJson1EncryptionConfigList(input.encryptionConfig, context),
+    }),
     ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.resourcesVpcConfig !== undefined && {
@@ -363,15 +368,6 @@ export const serializeAws_restJson1DescribeFargateProfileCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
-  if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: clusterName.");
-    }
-    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: clusterName.");
-  }
   if (input.fargateProfileName !== undefined) {
     const labelValue: string = input.fargateProfileName;
     if (labelValue.length <= 0) {
@@ -380,6 +376,15 @@ export const serializeAws_restJson1DescribeFargateProfileCommand = async (
     resolvedPath = resolvedPath.replace("{fargateProfileName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: fargateProfileName.");
+  }
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -520,8 +525,8 @@ export const serializeAws_restJson1ListFargateProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -555,8 +560,8 @@ export const serializeAws_restJson1ListNodegroupsCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -620,8 +625,8 @@ export const serializeAws_restJson1ListUpdatesCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
   };
   let body: any;
@@ -784,15 +789,6 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config";
-  if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: clusterName.");
-    }
-    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: clusterName.");
-  }
   if (input.nodegroupName !== undefined) {
     const labelValue: string = input.nodegroupName;
     if (labelValue.length <= 0) {
@@ -801,6 +797,15 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
     resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
+  }
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -830,15 +835,6 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version";
-  if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: clusterName.");
-    }
-    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: clusterName.");
-  }
   if (input.nodegroupName !== undefined) {
     const labelValue: string = input.nodegroupName;
     if (labelValue.length <= 0) {
@@ -847,6 +843,15 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
     resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
+  }
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2938,6 +2943,17 @@ const deserializeAws_restJson1UnsupportedAvailabilityZoneExceptionResponse = asy
   return contents;
 };
 
+const serializeAws_restJson1EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.provider !== undefined && { provider: serializeAws_restJson1Provider(input.provider, context) }),
+    ...(input.resources !== undefined && { resources: serializeAws_restJson1StringList(input.resources, context) }),
+  };
+};
+
+const serializeAws_restJson1EncryptionConfigList = (input: EncryptionConfig[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1EncryptionConfig(entry, context));
+};
+
 const serializeAws_restJson1FargateProfileLabel = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -3004,6 +3020,12 @@ const serializeAws_restJson1NodegroupScalingConfig = (input: NodegroupScalingCon
     ...(input.desiredSize !== undefined && { desiredSize: input.desiredSize }),
     ...(input.maxSize !== undefined && { maxSize: input.maxSize }),
     ...(input.minSize !== undefined && { minSize: input.minSize }),
+  };
+};
+
+const serializeAws_restJson1Provider = (input: Provider, context: __SerdeContext): any => {
+  return {
+    ...(input.keyArn !== undefined && { keyArn: input.keyArn }),
   };
 };
 
@@ -3089,6 +3111,10 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
+    encryptionConfig:
+      output.encryptionConfig !== undefined && output.encryptionConfig !== null
+        ? deserializeAws_restJson1EncryptionConfigList(output.encryptionConfig, context)
+        : undefined,
     endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
     identity:
       output.identity !== undefined && output.identity !== null
@@ -3113,6 +3139,24 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
         : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
+  return {
+    __type: "EncryptionConfig",
+    provider:
+      output.provider !== undefined && output.provider !== null
+        ? deserializeAws_restJson1Provider(output.provider, context)
+        : undefined,
+    resources:
+      output.resources !== undefined && output.resources !== null
+        ? deserializeAws_restJson1StringList(output.resources, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EncryptionConfigList = (output: any, context: __SerdeContext): EncryptionConfig[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1EncryptionConfig(entry, context));
 };
 
 const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
@@ -3363,6 +3407,13 @@ const deserializeAws_restJson1OIDC = (output: any, context: __SerdeContext): OID
   return {
     __type: "OIDC",
     issuer: output.issuer !== undefined && output.issuer !== null ? output.issuer : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Provider = (output: any, context: __SerdeContext): Provider => {
+  return {
+    __type: "Provider",
+    keyArn: output.keyArn !== undefined && output.keyArn !== null ? output.keyArn : undefined,
   } as any;
 };
 

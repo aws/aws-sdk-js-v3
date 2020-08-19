@@ -93,14 +93,14 @@ export namespace DescribeReportDefinitionsRequest {
 export interface DescribeReportDefinitionsResponse {
   __type?: "DescribeReportDefinitionsResponse";
   /**
-   * <p>A generic string.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of AWS Cost and Usage reports owned by the account.</p>
    */
   ReportDefinitions?: ReportDefinition[];
+
+  /**
+   * <p>A generic string.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeReportDefinitionsResponse {
@@ -225,24 +225,15 @@ export namespace PutReportDefinitionResponse {
 export interface ReportDefinition {
   __type?: "ReportDefinition";
   /**
-   * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
+   * <p>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix
+   *         can't include spaces.</p>
    */
-  AdditionalArtifacts?: (AdditionalArtifact | string)[];
+  S3Prefix: string | undefined;
 
   /**
-   * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
+   * <p>The length of time covered by the report. </p>
    */
-  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
-
-  /**
-   * <p>The compression format that AWS uses for the report.</p>
-   */
-  Compression: CompressionFormat | string | undefined;
-
-  /**
-   * <p>The format that AWS saves the report in.</p>
-   */
-  Format: ReportFormat | string | undefined;
+  TimeUnit: TimeUnit | string | undefined;
 
   /**
    * <p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to
@@ -251,27 +242,9 @@ export interface ReportDefinition {
   RefreshClosedReports?: boolean;
 
   /**
-   * <p>The name of the report that you want to create. The name must be unique,
-   *         is case sensitive, and can't include spaces. </p>
+   * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
    */
-  ReportName: string | undefined;
-
-  /**
-   * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
-   *          to deliver the report in addition to the previous versions.</p>
-   */
-  ReportVersioning?: ReportVersioning | string;
-
-  /**
-   * <p>The S3 bucket where AWS delivers the report.</p>
-   */
-  S3Bucket: string | undefined;
-
-  /**
-   * <p>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix
-   *         can't include spaces.</p>
-   */
-  S3Prefix: string | undefined;
+  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
 
   /**
    * <p>The region of the S3 bucket that AWS delivers the report into.</p>
@@ -279,9 +252,36 @@ export interface ReportDefinition {
   S3Region: AWSRegion | string | undefined;
 
   /**
-   * <p>The length of time covered by the report. </p>
+   * <p>The compression format that AWS uses for the report.</p>
    */
-  TimeUnit: TimeUnit | string | undefined;
+  Compression: CompressionFormat | string | undefined;
+
+  /**
+   * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
+   */
+  AdditionalArtifacts?: (AdditionalArtifact | string)[];
+
+  /**
+   * <p>The name of the report that you want to create. The name must be unique,
+   *         is case sensitive, and can't include spaces. </p>
+   */
+  ReportName: string | undefined;
+
+  /**
+   * <p>The format that AWS saves the report in.</p>
+   */
+  Format: ReportFormat | string | undefined;
+
+  /**
+   * <p>The S3 bucket where AWS delivers the report.</p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
+   *          to deliver the report in addition to the previous versions.</p>
+   */
+  ReportVersioning?: ReportVersioning | string;
 }
 
 export namespace ReportDefinition {

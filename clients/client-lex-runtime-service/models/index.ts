@@ -94,9 +94,9 @@ export enum ContentType {
 export interface DeleteSessionRequest {
   __type?: "DeleteSessionRequest";
   /**
-   * <p>The alias in use for the bot that contains the session data.</p>
+   * <p>The identifier of the user associated with the session data.</p>
    */
-  botAlias: string | undefined;
+  userId: string | undefined;
 
   /**
    * <p>The name of the bot that contains the session data.</p>
@@ -104,9 +104,9 @@ export interface DeleteSessionRequest {
   botName: string | undefined;
 
   /**
-   * <p>The identifier of the user associated with the session data.</p>
+   * <p>The alias in use for the bot that contains the session data.</p>
    */
-  userId: string | undefined;
+  botAlias: string | undefined;
 }
 
 export namespace DeleteSessionRequest {
@@ -124,11 +124,6 @@ export interface DeleteSessionResponse {
   botAlias?: string;
 
   /**
-   * <p>The name of the bot associated with the session data.</p>
-   */
-  botName?: string;
-
-  /**
    * <p>The unique identifier for the session.</p>
    */
   sessionId?: string;
@@ -137,6 +132,11 @@ export interface DeleteSessionResponse {
    * <p>The ID of the client application user.</p>
    */
   userId?: string;
+
+  /**
+   * <p>The name of the bot associated with the session data.</p>
+   */
+  botName?: string;
 }
 
 export namespace DeleteSessionResponse {
@@ -183,31 +183,9 @@ export namespace DependencyFailedException {
 export interface DialogAction {
   __type?: "DialogAction";
   /**
-   * <p>The fulfillment state of the intent. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code> - The Lambda function associated with the intent failed to fulfill
-   *           the intent.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Fulfilled</code> - The intent has fulfilled by the Lambda function associated
-   *           with the intent. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ReadyForFulfillment</code> - All of the information necessary for the intent is
-   *           present and the intent ready to be fulfilled by the client application.</p>
-   *             </li>
-   *          </ul>
+   * <p>Map of the slots that have been gathered and their values. </p>
    */
-  fulfillmentState?: FulfillmentState | string;
-
-  /**
-   * <p>The name of the intent.</p>
-   */
-  intentName?: string;
+  slots?: { [key: string]: string };
 
   /**
    * <p>The message that should be shown to the user. If you don't specify a message, Amazon Lex will
@@ -240,14 +218,31 @@ export interface DialogAction {
   messageFormat?: MessageFormatType | string;
 
   /**
-   * <p>The name of the slot that should be elicited from the user.</p>
+   * <p>The name of the intent.</p>
    */
-  slotToElicit?: string;
+  intentName?: string;
 
   /**
-   * <p>Map of the slots that have been gathered and their values. </p>
+   * <p>The fulfillment state of the intent. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code> - The Lambda function associated with the intent failed to fulfill
+   *           the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Fulfilled</code> - The intent has fulfilled by the Lambda function associated
+   *           with the intent. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReadyForFulfillment</code> - All of the information necessary for the intent is
+   *           present and the intent ready to be fulfilled by the client application.</p>
+   *             </li>
+   *          </ul>
    */
-  slots?: { [key: string]: string };
+  fulfillmentState?: FulfillmentState | string;
 
   /**
    * <p>The next action that the bot should take in its interaction with the user. The possible
@@ -282,13 +277,18 @@ export interface DialogAction {
    *          </ul>
    */
   type: DialogActionType | string | undefined;
+
+  /**
+   * <p>The name of the slot that should be elicited from the user.</p>
+   */
+  slotToElicit?: string;
 }
 
 export namespace DialogAction {
   export const filterSensitiveLog = (obj: DialogAction): any => ({
     ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
     ...(obj.slots && { slots: SENSITIVE_STRING }),
+    ...(obj.message && { message: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DialogAction => __isa(o, "DialogAction");
 }
@@ -323,9 +323,9 @@ export enum FulfillmentState {
 export interface GenericAttachment {
   __type?: "GenericAttachment";
   /**
-   * <p>The URL of an attachment to the response card.</p>
+   * <p>The subtitle shown below the title.</p>
    */
-  attachmentLinkUrl?: string;
+  subTitle?: string;
 
   /**
    * <p>The list of options to show to the user.</p>
@@ -333,19 +333,19 @@ export interface GenericAttachment {
   buttons?: Button[];
 
   /**
+   * <p>The title of the option.</p>
+   */
+  title?: string;
+
+  /**
    * <p>The URL of an image that is displayed to the user.</p>
    */
   imageUrl?: string;
 
   /**
-   * <p>The subtitle shown below the title.</p>
+   * <p>The URL of an attachment to the response card.</p>
    */
-  subTitle?: string;
-
-  /**
-   * <p>The title of the option.</p>
-   */
-  title?: string;
+  attachmentLinkUrl?: string;
 }
 
 export namespace GenericAttachment {
@@ -363,17 +363,17 @@ export interface GetSessionRequest {
   botAlias: string | undefined;
 
   /**
-   * <p>The name of the bot that contains the session data.</p>
-   */
-  botName: string | undefined;
-
-  /**
    * <p>A string used to filter the intents returned in the <code>recentIntentSummaryView</code>
    *       structure. </p>
    *          <p>When you specify a filter, only intents with their <code>checkpointLabel</code> field set
    *       to that string are returned.</p>
    */
   checkpointLabelFilter?: string;
+
+  /**
+   * <p>The name of the bot that contains the session data.</p>
+   */
+  botName: string | undefined;
 
   /**
    * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
@@ -397,16 +397,6 @@ export interface GetSessionResponse {
   dialogAction?: DialogAction;
 
   /**
-   * <p>An array of information about the intents used in the session. The array can contain a
-   *       maximum of three summaries. If more than three intents are used in the session, the
-   *         <code>recentIntentSummaryView</code> operation contains information about the last three
-   *       intents used.</p>
-   *          <p>If you set the <code>checkpointLabelFilter</code> parameter in the request, the array
-   *       contains only the intents with the specified label.</p>
-   */
-  recentIntentSummaryView?: IntentSummary[];
-
-  /**
    * <p>Map of key/value pairs representing the session-specific context information. It contains
    *       application information passed between Amazon Lex and a client application.</p>
    */
@@ -416,16 +406,26 @@ export interface GetSessionResponse {
    * <p>A unique identifier for the session.</p>
    */
   sessionId?: string;
+
+  /**
+   * <p>An array of information about the intents used in the session. The array can contain a
+   *       maximum of three summaries. If more than three intents are used in the session, the
+   *         <code>recentIntentSummaryView</code> operation contains information about the last three
+   *       intents used.</p>
+   *          <p>If you set the <code>checkpointLabelFilter</code> parameter in the request, the array
+   *       contains only the intents with the specified label.</p>
+   */
+  recentIntentSummaryView?: IntentSummary[];
 }
 
 export namespace GetSessionResponse {
   export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
     ...obj,
     ...(obj.dialogAction && { dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction) }),
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
     ...(obj.recentIntentSummaryView && {
       recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummary.filterSensitiveLog(item)),
     }),
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is GetSessionResponse => __isa(o, "GetSessionResponse");
 }
@@ -445,6 +445,11 @@ export interface IntentSummary {
    *       label.</p>
    */
   checkpointLabel?: string;
+
+  /**
+   * <p>The name of the intent.</p>
+   */
+  intentName?: string;
 
   /**
    * <p>The status of the intent after the user responds to the confirmation prompt. If the user
@@ -468,6 +473,39 @@ export interface IntentSummary {
    *          </ul>
    */
   confirmationStatus?: ConfirmationStatus | string;
+
+  /**
+   * <p>The fulfillment state of the intent. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code> - The Lambda function associated with the intent failed to fulfill
+   *           the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Fulfilled</code> - The intent has fulfilled by the Lambda function associated
+   *           with the intent. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReadyForFulfillment</code> - All of the information necessary for the intent is
+   *           present and the intent ready to be fulfilled by the client application.</p>
+   *             </li>
+   *          </ul>
+   */
+  fulfillmentState?: FulfillmentState | string;
+
+  /**
+   * <p>Map of the slots that have been gathered and their values. </p>
+   */
+  slots?: { [key: string]: string };
+
+  /**
+   * <p>The next slot to elicit from the user. If there is not slot to elicit, the field is
+   *       blank.</p>
+   */
+  slotToElicit?: string;
 
   /**
    * <p>The next action that the bot should take in its interaction with the user. The possible
@@ -498,44 +536,6 @@ export interface IntentSummary {
    *          </ul>
    */
   dialogActionType: DialogActionType | string | undefined;
-
-  /**
-   * <p>The fulfillment state of the intent. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code> - The Lambda function associated with the intent failed to fulfill
-   *           the intent.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Fulfilled</code> - The intent has fulfilled by the Lambda function associated
-   *           with the intent. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ReadyForFulfillment</code> - All of the information necessary for the intent is
-   *           present and the intent ready to be fulfilled by the client application.</p>
-   *             </li>
-   *          </ul>
-   */
-  fulfillmentState?: FulfillmentState | string;
-
-  /**
-   * <p>The name of the intent.</p>
-   */
-  intentName?: string;
-
-  /**
-   * <p>The next slot to elicit from the user. If there is not slot to elicit, the field is
-   *       blank.</p>
-   */
-  slotToElicit?: string;
-
-  /**
-   * <p>Map of the slots that have been gathered and their values. </p>
-   */
-  slots?: { [key: string]: string };
 }
 
 export namespace IntentSummary {
@@ -682,14 +682,34 @@ export interface PostContentRequest {
   accept?: string;
 
   /**
-   * <p>Alias of the Amazon Lex bot.</p>
-   */
-  botAlias: string | undefined;
-
-  /**
    * <p>Name of the Amazon Lex bot.</p>
    */
   botName: string | undefined;
+
+  /**
+   * <p>You pass this value as the <code>x-amz-lex-session-attributes</code> HTTP header.</p>
+   *          <p>Application-specific information passed between Amazon Lex and a client application. The value
+   *       must be a JSON serialized and base64 encoded map with string keys and values. The total size
+   *       of the <code>sessionAttributes</code> and <code>requestAttributes</code> headers is limited to
+   *       12 KB.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session
+   *         Attributes</a>.</p>
+   */
+  sessionAttributes?: __LazyJsonString | string;
+
+  /**
+   * <p> User input in PCM or Opus audio format or text format as described in the
+   *         <code>Content-Type</code> HTTP header. </p>
+   *          <p>You can stream audio data to Amazon Lex or you can create a local buffer that captures all of
+   *       the audio data before sending. In general, you get better performance if you stream audio data
+   *       rather than buffering the data locally.</p>
+   */
+  inputStream: Readable | ReadableStream | Blob | undefined;
+
+  /**
+   * <p>Alias of the Amazon Lex bot.</p>
+   */
+  botAlias: string | undefined;
 
   /**
    * <p> You pass this value as the <code>Content-Type</code> HTTP header. </p>
@@ -733,39 +753,6 @@ export interface PostContentRequest {
   contentType: string | undefined;
 
   /**
-   * <p> User input in PCM or Opus audio format or text format as described in the
-   *         <code>Content-Type</code> HTTP header. </p>
-   *          <p>You can stream audio data to Amazon Lex or you can create a local buffer that captures all of
-   *       the audio data before sending. In general, you get better performance if you stream audio data
-   *       rather than buffering the data locally.</p>
-   */
-  inputStream: Readable | ReadableStream | Blob | undefined;
-
-  /**
-   * <p>You pass this value as the <code>x-amz-lex-request-attributes</code> HTTP header.</p>
-   *          <p>Request-specific information passed between Amazon Lex and a client application. The value must
-   *       be a JSON serialized and base64 encoded map with string keys and values. The total size of the
-   *         <code>requestAttributes</code> and <code>sessionAttributes</code> headers is limited to 12
-   *       KB.</p>
-   *          <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any
-   *       request attributes with the prefix <code>x-amz-lex:</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request
-   *         Attributes</a>.</p>
-   */
-  requestAttributes?: __LazyJsonString | string;
-
-  /**
-   * <p>You pass this value as the <code>x-amz-lex-session-attributes</code> HTTP header.</p>
-   *          <p>Application-specific information passed between Amazon Lex and a client application. The value
-   *       must be a JSON serialized and base64 encoded map with string keys and values. The total size
-   *       of the <code>sessionAttributes</code> and <code>requestAttributes</code> headers is limited to
-   *       12 KB.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session
-   *         Attributes</a>.</p>
-   */
-  sessionAttributes?: __LazyJsonString | string;
-
-  /**
    * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
    *       with your bot. At runtime, each request must contain the <code>userID</code> field.</p>
    *          <p>To decide the user ID to use for your application, consider the following factors.</p>
@@ -793,13 +780,26 @@ export interface PostContentRequest {
    *          </ul>
    */
   userId: string | undefined;
+
+  /**
+   * <p>You pass this value as the <code>x-amz-lex-request-attributes</code> HTTP header.</p>
+   *          <p>Request-specific information passed between Amazon Lex and a client application. The value must
+   *       be a JSON serialized and base64 encoded map with string keys and values. The total size of the
+   *         <code>requestAttributes</code> and <code>sessionAttributes</code> headers is limited to 12
+   *       KB.</p>
+   *          <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any
+   *       request attributes with the prefix <code>x-amz-lex:</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request
+   *         Attributes</a>.</p>
+   */
+  requestAttributes?: __LazyJsonString | string;
 }
 
 export namespace PostContentRequest {
   export const filterSensitiveLog = (obj: PostContentRequest): any => ({
     ...obj,
-    ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
+    ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is PostContentRequest => __isa(o, "PostContentRequest");
 }
@@ -807,19 +807,55 @@ export namespace PostContentRequest {
 export interface PostContentResponse {
   __type?: "PostContentResponse";
   /**
-   * <p>The prompt (or statement) to convey to the user. This is based on the bot configuration
-   *       and context. For example, if Amazon Lex did not understand the user intent, it sends the
-   *         <code>clarificationPrompt</code> configured for the bot. If the intent requires confirmation
-   *       before taking the fulfillment action, it sends the <code>confirmationPrompt</code>. Another
-   *       example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message
-   *       to convey to the user. Then Amazon Lex sends that message in the response. </p>
+   * <p>The format of the response message. One of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PlainText</code> - The message contains plain UTF-8 text.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CustomPayload</code> - The message is a custom format for the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SSML</code> - The message contains text formatted for voice output.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Composite</code> - The message contains an escaped JSON object containing one or
+   *           more messages from the groups that messages were assigned to when the intent was
+   *           created.</p>
+   *             </li>
+   *          </ul>
    */
-  audioStream?: Readable | ReadableStream | Blob;
+  messageFormat?: MessageFormatType | string;
 
   /**
-   * <p>Content type as specified in the <code>Accept</code> HTTP header in the request.</p>
+   * <p>The sentiment expressed in and utterance.</p>
+   *          <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis,
+   *       this field contains the result of the analysis.</p>
    */
-  contentType?: string;
+  sentimentResponse?: string;
+
+  /**
+   * <p>The unique identifier for the session.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input
+   *       during the conversation. The field is base-64 encoded.</p>
+   *          <p>Amazon Lex creates a resolution list containing likely values for a slot. The value that it
+   *       returns is determined by the <code>valueSelectionStrategy</code> selected when the slot type
+   *       was created or updated. If <code>valueSelectionStrategy</code> is set to
+   *         <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the user value
+   *       is similar to the slot values. If <code>valueSelectionStrategy</code> is set to
+   *         <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution list or, if
+   *       there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>,
+   *       the default is <code>ORIGINAL_VALUE</code>.</p>
+   */
+  slots?: __LazyJsonString | string;
 
   /**
    * <p>Identifies the current state of the user interaction. Amazon Lex returns one of the following
@@ -883,6 +919,22 @@ export interface PostContentResponse {
   inputTranscript?: string;
 
   /**
+   * <p>The prompt (or statement) to convey to the user. This is based on the bot configuration
+   *       and context. For example, if Amazon Lex did not understand the user intent, it sends the
+   *         <code>clarificationPrompt</code> configured for the bot. If the intent requires confirmation
+   *       before taking the fulfillment action, it sends the <code>confirmationPrompt</code>. Another
+   *       example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message
+   *       to convey to the user. Then Amazon Lex sends that message in the response. </p>
+   */
+  audioStream?: Readable | ReadableStream | Blob;
+
+  /**
+   * <p> If the <code>dialogState</code> value is <code>ElicitSlot</code>, returns the name of the
+   *       slot for which Amazon Lex is eliciting a value. </p>
+   */
+  slotToElicit?: string;
+
+  /**
    * <p>Current user intent that Amazon Lex is aware of.</p>
    */
   intentName?: string;
@@ -905,66 +957,14 @@ export interface PostContentResponse {
   message?: string;
 
   /**
-   * <p>The format of the response message. One of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PlainText</code> - The message contains plain UTF-8 text.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CustomPayload</code> - The message is a custom format for the client.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSML</code> - The message contains text formatted for voice output.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Composite</code> - The message contains an escaped JSON object containing one or
-   *           more messages from the groups that messages were assigned to when the intent was
-   *           created.</p>
-   *             </li>
-   *          </ul>
+   * <p>Content type as specified in the <code>Accept</code> HTTP header in the request.</p>
    */
-  messageFormat?: MessageFormatType | string;
-
-  /**
-   * <p>The sentiment expressed in and utterance.</p>
-   *          <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis,
-   *       this field contains the result of the analysis.</p>
-   */
-  sentimentResponse?: string;
+  contentType?: string;
 
   /**
    * <p> Map of key/value pairs representing the session-specific context information. </p>
    */
   sessionAttributes?: __LazyJsonString | string;
-
-  /**
-   * <p>The unique identifier for the session.</p>
-   */
-  sessionId?: string;
-
-  /**
-   * <p> If the <code>dialogState</code> value is <code>ElicitSlot</code>, returns the name of the
-   *       slot for which Amazon Lex is eliciting a value. </p>
-   */
-  slotToElicit?: string;
-
-  /**
-   * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input
-   *       during the conversation. The field is base-64 encoded.</p>
-   *          <p>Amazon Lex creates a resolution list containing likely values for a slot. The value that it
-   *       returns is determined by the <code>valueSelectionStrategy</code> selected when the slot type
-   *       was created or updated. If <code>valueSelectionStrategy</code> is set to
-   *         <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the user value
-   *       is similar to the slot values. If <code>valueSelectionStrategy</code> is set to
-   *         <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution list or, if
-   *       there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>,
-   *       the default is <code>ORIGINAL_VALUE</code>.</p>
-   */
-  slots?: __LazyJsonString | string;
 }
 
 export namespace PostContentResponse {
@@ -977,21 +977,6 @@ export namespace PostContentResponse {
 
 export interface PostTextRequest {
   __type?: "PostTextRequest";
-  /**
-   * <p>The alias of the Amazon Lex bot.</p>
-   */
-  botAlias: string | undefined;
-
-  /**
-   * <p>The name of the Amazon Lex bot.</p>
-   */
-  botName: string | undefined;
-
-  /**
-   * <p>The text that the user entered (Amazon Lex interprets this text).</p>
-   */
-  inputText: string | undefined;
-
   /**
    * <p>Request-specific information passed between Amazon Lex and a client application.</p>
    *          <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any
@@ -1007,6 +992,11 @@ export interface PostTextRequest {
    *         Attributes</a>.</p>
    */
   sessionAttributes?: { [key: string]: string };
+
+  /**
+   * <p>The alias of the Amazon Lex bot.</p>
+   */
+  botAlias: string | undefined;
 
   /**
    * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
@@ -1036,20 +1026,92 @@ export interface PostTextRequest {
    *          </ul>
    */
   userId: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Lex bot.</p>
+   */
+  botName: string | undefined;
+
+  /**
+   * <p>The text that the user entered (Amazon Lex interprets this text).</p>
+   */
+  inputText: string | undefined;
 }
 
 export namespace PostTextRequest {
   export const filterSensitiveLog = (obj: PostTextRequest): any => ({
     ...obj,
-    ...(obj.inputText && { inputText: SENSITIVE_STRING }),
     ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
+    ...(obj.inputText && { inputText: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is PostTextRequest => __isa(o, "PostTextRequest");
 }
 
 export interface PostTextResponse {
   __type?: "PostTextResponse";
+  /**
+   * <p>Represents the options that the user has to respond to the current prompt. Response Card
+   *       can come from the bot configuration (in the Amazon Lex console, choose the settings button next
+   *       to a slot) or from a code hook (Lambda function). </p>
+   */
+  responseCard?: ResponseCard;
+
+  /**
+   * <p>The format of the response message. One of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PlainText</code> - The message contains plain UTF-8 text.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CustomPayload</code> - The message is a custom format defined by the Lambda
+   *           function.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SSML</code> - The message contains text formatted for voice output.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Composite</code> - The message contains an escaped JSON object containing one or
+   *           more messages from the groups that messages were assigned to when the intent was
+   *           created.</p>
+   *             </li>
+   *          </ul>
+   */
+  messageFormat?: MessageFormatType | string;
+
+  /**
+   * <p>The sentiment expressed in and utterance.</p>
+   *          <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis,
+   *       this field contains the result of the analysis.</p>
+   */
+  sentimentResponse?: SentimentResponse;
+
+  /**
+   * <p>The message to convey to the user. The message can come from the bot's configuration or
+   *       from a Lambda function.</p>
+   *          <p>If the intent is not configured with a Lambda function, or if the Lambda function returned
+   *         <code>Delegate</code> as the <code>dialogAction.type</code> its response, Amazon Lex decides on
+   *       the next course of action and selects an appropriate message from the bot's configuration
+   *       based on the current interaction context. For example, if Amazon Lex isn't able to understand user
+   *       input, it uses a clarification prompt message.</p>
+   *          <p>When you create an intent you can assign messages to groups. When messages are assigned to
+   *       groups Amazon Lex returns one message from each group in the response. The message field is an
+   *       escaped JSON string containing the messages. For more information about the structure of the
+   *       JSON string returned, see <a>msg-prompts-formats</a>.</p>
+   *          <p>If the Lambda function returns a message, Amazon Lex passes it to the client in its
+   *       response.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>A map of key-value pairs representing the session-specific context information.</p>
+   */
+  sessionAttributes?: { [key: string]: string };
+
   /**
    * <p> Identifies the current state of the user interaction. Amazon Lex returns one of the following
    *       values as <code>dialogState</code>. The client can optionally use this information to
@@ -1102,82 +1164,20 @@ export interface PostTextResponse {
   dialogState?: DialogState | string;
 
   /**
+   * <p>If the <code>dialogState</code> value is <code>ElicitSlot</code>, returns the name of the
+   *       slot for which Amazon Lex is eliciting a value. </p>
+   */
+  slotToElicit?: string;
+
+  /**
    * <p>The current user intent that Amazon Lex is aware of.</p>
    */
   intentName?: string;
 
   /**
-   * <p>The message to convey to the user. The message can come from the bot's configuration or
-   *       from a Lambda function.</p>
-   *          <p>If the intent is not configured with a Lambda function, or if the Lambda function returned
-   *         <code>Delegate</code> as the <code>dialogAction.type</code> its response, Amazon Lex decides on
-   *       the next course of action and selects an appropriate message from the bot's configuration
-   *       based on the current interaction context. For example, if Amazon Lex isn't able to understand user
-   *       input, it uses a clarification prompt message.</p>
-   *          <p>When you create an intent you can assign messages to groups. When messages are assigned to
-   *       groups Amazon Lex returns one message from each group in the response. The message field is an
-   *       escaped JSON string containing the messages. For more information about the structure of the
-   *       JSON string returned, see <a>msg-prompts-formats</a>.</p>
-   *          <p>If the Lambda function returns a message, Amazon Lex passes it to the client in its
-   *       response.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The format of the response message. One of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PlainText</code> - The message contains plain UTF-8 text.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CustomPayload</code> - The message is a custom format defined by the Lambda
-   *           function.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSML</code> - The message contains text formatted for voice output.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Composite</code> - The message contains an escaped JSON object containing one or
-   *           more messages from the groups that messages were assigned to when the intent was
-   *           created.</p>
-   *             </li>
-   *          </ul>
-   */
-  messageFormat?: MessageFormatType | string;
-
-  /**
-   * <p>Represents the options that the user has to respond to the current prompt. Response Card
-   *       can come from the bot configuration (in the Amazon Lex console, choose the settings button next
-   *       to a slot) or from a code hook (Lambda function). </p>
-   */
-  responseCard?: ResponseCard;
-
-  /**
-   * <p>The sentiment expressed in and utterance.</p>
-   *          <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis,
-   *       this field contains the result of the analysis.</p>
-   */
-  sentimentResponse?: SentimentResponse;
-
-  /**
-   * <p>A map of key-value pairs representing the session-specific context information.</p>
-   */
-  sessionAttributes?: { [key: string]: string };
-
-  /**
    * <p>A unique identifier for the session.</p>
    */
   sessionId?: string;
-
-  /**
-   * <p>If the <code>dialogState</code> value is <code>ElicitSlot</code>, returns the name of the
-   *       slot for which Amazon Lex is eliciting a value. </p>
-   */
-  slotToElicit?: string;
 
   /**
    * <p> The intent slots that Amazon Lex detected from the user input in the conversation. </p>
@@ -1205,6 +1205,11 @@ export namespace PostTextResponse {
 
 export interface PutSessionRequest {
   __type?: "PutSessionRequest";
+  /**
+   * <p>Sets the next action that the bot should take to fulfill the conversation.</p>
+   */
+  dialogAction?: DialogAction;
+
   /**
    * <p>The message that Amazon Lex returns in the response can be either text or speech based
    *       depending on the value of this field.</p>
@@ -1257,21 +1262,6 @@ export interface PutSessionRequest {
   accept?: string;
 
   /**
-   * <p>The alias in use for the bot that contains the session data.</p>
-   */
-  botAlias: string | undefined;
-
-  /**
-   * <p>The name of the bot that contains the session data.</p>
-   */
-  botName: string | undefined;
-
-  /**
-   * <p>Sets the next action that the bot should take to fulfill the conversation.</p>
-   */
-  dialogAction?: DialogAction;
-
-  /**
    * <p>A summary of the recent intents for the bot. You can use the intent summary view to set a
    *       checkpoint label on an intent and modify attributes of intents. You can also use it to remove
    *       or add intent summary objects to the list.</p>
@@ -1301,16 +1291,26 @@ export interface PutSessionRequest {
   recentIntentSummaryView?: IntentSummary[];
 
   /**
+   * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
+   *       with your bot. </p>
+   */
+  userId: string | undefined;
+
+  /**
    * <p>Map of key/value pairs representing the session-specific context information. It contains
    *       application information passed between Amazon Lex and a client application.</p>
    */
   sessionAttributes?: { [key: string]: string };
 
   /**
-   * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
-   *       with your bot. </p>
+   * <p>The name of the bot that contains the session data.</p>
    */
-  userId: string | undefined;
+  botName: string | undefined;
+
+  /**
+   * <p>The alias in use for the bot that contains the session data.</p>
+   */
+  botAlias: string | undefined;
 }
 
 export namespace PutSessionRequest {
@@ -1328,9 +1328,34 @@ export namespace PutSessionRequest {
 export interface PutSessionResponse {
   __type?: "PutSessionResponse";
   /**
-   * <p>The audio version of the message to convey to the user.</p>
+   * <p>The format of the response message. One of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PlainText</code> - The message contains plain UTF-8 text.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CustomPayload</code> - The message is a custom format for the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SSML</code> - The message contains text formatted for voice output.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Composite</code> - The message contains an escaped JSON object containing one or
+   *           more messages from the groups that messages were assigned to when the intent was
+   *           created.</p>
+   *             </li>
+   *          </ul>
    */
-  audioStream?: Readable | ReadableStream | Blob;
+  messageFormat?: MessageFormatType | string;
+
+  /**
+   * <p>The name of the current intent.</p>
+   */
+  intentName?: string;
 
   /**
    * <p>Content type as specified in the <code>Accept</code> HTTP header in the request.</p>
@@ -1375,55 +1400,9 @@ export interface PutSessionResponse {
   dialogState?: DialogState | string;
 
   /**
-   * <p>The name of the current intent.</p>
-   */
-  intentName?: string;
-
-  /**
-   * <p>The next message that should be presented to the user.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The format of the response message. One of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PlainText</code> - The message contains plain UTF-8 text.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CustomPayload</code> - The message is a custom format for the client.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSML</code> - The message contains text formatted for voice output.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Composite</code> - The message contains an escaped JSON object containing one or
-   *           more messages from the groups that messages were assigned to when the intent was
-   *           created.</p>
-   *             </li>
-   *          </ul>
-   */
-  messageFormat?: MessageFormatType | string;
-
-  /**
-   * <p>Map of key/value pairs representing session-specific context information.</p>
-   */
-  sessionAttributes?: __LazyJsonString | string;
-
-  /**
    * <p>A unique identifier for the session.</p>
    */
   sessionId?: string;
-
-  /**
-   * <p>If the <code>dialogState</code> is <code>ElicitSlot</code>, returns the name of the slot
-   *       for which Amazon Lex is eliciting a value.</p>
-   */
-  slotToElicit?: string;
 
   /**
    * <p>Map of zero or more intent slots Amazon Lex detected from the user input during the
@@ -1438,6 +1417,27 @@ export interface PutSessionResponse {
    *       the default is <code>ORIGINAL_VALUE</code>. </p>
    */
   slots?: __LazyJsonString | string;
+
+  /**
+   * <p>The next message that should be presented to the user.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>If the <code>dialogState</code> is <code>ElicitSlot</code>, returns the name of the slot
+   *       for which Amazon Lex is eliciting a value.</p>
+   */
+  slotToElicit?: string;
+
+  /**
+   * <p>Map of key/value pairs representing session-specific context information.</p>
+   */
+  sessionAttributes?: __LazyJsonString | string;
+
+  /**
+   * <p>The audio version of the message to convey to the user.</p>
+   */
+  audioStream?: Readable | ReadableStream | Blob;
 }
 
 export namespace PutSessionResponse {
@@ -1473,11 +1473,6 @@ export namespace RequestTimeoutException {
 export interface ResponseCard {
   __type?: "ResponseCard";
   /**
-   * <p>The content type of the response.</p>
-   */
-  contentType?: ContentType | string;
-
-  /**
    * <p>An array of attachment objects representing options.</p>
    */
   genericAttachments?: GenericAttachment[];
@@ -1486,6 +1481,11 @@ export interface ResponseCard {
    * <p>The version of the response card format.</p>
    */
   version?: string;
+
+  /**
+   * <p>The content type of the response.</p>
+   */
+  contentType?: ContentType | string;
 }
 
 export namespace ResponseCard {
@@ -1503,14 +1503,14 @@ export namespace ResponseCard {
 export interface SentimentResponse {
   __type?: "SentimentResponse";
   /**
-   * <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
-   */
-  sentimentLabel?: string;
-
-  /**
    * <p>The likelihood that the sentiment was correctly inferred.</p>
    */
   sentimentScore?: string;
+
+  /**
+   * <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
+   */
+  sentimentLabel?: string;
 }
 
 export namespace SentimentResponse {

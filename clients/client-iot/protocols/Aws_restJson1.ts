@@ -52,6 +52,7 @@ import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput,
 } from "../commands/CreateCertificateFromCsrCommand";
+import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "../commands/CreateDimensionCommand";
 import {
   CreateDomainConfigurationCommandInput,
   CreateDomainConfigurationCommandOutput,
@@ -116,6 +117,7 @@ import {
   DeleteCACertificateCommandOutput,
 } from "../commands/DeleteCACertificateCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand";
+import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "../commands/DeleteDimensionCommand";
 import {
   DeleteDomainConfigurationCommandInput,
   DeleteDomainConfigurationCommandOutput,
@@ -201,6 +203,7 @@ import {
   DescribeDefaultAuthorizerCommandInput,
   DescribeDefaultAuthorizerCommandOutput,
 } from "../commands/DescribeDefaultAuthorizerCommand";
+import { DescribeDimensionCommandInput, DescribeDimensionCommandOutput } from "../commands/DescribeDimensionCommand";
 import {
   DescribeDomainConfigurationCommandInput,
   DescribeDomainConfigurationCommandOutput,
@@ -315,6 +318,7 @@ import {
   ListCertificatesByCACommandOutput,
 } from "../commands/ListCertificatesByCACommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
+import { ListDimensionsCommandInput, ListDimensionsCommandOutput } from "../commands/ListDimensionsCommand";
 import {
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput,
@@ -434,6 +438,10 @@ import {
   RegisterCertificateCommandInput,
   RegisterCertificateCommandOutput,
 } from "../commands/RegisterCertificateCommand";
+import {
+  RegisterCertificateWithoutCACommandInput,
+  RegisterCertificateWithoutCACommandOutput,
+} from "../commands/RegisterCertificateWithoutCACommand";
 import { RegisterThingCommandInput, RegisterThingCommandOutput } from "../commands/RegisterThingCommand";
 import {
   RejectCertificateTransferCommandInput,
@@ -501,6 +509,7 @@ import {
   UpdateCACertificateCommandOutput,
 } from "../commands/UpdateCACertificateCommand";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "../commands/UpdateCertificateCommand";
+import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "../commands/UpdateDimensionCommand";
 import {
   UpdateDomainConfigurationCommandInput,
   UpdateDomainConfigurationCommandOutput,
@@ -577,8 +586,13 @@ import {
   AuthorizerConfig,
   AuthorizerDescription,
   AuthorizerSummary,
+  AwsJobAbortConfig,
+  AwsJobAbortCriteria,
   AwsJobExecutionsRolloutConfig,
+  AwsJobExponentialRolloutRate,
   AwsJobPresignedUrlConfig,
+  AwsJobRateIncreaseCriteria,
+  AwsJobTimeoutConfig,
   Behavior,
   BehaviorCriteria,
   BillingGroupMetadata,
@@ -592,6 +606,7 @@ import {
   CertificateValidationException,
   CertificateValidity,
   CloudwatchAlarmAction,
+  CloudwatchLogsAction,
   CloudwatchMetricAction,
   CodeSigning,
   CodeSigningCertificateChain,
@@ -652,6 +667,8 @@ import {
   LogTargetConfiguration,
   LoggingOptionsPayload,
   MalformedPolicyException,
+  MetricDimension,
+  MetricToRetain,
   MetricValue,
   MitigationAction,
   MitigationActionIdentifier,
@@ -669,6 +686,7 @@ import {
   PolicyVersionIdentifier,
   PresignedUrlConfig,
   Protocol,
+  ProvisioningHook,
   ProvisioningTemplateSummary,
   ProvisioningTemplateVersionSummary,
   PublishFindingToSnsParams,
@@ -1144,15 +1162,6 @@ export const serializeAws_restJson1CancelJobExecutionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}/cancel";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -1161,6 +1170,15 @@ export const serializeAws_restJson1CancelJobExecutionCommand = async (
     resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
+  }
+  if (input.jobId !== undefined) {
+    const labelValue: string = input.jobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
     ...(input.force !== undefined && { force: input.force.toString() }),
@@ -1265,6 +1283,7 @@ export const serializeAws_restJson1CreateAuthorizerCommand = async (
     ...(input.authorizerFunctionArn !== undefined && { authorizerFunctionArn: input.authorizerFunctionArn }),
     ...(input.signingDisabled !== undefined && { signingDisabled: input.signingDisabled }),
     ...(input.status !== undefined && { status: input.status }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.tokenKeyName !== undefined && { tokenKeyName: input.tokenKeyName }),
     ...(input.tokenSigningPublicKeys !== undefined && {
       tokenSigningPublicKeys: serializeAws_restJson1PublicKeyMap(input.tokenSigningPublicKeys, context),
@@ -1348,6 +1367,44 @@ export const serializeAws_restJson1CreateCertificateFromCsrCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateDimensionCommand = async (
+  input: CreateDimensionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/dimensions/{name}";
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.stringValues !== undefined && {
+      stringValues: serializeAws_restJson1DimensionStringValues(input.stringValues, context),
+    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.type !== undefined && { type: input.type }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateDomainConfigurationCommand = async (
   input: CreateDomainConfigurationCommandInput,
   context: __SerdeContext
@@ -1375,6 +1432,7 @@ export const serializeAws_restJson1CreateDomainConfigurationCommand = async (
       serverCertificateArns: serializeAws_restJson1ServerCertificateArns(input.serverCertificateArns, context),
     }),
     ...(input.serviceType !== undefined && { serviceType: input.serviceType }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.validationCertificateArn !== undefined && { validationCertificateArn: input.validationCertificateArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1565,6 +1623,9 @@ export const serializeAws_restJson1CreateOTAUpdateCommand = async (
     ...(input.additionalParameters !== undefined && {
       additionalParameters: serializeAws_restJson1AdditionalParameterMap(input.additionalParameters, context),
     }),
+    ...(input.awsJobAbortConfig !== undefined && {
+      awsJobAbortConfig: serializeAws_restJson1AwsJobAbortConfig(input.awsJobAbortConfig, context),
+    }),
     ...(input.awsJobExecutionsRolloutConfig !== undefined && {
       awsJobExecutionsRolloutConfig: serializeAws_restJson1AwsJobExecutionsRolloutConfig(
         input.awsJobExecutionsRolloutConfig,
@@ -1573,6 +1634,9 @@ export const serializeAws_restJson1CreateOTAUpdateCommand = async (
     }),
     ...(input.awsJobPresignedUrlConfig !== undefined && {
       awsJobPresignedUrlConfig: serializeAws_restJson1AwsJobPresignedUrlConfig(input.awsJobPresignedUrlConfig, context),
+    }),
+    ...(input.awsJobTimeoutConfig !== undefined && {
+      awsJobTimeoutConfig: serializeAws_restJson1AwsJobTimeoutConfig(input.awsJobTimeoutConfig, context),
     }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.files !== undefined && { files: serializeAws_restJson1OTAUpdateFiles(input.files, context) }),
@@ -1614,6 +1678,7 @@ export const serializeAws_restJson1CreatePolicyCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.policyDocument !== undefined && { policyDocument: input.policyDocument }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1706,6 +1771,9 @@ export const serializeAws_restJson1CreateProvisioningTemplateCommand = async (
   body = JSON.stringify({
     ...(input.description !== undefined && { description: input.description }),
     ...(input.enabled !== undefined && { enabled: input.enabled }),
+    ...(input.preProvisioningHook !== undefined && {
+      preProvisioningHook: serializeAws_restJson1ProvisioningHook(input.preProvisioningHook, context),
+    }),
     ...(input.provisioningRoleArn !== undefined && { provisioningRoleArn: input.provisioningRoleArn }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.templateBody !== undefined && { templateBody: input.templateBody }),
@@ -1783,6 +1851,7 @@ export const serializeAws_restJson1CreateRoleAliasCommand = async (
       credentialDurationSeconds: input.credentialDurationSeconds,
     }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1857,6 +1926,12 @@ export const serializeAws_restJson1CreateSecurityProfileCommand = async (
     ...(input.additionalMetricsToRetain !== undefined && {
       additionalMetricsToRetain: serializeAws_restJson1AdditionalMetricsToRetainList(
         input.additionalMetricsToRetain,
+        context
+      ),
+    }),
+    ...(input.additionalMetricsToRetainV2 !== undefined && {
+      additionalMetricsToRetainV2: serializeAws_restJson1AdditionalMetricsToRetainV2List(
+        input.additionalMetricsToRetainV2,
         context
       ),
     }),
@@ -2247,6 +2322,36 @@ export const serializeAws_restJson1DeleteCertificateCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteDimensionCommand = async (
+  input: DeleteDimensionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/dimensions/{name}";
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteDomainConfigurationCommand = async (
   input: DeleteDomainConfigurationCommandInput,
   context: __SerdeContext
@@ -2353,6 +2458,15 @@ export const serializeAws_restJson1DeleteJobExecutionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}";
+  if (input.thingName !== undefined) {
+    const labelValue: string = input.thingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: thingName.");
+    }
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: thingName.");
+  }
   if (input.executionNumber !== undefined) {
     const labelValue: string = input.executionNumber.toString();
     if (labelValue.length <= 0) {
@@ -2370,15 +2484,6 @@ export const serializeAws_restJson1DeleteJobExecutionCommand = async (
     resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
-  }
-  if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: thingName.");
-    }
-    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
     ...(input.force !== undefined && { force: input.force.toString() }),
@@ -2500,15 +2605,6 @@ export const serializeAws_restJson1DeletePolicyVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
-  if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: policyName.");
-    }
-    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: policyName.");
-  }
   if (input.policyVersionId !== undefined) {
     const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
@@ -2517,6 +2613,15 @@ export const serializeAws_restJson1DeletePolicyVersionCommand = async (
     resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyVersionId.");
+  }
+  if (input.policyName !== undefined) {
+    const labelValue: string = input.policyName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: policyName.");
+    }
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: policyName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2919,8 +3024,8 @@ export const serializeAws_restJson1DeleteV2LoggingLevelCommand = async (
   };
   let resolvedPath = "/v2LoggingLevel";
   const query: any = {
-    ...(input.targetName !== undefined && { targetName: input.targetName }),
     ...(input.targetType !== undefined && { targetType: input.targetType }),
+    ...(input.targetName !== undefined && { targetName: input.targetName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3211,6 +3316,36 @@ export const serializeAws_restJson1DescribeDefaultAuthorizerCommand = async (
   let resolvedPath = "/default-authorizer";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeDimensionCommand = async (
+  input: DescribeDimensionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/dimensions/{name}";
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4157,15 +4292,6 @@ export const serializeAws_restJson1GetPolicyVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
-  if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: policyName.");
-    }
-    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: policyName.");
-  }
   if (input.policyVersionId !== undefined) {
     const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
@@ -4174,6 +4300,15 @@ export const serializeAws_restJson1GetPolicyVersionCommand = async (
     resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyVersionId.");
+  }
+  if (input.policyName !== undefined) {
+    const labelValue: string = input.policyName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: policyName.");
+    }
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: policyName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4335,8 +4470,8 @@ export const serializeAws_restJson1ListActiveViolationsCommand = async (
   let resolvedPath = "/active-violations";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.thingName !== undefined && { thingName: input.thingName }),
   };
   let body: any;
@@ -4371,9 +4506,9 @@ export const serializeAws_restJson1ListAttachedPoliciesCommand = async (
     throw new Error("No value provided for input HTTP label: target.");
   }
   const query: any = {
+    ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
-    ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4431,9 +4566,9 @@ export const serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand =
   let resolvedPath = "/audit/mitigationactions/executions";
   const query: any = {
     ...(input.actionStatus !== undefined && { actionStatus: input.actionStatus }),
-    ...(input.findingId !== undefined && { findingId: input.findingId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.findingId !== undefined && { findingId: input.findingId }),
     ...(input.taskId !== undefined && { taskId: input.taskId }),
   };
   let body: any;
@@ -4459,13 +4594,13 @@ export const serializeAws_restJson1ListAuditMitigationActionsTasksCommand = asyn
   };
   let resolvedPath = "/audit/mitigationactions/tasks";
   const query: any = {
-    ...(input.auditTaskId !== undefined && { auditTaskId: input.auditTaskId }),
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.auditTaskId !== undefined && { auditTaskId: input.auditTaskId }),
     ...(input.findingId !== undefined && { findingId: input.findingId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4491,9 +4626,9 @@ export const serializeAws_restJson1ListAuditTasksCommand = async (
   let resolvedPath = "/audit/tasks";
   const query: any = {
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
     ...(input.taskType !== undefined && { taskType: input.taskType }),
   };
@@ -4520,10 +4655,10 @@ export const serializeAws_restJson1ListAuthorizersCommand = async (
   };
   let resolvedPath = "/authorizers";
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.status !== undefined && { status: input.status }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4548,9 +4683,9 @@ export const serializeAws_restJson1ListBillingGroupsCommand = async (
   };
   let resolvedPath = "/billing-groups";
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.namePrefixFilter !== undefined && { namePrefixFilter: input.namePrefixFilter }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4575,9 +4710,9 @@ export const serializeAws_restJson1ListCACertificatesCommand = async (
   };
   let resolvedPath = "/cacertificates";
   const query: any = {
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4602,9 +4737,9 @@ export const serializeAws_restJson1ListCertificatesCommand = async (
   };
   let resolvedPath = "/certificates";
   const query: any = {
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4639,8 +4774,34 @@ export const serializeAws_restJson1ListCertificatesByCACommand = async (
   }
   const query: any = {
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListDimensionsCommand = async (
+  input: ListDimensionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/dimensions";
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4665,9 +4826,9 @@ export const serializeAws_restJson1ListDomainConfigurationsCommand = async (
   };
   let resolvedPath = "/domainConfigurations";
   const query: any = {
+    ...(input.serviceType !== undefined && { serviceType: input.serviceType }),
     ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
-    ...(input.serviceType !== undefined && { serviceType: input.serviceType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4692,8 +4853,8 @@ export const serializeAws_restJson1ListIndicesCommand = async (
   };
   let resolvedPath = "/indices";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4727,8 +4888,8 @@ export const serializeAws_restJson1ListJobExecutionsForJobCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
@@ -4763,8 +4924,8 @@ export const serializeAws_restJson1ListJobExecutionsForThingCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
@@ -4790,12 +4951,12 @@ export const serializeAws_restJson1ListJobsCommand = async (
   };
   let resolvedPath = "/jobs";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.status !== undefined && { status: input.status }),
     ...(input.targetSelection !== undefined && { targetSelection: input.targetSelection }),
-    ...(input.thingGroupId !== undefined && { thingGroupId: input.thingGroupId }),
+    ...(input.status !== undefined && { status: input.status }),
     ...(input.thingGroupName !== undefined && { thingGroupName: input.thingGroupName }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.thingGroupId !== undefined && { thingGroupId: input.thingGroupId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4820,9 +4981,9 @@ export const serializeAws_restJson1ListMitigationActionsCommand = async (
   };
   let resolvedPath = "/mitigationactions/actions";
   const query: any = {
-    ...(input.actionType !== undefined && { actionType: input.actionType }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.actionType !== undefined && { actionType: input.actionType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4847,8 +5008,8 @@ export const serializeAws_restJson1ListOTAUpdatesCommand = async (
   };
   let resolvedPath = "/otaUpdates";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.otaUpdateStatus !== undefined && { otaUpdateStatus: input.otaUpdateStatus }),
   };
   let body: any;
@@ -4874,9 +5035,9 @@ export const serializeAws_restJson1ListOutgoingCertificatesCommand = async (
   };
   let resolvedPath = "/certificates-out-going";
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4901,8 +5062,8 @@ export const serializeAws_restJson1ListPoliciesCommand = async (
   };
   let resolvedPath = "/policies";
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
@@ -4930,8 +5091,8 @@ export const serializeAws_restJson1ListPolicyPrincipalsCommand = async (
   let resolvedPath = "/policy-principals";
   const query: any = {
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4987,8 +5148,8 @@ export const serializeAws_restJson1ListPrincipalPoliciesCommand = async (
   };
   let resolvedPath = "/principal-policies";
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
@@ -5015,8 +5176,8 @@ export const serializeAws_restJson1ListPrincipalThingsCommand = async (
   };
   let resolvedPath = "/principals/things";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5041,8 +5202,8 @@ export const serializeAws_restJson1ListProvisioningTemplatesCommand = async (
   };
   let resolvedPath = "/provisioning-templates";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5076,8 +5237,8 @@ export const serializeAws_restJson1ListProvisioningTemplateVersionsCommand = asy
     throw new Error("No value provided for input HTTP label: templateName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5102,9 +5263,9 @@ export const serializeAws_restJson1ListRoleAliasesCommand = async (
   };
   let resolvedPath = "/role-aliases";
   const query: any = {
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5129,8 +5290,8 @@ export const serializeAws_restJson1ListScheduledAuditsCommand = async (
   };
   let resolvedPath = "/audit/scheduledaudits";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5155,6 +5316,7 @@ export const serializeAws_restJson1ListSecurityProfilesCommand = async (
   };
   let resolvedPath = "/security-profiles";
   const query: any = {
+    ...(input.dimensionName !== undefined && { dimensionName: input.dimensionName }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -5181,10 +5343,10 @@ export const serializeAws_restJson1ListSecurityProfilesForTargetCommand = async 
   };
   let resolvedPath = "/security-profiles-for-target";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
     ...(input.securityProfileTargetArn !== undefined && { securityProfileTargetArn: input.securityProfileTargetArn }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5271,8 +5433,8 @@ export const serializeAws_restJson1ListTargetsForPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   const query: any = {
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5306,8 +5468,8 @@ export const serializeAws_restJson1ListTargetsForSecurityProfileCommand = async 
     throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5332,11 +5494,11 @@ export const serializeAws_restJson1ListThingGroupsCommand = async (
   };
   let resolvedPath = "/thing-groups";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.namePrefixFilter !== undefined && { namePrefixFilter: input.namePrefixFilter }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.parentGroup !== undefined && { parentGroup: input.parentGroup }),
     ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.namePrefixFilter !== undefined && { namePrefixFilter: input.namePrefixFilter }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5370,8 +5532,8 @@ export const serializeAws_restJson1ListThingGroupsForThingCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5435,9 +5597,9 @@ export const serializeAws_restJson1ListThingRegistrationTaskReportsCommand = asy
     throw new Error("No value provided for input HTTP label: taskId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.reportType !== undefined && { reportType: input.reportType }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5462,9 +5624,9 @@ export const serializeAws_restJson1ListThingRegistrationTasksCommand = async (
   };
   let resolvedPath = "/thing-registration-tasks";
   const query: any = {
+    ...(input.status !== undefined && { status: input.status }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5489,10 +5651,10 @@ export const serializeAws_restJson1ListThingsCommand = async (
   };
   let resolvedPath = "/things";
   const query: any = {
-    ...(input.attributeName !== undefined && { attributeName: input.attributeName }),
     ...(input.attributeValue !== undefined && { attributeValue: input.attributeValue }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.attributeName !== undefined && { attributeName: input.attributeName }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.thingTypeName !== undefined && { thingTypeName: input.thingTypeName }),
   };
   let body: any;
@@ -5562,8 +5724,8 @@ export const serializeAws_restJson1ListThingsInThingGroupCommand = async (
     throw new Error("No value provided for input HTTP label: thingGroupName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
   };
   let body: any;
@@ -5616,8 +5778,8 @@ export const serializeAws_restJson1ListTopicRuleDestinationsCommand = async (
   };
   let resolvedPath = "/destinations";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5670,9 +5832,9 @@ export const serializeAws_restJson1ListV2LoggingLevelsCommand = async (
   };
   let resolvedPath = "/v2LoggingLevel";
   const query: any = {
+    ...(input.targetType !== undefined && { targetType: input.targetType }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.targetType !== undefined && { targetType: input.targetType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5698,10 +5860,10 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
   let resolvedPath = "/violation-events";
   const query: any = {
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
     ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
     ...(input.thingName !== undefined && { thingName: input.thingName }),
   };
   let body: any;
@@ -5727,8 +5889,8 @@ export const serializeAws_restJson1RegisterCACertificateCommand = async (
   };
   let resolvedPath = "/cacertificate";
   const query: any = {
-    ...(input.allowAutoRegistration !== undefined && { allowAutoRegistration: input.allowAutoRegistration.toString() }),
     ...(input.setAsActive !== undefined && { setAsActive: input.setAsActive.toString() }),
+    ...(input.allowAutoRegistration !== undefined && { allowAutoRegistration: input.allowAutoRegistration.toString() }),
   };
   let body: any;
   body = JSON.stringify({
@@ -5736,6 +5898,7 @@ export const serializeAws_restJson1RegisterCACertificateCommand = async (
     ...(input.registrationConfig !== undefined && {
       registrationConfig: serializeAws_restJson1RegistrationConfig(input.registrationConfig, context),
     }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.verificationCertificate !== undefined && { verificationCertificate: input.verificationCertificate }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5777,6 +5940,31 @@ export const serializeAws_restJson1RegisterCertificateCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RegisterCertificateWithoutCACommand = async (
+  input: RegisterCertificateWithoutCACommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/certificate/register-no-ca";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.certificatePem !== undefined && { certificatePem: input.certificatePem }),
+    ...(input.status !== undefined && { status: input.status }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -5990,15 +6178,6 @@ export const serializeAws_restJson1SetDefaultPolicyVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
-  if (input.policyName !== undefined) {
-    const labelValue: string = input.policyName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: policyName.");
-    }
-    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: policyName.");
-  }
   if (input.policyVersionId !== undefined) {
     const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
@@ -6007,6 +6186,15 @@ export const serializeAws_restJson1SetDefaultPolicyVersionCommand = async (
     resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyVersionId.");
+  }
+  if (input.policyName !== undefined) {
+    const labelValue: string = input.policyName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: policyName.");
+    }
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: policyName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -6514,10 +6702,10 @@ export const serializeAws_restJson1UpdateCACertificateCommand = async (
     throw new Error("No value provided for input HTTP label: certificateId.");
   }
   const query: any = {
+    ...(input.newStatus !== undefined && { newStatus: input.newStatus }),
     ...(input.newAutoRegistrationStatus !== undefined && {
       newAutoRegistrationStatus: input.newAutoRegistrationStatus,
     }),
-    ...(input.newStatus !== undefined && { newStatus: input.newStatus }),
   };
   let body: any;
   body = JSON.stringify({
@@ -6569,6 +6757,41 @@ export const serializeAws_restJson1UpdateCertificateCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateDimensionCommand = async (
+  input: UpdateDimensionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/dimensions/{name}";
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.stringValues !== undefined && {
+      stringValues: serializeAws_restJson1DimensionStringValues(input.stringValues, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -6818,7 +7041,13 @@ export const serializeAws_restJson1UpdateProvisioningTemplateCommand = async (
     ...(input.defaultVersionId !== undefined && { defaultVersionId: input.defaultVersionId }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.enabled !== undefined && { enabled: input.enabled }),
+    ...(input.preProvisioningHook !== undefined && {
+      preProvisioningHook: serializeAws_restJson1ProvisioningHook(input.preProvisioningHook, context),
+    }),
     ...(input.provisioningRoleArn !== undefined && { provisioningRoleArn: input.provisioningRoleArn }),
+    ...(input.removePreProvisioningHook !== undefined && {
+      removePreProvisioningHook: input.removePreProvisioningHook,
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6931,6 +7160,12 @@ export const serializeAws_restJson1UpdateSecurityProfileCommand = async (
     ...(input.additionalMetricsToRetain !== undefined && {
       additionalMetricsToRetain: serializeAws_restJson1AdditionalMetricsToRetainList(
         input.additionalMetricsToRetain,
+        context
+      ),
+    }),
+    ...(input.additionalMetricsToRetainV2 !== undefined && {
+      additionalMetricsToRetainV2: serializeAws_restJson1AdditionalMetricsToRetainV2List(
+        input.additionalMetricsToRetainV2,
         context
       ),
     }),
@@ -8755,6 +8990,98 @@ const deserializeAws_restJson1CreateCertificateFromCsrCommandError = async (
     case "com.amazonaws.iot#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateDimensionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDimensionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateDimensionCommandError(output, context);
+  }
+  const contents: CreateDimensionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateDimensionResponse",
+    arn: undefined,
+    name: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = data.name;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateDimensionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDimensionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iot#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11333,6 +11660,74 @@ const deserializeAws_restJson1DeleteCertificateCommandError = async (
     case "com.amazonaws.iot#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteDimensionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDimensionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteDimensionCommandError(output, context);
+  }
+  const contents: DeleteDimensionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteDimensionResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteDimensionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDimensionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -14141,6 +14536,106 @@ const deserializeAws_restJson1DescribeDefaultAuthorizerCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeDimensionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDimensionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeDimensionCommandError(output, context);
+  }
+  const contents: DescribeDimensionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeDimensionResponse",
+    arn: undefined,
+    creationDate: undefined,
+    lastModifiedDate: undefined,
+    name: undefined,
+    stringValues: undefined,
+    type: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.creationDate !== undefined && data.creationDate !== null) {
+    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+  }
+  if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = data.name;
+  }
+  if (data.stringValues !== undefined && data.stringValues !== null) {
+    contents.stringValues = deserializeAws_restJson1DimensionStringValues(data.stringValues, context);
+  }
+  if (data.type !== undefined && data.type !== null) {
+    contents.type = data.type;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeDimensionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDimensionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeDomainConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14204,6 +14699,14 @@ const deserializeAws_restJson1DescribeDomainConfigurationCommandError = async (
     case "com.amazonaws.iot#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -14800,6 +15303,7 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
     description: undefined,
     enabled: undefined,
     lastModifiedDate: undefined,
+    preProvisioningHook: undefined,
     provisioningRoleArn: undefined,
     templateArn: undefined,
     templateBody: undefined,
@@ -14820,6 +15324,9 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+  }
+  if (data.preProvisioningHook !== undefined && data.preProvisioningHook !== null) {
+    contents.preProvisioningHook = deserializeAws_restJson1ProvisioningHook(data.preProvisioningHook, context);
   }
   if (data.provisioningRoleArn !== undefined && data.provisioningRoleArn !== null) {
     contents.provisioningRoleArn = data.provisioningRoleArn;
@@ -15212,6 +15719,7 @@ export const deserializeAws_restJson1DescribeSecurityProfileCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "DescribeSecurityProfileResponse",
     additionalMetricsToRetain: undefined,
+    additionalMetricsToRetainV2: undefined,
     alertTargets: undefined,
     behaviors: undefined,
     creationDate: undefined,
@@ -15225,6 +15733,12 @@ export const deserializeAws_restJson1DescribeSecurityProfileCommand = async (
   if (data.additionalMetricsToRetain !== undefined && data.additionalMetricsToRetain !== null) {
     contents.additionalMetricsToRetain = deserializeAws_restJson1AdditionalMetricsToRetainList(
       data.additionalMetricsToRetain,
+      context
+    );
+  }
+  if (data.additionalMetricsToRetainV2 !== undefined && data.additionalMetricsToRetainV2 !== null) {
+    contents.additionalMetricsToRetainV2 = deserializeAws_restJson1AdditionalMetricsToRetainV2List(
+      data.additionalMetricsToRetainV2,
       context
     );
   }
@@ -18753,6 +19267,82 @@ const deserializeAws_restJson1ListCertificatesByCACommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListDimensionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDimensionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListDimensionsCommandError(output, context);
+  }
+  const contents: ListDimensionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListDimensionsResponse",
+    dimensionNames: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.dimensionNames !== undefined && data.dimensionNames !== null) {
+    contents.dimensionNames = deserializeAws_restJson1DimensionNames(data.dimensionNames, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListDimensionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDimensionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListDomainConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -20340,6 +20930,14 @@ const deserializeAws_restJson1ListSecurityProfilesCommandError = async (
     case "com.amazonaws.iot#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -22084,6 +22682,122 @@ const deserializeAws_restJson1RegisterCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "CertificateStateException":
+    case "com.amazonaws.iot#CertificateStateException":
+      response = {
+        ...(await deserializeAws_restJson1CertificateStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CertificateValidationException":
+    case "com.amazonaws.iot#CertificateValidationException":
+      response = {
+        ...(await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iot#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iot#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.iot#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RegisterCertificateWithoutCACommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterCertificateWithoutCACommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1RegisterCertificateWithoutCACommandError(output, context);
+  }
+  const contents: RegisterCertificateWithoutCACommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RegisterCertificateWithoutCAResponse",
+    certificateArn: undefined,
+    certificateId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.certificateArn !== undefined && data.certificateArn !== null) {
+    contents.certificateArn = data.certificateArn;
+  }
+  if (data.certificateId !== undefined && data.certificateId !== null) {
+    contents.certificateId = data.certificateId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RegisterCertificateWithoutCACommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterCertificateWithoutCACommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot#CertificateStateException":
       response = {
@@ -24425,6 +25139,106 @@ const deserializeAws_restJson1UpdateCertificateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateDimensionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDimensionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateDimensionCommandError(output, context);
+  }
+  const contents: UpdateDimensionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateDimensionResponse",
+    arn: undefined,
+    creationDate: undefined,
+    lastModifiedDate: undefined,
+    name: undefined,
+    stringValues: undefined,
+    type: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.creationDate !== undefined && data.creationDate !== null) {
+    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+  }
+  if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = data.name;
+  }
+  if (data.stringValues !== undefined && data.stringValues !== null) {
+    contents.stringValues = deserializeAws_restJson1DimensionStringValues(data.stringValues, context);
+  }
+  if (data.type !== undefined && data.type !== null) {
+    contents.type = data.type;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateDimensionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDimensionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateDomainConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -25215,6 +26029,7 @@ export const deserializeAws_restJson1UpdateSecurityProfileCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "UpdateSecurityProfileResponse",
     additionalMetricsToRetain: undefined,
+    additionalMetricsToRetainV2: undefined,
     alertTargets: undefined,
     behaviors: undefined,
     creationDate: undefined,
@@ -25228,6 +26043,12 @@ export const deserializeAws_restJson1UpdateSecurityProfileCommand = async (
   if (data.additionalMetricsToRetain !== undefined && data.additionalMetricsToRetain !== null) {
     contents.additionalMetricsToRetain = deserializeAws_restJson1AdditionalMetricsToRetainList(
       data.additionalMetricsToRetain,
+      context
+    );
+  }
+  if (data.additionalMetricsToRetainV2 !== undefined && data.additionalMetricsToRetainV2 !== null) {
+    contents.additionalMetricsToRetainV2 = deserializeAws_restJson1AdditionalMetricsToRetainV2List(
+      data.additionalMetricsToRetainV2,
       context
     );
   }
@@ -26388,6 +27209,9 @@ const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): a
     ...(input.cloudwatchAlarm !== undefined && {
       cloudwatchAlarm: serializeAws_restJson1CloudwatchAlarmAction(input.cloudwatchAlarm, context),
     }),
+    ...(input.cloudwatchLogs !== undefined && {
+      cloudwatchLogs: serializeAws_restJson1CloudwatchLogsAction(input.cloudwatchLogs, context),
+    }),
     ...(input.cloudwatchMetric !== undefined && {
       cloudwatchMetric: serializeAws_restJson1CloudwatchMetricAction(input.cloudwatchMetric, context),
     }),
@@ -26432,6 +27256,13 @@ const serializeAws_restJson1ActionList = (input: Action[], context: __SerdeConte
 
 const serializeAws_restJson1AdditionalMetricsToRetainList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1AdditionalMetricsToRetainV2List = (
+  input: MetricToRetain[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1MetricToRetain(entry, context));
 };
 
 const serializeAws_restJson1AdditionalParameterMap = (
@@ -26639,12 +27470,51 @@ const serializeAws_restJson1AuthorizerConfig = (input: AuthorizerConfig, context
   };
 };
 
+const serializeAws_restJson1AwsJobAbortConfig = (input: AwsJobAbortConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.abortCriteriaList !== undefined && {
+      abortCriteriaList: serializeAws_restJson1AwsJobAbortCriteriaList(input.abortCriteriaList, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsJobAbortCriteria = (input: AwsJobAbortCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.action !== undefined && { action: input.action }),
+    ...(input.failureType !== undefined && { failureType: input.failureType }),
+    ...(input.minNumberOfExecutedThings !== undefined && {
+      minNumberOfExecutedThings: input.minNumberOfExecutedThings,
+    }),
+    ...(input.thresholdPercentage !== undefined && { thresholdPercentage: input.thresholdPercentage }),
+  };
+};
+
+const serializeAws_restJson1AwsJobAbortCriteriaList = (input: AwsJobAbortCriteria[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AwsJobAbortCriteria(entry, context));
+};
+
 const serializeAws_restJson1AwsJobExecutionsRolloutConfig = (
   input: AwsJobExecutionsRolloutConfig,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.exponentialRate !== undefined && {
+      exponentialRate: serializeAws_restJson1AwsJobExponentialRolloutRate(input.exponentialRate, context),
+    }),
     ...(input.maximumPerMinute !== undefined && { maximumPerMinute: input.maximumPerMinute }),
+  };
+};
+
+const serializeAws_restJson1AwsJobExponentialRolloutRate = (
+  input: AwsJobExponentialRolloutRate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.baseRatePerMinute !== undefined && { baseRatePerMinute: input.baseRatePerMinute }),
+    ...(input.incrementFactor !== undefined && { incrementFactor: input.incrementFactor }),
+    ...(input.rateIncreaseCriteria !== undefined && {
+      rateIncreaseCriteria: serializeAws_restJson1AwsJobRateIncreaseCriteria(input.rateIncreaseCriteria, context),
+    }),
   };
 };
 
@@ -26657,10 +27527,31 @@ const serializeAws_restJson1AwsJobPresignedUrlConfig = (
   };
 };
 
+const serializeAws_restJson1AwsJobRateIncreaseCriteria = (
+  input: AwsJobRateIncreaseCriteria,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.numberOfNotifiedThings !== undefined && { numberOfNotifiedThings: input.numberOfNotifiedThings }),
+    ...(input.numberOfSucceededThings !== undefined && { numberOfSucceededThings: input.numberOfSucceededThings }),
+  };
+};
+
+const serializeAws_restJson1AwsJobTimeoutConfig = (input: AwsJobTimeoutConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.inProgressTimeoutInMinutes !== undefined && {
+      inProgressTimeoutInMinutes: input.inProgressTimeoutInMinutes,
+    }),
+  };
+};
+
 const serializeAws_restJson1Behavior = (input: Behavior, context: __SerdeContext): any => {
   return {
     ...(input.criteria !== undefined && { criteria: serializeAws_restJson1BehaviorCriteria(input.criteria, context) }),
     ...(input.metric !== undefined && { metric: input.metric }),
+    ...(input.metricDimension !== undefined && {
+      metricDimension: serializeAws_restJson1MetricDimension(input.metricDimension, context),
+    }),
     ...(input.name !== undefined && { name: input.name }),
   };
 };
@@ -26702,6 +27593,13 @@ const serializeAws_restJson1CloudwatchAlarmAction = (input: CloudwatchAlarmActio
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.stateReason !== undefined && { stateReason: input.stateReason }),
     ...(input.stateValue !== undefined && { stateValue: input.stateValue }),
+  };
+};
+
+const serializeAws_restJson1CloudwatchLogsAction = (input: CloudwatchLogsAction, context: __SerdeContext): any => {
+  return {
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
   };
 };
 
@@ -26779,6 +27677,10 @@ const serializeAws_restJson1DetailsMap = (input: { [key: string]: string }, cont
     }),
     {}
   );
+};
+
+const serializeAws_restJson1DimensionStringValues = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_restJson1DynamoDBAction = (input: DynamoDBAction, context: __SerdeContext): any => {
@@ -26997,6 +27899,22 @@ const serializeAws_restJson1LogTarget = (input: LogTarget, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
+  return {
+    ...(input.dimensionName !== undefined && { dimensionName: input.dimensionName }),
+    ...(input.operator !== undefined && { operator: input.operator }),
+  };
+};
+
+const serializeAws_restJson1MetricToRetain = (input: MetricToRetain, context: __SerdeContext): any => {
+  return {
+    ...(input.metric !== undefined && { metric: input.metric }),
+    ...(input.metricDimension !== undefined && {
+      metricDimension: serializeAws_restJson1MetricDimension(input.metricDimension, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1MetricValue = (input: MetricValue, context: __SerdeContext): any => {
   return {
     ...(input.cidrs !== undefined && { cidrs: serializeAws_restJson1Cidrs(input.cidrs, context) }),
@@ -27116,6 +28034,13 @@ const serializeAws_restJson1PresignedUrlConfig = (input: PresignedUrlConfig, con
 
 const serializeAws_restJson1Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1ProvisioningHook = (input: ProvisioningHook, context: __SerdeContext): any => {
+  return {
+    ...(input.payloadVersion !== undefined && { payloadVersion: input.payloadVersion }),
+    ...(input.targetArn !== undefined && { targetArn: input.targetArn }),
+  };
 };
 
 const serializeAws_restJson1PublicKeyMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
@@ -27513,6 +28438,10 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
       output.cloudwatchAlarm !== undefined && output.cloudwatchAlarm !== null
         ? deserializeAws_restJson1CloudwatchAlarmAction(output.cloudwatchAlarm, context)
         : undefined,
+    cloudwatchLogs:
+      output.cloudwatchLogs !== undefined && output.cloudwatchLogs !== null
+        ? deserializeAws_restJson1CloudwatchLogsAction(output.cloudwatchLogs, context)
+        : undefined,
     cloudwatchMetric:
       output.cloudwatchMetric !== undefined && output.cloudwatchMetric !== null
         ? deserializeAws_restJson1CloudwatchMetricAction(output.cloudwatchMetric, context)
@@ -27620,6 +28549,13 @@ const deserializeAws_restJson1ActiveViolations = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1AdditionalMetricsToRetainList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1AdditionalMetricsToRetainV2List = (
+  output: any,
+  context: __SerdeContext
+): MetricToRetain[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1MetricToRetain(entry, context));
 };
 
 const deserializeAws_restJson1AdditionalParameterMap = (
@@ -28098,8 +29034,31 @@ const deserializeAws_restJson1AwsJobExecutionsRolloutConfig = (
 ): AwsJobExecutionsRolloutConfig => {
   return {
     __type: "AwsJobExecutionsRolloutConfig",
+    exponentialRate:
+      output.exponentialRate !== undefined && output.exponentialRate !== null
+        ? deserializeAws_restJson1AwsJobExponentialRolloutRate(output.exponentialRate, context)
+        : undefined,
     maximumPerMinute:
       output.maximumPerMinute !== undefined && output.maximumPerMinute !== null ? output.maximumPerMinute : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsJobExponentialRolloutRate = (
+  output: any,
+  context: __SerdeContext
+): AwsJobExponentialRolloutRate => {
+  return {
+    __type: "AwsJobExponentialRolloutRate",
+    baseRatePerMinute:
+      output.baseRatePerMinute !== undefined && output.baseRatePerMinute !== null
+        ? output.baseRatePerMinute
+        : undefined,
+    incrementFactor:
+      output.incrementFactor !== undefined && output.incrementFactor !== null ? output.incrementFactor : undefined,
+    rateIncreaseCriteria:
+      output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
+        ? deserializeAws_restJson1AwsJobRateIncreaseCriteria(output.rateIncreaseCriteria, context)
+        : undefined,
   } as any;
 };
 
@@ -28113,6 +29072,23 @@ const deserializeAws_restJson1AwsJobPresignedUrlConfig = (
   } as any;
 };
 
+const deserializeAws_restJson1AwsJobRateIncreaseCriteria = (
+  output: any,
+  context: __SerdeContext
+): AwsJobRateIncreaseCriteria => {
+  return {
+    __type: "AwsJobRateIncreaseCriteria",
+    numberOfNotifiedThings:
+      output.numberOfNotifiedThings !== undefined && output.numberOfNotifiedThings !== null
+        ? output.numberOfNotifiedThings
+        : undefined,
+    numberOfSucceededThings:
+      output.numberOfSucceededThings !== undefined && output.numberOfSucceededThings !== null
+        ? output.numberOfSucceededThings
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Behavior = (output: any, context: __SerdeContext): Behavior => {
   return {
     __type: "Behavior",
@@ -28121,6 +29097,10 @@ const deserializeAws_restJson1Behavior = (output: any, context: __SerdeContext):
         ? deserializeAws_restJson1BehaviorCriteria(output.criteria, context)
         : undefined,
     metric: output.metric !== undefined && output.metric !== null ? output.metric : undefined,
+    metricDimension:
+      output.metricDimension !== undefined && output.metricDimension !== null
+        ? deserializeAws_restJson1MetricDimension(output.metricDimension, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
@@ -28249,6 +29229,8 @@ const deserializeAws_restJson1Certificate = (output: any, context: __SerdeContex
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     certificateId:
       output.certificateId !== undefined && output.certificateId !== null ? output.certificateId : undefined,
+    certificateMode:
+      output.certificateMode !== undefined && output.certificateMode !== null ? output.certificateMode : undefined,
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -28269,6 +29251,8 @@ const deserializeAws_restJson1CertificateDescription = (
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     certificateId:
       output.certificateId !== undefined && output.certificateId !== null ? output.certificateId : undefined,
+    certificateMode:
+      output.certificateMode !== undefined && output.certificateMode !== null ? output.certificateMode : undefined,
     certificatePem:
       output.certificatePem !== undefined && output.certificatePem !== null ? output.certificatePem : undefined,
     creationDate:
@@ -28326,6 +29310,14 @@ const deserializeAws_restJson1CloudwatchAlarmAction = (output: any, context: __S
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateReason: output.stateReason !== undefined && output.stateReason !== null ? output.stateReason : undefined,
     stateValue: output.stateValue !== undefined && output.stateValue !== null ? output.stateValue : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CloudwatchLogsAction = (output: any, context: __SerdeContext): CloudwatchLogsAction => {
+  return {
+    __type: "CloudwatchLogsAction",
+    logGroupName: output.logGroupName !== undefined && output.logGroupName !== null ? output.logGroupName : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
 
@@ -28444,6 +29436,14 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1DimensionNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1DimensionStringValues = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1DomainConfigurations = (
@@ -29048,6 +30048,26 @@ const deserializeAws_restJson1LogTargetConfigurations = (
   return (output || []).map((entry: any) => deserializeAws_restJson1LogTargetConfiguration(entry, context));
 };
 
+const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
+  return {
+    __type: "MetricDimension",
+    dimensionName:
+      output.dimensionName !== undefined && output.dimensionName !== null ? output.dimensionName : undefined,
+    operator: output.operator !== undefined && output.operator !== null ? output.operator : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetricToRetain = (output: any, context: __SerdeContext): MetricToRetain => {
+  return {
+    __type: "MetricToRetain",
+    metric: output.metric !== undefined && output.metric !== null ? output.metric : undefined,
+    metricDimension:
+      output.metricDimension !== undefined && output.metricDimension !== null
+        ? deserializeAws_restJson1MetricDimension(output.metricDimension, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1MetricValue = (output: any, context: __SerdeContext): MetricValue => {
   return {
     __type: "MetricValue",
@@ -29358,6 +30378,15 @@ const deserializeAws_restJson1ProcessingTargetNameList = (output: any, context: 
 
 const deserializeAws_restJson1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1ProvisioningHook = (output: any, context: __SerdeContext): ProvisioningHook => {
+  return {
+    __type: "ProvisioningHook",
+    payloadVersion:
+      output.payloadVersion !== undefined && output.payloadVersion !== null ? output.payloadVersion : undefined,
+    targetArn: output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ProvisioningTemplateListing = (

@@ -7,14 +7,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface DataPoint {
   __type?: "DataPoint";
   /**
-   * <p>The time, in epoch format, associated with a particular <code>Value</code>.</p>
-   */
-  Timestamp: Date | undefined;
-
-  /**
    * <p>The actual value associated with a particular <code>Timestamp</code>.</p>
    */
   Value: number | undefined;
+
+  /**
+   * <p>The time, in epoch format, associated with a particular <code>Value</code>.</p>
+   */
+  Timestamp: Date | undefined;
 }
 
 export namespace DataPoint {
@@ -27,27 +27,53 @@ export namespace DataPoint {
 export interface DescribeDimensionKeysRequest {
   __type?: "DescribeDimensionKeysRequest";
   /**
-   * <p>The date and time specifying the end of the requested time series data. The value
-   *       specified is <i>exclusive</i> - data points less than (but not equal to)
-   *         <code>EndTime</code> will be returned.</p>
-   *          <p>The value for <code>EndTime</code> must be later than the value for
-   *         <code>StartTime</code>.</p>
+   * <p>The AWS service for which Performance Insights will return metrics. The only valid value for
+   *         <i>ServiceType</i> is: <code>RDS</code>
+   *          </p>
    */
-  EndTime: Date | undefined;
+  ServiceType: ServiceType | string | undefined;
 
   /**
-   * <p>One or more filters to apply in the request.  Restrictions:</p>
+   * <p>The name of a Performance Insights metric to be measured.</p>
+   *          <p>Valid values for <code>Metric</code> are:</p>
+   *
    *          <ul>
    *             <li>
-   *                <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> or
-   *           <code>Partition</code> parameters.</p>
+   *                <p>
+   *                   <code>db.load.avg</code> - a scaled representation of the number of active sessions
+   *           for the database engine.</p>
    *             </li>
    *             <li>
-   *                <p>A single filter for any other dimension in this dimension group.</p>
+   *                <p>
+   *                   <code>db.sampledload.avg</code> - the raw number of active sessions for the
+   *           database engine.</p>
    *             </li>
    *          </ul>
    */
-  Filter?: { [key: string]: string };
+  Metric: string | undefined;
+
+  /**
+   * <p>The date and time specifying the beginning of the requested time series data.
+   *       You can't specify a <code>StartTime</code> that's earlier than 7 days ago.  The value
+   *       specified is <i>inclusive</i> - data points equal to or greater than
+   *         <code>StartTime</code> will be returned.</p>
+   *          <p>The value for <code>StartTime</code> must be earlier than the value for
+   *         <code>EndTime</code>.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>For each dimension specified in
+   *       <code>GroupBy</code>, specify a secondary dimension to further subdivide the partition keys in the response.</p>
+   */
+  PartitionBy?: DimensionGroup;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If
+   *       this parameter is specified, the response includes only records beyond the token, up to the
+   *       value specified by <code>MaxRecords</code>.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>A specification for how to aggregate the data points from a query result. You must
@@ -77,36 +103,27 @@ export interface DescribeDimensionKeysRequest {
   MaxResults?: number;
 
   /**
-   * <p>The name of a Performance Insights metric to be measured.</p>
-   *          <p>Valid values for <code>Metric</code> are:</p>
-   *
+   * <p>One or more filters to apply in the request.  Restrictions:</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <code>db.load.avg</code> - a scaled representation of the number of active sessions
-   *           for the database engine.</p>
+   *                <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> or
+   *           <code>Partition</code> parameters.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>db.sampledload.avg</code> - the raw number of active sessions for the
-   *           database engine.</p>
+   *                <p>A single filter for any other dimension in this dimension group.</p>
    *             </li>
    *          </ul>
    */
-  Metric: string | undefined;
+  Filter?: { [key: string]: string };
 
   /**
-   * <p>An optional pagination token provided by a previous request. If
-   *       this parameter is specified, the response includes only records beyond the token, up to the
-   *       value specified by <code>MaxRecords</code>.</p>
+   * <p>The date and time specifying the end of the requested time series data. The value
+   *       specified is <i>exclusive</i> - data points less than (but not equal to)
+   *         <code>EndTime</code> will be returned.</p>
+   *          <p>The value for <code>EndTime</code> must be later than the value for
+   *         <code>StartTime</code>.</p>
    */
-  NextToken?: string;
-
-  /**
-   * <p>For each dimension specified in
-   *       <code>GroupBy</code>, specify a secondary dimension to further subdivide the partition keys in the response.</p>
-   */
-  PartitionBy?: DimensionGroup;
+  EndTime: Date | undefined;
 
   /**
    * <p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as
@@ -139,23 +156,6 @@ export interface DescribeDimensionKeysRequest {
    *       you, with a goal of returning roughly 100-200 data points in the response.</p>
    */
   PeriodInSeconds?: number;
-
-  /**
-   * <p>The AWS service for which Performance Insights will return metrics. The only valid value for
-   *         <i>ServiceType</i> is: <code>RDS</code>
-   *          </p>
-   */
-  ServiceType: ServiceType | string | undefined;
-
-  /**
-   * <p>The date and time specifying the beginning of the requested time series data.
-   *       You can't specify a <code>StartTime</code> that's earlier than 7 days ago.  The value
-   *       specified is <i>inclusive</i> - data points equal to or greater than
-   *         <code>StartTime</code> will be returned.</p>
-   *          <p>The value for <code>StartTime</code> must be earlier than the value for
-   *         <code>EndTime</code>.</p>
-   */
-  StartTime: Date | undefined;
 }
 
 export namespace DescribeDimensionKeysRequest {
@@ -168,11 +168,14 @@ export namespace DescribeDimensionKeysRequest {
 export interface DescribeDimensionKeysResponse {
   __type?: "DescribeDimensionKeysResponse";
   /**
-   * <p>The end time for the returned dimension keys, after alignment to a granular boundary (as
-   *       specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than
-   *       or equal to the value of the user-specified <code>Endtime</code>.</p>
+   * <p>The dimension keys that were requested.</p>
    */
-  AlignedEndTime?: Date;
+  Keys?: DimensionKeyDescription[];
+
+  /**
+   * <p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the specified partitions.</p>
+   */
+  PartitionKeys?: ResponsePartitionKey[];
 
   /**
    * <p>The start time for the returned dimension keys, after alignment to a granular boundary (as
@@ -182,9 +185,11 @@ export interface DescribeDimensionKeysResponse {
   AlignedStartTime?: Date;
 
   /**
-   * <p>The dimension keys that were requested.</p>
+   * <p>The end time for the returned dimension keys, after alignment to a granular boundary (as
+   *       specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than
+   *       or equal to the value of the user-specified <code>Endtime</code>.</p>
    */
-  Keys?: DimensionKeyDescription[];
+  AlignedEndTime?: Date;
 
   /**
    * <p>An optional pagination token provided by a previous request. If
@@ -192,11 +197,6 @@ export interface DescribeDimensionKeysResponse {
    *       value specified by <code>MaxRecords</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the specified partitions.</p>
-   */
-  PartitionKeys?: ResponsePartitionKey[];
 }
 
 export namespace DescribeDimensionKeysResponse {
@@ -214,6 +214,11 @@ export namespace DescribeDimensionKeysResponse {
  */
 export interface DimensionGroup {
   __type?: "DimensionGroup";
+  /**
+   * <p>The maximum number of items to fetch for this dimension group.</p>
+   */
+  Limit?: number;
+
   /**
    * <p>A list of specific dimensions from a dimension group. If this parameter is not present,
    *       then it signifies that all of the dimensions in the group were requested, or are present in
@@ -303,11 +308,6 @@ export interface DimensionGroup {
    *          </ul>
    */
   Group: string | undefined;
-
-  /**
-   * <p>The maximum number of items to fetch for this dimension group.</p>
-   */
-  Limit?: number;
 }
 
 export namespace DimensionGroup {
@@ -324,6 +324,11 @@ export namespace DimensionGroup {
 export interface DimensionKeyDescription {
   __type?: "DimensionKeyDescription";
   /**
+   * <p>The aggregated metric value for the dimension(s), over the requested time range.</p>
+   */
+  Total?: number;
+
+  /**
    * <p>A map of name-value pairs for the dimensions in the group.</p>
    */
   Dimensions?: { [key: string]: string };
@@ -332,11 +337,6 @@ export interface DimensionKeyDescription {
    * <p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>
    */
   Partitions?: number[];
-
-  /**
-   * <p>The aggregated metric value for the dimension(s), over the requested time range.</p>
-   */
-  Total?: number;
 }
 
 export namespace DimensionKeyDescription {
@@ -349,13 +349,6 @@ export namespace DimensionKeyDescription {
 export interface GetResourceMetricsRequest {
   __type?: "GetResourceMetricsRequest";
   /**
-   * <p>The date and time specifiying the end of the requested time series data.  The value specified is
-   *       <i>exclusive</i> - data points less than (but not equal to) <code>EndTime</code> will be returned.</p>
-   *          <p>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
    * <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from
    *       this data source.</p>
    *          <p>To use an Amazon RDS instance as a data source, you specify its
@@ -366,26 +359,17 @@ export interface GetResourceMetricsRequest {
   Identifier: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the response.
-   *       If more items exist than the specified <code>MaxRecords</code> value, a pagination
-   *       token is included in the response so that the remaining
-   *       results can be retrieved.
-   *     </p>
+   * <p>The date and time specifiying the end of the requested time series data.  The value specified is
+   *       <i>exclusive</i> - data points less than (but not equal to) <code>EndTime</code> will be returned.</p>
+   *          <p>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</p>
    */
-  MaxResults?: number;
+  EndTime: Date | undefined;
 
   /**
    * <p>An array of one or more queries to perform. Each query must specify a Performance Insights metric, and
    *       can optionally specify aggregation and filtering criteria.</p>
    */
   MetricQueries: MetricQuery[] | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If
-   *       this parameter is specified, the response includes only records beyond the token, up to the
-   *       value specified by <code>MaxRecords</code>.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as
@@ -434,6 +418,22 @@ export interface GetResourceMetricsRequest {
    *          <p>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.</p>
    */
   StartTime: Date | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response.
+   *       If more items exist than the specified <code>MaxRecords</code> value, a pagination
+   *       token is included in the response so that the remaining
+   *       results can be retrieved.
+   *     </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If
+   *       this parameter is specified, the response includes only records beyond the token, up to the
+   *       value specified by <code>MaxRecords</code>.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetResourceMetricsRequest {
@@ -460,16 +460,6 @@ export interface GetResourceMetricsResponse {
   AlignedStartTime?: Date;
 
   /**
-   * <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from
-   *       this data source.</p>
-   *          <p>To use an Amazon RDS instance as a data source, you specify its
-   *       <code>DbiResourceId</code> value - for example:
-   *       <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>
-   *          </p>
-   */
-  Identifier?: string;
-
-  /**
    * <p>An array of metric results,, where each array element contains all of the data points for a particular dimension.</p>
    */
   MetricList?: MetricKeyDataPoints[];
@@ -480,6 +470,16 @@ export interface GetResourceMetricsResponse {
    *       value specified by <code>MaxRecords</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from
+   *       this data source.</p>
+   *          <p>To use an Amazon RDS instance as a data source, you specify its
+   *       <code>DbiResourceId</code> value - for example:
+   *       <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>
+   *          </p>
+   */
+  Identifier?: string;
 }
 
 export namespace GetResourceMetricsResponse {
@@ -554,6 +554,14 @@ export namespace MetricKeyDataPoints {
 export interface MetricQuery {
   __type?: "MetricQuery";
   /**
+   * <p>A specification for how to aggregate the data points from a query result. You must
+   *       specify a valid dimension group.  Performance Insights will return all of the dimensions within that group,
+   *       unless you provide the names of specific dimensions within that group. You can also request
+   *       that Performance Insights return a limited number of values for a dimension.</p>
+   */
+  GroupBy?: DimensionGroup;
+
+  /**
    * <p>One or more filters to apply in the request.  Restrictions:</p>
    *          <ul>
    *             <li>
@@ -565,14 +573,6 @@ export interface MetricQuery {
    *          </ul>
    */
   Filter?: { [key: string]: string };
-
-  /**
-   * <p>A specification for how to aggregate the data points from a query result. You must
-   *       specify a valid dimension group.  Performance Insights will return all of the dimensions within that group,
-   *       unless you provide the names of specific dimensions within that group. You can also request
-   *       that Performance Insights return a limited number of values for a dimension.</p>
-   */
-  GroupBy?: DimensionGroup;
 
   /**
    * <p>The name of a Performance Insights metric to be measured.</p>

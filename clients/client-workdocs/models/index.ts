@@ -4,10 +4,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AbortDocumentVersionUploadRequest {
   __type?: "AbortDocumentVersionUploadRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The ID of the version.</p>
    */
-  AuthenticationToken?: string;
+  VersionId: string | undefined;
 
   /**
    * <p>The ID of the document.</p>
@@ -15,9 +14,9 @@ export interface AbortDocumentVersionUploadRequest {
   DocumentId: string | undefined;
 
   /**
-   * <p>The ID of the version.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  VersionId: string | undefined;
+  AuthenticationToken?: string;
 }
 
 export namespace AbortDocumentVersionUploadRequest {
@@ -31,15 +30,14 @@ export namespace AbortDocumentVersionUploadRequest {
 export interface ActivateUserRequest {
   __type?: "ActivateUserRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
    * <p>The ID of the user.</p>
    */
   UserId: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 }
 
 export namespace ActivateUserRequest {
@@ -71,15 +69,37 @@ export namespace ActivateUserResponse {
 export interface Activity {
   __type?: "Activity";
   /**
-   * <p>Metadata of the commenting activity. This is an optional field and is filled for
-   *             commenting activities.</p>
+   * <p>The timestamp when the action was performed.</p>
    */
-  CommentMetadata?: CommentMetadata;
+  TimeStamp?: Date;
+
+  /**
+   * <p>The metadata of the resource involved in the user action.</p>
+   */
+  ResourceMetadata?: ResourceMetadata;
+
+  /**
+   * <p>The list of users or groups impacted by this action. This is an optional field and
+   *             is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED,
+   *             DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.</p>
+   */
+  Participants?: Participants;
 
   /**
    * <p>The user who performed the action.</p>
    */
   Initiator?: UserMetadata;
+
+  /**
+   * <p>The original parent of the resource. This is an optional field and is filled for
+   *             move activities.</p>
+   */
+  OriginalParent?: ResourceMetadata;
+
+  /**
+   * <p>The ID of the organization.</p>
+   */
+  OrganizationId?: string;
 
   /**
    * <p>Indicates whether an activity is indirect or direct. An indirect activity results
@@ -90,37 +110,15 @@ export interface Activity {
   IsIndirectActivity?: boolean;
 
   /**
-   * <p>The ID of the organization.</p>
-   */
-  OrganizationId?: string;
-
-  /**
-   * <p>The original parent of the resource. This is an optional field and is filled for
-   *             move activities.</p>
-   */
-  OriginalParent?: ResourceMetadata;
-
-  /**
-   * <p>The list of users or groups impacted by this action. This is an optional field and
-   *             is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED,
-   *             DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.</p>
-   */
-  Participants?: Participants;
-
-  /**
-   * <p>The metadata of the resource involved in the user action.</p>
-   */
-  ResourceMetadata?: ResourceMetadata;
-
-  /**
-   * <p>The timestamp when the action was performed.</p>
-   */
-  TimeStamp?: Date;
-
-  /**
    * <p>The activity type.</p>
    */
   Type?: ActivityType | string;
+
+  /**
+   * <p>Metadata of the commenting activity. This is an optional field and is filled for
+   *             commenting activities.</p>
+   */
+  CommentMetadata?: CommentMetadata;
 }
 
 export namespace Activity {
@@ -169,8 +167,7 @@ export enum ActivityType {
 export interface AddResourcePermissionsRequest {
   __type?: "AddResourcePermissionsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -180,14 +177,14 @@ export interface AddResourcePermissionsRequest {
   NotificationOptions?: NotificationOptions;
 
   /**
-   * <p>The users, groups, or organization being granted permission.</p>
-   */
-  Principals: SharePrincipal[] | undefined;
-
-  /**
    * <p>The ID of the resource.</p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>The users, groups, or organization being granted permission.</p>
+   */
+  Principals: SharePrincipal[] | undefined;
 }
 
 export namespace AddResourcePermissionsRequest {
@@ -228,9 +225,9 @@ export enum BooleanEnumType {
 export interface Comment {
   __type?: "Comment";
   /**
-   * <p>The ID of the comment.</p>
+   * <p>The text of the comment.</p>
    */
-  CommentId: string | undefined;
+  Text?: string;
 
   /**
    * <p>The details of the user who made the comment.</p>
@@ -238,9 +235,14 @@ export interface Comment {
   Contributor?: User;
 
   /**
-   * <p>The time that the comment was created.</p>
+   * <p>The ID of the root comment in the thread.</p>
    */
-  CreatedTimestamp?: Date;
+  ThreadId?: string;
+
+  /**
+   * <p>The ID of the comment.</p>
+   */
+  CommentId: string | undefined;
 
   /**
    * <p>The ID of the parent comment.</p>
@@ -248,10 +250,9 @@ export interface Comment {
   ParentId?: string;
 
   /**
-   * <p>If the comment is a reply to another user's comment, this field contains the user
-   *             ID of the user being replied to.</p>
+   * <p>The time that the comment was created.</p>
    */
-  RecipientId?: string;
+  CreatedTimestamp?: Date;
 
   /**
    * <p>The status of the comment.</p>
@@ -259,14 +260,10 @@ export interface Comment {
   Status?: CommentStatusType | string;
 
   /**
-   * <p>The text of the comment.</p>
+   * <p>If the comment is a reply to another user's comment, this field contains the user
+   *             ID of the user being replied to.</p>
    */
-  Text?: string;
-
-  /**
-   * <p>The ID of the root comment in the thread.</p>
-   */
-  ThreadId?: string;
+  RecipientId?: string;
 
   /**
    * <p>The visibility of the comment. Options are either PRIVATE, where the comment is
@@ -295,9 +292,9 @@ export interface CommentMetadata {
   CommentId?: string;
 
   /**
-   * <p>The status of the comment.</p>
+   * <p>The ID of the user being replied to.</p>
    */
-  CommentStatus?: CommentStatusType | string;
+  RecipientId?: string;
 
   /**
    * <p>The user who made the comment.</p>
@@ -310,9 +307,9 @@ export interface CommentMetadata {
   CreatedTimestamp?: Date;
 
   /**
-   * <p>The ID of the user being replied to.</p>
+   * <p>The status of the comment.</p>
    */
-  RecipientId?: string;
+  CommentStatus?: CommentStatusType | string;
 }
 
 export namespace CommentMetadata {
@@ -368,15 +365,19 @@ export namespace ConflictingOperationException {
 export interface CreateCommentRequest {
   __type?: "CreateCommentRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The ID of the parent comment.</p>
    */
-  AuthenticationToken?: string;
+  ParentId?: string;
 
   /**
-   * <p>The ID of the document.</p>
+   * <p>The ID of the document version.</p>
    */
-  DocumentId: string | undefined;
+  VersionId: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 
   /**
    * <p>Set this parameter to TRUE to send an email out to the document collaborators after
@@ -385,9 +386,9 @@ export interface CreateCommentRequest {
   NotifyCollaborators?: boolean;
 
   /**
-   * <p>The ID of the parent comment.</p>
+   * <p>The ID of the document.</p>
    */
-  ParentId?: string;
+  DocumentId: string | undefined;
 
   /**
    * <p>The text of the comment.</p>
@@ -395,21 +396,16 @@ export interface CreateCommentRequest {
   Text: string | undefined;
 
   /**
-   * <p>The ID of the root comment in the thread.</p>
-   */
-  ThreadId?: string;
-
-  /**
-   * <p>The ID of the document version.</p>
-   */
-  VersionId: string | undefined;
-
-  /**
    * <p>The visibility of the comment. Options are either PRIVATE, where the comment is
    *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
    *             the comment is visible to document owners, co-owners, and contributors.</p>
    */
   Visibility?: CommentVisibilityType | string;
+
+  /**
+   * <p>The ID of the root comment in the thread.</p>
+   */
+  ThreadId?: string;
 }
 
 export namespace CreateCommentRequest {
@@ -440,15 +436,9 @@ export namespace CreateCommentResponse {
 export interface CreateCustomMetadataRequest {
   __type?: "CreateCustomMetadataRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
-
-  /**
-   * <p>Custom metadata in the form of name-value pairs.</p>
-   */
-  CustomMetadata: { [key: string]: string } | undefined;
 
   /**
    * <p>The ID of the resource.</p>
@@ -460,6 +450,11 @@ export interface CreateCustomMetadataRequest {
    *             version.</p>
    */
   VersionId?: string;
+
+  /**
+   * <p>Custom metadata in the form of name-value pairs.</p>
+   */
+  CustomMetadata: { [key: string]: string } | undefined;
 }
 
 export namespace CreateCustomMetadataRequest {
@@ -484,8 +479,7 @@ export namespace CreateCustomMetadataResponse {
 export interface CreateFolderRequest {
   __type?: "CreateFolderRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -526,15 +520,14 @@ export namespace CreateFolderResponse {
 export interface CreateLabelsRequest {
   __type?: "CreateLabelsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
    * <p>List of labels to add to the resource.</p>
    */
   Labels: string[] | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 
   /**
    * <p>The ID of the resource.</p>
@@ -564,10 +557,9 @@ export namespace CreateLabelsResponse {
 export interface CreateNotificationSubscriptionRequest {
   __type?: "CreateNotificationSubscriptionRequest";
   /**
-   * <p>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint
-   *             is a URL that begins with <code>https</code>.</p>
+   * <p>The notification type.</p>
    */
-  Endpoint: string | undefined;
+  SubscriptionType: SubscriptionType | string | undefined;
 
   /**
    * <p>The ID of the organization.</p>
@@ -581,9 +573,10 @@ export interface CreateNotificationSubscriptionRequest {
   Protocol: SubscriptionProtocolType | string | undefined;
 
   /**
-   * <p>The notification type.</p>
+   * <p>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint
+   *             is a URL that begins with <code>https</code>.</p>
    */
-  SubscriptionType: SubscriptionType | string | undefined;
+  Endpoint: string | undefined;
 }
 
 export namespace CreateNotificationSubscriptionRequest {
@@ -613,15 +606,9 @@ export namespace CreateNotificationSubscriptionResponse {
 export interface CreateUserRequest {
   __type?: "CreateUserRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The ID of the organization.</p>
    */
-  AuthenticationToken?: string;
-
-  /**
-   * <p>The email address of the user.</p>
-   */
-  EmailAddress?: string;
+  OrganizationId?: string;
 
   /**
    * <p>The given name of the user.</p>
@@ -629,14 +616,19 @@ export interface CreateUserRequest {
   GivenName: string | undefined;
 
   /**
-   * <p>The ID of the organization.</p>
-   */
-  OrganizationId?: string;
-
-  /**
    * <p>The password of the user.</p>
    */
   Password: string | undefined;
+
+  /**
+   * <p>The login name of the user.</p>
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The email address of the user.</p>
+   */
+  EmailAddress?: string;
 
   /**
    * <p>The amount of storage for the user.</p>
@@ -644,26 +636,26 @@ export interface CreateUserRequest {
   StorageRule?: StorageRuleType;
 
   /**
-   * <p>The surname of the user.</p>
-   */
-  Surname: string | undefined;
-
-  /**
    * <p>The time zone ID of the user.</p>
    */
   TimeZoneId?: string;
 
   /**
-   * <p>The login name of the user.</p>
+   * <p>The surname of the user.</p>
    */
-  Username: string | undefined;
+  Surname: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 }
 
 export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
+    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
@@ -704,15 +696,14 @@ export namespace CustomMetadataLimitExceededException {
 export interface DeactivateUserRequest {
   __type?: "DeactivateUserRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
    * <p>The ID of the user.</p>
    */
   UserId: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 }
 
 export namespace DeactivateUserRequest {
@@ -729,8 +720,8 @@ export namespace DeactivateUserRequest {
 export interface DeactivatingLastSystemUserException extends __SmithyException, $MetadataBearer {
   name: "DeactivatingLastSystemUserException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace DeactivatingLastSystemUserException {
@@ -744,17 +735,6 @@ export namespace DeactivatingLastSystemUserException {
 export interface DeleteCommentRequest {
   __type?: "DeleteCommentRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
-   * <p>The ID of the comment.</p>
-   */
-  CommentId: string | undefined;
-
-  /**
    * <p>The ID of the document.</p>
    */
   DocumentId: string | undefined;
@@ -763,6 +743,16 @@ export interface DeleteCommentRequest {
    * <p>The ID of the document version.</p>
    */
   VersionId: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
+
+  /**
+   * <p>The ID of the comment.</p>
+   */
+  CommentId: string | undefined;
 }
 
 export namespace DeleteCommentRequest {
@@ -776,10 +766,15 @@ export namespace DeleteCommentRequest {
 export interface DeleteCustomMetadataRequest {
   __type?: "DeleteCustomMetadataRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The ID of the resource, either a document or folder.</p>
    */
-  AuthenticationToken?: string;
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The ID of the version, if the custom metadata is being deleted from a document
+   *             version.</p>
+   */
+  VersionId?: string;
 
   /**
    * <p>Flag to indicate removal of all custom metadata properties from the specified
@@ -793,15 +788,9 @@ export interface DeleteCustomMetadataRequest {
   Keys?: string[];
 
   /**
-   * <p>The ID of the resource, either a document or folder.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The ID of the version, if the custom metadata is being deleted from a document
-   *             version.</p>
-   */
-  VersionId?: string;
+  AuthenticationToken?: string;
 }
 
 export namespace DeleteCustomMetadataRequest {
@@ -826,8 +815,7 @@ export namespace DeleteCustomMetadataResponse {
 export interface DeleteDocumentRequest {
   __type?: "DeleteDocumentRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -848,8 +836,7 @@ export namespace DeleteDocumentRequest {
 export interface DeleteFolderContentsRequest {
   __type?: "DeleteFolderContentsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -870,8 +857,7 @@ export namespace DeleteFolderContentsRequest {
 export interface DeleteFolderRequest {
   __type?: "DeleteFolderRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -892,17 +878,6 @@ export namespace DeleteFolderRequest {
 export interface DeleteLabelsRequest {
   __type?: "DeleteLabelsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
-   * <p>Flag to request removal of all labels from the specified resource.</p>
-   */
-  DeleteAll?: boolean;
-
-  /**
    * <p>List of labels to delete from the resource.</p>
    */
   Labels?: string[];
@@ -911,6 +886,16 @@ export interface DeleteLabelsRequest {
    * <p>The ID of the resource.</p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
+
+  /**
+   * <p>Flag to request removal of all labels from the specified resource.</p>
+   */
+  DeleteAll?: boolean;
 }
 
 export namespace DeleteLabelsRequest {
@@ -978,22 +963,45 @@ export namespace DeleteUserRequest {
 export interface DescribeActivitiesRequest {
   __type?: "DescribeActivitiesRequest";
   /**
+   * <p>The ID of the user who performed the action. The response includes activities
+   *             pertaining to this user. This is an optional parameter and is only applicable for
+   *             administrative API (SigV4) requests.</p>
+   */
+  UserId?: string;
+
+  /**
    * <p>Specifies which activity types to include in the response. If this field is left
    *             empty, all activity types are returned.</p>
    */
   ActivityTypes?: string;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The timestamp that determines the starting time of the activities. The response
+   *             includes the activities performed after the specified timestamp.</p>
    */
-  AuthenticationToken?: string;
+  StartTime?: Date;
 
   /**
    * <p>The timestamp that determines the end time of the activities. The response includes
    *             the activities performed before the specified timestamp.</p>
    */
   EndTime?: Date;
+
+  /**
+   * <p>The ID of the organization. This is a mandatory parameter when using administrative
+   *             API (SigV4) requests.</p>
+   */
+  OrganizationId?: string;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
+
+  /**
+   * <p>The document or folder ID for which to describe activity types.</p>
+   */
+  ResourceId?: string;
 
   /**
    * <p>Includes indirect activities. An indirect activity results from a direct activity
@@ -1004,38 +1012,14 @@ export interface DescribeActivitiesRequest {
   IncludeIndirectActivities?: boolean;
 
   /**
-   * <p>The maximum number of items to return.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>The marker for the next set of results.</p>
    */
   Marker?: string;
 
   /**
-   * <p>The ID of the organization. This is a mandatory parameter when using administrative
-   *             API (SigV4) requests.</p>
+   * <p>The maximum number of items to return.</p>
    */
-  OrganizationId?: string;
-
-  /**
-   * <p>The document or folder ID for which to describe activity types.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The timestamp that determines the starting time of the activities. The response
-   *             includes the activities performed after the specified timestamp.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The ID of the user who performed the action. The response includes activities
-   *             pertaining to this user. This is an optional parameter and is only applicable for
-   *             administrative API (SigV4) requests.</p>
-   */
-  UserId?: string;
+  Limit?: number;
 }
 
 export namespace DescribeActivitiesRequest {
@@ -1049,14 +1033,14 @@ export namespace DescribeActivitiesRequest {
 export interface DescribeActivitiesResponse {
   __type?: "DescribeActivitiesResponse";
   /**
-   * <p>The marker for the next set of results.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The list of activities for the specified user and time period.</p>
    */
   UserActivities?: Activity[];
+
+  /**
+   * <p>The marker for the next set of results.</p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeActivitiesResponse {
@@ -1069,10 +1053,20 @@ export namespace DescribeActivitiesResponse {
 export interface DescribeCommentsRequest {
   __type?: "DescribeCommentsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
+
+  /**
+   * <p>The ID of the document version.</p>
+   */
+  VersionId: string | undefined;
+
+  /**
+   * <p>The marker for the next set of results. This marker was received from a previous
+   *             call.</p>
+   */
+  Marker?: string;
 
   /**
    * <p>The ID of the document.</p>
@@ -1083,17 +1077,6 @@ export interface DescribeCommentsRequest {
    * <p>The maximum number of items to return.</p>
    */
   Limit?: number;
-
-  /**
-   * <p>The marker for the next set of results. This marker was received from a previous
-   *             call.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The ID of the document version.</p>
-   */
-  VersionId: string | undefined;
 }
 
 export namespace DescribeCommentsRequest {
@@ -1129,29 +1112,6 @@ export namespace DescribeCommentsResponse {
 export interface DescribeDocumentVersionsRequest {
   __type?: "DescribeDocumentVersionsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
-   * <p>The ID of the document.</p>
-   */
-  DocumentId: string | undefined;
-
-  /**
-   * <p>Specify "SOURCE" to include initialized versions and a URL for the source
-   *             document.</p>
-   */
-  Fields?: string;
-
-  /**
-   * <p>A comma-separated list of values. Specify "INITIALIZED" to include incomplete
-   *             versions.</p>
-   */
-  Include?: string;
-
-  /**
    * <p>The maximum number of versions to return with this call.</p>
    */
   Limit?: number;
@@ -1161,6 +1121,28 @@ export interface DescribeDocumentVersionsRequest {
    *             call.)</p>
    */
   Marker?: string;
+
+  /**
+   * <p>Specify "SOURCE" to include initialized versions and a URL for the source
+   *             document.</p>
+   */
+  Fields?: string;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
+
+  /**
+   * <p>The ID of the document.</p>
+   */
+  DocumentId: string | undefined;
+
+  /**
+   * <p>A comma-separated list of values. Specify "INITIALIZED" to include incomplete
+   *             versions.</p>
+   */
+  Include?: string;
 }
 
 export namespace DescribeDocumentVersionsRequest {
@@ -1174,15 +1156,15 @@ export namespace DescribeDocumentVersionsRequest {
 export interface DescribeDocumentVersionsResponse {
   __type?: "DescribeDocumentVersionsResponse";
   /**
-   * <p>The document versions.</p>
-   */
-  DocumentVersions?: DocumentVersionMetadata[];
-
-  /**
    * <p>The marker to use when requesting the next set of results. If there are no
    *             additional results, the string is empty.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The document versions.</p>
+   */
+  DocumentVersions?: DocumentVersionMetadata[];
 }
 
 export namespace DescribeDocumentVersionsResponse {
@@ -1198,15 +1180,24 @@ export namespace DescribeDocumentVersionsResponse {
 export interface DescribeFolderContentsRequest {
   __type?: "DescribeFolderContentsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The sorting criteria.</p>
+   */
+  Sort?: ResourceSortType | string;
+
+  /**
+   * <p>The type of items.</p>
+   */
+  Type?: FolderContentType | string;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
   /**
-   * <p>The ID of the folder.</p>
+   * <p>The order for the contents of the folder.</p>
    */
-  FolderId: string | undefined;
+  Order?: OrderType | string;
 
   /**
    * <p>The contents to include. Specify "INITIALIZED" to include initialized
@@ -1226,19 +1217,9 @@ export interface DescribeFolderContentsRequest {
   Marker?: string;
 
   /**
-   * <p>The order for the contents of the folder.</p>
+   * <p>The ID of the folder.</p>
    */
-  Order?: OrderType | string;
-
-  /**
-   * <p>The sorting criteria.</p>
-   */
-  Sort?: ResourceSortType | string;
-
-  /**
-   * <p>The type of items.</p>
-   */
-  Type?: FolderContentType | string;
+  FolderId: string | undefined;
 }
 
 export namespace DescribeFolderContentsRequest {
@@ -1252,14 +1233,14 @@ export namespace DescribeFolderContentsRequest {
 export interface DescribeFolderContentsResponse {
   __type?: "DescribeFolderContentsResponse";
   /**
-   * <p>The documents in the specified folder.</p>
-   */
-  Documents?: DocumentMetadata[];
-
-  /**
    * <p>The subfolders in the specified folder.</p>
    */
   Folders?: FolderMetadata[];
+
+  /**
+   * <p>The documents in the specified folder.</p>
+   */
+  Documents?: DocumentMetadata[];
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no
@@ -1279,8 +1260,17 @@ export namespace DescribeFolderContentsResponse {
 export interface DescribeGroupsRequest {
   __type?: "DescribeGroupsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using administrative
-   *             API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The ID of the organization.</p>
+   */
+  OrganizationId?: string;
+
+  /**
+   * <p>A query to describe groups by group name.</p>
+   */
+  SearchQuery: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1294,23 +1284,13 @@ export interface DescribeGroupsRequest {
    *             call.)</p>
    */
   Marker?: string;
-
-  /**
-   * <p>The ID of the organization.</p>
-   */
-  OrganizationId?: string;
-
-  /**
-   * <p>A query to describe groups by group name.</p>
-   */
-  SearchQuery: string | undefined;
 }
 
 export namespace DescribeGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeGroupsRequest): any => ({
     ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
     ...(obj.SearchQuery && { SearchQuery: SENSITIVE_STRING }),
+    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DescribeGroupsRequest => __isa(o, "DescribeGroupsRequest");
 }
@@ -1318,15 +1298,15 @@ export namespace DescribeGroupsRequest {
 export interface DescribeGroupsResponse {
   __type?: "DescribeGroupsResponse";
   /**
-   * <p>The list of groups.</p>
-   */
-  Groups?: GroupMetadata[];
-
-  /**
    * <p>The marker to use when requesting the next set of results. If there are no additional
    *             results, the string is empty.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The list of groups.</p>
+   */
+  Groups?: GroupMetadata[];
 }
 
 export namespace DescribeGroupsResponse {
@@ -1339,15 +1319,15 @@ export namespace DescribeGroupsResponse {
 export interface DescribeNotificationSubscriptionsRequest {
   __type?: "DescribeNotificationSubscriptionsRequest";
   /**
-   * <p>The maximum number of items to return with this call.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>The marker for the next set of results. (You received this marker from a previous
    *             call.)</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of items to return with this call.</p>
+   */
+  Limit?: number;
 
   /**
    * <p>The ID of the organization.</p>
@@ -1388,10 +1368,10 @@ export namespace DescribeNotificationSubscriptionsResponse {
 export interface DescribeResourcePermissionsRequest {
   __type?: "DescribeResourcePermissionsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The marker for the next set of results. (You received this marker from a previous
+   *             call)</p>
    */
-  AuthenticationToken?: string;
+  Marker?: string;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
@@ -1399,20 +1379,19 @@ export interface DescribeResourcePermissionsRequest {
   Limit?: number;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *             call)</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  Marker?: string;
-
-  /**
-   * <p>The ID of the principal to filter permissions by.</p>
-   */
-  PrincipalId?: string;
+  AuthenticationToken?: string;
 
   /**
    * <p>The ID of the resource.</p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>The ID of the principal to filter permissions by.</p>
+   */
+  PrincipalId?: string;
 }
 
 export namespace DescribeResourcePermissionsRequest {
@@ -1449,8 +1428,7 @@ export namespace DescribeResourcePermissionsResponse {
 export interface DescribeRootFoldersRequest {
   __type?: "DescribeRootFoldersRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token.</p>
    */
   AuthenticationToken: string | undefined;
 
@@ -1497,26 +1475,34 @@ export namespace DescribeRootFoldersResponse {
 export interface DescribeUsersRequest {
   __type?: "DescribeUsersRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
-   * <p>A comma-separated list of values. Specify "STORAGE_METADATA" to include the user
-   *             storage quota and utilization information.</p>
-   */
-  Fields?: string;
-
-  /**
    * <p>The state of the users. Specify "ALL" to include inactive users.</p>
    */
   Include?: UserFilterType | string;
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * <p>The order for the results.</p>
    */
-  Limit?: number;
+  Order?: OrderType | string;
+
+  /**
+   * <p>The IDs of the users.</p>
+   */
+  UserIds?: string;
+
+  /**
+   * <p>A query to filter users by user name.</p>
+   */
+  Query?: string;
+
+  /**
+   * <p>The ID of the organization.</p>
+   */
+  OrganizationId?: string;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 
   /**
    * <p>The marker for the next set of results. (You received this marker from a previous
@@ -1525,36 +1511,27 @@ export interface DescribeUsersRequest {
   Marker?: string;
 
   /**
-   * <p>The order for the results.</p>
+   * <p>The maximum number of items to return.</p>
    */
-  Order?: OrderType | string;
+  Limit?: number;
 
   /**
-   * <p>The ID of the organization.</p>
+   * <p>A comma-separated list of values. Specify "STORAGE_METADATA" to include the user
+   *             storage quota and utilization information.</p>
    */
-  OrganizationId?: string;
-
-  /**
-   * <p>A query to filter users by user name.</p>
-   */
-  Query?: string;
+  Fields?: string;
 
   /**
    * <p>The sorting criteria.</p>
    */
   Sort?: UserSortType | string;
-
-  /**
-   * <p>The IDs of the users.</p>
-   */
-  UserIds?: string;
 }
 
 export namespace DescribeUsersRequest {
   export const filterSensitiveLog = (obj: DescribeUsersRequest): any => ({
     ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
     ...(obj.Query && { Query: SENSITIVE_STRING }),
+    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DescribeUsersRequest => __isa(o, "DescribeUsersRequest");
 }
@@ -1562,10 +1539,9 @@ export namespace DescribeUsersRequest {
 export interface DescribeUsersResponse {
   __type?: "DescribeUsersResponse";
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no
-   *             additional results, the string is empty.</p>
+   * <p>The users.</p>
    */
-  Marker?: string;
+  Users?: User[];
 
   /**
    * <p>The total number of users included in the results.</p>
@@ -1573,9 +1549,10 @@ export interface DescribeUsersResponse {
   TotalNumberOfUsers?: number;
 
   /**
-   * <p>The users.</p>
+   * <p>The marker to use when requesting the next set of results. If there are no
+   *             additional results, the string is empty.</p>
    */
-  Users?: User[];
+  Marker?: string;
 }
 
 export namespace DescribeUsersResponse {
@@ -1619,21 +1596,6 @@ export interface DocumentMetadata {
   CreatorId?: string;
 
   /**
-   * <p>The ID of the document.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>List of labels on the document.</p>
-   */
-  Labels?: string[];
-
-  /**
-   * <p>The latest version of the document.</p>
-   */
-  LatestVersionMetadata?: DocumentVersionMetadata;
-
-  /**
    * <p>The time when the document was updated.</p>
    */
   ModifiedTimestamp?: Date;
@@ -1644,9 +1606,24 @@ export interface DocumentMetadata {
   ParentFolderId?: string;
 
   /**
+   * <p>List of labels on the document.</p>
+   */
+  Labels?: string[];
+
+  /**
    * <p>The resource state.</p>
    */
   ResourceState?: ResourceStateType | string;
+
+  /**
+   * <p>The latest version of the document.</p>
+   */
+  LatestVersionMetadata?: DocumentVersionMetadata;
+
+  /**
+   * <p>The ID of the document.</p>
+   */
+  Id?: string;
 }
 
 export namespace DocumentMetadata {
@@ -1681,44 +1658,9 @@ export enum DocumentThumbnailType {
 export interface DocumentVersionMetadata {
   __type?: "DocumentVersionMetadata";
   /**
-   * <p>The timestamp when the content of the document was originally created.</p>
-   */
-  ContentCreatedTimestamp?: Date;
-
-  /**
-   * <p>The timestamp when the content of the document was modified.</p>
-   */
-  ContentModifiedTimestamp?: Date;
-
-  /**
-   * <p>The content type of the document.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>The timestamp when the document was first uploaded.</p>
-   */
-  CreatedTimestamp?: Date;
-
-  /**
    * <p>The ID of the creator.</p>
    */
   CreatorId?: string;
-
-  /**
-   * <p>The ID of the version.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The timestamp when the document was last uploaded.</p>
-   */
-  ModifiedTimestamp?: Date;
-
-  /**
-   * <p>The name of the version.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The signature of the document.</p>
@@ -1726,14 +1668,9 @@ export interface DocumentVersionMetadata {
   Signature?: string;
 
   /**
-   * <p>The size of the document, in bytes.</p>
+   * <p>The timestamp when the content of the document was modified.</p>
    */
-  Size?: number;
-
-  /**
-   * <p>The source of the document.</p>
-   */
-  Source?: { [key: string]: string };
+  ContentModifiedTimestamp?: Date;
 
   /**
    * <p>The status of the document.</p>
@@ -1741,16 +1678,56 @@ export interface DocumentVersionMetadata {
   Status?: DocumentStatusType | string;
 
   /**
+   * <p>The timestamp when the content of the document was originally created.</p>
+   */
+  ContentCreatedTimestamp?: Date;
+
+  /**
+   * <p>The size of the document, in bytes.</p>
+   */
+  Size?: number;
+
+  /**
    * <p>The thumbnail of the document.</p>
    */
   Thumbnail?: { [key: string]: string };
+
+  /**
+   * <p>The name of the version.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The timestamp when the document was first uploaded.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The ID of the version.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The content type of the document.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The timestamp when the document was last uploaded.</p>
+   */
+  ModifiedTimestamp?: Date;
+
+  /**
+   * <p>The source of the document.</p>
+   */
+  Source?: { [key: string]: string };
 }
 
 export namespace DocumentVersionMetadata {
   export const filterSensitiveLog = (obj: DocumentVersionMetadata): any => ({
     ...obj,
-    ...(obj.Source && { Source: SENSITIVE_STRING }),
     ...(obj.Thumbnail && { Thumbnail: SENSITIVE_STRING }),
+    ...(obj.Source && { Source: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DocumentVersionMetadata => __isa(o, "DocumentVersionMetadata");
 }
@@ -1839,34 +1816,14 @@ export enum FolderContentType {
 export interface FolderMetadata {
   __type?: "FolderMetadata";
   /**
-   * <p>The time when the folder was created.</p>
+   * <p>The time when the folder was updated.</p>
    */
-  CreatedTimestamp?: Date;
-
-  /**
-   * <p>The ID of the creator.</p>
-   */
-  CreatorId?: string;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  Id?: string;
+  ModifiedTimestamp?: Date;
 
   /**
    * <p>List of labels on the folder.</p>
    */
   Labels?: string[];
-
-  /**
-   * <p>The size of the latest version of the folder metadata.</p>
-   */
-  LatestVersionSize?: number;
-
-  /**
-   * <p>The time when the folder was updated.</p>
-   */
-  ModifiedTimestamp?: Date;
 
   /**
    * <p>The name of the folder.</p>
@@ -1879,20 +1836,40 @@ export interface FolderMetadata {
   ParentFolderId?: string;
 
   /**
+   * <p>The ID of the creator.</p>
+   */
+  CreatorId?: string;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The time when the folder was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The size of the folder metadata.</p>
+   */
+  Size?: number;
+
+  /**
    * <p>The resource state of the folder.</p>
    */
   ResourceState?: ResourceStateType | string;
+
+  /**
+   * <p>The size of the latest version of the folder metadata.</p>
+   */
+  LatestVersionSize?: number;
 
   /**
    * <p>The unique identifier created from the subfolders and documents of the
    *             folder.</p>
    */
   Signature?: string;
-
-  /**
-   * <p>The size of the folder metadata.</p>
-   */
-  Size?: number;
 }
 
 export namespace FolderMetadata {
@@ -1905,8 +1882,7 @@ export namespace FolderMetadata {
 export interface GetCurrentUserRequest {
   __type?: "GetCurrentUserRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token.</p>
    */
   AuthenticationToken: string | undefined;
 }
@@ -1937,15 +1913,19 @@ export namespace GetCurrentUserResponse {
 export interface GetDocumentPathRequest {
   __type?: "GetDocumentPathRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
    * <p>The ID of the document.</p>
    */
   DocumentId: string | undefined;
+
+  /**
+   * <p>This value is not supported.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of levels in the hierarchy to return.</p>
+   */
+  Limit?: number;
 
   /**
    * <p>A comma-separated list of values. Specify <code>NAME</code> to include the names of
@@ -1954,14 +1934,9 @@ export interface GetDocumentPathRequest {
   Fields?: string;
 
   /**
-   * <p>The maximum number of levels in the hierarchy to return.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  Limit?: number;
-
-  /**
-   * <p>This value is not supported.</p>
-   */
-  Marker?: string;
+  AuthenticationToken?: string;
 }
 
 export namespace GetDocumentPathRequest {
@@ -1990,10 +1965,9 @@ export namespace GetDocumentPathResponse {
 export interface GetDocumentRequest {
   __type?: "GetDocumentRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Set this to <code>TRUE</code> to include custom metadata in the response.</p>
    */
-  AuthenticationToken?: string;
+  IncludeCustomMetadata?: boolean;
 
   /**
    * <p>The ID of the document.</p>
@@ -2001,9 +1975,9 @@ export interface GetDocumentRequest {
   DocumentId: string | undefined;
 
   /**
-   * <p>Set this to <code>TRUE</code> to include custom metadata in the response.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  IncludeCustomMetadata?: boolean;
+  AuthenticationToken?: string;
 }
 
 export namespace GetDocumentRequest {
@@ -2038,15 +2012,14 @@ export namespace GetDocumentResponse {
 export interface GetDocumentVersionRequest {
   __type?: "GetDocumentVersionRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
    * <p>The ID of the document.</p>
    */
   DocumentId: string | undefined;
+
+  /**
+   * <p>Set this to TRUE to include custom metadata in the response.</p>
+   */
+  IncludeCustomMetadata?: boolean;
 
   /**
    * <p>A comma-separated list of values. Specify "SOURCE" to include a URL for the source
@@ -2055,9 +2028,9 @@ export interface GetDocumentVersionRequest {
   Fields?: string;
 
   /**
-   * <p>Set this to TRUE to include custom metadata in the response.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  IncludeCustomMetadata?: boolean;
+  AuthenticationToken?: string;
 
   /**
    * <p>The version ID of the document.</p>
@@ -2097,10 +2070,19 @@ export namespace GetDocumentVersionResponse {
 export interface GetFolderPathRequest {
   __type?: "GetFolderPathRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The ID of the folder.</p>
    */
-  AuthenticationToken?: string;
+  FolderId: string | undefined;
+
+  /**
+   * <p>This value is not supported.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of levels in the hierarchy to return.</p>
+   */
+  Limit?: number;
 
   /**
    * <p>A comma-separated list of values. Specify "NAME" to include the names of the parent
@@ -2109,19 +2091,9 @@ export interface GetFolderPathRequest {
   Fields?: string;
 
   /**
-   * <p>The ID of the folder.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The maximum number of levels in the hierarchy to return.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>This value is not supported.</p>
-   */
-  Marker?: string;
+  AuthenticationToken?: string;
 }
 
 export namespace GetFolderPathRequest {
@@ -2150,20 +2122,19 @@ export namespace GetFolderPathResponse {
 export interface GetFolderRequest {
   __type?: "GetFolderRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId: string | undefined;
 
   /**
    * <p>Set to TRUE to include custom metadata in the response.</p>
    */
   IncludeCustomMetadata?: boolean;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId: string | undefined;
 }
 
 export namespace GetFolderRequest {
@@ -2177,14 +2148,14 @@ export namespace GetFolderRequest {
 export interface GetFolderResponse {
   __type?: "GetFolderResponse";
   /**
-   * <p>The custom metadata on the folder.</p>
-   */
-  CustomMetadata?: { [key: string]: string };
-
-  /**
    * <p>The metadata of the folder.</p>
    */
   Metadata?: FolderMetadata;
+
+  /**
+   * <p>The custom metadata on the folder.</p>
+   */
+  CustomMetadata?: { [key: string]: string };
 }
 
 export namespace GetFolderResponse {
@@ -2197,11 +2168,9 @@ export namespace GetFolderResponse {
 export interface GetResourcesRequest {
   __type?: "GetResourcesRequest";
   /**
-   * <p>The Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API operation using AWS
-   *             credentials.</p>
+   * <p>The marker for the next set of results. This marker was received from a previous call.</p>
    */
-  AuthenticationToken?: string;
+  Marker?: string;
 
   /**
    * <p>The collection type.</p>
@@ -2214,15 +2183,15 @@ export interface GetResourcesRequest {
   Limit?: number;
 
   /**
-   * <p>The marker for the next set of results. This marker was received from a previous call.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The user ID for the resource collection. This is a required field for accessing the
    *             API operation using IAM credentials.</p>
    */
   UserId?: string;
+
+  /**
+   * <p>The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 }
 
 export namespace GetResourcesRequest {
@@ -2241,14 +2210,14 @@ export interface GetResourcesResponse {
   Documents?: DocumentMetadata[];
 
   /**
-   * <p>The folders in the specified folder.</p>
-   */
-  Folders?: FolderMetadata[];
-
-  /**
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The folders in the specified folder.</p>
+   */
+  Folders?: FolderMetadata[];
 }
 
 export namespace GetResourcesResponse {
@@ -2265,14 +2234,14 @@ export namespace GetResourcesResponse {
 export interface GroupMetadata {
   __type?: "GroupMetadata";
   /**
-   * <p>The ID of the user group.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The name of the group.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The ID of the user group.</p>
+   */
+  Id?: string;
 }
 
 export namespace GroupMetadata {
@@ -2301,25 +2270,9 @@ export namespace IllegalUserStateException {
 export interface InitiateDocumentVersionUploadRequest {
   __type?: "InitiateDocumentVersionUploadRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
-   * <p>The timestamp when the content of the document was originally created.</p>
-   */
-  ContentCreatedTimestamp?: Date;
-
-  /**
    * <p>The timestamp when the content of the document was modified.</p>
    */
   ContentModifiedTimestamp?: Date;
-
-  /**
-   * <p>The content type of the document.</p>
-   */
-  ContentType?: string;
 
   /**
    * <p>The size of the document, in bytes.</p>
@@ -2327,9 +2280,14 @@ export interface InitiateDocumentVersionUploadRequest {
   DocumentSizeInBytes?: number;
 
   /**
-   * <p>The ID of the document.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  Id?: string;
+  AuthenticationToken?: string;
+
+  /**
+   * <p>The ID of the parent folder.</p>
+   */
+  ParentFolderId: string | undefined;
 
   /**
    * <p>The name of the document.</p>
@@ -2337,9 +2295,19 @@ export interface InitiateDocumentVersionUploadRequest {
   Name?: string;
 
   /**
-   * <p>The ID of the parent folder.</p>
+   * <p>The content type of the document.</p>
    */
-  ParentFolderId: string | undefined;
+  ContentType?: string;
+
+  /**
+   * <p>The ID of the document.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The timestamp when the content of the document was originally created.</p>
+   */
+  ContentCreatedTimestamp?: Date;
 }
 
 export namespace InitiateDocumentVersionUploadRequest {
@@ -2354,21 +2322,21 @@ export namespace InitiateDocumentVersionUploadRequest {
 export interface InitiateDocumentVersionUploadResponse {
   __type?: "InitiateDocumentVersionUploadResponse";
   /**
-   * <p>The document metadata.</p>
-   */
-  Metadata?: DocumentMetadata;
-
-  /**
    * <p>The upload metadata.</p>
    */
   UploadMetadata?: UploadMetadata;
+
+  /**
+   * <p>The document metadata.</p>
+   */
+  Metadata?: DocumentMetadata;
 }
 
 export namespace InitiateDocumentVersionUploadResponse {
   export const filterSensitiveLog = (obj: InitiateDocumentVersionUploadResponse): any => ({
     ...obj,
-    ...(obj.Metadata && { Metadata: DocumentMetadata.filterSensitiveLog(obj.Metadata) }),
     ...(obj.UploadMetadata && { UploadMetadata: UploadMetadata.filterSensitiveLog(obj.UploadMetadata) }),
+    ...(obj.Metadata && { Metadata: DocumentMetadata.filterSensitiveLog(obj.Metadata) }),
   });
   export const isa = (o: any): o is InitiateDocumentVersionUploadResponse =>
     __isa(o, "InitiateDocumentVersionUploadResponse");
@@ -2474,15 +2442,15 @@ export enum LocaleType {
 export interface NotificationOptions {
   __type?: "NotificationOptions";
   /**
-   * <p>Text value to be included in the email body.</p>
-   */
-  EmailMessage?: string;
-
-  /**
    * <p>Boolean value to indicate an email notification should be sent to the
    *             receipients.</p>
    */
   SendEmail?: boolean;
+
+  /**
+   * <p>Text value to be included in the email body.</p>
+   */
+  EmailMessage?: string;
 }
 
 export namespace NotificationOptions {
@@ -2599,15 +2567,14 @@ export namespace ProhibitedStateException {
 export interface RemoveAllResourcePermissionsRequest {
   __type?: "RemoveAllResourcePermissionsRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
    * <p>The ID of the resource.</p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 }
 
 export namespace RemoveAllResourcePermissionsRequest {
@@ -2622,25 +2589,24 @@ export namespace RemoveAllResourcePermissionsRequest {
 export interface RemoveResourcePermissionRequest {
   __type?: "RemoveResourcePermissionRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
-   */
-  AuthenticationToken?: string;
-
-  /**
    * <p>The principal ID of the resource.</p>
    */
   PrincipalId: string | undefined;
 
   /**
-   * <p>The principal type of the resource.</p>
-   */
-  PrincipalType?: PrincipalType | string;
-
-  /**
    * <p>The ID of the resource.</p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
+
+  /**
+   * <p>The principal type of the resource.</p>
+   */
+  PrincipalType?: PrincipalType | string;
 }
 
 export namespace RemoveResourcePermissionRequest {
@@ -2694,16 +2660,6 @@ export enum ResourceCollectionType {
 export interface ResourceMetadata {
   __type?: "ResourceMetadata";
   /**
-   * <p>The ID of the resource.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the resource.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The original name of the resource before a rename operation.</p>
    */
   OriginalName?: string;
@@ -2719,15 +2675,25 @@ export interface ResourceMetadata {
   ParentId?: string;
 
   /**
+   * <p>The version ID of the resource. This is an optional field and is filled for action
+   *             on document version.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>The type of resource.</p>
    */
   Type?: ResourceType | string;
 
   /**
-   * <p>The version ID of the resource. This is an optional field and is filled for action
-   *             on document version.</p>
+   * <p>The name of the resource.</p>
    */
-  VersionId?: string;
+  Name?: string;
 }
 
 export namespace ResourceMetadata {
@@ -2761,14 +2727,14 @@ export namespace ResourcePath {
 export interface ResourcePathComponent {
   __type?: "ResourcePathComponent";
   /**
-   * <p>The ID of the resource path.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The name of the resource path.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The ID of the resource path.</p>
+   */
+  Id?: string;
 }
 
 export namespace ResourcePathComponent {
@@ -2829,14 +2795,14 @@ export namespace ServiceUnavailableException {
 export interface SharePrincipal {
   __type?: "SharePrincipal";
   /**
-   * <p>The ID of the recipient.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>The role of the recipient.</p>
    */
   Role: RoleType | string | undefined;
+
+  /**
+   * <p>The ID of the recipient.</p>
+   */
+  Id: string | undefined;
 
   /**
    * <p>The type of the recipient.</p>
@@ -2857,19 +2823,14 @@ export namespace SharePrincipal {
 export interface ShareResult {
   __type?: "ShareResult";
   /**
-   * <p>The ID of the invited user.</p>
-   */
-  InviteePrincipalId?: string;
-
-  /**
    * <p>The ID of the principal.</p>
    */
   PrincipalId?: string;
 
   /**
-   * <p>The role.</p>
+   * <p>The status message.</p>
    */
-  Role?: RoleType | string;
+  StatusMessage?: string;
 
   /**
    * <p>The ID of the resource that was shared.</p>
@@ -2882,9 +2843,14 @@ export interface ShareResult {
   Status?: ShareStatusType | string;
 
   /**
-   * <p>The status message.</p>
+   * <p>The ID of the invited user.</p>
    */
-  StatusMessage?: string;
+  InviteePrincipalId?: string;
+
+  /**
+   * <p>The role.</p>
+   */
+  Role?: RoleType | string;
 }
 
 export namespace ShareResult {
@@ -2938,14 +2904,14 @@ export namespace StorageLimitWillExceedException {
 export interface StorageRuleType {
   __type?: "StorageRuleType";
   /**
-   * <p>The amount of storage allocated, in bytes.</p>
-   */
-  StorageAllocatedInBytes?: number;
-
-  /**
    * <p>The type of storage.</p>
    */
   StorageType?: StorageType | string;
+
+  /**
+   * <p>The amount of storage allocated, in bytes.</p>
+   */
+  StorageAllocatedInBytes?: number;
 }
 
 export namespace StorageRuleType {
@@ -2966,14 +2932,14 @@ export enum StorageType {
 export interface Subscription {
   __type?: "Subscription";
   /**
-   * <p>The endpoint of the subscription.</p>
-   */
-  EndPoint?: string;
-
-  /**
    * <p>The protocol of the subscription.</p>
    */
   Protocol?: SubscriptionProtocolType | string;
+
+  /**
+   * <p>The endpoint of the subscription.</p>
+   */
+  EndPoint?: string;
 
   /**
    * <p>The ID of the subscription.</p>
@@ -3036,8 +3002,8 @@ export namespace TooManySubscriptionsException {
 export interface UnauthorizedOperationException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedOperationException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace UnauthorizedOperationException {
@@ -3067,8 +3033,7 @@ export namespace UnauthorizedResourceAccessException {
 export interface UpdateDocumentRequest {
   __type?: "UpdateDocumentRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -3105,10 +3070,9 @@ export namespace UpdateDocumentRequest {
 export interface UpdateDocumentVersionRequest {
   __type?: "UpdateDocumentVersionRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The status of the version.</p>
    */
-  AuthenticationToken?: string;
+  VersionStatus?: DocumentVersionStatus | string;
 
   /**
    * <p>The ID of the document.</p>
@@ -3121,9 +3085,9 @@ export interface UpdateDocumentVersionRequest {
   VersionId: string | undefined;
 
   /**
-   * <p>The status of the version.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
-  VersionStatus?: DocumentVersionStatus | string;
+  AuthenticationToken?: string;
 }
 
 export namespace UpdateDocumentVersionRequest {
@@ -3137,10 +3101,20 @@ export namespace UpdateDocumentVersionRequest {
 export interface UpdateFolderRequest {
   __type?: "UpdateFolderRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
+
+  /**
+   * <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from
+   *             the API.</p>
+   */
+  ResourceState?: ResourceStateType | string;
+
+  /**
+   * <p>The ID of the parent folder.</p>
+   */
+  ParentFolderId?: string;
 
   /**
    * <p>The ID of the folder.</p>
@@ -3151,17 +3125,6 @@ export interface UpdateFolderRequest {
    * <p>The name of the folder.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The ID of the parent folder.</p>
-   */
-  ParentFolderId?: string;
-
-  /**
-   * <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from
-   *             the API.</p>
-   */
-  ResourceState?: ResourceStateType | string;
 }
 
 export namespace UpdateFolderRequest {
@@ -3175,20 +3138,34 @@ export namespace UpdateFolderRequest {
 export interface UpdateUserRequest {
   __type?: "UpdateUserRequest";
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   * <p>The type of the user.</p>
    */
-  AuthenticationToken?: string;
+  Type?: UserType | string;
 
   /**
-   * <p>The given name of the user.</p>
+   * <p>The surname of the user.</p>
    */
-  GivenName?: string;
+  Surname?: string;
+
+  /**
+   * <p>The ID of the user.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The time zone ID of the user.</p>
+   */
+  TimeZoneId?: string;
 
   /**
    * <p>Boolean value to determine whether the user is granted Poweruser privileges.</p>
    */
   GrantPoweruserPrivileges?: BooleanEnumType | string;
+
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
 
   /**
    * <p>The locale of the user.</p>
@@ -3201,24 +3178,9 @@ export interface UpdateUserRequest {
   StorageRule?: StorageRuleType;
 
   /**
-   * <p>The surname of the user.</p>
+   * <p>The given name of the user.</p>
    */
-  Surname?: string;
-
-  /**
-   * <p>The time zone ID of the user.</p>
-   */
-  TimeZoneId?: string;
-
-  /**
-   * <p>The type of the user.</p>
-   */
-  Type?: UserType | string;
-
-  /**
-   * <p>The ID of the user.</p>
-   */
-  UserId: string | undefined;
+  GivenName?: string;
 }
 
 export namespace UpdateUserRequest {
@@ -3274,39 +3236,9 @@ export namespace UploadMetadata {
 export interface User {
   __type?: "User";
   /**
-   * <p>The time when the user was created.</p>
-   */
-  CreatedTimestamp?: Date;
-
-  /**
-   * <p>The email address of the user.</p>
-   */
-  EmailAddress?: string;
-
-  /**
    * <p>The given name of the user.</p>
    */
   GivenName?: string;
-
-  /**
-   * <p>The ID of the user.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The locale of the user.</p>
-   */
-  Locale?: LocaleType | string;
-
-  /**
-   * <p>The time when the user was modified.</p>
-   */
-  ModifiedTimestamp?: Date;
-
-  /**
-   * <p>The ID of the organization.</p>
-   */
-  OrganizationId?: string;
 
   /**
    * <p>The ID of the recycle bin folder.</p>
@@ -3314,9 +3246,24 @@ export interface User {
   RecycleBinFolderId?: string;
 
   /**
+   * <p>The time when the user was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The ID of the organization.</p>
+   */
+  OrganizationId?: string;
+
+  /**
    * <p>The ID of the root folder.</p>
    */
   RootFolderId?: string;
+
+  /**
+   * <p>The email address of the user.</p>
+   */
+  EmailAddress?: string;
 
   /**
    * <p>The status of the user.</p>
@@ -3329,14 +3276,14 @@ export interface User {
   Storage?: UserStorageMetadata;
 
   /**
+   * <p>The time when the user was modified.</p>
+   */
+  ModifiedTimestamp?: Date;
+
+  /**
    * <p>The surname of the user.</p>
    */
   Surname?: string;
-
-  /**
-   * <p>The time zone ID of the user.</p>
-   */
-  TimeZoneId?: string;
 
   /**
    * <p>The type of user.</p>
@@ -3347,6 +3294,21 @@ export interface User {
    * <p>The login name of the user.</p>
    */
   Username?: string;
+
+  /**
+   * <p>The ID of the user.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The locale of the user.</p>
+   */
+  Locale?: LocaleType | string;
+
+  /**
+   * <p>The time zone ID of the user.</p>
+   */
+  TimeZoneId?: string;
 }
 
 export namespace User {
@@ -3367,19 +3329,14 @@ export enum UserFilterType {
 export interface UserMetadata {
   __type?: "UserMetadata";
   /**
-   * <p>The email address of the user.</p>
+   * <p>The ID of the user.</p>
    */
-  EmailAddress?: string;
+  Id?: string;
 
   /**
    * <p>The given name of the user before a rename operation.</p>
    */
   GivenName?: string;
-
-  /**
-   * <p>The ID of the user.</p>
-   */
-  Id?: string;
 
   /**
    * <p>The surname of the user.</p>
@@ -3390,6 +3347,11 @@ export interface UserMetadata {
    * <p>The name of the user.</p>
    */
   Username?: string;
+
+  /**
+   * <p>The email address of the user.</p>
+   */
+  EmailAddress?: string;
 }
 
 export namespace UserMetadata {
@@ -3419,14 +3381,14 @@ export enum UserStatusType {
 export interface UserStorageMetadata {
   __type?: "UserStorageMetadata";
   /**
-   * <p>The storage for a user.</p>
-   */
-  StorageRule?: StorageRuleType;
-
-  /**
    * <p>The amount of storage used, in bytes.</p>
    */
   StorageUtilizedInBytes?: number;
+
+  /**
+   * <p>The storage for a user.</p>
+   */
+  StorageRule?: StorageRuleType;
 }
 
 export namespace UserStorageMetadata {

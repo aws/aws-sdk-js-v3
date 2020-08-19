@@ -34,6 +34,10 @@ import {
   DescribeWorkspaceDirectoriesCommandOutput,
 } from "../commands/DescribeWorkspaceDirectoriesCommand";
 import {
+  DescribeWorkspaceImagePermissionsCommandInput,
+  DescribeWorkspaceImagePermissionsCommandOutput,
+} from "../commands/DescribeWorkspaceImagePermissionsCommand";
+import {
   DescribeWorkspaceImagesCommandInput,
   DescribeWorkspaceImagesCommandOutput,
 } from "../commands/DescribeWorkspaceImagesCommand";
@@ -103,6 +107,10 @@ import {
   UpdateRulesOfIpGroupCommandOutput,
 } from "../commands/UpdateRulesOfIpGroupCommand";
 import {
+  UpdateWorkspaceImagePermissionCommandInput,
+  UpdateWorkspaceImagePermissionCommandOutput,
+} from "../commands/UpdateWorkspaceImagePermissionCommand";
+import {
   AccessDeniedException,
   AccountModification,
   AssociateIpGroupsRequest,
@@ -143,6 +151,8 @@ import {
   DescribeWorkspaceBundlesResult,
   DescribeWorkspaceDirectoriesRequest,
   DescribeWorkspaceDirectoriesResult,
+  DescribeWorkspaceImagePermissionsRequest,
+  DescribeWorkspaceImagePermissionsResult,
   DescribeWorkspaceImagesRequest,
   DescribeWorkspaceImagesResult,
   DescribeWorkspaceSnapshotsRequest,
@@ -155,6 +165,7 @@ import {
   DisassociateIpGroupsResult,
   FailedCreateWorkspaceRequest,
   FailedWorkspaceChangeRequest,
+  ImagePermission,
   ImportWorkspaceImageRequest,
   ImportWorkspaceImageResult,
   InvalidParameterValuesException,
@@ -217,6 +228,8 @@ import {
   UnsupportedWorkspaceConfigurationException,
   UpdateRulesOfIpGroupRequest,
   UpdateRulesOfIpGroupResult,
+  UpdateWorkspaceImagePermissionRequest,
+  UpdateWorkspaceImagePermissionResult,
   UserStorage,
   Workspace,
   WorkspaceAccessProperties,
@@ -458,6 +471,19 @@ export const serializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeWorkspaceDirectoriesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeWorkspaceImagePermissionsCommand = async (
+  input: DescribeWorkspaceImagePermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceImagePermissions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeWorkspaceImagePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -770,6 +796,19 @@ export const serializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRulesOfIpGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateWorkspaceImagePermissionCommand = async (
+  input: UpdateWorkspaceImagePermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.UpdateWorkspaceImagePermission",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateWorkspaceImagePermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1984,6 +2023,78 @@ const deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError = async (
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceImagePermissionsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeWorkspaceImagePermissionsResult(data, context);
+  const response: DescribeWorkspaceImagePermissionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeWorkspaceImagePermissionsResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceImagePermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3725,6 +3836,94 @@ const deserializeAws_json1_1UpdateRulesOfIpGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspaceImagePermissionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateWorkspaceImagePermissionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateWorkspaceImagePermissionResult(data, context);
+  const response: UpdateWorkspaceImagePermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateWorkspaceImagePermissionResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateWorkspaceImagePermissionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspaceImagePermissionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.workspaces#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4092,6 +4291,17 @@ const serializeAws_json1_1DescribeWorkspaceDirectoriesRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeWorkspaceImagePermissionsRequest = (
+  input: DescribeWorkspaceImagePermissionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImageId !== undefined && { ImageId: input.ImageId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1DescribeWorkspaceImagesRequest = (
   input: DescribeWorkspaceImagesRequest,
   context: __SerdeContext
@@ -4100,6 +4310,7 @@ const serializeAws_json1_1DescribeWorkspaceImagesRequest = (
     ...(input.ImageIds !== undefined && {
       ImageIds: serializeAws_json1_1WorkspaceImageIdList(input.ImageIds, context),
     }),
+    ...(input.ImageType !== undefined && { ImageType: input.ImageType }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -4464,6 +4675,17 @@ const serializeAws_json1_1UpdateRulesOfIpGroupRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateWorkspaceImagePermissionRequest = (
+  input: UpdateWorkspaceImagePermissionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllowCopyImage !== undefined && { AllowCopyImage: input.AllowCopyImage }),
+    ...(input.ImageId !== undefined && { ImageId: input.ImageId }),
+    ...(input.SharedAccountId !== undefined && { SharedAccountId: input.SharedAccountId }),
+  };
+};
+
 const serializeAws_json1_1WorkspaceAccessProperties = (
   input: WorkspaceAccessProperties,
   context: __SerdeContext
@@ -4810,6 +5032,21 @@ const deserializeAws_json1_1DescribeWorkspaceDirectoriesResult = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeWorkspaceImagePermissionsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeWorkspaceImagePermissionsResult => {
+  return {
+    __type: "DescribeWorkspaceImagePermissionsResult",
+    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
+    ImagePermissions:
+      output.ImagePermissions !== undefined && output.ImagePermissions !== null
+        ? deserializeAws_json1_1ImagePermissions(output.ImagePermissions, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeWorkspaceImagesResult = (
   output: any,
   context: __SerdeContext
@@ -4953,6 +5190,18 @@ const deserializeAws_json1_1FailedWorkspaceChangeRequest = (
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     WorkspaceId: output.WorkspaceId !== undefined && output.WorkspaceId !== null ? output.WorkspaceId : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ImagePermission = (output: any, context: __SerdeContext): ImagePermission => {
+  return {
+    __type: "ImagePermission",
+    SharedAccountId:
+      output.SharedAccountId !== undefined && output.SharedAccountId !== null ? output.SharedAccountId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImagePermissions = (output: any, context: __SerdeContext): ImagePermission[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ImagePermission(entry, context));
 };
 
 const deserializeAws_json1_1ImportWorkspaceImageResult = (
@@ -5355,6 +5604,15 @@ const deserializeAws_json1_1UpdateRulesOfIpGroupResult = (
   } as any;
 };
 
+const deserializeAws_json1_1UpdateWorkspaceImagePermissionResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateWorkspaceImagePermissionResult => {
+  return {
+    __type: "UpdateWorkspaceImagePermissionResult",
+  } as any;
+};
+
 const deserializeAws_json1_1UserStorage = (output: any, context: __SerdeContext): UserStorage => {
   return {
     __type: "UserStorage",
@@ -5533,6 +5791,8 @@ const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeC
 const deserializeAws_json1_1WorkspaceImage = (output: any, context: __SerdeContext): WorkspaceImage => {
   return {
     __type: "WorkspaceImage",
+    Created:
+      output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
@@ -5542,6 +5802,8 @@ const deserializeAws_json1_1WorkspaceImage = (output: any, context: __SerdeConte
       output.OperatingSystem !== undefined && output.OperatingSystem !== null
         ? deserializeAws_json1_1OperatingSystem(output.OperatingSystem, context)
         : undefined,
+    OwnerAccountId:
+      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null ? output.OwnerAccountId : undefined,
     RequiredTenancy:
       output.RequiredTenancy !== undefined && output.RequiredTenancy !== null ? output.RequiredTenancy : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,

@@ -1,19 +1,47 @@
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
+import { CreateHostCommandInput, CreateHostCommandOutput } from "../commands/CreateHostCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import { DeleteHostCommandInput, DeleteHostCommandOutput } from "../commands/DeleteHostCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
+import { GetHostCommandInput, GetHostCommandOutput } from "../commands/GetHostCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
+import { ListHostsCommandInput, ListHostsCommandOutput } from "../commands/ListHostsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   Connection,
   CreateConnectionInput,
   CreateConnectionOutput,
+  CreateHostInput,
+  CreateHostOutput,
   DeleteConnectionInput,
   DeleteConnectionOutput,
+  DeleteHostInput,
+  DeleteHostOutput,
   GetConnectionInput,
   GetConnectionOutput,
+  GetHostInput,
+  GetHostOutput,
+  Host,
   LimitExceededException,
   ListConnectionsInput,
   ListConnectionsOutput,
+  ListHostsInput,
+  ListHostsOutput,
+  ListTagsForResourceInput,
+  ListTagsForResourceOutput,
   ResourceNotFoundException,
+  ResourceUnavailableException,
+  Tag,
+  TagResourceInput,
+  TagResourceOutput,
+  UntagResourceInput,
+  UntagResourceOutput,
+  VpcConfiguration,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -38,6 +66,19 @@ export const serializeAws_json1_0CreateConnectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0CreateHostCommand = async (
+  input: CreateHostCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.CreateHost",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateHostInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
@@ -48,6 +89,19 @@ export const serializeAws_json1_0DeleteConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteConnectionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DeleteHostCommand = async (
+  input: DeleteHostCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.DeleteHost",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteHostInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -64,6 +118,19 @@ export const serializeAws_json1_0GetConnectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0GetHostCommand = async (
+  input: GetHostCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.GetHost",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetHostInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0ListConnectionsCommand = async (
   input: ListConnectionsCommandInput,
   context: __SerdeContext
@@ -74,6 +141,58 @@ export const serializeAws_json1_0ListConnectionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListConnectionsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListHostsCommand = async (
+  input: ListHostsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.ListHosts",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListHostsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -99,6 +218,78 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.codestarconnections#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0CreateHostCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHostCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_0CreateHostCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateHostOutput(data, context);
+  const response: CreateHostCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateHostOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateHostCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHostCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -189,6 +380,70 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0DeleteHostCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHostCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_0DeleteHostCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DeleteHostOutput(data, context);
+  const response: DeleteHostCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteHostOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteHostCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHostCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0GetConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -211,6 +466,70 @@ const deserializeAws_json1_0GetConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0GetHostCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHostCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_0GetHostCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetHostOutput(data, context);
+  const response: GetHostCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetHostOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetHostCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHostCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -293,6 +612,230 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0ListHostsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_0ListHostsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListHostsOutput(data, context);
+  const response: ListHostsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListHostsOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListHostsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListTagsForResourceOutput(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_0TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0TagResourceOutput(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.codestarconnections#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UntagResourceOutput(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -323,10 +866,38 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_0ResourceUnavailableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceUnavailableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ResourceUnavailableException(body, context);
+  const contents: ResourceUnavailableException = {
+    name: "ResourceUnavailableException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const serializeAws_json1_0CreateConnectionInput = (input: CreateConnectionInput, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionName !== undefined && { ConnectionName: input.ConnectionName }),
+    ...(input.HostArn !== undefined && { HostArn: input.HostArn }),
     ...(input.ProviderType !== undefined && { ProviderType: input.ProviderType }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_0CreateHostInput = (input: CreateHostInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ProviderEndpoint !== undefined && { ProviderEndpoint: input.ProviderEndpoint }),
+    ...(input.ProviderType !== undefined && { ProviderType: input.ProviderType }),
+    ...(input.VpcConfiguration !== undefined && {
+      VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
+    }),
   };
 };
 
@@ -336,17 +907,94 @@ const serializeAws_json1_0DeleteConnectionInput = (input: DeleteConnectionInput,
   };
 };
 
+const serializeAws_json1_0DeleteHostInput = (input: DeleteHostInput, context: __SerdeContext): any => {
+  return {
+    ...(input.HostArn !== undefined && { HostArn: input.HostArn }),
+  };
+};
+
 const serializeAws_json1_0GetConnectionInput = (input: GetConnectionInput, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionArn !== undefined && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
+const serializeAws_json1_0GetHostInput = (input: GetHostInput, context: __SerdeContext): any => {
+  return {
+    ...(input.HostArn !== undefined && { HostArn: input.HostArn }),
+  };
+};
+
 const serializeAws_json1_0ListConnectionsInput = (input: ListConnectionsInput, context: __SerdeContext): any => {
   return {
+    ...(input.HostArnFilter !== undefined && { HostArnFilter: input.HostArnFilter }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ProviderTypeFilter !== undefined && { ProviderTypeFilter: input.ProviderTypeFilter }),
+  };
+};
+
+const serializeAws_json1_0ListHostsInput = (input: ListHostsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_0ListTagsForResourceInput = (
+  input: ListTagsForResourceInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_json1_0SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_0SubnetIds = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_0Tag(entry, context));
+};
+
+const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+  };
+};
+
+const serializeAws_json1_0VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_json1_0SecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_0SubnetIds(input.SubnetIds, context) }),
+    ...(input.TlsCertificate !== undefined && { TlsCertificate: input.TlsCertificate }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
   };
 };
 
@@ -359,6 +1007,7 @@ const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext):
       output.ConnectionName !== undefined && output.ConnectionName !== null ? output.ConnectionName : undefined,
     ConnectionStatus:
       output.ConnectionStatus !== undefined && output.ConnectionStatus !== null ? output.ConnectionStatus : undefined,
+    HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
     OwnerAccountId:
       output.OwnerAccountId !== undefined && output.OwnerAccountId !== null ? output.OwnerAccountId : undefined,
     ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
@@ -374,12 +1023,29 @@ const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __Se
     __type: "CreateConnectionOutput",
     ConnectionArn:
       output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_0TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0CreateHostOutput = (output: any, context: __SerdeContext): CreateHostOutput => {
+  return {
+    __type: "CreateHostOutput",
+    HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DeleteConnectionOutput = (output: any, context: __SerdeContext): DeleteConnectionOutput => {
   return {
     __type: "DeleteConnectionOutput",
+  } as any;
+};
+
+const deserializeAws_json1_0DeleteHostOutput = (output: any, context: __SerdeContext): DeleteHostOutput => {
+  return {
+    __type: "DeleteHostOutput",
   } as any;
 };
 
@@ -391,6 +1057,43 @@ const deserializeAws_json1_0GetConnectionOutput = (output: any, context: __Serde
         ? deserializeAws_json1_0Connection(output.Connection, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0GetHostOutput = (output: any, context: __SerdeContext): GetHostOutput => {
+  return {
+    __type: "GetHostOutput",
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ProviderEndpoint:
+      output.ProviderEndpoint !== undefined && output.ProviderEndpoint !== null ? output.ProviderEndpoint : undefined,
+    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_0VpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0Host = (output: any, context: __SerdeContext): Host => {
+  return {
+    __type: "Host",
+    HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ProviderEndpoint:
+      output.ProviderEndpoint !== undefined && output.ProviderEndpoint !== null ? output.ProviderEndpoint : undefined,
+    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_0VpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0HostList = (output: any, context: __SerdeContext): Host[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0Host(entry, context));
 };
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -411,6 +1114,30 @@ const deserializeAws_json1_0ListConnectionsOutput = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_0ListHostsOutput = (output: any, context: __SerdeContext): ListHostsOutput => {
+  return {
+    __type: "ListHostsOutput",
+    Hosts:
+      output.Hosts !== undefined && output.Hosts !== null
+        ? deserializeAws_json1_0HostList(output.Hosts, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ListTagsForResourceOutput = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceOutput => {
+  return {
+    __type: "ListTagsForResourceOutput",
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_0TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -418,6 +1145,65 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   return {
     __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ResourceUnavailableException = (
+  output: any,
+  context: __SerdeContext
+): ResourceUnavailableException => {
+  return {
+    __type: "ResourceUnavailableException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_0SubnetIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    __type: "Tag",
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0Tag(entry, context));
+};
+
+const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
+  return {
+    __type: "TagResourceOutput",
+  } as any;
+};
+
+const deserializeAws_json1_0UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
+  return {
+    __type: "UntagResourceOutput",
+  } as any;
+};
+
+const deserializeAws_json1_0VpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
+  return {
+    __type: "VpcConfiguration",
+    SecurityGroupIds:
+      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+        ? deserializeAws_json1_0SecurityGroupIds(output.SecurityGroupIds, context)
+        : undefined,
+    SubnetIds:
+      output.SubnetIds !== undefined && output.SubnetIds !== null
+        ? deserializeAws_json1_0SubnetIds(output.SubnetIds, context)
+        : undefined,
+    TlsCertificate:
+      output.TlsCertificate !== undefined && output.TlsCertificate !== null ? output.TlsCertificate : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
   } as any;
 };
 

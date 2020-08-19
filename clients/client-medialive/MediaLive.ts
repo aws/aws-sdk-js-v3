@@ -69,6 +69,16 @@ import {
   DescribeInputCommandOutput,
 } from "./commands/DescribeInputCommand";
 import {
+  DescribeInputDeviceCommand,
+  DescribeInputDeviceCommandInput,
+  DescribeInputDeviceCommandOutput,
+} from "./commands/DescribeInputDeviceCommand";
+import {
+  DescribeInputDeviceThumbnailCommand,
+  DescribeInputDeviceThumbnailCommandInput,
+  DescribeInputDeviceThumbnailCommandOutput,
+} from "./commands/DescribeInputDeviceThumbnailCommand";
+import {
   DescribeInputSecurityGroupCommand,
   DescribeInputSecurityGroupCommandInput,
   DescribeInputSecurityGroupCommandOutput,
@@ -103,6 +113,11 @@ import {
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
+import {
+  ListInputDevicesCommand,
+  ListInputDevicesCommandInput,
+  ListInputDevicesCommandOutput,
+} from "./commands/ListInputDevicesCommand";
 import {
   ListInputSecurityGroupsCommand,
   ListInputSecurityGroupsCommandInput,
@@ -166,6 +181,11 @@ import {
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
+import {
+  UpdateInputDeviceCommand,
+  UpdateInputDeviceCommandInput,
+  UpdateInputDeviceCommandOutput,
+} from "./commands/UpdateInputDeviceCommand";
 import {
   UpdateInputSecurityGroupCommand,
   UpdateInputSecurityGroupCommandInput,
@@ -713,6 +733,70 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * Gets the details for the input device
+   */
+  public describeInputDevice(
+    args: DescribeInputDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInputDeviceCommandOutput>;
+  public describeInputDevice(
+    args: DescribeInputDeviceCommandInput,
+    cb: (err: any, data?: DescribeInputDeviceCommandOutput) => void
+  ): void;
+  public describeInputDevice(
+    args: DescribeInputDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInputDeviceCommandOutput) => void
+  ): void;
+  public describeInputDevice(
+    args: DescribeInputDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputDeviceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInputDeviceCommandOutput) => void
+  ): Promise<DescribeInputDeviceCommandOutput> | void {
+    const command = new DescribeInputDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Get the latest thumbnail data for the input device.
+   */
+  public describeInputDeviceThumbnail(
+    args: DescribeInputDeviceThumbnailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInputDeviceThumbnailCommandOutput>;
+  public describeInputDeviceThumbnail(
+    args: DescribeInputDeviceThumbnailCommandInput,
+    cb: (err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void
+  ): void;
+  public describeInputDeviceThumbnail(
+    args: DescribeInputDeviceThumbnailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void
+  ): void;
+  public describeInputDeviceThumbnail(
+    args: DescribeInputDeviceThumbnailCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void
+  ): Promise<DescribeInputDeviceThumbnailCommandOutput> | void {
+    const command = new DescribeInputDeviceThumbnailCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Produces a summary of an Input Security Group
    */
   public describeInputSecurityGroup(
@@ -923,6 +1007,38 @@ export class MediaLive extends MediaLiveClient {
     cb?: (err: any, data?: ListChannelsCommandOutput) => void
   ): Promise<ListChannelsCommandOutput> | void {
     const command = new ListChannelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * List input devices
+   */
+  public listInputDevices(
+    args: ListInputDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInputDevicesCommandOutput>;
+  public listInputDevices(
+    args: ListInputDevicesCommandInput,
+    cb: (err: any, data?: ListInputDevicesCommandOutput) => void
+  ): void;
+  public listInputDevices(
+    args: ListInputDevicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInputDevicesCommandOutput) => void
+  ): void;
+  public listInputDevices(
+    args: ListInputDevicesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputDevicesCommandOutput) => void),
+    cb?: (err: any, data?: ListInputDevicesCommandOutput) => void
+  ): Promise<ListInputDevicesCommandOutput> | void {
+    const command = new ListInputDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1382,6 +1498,38 @@ export class MediaLive extends MediaLiveClient {
     cb?: (err: any, data?: UpdateInputCommandOutput) => void
   ): Promise<UpdateInputCommandOutput> | void {
     const command = new UpdateInputCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Updates the parameters for the input device.
+   */
+  public updateInputDevice(
+    args: UpdateInputDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInputDeviceCommandOutput>;
+  public updateInputDevice(
+    args: UpdateInputDeviceCommandInput,
+    cb: (err: any, data?: UpdateInputDeviceCommandOutput) => void
+  ): void;
+  public updateInputDevice(
+    args: UpdateInputDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInputDeviceCommandOutput) => void
+  ): void;
+  public updateInputDevice(
+    args: UpdateInputDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInputDeviceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInputDeviceCommandOutput) => void
+  ): Promise<UpdateInputDeviceCommandOutput> | void {
+    const command = new UpdateInputDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

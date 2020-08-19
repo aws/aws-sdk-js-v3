@@ -4,29 +4,28 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface GetPersonalizedRankingRequest {
   __type?: "GetPersonalizedRankingRequest";
   /**
+   * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
+   *       any interaction information that might be relevant when getting a user's recommendations, such
+   *       as the user's current location or device type.</p>
+   */
+  context?: { [key: string]: string };
+
+  /**
+   * <p>The user for which you want the campaign to provide a personalized ranking.</p>
+   */
+  userId: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the campaign to use for generating the personalized
    *       ranking.</p>
    */
   campaignArn: string | undefined;
 
   /**
-   * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
-   *       any interaction information that might be relevant when getting a user's recommendations, such
-   *       as the user's current location or device type. For more information, see Contextual
-   *       Metadata.</p>
-   */
-  context?: { [key: string]: string };
-
-  /**
    * <p>A list of items (itemId's) to rank. If an item was not included in the training dataset,
    *       the item is appended to the end of the reranked list. The maximum is 500.</p>
    */
   inputList: string[] | undefined;
-
-  /**
-   * <p>The user for which you want the campaign to provide a personalized ranking.</p>
-   */
-  userId: string | undefined;
 }
 
 export namespace GetPersonalizedRankingRequest {
@@ -55,15 +54,25 @@ export namespace GetPersonalizedRankingResponse {
 export interface GetRecommendationsRequest {
   __type?: "GetRecommendationsRequest";
   /**
+   * <p>The user ID to provide recommendations for.</p>
+   *          <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
+   */
+  userId?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>
    */
   campaignArn: string | undefined;
 
   /**
+   * <p>The number of results to return. The default is 25. The maximum is 500.</p>
+   */
+  numResults?: number;
+
+  /**
    * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
    *       any interaction information that might be relevant when getting a user's recommendations, such
-   *       as the user's current location or device type. For more information, see Contextual
-   *       Metadata.</p>
+   *       as the user's current location or device type.</p>
    */
   context?: { [key: string]: string };
 
@@ -74,15 +83,10 @@ export interface GetRecommendationsRequest {
   itemId?: string;
 
   /**
-   * <p>The number of results to return. The default is 25. The maximum is 500.</p>
+   * <p>The ARN of the filter to apply to the returned recommendations. For more information, see
+   *       Using Filters with Amazon Personalize.</p>
    */
-  numResults?: number;
-
-  /**
-   * <p>The user ID to provide recommendations for.</p>
-   *          <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
-   */
-  userId?: string;
+  filterArn?: string;
 }
 
 export namespace GetRecommendationsRequest {
@@ -132,6 +136,12 @@ export namespace InvalidInputException {
  */
 export interface PredictedItem {
   __type?: "PredictedItem";
+  /**
+   * <p>A numeric representation of the model's certainty that the item will be the next user
+   *       selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>
+   */
+  score?: number;
+
   /**
    * <p>The recommended item ID.</p>
    */

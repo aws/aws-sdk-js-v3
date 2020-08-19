@@ -18,4 +18,5 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateSecretCommand";
 export * from "./commands/UpdateSecretVersionStageCommand";
+export * from "./commands/ValidateResourcePolicyCommand";
 export * from "./models/index";

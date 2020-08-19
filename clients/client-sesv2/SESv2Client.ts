@@ -7,6 +7,10 @@ import {
   CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
 import {
+  CreateCustomVerificationEmailTemplateCommandInput,
+  CreateCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/CreateCustomVerificationEmailTemplateCommand";
+import {
   CreateDedicatedIpPoolCommandInput,
   CreateDedicatedIpPoolCommandOutput,
 } from "./commands/CreateDedicatedIpPoolCommand";
@@ -19,6 +23,14 @@ import {
   CreateEmailIdentityCommandOutput,
 } from "./commands/CreateEmailIdentityCommand";
 import {
+  CreateEmailIdentityPolicyCommandInput,
+  CreateEmailIdentityPolicyCommandOutput,
+} from "./commands/CreateEmailIdentityPolicyCommand";
+import {
+  CreateEmailTemplateCommandInput,
+  CreateEmailTemplateCommandOutput,
+} from "./commands/CreateEmailTemplateCommand";
+import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
@@ -27,6 +39,10 @@ import {
   DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
 import {
+  DeleteCustomVerificationEmailTemplateCommandInput,
+  DeleteCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/DeleteCustomVerificationEmailTemplateCommand";
+import {
   DeleteDedicatedIpPoolCommandInput,
   DeleteDedicatedIpPoolCommandOutput,
 } from "./commands/DeleteDedicatedIpPoolCommand";
@@ -34,6 +50,14 @@ import {
   DeleteEmailIdentityCommandInput,
   DeleteEmailIdentityCommandOutput,
 } from "./commands/DeleteEmailIdentityCommand";
+import {
+  DeleteEmailIdentityPolicyCommandInput,
+  DeleteEmailIdentityPolicyCommandOutput,
+} from "./commands/DeleteEmailIdentityPolicyCommand";
+import {
+  DeleteEmailTemplateCommandInput,
+  DeleteEmailTemplateCommandOutput,
+} from "./commands/DeleteEmailTemplateCommand";
 import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput,
@@ -51,6 +75,10 @@ import {
   GetConfigurationSetEventDestinationsCommandInput,
   GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
+import {
+  GetCustomVerificationEmailTemplateCommandInput,
+  GetCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/GetCustomVerificationEmailTemplateCommand";
 import { GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput } from "./commands/GetDedicatedIpCommand";
 import { GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput } from "./commands/GetDedicatedIpsCommand";
 import {
@@ -71,6 +99,11 @@ import {
 } from "./commands/GetDomainStatisticsReportCommand";
 import { GetEmailIdentityCommandInput, GetEmailIdentityCommandOutput } from "./commands/GetEmailIdentityCommand";
 import {
+  GetEmailIdentityPoliciesCommandInput,
+  GetEmailIdentityPoliciesCommandOutput,
+} from "./commands/GetEmailIdentityPoliciesCommand";
+import { GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput } from "./commands/GetEmailTemplateCommand";
+import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
 } from "./commands/GetSuppressedDestinationCommand";
@@ -78,6 +111,10 @@ import {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
+import {
+  ListCustomVerificationEmailTemplatesCommandInput,
+  ListCustomVerificationEmailTemplatesCommandOutput,
+} from "./commands/ListCustomVerificationEmailTemplatesCommand";
 import {
   ListDedicatedIpPoolsCommandInput,
   ListDedicatedIpPoolsCommandOutput,
@@ -94,6 +131,7 @@ import {
   ListEmailIdentitiesCommandInput,
   ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand";
+import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "./commands/ListEmailTemplatesCommand";
 import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
@@ -106,6 +144,7 @@ import {
   PutAccountDedicatedIpWarmupAttributesCommandInput,
   PutAccountDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand";
+import { PutAccountDetailsCommandInput, PutAccountDetailsCommandOutput } from "./commands/PutAccountDetailsCommand";
 import {
   PutAccountSendingAttributesCommandInput,
   PutAccountSendingAttributesCommandOutput,
@@ -166,13 +205,34 @@ import {
   PutSuppressedDestinationCommandInput,
   PutSuppressedDestinationCommandOutput,
 } from "./commands/PutSuppressedDestinationCommand";
+import { SendBulkEmailCommandInput, SendBulkEmailCommandOutput } from "./commands/SendBulkEmailCommand";
+import {
+  SendCustomVerificationEmailCommandInput,
+  SendCustomVerificationEmailCommandOutput,
+} from "./commands/SendCustomVerificationEmailCommand";
 import { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestRenderEmailTemplateCommandInput,
+  TestRenderEmailTemplateCommandOutput,
+} from "./commands/TestRenderEmailTemplateCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
+import {
+  UpdateCustomVerificationEmailTemplateCommandInput,
+  UpdateCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/UpdateCustomVerificationEmailTemplateCommand";
+import {
+  UpdateEmailIdentityPolicyCommandInput,
+  UpdateEmailIdentityPolicyCommandOutput,
+} from "./commands/UpdateEmailIdentityPolicyCommand";
+import {
+  UpdateEmailTemplateCommandInput,
+  UpdateEmailTemplateCommandOutput,
+} from "./commands/UpdateEmailTemplateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -223,18 +283,25 @@ import {
 export type ServiceInputTypes =
   | CreateConfigurationSetCommandInput
   | CreateConfigurationSetEventDestinationCommandInput
+  | CreateCustomVerificationEmailTemplateCommandInput
   | CreateDedicatedIpPoolCommandInput
   | CreateDeliverabilityTestReportCommandInput
   | CreateEmailIdentityCommandInput
+  | CreateEmailIdentityPolicyCommandInput
+  | CreateEmailTemplateCommandInput
   | DeleteConfigurationSetCommandInput
   | DeleteConfigurationSetEventDestinationCommandInput
+  | DeleteCustomVerificationEmailTemplateCommandInput
   | DeleteDedicatedIpPoolCommandInput
   | DeleteEmailIdentityCommandInput
+  | DeleteEmailIdentityPolicyCommandInput
+  | DeleteEmailTemplateCommandInput
   | DeleteSuppressedDestinationCommandInput
   | GetAccountCommandInput
   | GetBlacklistReportsCommandInput
   | GetConfigurationSetCommandInput
   | GetConfigurationSetEventDestinationsCommandInput
+  | GetCustomVerificationEmailTemplateCommandInput
   | GetDedicatedIpCommandInput
   | GetDedicatedIpsCommandInput
   | GetDeliverabilityDashboardOptionsCommandInput
@@ -242,15 +309,20 @@ export type ServiceInputTypes =
   | GetDomainDeliverabilityCampaignCommandInput
   | GetDomainStatisticsReportCommandInput
   | GetEmailIdentityCommandInput
+  | GetEmailIdentityPoliciesCommandInput
+  | GetEmailTemplateCommandInput
   | GetSuppressedDestinationCommandInput
   | ListConfigurationSetsCommandInput
+  | ListCustomVerificationEmailTemplatesCommandInput
   | ListDedicatedIpPoolsCommandInput
   | ListDeliverabilityTestReportsCommandInput
   | ListDomainDeliverabilityCampaignsCommandInput
   | ListEmailIdentitiesCommandInput
+  | ListEmailTemplatesCommandInput
   | ListSuppressedDestinationsCommandInput
   | ListTagsForResourceCommandInput
   | PutAccountDedicatedIpWarmupAttributesCommandInput
+  | PutAccountDetailsCommandInput
   | PutAccountSendingAttributesCommandInput
   | PutAccountSuppressionAttributesCommandInput
   | PutConfigurationSetDeliveryOptionsCommandInput
@@ -266,26 +338,39 @@ export type ServiceInputTypes =
   | PutEmailIdentityFeedbackAttributesCommandInput
   | PutEmailIdentityMailFromAttributesCommandInput
   | PutSuppressedDestinationCommandInput
+  | SendBulkEmailCommandInput
+  | SendCustomVerificationEmailCommandInput
   | SendEmailCommandInput
   | TagResourceCommandInput
+  | TestRenderEmailTemplateCommandInput
   | UntagResourceCommandInput
-  | UpdateConfigurationSetEventDestinationCommandInput;
+  | UpdateConfigurationSetEventDestinationCommandInput
+  | UpdateCustomVerificationEmailTemplateCommandInput
+  | UpdateEmailIdentityPolicyCommandInput
+  | UpdateEmailTemplateCommandInput;
 
 export type ServiceOutputTypes =
   | CreateConfigurationSetCommandOutput
   | CreateConfigurationSetEventDestinationCommandOutput
+  | CreateCustomVerificationEmailTemplateCommandOutput
   | CreateDedicatedIpPoolCommandOutput
   | CreateDeliverabilityTestReportCommandOutput
   | CreateEmailIdentityCommandOutput
+  | CreateEmailIdentityPolicyCommandOutput
+  | CreateEmailTemplateCommandOutput
   | DeleteConfigurationSetCommandOutput
   | DeleteConfigurationSetEventDestinationCommandOutput
+  | DeleteCustomVerificationEmailTemplateCommandOutput
   | DeleteDedicatedIpPoolCommandOutput
   | DeleteEmailIdentityCommandOutput
+  | DeleteEmailIdentityPolicyCommandOutput
+  | DeleteEmailTemplateCommandOutput
   | DeleteSuppressedDestinationCommandOutput
   | GetAccountCommandOutput
   | GetBlacklistReportsCommandOutput
   | GetConfigurationSetCommandOutput
   | GetConfigurationSetEventDestinationsCommandOutput
+  | GetCustomVerificationEmailTemplateCommandOutput
   | GetDedicatedIpCommandOutput
   | GetDedicatedIpsCommandOutput
   | GetDeliverabilityDashboardOptionsCommandOutput
@@ -293,15 +378,20 @@ export type ServiceOutputTypes =
   | GetDomainDeliverabilityCampaignCommandOutput
   | GetDomainStatisticsReportCommandOutput
   | GetEmailIdentityCommandOutput
+  | GetEmailIdentityPoliciesCommandOutput
+  | GetEmailTemplateCommandOutput
   | GetSuppressedDestinationCommandOutput
   | ListConfigurationSetsCommandOutput
+  | ListCustomVerificationEmailTemplatesCommandOutput
   | ListDedicatedIpPoolsCommandOutput
   | ListDeliverabilityTestReportsCommandOutput
   | ListDomainDeliverabilityCampaignsCommandOutput
   | ListEmailIdentitiesCommandOutput
+  | ListEmailTemplatesCommandOutput
   | ListSuppressedDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAccountDedicatedIpWarmupAttributesCommandOutput
+  | PutAccountDetailsCommandOutput
   | PutAccountSendingAttributesCommandOutput
   | PutAccountSuppressionAttributesCommandOutput
   | PutConfigurationSetDeliveryOptionsCommandOutput
@@ -317,10 +407,16 @@ export type ServiceOutputTypes =
   | PutEmailIdentityFeedbackAttributesCommandOutput
   | PutEmailIdentityMailFromAttributesCommandOutput
   | PutSuppressedDestinationCommandOutput
+  | SendBulkEmailCommandOutput
+  | SendCustomVerificationEmailCommandOutput
   | SendEmailCommandOutput
   | TagResourceCommandOutput
+  | TestRenderEmailTemplateCommandOutput
   | UntagResourceCommandOutput
-  | UpdateConfigurationSetEventDestinationCommandOutput;
+  | UpdateConfigurationSetEventDestinationCommandOutput
+  | UpdateCustomVerificationEmailTemplateCommandOutput
+  | UpdateEmailIdentityPolicyCommandOutput
+  | UpdateEmailTemplateCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

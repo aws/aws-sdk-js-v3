@@ -284,6 +284,16 @@ import {
   RestoreDBClusterToPointInTimeCommandInput,
   RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand";
+import {
+  StartDBClusterCommand,
+  StartDBClusterCommandInput,
+  StartDBClusterCommandOutput,
+} from "./commands/StartDBClusterCommand";
+import {
+  StopDBClusterCommand,
+  StopDBClusterCommandInput,
+  StopDBClusterCommandOutput,
+} from "./commands/StopDBClusterCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -475,7 +485,6 @@ export class Neptune extends NeptuneClient {
    *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
    *       <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the
    *       shared DB cluster snapshot.</p>
-   *          <p>You can't copy from one AWS Region to another.</p>
    */
   public copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
@@ -542,6 +551,10 @@ export class Neptune extends NeptuneClient {
    * <p>Creates a new Amazon Neptune DB cluster.</p>
    *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
    *       cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.</p>
+   *          <p>Note that when you create a new cluster using <code>CreateDBCluster</code> directly,
+   *       deletion protection is disabled by default (when you create a new production cluster in
+   *       the console, deletion protection is enabled by default). You can only delete a DB
+   *       cluster if its <code>DeletionProtection</code> field is set to <code>false</code>.</p>
    */
   public createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -828,6 +841,10 @@ export class Neptune extends NeptuneClient {
    * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a
    *       DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
    *       Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
+   *
+   *          <p>Note that the DB Cluster cannot be deleted if deletion protection is enabled.  To
+   *       delete it, you must first set its <code>DeletionProtection</code> field to
+   *       <code>False</code>.</p>
    */
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -941,7 +958,8 @@ export class Neptune extends NeptuneClient {
    *       <code>failed</code>, <code>incompatible-restore</code>, or <code>incompatible-network</code>,
    *       you can only delete it when the <code>SkipFinalSnapshot</code> parameter is set to
    *       <code>true</code>.</p>
-   *          <p>You can't delete a DB instance if it is the only instance in the DB cluster.</p>
+   *          <p>You can't delete a DB instance if it is the only instance in the DB cluster, or
+   *       if it has deletion protection enabled.</p>
    */
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -1139,7 +1157,13 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   * <p>Returns information about provisioned DB clusters. This API supports pagination.</p>
+   * <p>Returns information about provisioned DB clusters, and supports
+   *       pagination.</p>
+   *
+   *          <note>
+   *             <p>This operation can also return information for Amazon RDS clusters
+   *     and Amazon DocDB clusters.</p>
+   *          </note>
    */
   public describeDBClusters(
     args: DescribeDBClustersCommandInput,
@@ -1277,7 +1301,12 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   * <p>Returns information about provisioned instances. This API supports pagination.</p>
+   * <p>Returns information about provisioned instances, and supports pagination.</p>
+   *
+   *          <note>
+   *             <p>This operation can also return information for Amazon RDS instances
+   *     and Amazon DocDB instances.</p>
+   *          </note>
    */
   public describeDBInstances(
     args: DescribeDBInstancesCommandInput,
@@ -2347,6 +2376,76 @@ export class Neptune extends NeptuneClient {
     cb?: (err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> | void {
     const command = new RestoreDBClusterToPointInTimeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts an Amazon Neptune  DB cluster that was stopped using the AWS
+   *       console, the AWS CLI stop-db-cluster command, or the StopDBCluster API.</p>
+   */
+  public startDBCluster(
+    args: StartDBClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDBClusterCommandOutput>;
+  public startDBCluster(
+    args: StartDBClusterCommandInput,
+    cb: (err: any, data?: StartDBClusterCommandOutput) => void
+  ): void;
+  public startDBCluster(
+    args: StartDBClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDBClusterCommandOutput) => void
+  ): void;
+  public startDBCluster(
+    args: StartDBClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDBClusterCommandOutput) => void),
+    cb?: (err: any, data?: StartDBClusterCommandOutput) => void
+  ): Promise<StartDBClusterCommandOutput> | void {
+    const command = new StartDBClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune
+   *       retains the DB cluster's metadata, including its endpoints and DB parameter
+   *       groups.</p>
+   *
+   *          <p>Neptune also retains the transaction logs so you can do a point-in-time
+   *       restore if necessary.</p>
+   */
+  public stopDBCluster(
+    args: StopDBClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDBClusterCommandOutput>;
+  public stopDBCluster(
+    args: StopDBClusterCommandInput,
+    cb: (err: any, data?: StopDBClusterCommandOutput) => void
+  ): void;
+  public stopDBCluster(
+    args: StopDBClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDBClusterCommandOutput) => void
+  ): void;
+  public stopDBCluster(
+    args: StopDBClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDBClusterCommandOutput) => void),
+    cb?: (err: any, data?: StopDBClusterCommandOutput) => void
+  ): Promise<StopDBClusterCommandOutput> | void {
+    const command = new StopDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -42,9 +42,9 @@ export namespace AssociateResolverEndpointIpAddressResponse {
 export interface AssociateResolverRuleRequest {
   __type?: "AssociateResolverRuleRequest";
   /**
-   * <p>A name for the association that you're creating between a resolver rule and a VPC.</p>
+   * <p>The ID of the VPC that you want to associate the resolver rule with.</p>
    */
-  Name?: string;
+  VPCId: string | undefined;
 
   /**
    * <p>The ID of the resolver rule that you want to associate with the VPC. To list the existing resolver rules, use
@@ -53,9 +53,9 @@ export interface AssociateResolverRuleRequest {
   ResolverRuleId: string | undefined;
 
   /**
-   * <p>The ID of the VPC that you want to associate the resolver rule with.</p>
+   * <p>A name for the association that you're creating between a resolver rule and a VPC.</p>
    */
-  VPCId: string | undefined;
+  Name?: string;
 }
 
 export namespace AssociateResolverRuleRequest {
@@ -89,6 +89,17 @@ export interface CreateResolverEndpointRequest {
   CreatorRequestId: string | undefined;
 
   /**
+   * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs to your network
+   * 			(for outbound endpoints) or on the way from your network to your VPCs (for inbound resolver endpoints). </p>
+   */
+  IpAddresses: IpAddressRequest[] | undefined;
+
+  /**
    * <p>Specify the applicable value:</p>
    * 		       <ul>
    *             <li>
@@ -104,26 +115,15 @@ export interface CreateResolverEndpointRequest {
   Direction: ResolverEndpointDirection | string | undefined;
 
   /**
-   * <p>The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs to your network
-   * 			(for outbound endpoints) or on the way from your network to your VPCs (for inbound resolver endpoints). </p>
-   */
-  IpAddresses: IpAddressRequest[] | undefined;
-
-  /**
-   * <p>A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ID of one or more security groups that you want to use to control access to this VPC. The security group that you specify
    * 			must include one or more inbound rules (for inbound resolver endpoints) or outbound rules (for outbound resolver endpoints).</p>
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
+   * <p>A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.</p>
    */
-  Tags?: Tag[];
+  Name?: string;
 }
 
 export namespace CreateResolverEndpointRequest {
@@ -157,24 +157,6 @@ export interface CreateResolverRuleRequest {
   CreatorRequestId: string | undefined;
 
   /**
-   * <p>DNS queries for this domain name are forwarded to the IP addresses that you specify in <code>TargetIps</code>. If a query matches
-   * 			multiple resolver rules (example.com and www.example.com), outbound DNS queries are routed using the resolver rule that contains
-   * 			the most specific domain name (www.example.com).</p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify
-   * 			in <code>TargetIps</code>.</p>
-   */
-  ResolverEndpointId?: string;
-
-  /**
    * <p>Specify <code>FORWARD</code>. Other resolver rule types aren't supported.</p>
    */
   RuleType: RuleTypeOption | string | undefined;
@@ -188,6 +170,24 @@ export interface CreateResolverRuleRequest {
    * <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a comma.</p>
    */
   TargetIps?: TargetAddress[];
+
+  /**
+   * <p>A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify
+   * 			in <code>TargetIps</code>.</p>
+   */
+  ResolverEndpointId?: string;
+
+  /**
+   * <p>DNS queries for this domain name are forwarded to the IP addresses that you specify in <code>TargetIps</code>. If a query matches
+   * 			multiple resolver rules (example.com and www.example.com), outbound DNS queries are routed using the resolver rule that contains
+   * 			the most specific domain name (www.example.com).</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace CreateResolverRuleRequest {
@@ -312,14 +312,14 @@ export namespace DisassociateResolverEndpointIpAddressResponse {
 export interface DisassociateResolverRuleRequest {
   __type?: "DisassociateResolverRuleRequest";
   /**
-   * <p>The ID of the resolver rule that you want to disassociate from the specified VPC.</p>
-   */
-  ResolverRuleId: string | undefined;
-
-  /**
    * <p>The ID of the VPC that you want to disassociate the resolver rule from.</p>
    */
   VPCId: string | undefined;
+
+  /**
+   * <p>The ID of the resolver rule that you want to disassociate from the specified VPC.</p>
+   */
+  ResolverRuleId: string | undefined;
 }
 
 export namespace DisassociateResolverRuleRequest {
@@ -351,17 +351,17 @@ export interface Filter {
   __type?: "Filter";
   /**
    * <p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as resolver endpoints or resolver rules,
-   * 			the name of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify
-   * 			<code>Direction</code> for the value of <code>Name</code>.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as resolver endpoints or resolver rules,
    * 			the value of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify
    * 			<code>INBOUND</code> for the value of <code>Values</code>.</p>
    */
   Values?: string[];
+
+  /**
+   * <p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as resolver endpoints or resolver rules,
+   * 			the name of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify
+   * 			<code>Direction</code> for the value of <code>Name</code>.</p>
+   */
+  Name?: string;
 }
 
 export namespace Filter {
@@ -599,14 +599,14 @@ export namespace InvalidTagException {
 export interface IpAddressRequest {
   __type?: "IpAddressRequest";
   /**
-   * <p>The IP address that you want to use for DNS queries.</p>
-   */
-  Ip?: string;
-
-  /**
    * <p>The subnet that contains the IP address.</p>
    */
   SubnetId: string | undefined;
+
+  /**
+   * <p>The IP address that you want to use for DNS queries.</p>
+   */
+  Ip?: string;
 }
 
 export namespace IpAddressRequest {
@@ -623,29 +623,19 @@ export namespace IpAddressRequest {
 export interface IpAddressResponse {
   __type?: "IpAddressResponse";
   /**
-   * <p>The date and time that the IP address was created, in Unix time format and Coordinated Universal Time (UTC).</p>
-   */
-  CreationTime?: string;
-
-  /**
-   * <p>One IP address that the resolver endpoint uses for DNS queries.</p>
-   */
-  Ip?: string;
-
-  /**
-   * <p>The ID of one IP address.</p>
-   */
-  IpId?: string;
-
-  /**
    * <p>The date and time that the IP address was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    */
   ModificationTime?: string;
 
   /**
-   * <p>A status code that gives the current status of the request.</p>
+   * <p>The ID of one subnet.</p>
    */
-  Status?: IpAddressStatus | string;
+  SubnetId?: string;
+
+  /**
+   * <p>The date and time that the IP address was created, in Unix time format and Coordinated Universal Time (UTC).</p>
+   */
+  CreationTime?: string;
 
   /**
    * <p>A message that provides additional information about the status of the request.</p>
@@ -653,9 +643,19 @@ export interface IpAddressResponse {
   StatusMessage?: string;
 
   /**
-   * <p>The ID of one subnet.</p>
+   * <p>A status code that gives the current status of the request.</p>
    */
-  SubnetId?: string;
+  Status?: IpAddressStatus | string;
+
+  /**
+   * <p>The ID of one IP address.</p>
+   */
+  IpId?: string;
+
+  /**
+   * <p>One IP address that the resolver endpoint uses for DNS queries.</p>
+   */
+  Ip?: string;
 }
 
 export namespace IpAddressResponse {
@@ -684,16 +684,16 @@ export enum IpAddressStatus {
 export interface IpAddressUpdate {
   __type?: "IpAddressUpdate";
   /**
-   * <p>The new IP address.</p>
-   */
-  Ip?: string;
-
-  /**
    * <p>
    *             <i>Only when removing an IP address from a resolver endpoint</i>: The ID of the IP address that you want to remove.
    * 			To get this ID, use <a>GetResolverEndpoint</a>.</p>
    */
   IpId?: string;
+
+  /**
+   * <p>The new IP address.</p>
+   */
+  Ip?: string;
 
   /**
    * <p>The ID of the subnet that includes the IP address that you want to update. To get this ID, use <a>GetResolverEndpoint</a>.</p>
@@ -714,11 +714,12 @@ export namespace IpAddressUpdate {
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
-  Message?: string;
   /**
    * <p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>
    */
   ResourceType?: string;
+
+  Message?: string;
 }
 
 export namespace LimitExceededException {
@@ -737,17 +738,17 @@ export interface ListResolverEndpointIpAddressesRequest {
   MaxResults?: number;
 
   /**
+   * <p>The ID of the resolver endpoint that you want to get IP addresses for.</p>
+   */
+  ResolverEndpointId: string | undefined;
+
+  /**
    * <p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p>
    * 		       <p>If the specified resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another
    * 			<code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The ID of the resolver endpoint that you want to get IP addresses for.</p>
-   */
-  ResolverEndpointId: string | undefined;
 }
 
 export namespace ListResolverEndpointIpAddressesRequest {
@@ -761,12 +762,6 @@ export namespace ListResolverEndpointIpAddressesRequest {
 export interface ListResolverEndpointIpAddressesResponse {
   __type?: "ListResolverEndpointIpAddressesResponse";
   /**
-   * <p>The IP addresses that DNS queries pass through on their way to your network (outbound endpoint) or on the way to
-   * 			Resolver (inbound endpoint).</p>
-   */
-  IpAddresses?: IpAddressResponse[];
-
-  /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
    */
   MaxResults?: number;
@@ -777,6 +772,12 @@ export interface ListResolverEndpointIpAddressesResponse {
    * 			specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The IP addresses that DNS queries pass through on their way to your network (outbound endpoint) or on the way to
+   * 			Resolver (inbound endpoint).</p>
+   */
+  IpAddresses?: IpAddressResponse[];
 }
 
 export namespace ListResolverEndpointIpAddressesResponse {
@@ -822,9 +823,9 @@ export namespace ListResolverEndpointsRequest {
 export interface ListResolverEndpointsResponse {
   __type?: "ListResolverEndpointsResponse";
   /**
-   * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
+   * <p>The resolver endpoints that were created by using the current AWS account, and that match the specified filters, if any.</p>
    */
-  MaxResults?: number;
+  ResolverEndpoints?: ResolverEndpoint[];
 
   /**
    * <p>If more than <code>MaxResults</code> IP addresses match the specified criteria, you can submit another <code>ListResolverEndpoint</code> request
@@ -833,9 +834,9 @@ export interface ListResolverEndpointsResponse {
   NextToken?: string;
 
   /**
-   * <p>The resolver endpoints that were created by using the current AWS account, and that match the specified filters, if any.</p>
+   * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
    */
-  ResolverEndpoints?: ResolverEndpoint[];
+  MaxResults?: number;
 }
 
 export namespace ListResolverEndpointsResponse {
@@ -857,17 +858,17 @@ export interface ListResolverRuleAssociationsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request.
-   * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule associations. </p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>For the first <code>ListResolverRuleAssociation</code> request, omit this value.</p>
    * 		       <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request
    * 			to get the next group of rule associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request.
+   * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule associations. </p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListResolverRuleAssociationsRequest {
@@ -881,16 +882,16 @@ export namespace ListResolverRuleAssociationsRequest {
 export interface ListResolverRuleAssociationsResponse {
   __type?: "ListResolverRuleAssociationsResponse";
   /**
-   * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>If more than <code>MaxResults</code> rule associations match the specified criteria, you can submit another
    * 			<code>ListResolverRuleAssociation</code> request to get the next group of results. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The associations that were created between resolver rules and VPCs using the current AWS account, and that match the
@@ -910,15 +911,6 @@ export namespace ListResolverRuleAssociationsResponse {
 export interface ListResolverRulesRequest {
   __type?: "ListResolverRulesRequest";
   /**
-   * <p>An optional specification to return a subset of resolver rules, such as all resolver rules that are associated with the same resolver endpoint.</p>
-   * 		       <note>
-   *             <p>If you submit a second or subsequent <code>ListResolverRules</code> request and specify the <code>NextToken</code> parameter,
-   * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
-   *          </note>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>The maximum number of resolver rules that you want to return in the response to a <code>ListResolverRules</code> request.
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 resolver rules.</p>
    */
@@ -930,6 +922,15 @@ export interface ListResolverRulesRequest {
    * 			to get the next group of resolver rules. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An optional specification to return a subset of resolver rules, such as all resolver rules that are associated with the same resolver endpoint.</p>
+   * 		       <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverRules</code> request and specify the <code>NextToken</code> parameter,
+   * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
+   *          </note>
+   */
+  Filters?: Filter[];
 }
 
 export namespace ListResolverRulesRequest {
@@ -942,11 +943,6 @@ export namespace ListResolverRulesRequest {
 export interface ListResolverRulesResponse {
   __type?: "ListResolverRulesResponse";
   /**
-   * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>If more than <code>MaxResults</code> resolver rules match the specified criteria, you can submit another
    * 			<code>ListResolverRules</code> request to get the next group of results. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
@@ -957,6 +953,11 @@ export interface ListResolverRulesResponse {
    * <p>The resolver rules that were created using the current AWS account and that match the specified filters, if any.</p>
    */
   ResolverRules?: ResolverRule[];
+
+  /**
+   * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListResolverRulesResponse {
@@ -1019,14 +1020,14 @@ export namespace ListTagsForResourceResponse {
 export interface PutResolverRulePolicyRequest {
   __type?: "PutResolverRulePolicyRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the account that you want to grant permissions to.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>An AWS Identity and Access Management policy statement that lists the permissions that you want to grant to another AWS account.</p>
    */
   ResolverRulePolicy: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the account that you want to grant permissions to.</p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace PutResolverRulePolicyRequest {
@@ -1062,20 +1063,30 @@ export namespace PutResolverRulePolicyResponse {
 export interface ResolverEndpoint {
   __type?: "ResolverEndpoint";
   /**
-   * <p>The ARN (Amazon Resource Name) for the resolver endpoint.</p>
+   * <p>The ID of the resolver endpoint.</p>
    */
-  Arn?: string;
+  Id?: string;
 
   /**
-   * <p>The date and time that the endpoint was created, in Unix time format and Coordinated Universal Time (UTC).</p>
+   * <p>A detailed description of the status of the resolver endpoint.</p>
    */
-  CreationTime?: string;
+  StatusMessage?: string;
 
   /**
    * <p>A unique string that identifies the request that created the resolver endpoint. The <code>CreatorRequestId</code> allows failed requests
    * 			to be retried without the risk of executing the operation twice.</p>
    */
   CreatorRequestId?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) for the resolver endpoint.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the VPC that you want to create the resolver endpoint in.</p>
+   */
+  HostVPCId?: string;
 
   /**
    * <p>Indicates whether the resolver endpoint allows inbound or outbound DNS queries:</p>
@@ -1093,24 +1104,9 @@ export interface ResolverEndpoint {
   Direction?: ResolverEndpointDirection | string;
 
   /**
-   * <p>The ID of the VPC that you want to create the resolver endpoint in.</p>
+   * <p>The date and time that the endpoint was created, in Unix time format and Coordinated Universal Time (UTC).</p>
    */
-  HostVPCId?: string;
-
-  /**
-   * <p>The ID of the resolver endpoint.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The number of IP addresses that the resolver endpoint can use for DNS queries.</p>
-   */
-  IpAddressCount?: number;
-
-  /**
-   * <p>The date and time that the endpoint was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
-   */
-  ModificationTime?: string;
+  CreationTime?: string;
 
   /**
    * <p>The name that you assigned to the resolver endpoint when you submitted a <a>CreateResolverEndpoint</a> request.</p>
@@ -1118,19 +1114,24 @@ export interface ResolverEndpoint {
   Name?: string;
 
   /**
+   * <p>The date and time that the endpoint was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
+   */
+  ModificationTime?: string;
+
+  /**
    * <p>The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound resolver rules.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
+   * <p>The number of IP addresses that the resolver endpoint can use for DNS queries.</p>
+   */
+  IpAddressCount?: number;
+
+  /**
    * <p>A code that specifies the current status of the resolver endpoint.</p>
    */
   Status?: ResolverEndpointStatus | string;
-
-  /**
-   * <p>A detailed description of the status of the resolver endpoint.</p>
-   */
-  StatusMessage?: string;
 }
 
 export namespace ResolverEndpoint {
@@ -1163,15 +1164,14 @@ export enum ResolverEndpointStatus {
 export interface ResolverRule {
   __type?: "ResolverRule";
   /**
-   * <p>The ARN (Amazon Resource Name) for the resolver rule specified by <code>Id</code>.</p>
+   * <p>The ID of the endpoint that the rule is associated with.</p>
    */
-  Arn?: string;
+  ResolverEndpointId?: string;
 
   /**
-   * <p>A unique string that you specified when you created the resolver rule. <code>CreatorRequestId</code>identifies the request and allows failed requests
-   * 			to be retried without the risk of executing the operation twice. </p>
+   * <p>When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.</p>
    */
-  CreatorRequestId?: string;
+  OwnerId?: string;
 
   /**
    * <p>DNS queries for this domain name are forwarded to the IP addresses that are specified in <code>TargetIps</code>. If a query matches
@@ -1181,29 +1181,14 @@ export interface ResolverRule {
   DomainName?: string;
 
   /**
+   * <p>The ARN (Amazon Resource Name) for the resolver rule specified by <code>Id</code>.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The ID that Resolver assigned to the resolver rule when you created it.</p>
    */
   Id?: string;
-
-  /**
-   * <p>The name for the resolver rule, which you specified when you created the resolver rule.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The ID of the endpoint that the rule is associated with.</p>
-   */
-  ResolverEndpointId?: string;
-
-  /**
-   * <p>This value is always <code>FORWARD</code>. Other resolver rule types aren't supported.</p>
-   */
-  RuleType?: RuleTypeOption | string;
 
   /**
    * <p>Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or
@@ -1212,9 +1197,15 @@ export interface ResolverRule {
   ShareStatus?: ShareStatus | string;
 
   /**
-   * <p>A code that specifies the current status of the resolver rule.</p>
+   * <p>This value is always <code>FORWARD</code>. Other resolver rule types aren't supported.</p>
    */
-  Status?: ResolverRuleStatus | string;
+  RuleType?: RuleTypeOption | string;
+
+  /**
+   * <p>A unique string that you specified when you created the resolver rule. <code>CreatorRequestId</code>identifies the request and allows failed requests
+   * 			to be retried without the risk of executing the operation twice. </p>
+   */
+  CreatorRequestId?: string;
 
   /**
    * <p>A detailed description of the status of a resolver rule.</p>
@@ -1225,6 +1216,16 @@ export interface ResolverRule {
    * <p>An array that contains the IP addresses and ports that you want to forward </p>
    */
   TargetIps?: TargetAddress[];
+
+  /**
+   * <p>The name for the resolver rule, which you specified when you created the resolver rule.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A code that specifies the current status of the resolver rule.</p>
+   */
+  Status?: ResolverRuleStatus | string;
 }
 
 export namespace ResolverRule {
@@ -1242,25 +1243,9 @@ export namespace ResolverRule {
 export interface ResolverRuleAssociation {
   __type?: "ResolverRuleAssociation";
   /**
-   * <p>The ID of the association between a resolver rule and a VPC. Resolver assigns this value when you submit an
-   * 			<a>AssociateResolverRule</a> request.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The name of an association between a resolver rule and a VPC.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The ID of the resolver rule that you associated with the VPC that is specified by <code>VPCId</code>.</p>
-   */
-  ResolverRuleId?: string;
-
-  /**
-   * <p>A code that specifies the current status of the association between a resolver rule and a VPC.</p>
-   */
-  Status?: ResolverRuleAssociationStatus | string;
 
   /**
    * <p>A detailed description of the status of the association between a resolver rule and a VPC.</p>
@@ -1268,9 +1253,25 @@ export interface ResolverRuleAssociation {
   StatusMessage?: string;
 
   /**
+   * <p>The ID of the association between a resolver rule and a VPC. Resolver assigns this value when you submit an
+   * 			<a>AssociateResolverRule</a> request.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>The ID of the VPC that you associated the resolver rule with.</p>
    */
   VPCId?: string;
+
+  /**
+   * <p>A code that specifies the current status of the association between a resolver rule and a VPC.</p>
+   */
+  Status?: ResolverRuleAssociationStatus | string;
+
+  /**
+   * <p>The ID of the resolver rule that you associated with the VPC that is specified by <code>VPCId</code>.</p>
+   */
+  ResolverRuleId?: string;
 }
 
 export namespace ResolverRuleAssociation {
@@ -1294,11 +1295,6 @@ export enum ResolverRuleAssociationStatus {
 export interface ResolverRuleConfig {
   __type?: "ResolverRuleConfig";
   /**
-   * <p>The new name for the resolver rule. The name that you specify appears in the Resolver dashboard in the Route 53 console. </p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ID of the new outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify in
    * 			<code>TargetIps</code>.</p>
    */
@@ -1308,6 +1304,11 @@ export interface ResolverRuleConfig {
    * <p>For DNS queries that originate in your VPC, the new IP addresses that you want to route outbound DNS queries to.</p>
    */
   TargetIps?: TargetAddress[];
+
+  /**
+   * <p>The new name for the resolver rule. The name that you specify appears in the Resolver dashboard in the Route 53 console. </p>
+   */
+  Name?: string;
 }
 
 export namespace ResolverRuleConfig {
@@ -1422,16 +1423,16 @@ export enum ShareStatus {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes,
-   * 			the value of <code>Key</code> might be <code>account-id</code>.</p>
-   */
-  Key?: string;
-
-  /**
    * <p>The value for the tag. For example, if <code>Key</code> is <code>account-id</code>, then <code>Value</code> might be the ID of the
    * 			customer account that you're creating the resource for.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes,
+   * 			the value of <code>Key</code> might be <code>account-id</code>.</p>
+   */
+  Key?: string;
 }
 
 export namespace Tag {
@@ -1627,14 +1628,14 @@ export namespace UntagResourceResponse {
 export interface UpdateResolverEndpointRequest {
   __type?: "UpdateResolverEndpointRequest";
   /**
-   * <p>The name of the resolver endpoint that you want to update.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ID of the resolver endpoint that you want to update.</p>
    */
   ResolverEndpointId: string | undefined;
+
+  /**
+   * <p>The name of the resolver endpoint that you want to update.</p>
+   */
+  Name?: string;
 }
 
 export namespace UpdateResolverEndpointRequest {
@@ -1662,14 +1663,14 @@ export namespace UpdateResolverEndpointResponse {
 export interface UpdateResolverRuleRequest {
   __type?: "UpdateResolverRuleRequest";
   /**
-   * <p>The new settings for the resolver rule.</p>
-   */
-  Config: ResolverRuleConfig | undefined;
-
-  /**
    * <p>The ID of the resolver rule that you want to update.</p>
    */
   ResolverRuleId: string | undefined;
+
+  /**
+   * <p>The new settings for the resolver rule.</p>
+   */
+  Config: ResolverRuleConfig | undefined;
 }
 
 export namespace UpdateResolverRuleRequest {

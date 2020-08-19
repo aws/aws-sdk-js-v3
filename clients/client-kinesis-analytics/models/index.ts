@@ -44,16 +44,14 @@ export namespace AddApplicationCloudWatchLoggingOptionResponse {
 export interface AddApplicationInputProcessingConfigurationRequest {
   __type?: "AddApplicationInputProcessingConfigurationRequest";
   /**
+   * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to add to the application.</p>
+   */
+  InputProcessingConfiguration: InputProcessingConfiguration | undefined;
+
+  /**
    * <p>Name of the application to which you want to add the input processing configuration.</p>
    */
   ApplicationName: string | undefined;
-
-  /**
-   * <p>Version of the application to which you want to add the input processing configuration. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
-   *             operation to get the current application version.  If the version specified is not the current version, the
-   *             <code>ConcurrentModificationException</code> is returned.</p>
-   */
-  CurrentApplicationVersionId: number | undefined;
 
   /**
    * <p>The ID of the input configuration to add the input processing configuration to. You
@@ -62,9 +60,11 @@ export interface AddApplicationInputProcessingConfigurationRequest {
   InputId: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to add to the application.</p>
+   * <p>Version of the application to which you want to add the input processing configuration. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+   *             operation to get the current application version.  If the version specified is not the current version, the
+   *             <code>ConcurrentModificationException</code> is returned.</p>
    */
-  InputProcessingConfiguration: InputProcessingConfiguration | undefined;
+  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace AddApplicationInputProcessingConfigurationRequest {
@@ -93,11 +93,6 @@ export namespace AddApplicationInputProcessingConfigurationResponse {
 export interface AddApplicationInputRequest {
   __type?: "AddApplicationInputRequest";
   /**
-   * <p>Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Current version of your Amazon Kinesis Analytics application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation
    *             to find the current application version.</p>
    */
@@ -107,6 +102,11 @@ export interface AddApplicationInputRequest {
    * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Input.html">Input</a> to add.</p>
    */
   Input: Input | undefined;
+
+  /**
+   * <p>Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace AddApplicationInputRequest {
@@ -136,6 +136,14 @@ export namespace AddApplicationInputResponse {
 export interface AddApplicationOutputRequest {
   __type?: "AddApplicationOutputRequest";
   /**
+   * <p>An array of objects, each describing one output configuration. In the output
+   *             configuration, you specify the name of an in-application stream, a destination (that is,
+   *             an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS Lambda
+   *             function), and record the formation to use when writing to the destination.</p>
+   */
+  Output: Output | undefined;
+
+  /**
    * <p>Name of the application to which you want to add the output configuration.</p>
    */
   ApplicationName: string | undefined;
@@ -147,14 +155,6 @@ export interface AddApplicationOutputRequest {
    *                 <code>ConcurrentModificationException</code> is returned. </p>
    */
   CurrentApplicationVersionId: number | undefined;
-
-  /**
-   * <p>An array of objects, each describing one output configuration. In the output
-   *             configuration, you specify the name of an in-application stream, a destination (that is,
-   *             an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS Lambda
-   *             function), and record the formation to use when writing to the destination.</p>
-   */
-  Output: Output | undefined;
 }
 
 export namespace AddApplicationOutputRequest {
@@ -184,6 +184,11 @@ export namespace AddApplicationOutputResponse {
 export interface AddApplicationReferenceDataSourceRequest {
   __type?: "AddApplicationReferenceDataSourceRequest";
   /**
+   * <p>The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.</p>
+   */
+  ReferenceDataSource: ReferenceDataSource | undefined;
+
+  /**
    * <p>Name of an existing application.</p>
    */
   ApplicationName: string | undefined;
@@ -195,11 +200,6 @@ export interface AddApplicationReferenceDataSourceRequest {
    *             <code>ConcurrentModificationException</code> is returned.</p>
    */
   CurrentApplicationVersionId: number | undefined;
-
-  /**
-   * <p>The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.</p>
-   */
-  ReferenceDataSource: ReferenceDataSource | undefined;
 }
 
 export namespace AddApplicationReferenceDataSourceRequest {
@@ -234,61 +234,14 @@ export namespace AddApplicationReferenceDataSourceResponse {
 export interface ApplicationDetail {
   __type?: "ApplicationDetail";
   /**
-   * <p>ARN of the application.</p>
-   */
-  ApplicationARN: string | undefined;
-
-  /**
-   * <p>Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.</p>
-   */
-  ApplicationCode?: string;
-
-  /**
-   * <p>Description of the application.</p>
-   */
-  ApplicationDescription?: string;
-
-  /**
-   * <p>Name of the application.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
-   * <p>Status of the application.</p>
-   */
-  ApplicationStatus: ApplicationStatus | string | undefined;
-
-  /**
-   * <p>Provides the current application version.</p>
-   */
-  ApplicationVersionId: number | undefined;
-
-  /**
-   * <p>Describes the CloudWatch log streams that are configured to receive application
-   *             messages. For more information about using CloudWatch log streams with Amazon Kinesis
-   *             Analytics applications, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
-   *                 CloudWatch Logs</a>. </p>
-   */
-  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
-
-  /**
-   * <p>Time stamp when the application version was created.</p>
-   */
-  CreateTimestamp?: Date;
-
-  /**
-   * <p>Describes the application input configuration.
+   * <p>Describes reference data sources configured for the application.
+   *
    *             For more information,
    *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
    *
    *         </p>
    */
-  InputDescriptions?: InputDescription[];
-
-  /**
-   * <p>Time stamp when the application was last updated.</p>
-   */
-  LastUpdateTimestamp?: Date;
+  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
 
   /**
    * <p>Describes the application output configuration.
@@ -300,14 +253,61 @@ export interface ApplicationDetail {
   OutputDescriptions?: OutputDescription[];
 
   /**
-   * <p>Describes reference data sources configured for the application.
-   *
+   * <p>Describes the CloudWatch log streams that are configured to receive application
+   *             messages. For more information about using CloudWatch log streams with Amazon Kinesis
+   *             Analytics applications, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
+   *                 CloudWatch Logs</a>. </p>
+   */
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
+
+  /**
+   * <p>Status of the application.</p>
+   */
+  ApplicationStatus: ApplicationStatus | string | undefined;
+
+  /**
+   * <p>Name of the application.</p>
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>ARN of the application.</p>
+   */
+  ApplicationARN: string | undefined;
+
+  /**
+   * <p>Time stamp when the application version was created.</p>
+   */
+  CreateTimestamp?: Date;
+
+  /**
+   * <p>Description of the application.</p>
+   */
+  ApplicationDescription?: string;
+
+  /**
+   * <p>Time stamp when the application was last updated.</p>
+   */
+  LastUpdateTimestamp?: Date;
+
+  /**
+   * <p>Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.</p>
+   */
+  ApplicationCode?: string;
+
+  /**
+   * <p>Provides the current application version.</p>
+   */
+  ApplicationVersionId: number | undefined;
+
+  /**
+   * <p>Describes the application input configuration.
    *             For more information,
    *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
    *
    *         </p>
    */
-  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
+  InputDescriptions?: InputDescription[];
 }
 
 export namespace ApplicationDetail {
@@ -335,11 +335,6 @@ export enum ApplicationStatus {
 export interface ApplicationSummary {
   __type?: "ApplicationSummary";
   /**
-   * <p>ARN of the application.</p>
-   */
-  ApplicationARN: string | undefined;
-
-  /**
    * <p>Name of the application.</p>
    */
   ApplicationName: string | undefined;
@@ -348,6 +343,11 @@ export interface ApplicationSummary {
    * <p>Status of the application.</p>
    */
   ApplicationStatus: ApplicationStatus | string | undefined;
+
+  /**
+   * <p>ARN of the application.</p>
+   */
+  ApplicationARN: string | undefined;
 }
 
 export namespace ApplicationSummary {
@@ -363,9 +363,19 @@ export namespace ApplicationSummary {
 export interface ApplicationUpdate {
   __type?: "ApplicationUpdate";
   /**
+   * <p>Describes application output configuration updates.</p>
+   */
+  OutputUpdates?: OutputUpdate[];
+
+  /**
    * <p>Describes application code updates.</p>
    */
   ApplicationCodeUpdate?: string;
+
+  /**
+   * <p>Describes application reference data source updates.</p>
+   */
+  ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[];
 
   /**
    * <p>Describes application CloudWatch logging option updates.</p>
@@ -376,16 +386,6 @@ export interface ApplicationUpdate {
    * <p>Describes application input configuration updates.</p>
    */
   InputUpdates?: InputUpdate[];
-
-  /**
-   * <p>Describes application output configuration updates.</p>
-   */
-  OutputUpdates?: OutputUpdate[];
-
-  /**
-   * <p>Describes application reference data source updates.</p>
-   */
-  ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[];
 }
 
 export namespace ApplicationUpdate {
@@ -402,16 +402,16 @@ export namespace ApplicationUpdate {
 export interface CloudWatchLoggingOption {
   __type?: "CloudWatchLoggingOption";
   /**
-   * <p>ARN of the CloudWatch log to receive application messages.</p>
-   */
-  LogStreamARN: string | undefined;
-
-  /**
    * <p>IAM ARN of the role to use to send application messages. Note: To write application
    *             messages to CloudWatch, the IAM role that is used must have the
    *             <code>PutLogEvents</code> policy action enabled.</p>
    */
   RoleARN: string | undefined;
+
+  /**
+   * <p>ARN of the CloudWatch log to receive application messages.</p>
+   */
+  LogStreamARN: string | undefined;
 }
 
 export namespace CloudWatchLoggingOption {
@@ -427,9 +427,9 @@ export namespace CloudWatchLoggingOption {
 export interface CloudWatchLoggingOptionDescription {
   __type?: "CloudWatchLoggingOptionDescription";
   /**
-   * <p>ID of the CloudWatch logging option description.</p>
+   * <p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>
    */
-  CloudWatchLoggingOptionId?: string;
+  RoleARN: string | undefined;
 
   /**
    * <p>ARN of the CloudWatch log to receive application messages.</p>
@@ -437,9 +437,9 @@ export interface CloudWatchLoggingOptionDescription {
   LogStreamARN: string | undefined;
 
   /**
-   * <p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>
+   * <p>ID of the CloudWatch logging option description.</p>
    */
-  RoleARN: string | undefined;
+  CloudWatchLoggingOptionId?: string;
 }
 
 export namespace CloudWatchLoggingOptionDescription {
@@ -522,42 +522,22 @@ export namespace ConcurrentModificationException {
 export interface CreateApplicationRequest {
   __type?: "CreateApplicationRequest";
   /**
-   * <p>One or more SQL statements that read input data, transform it, and generate output.
-   *             For example, you can write a SQL statement that reads data from one in-application
-   *             stream, generates a running average of the number of advertisement clicks by vendor, and
-   *             insert resulting rows in another in-application stream using pumps. For more information
-   *             about the typical pattern, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html">Application
-   *                 Code</a>. </p>
-   *
-   *         <p>You can provide such series of SQL statements,
-   *             where output of one statement can be
-   *             used as the input for the next statement. You store
-   *             intermediate results by creating in-application streams and pumps.</p>
-   *
-   *         <p>Note that the application code must create the streams with names
-   *             specified in the <code>Outputs</code>. For example,
-   *             if your <code>Outputs</code> defines output streams named
-   *             <code>ExampleOutputStream1</code> and <code>ExampleOutputStream2</code>,
-   *             then your application code must create these streams. </p>
-   */
-  ApplicationCode?: string;
-
-  /**
-   * <p>Summary description of the application.</p>
-   */
-  ApplicationDescription?: string;
-
-  /**
-   * <p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Use this parameter to configure a CloudWatch log stream to monitor application
    *             configuration errors. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
    *                 CloudWatch Logs</a>.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOption[];
+
+  /**
+   * <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+   *         For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Summary description of the application.</p>
+   */
+  ApplicationDescription?: string;
 
   /**
    * <p>Use this parameter to configure the application input.</p>
@@ -582,10 +562,30 @@ export interface CreateApplicationRequest {
   Outputs?: Output[];
 
   /**
-   * <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-   *         For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
+   * <p>One or more SQL statements that read input data, transform it, and generate output.
+   *             For example, you can write a SQL statement that reads data from one in-application
+   *             stream, generates a running average of the number of advertisement clicks by vendor, and
+   *             insert resulting rows in another in-application stream using pumps. For more information
+   *             about the typical pattern, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html">Application
+   *                 Code</a>. </p>
+   *
+   *         <p>You can provide such series of SQL statements,
+   *             where output of one statement can be
+   *             used as the input for the next statement. You store
+   *             intermediate results by creating in-application streams and pumps.</p>
+   *
+   *         <p>Note that the application code must create the streams with names
+   *             specified in the <code>Outputs</code>. For example,
+   *             if your <code>Outputs</code> defines output streams named
+   *             <code>ExampleOutputStream1</code> and <code>ExampleOutputStream2</code>,
+   *             then your application code must create these streams. </p>
    */
-  Tags?: Tag[];
+  ApplicationCode?: string;
+
+  /**
+   * <p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace CreateApplicationRequest {
@@ -631,14 +631,14 @@ export namespace CreateApplicationResponse {
 export interface CSVMappingParameters {
   __type?: "CSVMappingParameters";
   /**
-   * <p>Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.</p>
-   */
-  RecordColumnDelimiter: string | undefined;
-
-  /**
    * <p>Row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.</p>
    */
   RecordRowDelimiter: string | undefined;
+
+  /**
+   * <p>Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.</p>
+   */
+  RecordColumnDelimiter: string | undefined;
 }
 
 export namespace CSVMappingParameters {
@@ -651,6 +651,11 @@ export namespace CSVMappingParameters {
 export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   __type?: "DeleteApplicationCloudWatchLoggingOptionRequest";
   /**
+   * <p>The version ID of the Kinesis Analytics application.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+
+  /**
    * <p>The Kinesis Analytics application name.</p>
    */
   ApplicationName: string | undefined;
@@ -660,11 +665,6 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
    *             delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation. </p>
    */
   CloudWatchLoggingOptionId: string | undefined;
-
-  /**
-   * <p>The version ID of the Kinesis Analytics application.</p>
-   */
-  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
@@ -690,11 +690,6 @@ export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
 export interface DeleteApplicationInputProcessingConfigurationRequest {
   __type?: "DeleteApplicationInputProcessingConfigurationRequest";
   /**
-   * <p>The Kinesis Analytics application name.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>The version ID of the Kinesis Analytics application.</p>
    */
   CurrentApplicationVersionId: number | undefined;
@@ -704,6 +699,11 @@ export interface DeleteApplicationInputProcessingConfigurationRequest {
    *             configuration. You can get a list of the input IDs for an application by using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation.</p>
    */
   InputId: string | undefined;
+
+  /**
+   * <p>The Kinesis Analytics application name.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationRequest {
@@ -732,11 +732,6 @@ export namespace DeleteApplicationInputProcessingConfigurationResponse {
 export interface DeleteApplicationOutputRequest {
   __type?: "DeleteApplicationOutputRequest";
   /**
-   * <p>Amazon Kinesis Analytics application name.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Amazon Kinesis Analytics application version.
    *             You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version.
    *             If the version specified is not the current version, the
@@ -744,6 +739,11 @@ export interface DeleteApplicationOutputRequest {
    *         </p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>Amazon Kinesis Analytics application name.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>The ID of the configuration to delete.
@@ -782,17 +782,17 @@ export namespace DeleteApplicationOutputResponse {
 export interface DeleteApplicationReferenceDataSourceRequest {
   __type?: "DeleteApplicationReferenceDataSourceRequest";
   /**
-   * <p>Name of an existing application.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Version of the application.
    *             You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version.
    *             If the version specified
    *             is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>Name of an existing application.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>ID of the reference data source. When you add a reference data source to your
@@ -925,19 +925,9 @@ export namespace DestinationSchema {
 export interface DiscoverInputSchemaRequest {
   __type?: "DiscoverInputSchemaRequest";
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>
-   */
-  InputProcessingConfiguration?: InputProcessingConfiguration;
-
-  /**
    * <p>Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.</p>
    */
   InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the streaming source.</p>
-   */
-  ResourceARN?: string;
 
   /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.</p>
@@ -945,10 +935,20 @@ export interface DiscoverInputSchemaRequest {
   RoleARN?: string;
 
   /**
+   * <p>Amazon Resource Name (ARN) of the streaming source.</p>
+   */
+  ResourceARN?: string;
+
+  /**
    * <p>Specify this parameter to discover a schema from data in an Amazon S3
    *             object.</p>
    */
   S3Configuration?: S3Configuration;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>
+   */
+  InputProcessingConfiguration?: InputProcessingConfiguration;
 }
 
 export namespace DiscoverInputSchemaRequest {
@@ -964,6 +964,11 @@ export namespace DiscoverInputSchemaRequest {
 export interface DiscoverInputSchemaResponse {
   __type?: "DiscoverInputSchemaResponse";
   /**
+   * <p>Raw stream data that was sampled to infer the schema.</p>
+   */
+  RawInputRecords?: string[];
+
+  /**
    * <p>Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.</p>
    */
   InputSchema?: SourceSchema;
@@ -977,11 +982,6 @@ export interface DiscoverInputSchemaResponse {
    * <p>Stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter.</p>
    */
   ProcessedInputRecords?: string[];
-
-  /**
-   * <p>Raw stream data that was sampled to infer the schema.</p>
-   */
-  RawInputRecords?: string[];
 }
 
 export namespace DiscoverInputSchemaResponse {
@@ -1000,13 +1000,6 @@ export namespace DiscoverInputSchemaResponse {
 export interface Input {
   __type?: "Input";
   /**
-   * <p>Describes the number of in-application streams to create. </p>
-   *          <p>Data from your source is routed to these in-application input streams.</p>
-   *         <p>    (see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.</p>
-   */
-  InputParallelism?: InputParallelism;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> for the input. An input
    *             processor transforms records as they are received from the stream, before the
    *             application's SQL code executes. Currently, the only input processing configuration
@@ -1019,6 +1012,13 @@ export interface Input {
    *         <p>Also used to describe the format of the reference data source.</p>
    */
   InputSchema: SourceSchema | undefined;
+
+  /**
+   * <p>Describes the number of in-application streams to create. </p>
+   *          <p>Data from your source is routed to these in-application input streams.</p>
+   *         <p>    (see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.</p>
+   */
+  InputParallelism?: InputParallelism;
 
   /**
    * <p>If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies
@@ -1060,16 +1060,16 @@ export namespace Input {
 export interface InputConfiguration {
   __type?: "InputConfiguration";
   /**
-   * <p>Input source ID. You can get this ID by calling
-   *             the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>Point at which you want the application to start processing
    *             records from the streaming source.</p>
    */
   InputStartingPositionConfiguration: InputStartingPositionConfiguration | undefined;
+
+  /**
+   * <p>Input source ID. You can get this ID by calling
+   *             the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace InputConfiguration {
@@ -1088,17 +1088,20 @@ export namespace InputConfiguration {
 export interface InputDescription {
   __type?: "InputDescription";
   /**
+   * <p>In-application name prefix.</p>
+   */
+  NamePrefix?: string;
+
+  /**
+   * <p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>
+   */
+  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
+
+  /**
    * <p>Returns the in-application stream names that are mapped to the
    *             stream source.</p>
    */
   InAppStreamNames?: string[];
-
-  /**
-   * <p>Input ID associated with the application input.
-   *             This is the ID that Amazon Kinesis Analytics assigns to each
-   *             input configuration you add to your application. </p>
-   */
-  InputId?: string;
 
   /**
    * <p>Describes the configured parallelism (number of in-application streams
@@ -1107,27 +1110,9 @@ export interface InputDescription {
   InputParallelism?: InputParallelism;
 
   /**
-   * <p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>
-   */
-  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
-
-  /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding
-   *             columns in the in-application stream that is being created. </p>
-   */
-  InputSchema?: SourceSchema;
-
-  /**
    * <p>Point at which the application is configured to read from the input stream.</p>
    */
   InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
-
-  /**
-   * <p>If an Amazon Kinesis Firehose delivery stream is configured as a streaming source,
-   *             provides the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics
-   *             to access the stream on your behalf.</p>
-   */
-  KinesisFirehoseInputDescription?: KinesisFirehoseInputDescription;
 
   /**
    * <p>If an Amazon Kinesis stream is configured as streaming source, provides Amazon
@@ -1137,9 +1122,24 @@ export interface InputDescription {
   KinesisStreamsInputDescription?: KinesisStreamsInputDescription;
 
   /**
-   * <p>In-application name prefix.</p>
+   * <p>Input ID associated with the application input.
+   *             This is the ID that Amazon Kinesis Analytics assigns to each
+   *             input configuration you add to your application. </p>
    */
-  NamePrefix?: string;
+  InputId?: string;
+
+  /**
+   * <p>If an Amazon Kinesis Firehose delivery stream is configured as a streaming source,
+   *             provides the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics
+   *             to access the stream on your behalf.</p>
+   */
+  KinesisFirehoseInputDescription?: KinesisFirehoseInputDescription;
+
+  /**
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding
+   *             columns in the in-application stream that is being created. </p>
+   */
+  InputSchema?: SourceSchema;
 }
 
 export namespace InputDescription {
@@ -1157,6 +1157,11 @@ export namespace InputDescription {
 export interface InputLambdaProcessor {
   __type?: "InputLambdaProcessor";
   /**
+   * <p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
    * <p>The ARN of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that operates
    *             on records in the stream.</p>
    *             <note>
@@ -1165,11 +1170,6 @@ export interface InputLambdaProcessor {
    *          </note>
    */
   ResourceARN: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>
-   */
-  RoleARN: string | undefined;
 }
 
 export namespace InputLambdaProcessor {
@@ -1187,14 +1187,14 @@ export namespace InputLambdaProcessor {
 export interface InputLambdaProcessorDescription {
   __type?: "InputLambdaProcessorDescription";
   /**
-   * <p>The ARN of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that is used to preprocess the records in the stream.</p>
-   */
-  ResourceARN?: string;
-
-  /**
    * <p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>
    */
   RoleARN?: string;
+
+  /**
+   * <p>The ARN of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that is used to preprocess the records in the stream.</p>
+   */
+  ResourceARN?: string;
 }
 
 export namespace InputLambdaProcessorDescription {
@@ -1342,12 +1342,6 @@ export namespace InputProcessingConfigurationUpdate {
 export interface InputSchemaUpdate {
   __type?: "InputSchemaUpdate";
   /**
-   * <p>A list of <code>RecordColumn</code> objects. Each object describes the mapping
-   *             of the streaming source element to the corresponding column in the in-application stream. </p>
-   */
-  RecordColumnUpdates?: RecordColumn[];
-
-  /**
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
    */
   RecordEncodingUpdate?: string;
@@ -1356,6 +1350,12 @@ export interface InputSchemaUpdate {
    * <p>Specifies the format of the records on the streaming source.</p>
    */
   RecordFormatUpdate?: RecordFormat;
+
+  /**
+   * <p>A list of <code>RecordColumn</code> objects. Each object describes the mapping
+   *             of the streaming source element to the corresponding column in the in-application stream. </p>
+   */
+  RecordColumnUpdates?: RecordColumn[];
 }
 
 export namespace InputSchemaUpdate {
@@ -1422,6 +1422,24 @@ export interface InputUpdate {
   InputId: string | undefined;
 
   /**
+   * <p>If an Amazon Kinesis stream is the streaming source to be updated, provides an
+   *             updated stream Amazon Resource Name (ARN) and IAM role ARN.</p>
+   */
+  KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
+
+  /**
+   * <p>Name prefix for in-application streams that Amazon Kinesis Analytics creates
+   *             for the specific streaming source.</p>
+   */
+  NamePrefixUpdate?: string;
+
+  /**
+   * <p>If an Amazon Kinesis Firehose delivery stream is the streaming source to be
+   *             updated, provides an updated stream ARN and IAM role ARN.</p>
+   */
+  KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate;
+
+  /**
    * <p>Describes the parallelism updates (the number in-application
    *             streams Amazon Kinesis Analytics creates for the specific streaming source).</p>
    */
@@ -1437,24 +1455,6 @@ export interface InputUpdate {
    *             how record elements on the streaming source map to columns of the in-application stream that is created.</p>
    */
   InputSchemaUpdate?: InputSchemaUpdate;
-
-  /**
-   * <p>If an Amazon Kinesis Firehose delivery stream is the streaming source to be
-   *             updated, provides an updated stream ARN and IAM role ARN.</p>
-   */
-  KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate;
-
-  /**
-   * <p>If an Amazon Kinesis stream is the streaming source to be updated, provides an
-   *             updated stream Amazon Resource Name (ARN) and IAM role ARN.</p>
-   */
-  KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
-
-  /**
-   * <p>Name prefix for in-application streams that Amazon Kinesis Analytics creates
-   *             for the specific streaming source.</p>
-   */
-  NamePrefixUpdate?: string;
 }
 
 export namespace InputUpdate {
@@ -1529,16 +1529,16 @@ export namespace JSONMappingParameters {
 export interface KinesisFirehoseInput {
   __type?: "KinesisFirehoseInput";
   /**
-   * <p>ARN of the input delivery stream.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream
    *             on your behalf. You need to make sure that the role has the necessary permissions to
    *             access the stream.</p>
    */
   RoleARN: string | undefined;
+
+  /**
+   * <p>ARN of the input delivery stream.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace KinesisFirehoseInput {
@@ -1581,16 +1581,16 @@ export namespace KinesisFirehoseInputDescription {
 export interface KinesisFirehoseInputUpdate {
   __type?: "KinesisFirehoseInputUpdate";
   /**
-   * <p>Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to
-   *             read.</p>
-   */
-  ResourceARNUpdate?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream
    *             on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARNUpdate?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to
+   *             read.</p>
+   */
+  ResourceARNUpdate?: string;
 }
 
 export namespace KinesisFirehoseInputUpdate {
@@ -1609,14 +1609,14 @@ export namespace KinesisFirehoseInputUpdate {
 export interface KinesisFirehoseOutput {
   __type?: "KinesisFirehoseOutput";
   /**
-   * <p>ARN of the destination Amazon Kinesis Firehose delivery stream to write to.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARN: string | undefined;
+
+  /**
+   * <p>ARN of the destination Amazon Kinesis Firehose delivery stream to write to.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace KinesisFirehoseOutput {
@@ -1663,15 +1663,15 @@ export namespace KinesisFirehoseOutputDescription {
 export interface KinesisFirehoseOutputUpdate {
   __type?: "KinesisFirehoseOutputUpdate";
   /**
-   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream to write to.</p>
-   */
-  ResourceARNUpdate?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream
    *             on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARNUpdate?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream to write to.</p>
+   */
+  ResourceARNUpdate?: string;
 }
 
 export namespace KinesisFirehoseOutputUpdate {
@@ -1764,14 +1764,14 @@ export namespace KinesisStreamsInputUpdate {
 export interface KinesisStreamsOutput {
   __type?: "KinesisStreamsOutput";
   /**
-   * <p>ARN of the destination Amazon Kinesis stream to write to.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARN: string | undefined;
+
+  /**
+   * <p>ARN of the destination Amazon Kinesis stream to write to.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace KinesisStreamsOutput {
@@ -1790,14 +1790,14 @@ export namespace KinesisStreamsOutput {
 export interface KinesisStreamsOutputDescription {
   __type?: "KinesisStreamsOutputDescription";
   /**
-   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>
-   */
-  ResourceARN?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
    */
   RoleARN?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>
+   */
+  ResourceARN?: string;
 }
 
 export namespace KinesisStreamsOutputDescription {
@@ -1843,6 +1843,11 @@ export namespace KinesisStreamsOutputUpdate {
 export interface LambdaOutput {
   __type?: "LambdaOutput";
   /**
+   * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>
+   */
+  RoleARN: string | undefined;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the destination Lambda function to write
    *             to.</p>
    *         <note>
@@ -1851,11 +1856,6 @@ export interface LambdaOutput {
    *          </note>
    */
   ResourceARN: string | undefined;
-
-  /**
-   * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>
-   */
-  RoleARN: string | undefined;
 }
 
 export namespace LambdaOutput {
@@ -1872,14 +1872,14 @@ export namespace LambdaOutput {
 export interface LambdaOutputDescription {
   __type?: "LambdaOutputDescription";
   /**
-   * <p>Amazon Resource Name (ARN) of the destination Lambda function.</p>
-   */
-  ResourceARN?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.</p>
    */
   RoleARN?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the destination Lambda function.</p>
+   */
+  ResourceARN?: string;
 }
 
 export namespace LambdaOutputDescription {
@@ -1943,14 +1943,14 @@ export namespace LimitExceededException {
 export interface ListApplicationsRequest {
   __type?: "ListApplicationsRequest";
   /**
-   * <p>Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.</p>
-   */
-  ExclusiveStartApplicationName?: string;
-
-  /**
    * <p>Maximum number of applications to list.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.</p>
+   */
+  ExclusiveStartApplicationName?: string;
 }
 
 export namespace ListApplicationsRequest {
@@ -1966,14 +1966,14 @@ export namespace ListApplicationsRequest {
 export interface ListApplicationsResponse {
   __type?: "ListApplicationsResponse";
   /**
-   * <p>List of <code>ApplicationSummary</code> objects. </p>
-   */
-  ApplicationSummaries: ApplicationSummary[] | undefined;
-
-  /**
    * <p>Returns true if there are more applications to retrieve.</p>
    */
   HasMoreApplications: boolean | undefined;
+
+  /**
+   * <p>List of <code>ApplicationSummary</code> objects. </p>
+   */
+  ApplicationSummaries: ApplicationSummary[] | undefined;
 }
 
 export namespace ListApplicationsResponse {
@@ -2058,6 +2058,12 @@ export namespace MappingParameters {
 export interface Output {
   __type?: "Output";
   /**
+   * <p>Identifies an Amazon Kinesis stream
+   *             as the destination.</p>
+   */
+  KinesisStreamsOutput?: KinesisStreamsOutput;
+
+  /**
    * <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
    */
   DestinationSchema: DestinationSchema | undefined;
@@ -2068,20 +2074,14 @@ export interface Output {
   KinesisFirehoseOutput?: KinesisFirehoseOutput;
 
   /**
-   * <p>Identifies an Amazon Kinesis stream
-   *             as the destination.</p>
+   * <p>Name of the in-application stream.</p>
    */
-  KinesisStreamsOutput?: KinesisStreamsOutput;
+  Name: string | undefined;
 
   /**
    * <p>Identifies an AWS Lambda function as the destination.</p>
    */
   LambdaOutput?: LambdaOutput;
-
-  /**
-   * <p>Name of the in-application stream.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace Output {
@@ -2106,27 +2106,27 @@ export interface OutputDescription {
   DestinationSchema?: DestinationSchema;
 
   /**
-   * <p>Describes the Amazon Kinesis Firehose delivery stream configured as the
-   *             destination where output is written.</p>
-   */
-  KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription;
-
-  /**
-   * <p>Describes Amazon Kinesis stream configured as the
-   *             destination where output is written.</p>
-   */
-  KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
-
-  /**
    * <p>Describes the AWS Lambda function configured as the destination where output is
    *             written.</p>
    */
   LambdaOutputDescription?: LambdaOutputDescription;
 
   /**
+   * <p>Describes the Amazon Kinesis Firehose delivery stream configured as the
+   *             destination where output is written.</p>
+   */
+  KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription;
+
+  /**
    * <p>Name of the in-application stream configured as output.</p>
    */
   Name?: string;
+
+  /**
+   * <p>Describes Amazon Kinesis stream configured as the
+   *             destination where output is written.</p>
+   */
+  KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
 
   /**
    * <p>A unique identifier for the output configuration.</p>
@@ -2150,9 +2150,9 @@ export namespace OutputDescription {
 export interface OutputUpdate {
   __type?: "OutputUpdate";
   /**
-   * <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
+   * <p>Describes an AWS Lambda function as the destination for the output.</p>
    */
-  DestinationSchemaUpdate?: DestinationSchema;
+  LambdaOutputUpdate?: LambdaOutputUpdate;
 
   /**
    * <p>Describes an Amazon Kinesis Firehose delivery stream as the destination for the
@@ -2161,21 +2161,21 @@ export interface OutputUpdate {
   KinesisFirehoseOutputUpdate?: KinesisFirehoseOutputUpdate;
 
   /**
-   * <p>Describes an Amazon Kinesis stream as the destination for the output.</p>
-   */
-  KinesisStreamsOutputUpdate?: KinesisStreamsOutputUpdate;
-
-  /**
-   * <p>Describes an AWS Lambda function as the destination for the output.</p>
-   */
-  LambdaOutputUpdate?: LambdaOutputUpdate;
-
-  /**
    * <p>If you want to specify a different in-application stream
    *             for this output configuration, use this field to
    *             specify the new in-application stream name.</p>
    */
   NameUpdate?: string;
+
+  /**
+   * <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
+   */
+  DestinationSchemaUpdate?: DestinationSchema;
+
+  /**
+   * <p>Describes an Amazon Kinesis stream as the destination for the output.</p>
+   */
+  KinesisStreamsOutputUpdate?: KinesisStreamsOutputUpdate;
 
   /**
    * <p>Identifies the specific output configuration that you want to update.</p>
@@ -2230,14 +2230,14 @@ export namespace RecordColumn {
 export interface RecordFormat {
   __type?: "RecordFormat";
   /**
-   * <p>When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.</p>
-   */
-  MappingParameters?: MappingParameters;
-
-  /**
    * <p>The type of record format.</p>
    */
   RecordFormatType: RecordFormatType | string | undefined;
+
+  /**
+   * <p>When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.</p>
+   */
+  MappingParameters?: MappingParameters;
 }
 
 export namespace RecordFormat {
@@ -2295,11 +2295,6 @@ export interface ReferenceDataSourceDescription {
   ReferenceId: string | undefined;
 
   /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
-   */
-  ReferenceSchema?: SourceSchema;
-
-  /**
    * <p>Provides the S3 bucket name, the object key name that contains the reference data. It also provides the Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application reference table.</p>
    */
   S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription | undefined;
@@ -2308,6 +2303,11 @@ export interface ReferenceDataSourceDescription {
    * <p>The in-application table name created by the specific reference data source configuration.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
+   */
+  ReferenceSchema?: SourceSchema;
 }
 
 export namespace ReferenceDataSourceDescription {
@@ -2329,9 +2329,9 @@ export interface ReferenceDataSourceUpdate {
   ReferenceId: string | undefined;
 
   /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>
+   * <p>In-application table name that is created by this update.</p>
    */
-  ReferenceSchemaUpdate?: SourceSchema;
+  TableNameUpdate?: string;
 
   /**
    * <p>Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.</p>
@@ -2339,9 +2339,9 @@ export interface ReferenceDataSourceUpdate {
   S3ReferenceDataSourceUpdate?: S3ReferenceDataSourceUpdate;
 
   /**
-   * <p>In-application table name that is created by this update.</p>
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>
    */
-  TableNameUpdate?: string;
+  ReferenceSchemaUpdate?: SourceSchema;
 }
 
 export namespace ReferenceDataSourceUpdate {
@@ -2418,14 +2418,14 @@ export namespace ResourceProvisionedThroughputExceededException {
 export interface S3Configuration {
   __type?: "S3Configuration";
   /**
-   * <p>ARN of the S3 bucket that contains the data.</p>
-   */
-  BucketARN: string | undefined;
-
-  /**
    * <p>The name of the object that contains the data.</p>
    */
   FileKey: string | undefined;
+
+  /**
+   * <p>ARN of the S3 bucket that contains the data.</p>
+   */
+  BucketARN: string | undefined;
 
   /**
    * <p>IAM ARN of the role used to access the data.</p>
@@ -2449,9 +2449,9 @@ export namespace S3Configuration {
 export interface S3ReferenceDataSource {
   __type?: "S3ReferenceDataSource";
   /**
-   * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
+   * <p>ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the <code>s3:GetObject</code> action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.</p>
    */
-  BucketARN: string | undefined;
+  ReferenceRoleARN: string | undefined;
 
   /**
    * <p>Object key name containing reference data.</p>
@@ -2459,9 +2459,9 @@ export interface S3ReferenceDataSource {
   FileKey: string | undefined;
 
   /**
-   * <p>ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the <code>s3:GetObject</code> action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.</p>
+   * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
    */
-  ReferenceRoleARN: string | undefined;
+  BucketARN: string | undefined;
 }
 
 export namespace S3ReferenceDataSource {
@@ -2477,9 +2477,9 @@ export namespace S3ReferenceDataSource {
 export interface S3ReferenceDataSourceDescription {
   __type?: "S3ReferenceDataSourceDescription";
   /**
-   * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
+   * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table.</p>
    */
-  BucketARN: string | undefined;
+  ReferenceRoleARN: string | undefined;
 
   /**
    * <p>Amazon S3 object key name.</p>
@@ -2487,9 +2487,9 @@ export interface S3ReferenceDataSourceDescription {
   FileKey: string | undefined;
 
   /**
-   * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table.</p>
+   * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
    */
-  ReferenceRoleARN: string | undefined;
+  BucketARN: string | undefined;
 }
 
 export namespace S3ReferenceDataSourceDescription {
@@ -2510,14 +2510,14 @@ export interface S3ReferenceDataSourceUpdate {
   BucketARNUpdate?: string;
 
   /**
-   * <p>Object key name.</p>
-   */
-  FileKeyUpdate?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application.</p>
    */
   ReferenceRoleARNUpdate?: string;
+
+  /**
+   * <p>Object key name.</p>
+   */
+  FileKeyUpdate?: string;
 }
 
 export namespace S3ReferenceDataSourceUpdate {
@@ -2549,9 +2549,9 @@ export namespace ServiceUnavailableException {
 export interface SourceSchema {
   __type?: "SourceSchema";
   /**
-   * <p>A list of <code>RecordColumn</code> objects.</p>
+   * <p>Specifies the format of the records on the streaming source.</p>
    */
-  RecordColumns: RecordColumn[] | undefined;
+  RecordFormat: RecordFormat | undefined;
 
   /**
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
@@ -2559,9 +2559,9 @@ export interface SourceSchema {
   RecordEncoding?: string;
 
   /**
-   * <p>Specifies the format of the records on the streaming source.</p>
+   * <p>A list of <code>RecordColumn</code> objects.</p>
    */
-  RecordFormat: RecordFormat | undefined;
+  RecordColumns: RecordColumn[] | undefined;
 }
 
 export namespace SourceSchema {
@@ -2648,14 +2648,14 @@ export namespace StopApplicationResponse {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The key of the key-value tag.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The value of the key-value tag. The value is optional.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The key of the key-value tag.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -2668,14 +2668,14 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The ARN of the application to assign the tags.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>The key-value tags to assign to the application.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The ARN of the application to assign the tags.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2750,14 +2750,14 @@ export namespace UnsupportedOperationException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The ARN of the Kinesis Analytics application from which to remove the tags.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>A list of keys of tags to remove from the specified application.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the Kinesis Analytics application from which to remove the tags.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2781,6 +2781,12 @@ export namespace UntagResourceResponse {
 export interface UpdateApplicationRequest {
   __type?: "UpdateApplicationRequest";
   /**
+   * <p>The current application version ID. You can use the
+   *             <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get this value.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+
+  /**
    * <p>Name of the Amazon Kinesis Analytics application to update.</p>
    */
   ApplicationName: string | undefined;
@@ -2789,12 +2795,6 @@ export interface UpdateApplicationRequest {
    * <p>Describes application updates.</p>
    */
   ApplicationUpdate: ApplicationUpdate | undefined;
-
-  /**
-   * <p>The current application version ID. You can use the
-   *             <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get this value.</p>
-   */
-  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace UpdateApplicationRequest {

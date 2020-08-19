@@ -129,6 +129,7 @@ export const serializeAws_restJson1CreateAppCommand = async (
     ...(input.enableAutoBranchCreation !== undefined && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
     ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
     ...(input.enableBranchAutoBuild !== undefined && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
+    ...(input.enableBranchAutoDeletion !== undefined && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
     ...(input.environmentVariables !== undefined && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
@@ -246,15 +247,6 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
   if (input.branchName !== undefined) {
     const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
@@ -263,6 +255,15 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
+  }
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -299,6 +300,13 @@ export const serializeAws_restJson1CreateDomainAssociationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.autoSubDomainCreationPatterns !== undefined && {
+      autoSubDomainCreationPatterns: serializeAws_restJson1AutoSubDomainCreationPatterns(
+        input.autoSubDomainCreationPatterns,
+        context
+      ),
+    }),
+    ...(input.autoSubDomainIAMRole !== undefined && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
     ...(input.domainName !== undefined && { domainName: input.domainName }),
     ...(input.enableAutoSubDomain !== undefined && { enableAutoSubDomain: input.enableAutoSubDomain }),
     ...(input.subDomainSettings !== undefined && {
@@ -389,15 +397,6 @@ export const serializeAws_restJson1DeleteBackendEnvironmentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
   if (input.environmentName !== undefined) {
     const labelValue: string = input.environmentName;
     if (labelValue.length <= 0) {
@@ -406,6 +405,15 @@ export const serializeAws_restJson1DeleteBackendEnvironmentCommand = async (
     resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: environmentName.");
+  }
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -467,15 +475,6 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
@@ -484,6 +483,15 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
+  }
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -679,15 +687,6 @@ export const serializeAws_restJson1GetBackendEnvironmentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
   if (input.environmentName !== undefined) {
     const labelValue: string = input.environmentName;
     if (labelValue.length <= 0) {
@@ -696,6 +695,15 @@ export const serializeAws_restJson1GetBackendEnvironmentCommand = async (
     resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: environmentName.");
+  }
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -757,15 +765,6 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
@@ -774,6 +773,15 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
+  }
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -805,15 +813,6 @@ export const serializeAws_restJson1GetJobCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
-  if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: branchName.");
-    }
-    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: branchName.");
-  }
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
@@ -822,6 +821,15 @@ export const serializeAws_restJson1GetJobCommand = async (
     resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
+  }
+  if (input.branchName !== undefined) {
+    const labelValue: string = input.branchName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: branchName.");
+    }
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -900,6 +908,15 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts";
+  if (input.jobId !== undefined) {
+    const labelValue: string = input.jobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobId.");
+  }
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
@@ -917,15 +934,6 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
     resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
-  }
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -950,7 +958,7 @@ export const serializeAws_restJson1ListBackendEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
@@ -963,13 +971,11 @@ export const serializeAws_restJson1ListBackendEnvironmentsCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.environmentName !== undefined && { environmentName: input.environmentName }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.environmentName !== undefined && { environmentName: input.environmentName }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1001,8 +1007,8 @@ export const serializeAws_restJson1ListBranchesCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1061,15 +1067,6 @@ export const serializeAws_restJson1ListJobsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
   if (input.branchName !== undefined) {
     const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
@@ -1078,6 +1075,15 @@ export const serializeAws_restJson1ListJobsCommand = async (
     resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
+  }
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -1145,8 +1151,8 @@ export const serializeAws_restJson1ListWebhooksCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1405,6 +1411,7 @@ export const serializeAws_restJson1UpdateAppCommand = async (
     ...(input.enableAutoBranchCreation !== undefined && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
     ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
     ...(input.enableBranchAutoBuild !== undefined && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
+    ...(input.enableBranchAutoDeletion !== undefined && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
     ...(input.environmentVariables !== undefined && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
@@ -1493,15 +1500,6 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
@@ -1511,8 +1509,24 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
   }
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
+  }
   let body: any;
   body = JSON.stringify({
+    ...(input.autoSubDomainCreationPatterns !== undefined && {
+      autoSubDomainCreationPatterns: serializeAws_restJson1AutoSubDomainCreationPatterns(
+        input.autoSubDomainCreationPatterns,
+        context
+      ),
+    }),
+    ...(input.autoSubDomainIAMRole !== undefined && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
     ...(input.enableAutoSubDomain !== undefined && { enableAutoSubDomain: input.enableAutoSubDomain }),
     ...(input.subDomainSettings !== undefined && {
       subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
@@ -4832,6 +4846,10 @@ const serializeAws_restJson1AutoBranchCreationPatterns = (input: string[], conte
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1AutoSubDomainCreationPatterns = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1CustomRule = (input: CustomRule, context: __SerdeContext): any => {
   return {
     ...(input.condition !== undefined && { condition: input.condition }),
@@ -4925,6 +4943,10 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
       output.enableBranchAutoBuild !== undefined && output.enableBranchAutoBuild !== null
         ? output.enableBranchAutoBuild
         : undefined,
+    enableBranchAutoDeletion:
+      output.enableBranchAutoDeletion !== undefined && output.enableBranchAutoDeletion !== null
+        ? output.enableBranchAutoDeletion
+        : undefined,
     environmentVariables:
       output.environmentVariables !== undefined && output.environmentVariables !== null
         ? deserializeAws_restJson1EnvironmentVariables(output.environmentVariables, context)
@@ -5005,6 +5027,10 @@ const deserializeAws_restJson1AutoBranchCreationConfig = (
 };
 
 const deserializeAws_restJson1AutoBranchCreationPatterns = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1AutoSubDomainCreationPatterns = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5135,6 +5161,14 @@ const deserializeAws_restJson1CustomRules = (output: any, context: __SerdeContex
 const deserializeAws_restJson1DomainAssociation = (output: any, context: __SerdeContext): DomainAssociation => {
   return {
     __type: "DomainAssociation",
+    autoSubDomainCreationPatterns:
+      output.autoSubDomainCreationPatterns !== undefined && output.autoSubDomainCreationPatterns !== null
+        ? deserializeAws_restJson1AutoSubDomainCreationPatterns(output.autoSubDomainCreationPatterns, context)
+        : undefined,
+    autoSubDomainIAMRole:
+      output.autoSubDomainIAMRole !== undefined && output.autoSubDomainIAMRole !== null
+        ? output.autoSubDomainIAMRole
+        : undefined,
     certificateVerificationDNSRecord:
       output.certificateVerificationDNSRecord !== undefined && output.certificateVerificationDNSRecord !== null
         ? output.certificateVerificationDNSRecord

@@ -367,6 +367,7 @@ import {
   GetAWSOrganizationsAccessStatusOutput,
   InvalidParametersException,
   InvalidStateException,
+  LaunchPath,
   LaunchPathSummary,
   LimitExceededException,
   ListAcceptedPortfolioSharesInput,
@@ -426,6 +427,7 @@ import {
   ProvisionedProductViewFilterBy,
   ProvisioningArtifact,
   ProvisioningArtifactDetail,
+  ProvisioningArtifactOutput,
   ProvisioningArtifactParameter,
   ProvisioningArtifactPreferences,
   ProvisioningArtifactProperties,
@@ -3723,6 +3725,14 @@ const deserializeAws_json1_1DescribeProductAsAdminCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
@@ -3963,6 +3973,14 @@ const deserializeAws_json1_1DescribeProvisioningArtifactCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
@@ -5315,6 +5333,14 @@ const deserializeAws_json1_1ListPortfolioAccessCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
@@ -7551,6 +7577,7 @@ const serializeAws_json1_1DescribeProductAsAdminInput = (
   return {
     ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -7558,6 +7585,7 @@ const serializeAws_json1_1DescribeProductInput = (input: DescribeProductInput, c
   return {
     ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -7600,7 +7628,9 @@ const serializeAws_json1_1DescribeProvisioningArtifactInput = (
   return {
     ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProductName !== undefined && { ProductName: input.ProductName }),
     ...(input.ProvisioningArtifactId !== undefined && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningArtifactName !== undefined && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
     ...(input.Verbose !== undefined && { Verbose: input.Verbose }),
   };
 };
@@ -7612,8 +7642,11 @@ const serializeAws_json1_1DescribeProvisioningParametersInput = (
   return {
     ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PathId !== undefined && { PathId: input.PathId }),
+    ...(input.PathName !== undefined && { PathName: input.PathName }),
     ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProductName !== undefined && { ProductName: input.ProductName }),
     ...(input.ProvisioningArtifactId !== undefined && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningArtifactName !== undefined && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
   };
 };
 
@@ -7836,6 +7869,9 @@ const serializeAws_json1_1ListPortfolioAccessInput = (
 ): any => {
   return {
     ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.OrganizationParentId !== undefined && { OrganizationParentId: input.OrganizationParentId }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
     ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
   };
 };
@@ -8118,10 +8154,13 @@ const serializeAws_json1_1ProvisionProductInput = (input: ProvisionProductInput,
       NotificationArns: serializeAws_json1_1NotificationArns(input.NotificationArns, context),
     }),
     ...(input.PathId !== undefined && { PathId: input.PathId }),
+    ...(input.PathName !== undefined && { PathName: input.PathName }),
     ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProductName !== undefined && { ProductName: input.ProductName }),
     ProvisionToken: input.ProvisionToken ?? generateIdempotencyToken(),
     ...(input.ProvisionedProductName !== undefined && { ProvisionedProductName: input.ProvisionedProductName }),
     ...(input.ProvisioningArtifactId !== undefined && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningArtifactName !== undefined && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
     ...(input.ProvisioningParameters !== undefined && {
       ProvisioningParameters: serializeAws_json1_1ProvisioningParameters(input.ProvisioningParameters, context),
     }),
@@ -8334,10 +8373,13 @@ const serializeAws_json1_1UpdateProvisionedProductInput = (
   return {
     ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PathId !== undefined && { PathId: input.PathId }),
+    ...(input.PathName !== undefined && { PathName: input.PathName }),
     ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProductName !== undefined && { ProductName: input.ProductName }),
     ...(input.ProvisionedProductId !== undefined && { ProvisionedProductId: input.ProvisionedProductId }),
     ...(input.ProvisionedProductName !== undefined && { ProvisionedProductName: input.ProvisionedProductName }),
     ...(input.ProvisioningArtifactId !== undefined && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningArtifactName !== undefined && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
     ...(input.ProvisioningParameters !== undefined && {
       ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(input.ProvisioningParameters, context),
     }),
@@ -8568,6 +8610,8 @@ const deserializeAws_json1_1ConstraintDetail = (output: any, context: __SerdeCon
     ConstraintId: output.ConstraintId !== undefined && output.ConstraintId !== null ? output.ConstraintId : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
+    PortfolioId: output.PortfolioId !== undefined && output.PortfolioId !== null ? output.PortfolioId : undefined,
+    ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
@@ -8894,6 +8938,10 @@ const deserializeAws_json1_1DescribeProductOutput = (output: any, context: __Ser
       output.Budgets !== undefined && output.Budgets !== null
         ? deserializeAws_json1_1Budgets(output.Budgets, context)
         : undefined,
+    LaunchPaths:
+      output.LaunchPaths !== undefined && output.LaunchPaths !== null
+        ? deserializeAws_json1_1LaunchPaths(output.LaunchPaths, context)
+        : undefined,
     ProductViewSummary:
       output.ProductViewSummary !== undefined && output.ProductViewSummary !== null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
@@ -8985,6 +9033,10 @@ const deserializeAws_json1_1DescribeProvisioningParametersOutput = (
     ConstraintSummaries:
       output.ConstraintSummaries !== undefined && output.ConstraintSummaries !== null
         ? deserializeAws_json1_1ConstraintSummaries(output.ConstraintSummaries, context)
+        : undefined,
+    ProvisioningArtifactOutputs:
+      output.ProvisioningArtifactOutputs !== undefined && output.ProvisioningArtifactOutputs !== null
+        ? deserializeAws_json1_1ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputs, context)
         : undefined,
     ProvisioningArtifactParameters:
       output.ProvisioningArtifactParameters !== undefined && output.ProvisioningArtifactParameters !== null
@@ -9229,6 +9281,18 @@ const deserializeAws_json1_1InvalidStateException = (output: any, context: __Ser
     __type: "InvalidStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1LaunchPath = (output: any, context: __SerdeContext): LaunchPath => {
+  return {
+    __type: "LaunchPath",
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LaunchPaths = (output: any, context: __SerdeContext): LaunchPath[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1LaunchPath(entry, context));
 };
 
 const deserializeAws_json1_1LaunchPathSummaries = (output: any, context: __SerdeContext): LaunchPathSummary[] => {
@@ -9883,6 +9947,24 @@ const deserializeAws_json1_1ProvisioningArtifactInfo = (
     }),
     {}
   );
+};
+
+const deserializeAws_json1_1ProvisioningArtifactOutput = (
+  output: any,
+  context: __SerdeContext
+): ProvisioningArtifactOutput => {
+  return {
+    __type: "ProvisioningArtifactOutput",
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProvisioningArtifactOutputs = (
+  output: any,
+  context: __SerdeContext
+): ProvisioningArtifactOutput[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ProvisioningArtifactOutput(entry, context));
 };
 
 const deserializeAws_json1_1ProvisioningArtifactParameter = (

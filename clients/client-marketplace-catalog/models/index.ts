@@ -20,16 +20,16 @@ export namespace AccessDeniedException {
 export interface CancelChangeSetRequest {
   __type?: "CancelChangeSetRequest";
   /**
-   * <p>Required. The catalog related to the request. Fixed value:
-   *             <code>AWSMarketplace</code>.</p>
-   */
-  Catalog: string | undefined;
-
-  /**
    * <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you
    *             want to cancel.</p>
    */
   ChangeSetId: string | undefined;
+
+  /**
+   * <p>Required. The catalog related to the request. Fixed value:
+   *             <code>AWSMarketplace</code>.</p>
+   */
+  Catalog: string | undefined;
 }
 
 export namespace CancelChangeSetRequest {
@@ -66,11 +66,9 @@ export namespace CancelChangeSetResponse {
 export interface Change {
   __type?: "Change";
   /**
-   * <p>Change types are single string values that describe your intention for the change.
-   *             Each change type is unique for each <code>EntityType</code> provided in the change's
-   *             scope.</p>
+   * <p>The entity to be changed.</p>
    */
-  ChangeType: string | undefined;
+  Entity: Entity | undefined;
 
   /**
    * <p>This object contains details specific to the change type of the requested
@@ -79,9 +77,11 @@ export interface Change {
   Details: string | undefined;
 
   /**
-   * <p>The entity to be changed.</p>
+   * <p>Change types are single string values that describe your intention for the change.
+   *             Each change type is unique for each <code>EntityType</code> provided in the change's
+   *             scope.</p>
    */
-  Entity: Entity | undefined;
+  ChangeType: string | undefined;
 }
 
 export namespace Change {
@@ -98,20 +98,14 @@ export namespace Change {
 export interface ChangeSetSummaryListItem {
   __type?: "ChangeSetSummaryListItem";
   /**
-   * <p>The ARN associated with the unique identifier for the change set referenced in this
-   *             request.</p>
+   * <p>The current status of the change set.</p>
    */
-  ChangeSetArn?: string;
+  Status?: ChangeStatus | string;
 
   /**
    * <p>The unique identifier for a change set.</p>
    */
   ChangeSetId?: string;
-
-  /**
-   * <p>The non-unique name for the change set.</p>
-   */
-  ChangeSetName?: string;
 
   /**
    * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
@@ -120,21 +114,27 @@ export interface ChangeSetSummaryListItem {
   EndTime?: string;
 
   /**
-   * <p>This object is a list of entity IDs (string) that are a part of a change set. The
-   *             entity ID list is a maximum of 20 entities. It must contain at least one entity.</p>
-   */
-  EntityIdList?: string[];
-
-  /**
    * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
    *             started.</p>
    */
   StartTime?: string;
 
   /**
-   * <p>The current status of the change set.</p>
+   * <p>The ARN associated with the unique identifier for the change set referenced in this
+   *             request.</p>
    */
-  Status?: ChangeStatus | string;
+  ChangeSetArn?: string;
+
+  /**
+   * <p>This object is a list of entity IDs (string) that are a part of a change set. The
+   *             entity ID list is a maximum of 20 entities. It must contain at least one entity.</p>
+   */
+  EntityIdList?: string[];
+
+  /**
+   * <p>The non-unique name for the change set.</p>
+   */
+  ChangeSetName?: string;
 }
 
 export namespace ChangeSetSummaryListItem {
@@ -159,19 +159,25 @@ export enum ChangeStatus {
 export interface ChangeSummary {
   __type?: "ChangeSummary";
   /**
+   * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
+   */
+  ErrorDetailList?: ErrorDetail[];
+
+  /**
    * <p>The type of the change.</p>
    */
   ChangeType?: string;
 
   /**
+   * <p>This object contains details specific to the change type of the requested
+   *             change.</p>
+   */
+  Details?: string;
+
+  /**
    * <p>The entity to be changed.</p>
    */
   Entity?: Entity;
-
-  /**
-   * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
-   */
-  ErrorDetailList?: ErrorDetail[];
 }
 
 export namespace ChangeSummary {
@@ -184,17 +190,17 @@ export namespace ChangeSummary {
 export interface DescribeChangeSetRequest {
   __type?: "DescribeChangeSetRequest";
   /**
+   * <p>Required. The unique identifier for the <code>StartChangeSet</code> request that you
+   *             want to describe the details for.</p>
+   */
+  ChangeSetId: string | undefined;
+
+  /**
    * <p>Required. The catalog related to the request. Fixed value:
    *             <code>AWSMarketplace</code>
    *          </p>
    */
   Catalog: string | undefined;
-
-  /**
-   * <p>Required. The unique identifier for the <code>StartChangeSet</code> request that you
-   *             want to describe the details for.</p>
-   */
-  ChangeSetId: string | undefined;
 }
 
 export namespace DescribeChangeSetRequest {
@@ -207,28 +213,6 @@ export namespace DescribeChangeSetRequest {
 export interface DescribeChangeSetResponse {
   __type?: "DescribeChangeSetResponse";
   /**
-   * <p>An array of <code>ChangeSummary</code> objects.</p>
-   */
-  ChangeSet?: ChangeSummary[];
-
-  /**
-   * <p>The ARN associated with the unique identifier for the change set referenced in this
-   *             request.</p>
-   */
-  ChangeSetArn?: string;
-
-  /**
-   * <p>Required. The unique identifier for the change set referenced in this request.</p>
-   */
-  ChangeSetId?: string;
-
-  /**
-   * <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not
-   *             provide a name, one is set by default.</p>
-   */
-  ChangeSetName?: string;
-
-  /**
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned
    *             to a terminal state. The change cannot transition to a different state. Null if the
    *             request is not in a terminal state. </p>
@@ -236,10 +220,10 @@ export interface DescribeChangeSetResponse {
   EndTime?: string;
 
   /**
-   * <p>Returned if there is a failure on the change set, but that failure is not related to
-   *             any of the changes in the request.</p>
+   * <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not
+   *             provide a name, one is set by default.</p>
    */
-  FailureDescription?: string;
+  ChangeSetName?: string;
 
   /**
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.
@@ -251,6 +235,28 @@ export interface DescribeChangeSetResponse {
    * <p>The status of the change request.</p>
    */
   Status?: ChangeStatus | string;
+
+  /**
+   * <p>The ARN associated with the unique identifier for the change set referenced in this
+   *             request.</p>
+   */
+  ChangeSetArn?: string;
+
+  /**
+   * <p>Returned if there is a failure on the change set, but that failure is not related to
+   *             any of the changes in the request.</p>
+   */
+  FailureDescription?: string;
+
+  /**
+   * <p>An array of <code>ChangeSummary</code> objects.</p>
+   */
+  ChangeSet?: ChangeSummary[];
+
+  /**
+   * <p>Required. The unique identifier for the change set referenced in this request.</p>
+   */
+  ChangeSetId?: string;
 }
 
 export namespace DescribeChangeSetResponse {
@@ -285,6 +291,23 @@ export namespace DescribeEntityRequest {
 export interface DescribeEntityResponse {
   __type?: "DescribeEntityResponse";
   /**
+   * <p>The last modified date of the entity, in ISO 8601 format
+   *             (2018-02-27T13:45:22Z).</p>
+   */
+  LastModifiedDate?: string;
+
+  /**
+   * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
+   */
+  EntityType?: string;
+
+  /**
+   * <p>The identifier of the entity, in the format of
+   *             <code>EntityId@RevisionId</code>.</p>
+   */
+  EntityIdentifier?: string;
+
+  /**
    * <p>This stringified JSON object includes the details of the entity.</p>
    */
   Details?: string;
@@ -294,23 +317,6 @@ export interface DescribeEntityResponse {
    *             request.</p>
    */
   EntityArn?: string;
-
-  /**
-   * <p>The identifier of the entity, in the format of
-   *             <code>EntityId@RevisionId</code>.</p>
-   */
-  EntityIdentifier?: string;
-
-  /**
-   * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
-   */
-  EntityType?: string;
-
-  /**
-   * <p>The last modified date of the entity, in ISO 8601 format
-   *             (2018-02-27T13:45:22Z).</p>
-   */
-  LastModifiedDate?: string;
 }
 
 export namespace DescribeEntityResponse {
@@ -352,14 +358,32 @@ export namespace Entity {
 export interface EntitySummary {
   __type?: "EntitySummary";
   /**
-   * <p>The ARN associated with the unique identifier for the entity.</p>
+   * <p>The name for the entity. This value is not unique. It is defined by the
+   *             seller.</p>
    */
-  EntityArn?: string;
+  Name?: string;
 
   /**
    * <p>The unique identifier for the entity.</p>
    */
   EntityId?: string;
+
+  /**
+   * <p>The ARN associated with the unique identifier for the entity.</p>
+   */
+  EntityArn?: string;
+
+  /**
+   * <p>The visibility status of the entity to
+   *             buyers.
+   *             This value can be <code>Public</code> (everyone can view the entity),
+   *                 <code>Limited</code> (the entity is visible to limited accounts only), or
+   *                 <code>Restricted</code> (the entity was published and then unpublished and only
+   *             existing
+   *             buyers
+   *             can view it). </p>
+   */
+  Visibility?: string;
 
   /**
    * <p>The type of the entity.</p>
@@ -371,20 +395,6 @@ export interface EntitySummary {
    *             (2018-02-27T13:45:22Z).</p>
    */
   LastModifiedDate?: string;
-
-  /**
-   * <p>The name for the entity. This value is not unique. It is defined by the
-   *             provider.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The visibility status of the entity to subscribers. This value can be
-   *                 <code>Public</code> (everyone can view the entity), <code>Limited</code> (the entity
-   *             is visible to limited accounts only), or <code>Restricted</code> (the entity was
-   *             published and then unpublished and only existing subscribers can view it). </p>
-   */
-  Visibility?: string;
 }
 
 export namespace EntitySummary {
@@ -423,13 +433,6 @@ export namespace ErrorDetail {
  */
 export interface Filter {
   __type?: "Filter";
-  /**
-   * <p>For <code>ListEntities</code>, the supported value for this is an
-   *                 <code>EntityId</code>.</p>
-   *         <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
-   */
-  Name?: string;
-
   /**
    * <p>
    *             <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>
@@ -477,6 +480,13 @@ export interface Filter {
    *          </ul>
    */
   ValueList?: string[];
+
+  /**
+   * <p>For <code>ListEntities</code>, the supported value for this is an
+   *                 <code>EntityId</code>.</p>
+   *         <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
+   */
+  Name?: string;
 }
 
 export namespace Filter {
@@ -505,15 +515,16 @@ export namespace InternalServiceException {
 export interface ListChangeSetsRequest {
   __type?: "ListChangeSetsRequest";
   /**
+   * <p>The token value retrieved from a previous call to access the next page of
+   *             results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
    *          </p>
    */
   Catalog: string | undefined;
-
-  /**
-   * <p>An array of filter objects.</p>
-   */
-  FilterList?: Filter[];
 
   /**
    * <p>The maximum number of results returned by a single call. This value must be provided
@@ -523,16 +534,15 @@ export interface ListChangeSetsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of
-   *             results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An object that contains two attributes, <code>sortBy</code> and
-   *             <code>sortOrder</code>.</p>
+   * <p>An object that contains two attributes, <code>SortBy</code> and
+   *             <code>SortOrder</code>.</p>
    */
   Sort?: Sort;
+
+  /**
+   * <p>An array of filter objects.</p>
+   */
+  FilterList?: Filter[];
 }
 
 export namespace ListChangeSetsRequest {
@@ -565,15 +575,21 @@ export namespace ListChangeSetsResponse {
 export interface ListEntitiesRequest {
   __type?: "ListEntitiesRequest";
   /**
+   * <p>The type of entities to retrieve.</p>
+   */
+  EntityType: string | undefined;
+
+  /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
    *          </p>
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The type of entities to retrieve.</p>
+   * <p>An object that contains two attributes, <code>SortBy</code> and
+   *             <code>SortOrder</code>.</p>
    */
-  EntityType: string | undefined;
+  Sort?: Sort;
 
   /**
    * <p>An array of filter objects. Each filter object contains two attributes,
@@ -591,12 +607,6 @@ export interface ListEntitiesRequest {
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>An object that contains two attributes, <code>sortBy</code> and
-   *             <code>sortOrder</code>.</p>
-   */
-  Sort?: Sort;
 }
 
 export namespace ListEntitiesRequest {
@@ -691,11 +701,17 @@ export namespace ServiceQuotaExceededException {
 }
 
 /**
- * <p>An object that contains two attributes, <code>sortBy</code> and
- *             <code>sortOrder</code>.</p>
+ * <p>An object that contains two attributes, <code>SortBy</code> and
+ *             <code>SortOrder</code>.</p>
  */
 export interface Sort {
   __type?: "Sort";
+  /**
+   * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
+   *             default value is <code>DESCENDING</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
   /**
    * <p>For <code>ListEntities</code>, supported attributes include
    *                 <code>LastModifiedDate</code> (default), <code>Visibility</code>,
@@ -705,12 +721,6 @@ export interface Sort {
    *             and <code>EndTime</code>.</p>
    */
   SortBy?: string;
-
-  /**
-   * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
-   *             default value is <code>DESCENDING</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
 }
 
 export namespace Sort {
@@ -728,15 +738,9 @@ export enum SortOrder {
 export interface StartChangeSetRequest {
   __type?: "StartChangeSetRequest";
   /**
-   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
-   *          </p>
+   * <p>A unique token to identify the request to ensure idempotency.</p>
    */
-  Catalog: string | undefined;
-
-  /**
-   * <p>Array of <code>change</code> object.</p>
-   */
-  ChangeSet: Change[] | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>Optional case sensitive string of up to 100 ASCII characters. The change set name can
@@ -745,9 +749,15 @@ export interface StartChangeSetRequest {
   ChangeSetName?: string;
 
   /**
-   * <p>A unique token to identify the request to ensure idempotency.</p>
+   * <p>Array of <code>change</code> object.</p>
    */
-  ClientRequestToken?: string;
+  ChangeSet: Change[] | undefined;
+
+  /**
+   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
+   *          </p>
+   */
+  Catalog: string | undefined;
 }
 
 export namespace StartChangeSetRequest {

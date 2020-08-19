@@ -1,6 +1,10 @@
 import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum __PeriodTriggersElement {
+  ADS = "ADS",
+}
+
 export enum AdMarkers {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
@@ -18,9 +22,19 @@ export interface AssetShallow {
   Arn?: string;
 
   /**
-   * The time the Asset was initially submitted for Ingest.
+   * The ID of the PackagingGroup for the Asset.
    */
-  CreatedAt?: string;
+  PackagingGroupId?: string;
+
+  /**
+   * The IAM role ARN used to access the source S3 bucket.
+   */
+  SourceRoleArn?: string;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * The unique identifier for the Asset.
@@ -28,24 +42,19 @@ export interface AssetShallow {
   Id?: string;
 
   /**
-   * The ID of the PackagingGroup for the Asset.
-   */
-  PackagingGroupId?: string;
-
-  /**
    * The resource ID to include in SPEKE key requests.
    */
   ResourceId?: string;
 
   /**
+   * The time the Asset was initially submitted for Ingest.
+   */
+  CreatedAt?: string;
+
+  /**
    * ARN of the source object in S3.
    */
   SourceArn?: string;
-
-  /**
-   * The IAM role ARN used to access the source S3 bucket.
-   */
-  SourceRoleArn?: string;
 }
 
 export namespace AssetShallow {
@@ -53,6 +62,29 @@ export namespace AssetShallow {
     ...obj,
   });
   export const isa = (o: any): o is AssetShallow => __isa(o, "AssetShallow");
+}
+
+/**
+ * CDN Authorization credentials
+ */
+export interface Authorization {
+  __type?: "Authorization";
+  /**
+   * The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+   */
+  SecretsRoleArn: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
+   */
+  CdnIdentifierSecret: string | undefined;
+}
+
+export namespace Authorization {
+  export const filterSensitiveLog = (obj: Authorization): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Authorization => __isa(o, "Authorization");
 }
 
 /**
@@ -79,9 +111,10 @@ export namespace CmafEncryption {
 export interface CmafPackage {
   __type?: "CmafPackage";
   /**
-   * A CMAF encryption configuration.
+   * Duration (in seconds) of each fragment. Actual fragments will be
+   * rounded to the nearest multiple of the source fragment duration.
    */
-  Encryption?: CmafEncryption;
+  SegmentDurationSeconds?: number;
 
   /**
    * A list of HLS manifest configurations.
@@ -89,10 +122,9 @@ export interface CmafPackage {
   HlsManifests: HlsManifest[] | undefined;
 
   /**
-   * Duration (in seconds) of each fragment. Actual fragments will be
-   * rounded to the nearest multiple of the source fragment duration.
+   * A CMAF encryption configuration.
    */
-  SegmentDurationSeconds?: number;
+  Encryption?: CmafEncryption;
 }
 
 export namespace CmafPackage {
@@ -108,9 +140,14 @@ export namespace CmafPackage {
 export interface CreateAssetRequest {
   __type?: "CreateAssetRequest";
   /**
-   * The unique identifier for the Asset.
+   * A collection of tags associated with a resource
    */
-  Id: string | undefined;
+  Tags?: { [key: string]: string };
+
+  /**
+   * The IAM role ARN used to access the source S3 bucket.
+   */
+  SourceRoleArn: string | undefined;
 
   /**
    * The ID of the PackagingGroup for the Asset.
@@ -118,19 +155,19 @@ export interface CreateAssetRequest {
   PackagingGroupId: string | undefined;
 
   /**
-   * The resource ID to include in SPEKE key requests.
-   */
-  ResourceId?: string;
-
-  /**
    * ARN of the source object in S3.
    */
   SourceArn: string | undefined;
 
   /**
-   * The IAM role ARN used to access the source S3 bucket.
+   * The resource ID to include in SPEKE key requests.
    */
-  SourceRoleArn: string | undefined;
+  ResourceId?: string;
+
+  /**
+   * The unique identifier for the Asset.
+   */
+  Id: string | undefined;
 }
 
 export namespace CreateAssetRequest {
@@ -148,19 +185,9 @@ export interface CreateAssetResponse {
   Arn?: string;
 
   /**
-   * The time the Asset was initially submitted for Ingest.
+   * The resource ID to include in SPEKE key requests.
    */
-  CreatedAt?: string;
-
-  /**
-   * The list of egress endpoints available for the Asset.
-   */
-  EgressEndpoints?: EgressEndpoint[];
-
-  /**
-   * The unique identifier for the Asset.
-   */
-  Id?: string;
+  ResourceId?: string;
 
   /**
    * The ID of the PackagingGroup for the Asset.
@@ -168,9 +195,24 @@ export interface CreateAssetResponse {
   PackagingGroupId?: string;
 
   /**
-   * The resource ID to include in SPEKE key requests.
+   * The unique identifier for the Asset.
    */
-  ResourceId?: string;
+  Id?: string;
+
+  /**
+   * The list of egress endpoints available for the Asset.
+   */
+  EgressEndpoints?: EgressEndpoint[];
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * The IAM role_arn used to access the source S3 bucket.
+   */
+  SourceRoleArn?: string;
 
   /**
    * ARN of the source object in S3.
@@ -178,9 +220,9 @@ export interface CreateAssetResponse {
   SourceArn?: string;
 
   /**
-   * The IAM role_arn used to access the source S3 bucket.
+   * The time the Asset was initially submitted for Ingest.
    */
-  SourceRoleArn?: string;
+  CreatedAt?: string;
 }
 
 export namespace CreateAssetResponse {
@@ -196,24 +238,14 @@ export namespace CreateAssetResponse {
 export interface CreatePackagingConfigurationRequest {
   __type?: "CreatePackagingConfigurationRequest";
   /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * A CMAF packaging configuration.
    */
   CmafPackage?: CmafPackage;
-
-  /**
-   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-   */
-  DashPackage?: DashPackage;
-
-  /**
-   * An HTTP Live Streaming (HLS) packaging configuration.
-   */
-  HlsPackage?: HlsPackage;
-
-  /**
-   * The ID of the PackagingConfiguration.
-   */
-  Id: string | undefined;
 
   /**
    * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
@@ -221,9 +253,24 @@ export interface CreatePackagingConfigurationRequest {
   MssPackage?: MssPackage;
 
   /**
+   * The ID of the PackagingConfiguration.
+   */
+  Id: string | undefined;
+
+  /**
+   * An HTTP Live Streaming (HLS) packaging configuration.
+   */
+  HlsPackage?: HlsPackage;
+
+  /**
    * The ID of a PackagingGroup.
    */
   PackagingGroupId: string | undefined;
+
+  /**
+   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+   */
+  DashPackage?: DashPackage;
 }
 
 export namespace CreatePackagingConfigurationRequest {
@@ -237,29 +284,14 @@ export namespace CreatePackagingConfigurationRequest {
 export interface CreatePackagingConfigurationResponse {
   __type?: "CreatePackagingConfigurationResponse";
   /**
-   * The ARN of the PackagingConfiguration.
+   * A collection of tags associated with a resource
    */
-  Arn?: string;
-
-  /**
-   * A CMAF packaging configuration.
-   */
-  CmafPackage?: CmafPackage;
-
-  /**
-   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-   */
-  DashPackage?: DashPackage;
+  Tags?: { [key: string]: string };
 
   /**
    * An HTTP Live Streaming (HLS) packaging configuration.
    */
   HlsPackage?: HlsPackage;
-
-  /**
-   * The ID of the PackagingConfiguration.
-   */
-  Id?: string;
 
   /**
    * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
@@ -270,6 +302,26 @@ export interface CreatePackagingConfigurationResponse {
    * The ID of a PackagingGroup.
    */
   PackagingGroupId?: string;
+
+  /**
+   * The ARN of the PackagingConfiguration.
+   */
+  Arn?: string;
+
+  /**
+   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+   */
+  DashPackage?: DashPackage;
+
+  /**
+   * A CMAF packaging configuration.
+   */
+  CmafPackage?: CmafPackage;
+
+  /**
+   * The ID of the PackagingConfiguration.
+   */
+  Id?: string;
 }
 
 export namespace CreatePackagingConfigurationResponse {
@@ -286,6 +338,16 @@ export namespace CreatePackagingConfigurationResponse {
 export interface CreatePackagingGroupRequest {
   __type?: "CreatePackagingGroupRequest";
   /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
    * The ID of the PackagingGroup.
    */
   Id: string | undefined;
@@ -301,19 +363,29 @@ export namespace CreatePackagingGroupRequest {
 export interface CreatePackagingGroupResponse {
   __type?: "CreatePackagingGroupResponse";
   /**
-   * The ARN of the PackagingGroup.
-   */
-  Arn?: string;
-
-  /**
    * The fully qualified domain name for Assets in the PackagingGroup.
    */
   DomainName?: string;
 
   /**
+   * The ARN of the PackagingGroup.
+   */
+  Arn?: string;
+
+  /**
    * The ID of the PackagingGroup.
    */
   Id?: string;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreatePackagingGroupResponse {
@@ -352,14 +424,19 @@ export interface DashManifest {
   ManifestName?: string;
 
   /**
-   * Minimum duration (in seconds) that a player will buffer media before starting the presentation.
-   */
-  MinBufferTimeSeconds?: number;
-
-  /**
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
    */
   Profile?: Profile | string;
+
+  /**
+   * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+   */
+  ManifestLayout?: ManifestLayout | string;
+
+  /**
+   * Minimum duration (in seconds) that a player will buffer media before starting the presentation.
+   */
+  MinBufferTimeSeconds?: number;
 
   /**
    * A StreamSelection configuration.
@@ -380,9 +457,15 @@ export namespace DashManifest {
 export interface DashPackage {
   __type?: "DashPackage";
   /**
-   * A list of DASH manifest configurations.
+   * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
    */
-  DashManifests: DashManifest[] | undefined;
+  SegmentTemplateFormat?: SegmentTemplateFormat | string;
+
+  /**
+   * Duration (in seconds) of each segment. Actual segments will be
+   * rounded to the nearest multiple of the source segment duration.
+   */
+  SegmentDurationSeconds?: number;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
@@ -390,10 +473,17 @@ export interface DashPackage {
   Encryption?: DashEncryption;
 
   /**
-   * Duration (in seconds) of each segment. Actual segments will be
-   * rounded to the nearest multiple of the source segment duration.
+   * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
+   * Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
+   * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
+   * the Asset contains SCTE-35 ad markers.
    */
-  SegmentDurationSeconds?: number;
+  PeriodTriggers?: (__PeriodTriggersElement | string)[];
+
+  /**
+   * A list of DASH manifest configurations.
+   */
+  DashManifests: DashManifest[] | undefined;
 }
 
 export namespace DashPackage {
@@ -501,29 +591,14 @@ export namespace DescribeAssetRequest {
 export interface DescribeAssetResponse {
   __type?: "DescribeAssetResponse";
   /**
+   * The IAM role_arn used to access the source S3 bucket.
+   */
+  SourceRoleArn?: string;
+
+  /**
    * The ARN of the Asset.
    */
   Arn?: string;
-
-  /**
-   * The time the Asset was initially submitted for Ingest.
-   */
-  CreatedAt?: string;
-
-  /**
-   * The list of egress endpoints available for the Asset.
-   */
-  EgressEndpoints?: EgressEndpoint[];
-
-  /**
-   * The unique identifier for the Asset.
-   */
-  Id?: string;
-
-  /**
-   * The ID of the PackagingGroup for the Asset.
-   */
-  PackagingGroupId?: string;
 
   /**
    * The resource ID to include in SPEKE key requests.
@@ -531,14 +606,34 @@ export interface DescribeAssetResponse {
   ResourceId?: string;
 
   /**
+   * The ID of the PackagingGroup for the Asset.
+   */
+  PackagingGroupId?: string;
+
+  /**
+   * The list of egress endpoints available for the Asset.
+   */
+  EgressEndpoints?: EgressEndpoint[];
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * The time the Asset was initially submitted for Ingest.
+   */
+  CreatedAt?: string;
+
+  /**
    * ARN of the source object in S3.
    */
   SourceArn?: string;
 
   /**
-   * The IAM role_arn used to access the source S3 bucket.
+   * The unique identifier for the Asset.
    */
-  SourceRoleArn?: string;
+  Id?: string;
 }
 
 export namespace DescribeAssetResponse {
@@ -567,19 +662,14 @@ export namespace DescribePackagingConfigurationRequest {
 export interface DescribePackagingConfigurationResponse {
   __type?: "DescribePackagingConfigurationResponse";
   /**
-   * The ARN of the PackagingConfiguration.
-   */
-  Arn?: string;
-
-  /**
-   * A CMAF packaging configuration.
-   */
-  CmafPackage?: CmafPackage;
-
-  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
+
+  /**
+   * The ID of a PackagingGroup.
+   */
+  PackagingGroupId?: string;
 
   /**
    * An HTTP Live Streaming (HLS) packaging configuration.
@@ -587,9 +677,14 @@ export interface DescribePackagingConfigurationResponse {
   HlsPackage?: HlsPackage;
 
   /**
-   * The ID of the PackagingConfiguration.
+   * The ARN of the PackagingConfiguration.
    */
-  Id?: string;
+  Arn?: string;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
@@ -597,9 +692,14 @@ export interface DescribePackagingConfigurationResponse {
   MssPackage?: MssPackage;
 
   /**
-   * The ID of a PackagingGroup.
+   * A CMAF packaging configuration.
    */
-  PackagingGroupId?: string;
+  CmafPackage?: CmafPackage;
+
+  /**
+   * The ID of the PackagingConfiguration.
+   */
+  Id?: string;
 }
 
 export namespace DescribePackagingConfigurationResponse {
@@ -628,19 +728,29 @@ export namespace DescribePackagingGroupRequest {
 export interface DescribePackagingGroupResponse {
   __type?: "DescribePackagingGroupResponse";
   /**
+   * The ID of the PackagingGroup.
+   */
+  Id?: string;
+
+  /**
    * The ARN of the PackagingGroup.
    */
   Arn?: string;
 
   /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * The fully qualified domain name for Assets in the PackagingGroup.
    */
   DomainName?: string;
-
-  /**
-   * The ID of the PackagingGroup.
-   */
-  Id?: string;
 }
 
 export namespace DescribePackagingGroupResponse {
@@ -700,6 +810,11 @@ export namespace ForbiddenException {
 export interface HlsEncryption {
   __type?: "HlsEncryption";
   /**
+   * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+   */
+  SpekeKeyProvider: SpekeKeyProvider | undefined;
+
+  /**
    * A constant initialization vector for encryption (optional).
    * When not specified the initialization vector will be periodically rotated.
    */
@@ -709,11 +824,6 @@ export interface HlsEncryption {
    * The encryption method to use.
    */
   EncryptionMethod?: EncryptionMethod | string;
-
-  /**
-   * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
-   */
-  SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
 export namespace HlsEncryption {
@@ -729,19 +839,14 @@ export namespace HlsEncryption {
 export interface HlsManifest {
   __type?: "HlsManifest";
   /**
-   * This setting controls how ad markers are included in the packaged OriginEndpoint.
-   * "NONE" will omit all SCTE-35 ad markers from the output.
-   * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
-   * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
-   * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
-   * messages in the input source.
-   */
-  AdMarkers?: AdMarkers | string;
-
-  /**
    * When enabled, an I-Frame only stream will be included in the output.
    */
   IncludeIframeOnlyStream?: boolean;
+
+  /**
+   * A StreamSelection configuration.
+   */
+  StreamSelection?: StreamSelection;
 
   /**
    * An optional string to include in the name of the manifest.
@@ -767,9 +872,14 @@ export interface HlsManifest {
   RepeatExtXKey?: boolean;
 
   /**
-   * A StreamSelection configuration.
+   * This setting controls how ad markers are included in the packaged OriginEndpoint.
+   * "NONE" will omit all SCTE-35 ad markers from the output.
+   * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+   * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+   * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+   * messages in the input source.
    */
-  StreamSelection?: StreamSelection;
+  AdMarkers?: AdMarkers | string;
 }
 
 export namespace HlsManifest {
@@ -790,9 +900,9 @@ export interface HlsPackage {
   Encryption?: HlsEncryption;
 
   /**
-   * A list of HLS manifest configurations.
+   * When enabled, audio streams will be placed in rendition groups in the output.
    */
-  HlsManifests: HlsManifest[] | undefined;
+  UseAudioRenditionGroup?: boolean;
 
   /**
    * Duration (in seconds) of each fragment. Actual fragments will be
@@ -801,9 +911,9 @@ export interface HlsPackage {
   SegmentDurationSeconds?: number;
 
   /**
-   * When enabled, audio streams will be placed in rendition groups in the output.
+   * A list of HLS manifest configurations.
    */
-  UseAudioRenditionGroup?: boolean;
+  HlsManifests: HlsManifest[] | undefined;
 }
 
 export namespace HlsPackage {
@@ -832,6 +942,11 @@ export namespace InternalServerErrorException {
 export interface ListAssetsRequest {
   __type?: "ListAssetsRequest";
   /**
+   * Returns Assets associated with the specified PackagingGroup.
+   */
+  PackagingGroupId?: string;
+
+  /**
    * Upper bound on number of records to return.
    */
   MaxResults?: number;
@@ -840,11 +955,6 @@ export interface ListAssetsRequest {
    * A token used to resume pagination from the end of a previous request.
    */
   NextToken?: string;
-
-  /**
-   * Returns Assets associated with the specified PackagingGroup.
-   */
-  PackagingGroupId?: string;
 }
 
 export namespace ListAssetsRequest {
@@ -877,14 +987,14 @@ export namespace ListAssetsResponse {
 export interface ListPackagingConfigurationsRequest {
   __type?: "ListPackagingConfigurationsRequest";
   /**
-   * Upper bound on number of records to return.
-   */
-  MaxResults?: number;
-
-  /**
    * A token used to resume pagination from the end of a previous request.
    */
   NextToken?: string;
+
+  /**
+   * Upper bound on number of records to return.
+   */
+  MaxResults?: number;
 
   /**
    * Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.
@@ -903,14 +1013,14 @@ export namespace ListPackagingConfigurationsRequest {
 export interface ListPackagingConfigurationsResponse {
   __type?: "ListPackagingConfigurationsResponse";
   /**
-   * A token that can be used to resume pagination from the end of the collection.
-   */
-  NextToken?: string;
-
-  /**
    * A list of MediaPackage VOD PackagingConfiguration resources.
    */
   PackagingConfigurations?: PackagingConfiguration[];
+
+  /**
+   * A token that can be used to resume pagination from the end of the collection.
+   */
+  NextToken?: string;
 }
 
 export namespace ListPackagingConfigurationsResponse {
@@ -944,14 +1054,14 @@ export namespace ListPackagingGroupsRequest {
 export interface ListPackagingGroupsResponse {
   __type?: "ListPackagingGroupsResponse";
   /**
-   * A token that can be used to resume pagination from the end of the collection.
-   */
-  NextToken?: string;
-
-  /**
    * A list of MediaPackage VOD PackagingGroup resources.
    */
   PackagingGroups?: PackagingGroup[];
+
+  /**
+   * A token that can be used to resume pagination from the end of the collection.
+   */
+  NextToken?: string;
 }
 
 export namespace ListPackagingGroupsResponse {
@@ -959,6 +1069,41 @@ export namespace ListPackagingGroupsResponse {
     ...obj,
   });
   export const isa = (o: any): o is ListPackagingGroupsResponse => __isa(o, "ListPackagingGroupsResponse");
+}
+
+export interface ListTagsForResourceRequest {
+  __type?: "ListTagsForResourceRequest";
+  /**
+   * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
+}
+
+export interface ListTagsForResourceResponse {
+  __type?: "ListTagsForResourceResponse";
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
+}
+
+export enum ManifestLayout {
+  COMPACT = "COMPACT",
+  FULL = "FULL",
 }
 
 /**
@@ -1013,14 +1158,14 @@ export interface MssPackage {
   Encryption?: MssEncryption;
 
   /**
-   * A list of MSS manifest configurations.
-   */
-  MssManifests: MssManifest[] | undefined;
-
-  /**
    * The duration (in seconds) of each segment.
    */
   SegmentDurationSeconds?: number;
+
+  /**
+   * A list of MSS manifest configurations.
+   */
+  MssManifests: MssManifest[] | undefined;
 }
 
 export namespace MssPackage {
@@ -1052,29 +1197,19 @@ export namespace NotFoundException {
 export interface PackagingConfiguration {
   __type?: "PackagingConfiguration";
   /**
-   * The ARN of the PackagingConfiguration.
-   */
-  Arn?: string;
-
-  /**
-   * A CMAF packaging configuration.
-   */
-  CmafPackage?: CmafPackage;
-
-  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
 
   /**
-   * An HTTP Live Streaming (HLS) packaging configuration.
-   */
-  HlsPackage?: HlsPackage;
-
-  /**
    * The ID of the PackagingConfiguration.
    */
   Id?: string;
+
+  /**
+   * A CMAF packaging configuration.
+   */
+  CmafPackage?: CmafPackage;
 
   /**
    * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
@@ -1085,6 +1220,21 @@ export interface PackagingConfiguration {
    * The ID of a PackagingGroup.
    */
   PackagingGroupId?: string;
+
+  /**
+   * The ARN of the PackagingConfiguration.
+   */
+  Arn?: string;
+
+  /**
+   * An HTTP Live Streaming (HLS) packaging configuration.
+   */
+  HlsPackage?: HlsPackage;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace PackagingConfiguration {
@@ -1100,14 +1250,24 @@ export namespace PackagingConfiguration {
 export interface PackagingGroup {
   __type?: "PackagingGroup";
   /**
-   * The ARN of the PackagingGroup.
+   * A collection of tags associated with a resource
    */
-  Arn?: string;
+  Tags?: { [key: string]: string };
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
 
   /**
    * The fully qualified domain name for Assets in the PackagingGroup.
    */
   DomainName?: string;
+
+  /**
+   * The ARN of the PackagingGroup.
+   */
+  Arn?: string;
 
   /**
    * The ID of the PackagingGroup.
@@ -1125,6 +1285,12 @@ export namespace PackagingGroup {
 export enum Profile {
   HBBTV_1_5 = "HBBTV_1_5",
   NONE = "NONE",
+}
+
+export enum SegmentTemplateFormat {
+  NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
+  NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
+  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE",
 }
 
 /**
@@ -1149,12 +1315,6 @@ export namespace ServiceUnavailableException {
 export interface SpekeKeyProvider {
   __type?: "SpekeKeyProvider";
   /**
-   * An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
-   * MediaPackage will assume when accessing the key provider service.
-   */
-  RoleArn: string | undefined;
-
-  /**
    * The system IDs to include in key requests.
    */
   SystemIds: string[] | undefined;
@@ -1163,6 +1323,12 @@ export interface SpekeKeyProvider {
    * The URL of the external key provider service.
    */
   Url: string | undefined;
+
+  /**
+   * An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
+   * MediaPackage will assume when accessing the key provider service.
+   */
+  RoleArn: string | undefined;
 }
 
 export namespace SpekeKeyProvider {
@@ -1184,14 +1350,14 @@ export enum StreamOrder {
 export interface StreamSelection {
   __type?: "StreamSelection";
   /**
-   * The maximum video bitrate (bps) to include in output.
-   */
-  MaxVideoBitsPerSecond?: number;
-
-  /**
    * The minimum video bitrate (bps) to include in output.
    */
   MinVideoBitsPerSecond?: number;
+
+  /**
+   * The maximum video bitrate (bps) to include in output.
+   */
+  MaxVideoBitsPerSecond?: number;
 
   /**
    * A directive that determines the order of streams in the output.
@@ -1204,6 +1370,26 @@ export namespace StreamSelection {
     ...obj,
   });
   export const isa = (o: any): o is StreamSelection => __isa(o, "StreamSelection");
+}
+
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1236,4 +1422,82 @@ export namespace UnprocessableEntityException {
     ...obj,
   });
   export const isa = (o: any): o is UnprocessableEntityException => __isa(o, "UnprocessableEntityException");
+}
+
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   * A comma-separated list of the tag keys to remove from the resource.
+   */
+  TagKeys: string[] | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
+}
+
+/**
+ * A MediaPackage VOD PackagingGroup resource configuration.
+ */
+export interface UpdatePackagingGroupRequest {
+  __type?: "UpdatePackagingGroupRequest";
+  /**
+   * The ID of a MediaPackage VOD PackagingGroup resource.
+   */
+  Id: string | undefined;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+}
+
+export namespace UpdatePackagingGroupRequest {
+  export const filterSensitiveLog = (obj: UpdatePackagingGroupRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdatePackagingGroupRequest => __isa(o, "UpdatePackagingGroupRequest");
+}
+
+export interface UpdatePackagingGroupResponse {
+  __type?: "UpdatePackagingGroupResponse";
+  /**
+   * The fully qualified domain name for Assets in the PackagingGroup.
+   */
+  DomainName?: string;
+
+  /**
+   * The ID of the PackagingGroup.
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the PackagingGroup.
+   */
+  Arn?: string;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace UpdatePackagingGroupResponse {
+  export const filterSensitiveLog = (obj: UpdatePackagingGroupResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdatePackagingGroupResponse => __isa(o, "UpdatePackagingGroupResponse");
 }

@@ -23,6 +23,7 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "../commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
+  AccessDeniedException,
   ConflictException,
   CreateServerRequest,
   CreateServerResponse,
@@ -53,6 +54,7 @@ import {
   ListUsersResponse,
   ListedServer,
   ListedUser,
+  Protocol,
   ResourceExistsException,
   ResourceNotFoundException,
   ServiceUnavailableException,
@@ -345,6 +347,14 @@ const deserializeAws_json1_1CreateServerCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.transfer#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
       response = {
@@ -373,6 +383,14 @@ const deserializeAws_json1_1CreateServerCommandError = async (
     case "com.amazonaws.transfer#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -509,6 +527,14 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.transfer#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
       response = {
@@ -1653,6 +1679,14 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.transfer#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ConflictException":
     case "com.amazonaws.transfer#ConflictException":
       response = {
@@ -1814,6 +1848,21 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1940,6 +1989,7 @@ const serializeAws_json1_1AddressAllocationIds = (input: string[], context: __Se
 
 const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Certificate !== undefined && { Certificate: input.Certificate }),
     ...(input.EndpointDetails !== undefined && {
       EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context),
     }),
@@ -1950,6 +2000,7 @@ const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, con
     }),
     ...(input.IdentityProviderType !== undefined && { IdentityProviderType: input.IdentityProviderType }),
     ...(input.LoggingRole !== undefined && { LoggingRole: input.LoggingRole }),
+    ...(input.Protocols !== undefined && { Protocols: serializeAws_json1_1Protocols(input.Protocols, context) }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
@@ -2073,6 +2124,10 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
   };
 };
 
+const serializeAws_json1_1Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1StartServerRequest = (input: StartServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
@@ -2117,6 +2172,8 @@ const serializeAws_json1_1TestIdentityProviderRequest = (
 ): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
+    ...(input.ServerProtocol !== undefined && { ServerProtocol: input.ServerProtocol }),
+    ...(input.SourceIp !== undefined && { SourceIp: input.SourceIp }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
     ...(input.UserPassword !== undefined && { UserPassword: input.UserPassword }),
   };
@@ -2131,6 +2188,7 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
 
 const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Certificate !== undefined && { Certificate: input.Certificate }),
     ...(input.EndpointDetails !== undefined && {
       EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context),
     }),
@@ -2140,6 +2198,7 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
       IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context),
     }),
     ...(input.LoggingRole !== undefined && { LoggingRole: input.LoggingRole }),
+    ...(input.Protocols !== undefined && { Protocols: serializeAws_json1_1Protocols(input.Protocols, context) }),
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
   };
 };
@@ -2156,6 +2215,13 @@ const serializeAws_json1_1UpdateUserRequest = (input: UpdateUserRequest, context
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
+};
+
+const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+  return {
+    __type: "AccessDeniedException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1AddressAllocationIds = (output: any, context: __SerdeContext): string[] => {
@@ -2188,6 +2254,7 @@ const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeCont
   return {
     __type: "DescribedServer",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
     EndpointDetails:
       output.EndpointDetails !== undefined && output.EndpointDetails !== null
         ? deserializeAws_json1_1EndpointDetails(output.EndpointDetails, context)
@@ -2206,6 +2273,10 @@ const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeCont
         ? output.IdentityProviderType
         : undefined,
     LoggingRole: output.LoggingRole !== undefined && output.LoggingRole !== null ? output.LoggingRole : undefined,
+    Protocols:
+      output.Protocols !== undefined && output.Protocols !== null
+        ? deserializeAws_json1_1Protocols(output.Protocols, context)
+        : undefined,
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     Tags:
@@ -2419,6 +2490,10 @@ const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeCo
         ? deserializeAws_json1_1ListedUsers(output.Users, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ResourceExistsException = (

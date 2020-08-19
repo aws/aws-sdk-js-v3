@@ -342,8 +342,8 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   };
   let resolvedPath = "/channels";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -368,10 +368,10 @@ export const serializeAws_restJson1ListHarvestJobsCommand = async (
   };
   let resolvedPath = "/harvest_jobs";
   const query: any = {
-    ...(input.IncludeChannelId !== undefined && { includeChannelId: input.IncludeChannelId }),
-    ...(input.IncludeStatus !== undefined && { includeStatus: input.IncludeStatus }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.IncludeChannelId !== undefined && { includeChannelId: input.IncludeChannelId }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.IncludeStatus !== undefined && { includeStatus: input.IncludeStatus }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -396,9 +396,9 @@ export const serializeAws_restJson1ListOriginEndpointsCommand = async (
   };
   let resolvedPath = "/origin_endpoints";
   const query: any = {
-    ...(input.ChannelId !== undefined && { channelId: input.ChannelId }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ChannelId !== undefined && { channelId: input.ChannelId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

@@ -783,6 +783,7 @@ import {
   ResourceDataSyncAwsOrganizationsSource,
   ResourceDataSyncConflictException,
   ResourceDataSyncCountExceededException,
+  ResourceDataSyncDestinationDataSharing,
   ResourceDataSyncInvalidConfigurationException,
   ResourceDataSyncItem,
   ResourceDataSyncNotFoundException,
@@ -13826,6 +13827,7 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ApplyOnlyAtCronInterval !== undefined && { ApplyOnlyAtCronInterval: input.ApplyOnlyAtCronInterval }),
     ...(input.AssociationName !== undefined && { AssociationName: input.AssociationName }),
     ...(input.AutomationTargetParameterName !== undefined && {
       AutomationTargetParameterName: input.AutomationTargetParameterName,
@@ -13841,6 +13843,7 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
     }),
     ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
     ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.SyncCompliance !== undefined && { SyncCompliance: input.SyncCompliance }),
     ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
 };
@@ -13850,6 +13853,7 @@ const serializeAws_json1_1CreateAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ApplyOnlyAtCronInterval !== undefined && { ApplyOnlyAtCronInterval: input.ApplyOnlyAtCronInterval }),
     ...(input.AssociationName !== undefined && { AssociationName: input.AssociationName }),
     ...(input.AutomationTargetParameterName !== undefined && {
       AutomationTargetParameterName: input.AutomationTargetParameterName,
@@ -13865,6 +13869,7 @@ const serializeAws_json1_1CreateAssociationRequest = (
     }),
     ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
     ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.SyncCompliance !== undefined && { SyncCompliance: input.SyncCompliance }),
     ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
 };
@@ -13900,6 +13905,7 @@ const serializeAws_json1_1CreateMaintenanceWindowRequest = (
     ...(input.EndDate !== undefined && { EndDate: input.EndDate }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
+    ...(input.ScheduleOffset !== undefined && { ScheduleOffset: input.ScheduleOffset }),
     ...(input.ScheduleTimezone !== undefined && { ScheduleTimezone: input.ScheduleTimezone }),
     ...(input.StartDate !== undefined && { StartDate: input.StartDate }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
@@ -15501,6 +15507,7 @@ const serializeAws_json1_1PatchOrchestratorFilterValues = (input: string[], cont
 const serializeAws_json1_1PatchRule = (input: PatchRule, context: __SerdeContext): any => {
   return {
     ...(input.ApproveAfterDays !== undefined && { ApproveAfterDays: input.ApproveAfterDays }),
+    ...(input.ApproveUntilDate !== undefined && { ApproveUntilDate: input.ApproveUntilDate }),
     ...(input.ComplianceLevel !== undefined && { ComplianceLevel: input.ComplianceLevel }),
     ...(input.EnableNonSecurity !== undefined && { EnableNonSecurity: input.EnableNonSecurity }),
     ...(input.PatchFilterGroup !== undefined && {
@@ -15550,6 +15557,7 @@ const serializeAws_json1_1PutComplianceItemsRequest = (
     ...(input.Items !== undefined && { Items: serializeAws_json1_1ComplianceItemEntryList(input.Items, context) }),
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
     ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.UploadType !== undefined && { UploadType: input.UploadType }),
   };
 };
 
@@ -15563,6 +15571,7 @@ const serializeAws_json1_1PutInventoryRequest = (input: PutInventoryRequest, con
 const serializeAws_json1_1PutParameterRequest = (input: PutParameterRequest, context: __SerdeContext): any => {
   return {
     ...(input.AllowedPattern !== undefined && { AllowedPattern: input.AllowedPattern }),
+    ...(input.DataType !== undefined && { DataType: input.DataType }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
     ...(input.Name !== undefined && { Name: input.Name }),
@@ -15689,6 +15698,17 @@ const serializeAws_json1_1ResourceDataSyncAwsOrganizationsSource = (
   };
 };
 
+const serializeAws_json1_1ResourceDataSyncDestinationDataSharing = (
+  input: ResourceDataSyncDestinationDataSharing,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationDataSharingType !== undefined && {
+      DestinationDataSharingType: input.DestinationDataSharingType,
+    }),
+  };
+};
+
 const serializeAws_json1_1ResourceDataSyncOrganizationalUnit = (
   input: ResourceDataSyncOrganizationalUnit,
   context: __SerdeContext
@@ -15712,6 +15732,12 @@ const serializeAws_json1_1ResourceDataSyncS3Destination = (
   return {
     ...(input.AWSKMSKeyARN !== undefined && { AWSKMSKeyARN: input.AWSKMSKeyARN }),
     ...(input.BucketName !== undefined && { BucketName: input.BucketName }),
+    ...(input.DestinationDataSharing !== undefined && {
+      DestinationDataSharing: serializeAws_json1_1ResourceDataSyncDestinationDataSharing(
+        input.DestinationDataSharing,
+        context
+      ),
+    }),
     ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
     ...(input.Region !== undefined && { Region: input.Region }),
     ...(input.SyncFormat !== undefined && { SyncFormat: input.SyncFormat }),
@@ -15976,6 +16002,7 @@ const serializeAws_json1_1UpdateAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ApplyOnlyAtCronInterval !== undefined && { ApplyOnlyAtCronInterval: input.ApplyOnlyAtCronInterval }),
     ...(input.AssociationId !== undefined && { AssociationId: input.AssociationId }),
     ...(input.AssociationName !== undefined && { AssociationName: input.AssociationName }),
     ...(input.AssociationVersion !== undefined && { AssociationVersion: input.AssociationVersion }),
@@ -15992,6 +16019,7 @@ const serializeAws_json1_1UpdateAssociationRequest = (
     }),
     ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
     ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.SyncCompliance !== undefined && { SyncCompliance: input.SyncCompliance }),
     ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
 };
@@ -16047,6 +16075,7 @@ const serializeAws_json1_1UpdateMaintenanceWindowRequest = (
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Replace !== undefined && { Replace: input.Replace }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
+    ...(input.ScheduleOffset !== undefined && { ScheduleOffset: input.ScheduleOffset }),
     ...(input.ScheduleTimezone !== undefined && { ScheduleTimezone: input.ScheduleTimezone }),
     ...(input.StartDate !== undefined && { StartDate: input.StartDate }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
@@ -16317,6 +16346,10 @@ const deserializeAws_json1_1AssociationAlreadyExists = (
 const deserializeAws_json1_1AssociationDescription = (output: any, context: __SerdeContext): AssociationDescription => {
   return {
     __type: "AssociationDescription",
+    ApplyOnlyAtCronInterval:
+      output.ApplyOnlyAtCronInterval !== undefined && output.ApplyOnlyAtCronInterval !== null
+        ? output.ApplyOnlyAtCronInterval
+        : undefined,
     AssociationId:
       output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
     AssociationName:
@@ -16373,6 +16406,8 @@ const deserializeAws_json1_1AssociationDescription = (output: any, context: __Se
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1AssociationStatus(output.Status, context)
         : undefined,
+    SyncCompliance:
+      output.SyncCompliance !== undefined && output.SyncCompliance !== null ? output.SyncCompliance : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
@@ -16531,6 +16566,10 @@ const deserializeAws_json1_1AssociationStatusAggregatedCount = (
 const deserializeAws_json1_1AssociationVersionInfo = (output: any, context: __SerdeContext): AssociationVersionInfo => {
   return {
     __type: "AssociationVersionInfo",
+    ApplyOnlyAtCronInterval:
+      output.ApplyOnlyAtCronInterval !== undefined && output.ApplyOnlyAtCronInterval !== null
+        ? output.ApplyOnlyAtCronInterval
+        : undefined,
     AssociationId:
       output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
     AssociationName:
@@ -16565,6 +16604,8 @@ const deserializeAws_json1_1AssociationVersionInfo = (output: any, context: __Se
       output.ScheduleExpression !== undefined && output.ScheduleExpression !== null
         ? output.ScheduleExpression
         : undefined,
+    SyncCompliance:
+      output.SyncCompliance !== undefined && output.SyncCompliance !== null ? output.SyncCompliance : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
@@ -16934,6 +16975,8 @@ const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Co
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
         : undefined,
+    TimeoutSeconds:
+      output.TimeoutSeconds !== undefined && output.TimeoutSeconds !== null ? output.TimeoutSeconds : undefined,
   } as any;
 };
 
@@ -17140,6 +17183,10 @@ const deserializeAws_json1_1CreateAssociationBatchRequestEntry = (
 ): CreateAssociationBatchRequestEntry => {
   return {
     __type: "CreateAssociationBatchRequestEntry",
+    ApplyOnlyAtCronInterval:
+      output.ApplyOnlyAtCronInterval !== undefined && output.ApplyOnlyAtCronInterval !== null
+        ? output.ApplyOnlyAtCronInterval
+        : undefined,
     AssociationName:
       output.AssociationName !== undefined && output.AssociationName !== null ? output.AssociationName : undefined,
     AutomationTargetParameterName:
@@ -17169,6 +17216,8 @@ const deserializeAws_json1_1CreateAssociationBatchRequestEntry = (
       output.ScheduleExpression !== undefined && output.ScheduleExpression !== null
         ? output.ScheduleExpression
         : undefined,
+    SyncCompliance:
+      output.SyncCompliance !== undefined && output.SyncCompliance !== null ? output.SyncCompliance : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
@@ -18447,6 +18496,8 @@ const deserializeAws_json1_1GetMaintenanceWindowResult = (
         ? output.NextExecutionTime
         : undefined,
     Schedule: output.Schedule !== undefined && output.Schedule !== null ? output.Schedule : undefined,
+    ScheduleOffset:
+      output.ScheduleOffset !== undefined && output.ScheduleOffset !== null ? output.ScheduleOffset : undefined,
     ScheduleTimezone:
       output.ScheduleTimezone !== undefined && output.ScheduleTimezone !== null ? output.ScheduleTimezone : undefined,
     StartDate: output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,
@@ -19835,6 +19886,8 @@ const deserializeAws_json1_1MaintenanceWindowIdentity = (
         ? output.NextExecutionTime
         : undefined,
     Schedule: output.Schedule !== undefined && output.Schedule !== null ? output.Schedule : undefined,
+    ScheduleOffset:
+      output.ScheduleOffset !== undefined && output.ScheduleOffset !== null ? output.ScheduleOffset : undefined,
     ScheduleTimezone:
       output.ScheduleTimezone !== undefined && output.ScheduleTimezone !== null ? output.ScheduleTimezone : undefined,
     StartDate: output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,
@@ -20352,6 +20405,7 @@ const deserializeAws_json1_1Parameter = (output: any, context: __SerdeContext): 
   return {
     __type: "Parameter",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    DataType: output.DataType !== undefined && output.DataType !== null ? output.DataType : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
@@ -20377,6 +20431,7 @@ const deserializeAws_json1_1ParameterHistory = (output: any, context: __SerdeCon
     __type: "ParameterHistory",
     AllowedPattern:
       output.AllowedPattern !== undefined && output.AllowedPattern !== null ? output.AllowedPattern : undefined,
+    DataType: output.DataType !== undefined && output.DataType !== null ? output.DataType : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
     Labels:
@@ -20444,6 +20499,7 @@ const deserializeAws_json1_1ParameterMetadata = (output: any, context: __SerdeCo
     __type: "ParameterMetadata",
     AllowedPattern:
       output.AllowedPattern !== undefined && output.AllowedPattern !== null ? output.AllowedPattern : undefined,
+    DataType: output.DataType !== undefined && output.DataType !== null ? output.DataType : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
     LastModifiedDate:
@@ -20677,6 +20733,8 @@ const deserializeAws_json1_1PatchRule = (output: any, context: __SerdeContext): 
     __type: "PatchRule",
     ApproveAfterDays:
       output.ApproveAfterDays !== undefined && output.ApproveAfterDays !== null ? output.ApproveAfterDays : undefined,
+    ApproveUntilDate:
+      output.ApproveUntilDate !== undefined && output.ApproveUntilDate !== null ? output.ApproveUntilDate : undefined,
     ComplianceLevel:
       output.ComplianceLevel !== undefined && output.ComplianceLevel !== null ? output.ComplianceLevel : undefined,
     EnableNonSecurity:
@@ -20962,6 +21020,19 @@ const deserializeAws_json1_1ResourceDataSyncCountExceededException = (
   } as any;
 };
 
+const deserializeAws_json1_1ResourceDataSyncDestinationDataSharing = (
+  output: any,
+  context: __SerdeContext
+): ResourceDataSyncDestinationDataSharing => {
+  return {
+    __type: "ResourceDataSyncDestinationDataSharing",
+    DestinationDataSharingType:
+      output.DestinationDataSharingType !== undefined && output.DestinationDataSharingType !== null
+        ? output.DestinationDataSharingType
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceDataSyncInvalidConfigurationException = (
   output: any,
   context: __SerdeContext
@@ -21056,6 +21127,10 @@ const deserializeAws_json1_1ResourceDataSyncS3Destination = (
     __type: "ResourceDataSyncS3Destination",
     AWSKMSKeyARN: output.AWSKMSKeyARN !== undefined && output.AWSKMSKeyARN !== null ? output.AWSKMSKeyARN : undefined,
     BucketName: output.BucketName !== undefined && output.BucketName !== null ? output.BucketName : undefined,
+    DestinationDataSharing:
+      output.DestinationDataSharing !== undefined && output.DestinationDataSharing !== null
+        ? deserializeAws_json1_1ResourceDataSyncDestinationDataSharing(output.DestinationDataSharing, context)
+        : undefined,
     Prefix: output.Prefix !== undefined && output.Prefix !== null ? output.Prefix : undefined,
     Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
     SyncFormat: output.SyncFormat !== undefined && output.SyncFormat !== null ? output.SyncFormat : undefined,
@@ -21642,6 +21717,8 @@ const deserializeAws_json1_1UpdateMaintenanceWindowResult = (
     EndDate: output.EndDate !== undefined && output.EndDate !== null ? output.EndDate : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Schedule: output.Schedule !== undefined && output.Schedule !== null ? output.Schedule : undefined,
+    ScheduleOffset:
+      output.ScheduleOffset !== undefined && output.ScheduleOffset !== null ? output.ScheduleOffset : undefined,
     ScheduleTimezone:
       output.ScheduleTimezone !== undefined && output.ScheduleTimezone !== null ? output.ScheduleTimezone : undefined,
     StartDate: output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,

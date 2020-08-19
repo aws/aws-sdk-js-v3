@@ -16,6 +16,10 @@ import {
   BatchPutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/BatchPutScheduledUpdateGroupActionCommand";
 import {
+  CancelInstanceRefreshCommandInput,
+  CancelInstanceRefreshCommandOutput,
+} from "./commands/CancelInstanceRefreshCommand";
+import {
   CompleteLifecycleActionCommandInput,
   CompleteLifecycleActionCommandOutput,
 } from "./commands/CompleteLifecycleActionCommand";
@@ -70,6 +74,10 @@ import {
   DescribeAutoScalingNotificationTypesCommandInput,
   DescribeAutoScalingNotificationTypesCommandOutput,
 } from "./commands/DescribeAutoScalingNotificationTypesCommand";
+import {
+  DescribeInstanceRefreshesCommandInput,
+  DescribeInstanceRefreshesCommandOutput,
+} from "./commands/DescribeInstanceRefreshesCommand";
 import {
   DescribeLaunchConfigurationsCommandInput,
   DescribeLaunchConfigurationsCommandOutput,
@@ -157,6 +165,10 @@ import {
   SetInstanceProtectionCommandInput,
   SetInstanceProtectionCommandOutput,
 } from "./commands/SetInstanceProtectionCommand";
+import {
+  StartInstanceRefreshCommandInput,
+  StartInstanceRefreshCommandOutput,
+} from "./commands/StartInstanceRefreshCommand";
 import { SuspendProcessesCommandInput, SuspendProcessesCommandOutput } from "./commands/SuspendProcessesCommand";
 import {
   TerminateInstanceInAutoScalingGroupCommandInput,
@@ -219,6 +231,7 @@ export type ServiceInputTypes =
   | AttachLoadBalancersCommandInput
   | BatchDeleteScheduledActionCommandInput
   | BatchPutScheduledUpdateGroupActionCommandInput
+  | CancelInstanceRefreshCommandInput
   | CompleteLifecycleActionCommandInput
   | CreateAutoScalingGroupCommandInput
   | CreateLaunchConfigurationCommandInput
@@ -235,6 +248,7 @@ export type ServiceInputTypes =
   | DescribeAutoScalingGroupsCommandInput
   | DescribeAutoScalingInstancesCommandInput
   | DescribeAutoScalingNotificationTypesCommandInput
+  | DescribeInstanceRefreshesCommandInput
   | DescribeLaunchConfigurationsCommandInput
   | DescribeLifecycleHookTypesCommandInput
   | DescribeLifecycleHooksCommandInput
@@ -265,6 +279,7 @@ export type ServiceInputTypes =
   | SetDesiredCapacityCommandInput
   | SetInstanceHealthCommandInput
   | SetInstanceProtectionCommandInput
+  | StartInstanceRefreshCommandInput
   | SuspendProcessesCommandInput
   | TerminateInstanceInAutoScalingGroupCommandInput
   | UpdateAutoScalingGroupCommandInput;
@@ -275,6 +290,7 @@ export type ServiceOutputTypes =
   | AttachLoadBalancersCommandOutput
   | BatchDeleteScheduledActionCommandOutput
   | BatchPutScheduledUpdateGroupActionCommandOutput
+  | CancelInstanceRefreshCommandOutput
   | CompleteLifecycleActionCommandOutput
   | CreateAutoScalingGroupCommandOutput
   | CreateLaunchConfigurationCommandOutput
@@ -291,6 +307,7 @@ export type ServiceOutputTypes =
   | DescribeAutoScalingGroupsCommandOutput
   | DescribeAutoScalingInstancesCommandOutput
   | DescribeAutoScalingNotificationTypesCommandOutput
+  | DescribeInstanceRefreshesCommandOutput
   | DescribeLaunchConfigurationsCommandOutput
   | DescribeLifecycleHookTypesCommandOutput
   | DescribeLifecycleHooksCommandOutput
@@ -321,6 +338,7 @@ export type ServiceOutputTypes =
   | SetDesiredCapacityCommandOutput
   | SetInstanceHealthCommandOutput
   | SetInstanceProtectionCommandOutput
+  | StartInstanceRefreshCommandOutput
   | SuspendProcessesCommandOutput
   | TerminateInstanceInAutoScalingGroupCommandOutput
   | UpdateAutoScalingGroupCommandOutput;

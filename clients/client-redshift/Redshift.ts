@@ -91,6 +91,11 @@ import {
 } from "./commands/CreateSnapshotScheduleCommand";
 import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  CreateUsageLimitCommand,
+  CreateUsageLimitCommandInput,
+  CreateUsageLimitCommandOutput,
+} from "./commands/CreateUsageLimitCommand";
+import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
@@ -146,6 +151,11 @@ import {
   DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import {
+  DeleteUsageLimitCommand,
+  DeleteUsageLimitCommandInput,
+  DeleteUsageLimitCommandOutput,
+} from "./commands/DeleteUsageLimitCommand";
 import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
@@ -287,6 +297,11 @@ import {
   DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  DescribeUsageLimitsCommand,
+  DescribeUsageLimitsCommandInput,
+  DescribeUsageLimitsCommandOutput,
+} from "./commands/DescribeUsageLimitsCommand";
+import {
   DisableLoggingCommand,
   DisableLoggingCommandInput,
   DisableLoggingCommandOutput,
@@ -377,6 +392,16 @@ import {
   ModifySnapshotScheduleCommandOutput,
 } from "./commands/ModifySnapshotScheduleCommand";
 import {
+  ModifyUsageLimitCommand,
+  ModifyUsageLimitCommandInput,
+  ModifyUsageLimitCommandOutput,
+} from "./commands/ModifyUsageLimitCommand";
+import {
+  PauseClusterCommand,
+  PauseClusterCommandInput,
+  PauseClusterCommandOutput,
+} from "./commands/PauseClusterCommand";
+import {
   PurchaseReservedNodeOfferingCommand,
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput,
@@ -406,6 +431,11 @@ import {
   RestoreTableFromClusterSnapshotCommandInput,
   RestoreTableFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreTableFromClusterSnapshotCommand";
+import {
+  ResumeClusterCommand,
+  ResumeClusterCommandInput,
+  ResumeClusterCommandOutput,
+} from "./commands/ResumeClusterCommand";
 import {
   RevokeClusterSecurityGroupIngressCommand,
   RevokeClusterSecurityGroupIngressCommandInput,
@@ -1092,7 +1122,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Creates a snapshot schedule with the rate of every 12 hours.</p>
+   * <p>Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule. </p>
    */
   public createSnapshotSchedule(
     args: CreateSnapshotScheduleCommandInput,
@@ -1143,6 +1173,39 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a usage limit for a specified Amazon Redshift feature on a cluster.
+   *             The usage limit is identified by the returned usage limit identifier.</p>
+   */
+  public createUsageLimit(
+    args: CreateUsageLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUsageLimitCommandOutput>;
+  public createUsageLimit(
+    args: CreateUsageLimitCommandInput,
+    cb: (err: any, data?: CreateUsageLimitCommandOutput) => void
+  ): void;
+  public createUsageLimit(
+    args: CreateUsageLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUsageLimitCommandOutput) => void
+  ): void;
+  public createUsageLimit(
+    args: CreateUsageLimitCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUsageLimitCommandOutput) => void),
+    cb?: (err: any, data?: CreateUsageLimitCommandOutput) => void
+  ): Promise<CreateUsageLimitCommandOutput> | void {
+    const command = new CreateUsageLimitCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1556,6 +1619,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a usage limit from a cluster.</p>
+   */
+  public deleteUsageLimit(
+    args: DeleteUsageLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUsageLimitCommandOutput>;
+  public deleteUsageLimit(
+    args: DeleteUsageLimitCommandInput,
+    cb: (err: any, data?: DeleteUsageLimitCommandOutput) => void
+  ): void;
+  public deleteUsageLimit(
+    args: DeleteUsageLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUsageLimitCommandOutput) => void
+  ): void;
+  public deleteUsageLimit(
+    args: DeleteUsageLimitCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUsageLimitCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUsageLimitCommandOutput) => void
+  ): Promise<DeleteUsageLimitCommandOutput> | void {
+    const command = new DeleteUsageLimitCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2640,6 +2735,57 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Shows usage limits on a cluster.
+   *             Results are filtered based on the combination of input usage limit identifier, cluster identifier, and feature type parameters:</p>
+   *         <ul>
+   *             <li>
+   *                <p>If usage limit identifier, cluster identifier, and feature type are not provided,
+   *                 then all usage limit objects for the current account in the current region are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>If usage limit identifier is provided,
+   *                 then the corresponding usage limit object is returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>If cluster identifier is provided,
+   *                 then all usage limit objects for the specified cluster are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>If cluster identifier and feature type are provided,
+   *                 then all usage limit objects for the combination of cluster and feature are returned.</p>
+   *             </li>
+   *          </ul>
+   */
+  public describeUsageLimits(
+    args: DescribeUsageLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUsageLimitsCommandOutput>;
+  public describeUsageLimits(
+    args: DescribeUsageLimitsCommandInput,
+    cb: (err: any, data?: DescribeUsageLimitsCommandOutput) => void
+  ): void;
+  public describeUsageLimits(
+    args: DescribeUsageLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUsageLimitsCommandOutput) => void
+  ): void;
+  public describeUsageLimits(
+    args: DescribeUsageLimitsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsageLimitsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUsageLimitsCommandOutput) => void
+  ): Promise<DescribeUsageLimitsCommandOutput> | void {
+    const command = new DescribeUsageLimitsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Stops logging information, such as queries and connection attempts, for the
    *             specified Amazon Redshift cluster.</p>
    */
@@ -3269,6 +3415,68 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Modifies a usage limit in a cluster.
+   *             You can't modify the feature type or period of a usage limit.</p>
+   */
+  public modifyUsageLimit(
+    args: ModifyUsageLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyUsageLimitCommandOutput>;
+  public modifyUsageLimit(
+    args: ModifyUsageLimitCommandInput,
+    cb: (err: any, data?: ModifyUsageLimitCommandOutput) => void
+  ): void;
+  public modifyUsageLimit(
+    args: ModifyUsageLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyUsageLimitCommandOutput) => void
+  ): void;
+  public modifyUsageLimit(
+    args: ModifyUsageLimitCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyUsageLimitCommandOutput) => void),
+    cb?: (err: any, data?: ModifyUsageLimitCommandOutput) => void
+  ): Promise<ModifyUsageLimitCommandOutput> | void {
+    const command = new ModifyUsageLimitCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Pauses a cluster.</p>
+   */
+  public pauseCluster(
+    args: PauseClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PauseClusterCommandOutput>;
+  public pauseCluster(args: PauseClusterCommandInput, cb: (err: any, data?: PauseClusterCommandOutput) => void): void;
+  public pauseCluster(
+    args: PauseClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PauseClusterCommandOutput) => void
+  ): void;
+  public pauseCluster(
+    args: PauseClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PauseClusterCommandOutput) => void),
+    cb?: (err: any, data?: PauseClusterCommandOutput) => void
+  ): Promise<PauseClusterCommandOutput> | void {
+    const command = new PauseClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
    *             reserved node offerings. You can purchase one or more of the offerings. You can call the
    *                 <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved
@@ -3405,6 +3613,9 @@ export class Redshift extends RedshiftClient {
    *                         <p>ds2.8xlarge</p>
    *                     </li>
    *                   <li>
+   *                         <p>ra3.4xlarge</p>
+   *                     </li>
+   *                   <li>
    *                         <p>ra3.16xlarge</p>
    *                     </li>
    *                </ul>
@@ -3520,6 +3731,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: RestoreTableFromClusterSnapshotCommandOutput) => void
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput> | void {
     const command = new RestoreTableFromClusterSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Resumes a paused cluster.</p>
+   */
+  public resumeCluster(
+    args: ResumeClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeClusterCommandOutput>;
+  public resumeCluster(
+    args: ResumeClusterCommandInput,
+    cb: (err: any, data?: ResumeClusterCommandOutput) => void
+  ): void;
+  public resumeCluster(
+    args: ResumeClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeClusterCommandOutput) => void
+  ): void;
+  public resumeCluster(
+    args: ResumeClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeClusterCommandOutput) => void),
+    cb?: (err: any, data?: ResumeClusterCommandOutput) => void
+  ): Promise<ResumeClusterCommandOutput> | void {
+    const command = new ResumeClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

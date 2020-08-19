@@ -7,17 +7,17 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AcknowledgeJobInput {
   __type?: "AcknowledgeJobInput";
   /**
-   * <p>The unique system-generated ID of the job for which you want to confirm
-   *             receipt.</p>
-   */
-  jobId: string | undefined;
-
-  /**
    * <p>A system-generated random number that AWS CodePipeline uses to ensure that the job
    *             is being worked on by only one job worker. Get this number from the response of the
    *                 <a>PollForJobs</a> request that returned this job.</p>
    */
   nonce: string | undefined;
+
+  /**
+   * <p>The unique system-generated ID of the job for which you want to confirm
+   *             receipt.</p>
+   */
+  jobId: string | undefined;
 }
 
 export namespace AcknowledgeJobInput {
@@ -51,12 +51,6 @@ export namespace AcknowledgeJobOutput {
 export interface AcknowledgeThirdPartyJobInput {
   __type?: "AcknowledgeThirdPartyJobInput";
   /**
-   * <p>The clientToken portion of the clientId and clientToken pair used to verify that
-   *             the calling entity is allowed access to the job and its details.</p>
-   */
-  clientToken: string | undefined;
-
-  /**
    * <p>The unique system-generated ID of the job.</p>
    */
   jobId: string | undefined;
@@ -66,6 +60,12 @@ export interface AcknowledgeThirdPartyJobInput {
    *             is being worked on by only one job worker. Get this number from the response to a <a>GetThirdPartyJobDetails</a> request.</p>
    */
   nonce: string | undefined;
+
+  /**
+   * <p>The clientToken portion of the clientId and clientToken pair used to verify that
+   *             the calling entity is allowed access to the job and its details.</p>
+   */
+  clientToken: string | undefined;
 }
 
 export namespace AcknowledgeThirdPartyJobInput {
@@ -126,20 +126,24 @@ export namespace ActionConfiguration {
 export interface ActionConfigurationProperty {
   __type?: "ActionConfigurationProperty";
   /**
+   * <p>Whether the configuration property is secret. Secrets are hidden from all calls
+   *             except for <code>GetJobDetails</code>, <code>GetThirdPartyJobDetails</code>,
+   *                 <code>PollForJobs</code>, and <code>PollForThirdPartyJobs</code>.</p>
+   *         <p>When updating a pipeline, passing * * * * * without changing any other values of
+   *             the action preserves the previous value of the secret.</p>
+   */
+  secret: boolean | undefined;
+
+  /**
+   * <p>The type of the configuration property.</p>
+   */
+  type?: ActionConfigurationPropertyType | string;
+
+  /**
    * <p>The description of the action configuration property that is displayed to
    *             users.</p>
    */
   description?: string;
-
-  /**
-   * <p>Whether the configuration property is a key.</p>
-   */
-  key: boolean | undefined;
-
-  /**
-   * <p>The name of the action configuration property.</p>
-   */
-  name: string | undefined;
 
   /**
    * <p>Indicates that the property is used with <code>PollForJobs</code>. When creating a
@@ -158,18 +162,14 @@ export interface ActionConfigurationProperty {
   required: boolean | undefined;
 
   /**
-   * <p>Whether the configuration property is secret. Secrets are hidden from all calls
-   *             except for <code>GetJobDetails</code>, <code>GetThirdPartyJobDetails</code>,
-   *                 <code>PollForJobs</code>, and <code>PollForThirdPartyJobs</code>.</p>
-   *         <p>When updating a pipeline, passing * * * * * without changing any other values of
-   *             the action preserves the previous value of the secret.</p>
+   * <p>Whether the configuration property is a key.</p>
    */
-  secret: boolean | undefined;
+  key: boolean | undefined;
 
   /**
-   * <p>The type of the configuration property.</p>
+   * <p>The name of the action configuration property.</p>
    */
-  type?: ActionConfigurationPropertyType | string;
+  name: string | undefined;
 }
 
 export namespace ActionConfigurationProperty {
@@ -192,14 +192,14 @@ export enum ActionConfigurationPropertyType {
 export interface ActionContext {
   __type?: "ActionContext";
   /**
-   * <p>The system-generated unique ID that corresponds to an action's execution.</p>
-   */
-  actionExecutionId?: string;
-
-  /**
    * <p>The name of the action in the context of a job.</p>
    */
   name?: string;
+
+  /**
+   * <p>The system-generated unique ID that corresponds to an action's execution.</p>
+   */
+  actionExecutionId?: string;
 }
 
 export namespace ActionContext {
@@ -220,6 +220,39 @@ export interface ActionDeclaration {
   actionTypeId: ActionTypeId | undefined;
 
   /**
+   * <p>The name or ID of the artifact consumed by the action, such as a test or build
+   *             artifact.</p>
+   */
+  inputArtifacts?: InputArtifact[];
+
+  /**
+   * <p>The name or ID of the result of the action declaration, such as a test or build
+   *             artifact.</p>
+   */
+  outputArtifacts?: OutputArtifact[];
+
+  /**
+   * <p>The action declaration's AWS Region, such as us-east-1.</p>
+   */
+  region?: string;
+
+  /**
+   * <p>The action declaration's name.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The variable namespace associated with the action. All variables produced as output by
+   *             this action fall under this namespace.</p>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The order in which actions are run.</p>
+   */
+  runOrder?: number;
+
+  /**
    * <p>The action's configuration. These are key-value pairs that specify input values for
    *             an action. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action Structure Requirements in CodePipeline</a>. For the list of
    *             configuration properties for the AWS CloudFormation action type in CodePipeline, see
@@ -238,43 +271,10 @@ export interface ActionDeclaration {
   configuration?: { [key: string]: string };
 
   /**
-   * <p>The name or ID of the artifact consumed by the action, such as a test or build
-   *             artifact.</p>
-   */
-  inputArtifacts?: InputArtifact[];
-
-  /**
-   * <p>The action declaration's name.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The variable namespace associated with the action. All variables produced as output by
-   *             this action fall under this namespace.</p>
-   */
-  namespace?: string;
-
-  /**
-   * <p>The name or ID of the result of the action declaration, such as a test or build
-   *             artifact.</p>
-   */
-  outputArtifacts?: OutputArtifact[];
-
-  /**
-   * <p>The action declaration's AWS Region, such as us-east-1.</p>
-   */
-  region?: string;
-
-  /**
    * <p>The ARN of the IAM service role that performs the declared action. This is assumed
    *             through the roleArn for the pipeline.</p>
    */
   roleArn?: string;
-
-  /**
-   * <p>The order in which actions are run.</p>
-   */
-  runOrder?: number;
 }
 
 export namespace ActionDeclaration {
@@ -290,35 +290,12 @@ export namespace ActionDeclaration {
 export interface ActionExecution {
   __type?: "ActionExecution";
   /**
-   * <p>The details of an error returned by a URL external to AWS.</p>
+   * <p>The system-generated token used to identify a unique approval request. The token
+   *             for each open approval request can be obtained using the <code>GetPipelineState</code>
+   *             command. It is used to validate that the approval request corresponding to this token is
+   *             still valid.</p>
    */
-  errorDetails?: ErrorDetails;
-
-  /**
-   * <p>The external ID of the run of the action.</p>
-   */
-  externalExecutionId?: string;
-
-  /**
-   * <p>The URL of a resource external to AWS that is used when running the action (for
-   *             example, an external repository URL).</p>
-   */
-  externalExecutionUrl?: string;
-
-  /**
-   * <p>The last status change of the action.</p>
-   */
-  lastStatusChange?: Date;
-
-  /**
-   * <p>The ARN of the user who last changed the pipeline.</p>
-   */
-  lastUpdatedBy?: string;
-
-  /**
-   * <p>A percentage of completeness of the action as it runs.</p>
-   */
-  percentComplete?: number;
+  token?: string;
 
   /**
    * <p>The status of the action, or for a completed action, the last status of the
@@ -327,17 +304,40 @@ export interface ActionExecution {
   status?: ActionExecutionStatus | string;
 
   /**
+   * <p>The details of an error returned by a URL external to AWS.</p>
+   */
+  errorDetails?: ErrorDetails;
+
+  /**
    * <p>A summary of the run of the action.</p>
    */
   summary?: string;
 
   /**
-   * <p>The system-generated token used to identify a unique approval request. The token
-   *             for each open approval request can be obtained using the <code>GetPipelineState</code>
-   *             command. It is used to validate that the approval request corresponding to this token is
-   *             still valid.</p>
+   * <p>The external ID of the run of the action.</p>
    */
-  token?: string;
+  externalExecutionId?: string;
+
+  /**
+   * <p>The ARN of the user who last changed the pipeline.</p>
+   */
+  lastUpdatedBy?: string;
+
+  /**
+   * <p>The last status change of the action.</p>
+   */
+  lastStatusChange?: Date;
+
+  /**
+   * <p>A percentage of completeness of the action as it runs.</p>
+   */
+  percentComplete?: number;
+
+  /**
+   * <p>The URL of a resource external to AWS that is used when running the action (for
+   *             example, an external repository URL).</p>
+   */
+  externalExecutionUrl?: string;
 }
 
 export namespace ActionExecution {
@@ -354,14 +354,14 @@ export namespace ActionExecution {
 export interface ActionExecutionDetail {
   __type?: "ActionExecutionDetail";
   /**
-   * <p>The action execution ID.</p>
+   * <p>Output details for the action execution, such as the action execution result.</p>
    */
-  actionExecutionId?: string;
+  output?: ActionExecutionOutput;
 
   /**
-   * <p>The name of the action.</p>
+   * <p>The version of the pipeline where the action was run.</p>
    */
-  actionName?: string;
+  pipelineVersion?: number;
 
   /**
    * <p>Input details for the action execution, such as role ARN, Region, and input
@@ -370,29 +370,25 @@ export interface ActionExecutionDetail {
   input?: ActionExecutionInput;
 
   /**
-   * <p>The last update time of the action execution.</p>
-   */
-  lastUpdateTime?: Date;
-
-  /**
-   * <p>Output details for the action execution, such as the action execution result.</p>
-   */
-  output?: ActionExecutionOutput;
-
-  /**
-   * <p>The pipeline execution ID for the action execution.</p>
-   */
-  pipelineExecutionId?: string;
-
-  /**
-   * <p>The version of the pipeline where the action was run.</p>
-   */
-  pipelineVersion?: number;
-
-  /**
    * <p>The name of the stage that contains the action.</p>
    */
   stageName?: string;
+
+  /**
+   * <p> The status of the action execution. Status categories are <code>InProgress</code>,
+   *                 <code>Succeeded</code>, and <code>Failed</code>.</p>
+   */
+  status?: ActionExecutionStatus | string;
+
+  /**
+   * <p>The name of the action.</p>
+   */
+  actionName?: string;
+
+  /**
+   * <p>The last update time of the action execution.</p>
+   */
+  lastUpdateTime?: Date;
 
   /**
    * <p>The start time of the action execution.</p>
@@ -400,10 +396,14 @@ export interface ActionExecutionDetail {
   startTime?: Date;
 
   /**
-   * <p> The status of the action execution. Status categories are <code>InProgress</code>,
-   *                 <code>Succeeded</code>, and <code>Failed</code>.</p>
+   * <p>The action execution ID.</p>
    */
-  status?: ActionExecutionStatus | string;
+  actionExecutionId?: string;
+
+  /**
+   * <p>The pipeline execution ID for the action execution.</p>
+   */
+  pipelineExecutionId?: string;
 }
 
 export namespace ActionExecutionDetail {
@@ -437,20 +437,10 @@ export namespace ActionExecutionFilter {
 export interface ActionExecutionInput {
   __type?: "ActionExecutionInput";
   /**
-   * <p>Represents information about an action type.</p>
+   * <p>The ARN of the IAM service role that performs the declared action. This is assumed
+   *             through the roleArn for the pipeline. </p>
    */
-  actionTypeId?: ActionTypeId;
-
-  /**
-   * <p>Configuration data for an action execution.</p>
-   */
-  configuration?: { [key: string]: string };
-
-  /**
-   * <p>Details of input artifacts of the action that correspond to the action
-   *             execution.</p>
-   */
-  inputArtifacts?: ArtifactDetail[];
+  roleArn?: string;
 
   /**
    * <p>The variable namespace associated with the action. All variables produced as output by
@@ -459,9 +449,9 @@ export interface ActionExecutionInput {
   namespace?: string;
 
   /**
-   * <p>The AWS Region for the action, such as us-east-1.</p>
+   * <p>Represents information about an action type.</p>
    */
-  region?: string;
+  actionTypeId?: ActionTypeId;
 
   /**
    * <p>Configuration data for an action execution with all variable references replaced with
@@ -470,10 +460,20 @@ export interface ActionExecutionInput {
   resolvedConfiguration?: { [key: string]: string };
 
   /**
-   * <p>The ARN of the IAM service role that performs the declared action. This is assumed
-   *             through the roleArn for the pipeline. </p>
+   * <p>The AWS Region for the action, such as us-east-1.</p>
    */
-  roleArn?: string;
+  region?: string;
+
+  /**
+   * <p>Details of input artifacts of the action that correspond to the action
+   *             execution.</p>
+   */
+  inputArtifacts?: ArtifactDetail[];
+
+  /**
+   * <p>Configuration data for an action execution.</p>
+   */
+  configuration?: { [key: string]: string };
 }
 
 export namespace ActionExecutionInput {
@@ -526,15 +526,15 @@ export interface ActionExecutionResult {
   externalExecutionId?: string;
 
   /**
-   * <p>The action provider's summary for the action execution.</p>
-   */
-  externalExecutionSummary?: string;
-
-  /**
    * <p>The deepest external link to the external resource (for example, a repository URL or
    *             deployment endpoint) that is used when running the action.</p>
    */
   externalExecutionUrl?: string;
+
+  /**
+   * <p>The action provider's summary for the action execution.</p>
+   */
+  externalExecutionSummary?: string;
 }
 
 export namespace ActionExecutionResult {
@@ -582,6 +582,12 @@ export enum ActionOwner {
 export interface ActionRevision {
   __type?: "ActionRevision";
   /**
+   * <p>The system-generated unique ID that identifies the revision number of the
+   *             action.</p>
+   */
+  revisionId: string | undefined;
+
+  /**
    * <p>The date and time when the most recent version of the action was created, in
    *             timestamp format.</p>
    */
@@ -592,12 +598,6 @@ export interface ActionRevision {
    *             example, a deployment ID or timestamp).</p>
    */
   revisionChangeId: string | undefined;
-
-  /**
-   * <p>The system-generated unique ID that identifies the revision number of the
-   *             action.</p>
-   */
-  revisionId: string | undefined;
 }
 
 export namespace ActionRevision {
@@ -613,20 +613,9 @@ export namespace ActionRevision {
 export interface ActionState {
   __type?: "ActionState";
   /**
-   * <p>The name of the action.</p>
-   */
-  actionName?: string;
-
-  /**
    * <p>Represents information about the version (or revision) of an action.</p>
    */
   currentRevision?: ActionRevision;
-
-  /**
-   * <p>A URL link for more information about the state of the action, such as a deployment
-   *             group details page.</p>
-   */
-  entityUrl?: string;
 
   /**
    * <p>Represents information about the run of an action.</p>
@@ -634,10 +623,21 @@ export interface ActionState {
   latestExecution?: ActionExecution;
 
   /**
+   * <p>The name of the action.</p>
+   */
+  actionName?: string;
+
+  /**
    * <p>A URL link for more information about the revision, such as a commit details
    *             page.</p>
    */
   revisionUrl?: string;
+
+  /**
+   * <p>A URL link for more information about the state of the action, such as a deployment
+   *             group details page.</p>
+   */
+  entityUrl?: string;
 }
 
 export namespace ActionState {
@@ -653,6 +653,11 @@ export namespace ActionState {
 export interface ActionType {
   __type?: "ActionType";
   /**
+   * <p>The details of the input artifact for the action, such as its commit ID.</p>
+   */
+  inputArtifactDetails: ArtifactDetails | undefined;
+
+  /**
    * <p>The configuration properties for the action type.</p>
    */
   actionConfigurationProperties?: ActionConfigurationProperty[];
@@ -661,11 +666,6 @@ export interface ActionType {
    * <p>Represents information about an action type.</p>
    */
   id: ActionTypeId | undefined;
-
-  /**
-   * <p>The details of the input artifact for the action, such as its commit ID.</p>
-   */
-  inputArtifactDetails: ArtifactDetails | undefined;
 
   /**
    * <p>The details of the output artifact of the action, such as its commit ID.</p>
@@ -691,16 +691,16 @@ export namespace ActionType {
 export interface ActionTypeId {
   __type?: "ActionTypeId";
   /**
+   * <p>The creator of the action being called.</p>
+   */
+  owner: ActionOwner | string | undefined;
+
+  /**
    * <p>A category defines what kind of action can be taken in the stage, and constrains
    *             the provider type for the action. Valid categories are limited to one of the following
    *             values. </p>
    */
   category: ActionCategory | string | undefined;
-
-  /**
-   * <p>The creator of the action being called.</p>
-   */
-  owner: ActionOwner | string | undefined;
 
   /**
    * <p>The provider of the service being called by the action. Valid providers are
@@ -764,16 +764,16 @@ export interface ActionTypeSettings {
   executionUrlTemplate?: string;
 
   /**
-   * <p>The URL returned to the AWS CodePipeline console that contains a link to the page
-   *             where customers can update or change the configuration of the external action.</p>
-   */
-  revisionUrlTemplate?: string;
-
-  /**
    * <p>The URL of a sign-up page where users can sign up for an external service and
    *             perform initial configuration of the action provided by that service.</p>
    */
   thirdPartyConfigurationUrl?: string;
+
+  /**
+   * <p>The URL returned to the AWS CodePipeline console that contains a link to the page
+   *             where customers can update or change the configuration of the external action.</p>
+   */
+  revisionUrlTemplate?: string;
 }
 
 export namespace ActionTypeSettings {
@@ -940,6 +940,14 @@ export enum ArtifactLocationType {
 export interface ArtifactRevision {
   __type?: "ArtifactRevision";
   /**
+   * <p>Summary information about the most recent revision of the artifact. For GitHub and
+   *             AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the
+   *             user-provided content of a <code>codepipeline-artifact-revision-summary</code> key
+   *             specified in the object metadata.</p>
+   */
+  revisionSummary?: string;
+
+  /**
    * <p>The date and time when the most recent revision of the artifact was created, in
    *             timestamp format.</p>
    */
@@ -961,14 +969,6 @@ export interface ArtifactRevision {
    * <p>The revision ID of the artifact.</p>
    */
   revisionId?: string;
-
-  /**
-   * <p>Summary information about the most recent revision of the artifact. For GitHub and
-   *             AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the
-   *             user-provided content of a <code>codepipeline-artifact-revision-summary</code> key
-   *             specified in the object metadata.</p>
-   */
-  revisionSummary?: string;
 
   /**
    * <p>The commit ID for the artifact revision. For artifacts stored in GitHub or AWS
@@ -996,6 +996,11 @@ export namespace ArtifactRevision {
 export interface ArtifactStore {
   __type?: "ArtifactStore";
   /**
+   * <p>The type of the artifact store, such as S3.</p>
+   */
+  type: ArtifactStoreType | string | undefined;
+
+  /**
    * <p>The encryption key used to encrypt the data in the artifact store, such as an AWS
    *             Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon
    *             S3 is used.</p>
@@ -1010,11 +1015,6 @@ export interface ArtifactStore {
    *             artifacts.</p>
    */
   location: string | undefined;
-
-  /**
-   * <p>The type of the artifact store, such as S3.</p>
-   */
-  type: ArtifactStoreType | string | undefined;
 }
 
 export namespace ArtifactStore {
@@ -1037,14 +1037,14 @@ export enum ArtifactStoreType {
 export interface AWSSessionCredentials {
   __type?: "AWSSessionCredentials";
   /**
-   * <p>The access key for the session.</p>
-   */
-  accessKeyId: string | undefined;
-
-  /**
    * <p>The secret access key for the session.</p>
    */
   secretAccessKey: string | undefined;
+
+  /**
+   * <p>The access key for the session.</p>
+   */
+  accessKeyId: string | undefined;
 
   /**
    * <p>The token for the session.</p>
@@ -1067,12 +1067,12 @@ export interface BlockerDeclaration {
   /**
    * <p>Reserved for future use.</p>
    */
-  name: string | undefined;
+  type: BlockerType | string | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    */
-  type: BlockerType | string | undefined;
+  name: string | undefined;
 }
 
 export namespace BlockerDeclaration {
@@ -1108,6 +1108,12 @@ export namespace ConcurrentModificationException {
 export interface CreateCustomActionTypeInput {
   __type?: "CreateCustomActionTypeInput";
   /**
+   * <p>The provider of the service used in the custom action, such as AWS
+   *             CodeDeploy.</p>
+   */
+  provider: string | undefined;
+
+  /**
    * <p>The category of the custom action, such as a build action or a test
    *             action.</p>
    *         <note>
@@ -1117,6 +1123,16 @@ export interface CreateCustomActionTypeInput {
    *         </note>
    */
   category: ActionCategory | string | undefined;
+
+  /**
+   * <p>The version identifier of the custom action.</p>
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The tags for the custom action.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The configuration properties for the custom action.</p>
@@ -1131,9 +1147,9 @@ export interface CreateCustomActionTypeInput {
   configurationProperties?: ActionConfigurationProperty[];
 
   /**
-   * <p>The details of the input artifact for the action, such as its commit ID.</p>
+   * <p>URLs that provide users information about this custom action.</p>
    */
-  inputArtifactDetails: ArtifactDetails | undefined;
+  settings?: ActionTypeSettings;
 
   /**
    * <p>The details of the output artifact of the action, such as its commit ID.</p>
@@ -1141,25 +1157,9 @@ export interface CreateCustomActionTypeInput {
   outputArtifactDetails: ArtifactDetails | undefined;
 
   /**
-   * <p>The provider of the service used in the custom action, such as AWS
-   *             CodeDeploy.</p>
+   * <p>The details of the input artifact for the action, such as its commit ID.</p>
    */
-  provider: string | undefined;
-
-  /**
-   * <p>URLs that provide users information about this custom action.</p>
-   */
-  settings?: ActionTypeSettings;
-
-  /**
-   * <p>The tags for the custom action.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The version identifier of the custom action.</p>
-   */
-  version: string | undefined;
+  inputArtifactDetails: ArtifactDetails | undefined;
 }
 
 export namespace CreateCustomActionTypeInput {
@@ -1175,14 +1175,14 @@ export namespace CreateCustomActionTypeInput {
 export interface CreateCustomActionTypeOutput {
   __type?: "CreateCustomActionTypeOutput";
   /**
-   * <p>Returns information about the details of an action type.</p>
-   */
-  actionType: ActionType | undefined;
-
-  /**
    * <p>Specifies the tags applied to the custom action.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Returns information about the details of an action type.</p>
+   */
+  actionType: ActionType | undefined;
 }
 
 export namespace CreateCustomActionTypeOutput {
@@ -1198,15 +1198,15 @@ export namespace CreateCustomActionTypeOutput {
 export interface CreatePipelineInput {
   __type?: "CreatePipelineInput";
   /**
+   * <p>The tags for the pipeline.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>Represents the structure of actions and stages to be performed in the pipeline.
    *         </p>
    */
   pipeline: PipelineDeclaration | undefined;
-
-  /**
-   * <p>The tags for the pipeline.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreatePipelineInput {
@@ -1222,15 +1222,15 @@ export namespace CreatePipelineInput {
 export interface CreatePipelineOutput {
   __type?: "CreatePipelineOutput";
   /**
+   * <p>Specifies the tags applied to the pipeline.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>Represents the structure of actions and stages to be performed in the pipeline.
    *         </p>
    */
   pipeline?: PipelineDeclaration;
-
-  /**
-   * <p>Specifies the tags applied to the pipeline.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreatePipelineOutput {
@@ -1246,6 +1246,11 @@ export namespace CreatePipelineOutput {
 export interface CurrentRevision {
   __type?: "CurrentRevision";
   /**
+   * <p>The revision ID of the current version of an artifact.</p>
+   */
+  revision: string | undefined;
+
+  /**
    * <p>The change identifier for the current revision.</p>
    */
   changeIdentifier: string | undefined;
@@ -1255,11 +1260,6 @@ export interface CurrentRevision {
    *             timestamp format.</p>
    */
   created?: Date;
-
-  /**
-   * <p>The revision ID of the current version of an artifact.</p>
-   */
-  revision: string | undefined;
 
   /**
    * <p>The summary of the most recent revision of the artifact.</p>
@@ -1281,12 +1281,6 @@ export namespace CurrentRevision {
 export interface DeleteCustomActionTypeInput {
   __type?: "DeleteCustomActionTypeInput";
   /**
-   * <p>The category of the custom action that you want to delete, such as source or
-   *             deploy.</p>
-   */
-  category: ActionCategory | string | undefined;
-
-  /**
    * <p>The provider of the service used in the custom action, such as AWS
    *             CodeDeploy.</p>
    */
@@ -1296,6 +1290,12 @@ export interface DeleteCustomActionTypeInput {
    * <p>The version of the custom action to delete.</p>
    */
   version: string | undefined;
+
+  /**
+   * <p>The category of the custom action that you want to delete, such as source or
+   *             deploy.</p>
+   */
+  category: ActionCategory | string | undefined;
 }
 
 export namespace DeleteCustomActionTypeInput {
@@ -1443,10 +1443,11 @@ export namespace DuplicatedStopRequestException {
 export interface EnableStageTransitionInput {
   __type?: "EnableStageTransitionInput";
   /**
-   * <p>The name of the pipeline in which you want to enable the flow of artifacts from one
-   *             stage to another.</p>
+   * <p>Specifies whether artifacts are allowed to enter the stage and be processed by the
+   *             actions in that stage (inbound) or whether already processed artifacts are allowed to
+   *             transition to the next stage (outbound).</p>
    */
-  pipelineName: string | undefined;
+  transitionType: StageTransitionType | string | undefined;
 
   /**
    * <p>The name of the stage where you want to enable the transition of artifacts, either
@@ -1455,11 +1456,10 @@ export interface EnableStageTransitionInput {
   stageName: string | undefined;
 
   /**
-   * <p>Specifies whether artifacts are allowed to enter the stage and be processed by the
-   *             actions in that stage (inbound) or whether already processed artifacts are allowed to
-   *             transition to the next stage (outbound).</p>
+   * <p>The name of the pipeline in which you want to enable the flow of artifacts from one
+   *             stage to another.</p>
    */
-  transitionType: StageTransitionType | string | undefined;
+  pipelineName: string | undefined;
 }
 
 export namespace EnableStageTransitionInput {
@@ -1534,16 +1534,16 @@ export namespace ErrorDetails {
 export interface ExecutionDetails {
   __type?: "ExecutionDetails";
   /**
-   * <p>The system-generated unique ID of this action used to identify this job worker in
-   *             any external systems, such as AWS CodeDeploy.</p>
-   */
-  externalExecutionId?: string;
-
-  /**
    * <p>The percentage of work completed on the action, represented on a scale of 0 to 100
    *             percent.</p>
    */
   percentComplete?: number;
+
+  /**
+   * <p>The system-generated unique ID of this action used to identify this job worker in
+   *             any external systems, such as AWS CodeDeploy.</p>
+   */
+  externalExecutionId?: string;
 
   /**
    * <p>The summary of the current status of the actions.</p>
@@ -1590,11 +1590,6 @@ export namespace ExecutionTrigger {
 export interface FailureDetails {
   __type?: "FailureDetails";
   /**
-   * <p>The external ID of the run of the action that failed.</p>
-   */
-  externalExecutionId?: string;
-
-  /**
    * <p>The message about the failure.</p>
    */
   message: string | undefined;
@@ -1603,6 +1598,11 @@ export interface FailureDetails {
    * <p>The type of the failure.</p>
    */
   type: FailureType | string | undefined;
+
+  /**
+   * <p>The external ID of the run of the action that failed.</p>
+   */
+  externalExecutionId?: string;
 }
 
 export namespace FailureDetails {
@@ -1668,15 +1668,15 @@ export namespace GetJobDetailsOutput {
 export interface GetPipelineExecutionInput {
   __type?: "GetPipelineExecutionInput";
   /**
+   * <p>The name of the pipeline about which you want to get execution details.</p>
+   */
+  pipelineName: string | undefined;
+
+  /**
    * <p>The ID of the pipeline execution about which you want to get execution
    *             details.</p>
    */
   pipelineExecutionId: string | undefined;
-
-  /**
-   * <p>The name of the pipeline about which you want to get execution details.</p>
-   */
-  pipelineName: string | undefined;
 }
 
 export namespace GetPipelineExecutionInput {
@@ -1710,16 +1710,16 @@ export namespace GetPipelineExecutionOutput {
 export interface GetPipelineInput {
   __type?: "GetPipelineInput";
   /**
-   * <p>The name of the pipeline for which you want to get information. Pipeline names must
-   *             be unique under an AWS user account.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The version number of the pipeline. If you do not specify a version, defaults to
    *             the current version.</p>
    */
   version?: number;
+
+  /**
+   * <p>The name of the pipeline for which you want to get information. Pipeline names must
+   *             be unique under an AWS user account.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace GetPipelineInput {
@@ -1735,16 +1735,16 @@ export namespace GetPipelineInput {
 export interface GetPipelineOutput {
   __type?: "GetPipelineOutput";
   /**
-   * <p>Represents the pipeline metadata information returned as part of the output of a
-   *                 <code>GetPipeline</code> action.</p>
-   */
-  metadata?: PipelineMetadata;
-
-  /**
    * <p>Represents the structure of actions and stages to be performed in the pipeline.
    *         </p>
    */
   pipeline?: PipelineDeclaration;
+
+  /**
+   * <p>Represents the pipeline metadata information returned as part of the output of a
+   *                 <code>GetPipeline</code> action.</p>
+   */
+  metadata?: PipelineMetadata;
 }
 
 export namespace GetPipelineOutput {
@@ -1797,15 +1797,15 @@ export interface GetPipelineStateOutput {
   pipelineVersion?: number;
 
   /**
+   * <p>The date and time the pipeline was last updated, in timestamp format.</p>
+   */
+  updated?: Date;
+
+  /**
    * <p>A list of the pipeline stage output information, including stage name, state, most
    *             recent run details, whether the stage is disabled, and other data.</p>
    */
   stageStates?: StageState[];
-
-  /**
-   * <p>The date and time the pipeline was last updated, in timestamp format.</p>
-   */
-  updated?: Date;
 }
 
 export namespace GetPipelineStateOutput {
@@ -2153,9 +2153,9 @@ export namespace InvalidWebhookFilterPatternException {
 export interface Job {
   __type?: "Job";
   /**
-   * <p>The ID of the AWS account to use when performing the job.</p>
+   * <p>The unique system-generated ID of the job.</p>
    */
-  accountId?: string;
+  id?: string;
 
   /**
    * <p>Other data about a job.</p>
@@ -2163,9 +2163,9 @@ export interface Job {
   data?: JobData;
 
   /**
-   * <p>The unique system-generated ID of the job.</p>
+   * <p>The ID of the AWS account to use when performing the job.</p>
    */
-  id?: string;
+  accountId?: string;
 
   /**
    * <p>A system-generated random number that AWS CodePipeline uses to ensure that the job
@@ -2194,6 +2194,11 @@ export interface JobData {
   actionConfiguration?: ActionConfiguration;
 
   /**
+   * <p>The artifact supplied to the job.</p>
+   */
+  inputArtifacts?: Artifact[];
+
+  /**
    * <p>Represents information about an action type.</p>
    */
   actionTypeId?: ActionTypeId;
@@ -2219,16 +2224,6 @@ export interface JobData {
   encryptionKey?: EncryptionKey;
 
   /**
-   * <p>The artifact supplied to the job.</p>
-   */
-  inputArtifacts?: Artifact[];
-
-  /**
-   * <p>The output of the job.</p>
-   */
-  outputArtifacts?: Artifact[];
-
-  /**
    * <p>Represents information about a pipeline to a job worker.</p>
    *         <note>
    *             <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for
@@ -2236,6 +2231,11 @@ export interface JobData {
    *         </note>
    */
   pipelineContext?: PipelineContext;
+
+  /**
+   * <p>The output of the job.</p>
+   */
+  outputArtifacts?: Artifact[];
 }
 
 export namespace JobData {
@@ -2252,15 +2252,15 @@ export namespace JobData {
 export interface JobDetails {
   __type?: "JobDetails";
   /**
-   * <p>The AWS account ID associated with the job.</p>
-   */
-  accountId?: string;
-
-  /**
    * <p>Represents other information about a job required for a job worker to complete the
    *             job. </p>
    */
   data?: JobData;
+
+  /**
+   * <p>The AWS account ID associated with the job.</p>
+   */
+  accountId?: string;
 
   /**
    * <p>The unique system-generated ID of the job.</p>
@@ -2328,6 +2328,11 @@ export namespace LimitExceededException {
 export interface ListActionExecutionsInput {
   __type?: "ListActionExecutionsInput";
   /**
+   * <p> The name of the pipeline for which you want to list action execution history.</p>
+   */
+  pipelineName: string | undefined;
+
+  /**
    * <p>Input information used to filter action execution history.</p>
    */
   filter?: ActionExecutionFilter;
@@ -2349,11 +2354,6 @@ export interface ListActionExecutionsInput {
    *             which can be used to return the next set of action executions in the list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p> The name of the pipeline for which you want to list action execution history.</p>
-   */
-  pipelineName: string | undefined;
 }
 
 export namespace ListActionExecutionsInput {
@@ -2391,15 +2391,15 @@ export namespace ListActionExecutionsOutput {
 export interface ListActionTypesInput {
   __type?: "ListActionTypesInput";
   /**
-   * <p>Filters the list of action types to those created by a specified entity.</p>
-   */
-  actionOwnerFilter?: ActionOwner | string;
-
-  /**
    * <p>An identifier that was returned from the previous list action types call, which can
    *             be used to return the next set of action types in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Filters the list of action types to those created by a specified entity.</p>
+   */
+  actionOwnerFilter?: ActionOwner | string;
 }
 
 export namespace ListActionTypesInput {
@@ -2415,16 +2415,16 @@ export namespace ListActionTypesInput {
 export interface ListActionTypesOutput {
   __type?: "ListActionTypesOutput";
   /**
-   * <p>Provides details of the action types.</p>
-   */
-  actionTypes: ActionType[] | undefined;
-
-  /**
    * <p>If the amount of returned information is significantly large, an identifier is also
    *             returned. It can be used in a subsequent list action types call to return the next set
    *             of action types in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Provides details of the action types.</p>
+   */
+  actionTypes: ActionType[] | undefined;
 }
 
 export namespace ListActionTypesOutput {
@@ -2440,19 +2440,19 @@ export namespace ListActionTypesOutput {
 export interface ListPipelineExecutionsInput {
   __type?: "ListPipelineExecutionsInput";
   /**
+   * <p>The token that was returned from the previous <code>ListPipelineExecutions</code>
+   *             call, which can be used to return the next set of pipeline executions in the
+   *             list.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *             results, make another call with the returned nextToken value. Pipeline history is
    *             limited to the most recent 12 months, based on pipeline execution start times. Default
    *             value is 100.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token that was returned from the previous <code>ListPipelineExecutions</code>
-   *             call, which can be used to return the next set of pipeline executions in the
-   *             list.</p>
-   */
-  nextToken?: string;
 
   /**
    * <p>The name of the pipeline for which you want to get execution summary
@@ -2540,9 +2540,9 @@ export namespace ListPipelinesOutput {
 export interface ListTagsForResourceInput {
   __type?: "ListTagsForResourceInput";
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
    */
-  maxResults?: number;
+  resourceArn: string | undefined;
 
   /**
    * <p>The token that was returned from the previous API call, which would be used to return
@@ -2552,9 +2552,9 @@ export interface ListTagsForResourceInput {
   nextToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
-  resourceArn: string | undefined;
+  maxResults?: number;
 }
 
 export namespace ListTagsForResourceInput {
@@ -2594,6 +2594,16 @@ export namespace ListTagsForResourceOutput {
 export interface ListWebhookItem {
   __type?: "ListWebhookItem";
   /**
+   * <p>Specifies the tags applied to the webhook.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The text of the error message about the webhook.</p>
+   */
+  errorMessage?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the webhook.</p>
    */
   arn?: string;
@@ -2605,25 +2615,10 @@ export interface ListWebhookItem {
   definition: WebhookDefinition | undefined;
 
   /**
-   * <p>The number code of the error.</p>
-   */
-  errorCode?: string;
-
-  /**
-   * <p>The text of the error message about the webhook.</p>
-   */
-  errorMessage?: string;
-
-  /**
    * <p>The date and time a webhook was last successfully triggered, in timestamp
    *             format.</p>
    */
   lastTriggered?: Date;
-
-  /**
-   * <p>Specifies the tags applied to the webhook.</p>
-   */
-  tags?: Tag[];
 
   /**
    * <p>A unique URL generated by CodePipeline. When a POST request is made to this URL,
@@ -2632,6 +2627,11 @@ export interface ListWebhookItem {
    *             makes the old URL invalid and generates a new one.</p>
    */
   url: string | undefined;
+
+  /**
+   * <p>The number code of the error.</p>
+   */
+  errorCode?: string;
 }
 
 export namespace ListWebhookItem {
@@ -2760,14 +2760,19 @@ export namespace OutputVariablesSizeExceededException {
 export interface PipelineContext {
   __type?: "PipelineContext";
   /**
-   * <p>The context of an action to a job worker in the stage of a pipeline.</p>
-   */
-  action?: ActionContext;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
    */
   pipelineArn?: string;
+
+  /**
+   * <p>The stage of the pipeline.</p>
+   */
+  stage?: StageContext;
+
+  /**
+   * <p>The context of an action to a job worker in the stage of a pipeline.</p>
+   */
+  action?: ActionContext;
 
   /**
    * <p>The execution ID of the pipeline.</p>
@@ -2779,11 +2784,6 @@ export interface PipelineContext {
    *             unique across all pipeline names under an Amazon Web Services account.</p>
    */
   pipelineName?: string;
-
-  /**
-   * <p>The stage of the pipeline.</p>
-   */
-  stage?: StageContext;
 }
 
 export namespace PipelineContext {
@@ -2799,6 +2799,13 @@ export namespace PipelineContext {
  */
 export interface PipelineDeclaration {
   __type?: "PipelineDeclaration";
+  /**
+   * <p>The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform
+   *             actions with no <code>actionRoleArn</code>, or to use to assume roles for actions with
+   *             an <code>actionRoleArn</code>.</p>
+   */
+  roleArn: string | undefined;
+
   /**
    * <p>Represents information about the S3 bucket where artifacts are stored for the
    *             pipeline.</p>
@@ -2825,18 +2832,6 @@ export interface PipelineDeclaration {
   artifactStores?: { [key: string]: ArtifactStore };
 
   /**
-   * <p>The name of the action to be performed.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform
-   *             actions with no <code>actionRoleArn</code>, or to use to assume roles for actions with
-   *             an <code>actionRoleArn</code>.</p>
-   */
-  roleArn: string | undefined;
-
-  /**
    * <p>The stage in which to perform the action.</p>
    */
   stages: StageDeclaration[] | undefined;
@@ -2846,6 +2841,11 @@ export interface PipelineDeclaration {
    *             1. This number is incremented when a pipeline is updated.</p>
    */
   version?: number;
+
+  /**
+   * <p>The name of the action to be performed.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace PipelineDeclaration {
@@ -2860,27 +2860,6 @@ export namespace PipelineDeclaration {
  */
 export interface PipelineExecution {
   __type?: "PipelineExecution";
-  /**
-   * <p>A list of <code>ArtifactRevision</code> objects included in a pipeline
-   *             execution.</p>
-   */
-  artifactRevisions?: ArtifactRevision[];
-
-  /**
-   * <p>The ID of the pipeline execution.</p>
-   */
-  pipelineExecutionId?: string;
-
-  /**
-   * <p>The name of the pipeline with the specified pipeline execution.</p>
-   */
-  pipelineName?: string;
-
-  /**
-   * <p>The version number of the pipeline with the specified pipeline execution.</p>
-   */
-  pipelineVersion?: number;
-
   /**
    * <p>The status of the pipeline execution.</p>
    *         <ul>
@@ -2910,6 +2889,27 @@ export interface PipelineExecution {
    *          </ul>
    */
   status?: PipelineExecutionStatus | string;
+
+  /**
+   * <p>A list of <code>ArtifactRevision</code> objects included in a pipeline
+   *             execution.</p>
+   */
+  artifactRevisions?: ArtifactRevision[];
+
+  /**
+   * <p>The ID of the pipeline execution.</p>
+   */
+  pipelineExecutionId?: string;
+
+  /**
+   * <p>The name of the pipeline with the specified pipeline execution.</p>
+   */
+  pipelineName?: string;
+
+  /**
+   * <p>The version number of the pipeline with the specified pipeline execution.</p>
+   */
+  pipelineVersion?: number;
 }
 
 export namespace PipelineExecution {
@@ -2973,15 +2973,9 @@ export enum PipelineExecutionStatus {
 export interface PipelineExecutionSummary {
   __type?: "PipelineExecutionSummary";
   /**
-   * <p>The date and time of the last change to the pipeline execution, in timestamp
-   *             format.</p>
+   * <p>The interaction that stopped a pipeline execution.</p>
    */
-  lastUpdateTime?: Date;
-
-  /**
-   * <p>The ID of the pipeline execution.</p>
-   */
-  pipelineExecutionId?: string;
+  stopTrigger?: StopExecutionTrigger;
 
   /**
    * <p>A list of the source artifact revisions that initiated a pipeline
@@ -2990,9 +2984,10 @@ export interface PipelineExecutionSummary {
   sourceRevisions?: SourceRevision[];
 
   /**
-   * <p>The date and time when the pipeline execution began, in timestamp format.</p>
+   * <p>The interaction or event that started a pipeline execution, such as automated change
+   *             detection or a <code>StartPipelineExecution</code> API call.</p>
    */
-  startTime?: Date;
+  trigger?: ExecutionTrigger;
 
   /**
    * <p>The status of the pipeline execution.</p>
@@ -3025,15 +3020,20 @@ export interface PipelineExecutionSummary {
   status?: PipelineExecutionStatus | string;
 
   /**
-   * <p>The interaction that stopped a pipeline execution.</p>
+   * <p>The date and time of the last change to the pipeline execution, in timestamp
+   *             format.</p>
    */
-  stopTrigger?: StopExecutionTrigger;
+  lastUpdateTime?: Date;
 
   /**
-   * <p>The interaction or event that started a pipeline execution, such as automated change
-   *             detection or a <code>StartPipelineExecution</code> API call.</p>
+   * <p>The date and time when the pipeline execution began, in timestamp format.</p>
    */
-  trigger?: ExecutionTrigger;
+  startTime?: Date;
+
+  /**
+   * <p>The ID of the pipeline execution.</p>
+   */
+  pipelineExecutionId?: string;
 }
 
 export namespace PipelineExecutionSummary {
@@ -3049,6 +3049,11 @@ export namespace PipelineExecutionSummary {
 export interface PipelineMetadata {
   __type?: "PipelineMetadata";
   /**
+   * <p>The date and time the pipeline was last updated, in timestamp format.</p>
+   */
+  updated?: Date;
+
+  /**
    * <p>The date and time the pipeline was created, in timestamp format.</p>
    */
   created?: Date;
@@ -3057,11 +3062,6 @@ export interface PipelineMetadata {
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
    */
   pipelineArn?: string;
-
-  /**
-   * <p>The date and time the pipeline was last updated, in timestamp format.</p>
-   */
-  updated?: Date;
 }
 
 export namespace PipelineMetadata {
@@ -3115,14 +3115,14 @@ export namespace PipelineNotFoundException {
 export interface PipelineSummary {
   __type?: "PipelineSummary";
   /**
-   * <p>The date and time the pipeline was created, in timestamp format.</p>
-   */
-  created?: Date;
-
-  /**
    * <p>The name of the pipeline.</p>
    */
   name?: string;
+
+  /**
+   * <p>The date and time the pipeline was created, in timestamp format.</p>
+   */
+  created?: Date;
 
   /**
    * <p>The date and time of the last update to the pipeline, in timestamp
@@ -3174,17 +3174,17 @@ export interface PollForJobsInput {
   actionTypeId: ActionTypeId | undefined;
 
   /**
-   * <p>The maximum number of jobs to return in a poll for jobs call.</p>
-   */
-  maxBatchSize?: number;
-
-  /**
    * <p>A map of property names and values. For an action type with no queryable
    *             properties, this value must be null or an empty map. For an action type with a queryable
    *             property, you must supply that property as a key in the map. Only jobs whose action
    *             configuration matches the mapped value are returned.</p>
    */
   queryParam?: { [key: string]: string };
+
+  /**
+   * <p>The maximum number of jobs to return in a poll for jobs call.</p>
+   */
+  maxBatchSize?: number;
 }
 
 export namespace PollForJobsInput {
@@ -3219,14 +3219,14 @@ export namespace PollForJobsOutput {
 export interface PollForThirdPartyJobsInput {
   __type?: "PollForThirdPartyJobsInput";
   /**
-   * <p>Represents information about an action type.</p>
-   */
-  actionTypeId: ActionTypeId | undefined;
-
-  /**
    * <p>The maximum number of jobs to return in a poll for jobs call.</p>
    */
   maxBatchSize?: number;
+
+  /**
+   * <p>Represents information about an action type.</p>
+   */
+  actionTypeId: ActionTypeId | undefined;
 }
 
 export namespace PollForThirdPartyJobsInput {
@@ -3294,15 +3294,15 @@ export namespace PutActionRevisionInput {
 export interface PutActionRevisionOutput {
   __type?: "PutActionRevisionOutput";
   /**
+   * <p>The ID of the current workflow state of the pipeline.</p>
+   */
+  pipelineExecutionId?: string;
+
+  /**
    * <p>Indicates whether the artifact revision was previously used in an execution of the
    *             specified pipeline.</p>
    */
   newRevision?: boolean;
-
-  /**
-   * <p>The ID of the current workflow state of the pipeline.</p>
-   */
-  pipelineExecutionId?: string;
 }
 
 export namespace PutActionRevisionOutput {
@@ -3318,9 +3318,9 @@ export namespace PutActionRevisionOutput {
 export interface PutApprovalResultInput {
   __type?: "PutApprovalResultInput";
   /**
-   * <p>The name of the action for which approval is requested.</p>
+   * <p>The name of the stage that contains the action.</p>
    */
-  actionName: string | undefined;
+  stageName: string | undefined;
 
   /**
    * <p>The name of the pipeline that contains the action. </p>
@@ -3333,9 +3333,9 @@ export interface PutApprovalResultInput {
   result: ApprovalResult | undefined;
 
   /**
-   * <p>The name of the stage that contains the action.</p>
+   * <p>The name of the action for which approval is requested.</p>
    */
-  stageName: string | undefined;
+  actionName: string | undefined;
 
   /**
    * <p>The system-generated token used to identify a unique approval request. The token
@@ -3376,15 +3376,15 @@ export namespace PutApprovalResultOutput {
 export interface PutJobFailureResultInput {
   __type?: "PutJobFailureResultInput";
   /**
-   * <p>The details about the failure of a job.</p>
-   */
-  failureDetails: FailureDetails | undefined;
-
-  /**
    * <p>The unique system-generated ID of the job that failed. This is the same ID returned
    *             from <code>PollForJobs</code>.</p>
    */
   jobId: string | undefined;
+
+  /**
+   * <p>The details about the failure of a job.</p>
+   */
+  failureDetails: FailureDetails | undefined;
 }
 
 export namespace PutJobFailureResultInput {
@@ -3399,6 +3399,19 @@ export namespace PutJobFailureResultInput {
  */
 export interface PutJobSuccessResultInput {
   __type?: "PutJobSuccessResultInput";
+  /**
+   * <p>The execution details of the successful job, such as the actions taken by the job
+   *             worker.</p>
+   */
+  executionDetails?: ExecutionDetails;
+
+  /**
+   * <p>Key-value pairs produced as output by a job worker that can be made available to a
+   *             downstream action configuration. <code>outputVariables</code> can be included only when
+   *             there is no continuation token on the request.</p>
+   */
+  outputVariables?: { [key: string]: string };
+
   /**
    * <p>A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that a
    *             successful job provides to identify a custom action in progress. Future jobs use this
@@ -3415,23 +3428,10 @@ export interface PutJobSuccessResultInput {
   currentRevision?: CurrentRevision;
 
   /**
-   * <p>The execution details of the successful job, such as the actions taken by the job
-   *             worker.</p>
-   */
-  executionDetails?: ExecutionDetails;
-
-  /**
    * <p>The unique system-generated ID of the job that succeeded. This is the same ID
    *             returned from <code>PollForJobs</code>.</p>
    */
   jobId: string | undefined;
-
-  /**
-   * <p>Key-value pairs produced as output by a job worker that can be made available to a
-   *             downstream action configuration. <code>outputVariables</code> can be included only when
-   *             there is no continuation token on the request.</p>
-   */
-  outputVariables?: { [key: string]: string };
 }
 
 export namespace PutJobSuccessResultInput {
@@ -3448,15 +3448,15 @@ export namespace PutJobSuccessResultInput {
 export interface PutThirdPartyJobFailureResultInput {
   __type?: "PutThirdPartyJobFailureResultInput";
   /**
+   * <p>Represents information about failure details.</p>
+   */
+  failureDetails: FailureDetails | undefined;
+
+  /**
    * <p>The clientToken portion of the clientId and clientToken pair used to verify that
    *             the calling entity is allowed access to the job and its details.</p>
    */
   clientToken: string | undefined;
-
-  /**
-   * <p>Represents information about failure details.</p>
-   */
-  failureDetails: FailureDetails | undefined;
 
   /**
    * <p>The ID of the job that failed. This is the same ID returned from
@@ -3480,10 +3480,10 @@ export namespace PutThirdPartyJobFailureResultInput {
 export interface PutThirdPartyJobSuccessResultInput {
   __type?: "PutThirdPartyJobSuccessResultInput";
   /**
-   * <p>The clientToken portion of the clientId and clientToken pair used to verify that
-   *             the calling entity is allowed access to the job and its details.</p>
+   * <p>The ID of the job that successfully completed. This is the same ID returned from
+   *                 <code>PollForThirdPartyJobs</code>.</p>
    */
-  clientToken: string | undefined;
+  jobId: string | undefined;
 
   /**
    * <p>A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that a
@@ -3495,21 +3495,21 @@ export interface PutThirdPartyJobSuccessResultInput {
   continuationToken?: string;
 
   /**
-   * <p>Represents information about a current revision.</p>
-   */
-  currentRevision?: CurrentRevision;
-
-  /**
    * <p>The details of the actions taken and results produced on an artifact as it passes
    *             through stages in the pipeline. </p>
    */
   executionDetails?: ExecutionDetails;
 
   /**
-   * <p>The ID of the job that successfully completed. This is the same ID returned from
-   *                 <code>PollForThirdPartyJobs</code>.</p>
+   * <p>Represents information about a current revision.</p>
    */
-  jobId: string | undefined;
+  currentRevision?: CurrentRevision;
+
+  /**
+   * <p>The clientToken portion of the clientId and clientToken pair used to verify that
+   *             the calling entity is allowed access to the job and its details.</p>
+   */
+  clientToken: string | undefined;
 }
 
 export namespace PutThirdPartyJobSuccessResultInput {
@@ -3523,17 +3523,17 @@ export namespace PutThirdPartyJobSuccessResultInput {
 export interface PutWebhookInput {
   __type?: "PutWebhookInput";
   /**
-   * <p>The tags for the webhook.</p>
-   */
-  tags?: Tag[];
-
-  /**
    * <p>The detail provided in an input file to create the webhook, such as the webhook
    *             name, the pipeline name, and the action name. Give the webhook a unique name that helps
    *             you identify it. You might name the webhook after the pipeline and action it targets so
    *             that you can easily recognize what it's used for later.</p>
    */
   webhook: WebhookDefinition | undefined;
+
+  /**
+   * <p>The tags for the webhook.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace PutWebhookInput {
@@ -3613,15 +3613,14 @@ export namespace ResourceNotFoundException {
 export interface RetryStageExecutionInput {
   __type?: "RetryStageExecutionInput";
   /**
-   * <p>The ID of the pipeline execution in the failed stage to be retried. Use the <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of
-   *             the failed stage</p>
-   */
-  pipelineExecutionId: string | undefined;
-
-  /**
    * <p>The name of the pipeline that contains the failed stage.</p>
    */
   pipelineName: string | undefined;
+
+  /**
+   * <p>The name of the failed stage to be retried.</p>
+   */
+  stageName: string | undefined;
 
   /**
    * <p>The scope of the retry attempt. Currently, the only supported value is
@@ -3630,9 +3629,10 @@ export interface RetryStageExecutionInput {
   retryMode: StageRetryMode | string | undefined;
 
   /**
-   * <p>The name of the failed stage to be retried.</p>
+   * <p>The ID of the pipeline execution in the failed stage to be retried. Use the <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of
+   *             the failed stage</p>
    */
-  stageName: string | undefined;
+  pipelineExecutionId: string | undefined;
 }
 
 export namespace RetryStageExecutionInput {
@@ -3714,10 +3714,12 @@ export namespace S3Location {
 export interface SourceRevision {
   __type?: "SourceRevision";
   /**
-   * <p>The name of the action that processed the revision to the source
-   *             artifact.</p>
+   * <p>Summary information about the most recent revision of the artifact. For GitHub and
+   *             AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the
+   *             user-provided content of a <code>codepipeline-artifact-revision-summary</code> key
+   *             specified in the object metadata.</p>
    */
-  actionName: string | undefined;
+  revisionSummary?: string;
 
   /**
    * <p>The system-generated unique ID that identifies the revision number of the
@@ -3726,12 +3728,10 @@ export interface SourceRevision {
   revisionId?: string;
 
   /**
-   * <p>Summary information about the most recent revision of the artifact. For GitHub and
-   *             AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the
-   *             user-provided content of a <code>codepipeline-artifact-revision-summary</code> key
-   *             specified in the object metadata.</p>
+   * <p>The name of the action that processed the revision to the source
+   *             artifact.</p>
    */
-  revisionSummary?: string;
+  actionName: string | undefined;
 
   /**
    * <p>The commit ID for the artifact revision. For artifacts stored in GitHub or AWS
@@ -3771,9 +3771,9 @@ export namespace StageContext {
 export interface StageDeclaration {
   __type?: "StageDeclaration";
   /**
-   * <p>The actions included in a stage.</p>
+   * <p>The name of the stage.</p>
    */
-  actions: ActionDeclaration[] | undefined;
+  name: string | undefined;
 
   /**
    * <p>Reserved for future use.</p>
@@ -3781,9 +3781,9 @@ export interface StageDeclaration {
   blockers?: BlockerDeclaration[];
 
   /**
-   * <p>The name of the stage.</p>
+   * <p>The actions included in a stage.</p>
    */
-  name: string | undefined;
+  actions: ActionDeclaration[] | undefined;
 }
 
 export namespace StageDeclaration {
@@ -3875,16 +3875,6 @@ export enum StageRetryMode {
 export interface StageState {
   __type?: "StageState";
   /**
-   * <p>The state of the stage.</p>
-   */
-  actionStates?: ActionState[];
-
-  /**
-   * <p>The state of the inbound transition, which is either enabled or disabled.</p>
-   */
-  inboundTransitionState?: TransitionState;
-
-  /**
    * <p>Information about the latest execution in the stage, including its ID and
    *             status.</p>
    */
@@ -3894,6 +3884,16 @@ export interface StageState {
    * <p>The name of the stage.</p>
    */
   stageName?: string;
+
+  /**
+   * <p>The state of the inbound transition, which is either enabled or disabled.</p>
+   */
+  inboundTransitionState?: TransitionState;
+
+  /**
+   * <p>The state of the stage.</p>
+   */
+  actionStates?: ActionState[];
 }
 
 export namespace StageState {
@@ -3914,15 +3914,15 @@ export enum StageTransitionType {
 export interface StartPipelineExecutionInput {
   __type?: "StartPipelineExecutionInput";
   /**
+   * <p>The name of the pipeline to start.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>The system-generated unique ID used to identify a unique execution
    *             request.</p>
    */
   clientRequestToken?: string;
-
-  /**
-   * <p>The name of the pipeline to start.</p>
-   */
-  name: string | undefined;
 }
 
 export namespace StartPipelineExecutionInput {
@@ -3972,6 +3972,11 @@ export namespace StopExecutionTrigger {
 export interface StopPipelineExecutionInput {
   __type?: "StopPipelineExecutionInput";
   /**
+   * <p>The name of the pipeline to stop.</p>
+   */
+  pipelineName: string | undefined;
+
+  /**
    * <p>Use this option to stop the pipeline execution by abandoning, rather than finishing,
    *             in-progress actions.</p>
    *         <note>
@@ -3986,11 +3991,6 @@ export interface StopPipelineExecutionInput {
    *             pipelineExecutionId.</p>
    */
   pipelineExecutionId: string | undefined;
-
-  /**
-   * <p>The name of the pipeline to stop.</p>
-   */
-  pipelineName: string | undefined;
 
   /**
    * <p>Use this option to enter comments, such as the reason the pipeline was stopped.</p>
@@ -4026,14 +4026,14 @@ export namespace StopPipelineExecutionOutput {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The tag's key.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>The tag's value.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The tag's key.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Tag {
@@ -4046,14 +4046,14 @@ export namespace Tag {
 export interface TagResourceInput {
   __type?: "TagResourceInput";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The tags you want to modify or add to the resource.</p>
    */
   tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace TagResourceInput {
@@ -4081,16 +4081,16 @@ export namespace TagResourceOutput {
 export interface ThirdPartyJob {
   __type?: "ThirdPartyJob";
   /**
+   * <p>The identifier used to identify the job in AWS CodePipeline.</p>
+   */
+  jobId?: string;
+
+  /**
    * <p>The <code>clientToken</code> portion of the <code>clientId</code> and
    *                 <code>clientToken</code> pair used to verify that the calling entity is allowed
    *             access to the job and its details.</p>
    */
   clientId?: string;
-
-  /**
-   * <p>The identifier used to identify the job in AWS CodePipeline.</p>
-   */
-  jobId?: string;
 }
 
 export namespace ThirdPartyJob {
@@ -4106,6 +4106,13 @@ export namespace ThirdPartyJob {
 export interface ThirdPartyJobData {
   __type?: "ThirdPartyJobData";
   /**
+   * <p>The name of the artifact that is the result of the action, if any. This name might
+   *             be system-generated, such as "MyBuiltApp", or it might be defined by the user when the
+   *             action is created.</p>
+   */
+  outputArtifacts?: Artifact[];
+
+  /**
    * <p>Represents information about an action configuration.</p>
    */
   actionConfiguration?: ActionConfiguration;
@@ -4116,18 +4123,18 @@ export interface ThirdPartyJobData {
   actionTypeId?: ActionTypeId;
 
   /**
+   * <p>A system-generated token, such as a AWS CodeDeploy deployment ID, that a job
+   *             requires to continue the job asynchronously.</p>
+   */
+  continuationToken?: string;
+
+  /**
    * <p>Represents an AWS session credentials object. These credentials are temporary
    *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
    *             access input and output artifacts in the S3 bucket used to store artifact for the
    *             pipeline in AWS CodePipeline. </p>
    */
   artifactCredentials?: AWSSessionCredentials;
-
-  /**
-   * <p>A system-generated token, such as a AWS CodeDeploy deployment ID, that a job
-   *             requires to continue the job asynchronously.</p>
-   */
-  continuationToken?: string;
 
   /**
    * <p>The encryption key used to encrypt and decrypt data in the artifact store for the
@@ -4137,21 +4144,6 @@ export interface ThirdPartyJobData {
   encryptionKey?: EncryptionKey;
 
   /**
-   * <p>The name of the artifact that is worked on by the action, if any. This name might
-   *             be system-generated, such as "MyApp", or it might be defined by the user when the action
-   *             is created. The input artifact name must match the name of an output artifact generated
-   *             by an action in an earlier action or stage of the pipeline.</p>
-   */
-  inputArtifacts?: Artifact[];
-
-  /**
-   * <p>The name of the artifact that is the result of the action, if any. This name might
-   *             be system-generated, such as "MyBuiltApp", or it might be defined by the user when the
-   *             action is created.</p>
-   */
-  outputArtifacts?: Artifact[];
-
-  /**
    * <p>Represents information about a pipeline to a job worker.</p>
    *         <note>
    *             <p>Does not include <code>pipelineArn</code> and <code>pipelineExecutionId</code>
@@ -4159,6 +4151,14 @@ export interface ThirdPartyJobData {
    *         </note>
    */
   pipelineContext?: PipelineContext;
+
+  /**
+   * <p>The name of the artifact that is worked on by the action, if any. This name might
+   *             be system-generated, such as "MyApp", or it might be defined by the user when the action
+   *             is created. The input artifact name must match the name of an output artifact generated
+   *             by an action in an earlier action or stage of the pipeline.</p>
+   */
+  inputArtifacts?: Artifact[];
 }
 
 export namespace ThirdPartyJobData {
@@ -4223,6 +4223,11 @@ export namespace TooManyTagsException {
 export interface TransitionState {
   __type?: "TransitionState";
   /**
+   * <p>The ID of the user who last changed the transition state.</p>
+   */
+  lastChangedBy?: string;
+
+  /**
    * <p>The user-specified reason why the transition between two stages of a pipeline was
    *             disabled.</p>
    */
@@ -4238,11 +4243,6 @@ export interface TransitionState {
    * <p>The timestamp when the transition state was last changed.</p>
    */
   lastChangedAt?: Date;
-
-  /**
-   * <p>The ID of the user who last changed the transition state.</p>
-   */
-  lastChangedBy?: string;
 }
 
 export namespace TransitionState {
@@ -4264,14 +4264,14 @@ export enum TriggerType {
 export interface UntagResourceInput {
   __type?: "UntagResourceInput";
   /**
-   * <p> The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The list of keys for the tags to be removed from the resource.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace UntagResourceInput {
@@ -4385,6 +4385,33 @@ export enum WebhookAuthenticationType {
 export interface WebhookDefinition {
   __type?: "WebhookDefinition";
   /**
+   * <p>The name of the webhook.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A list of rules applied to the body/payload sent in the POST request to a webhook
+   *             URL. All defined rules must pass for the request to be accepted and the pipeline
+   *             started.</p>
+   */
+  filters: WebhookFilterRule[] | undefined;
+
+  /**
+   * <p>The name of the action in a pipeline you want to connect to the webhook. The action
+   *             must be from the source (first) stage of the pipeline.</p>
+   */
+  targetAction: string | undefined;
+
+  /**
+   * <p>Properties that configure the authentication applied to incoming webhook trigger
+   *             requests. The required properties depend on the authentication type. For GITHUB_HMAC,
+   *             only the <code>SecretToken </code>property must be set. For IP, only the
+   *                 <code>AllowedIPRange </code>property must be set to a valid CIDR range. For
+   *             UNAUTHENTICATED, no properties can be set.</p>
+   */
+  authenticationConfiguration: WebhookAuthConfiguration | undefined;
+
+  /**
    * <p>Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.</p>
    *         <ul>
    *             <li>
@@ -4404,33 +4431,6 @@ export interface WebhookDefinition {
    *          </ul>
    */
   authentication: WebhookAuthenticationType | string | undefined;
-
-  /**
-   * <p>Properties that configure the authentication applied to incoming webhook trigger
-   *             requests. The required properties depend on the authentication type. For GITHUB_HMAC,
-   *             only the <code>SecretToken </code>property must be set. For IP, only the
-   *                 <code>AllowedIPRange </code>property must be set to a valid CIDR range. For
-   *             UNAUTHENTICATED, no properties can be set.</p>
-   */
-  authenticationConfiguration: WebhookAuthConfiguration | undefined;
-
-  /**
-   * <p>A list of rules applied to the body/payload sent in the POST request to a webhook
-   *             URL. All defined rules must pass for the request to be accepted and the pipeline
-   *             started.</p>
-   */
-  filters: WebhookFilterRule[] | undefined;
-
-  /**
-   * <p>The name of the webhook.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The name of the action in a pipeline you want to connect to the webhook. The action
-   *             must be from the source (first) stage of the pipeline.</p>
-   */
-  targetAction: string | undefined;
 
   /**
    * <p>The name of the pipeline you want to connect to the webhook.</p>

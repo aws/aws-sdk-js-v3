@@ -52,6 +52,7 @@ import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand";
+import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "./commands/CreateDimensionCommand";
 import {
   CreateDomainConfigurationCommandInput,
   CreateDomainConfigurationCommandOutput,
@@ -116,6 +117,7 @@ import {
   DeleteCACertificateCommandOutput,
 } from "./commands/DeleteCACertificateCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
+import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "./commands/DeleteDimensionCommand";
 import {
   DeleteDomainConfigurationCommandInput,
   DeleteDomainConfigurationCommandOutput,
@@ -201,6 +203,7 @@ import {
   DescribeDefaultAuthorizerCommandInput,
   DescribeDefaultAuthorizerCommandOutput,
 } from "./commands/DescribeDefaultAuthorizerCommand";
+import { DescribeDimensionCommandInput, DescribeDimensionCommandOutput } from "./commands/DescribeDimensionCommand";
 import {
   DescribeDomainConfigurationCommandInput,
   DescribeDomainConfigurationCommandOutput,
@@ -315,6 +318,7 @@ import {
   ListCertificatesByCACommandOutput,
 } from "./commands/ListCertificatesByCACommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
+import { ListDimensionsCommandInput, ListDimensionsCommandOutput } from "./commands/ListDimensionsCommand";
 import {
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput,
@@ -434,6 +438,10 @@ import {
   RegisterCertificateCommandInput,
   RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand";
+import {
+  RegisterCertificateWithoutCACommandInput,
+  RegisterCertificateWithoutCACommandOutput,
+} from "./commands/RegisterCertificateWithoutCACommand";
 import { RegisterThingCommandInput, RegisterThingCommandOutput } from "./commands/RegisterThingCommand";
 import {
   RejectCertificateTransferCommandInput,
@@ -501,6 +509,7 @@ import {
   UpdateCACertificateCommandOutput,
 } from "./commands/UpdateCACertificateCommand";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand";
+import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "./commands/UpdateDimensionCommand";
 import {
   UpdateDomainConfigurationCommandInput,
   UpdateDomainConfigurationCommandOutput,
@@ -616,6 +625,7 @@ export type ServiceInputTypes =
   | CreateAuthorizerCommandInput
   | CreateBillingGroupCommandInput
   | CreateCertificateFromCsrCommandInput
+  | CreateDimensionCommandInput
   | CreateDomainConfigurationCommandInput
   | CreateDynamicThingGroupCommandInput
   | CreateJobCommandInput
@@ -641,6 +651,7 @@ export type ServiceInputTypes =
   | DeleteBillingGroupCommandInput
   | DeleteCACertificateCommandInput
   | DeleteCertificateCommandInput
+  | DeleteDimensionCommandInput
   | DeleteDomainConfigurationCommandInput
   | DeleteDynamicThingGroupCommandInput
   | DeleteJobCommandInput
@@ -672,6 +683,7 @@ export type ServiceInputTypes =
   | DescribeCACertificateCommandInput
   | DescribeCertificateCommandInput
   | DescribeDefaultAuthorizerCommandInput
+  | DescribeDimensionCommandInput
   | DescribeDomainConfigurationCommandInput
   | DescribeEndpointCommandInput
   | DescribeEventConfigurationsCommandInput
@@ -720,6 +732,7 @@ export type ServiceInputTypes =
   | ListCACertificatesCommandInput
   | ListCertificatesByCACommandInput
   | ListCertificatesCommandInput
+  | ListDimensionsCommandInput
   | ListDomainConfigurationsCommandInput
   | ListIndicesCommandInput
   | ListJobExecutionsForJobCommandInput
@@ -758,6 +771,7 @@ export type ServiceInputTypes =
   | ListViolationEventsCommandInput
   | RegisterCACertificateCommandInput
   | RegisterCertificateCommandInput
+  | RegisterCertificateWithoutCACommandInput
   | RegisterThingCommandInput
   | RejectCertificateTransferCommandInput
   | RemoveThingFromBillingGroupCommandInput
@@ -783,6 +797,7 @@ export type ServiceInputTypes =
   | UpdateBillingGroupCommandInput
   | UpdateCACertificateCommandInput
   | UpdateCertificateCommandInput
+  | UpdateDimensionCommandInput
   | UpdateDomainConfigurationCommandInput
   | UpdateDynamicThingGroupCommandInput
   | UpdateEventConfigurationsCommandInput
@@ -819,6 +834,7 @@ export type ServiceOutputTypes =
   | CreateAuthorizerCommandOutput
   | CreateBillingGroupCommandOutput
   | CreateCertificateFromCsrCommandOutput
+  | CreateDimensionCommandOutput
   | CreateDomainConfigurationCommandOutput
   | CreateDynamicThingGroupCommandOutput
   | CreateJobCommandOutput
@@ -844,6 +860,7 @@ export type ServiceOutputTypes =
   | DeleteBillingGroupCommandOutput
   | DeleteCACertificateCommandOutput
   | DeleteCertificateCommandOutput
+  | DeleteDimensionCommandOutput
   | DeleteDomainConfigurationCommandOutput
   | DeleteDynamicThingGroupCommandOutput
   | DeleteJobCommandOutput
@@ -875,6 +892,7 @@ export type ServiceOutputTypes =
   | DescribeCACertificateCommandOutput
   | DescribeCertificateCommandOutput
   | DescribeDefaultAuthorizerCommandOutput
+  | DescribeDimensionCommandOutput
   | DescribeDomainConfigurationCommandOutput
   | DescribeEndpointCommandOutput
   | DescribeEventConfigurationsCommandOutput
@@ -923,6 +941,7 @@ export type ServiceOutputTypes =
   | ListCACertificatesCommandOutput
   | ListCertificatesByCACommandOutput
   | ListCertificatesCommandOutput
+  | ListDimensionsCommandOutput
   | ListDomainConfigurationsCommandOutput
   | ListIndicesCommandOutput
   | ListJobExecutionsForJobCommandOutput
@@ -961,6 +980,7 @@ export type ServiceOutputTypes =
   | ListViolationEventsCommandOutput
   | RegisterCACertificateCommandOutput
   | RegisterCertificateCommandOutput
+  | RegisterCertificateWithoutCACommandOutput
   | RegisterThingCommandOutput
   | RejectCertificateTransferCommandOutput
   | RemoveThingFromBillingGroupCommandOutput
@@ -986,6 +1006,7 @@ export type ServiceOutputTypes =
   | UpdateBillingGroupCommandOutput
   | UpdateCACertificateCommandOutput
   | UpdateCertificateCommandOutput
+  | UpdateDimensionCommandOutput
   | UpdateDomainConfigurationCommandOutput
   | UpdateDynamicThingGroupCommandOutput
   | UpdateEventConfigurationsCommandOutput
@@ -1118,6 +1139,12 @@ export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *             rules for data processing and integration with other services, organize resources
  *             associated with each device (Registry), configure logging, and create and manage
  *             policies and credentials to authenticate devices.</p>
+ *         <p>The service endpoints that expose this API are listed in
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">AWS IoT Core Endpoints and Quotas</a>.
+ *             You must use the endpoint for the region that has the resources you want to access.</p>
+ *         <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS
+ *                 Signature Version 4</a> to sign the request is:
+ *             <i>execute-api</i>.</p>
  *         <p>For more information about how AWS IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
  *             Guide</a>.</p>
  *         <p>For information about how to use the credentials provider for AWS IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>

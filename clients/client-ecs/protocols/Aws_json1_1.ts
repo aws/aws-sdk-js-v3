@@ -10,6 +10,10 @@ import {
   DeleteAccountSettingCommandOutput,
 } from "../commands/DeleteAccountSettingCommand";
 import { DeleteAttributesCommandInput, DeleteAttributesCommandOutput } from "../commands/DeleteAttributesCommand";
+import {
+  DeleteCapacityProviderCommandInput,
+  DeleteCapacityProviderCommandOutput,
+} from "../commands/DeleteCapacityProviderCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand";
 import { DeleteTaskSetCommandInput, DeleteTaskSetCommandOutput } from "../commands/DeleteTaskSetCommand";
@@ -158,6 +162,8 @@ import {
   DeleteAccountSettingResponse,
   DeleteAttributesRequest,
   DeleteAttributesResponse,
+  DeleteCapacityProviderRequest,
+  DeleteCapacityProviderResponse,
   DeleteClusterRequest,
   DeleteClusterResponse,
   DeleteServiceRequest,
@@ -190,7 +196,9 @@ import {
   DiscoverPollEndpointRequest,
   DiscoverPollEndpointResponse,
   DockerVolumeConfiguration,
+  EFSAuthorizationConfig,
   EFSVolumeConfiguration,
+  EnvironmentFile,
   Failure,
   FirelensConfiguration,
   HealthCheck,
@@ -288,6 +296,7 @@ import {
   TaskField,
   TaskOverride,
   TaskSet,
+  TaskSetField,
   TaskSetNotFoundException,
   Tmpfs,
   Ulimit,
@@ -396,6 +405,19 @@ export const serializeAws_json1_1DeleteAttributesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAttributesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteCapacityProviderCommand = async (
+  input: DeleteCapacityProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteCapacityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1008,6 +1030,14 @@ const deserializeAws_json1_1CreateCapacityProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UpdateInProgressException":
+    case "com.amazonaws.ecs#UpdateInProgressException":
+      response = {
+        ...(await deserializeAws_json1_1UpdateInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1460,6 +1490,78 @@ const deserializeAws_json1_1DeleteAttributesCommandError = async (
     case "com.amazonaws.ecs#TargetNotFoundException":
       response = {
         ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteCapacityProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCapacityProviderCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteCapacityProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteCapacityProviderResponse(data, context);
+  const response: DeleteCapacityProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteCapacityProviderResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteCapacityProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCapacityProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.ecs#ClientException":
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.ecs#ServerException":
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5501,6 +5603,9 @@ const serializeAws_json1_1ContainerDefinition = (input: ContainerDefinition, con
     ...(input.environment !== undefined && {
       environment: serializeAws_json1_1EnvironmentVariables(input.environment, context),
     }),
+    ...(input.environmentFiles !== undefined && {
+      environmentFiles: serializeAws_json1_1EnvironmentFiles(input.environmentFiles, context),
+    }),
     ...(input.essential !== undefined && { essential: input.essential }),
     ...(input.extraHosts !== undefined && { extraHosts: serializeAws_json1_1HostEntryList(input.extraHosts, context) }),
     ...(input.firelensConfiguration !== undefined && {
@@ -5580,6 +5685,9 @@ const serializeAws_json1_1ContainerOverride = (input: ContainerOverride, context
     ...(input.cpu !== undefined && { cpu: input.cpu }),
     ...(input.environment !== undefined && {
       environment: serializeAws_json1_1EnvironmentVariables(input.environment, context),
+    }),
+    ...(input.environmentFiles !== undefined && {
+      environmentFiles: serializeAws_json1_1EnvironmentFiles(input.environmentFiles, context),
     }),
     ...(input.memory !== undefined && { memory: input.memory }),
     ...(input.memoryReservation !== undefined && { memoryReservation: input.memoryReservation }),
@@ -5707,6 +5815,7 @@ const serializeAws_json1_1CreateTaskSetRequest = (input: CreateTaskSetRequest, c
     ...(input.serviceRegistries !== undefined && {
       serviceRegistries: serializeAws_json1_1ServiceRegistries(input.serviceRegistries, context),
     }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
     ...(input.taskDefinition !== undefined && { taskDefinition: input.taskDefinition }),
   };
 };
@@ -5725,6 +5834,15 @@ const serializeAws_json1_1DeleteAttributesRequest = (input: DeleteAttributesRequ
   return {
     ...(input.attributes !== undefined && { attributes: serializeAws_json1_1Attributes(input.attributes, context) }),
     ...(input.cluster !== undefined && { cluster: input.cluster }),
+  };
+};
+
+const serializeAws_json1_1DeleteCapacityProviderRequest = (
+  input: DeleteCapacityProviderRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.capacityProvider !== undefined && { capacityProvider: input.capacityProvider }),
   };
 };
 
@@ -5845,6 +5963,7 @@ const serializeAws_json1_1DescribeTaskDefinitionRequest = (
 const serializeAws_json1_1DescribeTaskSetsRequest = (input: DescribeTaskSetsRequest, context: __SerdeContext): any => {
   return {
     ...(input.cluster !== undefined && { cluster: input.cluster }),
+    ...(input.include !== undefined && { include: serializeAws_json1_1TaskSetFieldList(input.include, context) }),
     ...(input.service !== undefined && { service: input.service }),
     ...(input.taskSets !== undefined && { taskSets: serializeAws_json1_1StringList(input.taskSets, context) }),
   };
@@ -5912,11 +6031,34 @@ const serializeAws_json1_1DockerVolumeConfiguration = (
   };
 };
 
+const serializeAws_json1_1EFSAuthorizationConfig = (input: EFSAuthorizationConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.accessPointId !== undefined && { accessPointId: input.accessPointId }),
+    ...(input.iam !== undefined && { iam: input.iam }),
+  };
+};
+
 const serializeAws_json1_1EFSVolumeConfiguration = (input: EFSVolumeConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.authorizationConfig !== undefined && {
+      authorizationConfig: serializeAws_json1_1EFSAuthorizationConfig(input.authorizationConfig, context),
+    }),
     ...(input.fileSystemId !== undefined && { fileSystemId: input.fileSystemId }),
     ...(input.rootDirectory !== undefined && { rootDirectory: input.rootDirectory }),
+    ...(input.transitEncryption !== undefined && { transitEncryption: input.transitEncryption }),
+    ...(input.transitEncryptionPort !== undefined && { transitEncryptionPort: input.transitEncryptionPort }),
   };
+};
+
+const serializeAws_json1_1EnvironmentFile = (input: EnvironmentFile, context: __SerdeContext): any => {
+  return {
+    ...(input.type !== undefined && { type: input.type }),
+    ...(input.value !== undefined && { value: input.value }),
+  };
+};
+
+const serializeAws_json1_1EnvironmentFiles = (input: EnvironmentFile[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1EnvironmentFile(entry, context));
 };
 
 const serializeAws_json1_1EnvironmentVariables = (input: KeyValuePair[], context: __SerdeContext): any => {
@@ -6646,6 +6788,10 @@ const serializeAws_json1_1TaskOverride = (input: TaskOverride, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1TaskSetFieldList = (input: (TaskSetField | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1Tmpfs = (input: Tmpfs, context: __SerdeContext): any => {
   return {
     ...(input.containerPath !== undefined && { containerPath: input.containerPath }),
@@ -6739,6 +6885,12 @@ const serializeAws_json1_1UpdateServiceRequest = (input: UpdateServiceRequest, c
     }),
     ...(input.networkConfiguration !== undefined && {
       networkConfiguration: serializeAws_json1_1NetworkConfiguration(input.networkConfiguration, context),
+    }),
+    ...(input.placementConstraints !== undefined && {
+      placementConstraints: serializeAws_json1_1PlacementConstraints(input.placementConstraints, context),
+    }),
+    ...(input.placementStrategy !== undefined && {
+      placementStrategy: serializeAws_json1_1PlacementStrategies(input.placementStrategy, context),
     }),
     ...(input.platformVersion !== undefined && { platformVersion: input.platformVersion }),
     ...(input.service !== undefined && { service: input.service }),
@@ -6905,6 +7057,11 @@ const deserializeAws_json1_1CapacityProvider = (output: any, context: __SerdeCon
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+    updateStatus: output.updateStatus !== undefined && output.updateStatus !== null ? output.updateStatus : undefined,
+    updateStatusReason:
+      output.updateStatusReason !== undefined && output.updateStatusReason !== null
+        ? output.updateStatusReason
+        : undefined,
   } as any;
 };
 
@@ -7124,6 +7281,10 @@ const deserializeAws_json1_1ContainerDefinition = (output: any, context: __Serde
       output.environment !== undefined && output.environment !== null
         ? deserializeAws_json1_1EnvironmentVariables(output.environment, context)
         : undefined,
+    environmentFiles:
+      output.environmentFiles !== undefined && output.environmentFiles !== null
+        ? deserializeAws_json1_1EnvironmentFiles(output.environmentFiles, context)
+        : undefined,
     essential: output.essential !== undefined && output.essential !== null ? output.essential : undefined,
     extraHosts:
       output.extraHosts !== undefined && output.extraHosts !== null
@@ -7297,6 +7458,10 @@ const deserializeAws_json1_1ContainerOverride = (output: any, context: __SerdeCo
       output.environment !== undefined && output.environment !== null
         ? deserializeAws_json1_1EnvironmentVariables(output.environment, context)
         : undefined,
+    environmentFiles:
+      output.environmentFiles !== undefined && output.environmentFiles !== null
+        ? deserializeAws_json1_1EnvironmentFiles(output.environmentFiles, context)
+        : undefined,
     memory: output.memory !== undefined && output.memory !== null ? output.memory : undefined,
     memoryReservation:
       output.memoryReservation !== undefined && output.memoryReservation !== null
@@ -7383,6 +7548,19 @@ const deserializeAws_json1_1DeleteAttributesResponse = (
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_json1_1Attributes(output.attributes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteCapacityProviderResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteCapacityProviderResponse => {
+  return {
+    __type: "DeleteCapacityProviderResponse",
+    capacityProvider:
+      output.capacityProvider !== undefined && output.capacityProvider !== null
+        ? deserializeAws_json1_1CapacityProvider(output.capacityProvider, context)
         : undefined,
   } as any;
 };
@@ -7685,13 +7863,46 @@ const deserializeAws_json1_1DockerVolumeConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1EFSAuthorizationConfig = (output: any, context: __SerdeContext): EFSAuthorizationConfig => {
+  return {
+    __type: "EFSAuthorizationConfig",
+    accessPointId:
+      output.accessPointId !== undefined && output.accessPointId !== null ? output.accessPointId : undefined,
+    iam: output.iam !== undefined && output.iam !== null ? output.iam : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1EFSVolumeConfiguration = (output: any, context: __SerdeContext): EFSVolumeConfiguration => {
   return {
     __type: "EFSVolumeConfiguration",
+    authorizationConfig:
+      output.authorizationConfig !== undefined && output.authorizationConfig !== null
+        ? deserializeAws_json1_1EFSAuthorizationConfig(output.authorizationConfig, context)
+        : undefined,
     fileSystemId: output.fileSystemId !== undefined && output.fileSystemId !== null ? output.fileSystemId : undefined,
     rootDirectory:
       output.rootDirectory !== undefined && output.rootDirectory !== null ? output.rootDirectory : undefined,
+    transitEncryption:
+      output.transitEncryption !== undefined && output.transitEncryption !== null
+        ? output.transitEncryption
+        : undefined,
+    transitEncryptionPort:
+      output.transitEncryptionPort !== undefined && output.transitEncryptionPort !== null
+        ? output.transitEncryptionPort
+        : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1EnvironmentFile = (output: any, context: __SerdeContext): EnvironmentFile => {
+  return {
+    __type: "EnvironmentFile",
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EnvironmentFiles = (output: any, context: __SerdeContext): EnvironmentFile[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1EnvironmentFile(entry, context));
 };
 
 const deserializeAws_json1_1EnvironmentVariables = (output: any, context: __SerdeContext): KeyValuePair[] => {
@@ -8871,6 +9082,8 @@ const deserializeAws_json1_1TaskSet = (output: any, context: __SerdeContext): Ta
         : undefined,
     startedBy: output.startedBy !== undefined && output.startedBy !== null ? output.startedBy : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
     taskDefinition:
       output.taskDefinition !== undefined && output.taskDefinition !== null ? output.taskDefinition : undefined,
     taskSetArn: output.taskSetArn !== undefined && output.taskSetArn !== null ? output.taskSetArn : undefined,

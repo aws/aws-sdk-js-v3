@@ -106,6 +106,11 @@ import {
   PutAnomalyDetectorCommandOutput,
 } from "./commands/PutAnomalyDetectorCommand";
 import {
+  PutCompositeAlarmCommand,
+  PutCompositeAlarmCommandInput,
+  PutCompositeAlarmCommandOutput,
+} from "./commands/PutCompositeAlarmCommand";
+import {
   PutDashboardCommand,
   PutDashboardCommandInput,
   PutDashboardCommandOutput,
@@ -144,12 +149,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 			metrics, which are the variables you want to measure for your resources and
  * 			applications.</p>
  *
- * 		       <p>CloudWatch alarms send notifications or automatically change the resources
- * 			you are monitoring based on rules that you define. For example, you can monitor the CPU
- * 			usage and disk reads and writes of your Amazon EC2
- * 			instances. Then, use this data to determine whether you should launch additional
- * 			instances to handle increased load. You can also use this data to stop under-used
- * 			instances to save money.</p>
+ * 		       <p>CloudWatch alarms send notifications or automatically change the resources you are monitoring based on rules
+ * 			that you define. For example, you can monitor the CPU usage and disk reads and writes of your Amazon EC2
+ * 			instances. Then, use this data to determine whether you should launch
+ * 			additional instances to handle increased load. You can also use this data to stop
+ * 			under-used instances to save
+ * 			money.</p>
  *
  * 		       <p>In addition to monitoring the built-in metrics that come with AWS, you can monitor
  * 			your own custom metrics. With CloudWatch, you gain system-wide visibility into resource
@@ -157,9 +162,22 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class CloudWatch extends CloudWatchClient {
   /**
-   * <p>Deletes the specified alarms. You can delete up to 50 alarms in one operation.
+   * <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more
+   * 			than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't
+   * 			delete two composite alarms with one operation.</p>
+   * 		       <p>
    * 			In the event of an error, no alarms are
    * 			deleted.</p>
+   * 		       <note>
+   *             <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and
+   * 			composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle
+   * 			because there is always still a composite alarm that depends on that alarm that you want to delete.</p>
+   * 			         <p>To get out of such a situation, you must
+   * 				break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest
+   * 				change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>False</code>. </p>
+   * 			         <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.
+   * 			</p>
+   *          </note>
    */
   public deleteAlarms(
     args: DeleteAlarmsCommandInput,
@@ -220,8 +238,9 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>Deletes all dashboards that you specify. You may specify up to 100 dashboards to delete.
-   * 			If there is an error during this call, no dashboards are deleted.</p>
+   * <p>Deletes all dashboards that you specify. You
+   * 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
+   * 			deleted.</p>
    */
   public deleteDashboards(
     args: DeleteDashboardsCommandInput,
@@ -254,8 +273,9 @@ export class CloudWatch extends CloudWatchClient {
 
   /**
    * <p>Permanently deletes the specified Contributor Insights rules.</p>
-   * 		       <p>If you create a rule, delete it, and then re-create it with the same name,
-   * 			historical data from the first time the rule was created may or may not be available.</p>
+   * 		       <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
+   * 			the rule was created might
+   * 			not be available.</p>
    */
   public deleteInsightRules(
     args: DeleteInsightRulesCommandInput,
@@ -288,7 +308,7 @@ export class CloudWatch extends CloudWatchClient {
 
   /**
    * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
-   * 			If an alarm name is not specified, the histories for all alarms are returned.</p>
+   * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
    * 		       <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
    */
   public describeAlarmHistory(
@@ -321,8 +341,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>Retrieves the specified alarms. If no alarms are specified, all alarms are
-   * 			returned. Alarms can be retrieved by using only a prefix for the alarm
+   * <p>Retrieves the specified alarms. You can filter the results by specifying a a prefix for the alarm
    * 			name, the alarm state, or a prefix for any action.</p>
    */
   public describeAlarms(
@@ -631,7 +650,7 @@ export class CloudWatch extends CloudWatchClient {
    *             <li>
    * 				           <p>
    *                   <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the
-   * 					contributor may change for each data point in the graph.</p>
+   * 					contributor might change for each data point in the graph.</p>
    * 				           <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the
    * 					most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified
    * 					by the rule's <code>Value</code>, during that period.</p>
@@ -688,7 +707,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>You can use the <code>GetMetricData</code> API to retrieve as many as 100 different
+   * <p>You can use the <code>GetMetricData</code> API to retrieve as many as 500 different
    * 			metrics in a single request, with a total of as many as 100,800 data points. You can also
    * 			optionally perform math expressions on the values of the returned statistics, to create
    * 			new time series that represent new insights into your data. For example, using Lambda
@@ -722,7 +741,7 @@ export class CloudWatch extends CloudWatchClient {
    * 			a resolution of 1 hour.</p>
    *
    * 		       <p>If you omit <code>Unit</code> in your request, all data that was collected with any unit is returned, along with the corresponding units that were specified
-   * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data data that was collected with that unit specified.
+   * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
    * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    */
   public getMetricData(
@@ -928,11 +947,19 @@ export class CloudWatch extends CloudWatchClient {
 
   /**
    * <p>List the specified metrics. You can use the returned metrics with
-   * 			<a>GetMetricData</a> or <a>GetMetricStatistics</a> to obtain statistical data.</p>
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to obtain statistical data.</p>
    * 		       <p>Up to 500 results are returned for any one call. To retrieve additional results,
    * 			use the returned token with subsequent calls.</p>
-   * 		       <p>After you create a metric, allow up to fifteen minutes before the metric appears.
-   * 			Statistics about the metric, however, are available sooner using <a>GetMetricData</a> or <a>GetMetricStatistics</a>.</p>
+   * 		       <p>After you create a metric, allow up to 15 minutes before the metric appears.
+   * 			You can see statistics about the metric sooner by using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
+   *
+   * 	        <p>
+   *             <code>ListMetrics</code> doesn't return information about metrics if those metrics haven't
+   * 	reported data in the past two weeks. To retrieve those metrics, use
+   * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
    */
   public listMetrics(args: ListMetricsCommandInput, options?: __HttpHandlerOptions): Promise<ListMetricsCommandOutput>;
   public listMetrics(args: ListMetricsCommandInput, cb: (err: any, data?: ListMetricsCommandOutput) => void): void;
@@ -958,7 +985,8 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>Displays the tags associated with a CloudWatch resource. Alarms support tagging.</p>
+   * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
+   * 			and Contributor Insights rules support tagging.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1024,6 +1052,70 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * <p>Creates or updates a <i>composite alarm</i>. When you create a composite
+   * 			alarm, you specify a rule expression for the alarm that takes into account the alarm
+   * 			states of other alarms that you have created. The composite alarm goes into ALARM state
+   * 			only if all conditions of the rule are met.</p>
+   * 		       <p>The alarms specified in a composite alarm's rule expression can include metric alarms
+   * 			and other composite alarms.</p>
+   * 		       <p>Using composite alarms can reduce
+   * 			alarm noise. You can create multiple metric alarms,
+   * 			and also create a composite alarm and
+   * 			set up alerts only
+   * 			for the composite alarm. For example, you could create a composite
+   * 			alarm that goes into ALARM state only when more than one of the underlying metric alarms
+   * 			are in ALARM state.</p>
+   * 		       <p>Currently, the only alarm actions that can be taken by composite alarms are notifying
+   * 			SNS topics.</p>
+   * 		       <note>
+   *             <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and
+   * 			composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle
+   * 			because there is always still a composite alarm that depends on that alarm that you want to delete.</p>
+   * 			         <p>To get out of such a situation, you must
+   * 			break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest
+   * 			change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>False</code>. </p>
+   * 			         <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.
+   * 		</p>
+   *          </note>
+   * 		       <p>When this operation creates an alarm, the alarm state is immediately set to
+   * 				<code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
+   * 			appropriately. Any actions associated with the new state are then executed. For a
+   * 			composite alarm, this initial time after creation is the only time that
+   * 			the
+   * 			alarm can be in <code>INSUFFICIENT_DATA</code> state.</p>
+   * 		       <p>When you update an existing alarm, its state is left unchanged, but the update
+   * 			completely overwrites the previous configuration of the alarm.</p>
+   */
+  public putCompositeAlarm(
+    args: PutCompositeAlarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCompositeAlarmCommandOutput>;
+  public putCompositeAlarm(
+    args: PutCompositeAlarmCommandInput,
+    cb: (err: any, data?: PutCompositeAlarmCommandOutput) => void
+  ): void;
+  public putCompositeAlarm(
+    args: PutCompositeAlarmCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutCompositeAlarmCommandOutput) => void
+  ): void;
+  public putCompositeAlarm(
+    args: PutCompositeAlarmCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutCompositeAlarmCommandOutput) => void),
+    cb?: (err: any, data?: PutCompositeAlarmCommandOutput) => void
+  ): Promise<PutCompositeAlarmCommandOutput> | void {
+    const command = new PutCompositeAlarmCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard,
    * 		the entire contents are replaced with what you specify here.</p>
    * 		       <p>All dashboards in your account are global, not region-specific.</p>
@@ -1069,8 +1161,8 @@ export class CloudWatch extends CloudWatchClient {
    * <p>Creates a Contributor Insights rule. Rules evaluate log events in a
    * 		CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information,
    * 		see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
-   * 		       <p>If you create a rule, delete it, and then re-create it with the same name,
-   * 			historical data from the first time the rule was created may or may not be available.</p>
+   * 		       <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
+   * 			the rule was created might not be available.</p>
    */
   public putInsightRule(
     args: PutInsightRuleCommandInput,
@@ -1186,7 +1278,7 @@ export class CloudWatch extends CloudWatchClient {
    * <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates
    * 			the data points with the specified metric. If the specified metric does not exist,
    * 			CloudWatch creates the metric. When CloudWatch creates a metric, it can
-   * 			take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.</p>
+   * 			take up to fifteen minutes for the metric to appear in calls to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
    *
    * 		       <p>You can publish either individual data points in the <code>Value</code> field, or
    * 		arrays of values and the number of times each value occurred during the period by using the
@@ -1206,8 +1298,11 @@ export class CloudWatch extends CloudWatchClient {
    * 			<i>Amazon CloudWatch User Guide</i>.</p>
    *
    * 		       <p>Data points with time stamps from 24 hours ago or longer can take at least 48
-   * 			hours to become available for <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the time they
-   * 			are submitted.</p>
+   * 			hours to become available for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> from the time they
+   * 			are submitted. Data points with time stamps between 3 and 24 hours ago can take as much as 2 hours to become available
+   * 			for for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
    * 		       <p>CloudWatch needs raw data points to calculate percentile statistics. If you publish
    * 			data using a statistic set instead, you can only retrieve
    * 			percentile statistics for this data if one of the following conditions is true:</p>
@@ -1257,10 +1352,18 @@ export class CloudWatch extends CloudWatchClient {
    * 			state differs from the previous value, the action configured for
    * 			the appropriate state is invoked. For example, if your alarm is configured to send an
    * 			Amazon SNS message when an alarm is triggered, temporarily changing the alarm state to
-   * 			<code>ALARM</code> sends an SNS message. The alarm
-   * 			returns to its actual state (often within seconds). Because the alarm state change
+   * 			<code>ALARM</code> sends an SNS message.</p>
+   * 		       <p>Metric alarms
+   * 			returns to their actual state quickly, often within seconds. Because the metric alarm state change
    * 			happens quickly, it is typically only visible in the alarm's <b>History</b> tab in the Amazon CloudWatch console or through
-   * 			<a>DescribeAlarmHistory</a>.</p>
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html">DescribeAlarmHistory</a>.</p>
+   * 		       <p>If you use <code>SetAlarmState</code> on a composite alarm, the composite alarm is not guaranteed to return
+   * 			to its actual state. It
+   * 			returns to its actual state only once any of its children alarms change state. It is also
+   * 			reevaluated if you update its
+   * 			configuration.</p>
+   * 		       <p>If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies, you must include
+   * 		information in the <code>StateReasonData</code> parameter to enable the policy to take the correct action.</p>
    */
   public setAlarmState(
     args: SetAlarmStateCommandInput,
@@ -1293,16 +1396,16 @@ export class CloudWatch extends CloudWatchClient {
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Currently, the only CloudWatch resources that
-   * 			can be tagged are alarms.</p>
-   * 		       <p>Tags can help you organize and categorize your
-   * 			resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with
-   * 			certain tag values.</p>
+   * 			can be tagged are alarms and Contributor Insights rules.</p>
+   * 		       <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   * 			permissions by granting a user
+   * 			permission to access or change only resources with certain tag values.</p>
    * 		       <p>Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.</p>
    * 		       <p>You can use the <code>TagResource</code> action with an alarm that already has tags. If you specify a new tag key for the alarm,
    * 			this tag is appended to the list of tags associated
    * 			with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces
    * 			the previous value for that tag.</p>
-   * 		       <p>You can associate as many as 50 tags with a resource.</p>
+   * 		       <p>You can associate as many as 50 tags with a CloudWatch resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

@@ -3,6 +3,14 @@ import {
   AssociateDRTLogBucketCommandOutput,
 } from "./commands/AssociateDRTLogBucketCommand";
 import { AssociateDRTRoleCommandInput, AssociateDRTRoleCommandOutput } from "./commands/AssociateDRTRoleCommand";
+import {
+  AssociateHealthCheckCommandInput,
+  AssociateHealthCheckCommandOutput,
+} from "./commands/AssociateHealthCheckCommand";
+import {
+  AssociateProactiveEngagementDetailsCommandInput,
+  AssociateProactiveEngagementDetailsCommandOutput,
+} from "./commands/AssociateProactiveEngagementDetailsCommand";
 import { CreateProtectionCommandInput, CreateProtectionCommandOutput } from "./commands/CreateProtectionCommand";
 import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "./commands/CreateSubscriptionCommand";
 import { DeleteProtectionCommandInput, DeleteProtectionCommandOutput } from "./commands/DeleteProtectionCommand";
@@ -19,6 +27,10 @@ import {
   DescribeSubscriptionCommandOutput,
 } from "./commands/DescribeSubscriptionCommand";
 import {
+  DisableProactiveEngagementCommandInput,
+  DisableProactiveEngagementCommandOutput,
+} from "./commands/DisableProactiveEngagementCommand";
+import {
   DisassociateDRTLogBucketCommandInput,
   DisassociateDRTLogBucketCommandOutput,
 } from "./commands/DisassociateDRTLogBucketCommand";
@@ -26,6 +38,14 @@ import {
   DisassociateDRTRoleCommandInput,
   DisassociateDRTRoleCommandOutput,
 } from "./commands/DisassociateDRTRoleCommand";
+import {
+  DisassociateHealthCheckCommandInput,
+  DisassociateHealthCheckCommandOutput,
+} from "./commands/DisassociateHealthCheckCommand";
+import {
+  EnableProactiveEngagementCommandInput,
+  EnableProactiveEngagementCommandOutput,
+} from "./commands/EnableProactiveEngagementCommand";
 import {
   GetSubscriptionStateCommandInput,
   GetSubscriptionStateCommandOutput,
@@ -87,6 +107,8 @@ import {
 export type ServiceInputTypes =
   | AssociateDRTLogBucketCommandInput
   | AssociateDRTRoleCommandInput
+  | AssociateHealthCheckCommandInput
+  | AssociateProactiveEngagementDetailsCommandInput
   | CreateProtectionCommandInput
   | CreateSubscriptionCommandInput
   | DeleteProtectionCommandInput
@@ -96,8 +118,11 @@ export type ServiceInputTypes =
   | DescribeEmergencyContactSettingsCommandInput
   | DescribeProtectionCommandInput
   | DescribeSubscriptionCommandInput
+  | DisableProactiveEngagementCommandInput
   | DisassociateDRTLogBucketCommandInput
   | DisassociateDRTRoleCommandInput
+  | DisassociateHealthCheckCommandInput
+  | EnableProactiveEngagementCommandInput
   | GetSubscriptionStateCommandInput
   | ListAttacksCommandInput
   | ListProtectionsCommandInput
@@ -107,6 +132,8 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateDRTLogBucketCommandOutput
   | AssociateDRTRoleCommandOutput
+  | AssociateHealthCheckCommandOutput
+  | AssociateProactiveEngagementDetailsCommandOutput
   | CreateProtectionCommandOutput
   | CreateSubscriptionCommandOutput
   | DeleteProtectionCommandOutput
@@ -116,8 +143,11 @@ export type ServiceOutputTypes =
   | DescribeEmergencyContactSettingsCommandOutput
   | DescribeProtectionCommandOutput
   | DescribeSubscriptionCommandOutput
+  | DisableProactiveEngagementCommandOutput
   | DisassociateDRTLogBucketCommandOutput
   | DisassociateDRTRoleCommandOutput
+  | DisassociateHealthCheckCommandOutput
+  | EnableProactiveEngagementCommandOutput
   | GetSubscriptionStateCommandOutput
   | ListAttacksCommandOutput
   | ListProtectionsCommandOutput

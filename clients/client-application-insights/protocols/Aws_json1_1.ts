@@ -2577,6 +2577,7 @@ const serializeAws_json1_1CreateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CWEMonitorEnabled !== undefined && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
     ...(input.OpsCenterEnabled !== undefined && { OpsCenterEnabled: input.OpsCenterEnabled }),
     ...(input.OpsItemSNSTopicArn !== undefined && { OpsItemSNSTopicArn: input.OpsItemSNSTopicArn }),
     ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
@@ -2809,6 +2810,7 @@ const serializeAws_json1_1UpdateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CWEMonitorEnabled !== undefined && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
     ...(input.OpsCenterEnabled !== undefined && { OpsCenterEnabled: input.OpsCenterEnabled }),
     ...(input.OpsItemSNSTopicArn !== undefined && { OpsItemSNSTopicArn: input.OpsItemSNSTopicArn }),
     ...(input.RemoveSNSTopic !== undefined && { RemoveSNSTopic: input.RemoveSNSTopic }),
@@ -2871,6 +2873,10 @@ const deserializeAws_json1_1ApplicationComponentList = (
 const deserializeAws_json1_1ApplicationInfo = (output: any, context: __SerdeContext): ApplicationInfo => {
   return {
     __type: "ApplicationInfo",
+    CWEMonitorEnabled:
+      output.CWEMonitorEnabled !== undefined && output.CWEMonitorEnabled !== null
+        ? output.CWEMonitorEnabled
+        : undefined,
     LifeCycle: output.LifeCycle !== undefined && output.LifeCycle !== null ? output.LifeCycle : undefined,
     OpsCenterEnabled:
       output.OpsCenterEnabled !== undefined && output.OpsCenterEnabled !== null ? output.OpsCenterEnabled : undefined,
@@ -3249,8 +3255,55 @@ const deserializeAws_json1_1LogPatternSetList = (output: any, context: __SerdeCo
 const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext): Observation => {
   return {
     __type: "Observation",
+    CloudWatchEventDetailType:
+      output.CloudWatchEventDetailType !== undefined && output.CloudWatchEventDetailType !== null
+        ? output.CloudWatchEventDetailType
+        : undefined,
+    CloudWatchEventId:
+      output.CloudWatchEventId !== undefined && output.CloudWatchEventId !== null
+        ? output.CloudWatchEventId
+        : undefined,
+    CloudWatchEventSource:
+      output.CloudWatchEventSource !== undefined && output.CloudWatchEventSource !== null
+        ? output.CloudWatchEventSource
+        : undefined,
+    CodeDeployApplication:
+      output.CodeDeployApplication !== undefined && output.CodeDeployApplication !== null
+        ? output.CodeDeployApplication
+        : undefined,
+    CodeDeployDeploymentGroup:
+      output.CodeDeployDeploymentGroup !== undefined && output.CodeDeployDeploymentGroup !== null
+        ? output.CodeDeployDeploymentGroup
+        : undefined,
+    CodeDeployDeploymentId:
+      output.CodeDeployDeploymentId !== undefined && output.CodeDeployDeploymentId !== null
+        ? output.CodeDeployDeploymentId
+        : undefined,
+    CodeDeployInstanceGroupId:
+      output.CodeDeployInstanceGroupId !== undefined && output.CodeDeployInstanceGroupId !== null
+        ? output.CodeDeployInstanceGroupId
+        : undefined,
+    CodeDeployState:
+      output.CodeDeployState !== undefined && output.CodeDeployState !== null ? output.CodeDeployState : undefined,
+    Ec2State: output.Ec2State !== undefined && output.Ec2State !== null ? output.Ec2State : undefined,
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    HealthEventArn:
+      output.HealthEventArn !== undefined && output.HealthEventArn !== null ? output.HealthEventArn : undefined,
+    HealthEventDescription:
+      output.HealthEventDescription !== undefined && output.HealthEventDescription !== null
+        ? output.HealthEventDescription
+        : undefined,
+    HealthEventTypeCategory:
+      output.HealthEventTypeCategory !== undefined && output.HealthEventTypeCategory !== null
+        ? output.HealthEventTypeCategory
+        : undefined,
+    HealthEventTypeCode:
+      output.HealthEventTypeCode !== undefined && output.HealthEventTypeCode !== null
+        ? output.HealthEventTypeCode
+        : undefined,
+    HealthService:
+      output.HealthService !== undefined && output.HealthService !== null ? output.HealthService : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     LineTime:
       output.LineTime !== undefined && output.LineTime !== null
@@ -3270,6 +3323,22 @@ const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext)
         : undefined,
     Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    XRayErrorPercent:
+      output.XRayErrorPercent !== undefined && output.XRayErrorPercent !== null ? output.XRayErrorPercent : undefined,
+    XRayFaultPercent:
+      output.XRayFaultPercent !== undefined && output.XRayFaultPercent !== null ? output.XRayFaultPercent : undefined,
+    XRayNodeName: output.XRayNodeName !== undefined && output.XRayNodeName !== null ? output.XRayNodeName : undefined,
+    XRayNodeType: output.XRayNodeType !== undefined && output.XRayNodeType !== null ? output.XRayNodeType : undefined,
+    XRayRequestAverageLatency:
+      output.XRayRequestAverageLatency !== undefined && output.XRayRequestAverageLatency !== null
+        ? output.XRayRequestAverageLatency
+        : undefined,
+    XRayRequestCount:
+      output.XRayRequestCount !== undefined && output.XRayRequestCount !== null ? output.XRayRequestCount : undefined,
+    XRayThrottlePercent:
+      output.XRayThrottlePercent !== undefined && output.XRayThrottlePercent !== null
+        ? output.XRayThrottlePercent
+        : undefined,
   } as any;
 };
 

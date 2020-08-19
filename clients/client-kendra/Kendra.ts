@@ -16,6 +16,11 @@ import {
 } from "./commands/CreateDataSourceCommand";
 import { CreateFaqCommand, CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import {
+  DeleteDataSourceCommand,
+  DeleteDataSourceCommandInput,
+  DeleteDataSourceCommandOutput,
+} from "./commands/DeleteDataSourceCommand";
 import { DeleteFaqCommand, DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
@@ -41,6 +46,11 @@ import {
 } from "./commands/ListDataSourcesCommand";
 import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommand,
@@ -57,6 +67,12 @@ import {
   SubmitFeedbackCommandInput,
   SubmitFeedbackCommandOutput,
 } from "./commands/SubmitFeedbackCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
@@ -230,6 +246,41 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: CreateIndexCommandOutput) => void
   ): Promise<CreateIndexCommandOutput> | void {
     const command = new CreateIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the data source is
+   *       already being deleted. While the data source is being deleted, the <code>Status</code> field
+   *       returned by a call to the  operation is set to
+   *         <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
+   */
+  public deleteDataSource(
+    args: DeleteDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataSourceCommandOutput>;
+  public deleteDataSource(
+    args: DeleteDataSourceCommandInput,
+    cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): void;
+  public deleteDataSource(
+    args: DeleteDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): void;
+  public deleteDataSource(
+    args: DeleteDataSourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): Promise<DeleteDataSourceCommandOutput> | void {
+    const command = new DeleteDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -501,13 +552,46 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Gets a list of tags associated with a specified resource. Indexes, FAQs, and data sources
+   *       can have tags associated with them.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Searches an active index. Use this API to search your documents using query. The
    *             <code>Query</code> operation enables to do faceted search and to filter results based on
    *          document attributes.</p>
    *          <p>It also enables you to provide user context that Amazon Kendra uses to enforce document
    *          access control in the search results. </p>
    *          <p>Amazon Kendra searches your index for text content and question and answer (FAQ) content.
-   *       By default the response contains three types of results.</p>
+   *          By default the response contains three types of results.</p>
    *          <ul>
    *             <li>
    *                <p>Relevant passages</p>
@@ -520,7 +604,7 @@ export class Kendra extends KendraClient {
    *             </li>
    *          </ul>
    *          <p>You can specify that the query return only one type of result using the
-   *       <code>QueryResultTypeConfig</code> parameter.</p>
+   *             <code>QueryResultTypeConfig</code> parameter.</p>
    */
   public query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
   public query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;
@@ -634,6 +718,65 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: SubmitFeedbackCommandOutput) => void
   ): Promise<SubmitFeedbackCommandOutput> | void {
     const command = new SubmitFeedbackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds the specified tag to the specified index, FAQ, or data source resource. If the tag
+   *       already exists, the existing value is replaced with the new value.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a tag from an index, FAQ, or a data source.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

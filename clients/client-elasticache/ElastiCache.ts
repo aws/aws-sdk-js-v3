@@ -50,6 +50,11 @@ import {
   CreateCacheSubnetGroupCommandOutput,
 } from "./commands/CreateCacheSubnetGroupCommand";
 import {
+  CreateGlobalReplicationGroupCommand,
+  CreateGlobalReplicationGroupCommandInput,
+  CreateGlobalReplicationGroupCommandOutput,
+} from "./commands/CreateGlobalReplicationGroupCommand";
+import {
   CreateReplicationGroupCommand,
   CreateReplicationGroupCommandInput,
   CreateReplicationGroupCommandOutput,
@@ -59,6 +64,11 @@ import {
   CreateSnapshotCommandInput,
   CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
+import {
+  DecreaseNodeGroupsInGlobalReplicationGroupCommand,
+  DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+  DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
+} from "./commands/DecreaseNodeGroupsInGlobalReplicationGroupCommand";
 import {
   DecreaseReplicaCountCommand,
   DecreaseReplicaCountCommandInput,
@@ -84,6 +94,11 @@ import {
   DeleteCacheSubnetGroupCommandInput,
   DeleteCacheSubnetGroupCommandOutput,
 } from "./commands/DeleteCacheSubnetGroupCommand";
+import {
+  DeleteGlobalReplicationGroupCommand,
+  DeleteGlobalReplicationGroupCommandInput,
+  DeleteGlobalReplicationGroupCommandOutput,
+} from "./commands/DeleteGlobalReplicationGroupCommand";
 import {
   DeleteReplicationGroupCommand,
   DeleteReplicationGroupCommandInput,
@@ -135,6 +150,11 @@ import {
   DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  DescribeGlobalReplicationGroupsCommand,
+  DescribeGlobalReplicationGroupsCommandInput,
+  DescribeGlobalReplicationGroupsCommandOutput,
+} from "./commands/DescribeGlobalReplicationGroupsCommand";
+import {
   DescribeReplicationGroupsCommand,
   DescribeReplicationGroupsCommandInput,
   DescribeReplicationGroupsCommandOutput,
@@ -164,6 +184,21 @@ import {
   DescribeUpdateActionsCommandInput,
   DescribeUpdateActionsCommandOutput,
 } from "./commands/DescribeUpdateActionsCommand";
+import {
+  DisassociateGlobalReplicationGroupCommand,
+  DisassociateGlobalReplicationGroupCommandInput,
+  DisassociateGlobalReplicationGroupCommandOutput,
+} from "./commands/DisassociateGlobalReplicationGroupCommand";
+import {
+  FailoverGlobalReplicationGroupCommand,
+  FailoverGlobalReplicationGroupCommandInput,
+  FailoverGlobalReplicationGroupCommandOutput,
+} from "./commands/FailoverGlobalReplicationGroupCommand";
+import {
+  IncreaseNodeGroupsInGlobalReplicationGroupCommand,
+  IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+  IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
+} from "./commands/IncreaseNodeGroupsInGlobalReplicationGroupCommand";
 import {
   IncreaseReplicaCountCommand,
   IncreaseReplicaCountCommandInput,
@@ -195,6 +230,11 @@ import {
   ModifyCacheSubnetGroupCommandOutput,
 } from "./commands/ModifyCacheSubnetGroupCommand";
 import {
+  ModifyGlobalReplicationGroupCommand,
+  ModifyGlobalReplicationGroupCommandInput,
+  ModifyGlobalReplicationGroupCommandOutput,
+} from "./commands/ModifyGlobalReplicationGroupCommand";
+import {
   ModifyReplicationGroupCommand,
   ModifyReplicationGroupCommandInput,
   ModifyReplicationGroupCommandOutput,
@@ -209,6 +249,11 @@ import {
   PurchaseReservedCacheNodesOfferingCommandInput,
   PurchaseReservedCacheNodesOfferingCommandOutput,
 } from "./commands/PurchaseReservedCacheNodesOfferingCommand";
+import {
+  RebalanceSlotsInGlobalReplicationGroupCommand,
+  RebalanceSlotsInGlobalReplicationGroupCommandInput,
+  RebalanceSlotsInGlobalReplicationGroupCommandOutput,
+} from "./commands/RebalanceSlotsInGlobalReplicationGroupCommand";
 import {
   RebootCacheClusterCommand,
   RebootCacheClusterCommandInput,
@@ -706,7 +751,53 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * <p>Global Datastore for Redis offers fully managed, fast,
+   *             reliable and secure cross-region replication.
+   *             Using Global Datastore for Redis, you can create cross-region
+   *             read replica clusters for ElastiCache for Redis to enable low-latency reads
+   *             and disaster recovery across regions. For more information,
+   *             see <a href="/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters.html">Replication Across Regions Using Global Datastore</a>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> is the name of the Global Datastore.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <b>PrimaryReplicationGroupId</b> represents the name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.</p>
+   *             </li>
+   *          </ul>
+   */
+  public createGlobalReplicationGroup(
+    args: CreateGlobalReplicationGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGlobalReplicationGroupCommandOutput>;
+  public createGlobalReplicationGroup(
+    args: CreateGlobalReplicationGroupCommandInput,
+    cb: (err: any, data?: CreateGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public createGlobalReplicationGroup(
+    args: CreateGlobalReplicationGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public createGlobalReplicationGroup(
+    args: CreateGlobalReplicationGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGlobalReplicationGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateGlobalReplicationGroupCommandOutput) => void
+  ): Promise<CreateGlobalReplicationGroupCommandOutput> | void {
+    const command = new CreateGlobalReplicationGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group.</p>
+   *         <p>This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global Datastore.</p>
    *         <p>A Redis (cluster mode disabled) replication group is a collection of clusters,
    *             where one of the clusters is a read/write primary and the others are read-only replicas.
    *             Writes to the primary are asynchronously propagated to the replicas.</p>
@@ -716,10 +807,9 @@ export class ElastiCache extends ElastiCacheClient {
    *             Redis (cluster mode enabled) replication groups partition the data across node groups (shards).</p>
    *         <p>When a Redis (cluster mode disabled) replication group has been successfully created,
    *             you can add one or more read replicas to it, up to a total of 5 read replicas.
-   *             You cannot alter a Redis (cluster mode enabled) replication group after it has been created.
-   *             However, if you need to increase or decrease the number of node groups (console: shards),
-   *             you can avail yourself of ElastiCache for Redis' enhanced backup and restore. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-restoring.html">Restoring From a Backup with Cluster Resizing</a> in the <i>ElastiCache User Guide</i>.</p>
+   *             If you need to increase or decrease the number of node groups (console: shards),
+   *             you can avail yourself of ElastiCache for Redis' scaling. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling ElastiCache for Redis Clusters</a> in the <i>ElastiCache User Guide</i>.</p>
    *         <note>
    *             <p>This operation is valid for Redis only.</p>
    *          </note>
@@ -791,7 +881,41 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Dynamically decreases the number of replics in a Redis (cluster mode disabled) replication group or the number of
+   * <p>Decreases the number of node groups in a Global Datastore</p>
+   */
+  public decreaseNodeGroupsInGlobalReplicationGroup(
+    args: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput>;
+  public decreaseNodeGroupsInGlobalReplicationGroup(
+    args: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+    cb: (err: any, data?: DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public decreaseNodeGroupsInGlobalReplicationGroup(
+    args: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public decreaseNodeGroupsInGlobalReplicationGroup(
+    args: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput) => void),
+    cb?: (err: any, data?: DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput) => void
+  ): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput> | void {
+    const command = new DecreaseNodeGroupsInGlobalReplicationGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
    *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
    *             is performed with no cluster down time.</p>
    */
@@ -972,6 +1096,51 @@ export class ElastiCache extends ElastiCacheClient {
     cb?: (err: any, data?: DeleteCacheSubnetGroupCommandOutput) => void
   ): Promise<DeleteCacheSubnetGroupCommandOutput> | void {
     const command = new DeleteCacheSubnetGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deleting a Global Datastore is a two-step process: </p>
+   *             <ul>
+   *             <li>
+   *                <p>First, you must <a>DisassociateGlobalReplicationGroup</a> to remove the secondary clusters in the Global Datastore.</p>
+   *             </li>
+   *             <li>
+   *                <p>Once the Global Datastore contains only the primary cluster, you can use DeleteGlobalReplicationGroup API to delete the Global Datastore while retainining the primary cluster using Retain…= true.</p>
+   *             </li>
+   *          </ul>
+   *
+   *           <p>Since the Global Datastore has only a primary cluster, you can delete the Global Datastore
+   *              while retaining the primary by setting <code>RetainPrimaryCluster=true</code>.</p>
+   *         <p>When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources;
+   *             you cannot cancel or revert this operation.</p>
+   */
+  public deleteGlobalReplicationGroup(
+    args: DeleteGlobalReplicationGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGlobalReplicationGroupCommandOutput>;
+  public deleteGlobalReplicationGroup(
+    args: DeleteGlobalReplicationGroupCommandInput,
+    cb: (err: any, data?: DeleteGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public deleteGlobalReplicationGroup(
+    args: DeleteGlobalReplicationGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public deleteGlobalReplicationGroup(
+    args: DeleteGlobalReplicationGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGlobalReplicationGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGlobalReplicationGroupCommandOutput) => void
+  ): Promise<DeleteGlobalReplicationGroupCommandOutput> | void {
+    const command = new DeleteGlobalReplicationGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1348,6 +1517,38 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global Datastores. </p>
+   */
+  public describeGlobalReplicationGroups(
+    args: DescribeGlobalReplicationGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGlobalReplicationGroupsCommandOutput>;
+  public describeGlobalReplicationGroups(
+    args: DescribeGlobalReplicationGroupsCommandInput,
+    cb: (err: any, data?: DescribeGlobalReplicationGroupsCommandOutput) => void
+  ): void;
+  public describeGlobalReplicationGroups(
+    args: DescribeGlobalReplicationGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGlobalReplicationGroupsCommandOutput) => void
+  ): void;
+  public describeGlobalReplicationGroups(
+    args: DescribeGlobalReplicationGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGlobalReplicationGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGlobalReplicationGroupsCommandOutput) => void
+  ): Promise<DescribeGlobalReplicationGroupsCommandOutput> | void {
+    const command = new DescribeGlobalReplicationGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a particular
    *             replication group. If no identifier is specified, <code>DescribeReplicationGroups</code>
    *             returns information about all replication groups.</p>
@@ -1543,6 +1744,104 @@ export class ElastiCache extends ElastiCacheClient {
     cb?: (err: any, data?: DescribeUpdateActionsCommandOutput) => void
   ): Promise<DescribeUpdateActionsCommandOutput> | void {
     const command = new DescribeUpdateActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove a secondary cluster from the Global Datastore using the Global Datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that AWS region.</p>
+   */
+  public disassociateGlobalReplicationGroup(
+    args: DisassociateGlobalReplicationGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateGlobalReplicationGroupCommandOutput>;
+  public disassociateGlobalReplicationGroup(
+    args: DisassociateGlobalReplicationGroupCommandInput,
+    cb: (err: any, data?: DisassociateGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public disassociateGlobalReplicationGroup(
+    args: DisassociateGlobalReplicationGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public disassociateGlobalReplicationGroup(
+    args: DisassociateGlobalReplicationGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateGlobalReplicationGroupCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateGlobalReplicationGroupCommandOutput) => void
+  ): Promise<DisassociateGlobalReplicationGroupCommandOutput> | void {
+    const command = new DisassociateGlobalReplicationGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Used to failover the primary region to a selected secondary region. The selected secondary region will become primary, and all other clusters will become secondary.</p>
+   */
+  public failoverGlobalReplicationGroup(
+    args: FailoverGlobalReplicationGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FailoverGlobalReplicationGroupCommandOutput>;
+  public failoverGlobalReplicationGroup(
+    args: FailoverGlobalReplicationGroupCommandInput,
+    cb: (err: any, data?: FailoverGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public failoverGlobalReplicationGroup(
+    args: FailoverGlobalReplicationGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FailoverGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public failoverGlobalReplicationGroup(
+    args: FailoverGlobalReplicationGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FailoverGlobalReplicationGroupCommandOutput) => void),
+    cb?: (err: any, data?: FailoverGlobalReplicationGroupCommandOutput) => void
+  ): Promise<FailoverGlobalReplicationGroupCommandOutput> | void {
+    const command = new FailoverGlobalReplicationGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Increase the number of node groups in the Global Datastore</p>
+   */
+  public increaseNodeGroupsInGlobalReplicationGroup(
+    args: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput>;
+  public increaseNodeGroupsInGlobalReplicationGroup(
+    args: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+    cb: (err: any, data?: IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public increaseNodeGroupsInGlobalReplicationGroup(
+    args: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public increaseNodeGroupsInGlobalReplicationGroup(
+    args: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput) => void),
+    cb?: (err: any, data?: IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput) => void
+  ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> | void {
+    const command = new IncreaseNodeGroupsInGlobalReplicationGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1764,10 +2063,40 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * <p>Modifies the settings for a Global Datastore.</p>
+   */
+  public modifyGlobalReplicationGroup(
+    args: ModifyGlobalReplicationGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyGlobalReplicationGroupCommandOutput>;
+  public modifyGlobalReplicationGroup(
+    args: ModifyGlobalReplicationGroupCommandInput,
+    cb: (err: any, data?: ModifyGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public modifyGlobalReplicationGroup(
+    args: ModifyGlobalReplicationGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public modifyGlobalReplicationGroup(
+    args: ModifyGlobalReplicationGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyGlobalReplicationGroupCommandOutput) => void),
+    cb?: (err: any, data?: ModifyGlobalReplicationGroupCommandOutput) => void
+  ): Promise<ModifyGlobalReplicationGroupCommandOutput> | void {
+    const command = new ModifyGlobalReplicationGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies the settings for a replication group.</p>
-   *         <p>For Redis (cluster mode enabled) clusters, this operation cannot be used to
-   *             change a cluster's node type or engine version. For more information,
-   *             see:</p>
+   *
    *         <ul>
    *             <li>
    *                 <p>
@@ -1871,6 +2200,40 @@ export class ElastiCache extends ElastiCacheClient {
     cb?: (err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> | void {
     const command = new PurchaseReservedCacheNodesOfferingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Redistribute slots to ensure uniform distribution across existing shards in the cluster.</p>
+   */
+  public rebalanceSlotsInGlobalReplicationGroup(
+    args: RebalanceSlotsInGlobalReplicationGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput>;
+  public rebalanceSlotsInGlobalReplicationGroup(
+    args: RebalanceSlotsInGlobalReplicationGroupCommandInput,
+    cb: (err: any, data?: RebalanceSlotsInGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public rebalanceSlotsInGlobalReplicationGroup(
+    args: RebalanceSlotsInGlobalReplicationGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebalanceSlotsInGlobalReplicationGroupCommandOutput) => void
+  ): void;
+  public rebalanceSlotsInGlobalReplicationGroup(
+    args: RebalanceSlotsInGlobalReplicationGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RebalanceSlotsInGlobalReplicationGroupCommandOutput) => void),
+    cb?: (err: any, data?: RebalanceSlotsInGlobalReplicationGroupCommandOutput) => void
+  ): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput> | void {
+    const command = new RebalanceSlotsInGlobalReplicationGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2122,7 +2485,7 @@ export class ElastiCache extends ElastiCacheClient {
    *             </li>
    *          </ul>
    *
-   *         <p>Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test">Testing Multi-AZ with Automatic Failover</a> in the <i>ElastiCache User Guide</i>.</p>
+   *         <p>Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test">Testing Multi-AZ </a> in the <i>ElastiCache User Guide</i>.</p>
    */
   public testFailover(
     args: TestFailoverCommandInput,

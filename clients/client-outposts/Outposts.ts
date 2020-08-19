@@ -4,6 +4,12 @@ import {
   CreateOutpostCommandInput,
   CreateOutpostCommandOutput,
 } from "./commands/CreateOutpostCommand";
+import {
+  DeleteOutpostCommand,
+  DeleteOutpostCommandInput,
+  DeleteOutpostCommandOutput,
+} from "./commands/DeleteOutpostCommand";
+import { DeleteSiteCommand, DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import { GetOutpostCommand, GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommand,
@@ -49,6 +55,64 @@ export class Outposts extends OutpostsClient {
     cb?: (err: any, data?: CreateOutpostCommandOutput) => void
   ): Promise<CreateOutpostCommandOutput> | void {
     const command = new CreateOutpostCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the Outpost.</p>
+   */
+  public deleteOutpost(
+    args: DeleteOutpostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOutpostCommandOutput>;
+  public deleteOutpost(
+    args: DeleteOutpostCommandInput,
+    cb: (err: any, data?: DeleteOutpostCommandOutput) => void
+  ): void;
+  public deleteOutpost(
+    args: DeleteOutpostCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOutpostCommandOutput) => void
+  ): void;
+  public deleteOutpost(
+    args: DeleteOutpostCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOutpostCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOutpostCommandOutput) => void
+  ): Promise<DeleteOutpostCommandOutput> | void {
+    const command = new DeleteOutpostCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the site.</p>
+   */
+  public deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
+  public deleteSite(args: DeleteSiteCommandInput, cb: (err: any, data?: DeleteSiteCommandOutput) => void): void;
+  public deleteSite(
+    args: DeleteSiteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSiteCommandOutput) => void
+  ): void;
+  public deleteSite(
+    args: DeleteSiteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSiteCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSiteCommandOutput) => void
+  ): Promise<DeleteSiteCommandOutput> | void {
+    const command = new DeleteSiteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

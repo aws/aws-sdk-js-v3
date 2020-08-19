@@ -7,6 +7,11 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AddAttributesActivity {
   __type?: "AddAttributesActivity";
   /**
+   * <p>The name of the 'addAttributes' activity.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>A list of 1-50 "AttributeNameMapping"
    *         objects that map an existing attribute to a new attribute.</p>
    *          <note>
@@ -16,11 +21,6 @@ export interface AddAttributesActivity {
    *          </note>
    */
   attributes: { [key: string]: string } | undefined;
-
-  /**
-   * <p>The name of the 'addAttributes' activity.</p>
-   */
-  name: string | undefined;
 
   /**
    * <p>The next activity in the pipeline.</p>
@@ -41,11 +41,6 @@ export namespace AddAttributesActivity {
 export interface BatchPutMessageErrorEntry {
   __type?: "BatchPutMessageErrorEntry";
   /**
-   * <p>The code associated with the error.</p>
-   */
-  errorCode?: string;
-
-  /**
    * <p>The message associated with the error.</p>
    */
   errorMessage?: string;
@@ -55,6 +50,11 @@ export interface BatchPutMessageErrorEntry {
    *           "messageId" key in the message object.)</p>
    */
   messageId?: string;
+
+  /**
+   * <p>The code associated with the error.</p>
+   */
+  errorCode?: string;
 }
 
 export namespace BatchPutMessageErrorEntry {
@@ -165,9 +165,9 @@ export namespace CancelPipelineReprocessingResponse {
 export interface Channel {
   __type?: "Channel";
   /**
-   * <p>The ARN of the channel.</p>
+   * <p>How long, in days, message data is kept for the channel.</p>
    */
-  arn?: string;
+  retentionPeriod?: RetentionPeriod;
 
   /**
    * <p>When the channel was created.</p>
@@ -175,19 +175,9 @@ export interface Channel {
   creationTime?: Date;
 
   /**
-   * <p>When the channel was last updated.</p>
-   */
-  lastUpdateTime?: Date;
-
-  /**
    * <p>The name of the channel.</p>
    */
   name?: string;
-
-  /**
-   * <p>How long, in days, message data is kept for the channel.</p>
-   */
-  retentionPeriod?: RetentionPeriod;
 
   /**
    * <p>The status of the channel.</p>
@@ -195,11 +185,21 @@ export interface Channel {
   status?: ChannelStatus | string;
 
   /**
+   * <p>The ARN of the channel.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>Where channel data is stored. You may choose one of "serviceManagedS3" or "customerManagedS3"
    *         storage. If not specified, the default is "serviceManagedS3". This cannot be changed after creation
    *         of the channel.</p>
    */
   storage?: ChannelStorage;
+
+  /**
+   * <p>When the channel was last updated.</p>
+   */
+  lastUpdateTime?: Date;
 }
 
 export namespace Channel {
@@ -215,9 +215,9 @@ export namespace Channel {
 export interface ChannelActivity {
   __type?: "ChannelActivity";
   /**
-   * <p>The name of the channel from which the messages are processed.</p>
+   * <p>The next activity in the pipeline.</p>
    */
-  channelName: string | undefined;
+  next?: string;
 
   /**
    * <p>The name of the 'channel' activity.</p>
@@ -225,9 +225,9 @@ export interface ChannelActivity {
   name: string | undefined;
 
   /**
-   * <p>The next activity in the pipeline.</p>
+   * <p>The name of the channel from which the messages are processed.</p>
    */
-  next?: string;
+  channelName: string | undefined;
 }
 
 export namespace ChannelActivity {
@@ -296,14 +296,14 @@ export namespace ChannelStorage {
 export interface ChannelStorageSummary {
   __type?: "ChannelStorageSummary";
   /**
-   * <p>Used to store channel data in an S3 bucket that you manage.</p>
-   */
-  customerManagedS3?: CustomerManagedChannelS3StorageSummary;
-
-  /**
    * <p>Used to store channel data in an S3 bucket managed by the AWS IoT Analytics service.</p>
    */
   serviceManagedS3?: ServiceManagedChannelS3StorageSummary;
+
+  /**
+   * <p>Used to store channel data in an S3 bucket that you manage.</p>
+   */
+  customerManagedS3?: CustomerManagedChannelS3StorageSummary;
 }
 
 export namespace ChannelStorageSummary {
@@ -319,21 +319,6 @@ export namespace ChannelStorageSummary {
 export interface ChannelSummary {
   __type?: "ChannelSummary";
   /**
-   * <p>The name of the channel.</p>
-   */
-  channelName?: string;
-
-  /**
-   * <p>Where channel data is stored.</p>
-   */
-  channelStorage?: ChannelStorageSummary;
-
-  /**
-   * <p>When the channel was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
    * <p>The last time the channel was updated.</p>
    */
   lastUpdateTime?: Date;
@@ -342,6 +327,21 @@ export interface ChannelSummary {
    * <p>The status of the channel.</p>
    */
   status?: ChannelStatus | string;
+
+  /**
+   * <p>When the channel was created.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The name of the channel.</p>
+   */
+  channelName?: string;
+
+  /**
+   * <p>Where channel data is stored.</p>
+   */
+  channelStorage?: ChannelStorageSummary;
 }
 
 export namespace ChannelSummary {
@@ -362,17 +362,17 @@ export enum ComputeType {
 export interface ContainerDatasetAction {
   __type?: "ContainerDatasetAction";
   /**
+   * <p>The ARN of the Docker container stored in your account. The Docker container contains an
+   *           application and needed support libraries and is used to generate data set contents.</p>
+   */
+  image: string | undefined;
+
+  /**
    * <p>The ARN of the role which gives permission to the system to access needed resources in order
    *           to run the "containerAction". This includes, at minimum, permission to retrieve the data set
    *           contents which are the input to the containerized application.</p>
    */
   executionRoleArn: string | undefined;
-
-  /**
-   * <p>The ARN of the Docker container stored in your account. The Docker container contains an
-   *           application and needed support libraries and is used to generate data set contents.</p>
-   */
-  image: string | undefined;
 
   /**
    * <p>Configuration of the resource which executes the "containerAction".</p>
@@ -398,6 +398,11 @@ export namespace ContainerDatasetAction {
 export interface CreateChannelRequest {
   __type?: "CreateChannelRequest";
   /**
+   * <p>Metadata which can be used to manage the channel.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>The name of the channel.</p>
    */
   channelName: string | undefined;
@@ -414,11 +419,6 @@ export interface CreateChannelRequest {
    *         selected, this parameter is ignored.</p>
    */
   retentionPeriod?: RetentionPeriod;
-
-  /**
-   * <p>Metadata which can be used to manage the channel.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreateChannelRequest {
@@ -486,6 +486,23 @@ export namespace CreateDatasetContentResponse {
 export interface CreateDatasetRequest {
   __type?: "CreateDatasetRequest";
   /**
+   * <p>A list of triggers. A trigger causes data set contents to be populated at a specified
+   *           time interval or when another data set's contents are created. The list of triggers can
+   *           be empty or contain up to five <b>DataSetTrigger</b> objects.</p>
+   */
+  triggers?: DatasetTrigger[];
+
+  /**
+   * <p>Metadata which can be used to manage the data set.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The name of the data set.</p>
+   */
+  datasetName: string | undefined;
+
+  /**
    * <p>A list of actions that create the data set contents.</p>
    */
   actions: DatasetAction[] | undefined;
@@ -496,11 +513,6 @@ export interface CreateDatasetRequest {
   contentDeliveryRules?: DatasetContentDeliveryRule[];
 
   /**
-   * <p>The name of the data set.</p>
-   */
-  datasetName: string | undefined;
-
-  /**
    * <p>[Optional] How long, in days, versions of data set contents are kept for the data set. If
    *           not specified or set to null, versions of data set contents are retained for at most 90 days.
    *           The number of versions of data set contents retained is determined by the
@@ -508,18 +520,6 @@ export interface CreateDatasetRequest {
    *           https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)</p>
    */
   retentionPeriod?: RetentionPeriod;
-
-  /**
-   * <p>Metadata which can be used to manage the data set.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>A list of triggers. A trigger causes data set contents to be populated at a specified
-   *           time interval or when another data set's contents are created. The list of triggers can
-   *           be empty or contain up to five <b>DataSetTrigger</b> objects.</p>
-   */
-  triggers?: DatasetTrigger[];
 
   /**
    * <p>[Optional] How many versions of data set contents are kept. If not specified or set to null, only the
@@ -540,14 +540,14 @@ export namespace CreateDatasetRequest {
 export interface CreateDatasetResponse {
   __type?: "CreateDatasetResponse";
   /**
-   * <p>The ARN of the data set.</p>
-   */
-  datasetArn?: string;
-
-  /**
    * <p>The name of the data set.</p>
    */
   datasetName?: string;
+
+  /**
+   * <p>The ARN of the data set.</p>
+   */
+  datasetArn?: string;
 
   /**
    * <p>How long, in days, data set contents are kept for the data set.</p>
@@ -565,9 +565,10 @@ export namespace CreateDatasetResponse {
 export interface CreateDatastoreRequest {
   __type?: "CreateDatastoreRequest";
   /**
-   * <p>The name of the data store.</p>
+   * <p>How long, in days, message data is kept for the data store. When "customerManagedS3" storage
+   *         is selected, this parameter is ignored.</p>
    */
-  datastoreName: string | undefined;
+  retentionPeriod?: RetentionPeriod;
 
   /**
    * <p>Where data store data is stored. You may choose one of "serviceManagedS3" or "customerManagedS3"
@@ -577,15 +578,14 @@ export interface CreateDatastoreRequest {
   datastoreStorage?: DatastoreStorage;
 
   /**
-   * <p>How long, in days, message data is kept for the data store. When "customerManagedS3" storage
-   *         is selected, this parameter is ignored.</p>
-   */
-  retentionPeriod?: RetentionPeriod;
-
-  /**
    * <p>Metadata which can be used to manage the data store.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The name of the data store.</p>
+   */
+  datastoreName: string | undefined;
 }
 
 export namespace CreateDatastoreRequest {
@@ -598,6 +598,11 @@ export namespace CreateDatastoreRequest {
 export interface CreateDatastoreResponse {
   __type?: "CreateDatastoreResponse";
   /**
+   * <p>How long, in days, message data is kept for the data store.</p>
+   */
+  retentionPeriod?: RetentionPeriod;
+
+  /**
    * <p>The ARN of the data store.</p>
    */
   datastoreArn?: string;
@@ -606,11 +611,6 @@ export interface CreateDatastoreResponse {
    * <p>The name of the data store.</p>
    */
   datastoreName?: string;
-
-  /**
-   * <p>How long, in days, message data is kept for the data store.</p>
-   */
-  retentionPeriod?: RetentionPeriod;
 }
 
 export namespace CreateDatastoreResponse {
@@ -622,6 +622,11 @@ export namespace CreateDatastoreResponse {
 
 export interface CreatePipelineRequest {
   __type?: "CreatePipelineRequest";
+  /**
+   * <p>Metadata which can be used to manage the pipeline.</p>
+   */
+  tags?: Tag[];
+
   /**
    * <p>A list of "PipelineActivity" objects. Activities perform transformations on your messages,
    *           such as removing, renaming or adding message attributes; filtering messages based on attribute
@@ -648,11 +653,6 @@ export interface CreatePipelineRequest {
    * <p>The name of the pipeline.</p>
    */
   pipelineName: string | undefined;
-
-  /**
-   * <p>Metadata which can be used to manage the pipeline.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreatePipelineRequest {
@@ -665,14 +665,14 @@ export namespace CreatePipelineRequest {
 export interface CreatePipelineResponse {
   __type?: "CreatePipelineResponse";
   /**
-   * <p>The ARN of the pipeline.</p>
-   */
-  pipelineArn?: string;
-
-  /**
    * <p>The name of the pipeline.</p>
    */
   pipelineName?: string;
+
+  /**
+   * <p>The ARN of the pipeline.</p>
+   */
+  pipelineArn?: string;
 }
 
 export namespace CreatePipelineResponse {
@@ -695,16 +695,16 @@ export interface CustomerManagedChannelS3Storage {
   bucket: string | undefined;
 
   /**
+   * <p>The ARN of the role which grants AWS IoT Analytics permission to interact with your Amazon S3 resources.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
    * <p>[Optional] The prefix used to create the keys of the channel data objects. Each object in
    *         an Amazon S3 bucket has a key that is its unique identifier within the bucket (each object in
    *         a bucket has exactly one key). The prefix must end with a '/'.</p>
    */
   keyPrefix?: string;
-
-  /**
-   * <p>The ARN of the role which grants AWS IoT Analytics permission to interact with your Amazon S3 resources.</p>
-   */
-  roleArn: string | undefined;
 }
 
 export namespace CustomerManagedChannelS3Storage {
@@ -789,16 +789,16 @@ export interface CustomerManagedDatastoreS3StorageSummary {
   bucket?: string;
 
   /**
+   * <p>The ARN of the role which grants AWS IoT Analytics permission to interact with your Amazon S3 resources.</p>
+   */
+  roleArn?: string;
+
+  /**
    * <p>[Optional] The prefix used to create the keys of the data store data objects. Each object in
    *         an Amazon S3 bucket has a key that is its unique identifier within the bucket (each object in a
    *         bucket has exactly one key). The prefix must end with a '/'.</p>
    */
   keyPrefix?: string;
-
-  /**
-   * <p>The ARN of the role which grants AWS IoT Analytics permission to interact with your Amazon S3 resources.</p>
-   */
-  roleArn?: string;
 }
 
 export namespace CustomerManagedDatastoreS3StorageSummary {
@@ -815,26 +815,6 @@ export namespace CustomerManagedDatastoreS3StorageSummary {
 export interface Dataset {
   __type?: "Dataset";
   /**
-   * <p>The "DatasetAction" objects that automatically create the data set contents.</p>
-   */
-  actions?: DatasetAction[];
-
-  /**
-   * <p>The ARN of the data set.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>When data set contents are created they are delivered to destinations specified here.</p>
-   */
-  contentDeliveryRules?: DatasetContentDeliveryRule[];
-
-  /**
-   * <p>When the data set was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
    * <p>The last time the data set was updated.</p>
    */
   lastUpdateTime?: Date;
@@ -845,9 +825,9 @@ export interface Dataset {
   name?: string;
 
   /**
-   * <p>[Optional] How long, in days, message data is kept for the data set.</p>
+   * <p>When the data set was created.</p>
    */
-  retentionPeriod?: RetentionPeriod;
+  creationTime?: Date;
 
   /**
    * <p>The status of the data set.</p>
@@ -861,12 +841,32 @@ export interface Dataset {
   triggers?: DatasetTrigger[];
 
   /**
+   * <p>[Optional] How long, in days, message data is kept for the data set.</p>
+   */
+  retentionPeriod?: RetentionPeriod;
+
+  /**
+   * <p>When data set contents are created they are delivered to destinations specified here.</p>
+   */
+  contentDeliveryRules?: DatasetContentDeliveryRule[];
+
+  /**
+   * <p>The "DatasetAction" objects that automatically create the data set contents.</p>
+   */
+  actions?: DatasetAction[];
+
+  /**
    * <p>[Optional] How many versions of data set contents are kept. If not specified or set to null, only the
    *         latest version plus the latest succeeded version (if they are different) are kept for
    *         the time period specified by the "retentionPeriod" parameter. (For more information, see
    *         https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)</p>
    */
   versioningConfiguration?: VersioningConfiguration;
+
+  /**
+   * <p>The ARN of the data set.</p>
+   */
+  arn?: string;
 }
 
 export namespace Dataset {
@@ -882,6 +882,11 @@ export namespace Dataset {
 export interface DatasetAction {
   __type?: "DatasetAction";
   /**
+   * <p>An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.</p>
+   */
+  queryAction?: SqlQueryDatasetAction;
+
+  /**
    * <p>The name of the data set action by which data set contents are automatically created.</p>
    */
   actionName?: string;
@@ -892,11 +897,6 @@ export interface DatasetAction {
    *           support libraries.</p>
    */
   containerAction?: ContainerDatasetAction;
-
-  /**
-   * <p>An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.</p>
-   */
-  queryAction?: SqlQueryDatasetAction;
 }
 
 export namespace DatasetAction {
@@ -963,14 +963,14 @@ export namespace DatasetContentDeliveryDestination {
 export interface DatasetContentDeliveryRule {
   __type?: "DatasetContentDeliveryRule";
   /**
-   * <p>The destination to which data set contents are delivered.</p>
-   */
-  destination: DatasetContentDeliveryDestination | undefined;
-
-  /**
    * <p>The name of the data set content delivery rules entry.</p>
    */
   entryName?: string;
+
+  /**
+   * <p>The destination to which data set contents are delivered.</p>
+   */
+  destination: DatasetContentDeliveryDestination | undefined;
 }
 
 export namespace DatasetContentDeliveryRule {
@@ -992,15 +992,15 @@ export enum DatasetContentState {
 export interface DatasetContentStatus {
   __type?: "DatasetContentStatus";
   /**
-   * <p>The reason the data set contents are in this state.</p>
-   */
-  reason?: string;
-
-  /**
    * <p>The state of the data set contents. Can be one of "READY", "CREATING", "SUCCEEDED" or
    *          "FAILED".</p>
    */
   state?: DatasetContentState | string;
+
+  /**
+   * <p>The reason the data set contents are in this state.</p>
+   */
+  reason?: string;
 }
 
 export namespace DatasetContentStatus {
@@ -1021,16 +1021,6 @@ export interface DatasetContentSummary {
   completionTime?: Date;
 
   /**
-   * <p>The actual time the creation of the data set contents was started.</p>
-   */
-  creationTime?: Date;
-
-  /**
-   * <p>The time the creation of the data set contents was scheduled to start.</p>
-   */
-  scheduleTime?: Date;
-
-  /**
    * <p>The status of the data set contents.</p>
    */
   status?: DatasetContentStatus;
@@ -1039,6 +1029,16 @@ export interface DatasetContentSummary {
    * <p>The version of the data set contents.</p>
    */
   version?: string;
+
+  /**
+   * <p>The actual time the creation of the data set contents was started.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The time the creation of the data set contents was scheduled to start.</p>
+   */
+  scheduleTime?: Date;
 }
 
 export namespace DatasetContentSummary {
@@ -1103,9 +1103,11 @@ export enum DatasetStatus {
 export interface DatasetSummary {
   __type?: "DatasetSummary";
   /**
-   * <p>A list of "DataActionSummary" objects.</p>
+   * <p>A list of triggers. A trigger causes data set content to be populated at a specified time
+   *        interval or when another data set is populated. The list of triggers can be empty or contain up
+   *        to five DataSetTrigger objects</p>
    */
-  actions?: DatasetActionSummary[];
+  triggers?: DatasetTrigger[];
 
   /**
    * <p>The time the data set was created.</p>
@@ -1113,9 +1115,9 @@ export interface DatasetSummary {
   creationTime?: Date;
 
   /**
-   * <p>The name of the data set.</p>
+   * <p>The status of the data set.</p>
    */
-  datasetName?: string;
+  status?: DatasetStatus | string;
 
   /**
    * <p>The last time the data set was updated.</p>
@@ -1123,16 +1125,14 @@ export interface DatasetSummary {
   lastUpdateTime?: Date;
 
   /**
-   * <p>The status of the data set.</p>
+   * <p>A list of "DataActionSummary" objects.</p>
    */
-  status?: DatasetStatus | string;
+  actions?: DatasetActionSummary[];
 
   /**
-   * <p>A list of triggers. A trigger causes data set content to be populated at a specified time
-   *        interval or when another data set is populated. The list of triggers can be empty or contain up
-   *        to five DataSetTrigger objects</p>
+   * <p>The name of the data set.</p>
    */
-  triggers?: DatasetTrigger[];
+  datasetName?: string;
 }
 
 export namespace DatasetSummary {
@@ -1149,14 +1149,14 @@ export namespace DatasetSummary {
 export interface DatasetTrigger {
   __type?: "DatasetTrigger";
   /**
-   * <p>The data set whose content creation triggers the creation of this data set's contents.</p>
-   */
-  dataset?: TriggeringDataset;
-
-  /**
    * <p>The "Schedule" when the trigger is initiated.</p>
    */
   schedule?: Schedule;
+
+  /**
+   * <p>The data set whose content creation triggers the creation of this data set's contents.</p>
+   */
+  dataset?: TriggeringDataset;
 }
 
 export namespace DatasetTrigger {
@@ -1172,14 +1172,22 @@ export namespace DatasetTrigger {
 export interface Datastore {
   __type?: "Datastore";
   /**
+   * <p>How long, in days, message data is kept for the data store. When "customerManagedS3" storage
+   *         is selected, this parameter is ignored.</p>
+   */
+  retentionPeriod?: RetentionPeriod;
+
+  /**
+   * <p>Where data store data is stored. You may choose one of "serviceManagedS3" or "customerManagedS3"
+   *         storage. If not specified, the default is "serviceManagedS3". This cannot be changed after the data
+   *         store is created.</p>
+   */
+  storage?: DatastoreStorage;
+
+  /**
    * <p>The ARN of the data store.</p>
    */
   arn?: string;
-
-  /**
-   * <p>When the data store was created.</p>
-   */
-  creationTime?: Date;
 
   /**
    * <p>The last time the data store was updated.</p>
@@ -1190,12 +1198,6 @@ export interface Datastore {
    * <p>The name of the data store.</p>
    */
   name?: string;
-
-  /**
-   * <p>How long, in days, message data is kept for the data store. When "customerManagedS3" storage
-   *         is selected, this parameter is ignored.</p>
-   */
-  retentionPeriod?: RetentionPeriod;
 
   /**
    * <p>The status of a data store:</p>
@@ -1217,11 +1219,9 @@ export interface Datastore {
   status?: DatastoreStatus | string;
 
   /**
-   * <p>Where data store data is stored. You may choose one of "serviceManagedS3" or "customerManagedS3"
-   *         storage. If not specified, the default is "serviceManagedS3". This cannot be changed after the data
-   *         store is created.</p>
+   * <p>When the data store was created.</p>
    */
-  storage?: DatastoreStorage;
+  creationTime?: Date;
 }
 
 export namespace Datastore {
@@ -1286,18 +1286,18 @@ export enum DatastoreStatus {
 export interface DatastoreStorage {
   __type?: "DatastoreStorage";
   /**
-   * <p>Use this to store data store data in an S3 bucket that you manage. When customer managed storage is
-   *         selected, the "retentionPeriod" parameter is ignored. The choice of service-managed or customer-managed
-   *         S3 storage cannot be changed after creation of the data store.</p>
-   */
-  customerManagedS3?: CustomerManagedDatastoreS3Storage;
-
-  /**
    * <p>Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service.
    *         The choice of service-managed or customer-managed S3 storage cannot be changed after creation
    *         of the data store.</p>
    */
   serviceManagedS3?: ServiceManagedDatastoreS3Storage;
+
+  /**
+   * <p>Use this to store data store data in an S3 bucket that you manage. When customer managed storage is
+   *         selected, the "retentionPeriod" parameter is ignored. The choice of service-managed or customer-managed
+   *         S3 storage cannot be changed after creation of the data store.</p>
+   */
+  customerManagedS3?: CustomerManagedDatastoreS3Storage;
 }
 
 export namespace DatastoreStorage {
@@ -1336,14 +1336,14 @@ export namespace DatastoreStorageSummary {
 export interface DatastoreSummary {
   __type?: "DatastoreSummary";
   /**
+   * <p>The status of the data store.</p>
+   */
+  status?: DatastoreStatus | string;
+
+  /**
    * <p>When the data store was created.</p>
    */
   creationTime?: Date;
-
-  /**
-   * <p>The name of the data store.</p>
-   */
-  datastoreName?: string;
 
   /**
    * <p>Where data store data is stored.</p>
@@ -1356,9 +1356,9 @@ export interface DatastoreSummary {
   lastUpdateTime?: Date;
 
   /**
-   * <p>The status of the data store.</p>
+   * <p>The name of the data store.</p>
    */
-  status?: DatastoreStatus | string;
+  datastoreName?: string;
 }
 
 export namespace DatastoreSummary {
@@ -1386,16 +1386,16 @@ export namespace DeleteChannelRequest {
 export interface DeleteDatasetContentRequest {
   __type?: "DeleteDatasetContentRequest";
   /**
-   * <p>The name of the data set whose content is deleted.</p>
-   */
-  datasetName: string | undefined;
-
-  /**
    * <p>The version of the data set whose content is deleted. You can also use the strings
    *           "$LATEST" or "$LATEST_SUCCEEDED" to delete the latest or latest successfully
    *           completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.</p>
    */
   versionId?: string;
+
+  /**
+   * <p>The name of the data set whose content is deleted.</p>
+   */
+  datasetName: string | undefined;
 }
 
 export namespace DeleteDatasetContentRequest {
@@ -1456,6 +1456,13 @@ export namespace DeletePipelineRequest {
 export interface DeltaTime {
   __type?: "DeltaTime";
   /**
+   * <p>An expression by which the time of the message data may be determined. This may be the name
+   *           of a timestamp field, or a SQL expression which is used to derive the time the message
+   *           data was generated.</p>
+   */
+  timeExpression: string | undefined;
+
+  /**
    * <p>The number of seconds of estimated "in flight" lag time of message data.  When you create
    *        data set contents using message data from a specified time frame, some message data may still be
    *        "in flight" when processing begins, and so will not arrive in time to be processed. Use this
@@ -1465,13 +1472,6 @@ export interface DeltaTime {
    *        places it within the previous time frame.</p>
    */
   offsetSeconds: number | undefined;
-
-  /**
-   * <p>An expression by which the time of the message data may be determined. This may be the name
-   *           of a timestamp field, or a SQL expression which is used to derive the time the message
-   *           data was generated.</p>
-   */
-  timeExpression: string | undefined;
 }
 
 export namespace DeltaTime {
@@ -1556,15 +1556,15 @@ export namespace DescribeDatasetResponse {
 export interface DescribeDatastoreRequest {
   __type?: "DescribeDatastoreRequest";
   /**
-   * <p>The name of the data store</p>
-   */
-  datastoreName: string | undefined;
-
-  /**
    * <p>If true, additional statistical information about the data store is included in the response.
    *          This feature cannot be used with a data store whose S3 storage is customer-managed.</p>
    */
   includeStatistics?: boolean;
+
+  /**
+   * <p>The name of the data store</p>
+   */
+  datastoreName: string | undefined;
 }
 
 export namespace DescribeDatastoreRequest {
@@ -1577,15 +1577,15 @@ export namespace DescribeDatastoreRequest {
 export interface DescribeDatastoreResponse {
   __type?: "DescribeDatastoreResponse";
   /**
-   * <p>Information about the data store.</p>
-   */
-  datastore?: Datastore;
-
-  /**
    * <p>Additional statistical information about the data store. Included if the 'includeStatistics'
    *            parameter is set to true in the request.</p>
    */
   statistics?: DatastoreStatistics;
+
+  /**
+   * <p>Information about the data store.</p>
+   */
+  datastore?: Datastore;
 }
 
 export namespace DescribeDatastoreResponse {
@@ -1658,14 +1658,19 @@ export namespace DescribePipelineResponse {
 export interface DeviceRegistryEnrichActivity {
   __type?: "DeviceRegistryEnrichActivity";
   /**
-   * <p>The name of the attribute that is added to the message.</p>
+   * <p>The name of the IoT device whose registry information is added to the message.</p>
    */
-  attribute: string | undefined;
+  thingName: string | undefined;
 
   /**
    * <p>The name of the 'deviceRegistryEnrich' activity.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>The name of the attribute that is added to the message.</p>
+   */
+  attribute: string | undefined;
 
   /**
    * <p>The next activity in the pipeline.</p>
@@ -1676,11 +1681,6 @@ export interface DeviceRegistryEnrichActivity {
    * <p>The ARN of the role that allows access to the device's registry information.</p>
    */
   roleArn: string | undefined;
-
-  /**
-   * <p>The name of the IoT device whose registry information is added to the message.</p>
-   */
-  thingName: string | undefined;
 }
 
 export namespace DeviceRegistryEnrichActivity {
@@ -1696,16 +1696,6 @@ export namespace DeviceRegistryEnrichActivity {
 export interface DeviceShadowEnrichActivity {
   __type?: "DeviceShadowEnrichActivity";
   /**
-   * <p>The name of the attribute that is added to the message.</p>
-   */
-  attribute: string | undefined;
-
-  /**
-   * <p>The name of the 'deviceShadowEnrich' activity.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The next activity in the pipeline.</p>
    */
   next?: string;
@@ -1720,6 +1710,16 @@ export interface DeviceShadowEnrichActivity {
    *           the message.</p>
    */
   thingName: string | undefined;
+
+  /**
+   * <p>The name of the attribute that is added to the message.</p>
+   */
+  attribute: string | undefined;
+
+  /**
+   * <p>The name of the 'deviceShadowEnrich' activity.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace DeviceShadowEnrichActivity {
@@ -1735,14 +1735,14 @@ export namespace DeviceShadowEnrichActivity {
 export interface EstimatedResourceSize {
   __type?: "EstimatedResourceSize";
   /**
-   * <p>The time when the estimate of the size of the resource was made.</p>
-   */
-  estimatedOn?: Date;
-
-  /**
    * <p>The estimated size of the resource in bytes.</p>
    */
   estimatedSizeInBytes?: number;
+
+  /**
+   * <p>The time when the estimate of the size of the resource was made.</p>
+   */
+  estimatedOn?: Date;
 }
 
 export namespace EstimatedResourceSize {
@@ -1758,9 +1758,9 @@ export namespace EstimatedResourceSize {
 export interface FilterActivity {
   __type?: "FilterActivity";
   /**
-   * <p>An expression that looks like a SQL WHERE clause that must return a Boolean value.</p>
+   * <p>The next activity in the pipeline.</p>
    */
-  filter: string | undefined;
+  next?: string;
 
   /**
    * <p>The name of the 'filter' activity.</p>
@@ -1768,9 +1768,9 @@ export interface FilterActivity {
   name: string | undefined;
 
   /**
-   * <p>The next activity in the pipeline.</p>
+   * <p>An expression that looks like a SQL WHERE clause that must return a Boolean value.</p>
    */
-  next?: string;
+  filter: string | undefined;
 }
 
 export namespace FilterActivity {
@@ -1811,14 +1811,14 @@ export interface GetDatasetContentResponse {
   entries?: DatasetEntry[];
 
   /**
-   * <p>The status of the data set content.</p>
-   */
-  status?: DatasetContentStatus;
-
-  /**
    * <p>The time when the request was made.</p>
    */
   timestamp?: Date;
+
+  /**
+   * <p>The status of the data set content.</p>
+   */
+  status?: DatasetContentStatus;
 }
 
 export namespace GetDatasetContentResponse {
@@ -1835,17 +1835,17 @@ export namespace GetDatasetContentResponse {
 export interface GlueConfiguration {
   __type?: "GlueConfiguration";
   /**
-   * <p>The name of the database in your AWS Glue Data Catalog in which the table is located. (An AWS
-   *         Glue Data Catalog database contains Glue Data tables.)</p>
-   */
-  databaseName: string | undefined;
-
-  /**
    * <p>The name of the table in your AWS Glue Data Catalog which is used to perform the ETL (extract,
    *         transform and load) operations. (An AWS Glue Data Catalog table contains partitioned data and descriptions
    *         of data sources and targets.)</p>
    */
   tableName: string | undefined;
+
+  /**
+   * <p>The name of the database in your AWS Glue Data Catalog in which the table is located. (An AWS
+   *         Glue Data Catalog database contains Glue Data tables.)</p>
+   */
+  databaseName: string | undefined;
 }
 
 export namespace GlueConfiguration {
@@ -1917,6 +1917,11 @@ export namespace IotEventsDestinationConfiguration {
 export interface LambdaActivity {
   __type?: "LambdaActivity";
   /**
+   * <p>The name of the Lambda function that is run on the message.</p>
+   */
+  lambdaName: string | undefined;
+
+  /**
    * <p>The number of messages passed to the Lambda function for processing.</p>
    *          <p>The AWS Lambda function must be able to process all of these messages within
    *          five minutes, which is the maximum timeout duration for Lambda functions.</p>
@@ -1924,19 +1929,14 @@ export interface LambdaActivity {
   batchSize: number | undefined;
 
   /**
-   * <p>The name of the Lambda function that is run on the message.</p>
+   * <p>The next activity in the pipeline.</p>
    */
-  lambdaName: string | undefined;
+  next?: string;
 
   /**
    * <p>The name of the 'lambda' activity.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The next activity in the pipeline.</p>
-   */
-  next?: string;
 }
 
 export namespace LambdaActivity {
@@ -2007,14 +2007,10 @@ export namespace ListChannelsResponse {
 export interface ListDatasetContentsRequest {
   __type?: "ListDatasetContentsRequest";
   /**
-   * <p>The name of the data set whose contents information you want to list.</p>
+   * <p>A filter to limit results to those data set contents whose creation is scheduled before the
+   *        given time. See the field <code>triggers.schedule</code> in the CreateDataset request. (timestamp)</p>
    */
-  datasetName: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in this request.</p>
-   */
-  maxResults?: number;
+  scheduledBefore?: Date;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -2022,10 +2018,14 @@ export interface ListDatasetContentsRequest {
   nextToken?: string;
 
   /**
-   * <p>A filter to limit results to those data set contents whose creation is scheduled before the
-   *        given time. See the field <code>triggers.schedule</code> in the CreateDataset request. (timestamp)</p>
+   * <p>The maximum number of results to return in this request.</p>
    */
-  scheduledBefore?: Date;
+  maxResults?: number;
+
+  /**
+   * <p>The name of the data set whose contents information you want to list.</p>
+   */
+  datasetName: string | undefined;
 
   /**
    * <p>A filter to limit results to those data set contents whose creation is scheduled on or
@@ -2066,15 +2066,15 @@ export namespace ListDatasetContentsResponse {
 export interface ListDatasetsRequest {
   __type?: "ListDatasetsRequest";
   /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of results to return in this request.</p>
    *          <p>The default value is 100.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListDatasetsRequest {
@@ -2108,15 +2108,15 @@ export namespace ListDatasetsResponse {
 export interface ListDatastoresRequest {
   __type?: "ListDatastoresRequest";
   /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of results to return in this request.</p>
    *          <p>The default value is 100.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListDatastoresRequest {
@@ -2150,15 +2150,15 @@ export namespace ListDatastoresResponse {
 export interface ListPipelinesRequest {
   __type?: "ListPipelinesRequest";
   /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of results to return in this request.</p>
    *          <p>The default value is 100.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListPipelinesRequest {
@@ -2171,15 +2171,15 @@ export namespace ListPipelinesRequest {
 export interface ListPipelinesResponse {
   __type?: "ListPipelinesResponse";
   /**
+   * <p>A list of "PipelineSummary" objects.</p>
+   */
+  pipelineSummaries?: PipelineSummary[];
+
+  /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
    *           more results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of "PipelineSummary" objects.</p>
-   */
-  pipelineSummaries?: PipelineSummary[];
 }
 
 export namespace ListPipelinesResponse {
@@ -2229,9 +2229,10 @@ export enum LoggingLevel {
 export interface LoggingOptions {
   __type?: "LoggingOptions";
   /**
-   * <p>If true, logging is enabled for AWS IoT Analytics.</p>
+   * <p>The ARN of the role that grants permission to AWS IoT Analytics to
+   *           perform logging.</p>
    */
-  enabled: boolean | undefined;
+  roleArn: string | undefined;
 
   /**
    * <p>The logging level.  Currently, only "ERROR" is supported.</p>
@@ -2239,10 +2240,9 @@ export interface LoggingOptions {
   level: LoggingLevel | string | undefined;
 
   /**
-   * <p>The ARN of the role that grants permission to AWS IoT Analytics to
-   *           perform logging.</p>
+   * <p>If true, logging is enabled for AWS IoT Analytics.</p>
    */
-  roleArn: string | undefined;
+  enabled: boolean | undefined;
 }
 
 export namespace LoggingOptions {
@@ -2258,24 +2258,24 @@ export namespace LoggingOptions {
 export interface MathActivity {
   __type?: "MathActivity";
   /**
-   * <p>The name of the attribute that contains the result of the math operation.</p>
-   */
-  attribute: string | undefined;
-
-  /**
-   * <p>An expression that uses one or more existing attributes and must return an integer value.</p>
-   */
-  math: string | undefined;
-
-  /**
    * <p>The name of the 'math' activity.</p>
    */
   name: string | undefined;
 
   /**
+   * <p>The name of the attribute that contains the result of the math operation.</p>
+   */
+  attribute: string | undefined;
+
+  /**
    * <p>The next activity in the pipeline.</p>
    */
   next?: string;
+
+  /**
+   * <p>An expression that uses one or more existing attributes and must return an integer value.</p>
+   */
+  math: string | undefined;
 }
 
 export namespace MathActivity {
@@ -2291,16 +2291,16 @@ export namespace MathActivity {
 export interface Message {
   __type?: "Message";
   /**
-   * <p>The ID you wish to assign to the message. Each "messageId" must be unique
-   *           within each batch sent.</p>
-   */
-  messageId: string | undefined;
-
-  /**
    * <p>The payload of the message. This may be a JSON string or a Base64-encoded string
    *           representing binary data (in which case you must decode it by means of a pipeline activity).</p>
    */
   payload: Uint8Array | undefined;
+
+  /**
+   * <p>The ID you wish to assign to the message. Each "messageId" must be unique
+   *           within each batch sent.</p>
+   */
+  messageId: string | undefined;
 }
 
 export namespace Message {
@@ -2335,19 +2335,9 @@ export namespace OutputFileUriValue {
 export interface Pipeline {
   __type?: "Pipeline";
   /**
-   * <p>The activities that perform transformations on the messages.</p>
+   * <p>The name of the pipeline.</p>
    */
-  activities?: PipelineActivity[];
-
-  /**
-   * <p>The ARN of the pipeline.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>When the pipeline was created.</p>
-   */
-  creationTime?: Date;
+  name?: string;
 
   /**
    * <p>The last time the pipeline was updated.</p>
@@ -2355,14 +2345,24 @@ export interface Pipeline {
   lastUpdateTime?: Date;
 
   /**
-   * <p>The name of the pipeline.</p>
+   * <p>The ARN of the pipeline.</p>
    */
-  name?: string;
+  arn?: string;
 
   /**
    * <p>A summary of information about the pipeline reprocessing.</p>
    */
   reprocessingSummaries?: ReprocessingSummary[];
+
+  /**
+   * <p>The activities that perform transformations on the messages.</p>
+   */
+  activities?: PipelineActivity[];
+
+  /**
+   * <p>When the pipeline was created.</p>
+   */
+  creationTime?: Date;
 }
 
 export namespace Pipeline {
@@ -2378,14 +2378,10 @@ export namespace Pipeline {
 export interface PipelineActivity {
   __type?: "PipelineActivity";
   /**
-   * <p>Adds other attributes based on existing attributes in the message.</p>
+   * <p>Computes an arithmetic expression using the message's attributes and adds
+   *        it to the message.</p>
    */
-  addAttributes?: AddAttributesActivity;
-
-  /**
-   * <p>Determines the source of the messages to be processed.</p>
-   */
-  channel?: ChannelActivity;
+  math?: MathActivity;
 
   /**
    * <p>Specifies where to store the processed message data.</p>
@@ -2393,14 +2389,15 @@ export interface PipelineActivity {
   datastore?: DatastoreActivity;
 
   /**
-   * <p>Adds data from the AWS IoT device registry to your message.</p>
+   * <p>Creates a new message using only the specified attributes from the original message.
+   *      </p>
    */
-  deviceRegistryEnrich?: DeviceRegistryEnrichActivity;
+  selectAttributes?: SelectAttributesActivity;
 
   /**
-   * <p>Adds information from the AWS IoT Device Shadows service to a message.</p>
+   * <p>Determines the source of the messages to be processed.</p>
    */
-  deviceShadowEnrich?: DeviceShadowEnrichActivity;
+  channel?: ChannelActivity;
 
   /**
    * <p>Filters a message based on its attributes.</p>
@@ -2408,26 +2405,29 @@ export interface PipelineActivity {
   filter?: FilterActivity;
 
   /**
+   * <p>Adds information from the AWS IoT Device Shadows service to a message.</p>
+   */
+  deviceShadowEnrich?: DeviceShadowEnrichActivity;
+
+  /**
+   * <p>Adds other attributes based on existing attributes in the message.</p>
+   */
+  addAttributes?: AddAttributesActivity;
+
+  /**
    * <p>Runs a Lambda function to modify the message.</p>
    */
   lambda?: LambdaActivity;
 
   /**
-   * <p>Computes an arithmetic expression using the message's attributes and adds
-   *        it to the message.</p>
+   * <p>Adds data from the AWS IoT device registry to your message.</p>
    */
-  math?: MathActivity;
+  deviceRegistryEnrich?: DeviceRegistryEnrichActivity;
 
   /**
    * <p>Removes attributes from a message.</p>
    */
   removeAttributes?: RemoveAttributesActivity;
-
-  /**
-   * <p>Creates a new message using only the specified attributes from the original message.
-   *      </p>
-   */
-  selectAttributes?: SelectAttributesActivity;
 }
 
 export namespace PipelineActivity {
@@ -2443,14 +2443,14 @@ export namespace PipelineActivity {
 export interface PipelineSummary {
   __type?: "PipelineSummary";
   /**
-   * <p>When the pipeline was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
    * <p>When the pipeline was last updated.</p>
    */
   lastUpdateTime?: Date;
+
+  /**
+   * <p>When the pipeline was created.</p>
+   */
+  creationTime?: Date;
 
   /**
    * <p>The name of the pipeline.</p>
@@ -2510,11 +2510,6 @@ export namespace QueryFilter {
 export interface RemoveAttributesActivity {
   __type?: "RemoveAttributesActivity";
   /**
-   * <p>A list of 1-50 attributes to remove from the message.</p>
-   */
-  attributes: string[] | undefined;
-
-  /**
    * <p>The name of the 'removeAttributes' activity.</p>
    */
   name: string | undefined;
@@ -2523,6 +2518,11 @@ export interface RemoveAttributesActivity {
    * <p>The next activity in the pipeline.</p>
    */
   next?: string;
+
+  /**
+   * <p>A list of 1-50 attributes to remove from the message.</p>
+   */
+  attributes: string[] | undefined;
 }
 
 export namespace RemoveAttributesActivity {
@@ -2545,6 +2545,11 @@ export enum ReprocessingStatus {
 export interface ReprocessingSummary {
   __type?: "ReprocessingSummary";
   /**
+   * <p>The status of the pipeline reprocessing.</p>
+   */
+  status?: ReprocessingStatus | string;
+
+  /**
    * <p>The time the pipeline reprocessing was created.</p>
    */
   creationTime?: Date;
@@ -2553,11 +2558,6 @@ export interface ReprocessingSummary {
    * <p>The 'reprocessingId' returned by "StartPipelineReprocessing".</p>
    */
   id?: string;
-
-  /**
-   * <p>The status of the pipeline reprocessing.</p>
-   */
-  status?: ReprocessingStatus | string;
 }
 
 export namespace ReprocessingSummary {
@@ -2598,16 +2598,16 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceConfiguration {
   __type?: "ResourceConfiguration";
   /**
-   * <p>The type of the compute resource used to execute the "containerAction". Possible values
-   *           are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).</p>
-   */
-  computeType: ComputeType | string | undefined;
-
-  /**
    * <p>The size (in GB) of the persistent storage available to the resource instance used to
    *           execute the "containerAction" (min: 1, max: 50).</p>
    */
   volumeSizeInGB: number | undefined;
+
+  /**
+   * <p>The type of the compute resource used to execute the "containerAction". Possible values
+   *           are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).</p>
+   */
+  computeType: ComputeType | string | undefined;
 }
 
 export namespace ResourceConfiguration {
@@ -2683,16 +2683,16 @@ export namespace RunPipelineActivityRequest {
 export interface RunPipelineActivityResponse {
   __type?: "RunPipelineActivityResponse";
   /**
-   * <p>In case the pipeline activity fails, the log message that is generated.</p>
-   */
-  logResult?: string;
-
-  /**
    * <p>The enriched or transformed sample message payloads as base64-encoded strings.
    *           (The results of running the pipeline activity on each input sample message payload,
    *           encoded in base64.)</p>
    */
   payloads?: Uint8Array[];
+
+  /**
+   * <p>In case the pipeline activity fails, the log message that is generated.</p>
+   */
+  logResult?: string;
 }
 
 export namespace RunPipelineActivityResponse {
@@ -2708,11 +2708,6 @@ export namespace RunPipelineActivityResponse {
 export interface S3DestinationConfiguration {
   __type?: "S3DestinationConfiguration";
   /**
-   * <p>The name of the Amazon S3 bucket to which data set contents are delivered.</p>
-   */
-  bucket: string | undefined;
-
-  /**
    * <p>Configuration information for coordination with the AWS Glue ETL (extract, transform and
    *         load) service.</p>
    */
@@ -2726,6 +2721,11 @@ export interface S3DestinationConfiguration {
    *         example: "/DataSet/!{iotanalytics:scheduledTime}/!{iotanalytics:versioned}.csv".</p>
    */
   key: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket to which data set contents are delivered.</p>
+   */
+  bucket: string | undefined;
 
   /**
    * <p>The ARN of the role which grants AWS IoT Analytics permission to interact with your Amazon S3
@@ -2749,11 +2749,6 @@ export interface SampleChannelDataRequest {
   channelName: string | undefined;
 
   /**
-   * <p>The end of the time window from which sample messages are retrieved.</p>
-   */
-  endTime?: Date;
-
-  /**
    * <p>The number of sample messages to be retrieved. The limit is 10, the default
    *           is also 10.</p>
    */
@@ -2763,6 +2758,11 @@ export interface SampleChannelDataRequest {
    * <p>The start of the time window from which sample messages are retrieved.</p>
    */
   startTime?: Date;
+
+  /**
+   * <p>The end of the time window from which sample messages are retrieved.</p>
+   */
+  endTime?: Date;
 }
 
 export namespace SampleChannelDataRequest {
@@ -2820,14 +2820,14 @@ export interface SelectAttributesActivity {
   attributes: string[] | undefined;
 
   /**
-   * <p>The name of the 'selectAttributes' activity.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The next activity in the pipeline.</p>
    */
   next?: string;
+
+  /**
+   * <p>The name of the 'selectAttributes' activity.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace SelectAttributesActivity {
@@ -2941,9 +2941,9 @@ export namespace SqlQueryDatasetAction {
 export interface StartPipelineReprocessingRequest {
   __type?: "StartPipelineReprocessingRequest";
   /**
-   * <p>The end time (exclusive) of raw message data that is reprocessed.</p>
+   * <p>The start time (inclusive) of raw message data that is reprocessed.</p>
    */
-  endTime?: Date;
+  startTime?: Date;
 
   /**
    * <p>The name of the pipeline on which to start reprocessing.</p>
@@ -2951,9 +2951,9 @@ export interface StartPipelineReprocessingRequest {
   pipelineName: string | undefined;
 
   /**
-   * <p>The start time (inclusive) of raw message data that is reprocessed.</p>
+   * <p>The end time (exclusive) of raw message data that is reprocessed.</p>
    */
-  startTime?: Date;
+  endTime?: Date;
 }
 
 export namespace StartPipelineReprocessingRequest {
@@ -2984,14 +2984,14 @@ export namespace StartPipelineReprocessingResponse {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The tag's key.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>The tag's value.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The tag's key.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Tag {
@@ -3135,9 +3135,10 @@ export interface UpdateDatasetRequest {
   actions: DatasetAction[] | undefined;
 
   /**
-   * <p>When data set contents are created they are delivered to destinations specified here.</p>
+   * <p>A list of "DatasetTrigger" objects.  The list can be empty or can contain up
+   *           to five <b>DataSetTrigger</b> objects.</p>
    */
-  contentDeliveryRules?: DatasetContentDeliveryRule[];
+  triggers?: DatasetTrigger[];
 
   /**
    * <p>The name of the data set to update.</p>
@@ -3150,18 +3151,17 @@ export interface UpdateDatasetRequest {
   retentionPeriod?: RetentionPeriod;
 
   /**
-   * <p>A list of "DatasetTrigger" objects.  The list can be empty or can contain up
-   *           to five <b>DataSetTrigger</b> objects.</p>
-   */
-  triggers?: DatasetTrigger[];
-
-  /**
    * <p>[Optional] How many versions of data set contents are kept. If not specified or set to null, only the
    *         latest version plus the latest succeeded version (if they are different) are kept for
    *         the time period specified by the "retentionPeriod" parameter. (For more information, see
    *         https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)</p>
    */
   versioningConfiguration?: VersioningConfiguration;
+
+  /**
+   * <p>When data set contents are created they are delivered to destinations specified here.</p>
+   */
+  contentDeliveryRules?: DatasetContentDeliveryRule[];
 }
 
 export namespace UpdateDatasetRequest {
@@ -3174,6 +3174,12 @@ export namespace UpdateDatasetRequest {
 export interface UpdateDatastoreRequest {
   __type?: "UpdateDatastoreRequest";
   /**
+   * <p>How long, in days, message data is kept for the data store. The retention period cannot be updated
+   *         if the data store's S3 storage is customer-managed.</p>
+   */
+  retentionPeriod?: RetentionPeriod;
+
+  /**
    * <p>The name of the data store to be updated.</p>
    */
   datastoreName: string | undefined;
@@ -3184,12 +3190,6 @@ export interface UpdateDatastoreRequest {
    *         store is created.</p>
    */
   datastoreStorage?: DatastoreStorage;
-
-  /**
-   * <p>How long, in days, message data is kept for the data store. The retention period cannot be updated
-   *         if the data store's S3 storage is customer-managed.</p>
-   */
-  retentionPeriod?: RetentionPeriod;
 }
 
 export namespace UpdateDatastoreRequest {
@@ -3201,6 +3201,11 @@ export namespace UpdateDatastoreRequest {
 
 export interface UpdatePipelineRequest {
   __type?: "UpdatePipelineRequest";
+  /**
+   * <p>The name of the pipeline to update.</p>
+   */
+  pipelineName: string | undefined;
+
   /**
    * <p>A list of "PipelineActivity" objects. Activities perform transformations on your messages,
    *           such as removing, renaming or adding message attributes; filtering messages based on attribute
@@ -3222,11 +3227,6 @@ export interface UpdatePipelineRequest {
    *          </p>
    */
   pipelineActivities: PipelineActivity[] | undefined;
-
-  /**
-   * <p>The name of the pipeline to update.</p>
-   */
-  pipelineName: string | undefined;
 }
 
 export namespace UpdatePipelineRequest {
@@ -3244,14 +3244,14 @@ export namespace UpdatePipelineRequest {
 export interface Variable {
   __type?: "Variable";
   /**
-   * <p>The value of the variable as a structure that specifies a data set content version.</p>
-   */
-  datasetContentVersionValue?: DatasetContentVersionValue;
-
-  /**
    * <p>The value of the variable as a double (numeric).</p>
    */
   doubleValue?: number;
+
+  /**
+   * <p>The value of the variable as a structure that specifies a data set content version.</p>
+   */
+  datasetContentVersionValue?: DatasetContentVersionValue;
 
   /**
    * <p>The name of the variable.</p>
@@ -3259,14 +3259,14 @@ export interface Variable {
   name: string | undefined;
 
   /**
-   * <p>The value of the variable as a structure that specifies an output file URI.</p>
-   */
-  outputFileUriValue?: OutputFileUriValue;
-
-  /**
    * <p>The value of the variable as a string.</p>
    */
   stringValue?: string;
+
+  /**
+   * <p>The value of the variable as a structure that specifies an output file URI.</p>
+   */
+  outputFileUriValue?: OutputFileUriValue;
 }
 
 export namespace Variable {

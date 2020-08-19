@@ -5,6 +5,16 @@ import {
   AssociateRepositoryCommandOutput,
 } from "./commands/AssociateRepositoryCommand";
 import {
+  DescribeCodeReviewCommand,
+  DescribeCodeReviewCommandInput,
+  DescribeCodeReviewCommandOutput,
+} from "./commands/DescribeCodeReviewCommand";
+import {
+  DescribeRecommendationFeedbackCommand,
+  DescribeRecommendationFeedbackCommandInput,
+  DescribeRecommendationFeedbackCommandOutput,
+} from "./commands/DescribeRecommendationFeedbackCommand";
+import {
   DescribeRepositoryAssociationCommand,
   DescribeRepositoryAssociationCommandInput,
   DescribeRepositoryAssociationCommandOutput,
@@ -15,21 +25,70 @@ import {
   DisassociateRepositoryCommandOutput,
 } from "./commands/DisassociateRepositoryCommand";
 import {
+  ListCodeReviewsCommand,
+  ListCodeReviewsCommandInput,
+  ListCodeReviewsCommandOutput,
+} from "./commands/ListCodeReviewsCommand";
+import {
+  ListRecommendationFeedbackCommand,
+  ListRecommendationFeedbackCommandInput,
+  ListRecommendationFeedbackCommandOutput,
+} from "./commands/ListRecommendationFeedbackCommand";
+import {
+  ListRecommendationsCommand,
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "./commands/ListRecommendationsCommand";
+import {
   ListRepositoryAssociationsCommand,
   ListRepositoryAssociationsCommandInput,
   ListRepositoryAssociationsCommandOutput,
 } from "./commands/ListRepositoryAssociationsCommand";
+import {
+  PutRecommendationFeedbackCommand,
+  PutRecommendationFeedbackCommandInput,
+  PutRecommendationFeedbackCommandOutput,
+} from "./commands/PutRecommendationFeedbackCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations.</p>
+ * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a service
+ *          that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and recommends
+ *          fixes in your Java code.</p>
+ *
+ *          <p>By proactively detecting and providing recommendations for addressing code defects and implementing best practices, CodeGuru Reviewer
+ *             improves the overall quality and maintainability of your code base during the code review stage. For more information about CodeGuru Reviewer, see the
+ *             <i>
+ *                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html">Amazon CodeGuru Reviewer User Guide</a>.</i>
+ *          </p>
  */
 export class CodeGuruReviewer extends CodeGuruReviewerClient {
   /**
-   * <p>Associates an AWS CodeCommit repository with Amazon CodeGuru Reviewer. When you associate an
-   *         AWS CodeCommit repository with Amazon CodeGuru Reviewer, Amazon CodeGuru Reviewer will provide recommendations for
-   *         each pull request. You can view recommendations in the AWS CodeCommit repository.</p>
-   *         <p>You can associate a GitHub repository using the Amazon CodeGuru Reviewer console.</p>
+   * <p>
+   *          Use to associate an AWS CodeCommit repository or a repostory managed by
+   *          AWS CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a
+   *         repository, CodeGuru Reviewer reviews source code changes in the repository's pull requests and provides
+   *         automatic recommendations. You can view recommendations using the CodeGuru Reviewer console. For more information, see
+   *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations in
+   *             Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
+   *         </p>
+   *
+   *          <p>If you associate a CodeCommit repository, it must be in the same
+   *          AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
+   *
+   *          <p> Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
+   *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect to a repository source provider</a> in
+   *          the <i>Amazon CodeGuru Reviewer User Guide.</i>
+   *          </p>
+   *
+   *          <note>
+   *             <p>
+   *             You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate a GitHub repository with Amazon CodeGuru Reviewer. To associate
+   *             a GitHub repository, use the console. For more information, see
+   *             <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting
+   *             started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i>
+   *             </p>
+   *          </note>
    */
   public associateRepository(
     args: AssociateRepositoryCommandInput,
@@ -61,7 +120,78 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
-   * <p>Describes a repository association.</p>
+   * <p> Returns the metadata associated with the code review along with its status.</p>
+   */
+  public describeCodeReview(
+    args: DescribeCodeReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCodeReviewCommandOutput>;
+  public describeCodeReview(
+    args: DescribeCodeReviewCommandInput,
+    cb: (err: any, data?: DescribeCodeReviewCommandOutput) => void
+  ): void;
+  public describeCodeReview(
+    args: DescribeCodeReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCodeReviewCommandOutput) => void
+  ): void;
+  public describeCodeReview(
+    args: DescribeCodeReviewCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCodeReviewCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCodeReviewCommandOutput) => void
+  ): Promise<DescribeCodeReviewCommandOutput> | void {
+    const command = new DescribeCodeReviewCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Describes the customer feedback for a CodeGuru Reviewer recommendation.
+   *       </p>
+   */
+  public describeRecommendationFeedback(
+    args: DescribeRecommendationFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRecommendationFeedbackCommandOutput>;
+  public describeRecommendationFeedback(
+    args: DescribeRecommendationFeedbackCommandInput,
+    cb: (err: any, data?: DescribeRecommendationFeedbackCommandOutput) => void
+  ): void;
+  public describeRecommendationFeedback(
+    args: DescribeRecommendationFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRecommendationFeedbackCommandOutput) => void
+  ): void;
+  public describeRecommendationFeedback(
+    args: DescribeRecommendationFeedbackCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecommendationFeedbackCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRecommendationFeedbackCommandOutput) => void
+  ): Promise<DescribeRecommendationFeedbackCommandOutput> | void {
+    const command = new DescribeRecommendationFeedbackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">
+   *                <code>RepositoryAssociation</code>
+   *             </a> object
+   *          that contains information about the requested repository association.
+   *       </p>
    */
   public describeRepositoryAssociation(
     args: DescribeRepositoryAssociationCommandInput,
@@ -125,8 +255,130 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
-   * <p>Lists repository associations. You can optionally filter on one or more
-   *         of the following recommendation properties: provider types, states, names, and owners.</p>
+   * <p>
+   *          Lists all the code reviews that the customer has created in the past 90 days.
+   *       </p>
+   */
+  public listCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodeReviewsCommandOutput>;
+  public listCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    cb: (err: any, data?: ListCodeReviewsCommandOutput) => void
+  ): void;
+  public listCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodeReviewsCommandOutput) => void
+  ): void;
+  public listCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCodeReviewsCommandOutput) => void),
+    cb?: (err: any, data?: ListCodeReviewsCommandOutput) => void
+  ): Promise<ListCodeReviewsCommandOutput> | void {
+    const command = new ListCodeReviewsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns a list of
+   *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">
+   *                <code>RecommendationFeedbackSummary</code>
+   *             </a>
+   *          objects that contain customer recommendation feedback for all CodeGuru Reviewer users.
+   *       </p>
+   */
+  public listRecommendationFeedback(
+    args: ListRecommendationFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommendationFeedbackCommandOutput>;
+  public listRecommendationFeedback(
+    args: ListRecommendationFeedbackCommandInput,
+    cb: (err: any, data?: ListRecommendationFeedbackCommandOutput) => void
+  ): void;
+  public listRecommendationFeedback(
+    args: ListRecommendationFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommendationFeedbackCommandOutput) => void
+  ): void;
+  public listRecommendationFeedback(
+    args: ListRecommendationFeedbackCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecommendationFeedbackCommandOutput) => void),
+    cb?: (err: any, data?: ListRecommendationFeedbackCommandOutput) => void
+  ): Promise<ListRecommendationFeedbackCommandOutput> | void {
+    const command = new ListRecommendationFeedbackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns the list of all recommendations for a completed code review.
+   *       </p>
+   */
+  public listRecommendations(
+    args: ListRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommendationsCommandOutput>;
+  public listRecommendations(
+    args: ListRecommendationsCommandInput,
+    cb: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): void;
+  public listRecommendations(
+    args: ListRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): void;
+  public listRecommendations(
+    args: ListRecommendationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): Promise<ListRecommendationsCommandOutput> | void {
+    const command = new ListRecommendationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html">
+   *                <code>RepositoryAssociationSummary</code>
+   *             </a> objects that
+   *          contain summary information about a repository association. You can filter the returned list by
+   *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType">
+   *                <code>ProviderType</code>
+   *             </a>,
+   *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name">
+   *                <code>Name</code>
+   *             </a>,
+   *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State">
+   *                <code>State</code>
+   *             </a>, and
+   *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner">
+   *                <code>Owner</code>
+   *             </a>.
+   *       </p>
    */
   public listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,
@@ -147,6 +399,40 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
     cb?: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
   ): Promise<ListRepositoryAssociationsCommandOutput> | void {
     const command = new ListRepositoryAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with different reactions the previous feedback is overwritten.
+   *       </p>
+   */
+  public putRecommendationFeedback(
+    args: PutRecommendationFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRecommendationFeedbackCommandOutput>;
+  public putRecommendationFeedback(
+    args: PutRecommendationFeedbackCommandInput,
+    cb: (err: any, data?: PutRecommendationFeedbackCommandOutput) => void
+  ): void;
+  public putRecommendationFeedback(
+    args: PutRecommendationFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRecommendationFeedbackCommandOutput) => void
+  ): void;
+  public putRecommendationFeedback(
+    args: PutRecommendationFeedbackCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecommendationFeedbackCommandOutput) => void),
+    cb?: (err: any, data?: PutRecommendationFeedbackCommandOutput) => void
+  ): Promise<PutRecommendationFeedbackCommandOutput> | void {
+    const command = new PutRecommendationFeedbackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

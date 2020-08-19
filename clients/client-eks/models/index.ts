@@ -68,15 +68,15 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
   name: "ClientException";
   $fault: "client";
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
-   */
-  clusterName?: string;
-
-  message?: string;
-  /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    */
   nodegroupName?: string;
+
+  message?: string;
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   */
+  clusterName?: string;
 }
 
 export namespace ClientException {
@@ -92,6 +92,16 @@ export namespace ClientException {
 export interface Cluster {
   __type?: "Cluster";
   /**
+   * <p>The identity provider information for the cluster.</p>
+   */
+  identity?: Identity;
+
+  /**
+   * <p>The name of the cluster.</p>
+   */
+  name?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   arn?: string;
@@ -102,43 +112,20 @@ export interface Cluster {
   certificateAuthority?: Certificate;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the cluster was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The endpoint for your Kubernetes API server.</p>
-   */
-  endpoint?: string;
-
-  /**
-   * <p>The identity provider information for the cluster.</p>
-   */
-  identity?: Identity;
-
-  /**
    * <p>The logging configuration for your cluster.</p>
    */
   logging?: Logging;
 
   /**
-   * <p>The name of the cluster.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control
+   *             plane to make calls to AWS API operations on your behalf.</p>
    */
-  name?: string;
+  roleArn?: string;
 
   /**
-   * <p>The platform version of your Amazon EKS cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html">Platform
-   *                 Versions</a> in the <i>
-   *                <i>Amazon EKS User Guide</i>
-   *             </i>.</p>
+   * <p>The Unix epoch timestamp in seconds for when the cluster was created.</p>
    */
-  platformVersion?: string;
+  createdAt?: Date;
 
   /**
    * <p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have
@@ -149,15 +136,25 @@ export interface Cluster {
   resourcesVpcConfig?: VpcConfigResponse;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control
-   *             plane to make calls to AWS API operations on your behalf.</p>
+   * <p>The encryption configuration for the
+   *    cluster.</p>
    */
-  roleArn?: string;
+  encryptionConfig?: EncryptionConfig[];
 
   /**
    * <p>The current status of the cluster.</p>
    */
   status?: ClusterStatus | string;
+
+  /**
+   * <p>The endpoint for your Kubernetes API server.</p>
+   */
+  endpoint?: string;
+
+  /**
+   * <p>The Kubernetes server version for the cluster.</p>
+   */
+  version?: string;
 
   /**
    * <p>The metadata that you apply to the cluster to assist with categorization and
@@ -168,9 +165,18 @@ export interface Cluster {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The Kubernetes server version for the cluster.</p>
+   * <p>The platform version of your Amazon EKS cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html">Platform
+   *                 Versions</a> in the <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
    */
-  version?: string;
+  platformVersion?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  clientRequestToken?: string;
 }
 
 export namespace Cluster {
@@ -185,10 +191,14 @@ export type ClusterStatus = "ACTIVE" | "CREATING" | "DELETING" | "FAILED" | "UPD
 export interface CreateClusterRequest {
   __type?: "CreateClusterRequest";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   * <p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have
+   *             specific requirements to work properly with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
+   *                 Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group Considerations</a> in the
+   *             <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You can specify up to five
+   *             security groups, but we recommend that you use a dedicated security group for your
+   *             cluster control plane.</p>
    */
-  clientRequestToken?: string;
+  resourcesVpcConfig: VpcConfigRequest | undefined;
 
   /**
    * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to
@@ -205,19 +215,10 @@ export interface CreateClusterRequest {
   logging?: Logging;
 
   /**
-   * <p>The unique name to give to your cluster.</p>
+   * <p>The encryption configuration for the
+   *    cluster.</p>
    */
-  name: string | undefined;
-
-  /**
-   * <p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have
-   *             specific requirements to work properly with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
-   *                 Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group Considerations</a> in the
-   *             <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You can specify up to five
-   *             security groups, but we recommend that you use a dedicated security group for your
-   *             cluster control plane.</p>
-   */
-  resourcesVpcConfig: VpcConfigRequest | undefined;
+  encryptionConfig?: EncryptionConfig[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to
@@ -229,16 +230,27 @@ export interface CreateClusterRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>The metadata to apply to the cluster to assist with categorization and organization.
-   *             Each tag consists of a key and an optional value, both of which you define.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
    */
-  tags?: { [key: string]: string };
+  clientRequestToken?: string;
 
   /**
    * <p>The desired Kubernetes version for your cluster. If you don't specify a value here,
    *             the latest version available in Amazon EKS is used.</p>
    */
   version?: string;
+
+  /**
+   * <p>The unique name to give to your cluster.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The metadata to apply to the cluster to assist with categorization and organization.
+   *             Each tag consists of a key and an optional value, both of which you define.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateClusterRequest {
@@ -266,6 +278,25 @@ export namespace CreateClusterResponse {
 export interface CreateFargateProfileRequest {
   __type?: "CreateFargateProfileRequest";
   /**
+   * <p>The selectors to match for pods to use this Fargate profile. Each selector must have an
+   *             associated namespace. Optionally, you can also specify labels for a namespace. You may
+   *             specify up to five selectors in a Fargate profile.</p>
+   */
+  selectors?: FargateProfileSelector[];
+
+  /**
+   * <p>The name of the Fargate profile.</p>
+   */
+  fargateProfileName: string | undefined;
+
+  /**
+   * <p>The IDs of subnets to launch your pods into. At this time, pods running on Fargate are
+   *             not assigned public IP addresses, so only private subnets (with no direct route to an
+   *             Internet Gateway) are accepted for this parameter.</p>
+   */
+  subnets?: string[];
+
+  /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
    */
@@ -277,9 +308,12 @@ export interface CreateFargateProfileRequest {
   clusterName: string | undefined;
 
   /**
-   * <p>The name of the Fargate profile.</p>
+   * <p>The metadata to apply to the Fargate profile to assist with categorization and
+   *             organization. Each tag consists of a key and an optional value, both of which you
+   *             define. Fargate profile tags do not propagate to any other resources associated with the
+   *             Fargate profile, such as the pods that are scheduled with it.</p>
    */
-  fargateProfileName: string | undefined;
+  tags?: { [key: string]: string };
 
   /**
    * <p>The Amazon Resource Name (ARN) of the pod execution role to use for pods that match the selectors in
@@ -289,28 +323,6 @@ export interface CreateFargateProfileRequest {
    *             <i>Amazon EKS User Guide</i>.</p>
    */
   podExecutionRoleArn: string | undefined;
-
-  /**
-   * <p>The selectors to match for pods to use this Fargate profile. Each selector must have an
-   *             associated namespace. Optionally, you can also specify labels for a namespace. You may
-   *             specify up to five selectors in a Fargate profile.</p>
-   */
-  selectors?: FargateProfileSelector[];
-
-  /**
-   * <p>The IDs of subnets to launch your pods into. At this time, pods running on Fargate are
-   *             not assigned public IP addresses, so only private subnets (with no direct route to an
-   *             Internet Gateway) are accepted for this parameter.</p>
-   */
-  subnets?: string[];
-
-  /**
-   * <p>The metadata to apply to the Fargate profile to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value, both of which you
-   *             define. Fargate profile tags do not propagate to any other resources associated with the
-   *             Fargate profile, such as the pods that are scheduled with it.</p>
-   */
-  tags?: { [key: string]: string };
 }
 
 export namespace CreateFargateProfileRequest {
@@ -338,23 +350,10 @@ export namespace CreateFargateProfileResponse {
 export interface CreateNodegroupRequest {
   __type?: "CreateNodegroupRequest";
   /**
-   * <p>The AMI type for your node group. GPU instance types should use the
-   *                 <code>AL2_x86_64_GPU</code> AMI type, which uses the Amazon EKS-optimized Linux AMI with
-   *             GPU support. Non-GPU instances should use the <code>AL2_x86_64</code> AMI type, which
-   *             uses the Amazon EKS-optimized Linux AMI.</p>
+   * <p>The Kubernetes labels to be applied to the nodes in the node group when they are
+   *             created.</p>
    */
-  amiType?: AMITypes | string;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The name of the cluster to create the node group in.</p>
-   */
-  clusterName: string | undefined;
+  labels?: { [key: string]: string };
 
   /**
    * <p>The root device disk size (in GiB) for your node group instances. The default disk
@@ -363,21 +362,7 @@ export interface CreateNodegroupRequest {
   diskSize?: number;
 
   /**
-   * <p>The instance type to use for your node group. Currently, you can specify a single
-   *             instance type for a node group. The default value for this parameter is
-   *                 <code>t3.medium</code>. If you choose a GPU instance type, be sure to specify the
-   *                 <code>AL2_x86_64_GPU</code> with the <code>amiType</code> parameter.</p>
-   */
-  instanceTypes?: string[];
-
-  /**
-   * <p>The Kubernetes labels to be applied to the nodes in the node group when they are
-   *             created.</p>
-   */
-  labels?: { [key: string]: string };
-
-  /**
-   * <p>The IAM role associated with your node group. The Amazon EKS worker node
+   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with your node group. The Amazon EKS worker node
    *                 <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Worker nodes
    *             receive permissions for these API calls through an IAM instance profile and associated
    *             policies. Before you can launch worker nodes and register them into a cluster, you must
@@ -390,11 +375,6 @@ export interface CreateNodegroupRequest {
   nodeRole: string | undefined;
 
   /**
-   * <p>The unique name to give your node group.</p>
-   */
-  nodegroupName: string | undefined;
-
-  /**
    * <p>The AMI version of the Amazon EKS-optimized AMI to use with your node group. By default,
    *             the latest available AMI version for the node group's current Kubernetes version is
    *             used. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>.</p>
@@ -402,15 +382,12 @@ export interface CreateNodegroupRequest {
   releaseVersion?: string;
 
   /**
-   * <p>The remote access (SSH) configuration to use with your node group.</p>
+   * <p>The AMI type for your node group. GPU instance types should use the
+   *                 <code>AL2_x86_64_GPU</code> AMI type, which uses the Amazon EKS-optimized Linux AMI with
+   *             GPU support. Non-GPU instances should use the <code>AL2_x86_64</code> AMI type, which
+   *             uses the Amazon EKS-optimized Linux AMI.</p>
    */
-  remoteAccess?: RemoteAccessConfig;
-
-  /**
-   * <p>The scaling configuration details for the Auto Scaling group that is created for your
-   *             node group.</p>
-   */
-  scalingConfig?: NodegroupScalingConfig;
+  amiType?: AMITypes | string;
 
   /**
    * <p>The subnets to use for the Auto Scaling group that is created for your node group.
@@ -421,6 +398,19 @@ export interface CreateNodegroupRequest {
   subnets: string[] | undefined;
 
   /**
+   * <p>The unique name to give your node group.</p>
+   */
+  nodegroupName: string | undefined;
+
+  /**
+   * <p>The instance type to use for your node group. Currently, you can specify a single
+   *             instance type for a node group. The default value for this parameter is
+   *                 <code>t3.medium</code>. If you choose a GPU instance type, be sure to specify the
+   *                 <code>AL2_x86_64_GPU</code> with the <code>amiType</code> parameter.</p>
+   */
+  instanceTypes?: string[];
+
+  /**
    * <p>The metadata to apply to the node group to assist with categorization and
    *             organization. Each tag consists of a key and an optional value, both of which you
    *             define. Node group tags do not propagate to any other resources associated with the node
@@ -429,10 +419,32 @@ export interface CreateNodegroupRequest {
   tags?: { [key: string]: string };
 
   /**
+   * <p>The remote access (SSH) configuration to use with your node group.</p>
+   */
+  remoteAccess?: RemoteAccessConfig;
+
+  /**
    * <p>The Kubernetes version to use for your managed nodes. By default, the Kubernetes
    *             version of the cluster is used, and this is the only accepted specified value.</p>
    */
   version?: string;
+
+  /**
+   * <p>The name of the cluster to create the node group in.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The scaling configuration details for the Auto Scaling group that is created for your
+   *             node group.</p>
+   */
+  scalingConfig?: NodegroupScalingConfig;
 }
 
 export namespace CreateNodegroupRequest {
@@ -590,14 +602,14 @@ export namespace DescribeClusterResponse {
 export interface DescribeFargateProfileRequest {
   __type?: "DescribeFargateProfileRequest";
   /**
-   * <p>The name of the Amazon EKS cluster associated with the Fargate profile.</p>
-   */
-  clusterName: string | undefined;
-
-  /**
    * <p>The name of the Fargate profile to describe.</p>
    */
   fargateProfileName: string | undefined;
+
+  /**
+   * <p>The name of the Amazon EKS cluster associated with the Fargate profile.</p>
+   */
+  clusterName: string | undefined;
 }
 
 export namespace DescribeFargateProfileRequest {
@@ -697,6 +709,32 @@ export namespace DescribeUpdateResponse {
   export const isa = (o: any): o is DescribeUpdateResponse => __isa(o, "DescribeUpdateResponse");
 }
 
+/**
+ * <p>The encryption configuration for the
+ *    cluster.</p>
+ */
+export interface EncryptionConfig {
+  __type?: "EncryptionConfig";
+  /**
+   * <p>AWS Key Management Service (AWS KMS) customer master key
+   *    (CMK). Either the ARN or the alias can be used.</p>
+   */
+  provider?: Provider;
+
+  /**
+   * <p>Specifies the resources to be encrypted.
+   *    The only supported value is "secrets".</p>
+   */
+  resources?: string[];
+}
+
+export namespace EncryptionConfig {
+  export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EncryptionConfig => __isa(o, "EncryptionConfig");
+}
+
 export enum ErrorCode {
   ACCESS_DENIED = "AccessDenied",
   ENI_LIMIT_REACHED = "EniLimitReached",
@@ -716,6 +754,11 @@ export enum ErrorCode {
  */
 export interface ErrorDetail {
   __type?: "ErrorDetail";
+  /**
+   * <p>An optional field that contains the resource IDs associated with the error.</p>
+   */
+  resourceIds?: string[];
+
   /**
    * <p>A brief description of the error. </p>
    *         <ul>
@@ -763,11 +806,6 @@ export interface ErrorDetail {
    * <p>A more complete description of the error.</p>
    */
   errorMessage?: string;
-
-  /**
-   * <p>An optional field that contains the resource IDs associated with the error.</p>
-   */
-  resourceIds?: string[];
 }
 
 export namespace ErrorDetail {
@@ -783,26 +821,6 @@ export namespace ErrorDetail {
 export interface FargateProfile {
   __type?: "FargateProfile";
   /**
-   * <p>The name of the Amazon EKS cluster that the Fargate profile belongs to.</p>
-   */
-  clusterName?: string;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the Fargate profile was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The full Amazon Resource Name (ARN) of the Fargate profile.</p>
-   */
-  fargateProfileArn?: string;
-
-  /**
-   * <p>The name of the Fargate profile.</p>
-   */
-  fargateProfileName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the pod execution role to use for pods that match the selectors in
    *             the Fargate profile. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod
    *                 Execution Role</a> in the <i>Amazon EKS User Guide</i>.</p>
@@ -810,19 +828,29 @@ export interface FargateProfile {
   podExecutionRoleArn?: string;
 
   /**
+   * <p>The Unix epoch timestamp in seconds for when the Fargate profile was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The name of the Amazon EKS cluster that the Fargate profile belongs to.</p>
+   */
+  clusterName?: string;
+
+  /**
    * <p>The selectors to match for pods to use this Fargate profile.</p>
    */
   selectors?: FargateProfileSelector[];
 
   /**
+   * <p>The name of the Fargate profile.</p>
+   */
+  fargateProfileName?: string;
+
+  /**
    * <p>The current status of the Fargate profile.</p>
    */
   status?: FargateProfileStatus | string;
-
-  /**
-   * <p>The IDs of subnets to launch pods into.</p>
-   */
-  subnets?: string[];
 
   /**
    * <p>The metadata applied to the Fargate profile to assist with categorization and
@@ -831,6 +859,16 @@ export interface FargateProfile {
    *             Fargate profile, such as the pods that are scheduled with it.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The IDs of subnets to launch pods into.</p>
+   */
+  subnets?: string[];
+
+  /**
+   * <p>The full Amazon Resource Name (ARN) of the Fargate profile.</p>
+   */
+  fargateProfileArn?: string;
 }
 
 export namespace FargateProfile {
@@ -893,20 +931,20 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   name: "InvalidParameterException";
   $fault: "client";
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
-   */
-  clusterName?: string;
-
-  /**
    * <p>The Fargate profile associated with the exception.</p>
    */
   fargateProfileName?: string;
 
-  message?: string;
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    */
   nodegroupName?: string;
+
+  message?: string;
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   */
+  clusterName?: string;
 }
 
 export namespace InvalidParameterException {
@@ -923,16 +961,16 @@ export namespace InvalidParameterException {
 export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
-  /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
-   */
-  clusterName?: string;
-
   message?: string;
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    */
   nodegroupName?: string;
+
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   */
+  clusterName?: string;
 }
 
 export namespace InvalidRequestException {
@@ -947,6 +985,16 @@ export namespace InvalidRequestException {
  */
 export interface Issue {
   __type?: "Issue";
+  /**
+   * <p>The AWS resources that are afflicted by this issue.</p>
+   */
+  resourceIds?: string[];
+
+  /**
+   * <p>The error message associated with the issue.</p>
+   */
+  message?: string;
+
   /**
    * <p>A brief description of the error.</p>
    *         <ul>
@@ -1031,16 +1079,6 @@ export interface Issue {
    *          </ul>
    */
   code?: NodegroupIssueCode | string;
-
-  /**
-   * <p>The error message associated with the issue.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The AWS resources that are afflicted by this issue.</p>
-   */
-  resourceIds?: string[];
 }
 
 export namespace Issue {
@@ -1087,11 +1125,6 @@ export namespace ListClustersRequest {
 export interface ListClustersResponse {
   __type?: "ListClustersResponse";
   /**
-   * <p>A list of all of the clusters for your account in the specified Region.</p>
-   */
-  clusters?: string[];
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListClusters</code>
    *             request. When the results of a <code>ListClusters</code> request exceed
    *                 <code>maxResults</code>, you can use this value to retrieve the next page of
@@ -1099,6 +1132,11 @@ export interface ListClustersResponse {
    *             return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of all of the clusters for your account in the specified Region.</p>
+   */
+  clusters?: string[];
 }
 
 export namespace ListClustersResponse {
@@ -1111,9 +1149,12 @@ export namespace ListClustersResponse {
 export interface ListFargateProfilesRequest {
   __type?: "ListFargateProfilesRequest";
   /**
-   * <p>The name of the Amazon EKS cluster that you would like to listFargate profiles in.</p>
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListFargateProfiles</code> request where <code>maxResults</code> was used and
+   *             the results exceeded the value of that parameter. Pagination continues from the end of
+   *             the previous results that returned the <code>nextToken</code> value.</p>
    */
-  clusterName: string | undefined;
+  nextToken?: string;
 
   /**
    * <p>The maximum number of Fargate profile results returned by
@@ -1129,12 +1170,9 @@ export interface ListFargateProfilesRequest {
   maxResults?: number;
 
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *                 <code>ListFargateProfiles</code> request where <code>maxResults</code> was used and
-   *             the results exceeded the value of that parameter. Pagination continues from the end of
-   *             the previous results that returned the <code>nextToken</code> value.</p>
+   * <p>The name of the Amazon EKS cluster that you would like to listFargate profiles in.</p>
    */
-  nextToken?: string;
+  clusterName: string | undefined;
 }
 
 export namespace ListFargateProfilesRequest {
@@ -1171,6 +1209,14 @@ export namespace ListFargateProfilesResponse {
 export interface ListNodegroupsRequest {
   __type?: "ListNodegroupsRequest";
   /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListNodegroups</code> request where <code>maxResults</code> was used and the
+   *             results exceeded the value of that parameter. Pagination continues from the end of the
+   *             previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The name of the Amazon EKS cluster that you would like to list node groups in.</p>
    */
   clusterName: string | undefined;
@@ -1186,14 +1232,6 @@ export interface ListNodegroupsRequest {
    *             results and a <code>nextToken</code> value if applicable.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *                 <code>ListNodegroups</code> request where <code>maxResults</code> was used and the
-   *             results exceeded the value of that parameter. Pagination continues from the end of the
-   *             previous results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListNodegroupsRequest {
@@ -1261,18 +1299,6 @@ export namespace ListTagsForResourceResponse {
 export interface ListUpdatesRequest {
   __type?: "ListUpdatesRequest";
   /**
-   * <p>The maximum number of update results returned by <code>ListUpdates</code> in paginated
-   *             output. When you use this parameter, <code>ListUpdates</code> returns only
-   *                 <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-   *             response element. You can see the remaining results of the initial request by sending
-   *             another <code>ListUpdates</code> request with the returned <code>nextToken</code> value.
-   *             This value can be between 1 and 100. If you don't use this
-   *             parameter, <code>ListUpdates</code> returns up to 100 results and a
-   *                 <code>nextToken</code> value if applicable.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The name of the Amazon EKS cluster to list updates for.</p>
    */
   name: string | undefined;
@@ -1284,6 +1310,18 @@ export interface ListUpdatesRequest {
    *             previous results that returned the <code>nextToken</code> value.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of update results returned by <code>ListUpdates</code> in paginated
+   *             output. When you use this parameter, <code>ListUpdates</code> returns only
+   *                 <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+   *             response element. You can see the remaining results of the initial request by sending
+   *             another <code>ListUpdates</code> request with the returned <code>nextToken</code> value.
+   *             This value can be between 1 and 100. If you don't use this
+   *             parameter, <code>ListUpdates</code> returns up to 100 results and a
+   *                 <code>nextToken</code> value if applicable.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>The name of the Amazon EKS managed node group to list updates for.</p>
@@ -1301,6 +1339,11 @@ export namespace ListUpdatesRequest {
 export interface ListUpdatesResponse {
   __type?: "ListUpdatesResponse";
   /**
+   * <p>A list of all the updates for the specified cluster and Region.</p>
+   */
+  updateIds?: string[];
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListUpdates</code>
    *             request. When the results of a <code>ListUpdates</code> request exceed
    *                 <code>maxResults</code>, you can use this value to retrieve the next page of
@@ -1308,11 +1351,6 @@ export interface ListUpdatesResponse {
    *             return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of all the updates for the specified cluster and Region.</p>
-   */
-  updateIds?: string[];
 }
 
 export namespace ListUpdatesResponse {
@@ -1380,6 +1418,44 @@ export enum LogType {
 export interface Nodegroup {
   __type?: "Nodegroup";
   /**
+   * <p>The scaling configuration details for the Auto Scaling group that is associated with
+   *             your node group.</p>
+   */
+  scalingConfig?: NodegroupScalingConfig;
+
+  /**
+   * <p>The resources associated with the node group, such as Auto Scaling groups and security
+   *             groups for remote access.</p>
+   */
+  resources?: NodegroupResources;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the managed node group.</p>
+   */
+  nodegroupArn?: string;
+
+  /**
+   * <p>The name of the cluster that the managed node group resides in.</p>
+   */
+  clusterName?: string;
+
+  /**
+   * <p>The current status of the managed node group.</p>
+   */
+  status?: NodegroupStatus | string;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the managed node group was last
+   *             modified.</p>
+   */
+  modifiedAt?: Date;
+
+  /**
+   * <p>The remote access (SSH) configuration that is associated with the node group.</p>
+   */
+  remoteAccess?: RemoteAccessConfig;
+
+  /**
    * <p>The AMI type associated with your node group. GPU instance types should use the
    *                 <code>AL2_x86_64_GPU</code> AMI type, which uses the Amazon EKS-optimized Linux AMI with
    *             GPU support. Non-GPU instances should use the <code>AL2_x86_64</code> AMI type, which
@@ -1388,32 +1464,15 @@ export interface Nodegroup {
   amiType?: AMITypes | string;
 
   /**
-   * <p>The name of the cluster that the managed node group resides in.</p>
+   * <p>The name associated with an Amazon EKS managed node group.</p>
    */
-  clusterName?: string;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the managed node group was
-   *             created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The root device disk size (in GiB) for your node group instances. The default disk
-   *             size is 20 GiB.</p>
-   */
-  diskSize?: number;
+  nodegroupName?: string;
 
   /**
    * <p>The health status of the node group. If there are issues with your node group's
    *             health, they are listed here.</p>
    */
   health?: NodegroupHealth;
-
-  /**
-   * <p>The instance types associated with your node group.</p>
-   */
-  instanceTypes?: string[];
 
   /**
    * <p>The Kubernetes labels applied to the nodes in the node group.</p>
@@ -1423,62 +1482,6 @@ export interface Nodegroup {
    *         </note>
    */
   labels?: { [key: string]: string };
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the managed node group was last
-   *             modified.</p>
-   */
-  modifiedAt?: Date;
-
-  /**
-   * <p>The IAM role associated with your node group. The Amazon EKS worker node
-   *                 <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Worker nodes
-   *             receive permissions for these API calls through an IAM instance profile and associated
-   *             policies. Before you can launch worker nodes and register them into a cluster, you must
-   *             create an IAM role for those worker nodes to use when they are launched. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon EKS Worker Node IAM Role</a> in the
-   *                 <i>
-   *                <i>Amazon EKS User Guide</i>
-   *             </i>.</p>
-   */
-  nodeRole?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) associated with the managed node group.</p>
-   */
-  nodegroupArn?: string;
-
-  /**
-   * <p>The name associated with an Amazon EKS managed node group.</p>
-   */
-  nodegroupName?: string;
-
-  /**
-   * <p>The AMI version of the managed node group. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS-Optimized Linux AMI Versions </a> in the <i>Amazon EKS User Guide</i>.</p>
-   */
-  releaseVersion?: string;
-
-  /**
-   * <p>The remote access (SSH) configuration that is associated with the node group.</p>
-   */
-  remoteAccess?: RemoteAccessConfig;
-
-  /**
-   * <p>The resources associated with the node group, such as Auto Scaling groups and security
-   *             groups for remote access.</p>
-   */
-  resources?: NodegroupResources;
-
-  /**
-   * <p>The scaling configuration details for the Auto Scaling group that is associated with
-   *             your node group.</p>
-   */
-  scalingConfig?: NodegroupScalingConfig;
-
-  /**
-   * <p>The current status of the managed node group.</p>
-   */
-  status?: NodegroupStatus | string;
 
   /**
    * <p>The subnets allowed for the Auto Scaling group that is associated with your node
@@ -1500,6 +1503,41 @@ export interface Nodegroup {
    * <p>The Kubernetes version of the managed node group.</p>
    */
   version?: string;
+
+  /**
+   * <p>The instance types associated with your node group.</p>
+   */
+  instanceTypes?: string[];
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the managed node group was
+   *             created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The IAM role associated with your node group. The Amazon EKS worker node
+   *                 <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Worker nodes
+   *             receive permissions for these API calls through an IAM instance profile and associated
+   *             policies. Before you can launch worker nodes and register them into a cluster, you must
+   *             create an IAM role for those worker nodes to use when they are launched. For more
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon EKS Worker Node IAM Role</a> in the
+   *                 <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
+   */
+  nodeRole?: string;
+
+  /**
+   * <p>The AMI version of the managed node group. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS-Optimized Linux AMI Versions </a> in the <i>Amazon EKS User Guide</i>.</p>
+   */
+  releaseVersion?: string;
+
+  /**
+   * <p>The root device disk size (in GiB) for your node group instances. The default disk
+   *             size is 20 GiB.</p>
+   */
+  diskSize?: number;
 }
 
 export namespace Nodegroup {
@@ -1530,16 +1568,21 @@ export namespace NodegroupHealth {
 export enum NodegroupIssueCode {
   ACCESS_DENIED = "AccessDenied",
   ASG_INSTANCE_LAUNCH_FAILURES = "AsgInstanceLaunchFailures",
+  AUTO_SCALING_GROUP_INVALID_CONFIGURATION = "AutoScalingGroupInvalidConfiguration",
   AUTO_SCALING_GROUP_NOT_FOUND = "AutoScalingGroupNotFound",
   EC2_LAUNCH_TEMPLATE_NOT_FOUND = "Ec2LaunchTemplateNotFound",
   EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH = "Ec2LaunchTemplateVersionMismatch",
   EC2_SECURITY_GROUP_DELETION_FAILURE = "Ec2SecurityGroupDeletionFailure",
   EC2_SECURITY_GROUP_NOT_FOUND = "Ec2SecurityGroupNotFound",
+  EC2_SUBNET_INVALID_CONFIGURATION = "Ec2SubnetInvalidConfiguration",
+  EC2_SUBNET_NOT_FOUND = "Ec2SubnetNotFound",
   IAM_INSTANCE_PROFILE_NOT_FOUND = "IamInstanceProfileNotFound",
+  IAM_LIMIT_EXCEEDED = "IamLimitExceeded",
   IAM_NODE_ROLE_NOT_FOUND = "IamNodeRoleNotFound",
   INSTANCE_LIMIT_EXCEEDED = "InstanceLimitExceeded",
   INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
   INTERNAL_FAILURE = "InternalFailure",
+  NODE_CREATION_FAILURE = "NodeCreationFailure",
 }
 
 /**
@@ -1549,15 +1592,15 @@ export enum NodegroupIssueCode {
 export interface NodegroupResources {
   __type?: "NodegroupResources";
   /**
-   * <p>The Auto Scaling groups associated with the node group.</p>
-   */
-  autoScalingGroups?: AutoScalingGroup[];
-
-  /**
    * <p>The remote access security group associated with the node group. This security group
    *             controls SSH access to the worker nodes.</p>
    */
   remoteAccessSecurityGroup?: string;
+
+  /**
+   * <p>The Auto Scaling groups associated with the node group.</p>
+   */
+  autoScalingGroups?: AutoScalingGroup[];
 }
 
 export namespace NodegroupResources {
@@ -1574,11 +1617,6 @@ export namespace NodegroupResources {
 export interface NodegroupScalingConfig {
   __type?: "NodegroupScalingConfig";
   /**
-   * <p>The current number of worker nodes that the managed node group should maintain.</p>
-   */
-  desiredSize?: number;
-
-  /**
    * <p>The maximum number of worker nodes that the managed node group can scale out to.
    *             Managed node groups can support up to 100 nodes by default.</p>
    */
@@ -1589,6 +1627,11 @@ export interface NodegroupScalingConfig {
    *             number must be greater than zero.</p>
    */
   minSize?: number;
+
+  /**
+   * <p>The current number of worker nodes that the managed node group should maintain.</p>
+   */
+  desiredSize?: number;
 }
 
 export namespace NodegroupScalingConfig {
@@ -1644,6 +1687,28 @@ export namespace OIDC {
 }
 
 /**
+ * <p>Identifies the AWS Key Management Service (AWS KMS) customer
+ *    master key (CMK) used to encrypt the secrets.</p>
+ */
+export interface Provider {
+  __type?: "Provider";
+  /**
+   * <p>Amazon Resource Name (ARN) or alias of the customer master key (CMK). The CMK must be symmetric, created in the same region as
+   *    the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more
+   *    information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing Users in Other Accounts to Use
+   *     a CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  keyArn?: string;
+}
+
+export namespace Provider {
+  export const filterSensitiveLog = (obj: Provider): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Provider => __isa(o, "Provider");
+}
+
+/**
  * <p>An object representing the remote access configuration for the managed node
  *             group.</p>
  */
@@ -1680,15 +1745,15 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
-   */
-  clusterName?: string;
-
-  message?: string;
-  /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    */
   nodegroupName?: string;
+
+  message?: string;
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   */
+  clusterName?: string;
 }
 
 export namespace ResourceInUseException {
@@ -1709,11 +1774,12 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
    */
   clusterName?: string;
 
-  message?: string;
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    */
   nodegroupName?: string;
+
+  message?: string;
 }
 
 export namespace ResourceLimitExceededException {
@@ -1738,15 +1804,15 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   clusterName?: string;
 
   /**
-   * <p>The Fargate profile associated with the exception.</p>
-   */
-  fargateProfileName?: string;
-
-  message?: string;
-  /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    */
   nodegroupName?: string;
+
+  message?: string;
+  /**
+   * <p>The Fargate profile associated with the exception.</p>
+   */
+  fargateProfileName?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -1767,11 +1833,12 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
    */
   clusterName?: string;
 
-  message?: string;
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    */
   nodegroupName?: string;
+
+  message?: string;
 }
 
 export namespace ServerException {
@@ -1800,15 +1867,15 @@ export namespace ServiceUnavailableException {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
+   * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
+   */
+  tags: { [key: string]: string } | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the supported resources
    *             are Amazon EKS clusters and managed node groups.</p>
    */
   resourceArn: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
-   */
-  tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1838,21 +1905,22 @@ export interface UnsupportedAvailabilityZoneException extends __SmithyException,
   name: "UnsupportedAvailabilityZoneException";
   $fault: "client";
   /**
+   * <p>The supported Availability Zones for your account. Choose subnets in these
+   *             Availability Zones for your cluster.</p>
+   */
+  validZones?: string[];
+
+  /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
   clusterName?: string;
 
-  message?: string;
   /**
    * <p>The Amazon EKS managed node group associated with the exception.</p>
    */
   nodegroupName?: string;
 
-  /**
-   * <p>The supported Availability Zones for your account. Choose subnets in these
-   *             Availability Zones for your cluster.</p>
-   */
-  validZones?: string[];
+  message?: string;
 }
 
 export namespace UnsupportedAvailabilityZoneException {
@@ -1866,15 +1934,15 @@ export namespace UnsupportedAvailabilityZoneException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
+   * <p>The keys of the tags to be removed.</p>
+   */
+  tagKeys: string[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently, the supported
    *             resources are Amazon EKS clusters and managed node groups.</p>
    */
   resourceArn: string | undefined;
-
-  /**
-   * <p>The keys of the tags to be removed.</p>
-   */
-  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1901,6 +1969,16 @@ export namespace UntagResourceResponse {
 export interface Update {
   __type?: "Update";
   /**
+   * <p>The type of the update.</p>
+   */
+  type?: UpdateType | string;
+
+  /**
+   * <p>The current status of the update.</p>
+   */
+  status?: UpdateStatus | string;
+
+  /**
    * <p>The Unix epoch timestamp in seconds for when the update was created.</p>
    */
   createdAt?: Date;
@@ -1911,24 +1989,14 @@ export interface Update {
   errors?: ErrorDetail[];
 
   /**
-   * <p>A UUID that is used to track the update.</p>
-   */
-  id?: string;
-
-  /**
    * <p>A key-value map that contains the parameters associated with the update.</p>
    */
   params?: UpdateParam[];
 
   /**
-   * <p>The current status of the update.</p>
+   * <p>A UUID that is used to track the update.</p>
    */
-  status?: UpdateStatus | string;
-
-  /**
-   * <p>The type of the update.</p>
-   */
-  type?: UpdateType | string;
+  id?: string;
 }
 
 export namespace Update {
@@ -1940,12 +2008,6 @@ export namespace Update {
 
 export interface UpdateClusterConfigRequest {
   __type?: "UpdateClusterConfigRequest";
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  clientRequestToken?: string;
-
   /**
    * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to
    *             CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more
@@ -1959,6 +2021,12 @@ export interface UpdateClusterConfigRequest {
    *         </note>
    */
   logging?: Logging;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  clientRequestToken?: string;
 
   /**
    * <p>The name of the Amazon EKS cluster to update.</p>
@@ -2040,14 +2108,14 @@ export namespace UpdateClusterVersionResponse {
 export interface UpdateLabelsPayload {
   __type?: "UpdateLabelsPayload";
   /**
-   * <p>Kubernetes labels to be added or updated.</p>
-   */
-  addOrUpdateLabels?: { [key: string]: string };
-
-  /**
    * <p>Kubernetes labels to be removed.</p>
    */
   removeLabels?: string[];
+
+  /**
+   * <p>Kubernetes labels to be added or updated.</p>
+   */
+  addOrUpdateLabels?: { [key: string]: string };
 }
 
 export namespace UpdateLabelsPayload {
@@ -2060,23 +2128,6 @@ export namespace UpdateLabelsPayload {
 export interface UpdateNodegroupConfigRequest {
   __type?: "UpdateNodegroupConfigRequest";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The name of the Amazon EKS cluster that the managed node group resides in.</p>
-   */
-  clusterName: string | undefined;
-
-  /**
-   * <p>The Kubernetes labels to be applied to the nodes in the node group after the
-   *             update.</p>
-   */
-  labels?: UpdateLabelsPayload;
-
-  /**
    * <p>The name of the managed node group to update.</p>
    */
   nodegroupName: string | undefined;
@@ -2085,6 +2136,23 @@ export interface UpdateNodegroupConfigRequest {
    * <p>The scaling configuration details for the Auto Scaling group after the update.</p>
    */
   scalingConfig?: NodegroupScalingConfig;
+
+  /**
+   * <p>The name of the Amazon EKS cluster that the managed node group resides in.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The Kubernetes labels to be applied to the nodes in the node group after the
+   *             update.</p>
+   */
+  labels?: UpdateLabelsPayload;
 }
 
 export namespace UpdateNodegroupConfigRequest {
@@ -2112,24 +2180,12 @@ export namespace UpdateNodegroupConfigResponse {
 export interface UpdateNodegroupVersionRequest {
   __type?: "UpdateNodegroupVersionRequest";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   * <p>The Kubernetes version to update to. If no version is specified, then the Kubernetes
+   *             version of the node group does not change. You can specify the Kubernetes version of the
+   *             cluster to update the node group to the latest AMI version of the cluster's Kubernetes
+   *             version.</p>
    */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The name of the Amazon EKS cluster that is associated with the managed node group to
-   *             update.</p>
-   */
-  clusterName: string | undefined;
-
-  /**
-   * <p>Force the update if the existing node group's pods are unable to be drained due to a
-   *             pod disruption budget issue. If an update fails because pods could not be drained, you
-   *             can force the update after it fails to terminate the old node whether or not any pods
-   *             are running on the node.</p>
-   */
-  force?: boolean;
+  version?: string;
 
   /**
    * <p>The name of the managed node group to update.</p>
@@ -2145,12 +2201,24 @@ export interface UpdateNodegroupVersionRequest {
   releaseVersion?: string;
 
   /**
-   * <p>The Kubernetes version to update to. If no version is specified, then the Kubernetes
-   *             version of the node group does not change. You can specify the Kubernetes version of the
-   *             cluster to update the node group to the latest AMI version of the cluster's Kubernetes
-   *             version.</p>
+   * <p>Force the update if the existing node group's pods are unable to be drained due to a
+   *             pod disruption budget issue. If an update fails because pods could not be drained, you
+   *             can force the update after it fails to terminate the old node whether or not any pods
+   *             are running on the node.</p>
    */
-  version?: string;
+  force?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The name of the Amazon EKS cluster that is associated with the managed node group to
+   *             update.</p>
+   */
+  clusterName: string | undefined;
 }
 
 export namespace UpdateNodegroupVersionRequest {
@@ -2233,20 +2301,11 @@ export enum UpdateType {
 export interface VpcConfigRequest {
   __type?: "VpcConfigRequest";
   /**
-   * <p>Set this value to <code>true</code> to enable private access for your cluster's
-   *             Kubernetes API server endpoint. If you enable private access, Kubernetes API requests
-   *             from within your cluster's VPC use the private VPC endpoint. The default value for this
-   *             parameter is <code>false</code>, which disables private access for your Kubernetes API
-   *             server. If you disable private access and you have worker nodes or AWS Fargate pods in the
-   *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
-   *             blocks for communication with the worker nodes or Fargate pods. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
-   *                 Cluster Endpoint Access Control</a> in the
-   *             <i>
-   *                <i>Amazon EKS User Guide</i>
-   *             </i>.</p>
+   * <p>Specify subnets for your Amazon EKS worker nodes. Amazon EKS creates cross-account elastic
+   *             network interfaces in these subnets to allow communication between your worker nodes and
+   *             the Kubernetes control plane.</p>
    */
-  endpointPrivateAccess?: boolean;
+  subnetIds?: string[];
 
   /**
    * <p>Set this value to <code>false</code> to disable public access to your cluster's
@@ -2281,11 +2340,20 @@ export interface VpcConfigRequest {
   securityGroupIds?: string[];
 
   /**
-   * <p>Specify subnets for your Amazon EKS worker nodes. Amazon EKS creates cross-account elastic
-   *             network interfaces in these subnets to allow communication between your worker nodes and
-   *             the Kubernetes control plane.</p>
+   * <p>Set this value to <code>true</code> to enable private access for your cluster's
+   *             Kubernetes API server endpoint. If you enable private access, Kubernetes API requests
+   *             from within your cluster's VPC use the private VPC endpoint. The default value for this
+   *             parameter is <code>false</code>, which disables private access for your Kubernetes API
+   *             server. If you disable private access and you have worker nodes or AWS Fargate pods in the
+   *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
+   *             blocks for communication with the worker nodes or Fargate pods. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
+   *                 Cluster Endpoint Access Control</a> in the
+   *             <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
    */
-  subnetIds?: string[];
+  endpointPrivateAccess?: boolean;
 }
 
 export namespace VpcConfigRequest {
@@ -2307,19 +2375,9 @@ export interface VpcConfigResponse {
   clusterSecurityGroupId?: string;
 
   /**
-   * <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If
-   *             the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate
-   *             from within your cluster's VPC use the private VPC endpoint instead of traversing the
-   *             internet. If this value is disabled and you have worker nodes or AWS Fargate pods in the
-   *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
-   *             blocks for communication with the worker nodes or Fargate pods. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
-   *                 Cluster Endpoint Access Control</a> in the
-   *             <i>
-   *                <i>Amazon EKS User Guide</i>
-   *             </i>.</p>
+   * <p>The subnets associated with your cluster.</p>
    */
-  endpointPrivateAccess?: boolean;
+  subnetIds?: string[];
 
   /**
    * <p>This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If
@@ -2348,9 +2406,19 @@ export interface VpcConfigResponse {
   securityGroupIds?: string[];
 
   /**
-   * <p>The subnets associated with your cluster.</p>
+   * <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If
+   *             the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate
+   *             from within your cluster's VPC use the private VPC endpoint instead of traversing the
+   *             internet. If this value is disabled and you have worker nodes or AWS Fargate pods in the
+   *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
+   *             blocks for communication with the worker nodes or Fargate pods. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
+   *                 Cluster Endpoint Access Control</a> in the
+   *             <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
    */
-  subnetIds?: string[];
+  endpointPrivateAccess?: boolean;
 
   /**
    * <p>The VPC associated with your cluster.</p>

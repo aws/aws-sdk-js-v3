@@ -8,6 +8,10 @@ import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "../comm
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "../commands/DeleteLogStreamCommand";
 import { DeleteMetricFilterCommandInput, DeleteMetricFilterCommandOutput } from "../commands/DeleteMetricFilterCommand";
 import {
+  DeleteQueryDefinitionCommandInput,
+  DeleteQueryDefinitionCommandOutput,
+} from "../commands/DeleteQueryDefinitionCommand";
+import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "../commands/DeleteResourcePolicyCommand";
@@ -35,6 +39,10 @@ import {
 } from "../commands/DescribeMetricFiltersCommand";
 import { DescribeQueriesCommandInput, DescribeQueriesCommandOutput } from "../commands/DescribeQueriesCommand";
 import {
+  DescribeQueryDefinitionsCommandInput,
+  DescribeQueryDefinitionsCommandOutput,
+} from "../commands/DescribeQueryDefinitionsCommand";
+import {
   DescribeResourcePoliciesCommandInput,
   DescribeResourcePoliciesCommandOutput,
 } from "../commands/DescribeResourcePoliciesCommand";
@@ -56,6 +64,7 @@ import {
 } from "../commands/PutDestinationPolicyCommand";
 import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "../commands/PutLogEventsCommand";
 import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "../commands/PutMetricFilterCommand";
+import { PutQueryDefinitionCommandInput, PutQueryDefinitionCommandOutput } from "../commands/PutQueryDefinitionCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "../commands/PutRetentionPolicyCommand";
 import {
@@ -79,6 +88,8 @@ import {
   DeleteLogGroupRequest,
   DeleteLogStreamRequest,
   DeleteMetricFilterRequest,
+  DeleteQueryDefinitionRequest,
+  DeleteQueryDefinitionResponse,
   DeleteResourcePolicyRequest,
   DeleteRetentionPolicyRequest,
   DeleteSubscriptionFilterRequest,
@@ -94,6 +105,8 @@ import {
   DescribeMetricFiltersResponse,
   DescribeQueriesRequest,
   DescribeQueriesResponse,
+  DescribeQueryDefinitionsRequest,
+  DescribeQueryDefinitionsResponse,
   DescribeResourcePoliciesRequest,
   DescribeResourcePoliciesResponse,
   DescribeSubscriptionFiltersRequest,
@@ -136,12 +149,15 @@ import {
   PutLogEventsRequest,
   PutLogEventsResponse,
   PutMetricFilterRequest,
+  PutQueryDefinitionRequest,
+  PutQueryDefinitionResponse,
   PutResourcePolicyRequest,
   PutResourcePolicyResponse,
   PutRetentionPolicyRequest,
   PutSubscriptionFilterRequest,
   QueryCompileError,
   QueryCompileErrorLocation,
+  QueryDefinition,
   QueryInfo,
   QueryStatistics,
   RejectedLogEventsInfo,
@@ -289,6 +305,19 @@ export const serializeAws_json1_1DeleteMetricFilterCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteQueryDefinitionCommand = async (
+  input: DeleteQueryDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Logs_20140328.DeleteQueryDefinition",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteQueryDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
@@ -403,6 +432,19 @@ export const serializeAws_json1_1DescribeQueriesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeQueriesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeQueryDefinitionsCommand = async (
+  input: DescribeQueryDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Logs_20140328.DescribeQueryDefinitions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeQueryDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -572,6 +614,19 @@ export const serializeAws_json1_1PutMetricFilterCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutMetricFilterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutQueryDefinitionCommand = async (
+  input: PutQueryDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Logs_20140328.PutQueryDefinition",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutQueryDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1391,6 +1446,78 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteQueryDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQueryDefinitionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteQueryDefinitionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteQueryDefinitionResponse(data, context);
+  const response: DeleteQueryDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteQueryDefinitionResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteQueryDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQueryDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1990,6 +2117,70 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeQueryDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQueryDefinitionsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeQueryDefinitionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeQueryDefinitionsResponse(data, context);
+  const response: DescribeQueryDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeQueryDefinitionsResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeQueryDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQueryDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2991,6 +3182,78 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutQueryDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutQueryDefinitionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutQueryDefinitionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutQueryDefinitionResponse(data, context);
+  const response: PutQueryDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutQueryDefinitionResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutQueryDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutQueryDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3796,6 +4059,15 @@ const serializeAws_json1_1DeleteMetricFilterRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteQueryDefinitionRequest = (
+  input: DeleteQueryDefinitionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.queryDefinitionId !== undefined && { queryDefinitionId: input.queryDefinitionId }),
+  };
+};
+
 const serializeAws_json1_1DeleteResourcePolicyRequest = (
   input: DeleteResourcePolicyRequest,
   context: __SerdeContext
@@ -3892,6 +4164,19 @@ const serializeAws_json1_1DescribeQueriesRequest = (input: DescribeQueriesReques
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.status !== undefined && { status: input.status }),
+  };
+};
+
+const serializeAws_json1_1DescribeQueryDefinitionsRequest = (
+  input: DescribeQueryDefinitionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.queryDefinitionNamePrefix !== undefined && {
+      queryDefinitionNamePrefix: input.queryDefinitionNamePrefix,
+    }),
   };
 };
 
@@ -4052,6 +4337,20 @@ const serializeAws_json1_1PutMetricFilterRequest = (input: PutMetricFilterReques
   };
 };
 
+const serializeAws_json1_1PutQueryDefinitionRequest = (
+  input: PutQueryDefinitionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.logGroupNames !== undefined && {
+      logGroupNames: serializeAws_json1_1LogGroupNames(input.logGroupNames, context),
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.queryDefinitionId !== undefined && { queryDefinitionId: input.queryDefinitionId }),
+    ...(input.queryString !== undefined && { queryString: input.queryString }),
+  };
+};
+
 const serializeAws_json1_1PutResourcePolicyRequest = (
   input: PutResourcePolicyRequest,
   context: __SerdeContext
@@ -4170,6 +4469,16 @@ const deserializeAws_json1_1DataAlreadyAcceptedException = (
   } as any;
 };
 
+const deserializeAws_json1_1DeleteQueryDefinitionResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteQueryDefinitionResponse => {
+  return {
+    __type: "DeleteQueryDefinitionResponse",
+    success: output.success !== undefined && output.success !== null ? output.success : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeDestinationsResponse = (
   output: any,
   context: __SerdeContext
@@ -4250,6 +4559,20 @@ const deserializeAws_json1_1DescribeQueriesResponse = (
     queries:
       output.queries !== undefined && output.queries !== null
         ? deserializeAws_json1_1QueryInfoList(output.queries, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeQueryDefinitionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeQueryDefinitionsResponse => {
+  return {
+    __type: "DescribeQueryDefinitionsResponse",
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    queryDefinitions:
+      output.queryDefinitions !== undefined && output.queryDefinitions !== null
+        ? deserializeAws_json1_1QueryDefinitionList(output.queryDefinitions, context)
         : undefined,
   } as any;
 };
@@ -4530,6 +4853,10 @@ const deserializeAws_json1_1LogGroupFieldList = (output: any, context: __SerdeCo
   return (output || []).map((entry: any) => deserializeAws_json1_1LogGroupField(entry, context));
 };
 
+const deserializeAws_json1_1LogGroupNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1LogGroups = (output: any, context: __SerdeContext): LogGroup[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1LogGroup(entry, context));
 };
@@ -4690,6 +5017,19 @@ const deserializeAws_json1_1PutLogEventsResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1PutQueryDefinitionResponse = (
+  output: any,
+  context: __SerdeContext
+): PutQueryDefinitionResponse => {
+  return {
+    __type: "PutQueryDefinitionResponse",
+    queryDefinitionId:
+      output.queryDefinitionId !== undefined && output.queryDefinitionId !== null
+        ? output.queryDefinitionId
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PutResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
@@ -4725,6 +5065,27 @@ const deserializeAws_json1_1QueryCompileErrorLocation = (
     startCharOffset:
       output.startCharOffset !== undefined && output.startCharOffset !== null ? output.startCharOffset : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1QueryDefinition = (output: any, context: __SerdeContext): QueryDefinition => {
+  return {
+    __type: "QueryDefinition",
+    lastModified: output.lastModified !== undefined && output.lastModified !== null ? output.lastModified : undefined,
+    logGroupNames:
+      output.logGroupNames !== undefined && output.logGroupNames !== null
+        ? deserializeAws_json1_1LogGroupNames(output.logGroupNames, context)
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    queryDefinitionId:
+      output.queryDefinitionId !== undefined && output.queryDefinitionId !== null
+        ? output.queryDefinitionId
+        : undefined,
+    queryString: output.queryString !== undefined && output.queryString !== null ? output.queryString : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1QueryDefinitionList = (output: any, context: __SerdeContext): QueryDefinition[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1QueryDefinition(entry, context));
 };
 
 const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): QueryInfo => {

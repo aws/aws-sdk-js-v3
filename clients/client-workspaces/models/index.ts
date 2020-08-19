@@ -29,10 +29,10 @@ export enum AccessPropertyValue {
 export interface AccountModification {
   __type?: "AccountModification";
   /**
-   * <p>The IP address range, specified as an IPv4 CIDR block, for the management network
-   *          interface used for the account.</p>
+   * <p>The text of the error message that is returned if the configuration of BYOL cannot be
+   *          modified.</p>
    */
-  DedicatedTenancyManagementCidrRange?: string;
+  ErrorMessage?: string;
 
   /**
    * <p>The status of BYOL (whether BYOL is being enabled or disabled).</p>
@@ -45,20 +45,20 @@ export interface AccountModification {
   ErrorCode?: string;
 
   /**
-   * <p>The text of the error message that is returned if the configuration of BYOL cannot be
-   *          modified.</p>
+   * <p>The IP address range, specified as an IPv4 CIDR block, for the management network
+   *          interface used for the account.</p>
    */
-  ErrorMessage?: string;
-
-  /**
-   * <p>The state of the modification to the configuration of BYOL.</p>
-   */
-  ModificationState?: DedicatedTenancyModificationStateEnum | string;
+  DedicatedTenancyManagementCidrRange?: string;
 
   /**
    * <p>The timestamp when the modification of the BYOL configuration was started.</p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>The state of the modification to the configuration of BYOL.</p>
+   */
+  ModificationState?: DedicatedTenancyModificationStateEnum | string;
 }
 
 export namespace AccountModification {
@@ -156,14 +156,14 @@ export namespace ClientProperties {
 export interface ClientPropertiesResult {
   __type?: "ClientPropertiesResult";
   /**
-   * <p>Information about the Amazon WorkSpaces client.</p>
-   */
-  ClientProperties?: ClientProperties;
-
-  /**
    * <p>The resource identifier, in the form of a directory ID.</p>
    */
   ResourceId?: string;
+
+  /**
+   * <p>Information about the Amazon WorkSpaces client.</p>
+   */
+  ClientProperties?: ClientProperties;
 }
 
 export namespace ClientPropertiesResult {
@@ -210,14 +210,9 @@ export enum ConnectionState {
 export interface CopyWorkspaceImageRequest {
   __type?: "CopyWorkspaceImageRequest";
   /**
-   * <p>A description of the image.</p>
+   * <p>The identifier of the source Region.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The name of the image.</p>
-   */
-  Name: string | undefined;
+  SourceRegion: string | undefined;
 
   /**
    * <p>The identifier of the source image.</p>
@@ -225,14 +220,19 @@ export interface CopyWorkspaceImageRequest {
   SourceImageId: string | undefined;
 
   /**
-   * <p>The identifier of the source Region.</p>
-   */
-  SourceRegion: string | undefined;
-
-  /**
    * <p>The tags for the image.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The name of the image.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the image.</p>
+   */
+  Description?: string;
 }
 
 export namespace CopyWorkspaceImageRequest {
@@ -265,14 +265,14 @@ export interface CreateIpGroupRequest {
   GroupDesc?: string;
 
   /**
-   * <p>The name of the group.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
    * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The name of the group.</p>
+   */
+  GroupName: string | undefined;
 
   /**
    * <p>The rules to add to the group.</p>
@@ -353,17 +353,17 @@ export namespace CreateWorkspacesRequest {
 export interface CreateWorkspacesResult {
   __type?: "CreateWorkspacesResult";
   /**
-   * <p>Information about the WorkSpaces that could not be created.</p>
-   */
-  FailedRequests?: FailedCreateWorkspaceRequest[];
-
-  /**
    * <p>Information about the WorkSpaces that were created.</p>
    *          <p>Because this operation is asynchronous, the identifier returned is not immediately
    *          available for use with other operations. For example, if you call <a>DescribeWorkspaces</a> before the WorkSpace is created, the information returned
    *          can be incomplete.</p>
    */
   PendingRequests?: Workspace[];
+
+  /**
+   * <p>Information about the WorkSpaces that could not be created.</p>
+   */
+  FailedRequests?: FailedCreateWorkspaceRequest[];
 }
 
 export namespace CreateWorkspacesResult {
@@ -394,15 +394,14 @@ export enum DedicatedTenancySupportResultEnum {
 export interface DefaultWorkspaceCreationProperties {
   __type?: "DefaultWorkspaceCreationProperties";
   /**
-   * <p>The identifier of any security groups to apply to WorkSpaces when they are
-   *          created.</p>
-   */
-  CustomSecurityGroupId?: string;
-
-  /**
    * <p>The organizational unit (OU) in the directory for the WorkSpace machine accounts.</p>
    */
   DefaultOu?: string;
+
+  /**
+   * <p>Specifies whether the directory is enabled for Amazon WorkDocs.</p>
+   */
+  EnableWorkDocs?: boolean;
 
   /**
    * <p>Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
@@ -417,21 +416,24 @@ export interface DefaultWorkspaceCreationProperties {
   EnableInternetAccess?: boolean;
 
   /**
+   * <p>Specifies whether WorkSpace users are local administrators on their WorkSpaces.</p>
+   */
+  UserEnabledAsLocalAdministrator?: boolean;
+
+  /**
+   * <p>The identifier of the default security group to apply to WorkSpaces when they are created.
+   *          For more information, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html">
+   *             Security Groups for Your WorkSpaces</a>.</p>
+   */
+  CustomSecurityGroupId?: string;
+
+  /**
    * <p>Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see
    *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace
    *             Maintenance</a>.</p>
    */
   EnableMaintenanceMode?: boolean;
-
-  /**
-   * <p>Specifies whether the directory is enabled for Amazon WorkDocs.</p>
-   */
-  EnableWorkDocs?: boolean;
-
-  /**
-   * <p>Specifies whether WorkSpace users are local administrators on their WorkSpaces.</p>
-   */
-  UserEnabledAsLocalAdministrator?: boolean;
 }
 
 export namespace DefaultWorkspaceCreationProperties {
@@ -576,15 +578,15 @@ export namespace DescribeAccountModificationsRequest {
 export interface DescribeAccountModificationsResult {
   __type?: "DescribeAccountModificationsResult";
   /**
-   * <p>The list of modifications to the configuration of BYOL.</p>
-   */
-  AccountModifications?: AccountModification[];
-
-  /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
    *          available.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of modifications to the configuration of BYOL.</p>
+   */
+  AccountModifications?: AccountModification[];
 }
 
 export namespace DescribeAccountModificationsResult {
@@ -609,6 +611,11 @@ export namespace DescribeAccountRequest {
 export interface DescribeAccountResult {
   __type?: "DescribeAccountResult";
   /**
+   * <p>The status of BYOL (whether BYOL is enabled or disabled).</p>
+   */
+  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | string;
+
+  /**
    * <p>The IP address range, specified as an IPv4 CIDR block, used for the management network
    *          interface.</p>
    *          <p>The management network interface is connected to a secure Amazon WorkSpaces management
@@ -616,11 +623,6 @@ export interface DescribeAccountResult {
    *          clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
    */
   DedicatedTenancyManagementCidrRange?: string;
-
-  /**
-   * <p>The status of BYOL (whether BYOL is enabled or disabled).</p>
-   */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | string;
 }
 
 export namespace DescribeAccountResult {
@@ -668,15 +670,15 @@ export interface DescribeIpGroupsRequest {
   GroupIds?: string[];
 
   /**
-   * <p>The maximum number of items to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeIpGroupsRequest {
@@ -741,6 +743,13 @@ export namespace DescribeTagsResult {
 export interface DescribeWorkspaceBundlesRequest {
   __type?: "DescribeWorkspaceBundlesRequest";
   /**
+   * <p>The owner of the bundles. You cannot combine this parameter with any other filter.</p>
+   *          <p>Specify <code>AMAZON</code> to describe the bundles provided by AWS or null
+   *          to describe the bundles that belong to your account.</p>
+   */
+  Owner?: string;
+
+  /**
    * <p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>
    */
   BundleIds?: string[];
@@ -749,13 +758,6 @@ export interface DescribeWorkspaceBundlesRequest {
    * <p>The token for the next set of results. (You received this token from a previous call.)</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The owner of the bundles. You cannot combine this parameter with any other filter.</p>
-   *          <p>Specify <code>AMAZON</code> to describe the bundles provided by AWS or null
-   *          to describe the bundles that belong to your account.</p>
-   */
-  Owner?: string;
 }
 
 export namespace DescribeWorkspaceBundlesRequest {
@@ -836,6 +838,60 @@ export namespace DescribeWorkspaceDirectoriesResult {
     __isa(o, "DescribeWorkspaceDirectoriesResult");
 }
 
+export interface DescribeWorkspaceImagePermissionsRequest {
+  __type?: "DescribeWorkspaceImagePermissionsRequest";
+  /**
+   * <p>The identifier of the image.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
+   *          provide this token to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeWorkspaceImagePermissionsRequest {
+  export const filterSensitiveLog = (obj: DescribeWorkspaceImagePermissionsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeWorkspaceImagePermissionsRequest =>
+    __isa(o, "DescribeWorkspaceImagePermissionsRequest");
+}
+
+export interface DescribeWorkspaceImagePermissionsResult {
+  __type?: "DescribeWorkspaceImagePermissionsResult";
+  /**
+   * <p>The token to use to retrieve the next set of results, or null if no more
+   *          results are available.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The identifiers of the AWS accounts that the image has been shared with.</p>
+   */
+  ImagePermissions?: ImagePermission[];
+
+  /**
+   * <p>The identifier of the image.</p>
+   */
+  ImageId?: string;
+}
+
+export namespace DescribeWorkspaceImagePermissionsResult {
+  export const filterSensitiveLog = (obj: DescribeWorkspaceImagePermissionsResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeWorkspaceImagePermissionsResult =>
+    __isa(o, "DescribeWorkspaceImagePermissionsResult");
+}
+
 export interface DescribeWorkspaceImagesRequest {
   __type?: "DescribeWorkspaceImagesRequest";
   /**
@@ -844,15 +900,20 @@ export interface DescribeWorkspaceImagesRequest {
   ImageIds?: string[];
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * <p>The type (owned or shared) of the image.</p>
    */
-  MaxResults?: number;
+  ImageType?: ImageType | string;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeWorkspaceImagesRequest {
@@ -886,15 +947,15 @@ export namespace DescribeWorkspaceImagesResult {
 export interface DescribeWorkspacesConnectionStatusRequest {
   __type?: "DescribeWorkspacesConnectionStatusRequest";
   /**
+   * <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
+   */
+  WorkspaceIds?: string[];
+
+  /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
-   */
-  WorkspaceIds?: string[];
 }
 
 export namespace DescribeWorkspacesConnectionStatusRequest {
@@ -908,15 +969,15 @@ export namespace DescribeWorkspacesConnectionStatusRequest {
 export interface DescribeWorkspacesConnectionStatusResult {
   __type?: "DescribeWorkspacesConnectionStatusResult";
   /**
+   * <p>Information about the connection status of the WorkSpace.</p>
+   */
+  WorkspacesConnectionStatus?: WorkspaceConnectionStatus[];
+
+  /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
    *          available.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the connection status of the WorkSpace.</p>
-   */
-  WorkspacesConnectionStatus?: WorkspaceConnectionStatus[];
 }
 
 export namespace DescribeWorkspacesConnectionStatusResult {
@@ -967,10 +1028,9 @@ export namespace DescribeWorkspaceSnapshotsResult {
 export interface DescribeWorkspacesRequest {
   __type?: "DescribeWorkspacesRequest";
   /**
-   * <p>The identifier of the bundle. All WorkSpaces that are created from this bundle are
-   *          retrieved. You cannot combine this parameter with any other filter.</p>
+   * <p>The maximum number of items to return.</p>
    */
-  BundleId?: string;
+  Limit?: number;
 
   /**
    * <p>The identifier of the directory. In addition, you can optionally specify a specific
@@ -980,15 +1040,12 @@ export interface DescribeWorkspacesRequest {
   DirectoryId?: string;
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * <p>The identifiers of the WorkSpaces. You cannot combine this parameter with any other
+   *          filter.</p>
+   *          <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier
+   *          it returns is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.</p>
    */
-  Limit?: number;
-
-  /**
-   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
-   *          provide this token to receive the next set of results.</p>
-   */
-  NextToken?: string;
+  WorkspaceIds?: string[];
 
   /**
    * <p>The name of the directory user. You must specify this parameter with
@@ -997,12 +1054,16 @@ export interface DescribeWorkspacesRequest {
   UserName?: string;
 
   /**
-   * <p>The identifiers of the WorkSpaces. You cannot combine this parameter with any other
-   *          filter.</p>
-   *          <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier
-   *          it returns is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.</p>
+   * <p>The identifier of the bundle. All WorkSpaces that are created from this bundle are
+   *          retrieved. You cannot combine this parameter with any other filter.</p>
    */
-  WorkspaceIds?: string[];
+  BundleId?: string;
+
+  /**
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
+   *          provide this token to receive the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeWorkspacesRequest {
@@ -1015,17 +1076,17 @@ export namespace DescribeWorkspacesRequest {
 export interface DescribeWorkspacesResult {
   __type?: "DescribeWorkspacesResult";
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are
-   *          available.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the WorkSpaces.</p>
    *          <p>Because <a>CreateWorkspaces</a> is an asynchronous operation, some of the
    *          returned information could be incomplete.</p>
    */
   Workspaces?: Workspace[];
+
+  /**
+   * <p>The token to use to retrieve the next set of results, or null if no more results are
+   *          available.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeWorkspacesResult {
@@ -1072,15 +1133,15 @@ export namespace DisassociateIpGroupsResult {
 export interface FailedCreateWorkspaceRequest {
   __type?: "FailedCreateWorkspaceRequest";
   /**
-   * <p>The error code that is returned if the WorkSpace cannot be created.</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>The text of the error message that is returned if the WorkSpace cannot be
    *          created.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The error code that is returned if the WorkSpace cannot be created.</p>
+   */
+  ErrorCode?: string;
 
   /**
    * <p>Information about the WorkSpace.</p>
@@ -1103,6 +1164,11 @@ export namespace FailedCreateWorkspaceRequest {
 export interface FailedWorkspaceChangeRequest {
   __type?: "FailedWorkspaceChangeRequest";
   /**
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId?: string;
+
+  /**
    * <p>The error code that is returned if the WorkSpace cannot be rebooted.</p>
    */
   ErrorCode?: string;
@@ -1112,11 +1178,6 @@ export interface FailedWorkspaceChangeRequest {
    *          rebooted.</p>
    */
   ErrorMessage?: string;
-
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   */
-  WorkspaceId?: string;
 }
 
 export namespace FailedWorkspaceChangeRequest {
@@ -1126,23 +1187,31 @@ export namespace FailedWorkspaceChangeRequest {
   export const isa = (o: any): o is FailedWorkspaceChangeRequest => __isa(o, "FailedWorkspaceChangeRequest");
 }
 
+/**
+ * <p>Describes the AWS accounts that have been granted permission to use a shared image.</p>
+ */
+export interface ImagePermission {
+  __type?: "ImagePermission";
+  /**
+   * <p>The identifier of the AWS account that an image has been shared with.</p>
+   */
+  SharedAccountId?: string;
+}
+
+export namespace ImagePermission {
+  export const filterSensitiveLog = (obj: ImagePermission): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ImagePermission => __isa(o, "ImagePermission");
+}
+
+export enum ImageType {
+  OWNED = "OWNED",
+  SHARED = "SHARED",
+}
+
 export interface ImportWorkspaceImageRequest {
   __type?: "ImportWorkspaceImageRequest";
-  /**
-   * <p>The identifier of the EC2 image.</p>
-   */
-  Ec2ImageId: string | undefined;
-
-  /**
-   * <p>The description of the WorkSpace image.</p>
-   */
-  ImageDescription: string | undefined;
-
-  /**
-   * <p>The name of the WorkSpace image.</p>
-   */
-  ImageName: string | undefined;
-
   /**
    * <p>The ingestion process to be used when importing the image.</p>
    */
@@ -1152,6 +1221,21 @@ export interface ImportWorkspaceImageRequest {
    * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The description of the WorkSpace image.</p>
+   */
+  ImageDescription: string | undefined;
+
+  /**
+   * <p>The identifier of the EC2 image.</p>
+   */
+  Ec2ImageId: string | undefined;
+
+  /**
+   * <p>The name of the WorkSpace image.</p>
+   */
+  ImageName: string | undefined;
 }
 
 export namespace ImportWorkspaceImageRequest {
@@ -1217,14 +1301,14 @@ export namespace InvalidResourceStateException {
 export interface IpRuleItem {
   __type?: "IpRuleItem";
   /**
-   * <p>The IP address range, in CIDR notation.</p>
-   */
-  ipRule?: string;
-
-  /**
    * <p>The description.</p>
    */
   ruleDesc?: string;
+
+  /**
+   * <p>The IP address range, in CIDR notation.</p>
+   */
+  ipRule?: string;
 }
 
 export namespace IpRuleItem {
@@ -1237,6 +1321,12 @@ export namespace IpRuleItem {
 export interface ListAvailableManagementCidrRangesRequest {
   __type?: "ListAvailableManagementCidrRangesRequest";
   /**
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
+   *          provide this token to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The IP address range to search. Specify an IP address range that is compatible with your
    *          network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).</p>
    */
@@ -1246,12 +1336,6 @@ export interface ListAvailableManagementCidrRangesRequest {
    * <p>The maximum number of items to return.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
-   *          provide this token to receive the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListAvailableManagementCidrRangesRequest {
@@ -1287,14 +1371,14 @@ export namespace ListAvailableManagementCidrRangesResult {
 export interface MigrateWorkspaceRequest {
   __type?: "MigrateWorkspaceRequest";
   /**
-   * <p>The identifier of the target bundle type to migrate the WorkSpace to.</p>
-   */
-  BundleId: string | undefined;
-
-  /**
    * <p>The identifier of the WorkSpace to migrate from.</p>
    */
   SourceWorkspaceId: string | undefined;
+
+  /**
+   * <p>The identifier of the target bundle type to migrate the WorkSpace to.</p>
+   */
+  BundleId: string | undefined;
 }
 
 export namespace MigrateWorkspaceRequest {
@@ -1337,14 +1421,14 @@ export enum ModificationResourceEnum {
 export interface ModificationState {
   __type?: "ModificationState";
   /**
-   * <p>The resource.</p>
-   */
-  Resource?: ModificationResourceEnum | string;
-
-  /**
    * <p>The modification state.</p>
    */
   State?: ModificationStateEnum | string;
+
+  /**
+   * <p>The resource.</p>
+   */
+  Resource?: ModificationResourceEnum | string;
 }
 
 export namespace ModificationState {
@@ -1362,6 +1446,11 @@ export enum ModificationStateEnum {
 export interface ModifyAccountRequest {
   __type?: "ModifyAccountRequest";
   /**
+   * <p>The status of BYOL.</p>
+   */
+  DedicatedTenancySupport?: DedicatedTenancySupportEnum | string;
+
+  /**
    * <p>The IP address range, specified as an IPv4 CIDR block, for the management network
    *          interface. Specify an IP address range that is compatible with your network and in CIDR
    *          notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be
@@ -1369,11 +1458,6 @@ export interface ModifyAccountRequest {
    *             <code>ListAvailableManagementCidrRanges</code> operation.</p>
    */
   DedicatedTenancyManagementCidrRange?: string;
-
-  /**
-   * <p>The status of BYOL.</p>
-   */
-  DedicatedTenancySupport?: DedicatedTenancySupportEnum | string;
 }
 
 export namespace ModifyAccountRequest {
@@ -1494,14 +1578,14 @@ export namespace ModifyWorkspaceAccessPropertiesResult {
 export interface ModifyWorkspaceCreationPropertiesRequest {
   __type?: "ModifyWorkspaceCreationPropertiesRequest";
   /**
-   * <p>The identifier of the directory.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
    * <p>The default properties for creating WorkSpaces.</p>
    */
   WorkspaceCreationProperties: WorkspaceCreationProperties | undefined;
+
+  /**
+   * <p>The identifier of the directory.</p>
+   */
+  ResourceId: string | undefined;
 }
 
 export namespace ModifyWorkspaceCreationPropertiesRequest {
@@ -1527,14 +1611,14 @@ export namespace ModifyWorkspaceCreationPropertiesResult {
 export interface ModifyWorkspacePropertiesRequest {
   __type?: "ModifyWorkspacePropertiesRequest";
   /**
-   * <p>The identifier of the WorkSpace.</p>
-   */
-  WorkspaceId: string | undefined;
-
-  /**
    * <p>The properties of the WorkSpace.</p>
    */
   WorkspaceProperties: WorkspaceProperties | undefined;
+
+  /**
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId: string | undefined;
 }
 
 export namespace ModifyWorkspacePropertiesRequest {
@@ -1745,6 +1829,11 @@ export enum ReconnectEnum {
 export interface RegisterWorkspaceDirectoryRequest {
   __type?: "RegisterWorkspaceDirectoryRequest";
   /**
+   * <p>Indicates whether self-service capabilities are enabled or disabled.</p>
+   */
+  EnableSelfService?: boolean;
+
+  /**
    * <p>The identifier of the directory. You cannot register a directory if it does not have a status
    *          of Active. If the directory does not have a status of Active, you will receive an
    *          InvalidResourceStateException error. If you have already registered the maximum number of directories
@@ -1752,25 +1841,6 @@ export interface RegisterWorkspaceDirectoryRequest {
    *          Deregister directories that you are not using for WorkSpaces, and try again.</p>
    */
   DirectoryId: string | undefined;
-
-  /**
-   * <p>Indicates whether self-service capabilities are enabled or disabled.</p>
-   */
-  EnableSelfService?: boolean;
-
-  /**
-   * <p>Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and
-   *          WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set
-   *          <code>EnableWorkDocs</code> to disabled, and try again.</p>
-   */
-  EnableWorkDocs: boolean | undefined;
-
-  /**
-   * <p>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets
-   *          are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these
-   *          conditions are not met, you will receive an OperationNotSupportedException error.</p>
-   */
-  SubnetIds?: string[];
 
   /**
    * <p>The tags associated with the directory.</p>
@@ -1785,6 +1855,20 @@ export interface RegisterWorkspaceDirectoryRequest {
    *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows Desktop Images</a>.</p>
    */
   Tenancy?: Tenancy | string;
+
+  /**
+   * <p>Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and
+   *          WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set
+   *          <code>EnableWorkDocs</code> to disabled, and try again.</p>
+   */
+  EnableWorkDocs: boolean | undefined;
+
+  /**
+   * <p>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets
+   *          are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these
+   *          conditions are not met, you will receive an OperationNotSupportedException error.</p>
+   */
+  SubnetIds?: string[];
 }
 
 export namespace RegisterWorkspaceDirectoryRequest {
@@ -1879,14 +1963,14 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
-   * <p>The ID of the resource that could not be found.</p>
-   */
-  ResourceId?: string;
-
-  /**
    * <p>The resource could not be found.</p>
    */
   message?: string;
+
+  /**
+   * <p>The ID of the resource that could not be found.</p>
+   */
+  ResourceId?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -2006,15 +2090,14 @@ export enum RunningMode {
 export interface SelfservicePermissions {
   __type?: "SelfservicePermissions";
   /**
+   * <p>Specifies whether users can switch the running mode of their WorkSpace.</p>
+   */
+  SwitchRunningMode?: ReconnectEnum | string;
+
+  /**
    * <p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>
    */
   ChangeComputeType?: ReconnectEnum | string;
-
-  /**
-   * <p>Specifies whether users can increase the volume size of the drives on their
-   *          WorkSpace.</p>
-   */
-  IncreaseVolumeSize?: ReconnectEnum | string;
 
   /**
    * <p>Specifies whether users can rebuild the operating system of a WorkSpace to its original
@@ -2023,14 +2106,15 @@ export interface SelfservicePermissions {
   RebuildWorkspace?: ReconnectEnum | string;
 
   /**
+   * <p>Specifies whether users can increase the volume size of the drives on their
+   *          WorkSpace.</p>
+   */
+  IncreaseVolumeSize?: ReconnectEnum | string;
+
+  /**
    * <p>Specifies whether users can restart their WorkSpace.</p>
    */
   RestartWorkspace?: ReconnectEnum | string;
-
-  /**
-   * <p>Specifies whether users can switch the running mode of their WorkSpace.</p>
-   */
-  SwitchRunningMode?: ReconnectEnum | string;
 }
 
 export namespace SelfservicePermissions {
@@ -2277,14 +2361,14 @@ export namespace UnsupportedWorkspaceConfigurationException {
 export interface UpdateRulesOfIpGroupRequest {
   __type?: "UpdateRulesOfIpGroupRequest";
   /**
-   * <p>The identifier of the group.</p>
-   */
-  GroupId: string | undefined;
-
-  /**
    * <p>One or more rules.</p>
    */
   UserRules: IpRuleItem[] | undefined;
+
+  /**
+   * <p>The identifier of the group.</p>
+   */
+  GroupId: string | undefined;
 }
 
 export namespace UpdateRulesOfIpGroupRequest {
@@ -2303,6 +2387,45 @@ export namespace UpdateRulesOfIpGroupResult {
     ...obj,
   });
   export const isa = (o: any): o is UpdateRulesOfIpGroupResult => __isa(o, "UpdateRulesOfIpGroupResult");
+}
+
+export interface UpdateWorkspaceImagePermissionRequest {
+  __type?: "UpdateWorkspaceImagePermissionRequest";
+  /**
+   * <p>The identifier of the image.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The permission to copy the image. This permission can be revoked only after an image
+   *       has been shared.</p>
+   */
+  AllowCopyImage: boolean | undefined;
+
+  /**
+   * <p>The identifier of the AWS account to share or unshare the image with.</p>
+   */
+  SharedAccountId: string | undefined;
+}
+
+export namespace UpdateWorkspaceImagePermissionRequest {
+  export const filterSensitiveLog = (obj: UpdateWorkspaceImagePermissionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateWorkspaceImagePermissionRequest =>
+    __isa(o, "UpdateWorkspaceImagePermissionRequest");
+}
+
+export interface UpdateWorkspaceImagePermissionResult {
+  __type?: "UpdateWorkspaceImagePermissionResult";
+}
+
+export namespace UpdateWorkspaceImagePermissionResult {
+  export const filterSensitiveLog = (obj: UpdateWorkspaceImagePermissionResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateWorkspaceImagePermissionResult =>
+    __isa(o, "UpdateWorkspaceImagePermissionResult");
 }
 
 /**
@@ -2329,14 +2452,14 @@ export namespace UserStorage {
 export interface Workspace {
   __type?: "Workspace";
   /**
-   * <p>The identifier of the bundle used to create the WorkSpace.</p>
+   * <p>The operational state of the WorkSpace.</p>
    */
-  BundleId?: string;
+  State?: WorkspaceState | string;
 
   /**
-   * <p>The name of the WorkSpace, as seen by the operating system.</p>
+   * <p>The modification states of the WorkSpace.</p>
    */
-  ComputerName?: string;
+  ModificationStates?: ModificationState[];
 
   /**
    * <p>The identifier of the AWS Directory Service directory for the WorkSpace.</p>
@@ -2344,9 +2467,35 @@ export interface Workspace {
   DirectoryId?: string;
 
   /**
+   * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace.
+   *          Amazon WorkSpaces does not support asymmetric CMKs.</p>
+   */
+  VolumeEncryptionKey?: string;
+
+  /**
    * <p>The error code that is returned if the WorkSpace cannot be created.</p>
    */
   ErrorCode?: string;
+
+  /**
+   * <p>The name of the WorkSpace, as seen by the operating system.</p>
+   */
+  ComputerName?: string;
+
+  /**
+   * <p>The properties of the WorkSpace.</p>
+   */
+  WorkspaceProperties?: WorkspaceProperties;
+
+  /**
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId?: string;
+
+  /**
+   * <p>Indicates whether the data stored on the root volume is encrypted.</p>
+   */
+  RootVolumeEncryptionEnabled?: boolean;
 
   /**
    * <p>The text of the error message that is returned if the WorkSpace cannot be
@@ -2360,24 +2509,9 @@ export interface Workspace {
   IpAddress?: string;
 
   /**
-   * <p>The modification states of the WorkSpace.</p>
+   * <p>Indicates whether the data stored on the user volume is encrypted.</p>
    */
-  ModificationStates?: ModificationState[];
-
-  /**
-   * <p>Indicates whether the data stored on the root volume is encrypted.</p>
-   */
-  RootVolumeEncryptionEnabled?: boolean;
-
-  /**
-   * <p>The operational state of the WorkSpace.</p>
-   */
-  State?: WorkspaceState | string;
-
-  /**
-   * <p>The identifier of the subnet for the WorkSpace.</p>
-   */
-  SubnetId?: string;
+  UserVolumeEncryptionEnabled?: boolean;
 
   /**
    * <p>The user for the WorkSpace.</p>
@@ -2385,25 +2519,14 @@ export interface Workspace {
   UserName?: string;
 
   /**
-   * <p>Indicates whether the data stored on the user volume is encrypted.</p>
+   * <p>The identifier of the subnet for the WorkSpace.</p>
    */
-  UserVolumeEncryptionEnabled?: boolean;
+  SubnetId?: string;
 
   /**
-   * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace.
-   *          Amazon WorkSpaces does not support asymmetric CMKs.</p>
+   * <p>The identifier of the bundle used to create the WorkSpace.</p>
    */
-  VolumeEncryptionKey?: string;
-
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   */
-  WorkspaceId?: string;
-
-  /**
-   * <p>The properties of the WorkSpace.</p>
-   */
-  WorkspaceProperties?: WorkspaceProperties;
+  BundleId?: string;
 }
 
 export namespace Workspace {
@@ -2421,11 +2544,6 @@ export namespace Workspace {
 export interface WorkspaceAccessProperties {
   __type?: "WorkspaceAccessProperties";
   /**
-   * <p>Indicates whether users can use Android devices to access their WorkSpaces.</p>
-   */
-  DeviceTypeAndroid?: AccessPropertyValue | string;
-
-  /**
    * <p>Indicates whether users can use Chromebooks to access their WorkSpaces.</p>
    */
   DeviceTypeChromeOs?: AccessPropertyValue | string;
@@ -2434,6 +2552,24 @@ export interface WorkspaceAccessProperties {
    * <p>Indicates whether users can use iOS devices to access their WorkSpaces.</p>
    */
   DeviceTypeIos?: AccessPropertyValue | string;
+
+  /**
+   * <p>Indicates whether users can use Windows clients to access their WorkSpaces. To restrict
+   *          WorkSpaces access to trusted devices (also known as managed devices) with valid
+   *          certificates, specify a value of <code>TRUST</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html">Restrict
+   *             WorkSpaces Access to Trusted Devices</a>. </p>
+   */
+  DeviceTypeWindows?: AccessPropertyValue | string;
+
+  /**
+   * <p>Indicates whether users can use Android devices to access their WorkSpaces.</p>
+   */
+  DeviceTypeAndroid?: AccessPropertyValue | string;
+
+  /**
+   * <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
+   */
+  DeviceTypeZeroClient?: AccessPropertyValue | string;
 
   /**
    * <p>Indicates whether users can use macOS clients to access their WorkSpaces. To restrict
@@ -2447,19 +2583,6 @@ export interface WorkspaceAccessProperties {
    * <p>Indicates whether users can access their WorkSpaces through a web browser.</p>
    */
   DeviceTypeWeb?: AccessPropertyValue | string;
-
-  /**
-   * <p>Indicates whether users can use Windows clients to access their WorkSpaces. To restrict
-   *          WorkSpaces access to trusted devices (also known as managed devices) with valid
-   *          certificates, specify a value of <code>TRUST</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html">Restrict
-   *             WorkSpaces Access to Trusted Devices</a>. </p>
-   */
-  DeviceTypeWindows?: AccessPropertyValue | string;
-
-  /**
-   * <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
-   */
-  DeviceTypeZeroClient?: AccessPropertyValue | string;
 }
 
 export namespace WorkspaceAccessProperties {
@@ -2475,24 +2598,14 @@ export namespace WorkspaceAccessProperties {
 export interface WorkspaceBundle {
   __type?: "WorkspaceBundle";
   /**
-   * <p>The bundle identifier.</p>
-   */
-  BundleId?: string;
-
-  /**
-   * <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces Bundles</a>.</p>
-   */
-  ComputeType?: ComputeType;
-
-  /**
    * <p>A description.</p>
    */
   Description?: string;
 
   /**
-   * <p>The image identifier of the bundle.</p>
+   * <p>The bundle identifier.</p>
    */
-  ImageId?: string;
+  BundleId?: string;
 
   /**
    * <p>The last time that the bundle was updated.</p>
@@ -2500,15 +2613,14 @@ export interface WorkspaceBundle {
   LastUpdatedTime?: Date;
 
   /**
-   * <p>The name of the bundle.</p>
+   * <p>The size of the user storage.</p>
    */
-  Name?: string;
+  UserStorage?: UserStorage;
 
   /**
-   * <p>The owner of the bundle. This is the account identifier of the owner, or
-   *          <code>AMAZON</code> if the bundle is provided by AWS.</p>
+   * <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces Bundles</a>.</p>
    */
-  Owner?: string;
+  ComputeType?: ComputeType;
 
   /**
    * <p>The size of the root volume.</p>
@@ -2516,9 +2628,20 @@ export interface WorkspaceBundle {
   RootStorage?: RootStorage;
 
   /**
-   * <p>The size of the user storage.</p>
+   * <p>The name of the bundle.</p>
    */
-  UserStorage?: UserStorage;
+  Name?: string;
+
+  /**
+   * <p>The image identifier of the bundle.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The owner of the bundle. This is the account identifier of the owner, or
+   *          <code>AMAZON</code> if the bundle is provided by AWS.</p>
+   */
+  Owner?: string;
 }
 
 export namespace WorkspaceBundle {
@@ -2534,6 +2657,11 @@ export namespace WorkspaceBundle {
 export interface WorkspaceConnectionStatus {
   __type?: "WorkspaceConnectionStatus";
   /**
+   * <p>The timestamp of the last known user connection.</p>
+   */
+  LastKnownUserConnectionTimestamp?: Date;
+
+  /**
    * <p>The connection state of the WorkSpace. The connection state is unknown if the WorkSpace
    *          is stopped.</p>
    */
@@ -2543,11 +2671,6 @@ export interface WorkspaceConnectionStatus {
    * <p>The timestamp of the connection status check.</p>
    */
   ConnectionStateCheckTimestamp?: Date;
-
-  /**
-   * <p>The timestamp of the last known user connection.</p>
-   */
-  LastKnownUserConnectionTimestamp?: Date;
 
   /**
    * <p>The identifier of the WorkSpace.</p>
@@ -2570,14 +2693,14 @@ export namespace WorkspaceConnectionStatus {
 export interface WorkspaceCreationProperties {
   __type?: "WorkspaceCreationProperties";
   /**
-   * <p>The identifier of your custom security group.</p>
-   */
-  CustomSecurityGroupId?: string;
-
-  /**
    * <p>The default organizational unit (OU) for your WorkSpace directories.</p>
    */
   DefaultOu?: string;
+
+  /**
+   * <p>The identifier of your custom security group.</p>
+   */
+  CustomSecurityGroupId?: string;
 
   /**
    * <p>Indicates whether internet access is enabled for your WorkSpaces.</p>
@@ -2585,16 +2708,16 @@ export interface WorkspaceCreationProperties {
   EnableInternetAccess?: boolean;
 
   /**
+   * <p>Indicates whether users are local administrators of their WorkSpaces.</p>
+   */
+  UserEnabledAsLocalAdministrator?: boolean;
+
+  /**
    * <p>Indicates whether maintenance mode is enabled for your WorkSpaces. For more information,
    *          see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace
    *             Maintenance</a>. </p>
    */
   EnableMaintenanceMode?: boolean;
-
-  /**
-   * <p>Indicates whether users are local administrators of their WorkSpaces.</p>
-   */
-  UserEnabledAsLocalAdministrator?: boolean;
 }
 
 export namespace WorkspaceCreationProperties {
@@ -2610,19 +2733,9 @@ export namespace WorkspaceCreationProperties {
 export interface WorkspaceDirectory {
   __type?: "WorkspaceDirectory";
   /**
-   * <p>The directory alias.</p>
+   * <p>The devices and operating systems that users can use to access WorkSpaces.</p>
    */
-  Alias?: string;
-
-  /**
-   * <p>The user name for the service account.</p>
-   */
-  CustomerUserName?: string;
-
-  /**
-   * <p>The directory identifier.</p>
-   */
-  DirectoryId?: string;
+  WorkspaceAccessProperties?: WorkspaceAccessProperties;
 
   /**
    * <p>The name of the directory.</p>
@@ -2635,15 +2748,21 @@ export interface WorkspaceDirectory {
   DirectoryType?: WorkspaceDirectoryType | string;
 
   /**
-   * <p>The IP addresses of the DNS servers for the directory.</p>
+   * <p>Specifies whether the directory is dedicated or shared. To use Bring Your Own License
+   *          (BYOL), this value must be set to <code>DEDICATED</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring
+   *             Your Own Windows Desktop Images</a>.</p>
    */
-  DnsIpAddresses?: string[];
+  Tenancy?: Tenancy | string;
 
   /**
-   * <p>The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make
-   *          calls to other services, such as Amazon EC2, on your behalf.</p>
+   * <p>The default creation properties for all WorkSpaces in the directory.</p>
    */
-  IamRoleId?: string;
+  WorkspaceCreationProperties?: DefaultWorkspaceCreationProperties;
+
+  /**
+   * <p>The directory identifier.</p>
+   */
+  DirectoryId?: string;
 
   /**
    * <p>The registration code for the directory. This is the code that users enter in their
@@ -2652,14 +2771,9 @@ export interface WorkspaceDirectory {
   RegistrationCode?: string;
 
   /**
-   * <p>The default self-service permissions for WorkSpaces in the directory.</p>
+   * <p>The identifier of the security group that is assigned to new WorkSpaces.</p>
    */
-  SelfservicePermissions?: SelfservicePermissions;
-
-  /**
-   * <p>The state of the directory's registration with Amazon WorkSpaces.</p>
-   */
-  State?: WorkspaceDirectoryState | string;
+  WorkspaceSecurityGroupId?: string;
 
   /**
    * <p>The identifiers of the subnets used with the directory.</p>
@@ -2667,31 +2781,40 @@ export interface WorkspaceDirectory {
   SubnetIds?: string[];
 
   /**
-   * <p>Specifies whether the directory is dedicated or shared. To use Bring Your Own License
-   *          (BYOL), this value must be set to <code>DEDICATED</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring
-   *             Your Own Windows Desktop Images</a>.</p>
+   * <p>The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make
+   *          calls to other services, such as Amazon EC2, on your behalf.</p>
    */
-  Tenancy?: Tenancy | string;
+  IamRoleId?: string;
 
   /**
-   * <p>The devices and operating systems that users can use to access WorkSpaces.</p>
+   * <p>The IP addresses of the DNS servers for the directory.</p>
    */
-  WorkspaceAccessProperties?: WorkspaceAccessProperties;
+  DnsIpAddresses?: string[];
 
   /**
-   * <p>The default creation properties for all WorkSpaces in the directory.</p>
+   * <p>The default self-service permissions for WorkSpaces in the directory.</p>
    */
-  WorkspaceCreationProperties?: DefaultWorkspaceCreationProperties;
+  SelfservicePermissions?: SelfservicePermissions;
 
   /**
-   * <p>The identifier of the security group that is assigned to new WorkSpaces.</p>
+   * <p>The directory alias.</p>
    */
-  WorkspaceSecurityGroupId?: string;
+  Alias?: string;
+
+  /**
+   * <p>The state of the directory's registration with Amazon WorkSpaces.</p>
+   */
+  State?: WorkspaceDirectoryState | string;
 
   /**
    * <p>The identifiers of the IP access control groups associated with the directory.</p>
    */
   ipGroupIds?: string[];
+
+  /**
+   * <p>The user name for the service account.</p>
+   */
+  CustomerUserName?: string;
 }
 
 export namespace WorkspaceDirectory {
@@ -2720,24 +2843,30 @@ export enum WorkspaceDirectoryType {
 export interface WorkspaceImage {
   __type?: "WorkspaceImage";
   /**
-   * <p>The description of the image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The error code that is returned for the image.</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>The text of the error message that is returned for the image.</p>
    */
   ErrorMessage?: string;
 
   /**
+   * <p>The identifier of the AWS account that owns the image.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
+   * <p>The description of the image.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The identifier of the image.</p>
    */
   ImageId?: string;
+
+  /**
+   * <p>The date when the image was created. If the image has been shared, the AWS account
+   *          that the image has been shared with sees the original creation date of the image.</p>
+   */
+  Created?: Date;
 
   /**
    * <p>The name of the image.</p>
@@ -2750,17 +2879,22 @@ export interface WorkspaceImage {
   OperatingSystem?: OperatingSystem;
 
   /**
+   * <p>The error code that is returned for the image.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The status of the image.</p>
+   */
+  State?: WorkspaceImageState | string;
+
+  /**
    * <p>Specifies whether the image is running on dedicated hardware. When Bring Your Own
    *          License (BYOL) is enabled, this value is set to <code>DEDICATED</code>. For more
    *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows
    *             Desktop Images</a>.</p>
    */
   RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
-
-  /**
-   * <p>The status of the image.</p>
-   */
-  State?: WorkspaceImageState | string;
 }
 
 export namespace WorkspaceImage {
@@ -2793,15 +2927,22 @@ export enum WorkspaceImageState {
 export interface WorkspaceProperties {
   __type?: "WorkspaceProperties";
   /**
+   * <p>The size of the root volume. For important information about how to modify the size of the root and user volumes, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">Modify a WorkSpace</a>.</p>
+   */
+  RootVolumeSizeGib?: number;
+
+  /**
+   * <p>The size of the user storage. For important information about how to modify the size of the root and user volumes, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">Modify a WorkSpace</a>.</p>
+   */
+  UserVolumeSizeGib?: number;
+
+  /**
    * <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces
    *          Bundles</a>.</p>
    */
   ComputeTypeName?: Compute | string;
-
-  /**
-   * <p>The size of the root volume.</p>
-   */
-  RootVolumeSizeGib?: number;
 
   /**
    * <p>The running mode. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage the WorkSpace Running
@@ -2813,11 +2954,6 @@ export interface WorkspaceProperties {
    * <p>The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.</p>
    */
   RunningModeAutoStopTimeoutInMinutes?: number;
-
-  /**
-   * <p>The size of the user storage.</p>
-   */
-  UserVolumeSizeGib?: number;
 }
 
 export namespace WorkspaceProperties {
@@ -2833,22 +2969,6 @@ export namespace WorkspaceProperties {
 export interface WorkspaceRequest {
   __type?: "WorkspaceRequest";
   /**
-   * <p>The identifier of the bundle for the WorkSpace. You can use <a>DescribeWorkspaceBundles</a> to list the available bundles.</p>
-   */
-  BundleId: string | undefined;
-
-  /**
-   * <p>The identifier of the AWS Directory Service directory for the WorkSpace. You can use
-   *             <a>DescribeWorkspaceDirectories</a> to list the available directories.</p>
-   */
-  DirectoryId: string | undefined;
-
-  /**
-   * <p>Indicates whether the data stored on the root volume is encrypted.</p>
-   */
-  RootVolumeEncryptionEnabled?: boolean;
-
-  /**
    * <p>The tags for the WorkSpace.</p>
    */
   Tags?: Tag[];
@@ -2860,9 +2980,20 @@ export interface WorkspaceRequest {
   UserName: string | undefined;
 
   /**
+   * <p>The identifier of the AWS Directory Service directory for the WorkSpace. You can use
+   *             <a>DescribeWorkspaceDirectories</a> to list the available directories.</p>
+   */
+  DirectoryId: string | undefined;
+
+  /**
    * <p>Indicates whether the data stored on the user volume is encrypted.</p>
    */
   UserVolumeEncryptionEnabled?: boolean;
+
+  /**
+   * <p>The identifier of the bundle for the WorkSpace. You can use <a>DescribeWorkspaceBundles</a> to list the available bundles.</p>
+   */
+  BundleId: string | undefined;
 
   /**
    * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace.
@@ -2874,6 +3005,11 @@ export interface WorkspaceRequest {
    * <p>The WorkSpace properties.</p>
    */
   WorkspaceProperties?: WorkspaceProperties;
+
+  /**
+   * <p>Indicates whether the data stored on the root volume is encrypted.</p>
+   */
+  RootVolumeEncryptionEnabled?: boolean;
 }
 
 export namespace WorkspaceRequest {
@@ -2907,16 +3043,6 @@ export namespace WorkspacesDefaultRoleNotFoundException {
 export interface WorkspacesIpGroup {
   __type?: "WorkspacesIpGroup";
   /**
-   * <p>The description of the group.</p>
-   */
-  groupDesc?: string;
-
-  /**
-   * <p>The identifier of the group.</p>
-   */
-  groupId?: string;
-
-  /**
    * <p>The name of the group.</p>
    */
   groupName?: string;
@@ -2925,6 +3051,16 @@ export interface WorkspacesIpGroup {
    * <p>The rules.</p>
    */
   userRules?: IpRuleItem[];
+
+  /**
+   * <p>The description of the group.</p>
+   */
+  groupDesc?: string;
+
+  /**
+   * <p>The identifier of the group.</p>
+   */
+  groupId?: string;
 }
 
 export namespace WorkspacesIpGroup {

@@ -9,10 +9,12 @@ import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "../commands/DeleteLifecyclePolicyCommand";
+import { DeleteMetricPolicyCommandInput, DeleteMetricPolicyCommandOutput } from "../commands/DeleteMetricPolicyCommand";
 import { DescribeContainerCommandInput, DescribeContainerCommandOutput } from "../commands/DescribeContainerCommand";
 import { GetContainerPolicyCommandInput, GetContainerPolicyCommandOutput } from "../commands/GetContainerPolicyCommand";
 import { GetCorsPolicyCommandInput, GetCorsPolicyCommandOutput } from "../commands/GetCorsPolicyCommand";
 import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "../commands/GetLifecyclePolicyCommand";
+import { GetMetricPolicyCommandInput, GetMetricPolicyCommandOutput } from "../commands/GetMetricPolicyCommand";
 import { ListContainersCommandInput, ListContainersCommandOutput } from "../commands/ListContainersCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -21,6 +23,7 @@ import {
 import { PutContainerPolicyCommandInput, PutContainerPolicyCommandOutput } from "../commands/PutContainerPolicyCommand";
 import { PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput } from "../commands/PutCorsPolicyCommand";
 import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "../commands/PutLifecyclePolicyCommand";
+import { PutMetricPolicyCommandInput, PutMetricPolicyCommandOutput } from "../commands/PutMetricPolicyCommand";
 import { StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput } from "../commands/StartAccessLoggingCommand";
 import { StopAccessLoggingCommandInput, StopAccessLoggingCommandOutput } from "../commands/StopAccessLoggingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -41,6 +44,8 @@ import {
   DeleteCorsPolicyOutput,
   DeleteLifecyclePolicyInput,
   DeleteLifecyclePolicyOutput,
+  DeleteMetricPolicyInput,
+  DeleteMetricPolicyOutput,
   DescribeContainerInput,
   DescribeContainerOutput,
   GetContainerPolicyInput,
@@ -49,6 +54,8 @@ import {
   GetCorsPolicyOutput,
   GetLifecyclePolicyInput,
   GetLifecyclePolicyOutput,
+  GetMetricPolicyInput,
+  GetMetricPolicyOutput,
   InternalServerError,
   LimitExceededException,
   ListContainersInput,
@@ -56,6 +63,8 @@ import {
   ListTagsForResourceInput,
   ListTagsForResourceOutput,
   MethodName,
+  MetricPolicy,
+  MetricPolicyRule,
   PolicyNotFoundException,
   PutContainerPolicyInput,
   PutContainerPolicyOutput,
@@ -63,6 +72,8 @@ import {
   PutCorsPolicyOutput,
   PutLifecyclePolicyInput,
   PutLifecyclePolicyOutput,
+  PutMetricPolicyInput,
+  PutMetricPolicyOutput,
   StartAccessLoggingInput,
   StartAccessLoggingOutput,
   StopAccessLoggingInput,
@@ -148,6 +159,19 @@ export const serializeAws_json1_1DeleteLifecyclePolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteMetricPolicyCommand = async (
+  input: DeleteMetricPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "MediaStore_20170901.DeleteMetricPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteMetricPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeContainerCommand = async (
   input: DescribeContainerCommandInput,
   context: __SerdeContext
@@ -197,6 +221,19 @@ export const serializeAws_json1_1GetLifecyclePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLifecyclePolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetMetricPolicyCommand = async (
+  input: GetMetricPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "MediaStore_20170901.GetMetricPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetMetricPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -262,6 +299,19 @@ export const serializeAws_json1_1PutLifecyclePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutLifecyclePolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutMetricPolicyCommand = async (
+  input: PutMetricPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "MediaStore_20170901.PutMetricPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutMetricPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -701,6 +751,86 @@ const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteMetricPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricPolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteMetricPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteMetricPolicyOutput(data, context);
+  const response: DeleteMetricPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteMetricPolicyOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteMetricPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ContainerInUseException":
+    case "com.amazonaws.mediastore#ContainerInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ContainerNotFoundException":
+    case "com.amazonaws.mediastore#ContainerNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.mediastore#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PolicyNotFoundException":
+    case "com.amazonaws.mediastore#PolicyNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeContainerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -947,6 +1077,86 @@ const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ContainerInUseException":
+    case "com.amazonaws.mediastore#ContainerInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ContainerNotFoundException":
+    case "com.amazonaws.mediastore#ContainerNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.mediastore#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PolicyNotFoundException":
+    case "com.amazonaws.mediastore#PolicyNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetMetricPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricPolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetMetricPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetMetricPolicyOutput(data, context);
+  const response: GetMetricPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetMetricPolicyOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetMetricPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1299,6 +1509,78 @@ const deserializeAws_json1_1PutLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ContainerInUseException":
+    case "com.amazonaws.mediastore#ContainerInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ContainerNotFoundException":
+    case "com.amazonaws.mediastore#ContainerNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.mediastore#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1PutMetricPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMetricPolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutMetricPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutMetricPolicyOutput(data, context);
+  const response: PutMetricPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutMetricPolicyOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutMetricPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMetricPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1798,6 +2080,12 @@ const serializeAws_json1_1DeleteLifecyclePolicyInput = (
   };
 };
 
+const serializeAws_json1_1DeleteMetricPolicyInput = (input: DeleteMetricPolicyInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+  };
+};
+
 const serializeAws_json1_1DescribeContainerInput = (input: DescribeContainerInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
@@ -1826,6 +2114,12 @@ const serializeAws_json1_1GetLifecyclePolicyInput = (input: GetLifecyclePolicyIn
   };
 };
 
+const serializeAws_json1_1GetMetricPolicyInput = (input: GetMetricPolicyInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+  };
+};
+
 const serializeAws_json1_1ListContainersInput = (input: ListContainersInput, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -1840,6 +2134,26 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   return {
     ...(input.Resource !== undefined && { Resource: input.Resource }),
   };
+};
+
+const serializeAws_json1_1MetricPolicy = (input: MetricPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.ContainerLevelMetrics !== undefined && { ContainerLevelMetrics: input.ContainerLevelMetrics }),
+    ...(input.MetricPolicyRules !== undefined && {
+      MetricPolicyRules: serializeAws_json1_1MetricPolicyRules(input.MetricPolicyRules, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1MetricPolicyRule = (input: MetricPolicyRule, context: __SerdeContext): any => {
+  return {
+    ...(input.ObjectGroup !== undefined && { ObjectGroup: input.ObjectGroup }),
+    ...(input.ObjectGroupName !== undefined && { ObjectGroupName: input.ObjectGroupName }),
+  };
+};
+
+const serializeAws_json1_1MetricPolicyRules = (input: MetricPolicyRule[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1MetricPolicyRule(entry, context));
 };
 
 const serializeAws_json1_1PutContainerPolicyInput = (input: PutContainerPolicyInput, context: __SerdeContext): any => {
@@ -1860,6 +2174,15 @@ const serializeAws_json1_1PutLifecyclePolicyInput = (input: PutLifecyclePolicyIn
   return {
     ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
     ...(input.LifecyclePolicy !== undefined && { LifecyclePolicy: input.LifecyclePolicy }),
+  };
+};
+
+const serializeAws_json1_1PutMetricPolicyInput = (input: PutMetricPolicyInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.MetricPolicy !== undefined && {
+      MetricPolicy: serializeAws_json1_1MetricPolicy(input.MetricPolicy, context),
+    }),
   };
 };
 
@@ -2036,6 +2359,15 @@ const deserializeAws_json1_1DeleteLifecyclePolicyOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1DeleteMetricPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteMetricPolicyOutput => {
+  return {
+    __type: "DeleteMetricPolicyOutput",
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeContainerOutput = (
   output: any,
   context: __SerdeContext
@@ -2084,6 +2416,16 @@ const deserializeAws_json1_1GetLifecyclePolicyOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1GetMetricPolicyOutput = (output: any, context: __SerdeContext): GetMetricPolicyOutput => {
+  return {
+    __type: "GetMetricPolicyOutput",
+    MetricPolicy:
+      output.MetricPolicy !== undefined && output.MetricPolicy !== null
+        ? deserializeAws_json1_1MetricPolicy(output.MetricPolicy, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
     __type: "InternalServerError",
@@ -2122,6 +2464,33 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1MetricPolicy = (output: any, context: __SerdeContext): MetricPolicy => {
+  return {
+    __type: "MetricPolicy",
+    ContainerLevelMetrics:
+      output.ContainerLevelMetrics !== undefined && output.ContainerLevelMetrics !== null
+        ? output.ContainerLevelMetrics
+        : undefined,
+    MetricPolicyRules:
+      output.MetricPolicyRules !== undefined && output.MetricPolicyRules !== null
+        ? deserializeAws_json1_1MetricPolicyRules(output.MetricPolicyRules, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MetricPolicyRule = (output: any, context: __SerdeContext): MetricPolicyRule => {
+  return {
+    __type: "MetricPolicyRule",
+    ObjectGroup: output.ObjectGroup !== undefined && output.ObjectGroup !== null ? output.ObjectGroup : undefined,
+    ObjectGroupName:
+      output.ObjectGroupName !== undefined && output.ObjectGroupName !== null ? output.ObjectGroupName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MetricPolicyRules = (output: any, context: __SerdeContext): MetricPolicyRule[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1MetricPolicyRule(entry, context));
+};
+
 const deserializeAws_json1_1PolicyNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -2153,6 +2522,12 @@ const deserializeAws_json1_1PutLifecyclePolicyOutput = (
 ): PutLifecyclePolicyOutput => {
   return {
     __type: "PutLifecyclePolicyOutput",
+  } as any;
+};
+
+const deserializeAws_json1_1PutMetricPolicyOutput = (output: any, context: __SerdeContext): PutMetricPolicyOutput => {
+  return {
+    __type: "PutMetricPolicyOutput",
   } as any;
 };
 

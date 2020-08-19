@@ -175,15 +175,6 @@ export const serializeAws_restJson1DeletePlacementCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
-  if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: placementName.");
-    }
-    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: placementName.");
-  }
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -192,6 +183,15 @@ export const serializeAws_restJson1DeletePlacementCommand = async (
     resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
+  }
+  if (input.placementName !== undefined) {
+    const labelValue: string = input.placementName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: placementName.");
+    }
+    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: placementName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -244,15 +244,6 @@ export const serializeAws_restJson1DescribePlacementCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
-  if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: placementName.");
-    }
-    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: placementName.");
-  }
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -261,6 +252,15 @@ export const serializeAws_restJson1DescribePlacementCommand = async (
     resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
+  }
+  if (input.placementName !== undefined) {
+    const labelValue: string = input.placementName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: placementName.");
+    }
+    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: placementName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -361,15 +361,6 @@ export const serializeAws_restJson1GetDevicesInPlacementCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}/devices";
-  if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: placementName.");
-    }
-    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: placementName.");
-  }
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -378,6 +369,15 @@ export const serializeAws_restJson1GetDevicesInPlacementCommand = async (
     resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
+  }
+  if (input.placementName !== undefined) {
+    const labelValue: string = input.placementName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: placementName.");
+    }
+    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: placementName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

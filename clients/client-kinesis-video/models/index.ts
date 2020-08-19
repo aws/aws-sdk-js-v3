@@ -53,6 +53,7 @@ export namespace AccountStreamLimitExceededException {
 }
 
 export enum APIName {
+  GET_CLIP = "GET_CLIP",
   GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL",
   GET_HLS_STREAMING_SESSION_URL = "GET_HLS_STREAMING_SESSION_URL",
   GET_MEDIA = "GET_MEDIA",
@@ -67,24 +68,9 @@ export enum APIName {
 export interface ChannelInfo {
   __type?: "ChannelInfo";
   /**
-   * <p>The ARN of the signaling channel.</p>
-   */
-  ChannelARN?: string;
-
-  /**
-   * <p>The name of the signaling channel.</p>
-   */
-  ChannelName?: string;
-
-  /**
    * <p>Current status of the signaling channel.</p>
    */
   ChannelStatus?: Status | string;
-
-  /**
-   * <p>The type of the signaling channel.</p>
-   */
-  ChannelType?: ChannelType | string;
 
   /**
    * <p>The time at which the signaling channel was created.</p>
@@ -96,6 +82,21 @@ export interface ChannelInfo {
    *             type.</p>
    */
   SingleMasterConfiguration?: SingleMasterConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the signaling channel.</p>
+   */
+  ChannelARN?: string;
+
+  /**
+   * <p>The name of the signaling channel.</p>
+   */
+  ChannelName?: string;
+
+  /**
+   * <p>The type of the signaling channel.</p>
+   */
+  ChannelType?: ChannelType | string;
 
   /**
    * <p>The current version of the signaling channel.</p>
@@ -175,12 +176,6 @@ export enum ComparisonOperator {
 export interface CreateSignalingChannelInput {
   __type?: "CreateSignalingChannelInput";
   /**
-   * <p>A name for the signaling channel that you are creating. It must be unique for each
-   *             account and region.</p>
-   */
-  ChannelName: string | undefined;
-
-  /**
    * <p>A type of the signaling channel that you are creating. Currently,
    *                 <code>SINGLE_MASTER</code> is the only supported channel type. </p>
    */
@@ -193,7 +188,13 @@ export interface CreateSignalingChannelInput {
   SingleMasterConfiguration?: SingleMasterConfiguration;
 
   /**
-   * <p>A set of tags (key/value pairs) that you want to associate with this channel.</p>
+   * <p>A name for the signaling channel that you are creating. It must be unique for each AWS
+   *             account and AWS Region.</p>
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>A set of tags (key-value pairs) that you want to associate with this channel.</p>
    */
   Tags?: Tag[];
 }
@@ -208,7 +209,7 @@ export namespace CreateSignalingChannelInput {
 export interface CreateSignalingChannelOutput {
   __type?: "CreateSignalingChannelOutput";
   /**
-   * <p>The ARN of the created channel.</p>
+   * <p>The Amazon Resource Name (ARN) of the created channel.</p>
    */
   ChannelARN?: string;
 }
@@ -223,26 +224,6 @@ export namespace CreateSignalingChannelOutput {
 export interface CreateStreamInput {
   __type?: "CreateStreamInput";
   /**
-   * <p>The number of hours that you want to retain the data in the stream. Kinesis Video
-   *             Streams retains the data in a data store that is associated with the stream.</p>
-   *         <p>The default value is 0, indicating that the stream does not persist data.</p>
-   *         <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume
-   *             the fragments that remain in the service host buffer, which has a retention time limit
-   *             of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the
-   *             buffer when either limit is reached.</p>
-   */
-  DataRetentionInHours?: number;
-
-  /**
-   * <p>The name of the device that is writing to the stream. </p>
-   *         <note>
-   *             <p>In the current implementation, Kinesis Video Streams does not use this
-   *                 name.</p>
-   *         </note>
-   */
-  DeviceName?: string;
-
-  /**
    * <p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video
    *             Streams to use to encrypt stream data.</p>
    *         <p>If no key ID is specified, the default, Kinesis Video-managed key
@@ -252,16 +233,15 @@ export interface CreateStreamInput {
   KmsKeyId?: string;
 
   /**
-   * <p>The media type of the stream. Consumers of the stream can use this information when
-   *             processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
-   *                 Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>
-   *             for guidelines.</p>
-   *
-   *         <p>Example valid values include "video/h264" and "video/h264,audio/aac".</p>
-   *         <p>This parameter is optional; the default value is <code>null</code> (or empty in
-   *             JSON).</p>
+   * <p>The number of hours that you want to retain the data in the stream. Kinesis Video
+   *             Streams retains the data in a data store that is associated with the stream.</p>
+   *         <p>The default value is 0, indicating that the stream does not persist data.</p>
+   *         <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume
+   *             the fragments that remain in the service host buffer, which has a retention time limit
+   *             of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the
+   *             buffer when either limit is reached.</p>
    */
-  MediaType?: string;
+  DataRetentionInHours?: number;
 
   /**
    * <p>A name for the stream that you are creating.</p>
@@ -275,6 +255,27 @@ export interface CreateStreamInput {
    *             (the value is optional).</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the device that is writing to the stream. </p>
+   *         <note>
+   *             <p>In the current implementation, Kinesis Video Streams does not use this
+   *                 name.</p>
+   *         </note>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The media type of the stream. Consumers of the stream can use this information when
+   *             processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
+   *                 Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>
+   *             for guidelines.</p>
+   *
+   *         <p>Example valid values include "video/h264" and "video/h264,audio/aac".</p>
+   *         <p>This parameter is optional; the default value is <code>null</code> (or empty in
+   *             JSON).</p>
+   */
+  MediaType?: string;
 }
 
 export namespace CreateStreamInput {
@@ -302,14 +303,15 @@ export namespace CreateStreamOutput {
 export interface DeleteSignalingChannelInput {
   __type?: "DeleteSignalingChannelInput";
   /**
-   * <p>The ARN of the signaling channel that you want to delete.</p>
+   * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
+   *             delete.</p>
    */
   ChannelARN: string | undefined;
 
   /**
    * <p>The current version of the signaling channel that you want to delete. You can obtain
    *             the current version by invoking the <code>DescribeSignalingChannel</code> or
-   *                 <code>ListSignalingChannels</code> APIs.</p>
+   *                 <code>ListSignalingChannels</code> API operations.</p>
    */
   CurrentVersion?: string;
 }
@@ -406,14 +408,14 @@ export namespace DescribeSignalingChannelOutput {
 export interface DescribeStreamInput {
   __type?: "DescribeStreamInput";
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
-   */
-  StreamARN?: string;
-
-  /**
    * <p>The name of the stream.</p>
    */
   StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 export namespace DescribeStreamInput {
@@ -459,6 +461,12 @@ export namespace DeviceStreamLimitExceededException {
 export interface GetDataEndpointInput {
   __type?: "GetDataEndpointInput";
   /**
+   * <p>The name of the stream that you want to get the endpoint for. You must specify
+   *             either this parameter or a <code>StreamARN</code> in the request.</p>
+   */
+  StreamName?: string;
+
+  /**
    * <p>The name of the API action for which to get an endpoint.</p>
    */
   APIName: APIName | string | undefined;
@@ -469,12 +477,6 @@ export interface GetDataEndpointInput {
    *         </p>
    */
   StreamARN?: string;
-
-  /**
-   * <p>The name of the stream that you want to get the endpoint for. You must specify
-   *             either this parameter or a <code>StreamARN</code> in the request.</p>
-   */
-  StreamName?: string;
 }
 
 export namespace GetDataEndpointInput {
@@ -503,15 +505,16 @@ export namespace GetDataEndpointOutput {
 export interface GetSignalingChannelEndpointInput {
   __type?: "GetSignalingChannelEndpointInput";
   /**
-   * <p>The ARN of the signalling channel for which you want to get an endpoint.</p>
-   */
-  ChannelARN: string | undefined;
-
-  /**
    * <p>A structure containing the endpoint configuration for the <code>SINGLE_MASTER</code>
    *             channel type.</p>
    */
   SingleMasterChannelEndpointConfiguration?: SingleMasterChannelEndpointConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an
+   *             endpoint.</p>
+   */
+  ChannelARN: string | undefined;
 }
 
 export namespace GetSignalingChannelEndpointInput {
@@ -587,6 +590,13 @@ export namespace InvalidResourceFormatException {
 export interface ListSignalingChannelsInput {
   __type?: "ListSignalingChannelsInput";
   /**
+   * <p>If you specify this parameter, when the result of a <code>ListSignalingChannels</code>
+   *             operation is truncated, the call returns the <code>NextToken</code> in the response. To
+   *             get another batch of channels, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Optional: Returns only the channels that satisfy a specific condition.</p>
    */
   ChannelNameCondition?: ChannelNameCondition;
@@ -595,13 +605,6 @@ export interface ListSignalingChannelsInput {
    * <p>The maximum number of channels to return in the response. The default is 500.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>If you specify this parameter, when the result of a <code>ListSignalingChannels</code>
-   *             operation is truncated, the call returns the <code>NextToken</code> in the response. To
-   *             get another batch of channels, provide this token in your next request.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListSignalingChannelsInput {
@@ -635,10 +638,10 @@ export namespace ListSignalingChannelsOutput {
 export interface ListStreamsInput {
   __type?: "ListStreamsInput";
   /**
-   * <p>The maximum number of streams to return in the response. The default is
-   *             10,000.</p>
+   * <p>Optional: Returns only streams that satisfy a specific condition. Currently, you
+   *             can specify only the prefix of a stream name as a condition. </p>
    */
-  MaxResults?: number;
+  StreamNameCondition?: StreamNameCondition;
 
   /**
    * <p>If you specify this parameter, when the result of a <code>ListStreams</code>
@@ -648,10 +651,10 @@ export interface ListStreamsInput {
   NextToken?: string;
 
   /**
-   * <p>Optional: Returns only streams that satisfy a specific condition. Currently, you
-   *             can specify only the prefix of a stream name as a condition. </p>
+   * <p>The maximum number of streams to return in the response. The default is
+   *             10,000.</p>
    */
-  StreamNameCondition?: StreamNameCondition;
+  MaxResults?: number;
 }
 
 export namespace ListStreamsInput {
@@ -664,15 +667,15 @@ export namespace ListStreamsInput {
 export interface ListStreamsOutput {
   __type?: "ListStreamsOutput";
   /**
+   * <p>An array of <code>StreamInfo</code> objects.</p>
+   */
+  StreamInfoList?: StreamInfo[];
+
+  /**
    * <p>If the response is truncated, the call returns this element with a token. To get
    *             the next batch of streams, use this token in your next request. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>An array of <code>StreamInfo</code> objects.</p>
-   */
-  StreamInfoList?: StreamInfo[];
 }
 
 export namespace ListStreamsOutput {
@@ -685,14 +688,15 @@ export namespace ListStreamsOutput {
 export interface ListTagsForResourceInput {
   __type?: "ListTagsForResourceInput";
   /**
-   * <p>If you specify this parameter and the result of a ListTagsForResource call is
-   *             truncated, the response includes a token that you can use in the next request to fetch
-   *             the next batch of tags. </p>
+   * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
+   *             call is truncated, the response includes a token that you can use in the next request to
+   *             fetch the next batch of tags. </p>
    */
   NextToken?: string;
 
   /**
-   * <p>The ARN of the signaling channel for which you want to list tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list
+   *             tags.</p>
    */
   ResourceARN: string | undefined;
 }
@@ -707,16 +711,16 @@ export namespace ListTagsForResourceInput {
 export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
-   * <p>If you specify this parameter and the result of a ListTagsForResource call is
-   *             truncated, the response includes a token that you can use in the next request to fetch
-   *             the next set of tags. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A map of tag keys and values associated with the specified signaling channel.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
+   *             call is truncated, the response includes a token that you can use in the next request to
+   *             fetch the next set of tags. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTagsForResourceOutput {
@@ -729,6 +733,11 @@ export namespace ListTagsForResourceOutput {
 export interface ListTagsForStreamInput {
   __type?: "ListTagsForStreamInput";
   /**
+   * <p>The name of the stream that you want to list tags for.</p>
+   */
+  StreamName?: string;
+
+  /**
    * <p>If you specify this parameter and the result of a <code>ListTagsForStream</code>
    *             call is truncated, the response includes a token that you can use in the next request to
    *             fetch the next batch of tags.</p>
@@ -740,11 +749,6 @@ export interface ListTagsForStreamInput {
    *             for.</p>
    */
   StreamARN?: string;
-
-  /**
-   * <p>The name of the stream that you want to list tags for.</p>
-   */
-  StreamName?: string;
 }
 
 export namespace ListTagsForStreamInput {
@@ -757,16 +761,16 @@ export namespace ListTagsForStreamInput {
 export interface ListTagsForStreamOutput {
   __type?: "ListTagsForStreamOutput";
   /**
+   * <p>A map of tag keys and values associated with the specified stream.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>If you specify this parameter and the result of a <code>ListTags</code> call is
    *             truncated, the response includes a token that you can use in the next request to fetch
    *             the next set of tags.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A map of tag keys and values associated with the specified stream.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace ListTagsForStreamOutput {
@@ -819,7 +823,7 @@ export namespace ResourceEndpointListItem {
 }
 
 /**
- * <p>The stream is currently not available for this operation.</p>
+ * <p>The signaling channel is currently not available for this operation.</p>
  */
 export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
@@ -857,14 +861,6 @@ export namespace ResourceNotFoundException {
 export interface SingleMasterChannelEndpointConfiguration {
   __type?: "SingleMasterChannelEndpointConfiguration";
   /**
-   * <p>This property is used to determine the nature of communication over this
-   *                 <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this
-   *             API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns
-   *             an <code>HTTPS</code> endpoint.</p>
-   */
-  Protocols?: (ChannelProtocol | string)[];
-
-  /**
    * <p>This property is used to determine messaging permissions in this
    *                 <code>SINGLE_MASTER</code> signaling channel. If <code>MASTER</code> is specified,
    *             this API returns an endpoint that a client can use to receive offers from and send
@@ -873,6 +869,14 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             another <code>MASTER</code> client on this signaling channel. </p>
    */
   Role?: ChannelRole | string;
+
+  /**
+   * <p>This property is used to determine the nature of communication over this
+   *                 <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this
+   *             API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns
+   *             an <code>HTTPS</code> endpoint.</p>
+   */
+  Protocols?: (ChannelProtocol | string)[];
 }
 
 export namespace SingleMasterChannelEndpointConfiguration {
@@ -916,9 +920,9 @@ export enum Status {
 export interface StreamInfo {
   __type?: "StreamInfo";
   /**
-   * <p>A time stamp that indicates when the stream was created.</p>
+   * <p>The version of the stream.</p>
    */
-  CreationTime?: Date;
+  Version?: string;
 
   /**
    * <p>How long the stream retains data, in hours.</p>
@@ -926,9 +930,9 @@ export interface StreamInfo {
   DataRetentionInHours?: number;
 
   /**
-   * <p>The name of the device that is associated with the stream.</p>
+   * <p>The Amazon Resource Name (ARN) of the stream.</p>
    */
-  DeviceName?: string;
+  StreamARN?: string;
 
   /**
    * <p>The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams
@@ -937,9 +941,14 @@ export interface StreamInfo {
   KmsKeyId?: string;
 
   /**
-   * <p>The <code>MediaType</code> of the stream. </p>
+   * <p>The name of the device that is associated with the stream.</p>
    */
-  MediaType?: string;
+  DeviceName?: string;
+
+  /**
+   * <p>A time stamp that indicates when the stream was created.</p>
+   */
+  CreationTime?: Date;
 
   /**
    * <p>The status of the stream.</p>
@@ -947,19 +956,14 @@ export interface StreamInfo {
   Status?: Status | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * <p>The <code>MediaType</code> of the stream. </p>
    */
-  StreamARN?: string;
+  MediaType?: string;
 
   /**
    * <p>The name of the stream.</p>
    */
   StreamName?: string;
-
-  /**
-   * <p>The version of the stream.</p>
-   */
-  Version?: string;
 }
 
 export namespace StreamInfo {
@@ -978,15 +982,15 @@ export namespace StreamInfo {
 export interface StreamNameCondition {
   __type?: "StreamNameCondition";
   /**
+   * <p>A value to compare.</p>
+   */
+  ComparisonValue?: string;
+
+  /**
    * <p>A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code>
    *             operator, which finds streams whose names start with a given prefix.</p>
    */
   ComparisonOperator?: ComparisonOperator | string;
-
-  /**
-   * <p>A value to compare.</p>
-   */
-  ComparisonValue?: string;
 }
 
 export namespace StreamNameCondition {
@@ -1022,15 +1026,16 @@ export namespace Tag {
 export interface TagResourceInput {
   __type?: "TagResourceInput";
   /**
-   * <p>The ARN of the signaling channel to which you want to add tags.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>A list of tags to associate with the specified signaling channel. Each tag is a
    *             key-value pair.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add
+   *             tags.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace TagResourceInput {
@@ -1072,10 +1077,10 @@ export namespace TagsPerResourceExceededLimitException {
 export interface TagStreamInput {
   __type?: "TagStreamInput";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags
-   *             to.</p>
+   * <p>A list of tags to associate with the specified stream. Each tag is a key-value pair
+   *             (the value is optional).</p>
    */
-  StreamARN?: string;
+  Tags: { [key: string]: string } | undefined;
 
   /**
    * <p>The name of the stream that you want to add the tag or tags to.</p>
@@ -1083,10 +1088,10 @@ export interface TagStreamInput {
   StreamName?: string;
 
   /**
-   * <p>A list of tags to associate with the specified stream. Each tag is a key-value pair
-   *             (the value is optional).</p>
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags
+   *             to.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  StreamARN?: string;
 }
 
 export namespace TagStreamInput {
@@ -1110,14 +1115,15 @@ export namespace TagStreamOutput {
 export interface UntagResourceInput {
   __type?: "UntagResourceInput";
   /**
-   * <p>The ARN of the signaling channel from which you want to remove tags.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>A list of the keys of the tags that you want to remove.</p>
    */
   TagKeyList: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove
+   *             tags.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace UntagResourceInput {
@@ -1185,17 +1191,6 @@ export interface UpdateDataRetentionInput {
   CurrentVersion: string | undefined;
 
   /**
-   * <p>The retention period, in hours. The value you specify replaces the current value.
-   *             The maximum value for this parameter is 87600 (ten years).</p>
-   */
-  DataRetentionChangeInHours: number | undefined;
-
-  /**
-   * <p>Indicates whether you want to increase or decrease the retention period.</p>
-   */
-  Operation: UpdateDataRetentionOperation | string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the stream whose retention period you want to
    *             change.</p>
    */
@@ -1205,6 +1200,17 @@ export interface UpdateDataRetentionInput {
    * <p>The name of the stream whose retention period you want to change.</p>
    */
   StreamName?: string;
+
+  /**
+   * <p>Indicates whether you want to increase or decrease the retention period.</p>
+   */
+  Operation: UpdateDataRetentionOperation | string | undefined;
+
+  /**
+   * <p>The retention period, in hours. The value you specify replaces the current value.
+   *             The maximum value for this parameter is 87600 (ten years).</p>
+   */
+  DataRetentionChangeInHours: number | undefined;
 }
 
 export namespace UpdateDataRetentionInput {
@@ -1233,7 +1239,8 @@ export namespace UpdateDataRetentionOutput {
 export interface UpdateSignalingChannelInput {
   __type?: "UpdateSignalingChannelInput";
   /**
-   * <p>The ARN of the signaling channel that you want to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
+   *             update.</p>
    */
   ChannelARN: string | undefined;
 
@@ -1270,11 +1277,6 @@ export namespace UpdateSignalingChannelOutput {
 export interface UpdateStreamInput {
   __type?: "UpdateStreamInput";
   /**
-   * <p>The version of the stream whose metadata you want to update.</p>
-   */
-  CurrentVersion: string | undefined;
-
-  /**
    * <p>The name of the device that is writing to the stream. </p>
    *         <note>
    *             <p> In the current implementation, Kinesis Video Streams does not use this name.
@@ -1282,6 +1284,18 @@ export interface UpdateStreamInput {
    *         </note>
    */
   DeviceName?: string;
+
+  /**
+   * <p>The name of the stream whose metadata you want to update.</p>
+   *         <p>The stream name is an identifier for the stream, and must be unique for each
+   *             account and region.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The ARN of the stream whose metadata you want to update.</p>
+   */
+  StreamARN?: string;
 
   /**
    * <p>The stream's media type. Use <code>MediaType</code> to specify the type of content
@@ -1296,16 +1310,9 @@ export interface UpdateStreamInput {
   MediaType?: string;
 
   /**
-   * <p>The ARN of the stream whose metadata you want to update.</p>
+   * <p>The version of the stream whose metadata you want to update.</p>
    */
-  StreamARN?: string;
-
-  /**
-   * <p>The name of the stream whose metadata you want to update.</p>
-   *         <p>The stream name is an identifier for the stream, and must be unique for each
-   *             account and region.</p>
-   */
-  StreamName?: string;
+  CurrentVersion: string | undefined;
 }
 
 export namespace UpdateStreamInput {

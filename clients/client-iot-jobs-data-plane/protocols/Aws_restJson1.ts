@@ -43,15 +43,6 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -61,9 +52,18 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
+  if (input.jobId !== undefined) {
+    const labelValue: string = input.jobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobId.");
+  }
   const query: any = {
-    ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber.toString() }),
     ...(input.includeJobDocument !== undefined && { includeJobDocument: input.includeJobDocument.toString() }),
+    ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

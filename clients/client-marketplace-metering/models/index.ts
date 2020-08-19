@@ -265,28 +265,6 @@ export namespace InvalidUsageDimensionException {
 export interface MeterUsageRequest {
   __type?: "MeterUsageRequest";
   /**
-   * <p>Checks whether you have the permissions required for the action, but does not make
-   *             the request. If you have the permissions, the request returns DryRunOperation;
-   *             otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not
-   *             specified.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
-   *             code should be the same as the one used during the publishing of a new
-   *             product.</p>
-   */
-  ProductCode: string | undefined;
-
-  /**
-   * <p>Timestamp, in UTC, for which the usage is being reported. Your application can
-   *             meter usage for up to one hour in the past. Make sure the timestamp value is not before
-   *             the start of the software usage.</p>
-   */
-  Timestamp: Date | undefined;
-
-  /**
    * <p>It will be one of the fcp dimension name provided during the publishing of the
    *             product.</p>
    */
@@ -297,6 +275,28 @@ export interface MeterUsageRequest {
    *             specified.</p>
    */
   UsageQuantity?: number;
+
+  /**
+   * <p>Timestamp, in UTC, for which the usage is being reported. Your application can
+   *             meter usage for up to one hour in the past. Make sure the timestamp value is not before
+   *             the start of the software usage.</p>
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
+   *             code should be the same as the one used during the publishing of a new
+   *             product.</p>
+   */
+  ProductCode: string | undefined;
+
+  /**
+   * <p>Checks whether you have the permissions required for the action, but does not make
+   *             the request. If you have the permissions, the request returns DryRunOperation;
+   *             otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not
+   *             specified.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace MeterUsageRequest {
@@ -323,7 +323,7 @@ export namespace MeterUsageResult {
 
 /**
  * <p>AWS Marketplace does not support metering usage from the underlying platform.
- *             Currently, only Amazon ECS is supported.</p>
+ *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
  */
 export interface PlatformNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "PlatformNotSupportedException";
@@ -341,6 +341,11 @@ export namespace PlatformNotSupportedException {
 export interface RegisterUsageRequest {
   __type?: "RegisterUsageRequest";
   /**
+   * <p>Public Key Version provided by AWS Marketplace</p>
+   */
+  PublicKeyVersion: number | undefined;
+
+  /**
    * <p>(Optional) To scope down the registration to a specific running software instance
    *             and guard against replay attacks.</p>
    */
@@ -352,11 +357,6 @@ export interface RegisterUsageRequest {
    *             product.</p>
    */
   ProductCode: string | undefined;
-
-  /**
-   * <p>Public Key Version provided by AWS Marketplace</p>
-   */
-  PublicKeyVersion: number | undefined;
 }
 
 export namespace RegisterUsageRequest {
@@ -413,18 +413,18 @@ export namespace ResolveCustomerRequest {
 export interface ResolveCustomerResult {
   __type?: "ResolveCustomerResult";
   /**
-   * <p>The CustomerIdentifier is used to identify an individual customer in your
-   *             application. Calls to BatchMeterUsage require CustomerIdentifiers for each
-   *             UsageRecord.</p>
-   */
-  CustomerIdentifier?: string;
-
-  /**
    * <p>The product code is returned to confirm that the buyer is registering for your
    *             product. Subsequent BatchMeterUsage calls should be made using this product
    *             code.</p>
    */
   ProductCode?: string;
+
+  /**
+   * <p>The CustomerIdentifier is used to identify an individual customer in your
+   *             application. Calls to BatchMeterUsage require CustomerIdentifiers for each
+   *             UsageRecord.</p>
+   */
+  CustomerIdentifier?: string;
 }
 
 export namespace ResolveCustomerResult {
@@ -475,6 +475,19 @@ export namespace TimestampOutOfBoundsException {
 export interface UsageRecord {
   __type?: "UsageRecord";
   /**
+   * <p>Timestamp, in UTC, for which the usage is being reported.</p>
+   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
+   *             timestamp value is not before the start of the software usage.</p>
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>The quantity of usage consumed by the customer for the given dimension and time.
+   *             Defaults to <code>0</code> if not specified.</p>
+   */
+  Quantity?: number;
+
+  /**
    * <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and
    *             represents an individual buyer in your application.</p>
    */
@@ -486,19 +499,6 @@ export interface UsageRecord {
    *             application.</p>
    */
   Dimension: string | undefined;
-
-  /**
-   * <p>The quantity of usage consumed by the customer for the given dimension and time.
-   *             Defaults to <code>0</code> if not specified.</p>
-   */
-  Quantity?: number;
-
-  /**
-   * <p>Timestamp, in UTC, for which the usage is being reported.</p>
-   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
-   *             timestamp value is not before the start of the software usage.</p>
-   */
-  Timestamp: Date | undefined;
 }
 
 export namespace UsageRecord {
@@ -514,6 +514,11 @@ export namespace UsageRecord {
  */
 export interface UsageRecordResult {
   __type?: "UsageRecordResult";
+  /**
+   * <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
+   */
+  UsageRecord?: UsageRecord;
+
   /**
    * <p>The MeteringRecordId is a unique identifier for this metering event.</p>
    */
@@ -544,11 +549,6 @@ export interface UsageRecordResult {
    *          </ul>
    */
   Status?: UsageRecordResultStatus | string;
-
-  /**
-   * <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
-   */
-  UsageRecord?: UsageRecord;
 }
 
 export namespace UsageRecordResult {

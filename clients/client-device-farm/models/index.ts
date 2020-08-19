@@ -7,10 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccountSettings {
   __type?: "AccountSettings";
   /**
-   * <p>The AWS account number specified in the <code>AccountSettings</code>
-   *             container.</p>
+   * <p>The maximum number of minutes a test run executes before it times out.</p>
    */
-  awsAccountNumber?: string;
+  maxJobTimeoutMinutes?: number;
 
   /**
    * <p>The default number of minutes (at the account level) a test run executes before it times out. The
@@ -19,17 +18,29 @@ export interface AccountSettings {
   defaultJobTimeoutMinutes?: number;
 
   /**
-   * <p>The maximum number of minutes a test run executes before it times out.</p>
-   */
-  maxJobTimeoutMinutes?: number;
-
-  /**
    * <p>The maximum number of device slots that the AWS account can purchase. Each maximum
    *             is expressed as an <code>offering-id:number</code> pair, where the
    *                 <code>offering-id</code> represents one of the IDs returned by the
    *                 <code>ListOfferings</code> command.</p>
    */
   maxSlots?: { [key: string]: number };
+
+  /**
+   * <p>The AWS account number specified in the <code>AccountSettings</code>
+   *             container.</p>
+   */
+  awsAccountNumber?: string;
+
+  /**
+   * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
+   */
+  unmeteredDevices?: { [key: string]: number };
+
+  /**
+   * <p>Returns the unmetered remote access devices you have purchased or want to
+   *             purchase.</p>
+   */
+  unmeteredRemoteAccessDevices?: { [key: string]: number };
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -43,17 +54,6 @@ export interface AccountSettings {
    * <p>Information about an AWS account's usage of free trial device minutes.</p>
    */
   trialMinutes?: TrialMinutes;
-
-  /**
-   * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
-   */
-  unmeteredDevices?: { [key: string]: number };
-
-  /**
-   * <p>Returns the unmetered remote access devices you have purchased or want to
-   *             purchase.</p>
-   */
-  unmeteredRemoteAccessDevices?: { [key: string]: number };
 }
 
 export namespace AccountSettings {
@@ -92,11 +92,6 @@ export interface Artifact {
    * <p>The artifact's ARN.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The artifact's file extension.</p>
-   */
-  extension?: string;
 
   /**
    * <p>The artifact's name.</p>
@@ -200,6 +195,11 @@ export interface Artifact {
    *             file.</p>
    */
   url?: string;
+
+  /**
+   * <p>The artifact's file extension.</p>
+   */
+  extension?: string;
 }
 
 export namespace Artifact {
@@ -273,9 +273,29 @@ export namespace CannotDeleteException {
 export interface Counters {
   __type?: "Counters";
   /**
+   * <p>The total number of entities.</p>
+   */
+  total?: number;
+
+  /**
+   * <p>The number of stopped entities.</p>
+   */
+  stopped?: number;
+
+  /**
+   * <p>The number of skipped entities.</p>
+   */
+  skipped?: number;
+
+  /**
    * <p>The number of errored entities.</p>
    */
   errored?: number;
+
+  /**
+   * <p>The number of warned entities.</p>
+   */
+  warned?: number;
 
   /**
    * <p>The number of failed entities.</p>
@@ -286,26 +306,6 @@ export interface Counters {
    * <p>The number of passed entities.</p>
    */
   passed?: number;
-
-  /**
-   * <p>The number of skipped entities.</p>
-   */
-  skipped?: number;
-
-  /**
-   * <p>The number of stopped entities.</p>
-   */
-  stopped?: number;
-
-  /**
-   * <p>The total number of entities.</p>
-   */
-  total?: number;
-
-  /**
-   * <p>The number of warned entities.</p>
-   */
-  warned?: number;
 }
 
 export namespace Counters {
@@ -327,15 +327,15 @@ export interface CPU {
   architecture?: string;
 
   /**
+   * <p>The CPU's frequency.</p>
+   */
+  frequency?: string;
+
+  /**
    * <p>The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2
    *             GHz CPU is expressed as 1200000000.</p>
    */
   clock?: number;
-
-  /**
-   * <p>The CPU's frequency.</p>
-   */
-  frequency?: string;
 }
 
 export namespace CPU {
@@ -350,6 +350,16 @@ export namespace CPU {
  */
 export interface CreateDevicePoolRequest {
   __type?: "CreateDevicePoolRequest";
+  /**
+   * <p>The device pool's rules.</p>
+   */
+  rules: Rule[] | undefined;
+
+  /**
+   * <p>The device pool's name.</p>
+   */
+  name: string | undefined;
+
   /**
    * <p>The device pool's description.</p>
    */
@@ -366,19 +376,9 @@ export interface CreateDevicePoolRequest {
   maxDevices?: number;
 
   /**
-   * <p>The device pool's name.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The ARN of the project for the device pool.</p>
    */
   projectArn: string | undefined;
-
-  /**
-   * <p>The device pool's rules.</p>
-   */
-  rules: Rule[] | undefined;
 }
 
 export namespace CreateDevicePoolRequest {
@@ -409,9 +409,26 @@ export namespace CreateDevicePoolResult {
 export interface CreateInstanceProfileRequest {
   __type?: "CreateInstanceProfileRequest";
   /**
+   * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
+   *                 <code>false</code> for private devices.</p>
+   */
+  packageCleanup?: boolean;
+
+  /**
    * <p>The description of your instance profile.</p>
    */
   description?: string;
+
+  /**
+   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
+   *                 <code>true</code>.</p>
+   */
+  rebootAfterUse?: boolean;
+
+  /**
+   * <p>The name of your instance profile.</p>
+   */
+  name: string | undefined;
 
   /**
    * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
@@ -420,23 +437,6 @@ export interface CreateInstanceProfileRequest {
    *             <code>true</code>.</p>
    */
   excludeAppPackagesFromCleanup?: string[];
-
-  /**
-   * <p>The name of your instance profile.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
-   *                 <code>false</code> for private devices.</p>
-   */
-  packageCleanup?: boolean;
-
-  /**
-   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
-   *                 <code>true</code>.</p>
-   */
-  rebootAfterUse?: boolean;
 }
 
 export namespace CreateInstanceProfileRequest {
@@ -464,9 +464,10 @@ export namespace CreateInstanceProfileResult {
 export interface CreateNetworkProfileRequest {
   __type?: "CreateNetworkProfileRequest";
   /**
-   * <p>The description of the network profile.</p>
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
    */
-  description?: string;
+  downlinkDelayMs?: number;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
@@ -475,37 +476,30 @@ export interface CreateNetworkProfileRequest {
   downlinkBandwidthBits?: number;
 
   /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
-   */
-  downlinkDelayMs?: number;
-
-  /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
-   */
-  downlinkJitterMs?: number;
-
-  /**
    * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
    */
   downlinkLossPercent?: number;
 
   /**
-   * <p>The name for the new network profile.</p>
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
    */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a
-   *             network profile.</p>
-   */
-  projectArn: string | undefined;
+  uplinkDelayMs?: number;
 
   /**
    * <p>The type of network profile to create. Valid values are listed here.</p>
    */
   type?: NetworkProfileType | string;
+
+  /**
+   * <p>The description of the network profile.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name for the new network profile.</p>
+   */
+  name: string | undefined;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
@@ -514,10 +508,10 @@ export interface CreateNetworkProfileRequest {
   uplinkBandwidthBits?: number;
 
   /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
+   * <p>Time variation in the delay of received packets in milliseconds as an integer from
+   *             0 to 2000.</p>
    */
-  uplinkDelayMs?: number;
+  downlinkJitterMs?: number;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
@@ -530,6 +524,12 @@ export interface CreateNetworkProfileRequest {
    *             percent.</p>
    */
   uplinkLossPercent?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a
+   *             network profile.</p>
+   */
+  projectArn: string | undefined;
 }
 
 export namespace CreateNetworkProfileRequest {
@@ -628,6 +628,17 @@ export namespace CreateRemoteAccessSessionConfiguration {
 export interface CreateRemoteAccessSessionRequest {
   __type?: "CreateRemoteAccessSessionRequest";
   /**
+   * <p>The configuration information for the remote access session request.</p>
+   */
+  configuration?: CreateRemoteAccessSessionConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the app to be recorded in the remote access
+   *             session.</p>
+   */
+  remoteRecordAppArn?: string;
+
+  /**
    * <p>Unique identifier for the client. If you want access to multiple devices on the same client, you should
    *             pass the same <code>clientId</code> value in each call to <code>CreateRemoteAccessSession</code>. This
    *             identifier is required only if <code>remoteDebugEnabled</code> is set to <code>true</code>.</p>
@@ -637,20 +648,17 @@ export interface CreateRemoteAccessSessionRequest {
   clientId?: string;
 
   /**
-   * <p>The configuration information for the remote access session request.</p>
+   * <p>The name of the remote access session to create.</p>
    */
-  configuration?: CreateRemoteAccessSessionConfiguration;
+  name?: string;
 
   /**
-   * <p>The ARN of the device for which you want to create a remote access session.</p>
+   * <p>Set to <code>true</code> if you want to access devices remotely for debugging in
+   *             your remote access session.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
    */
-  deviceArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device instance for which you want to create a
-   *             remote access session.</p>
-   */
-  instanceArn?: string;
+  remoteDebugEnabled?: boolean;
 
   /**
    * <p>The interaction mode of the remote access session. Valid values are:</p>
@@ -674,35 +682,19 @@ export interface CreateRemoteAccessSessionRequest {
   interactionMode?: InteractionMode | string;
 
   /**
-   * <p>The name of the remote access session to create.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a remote
-   *             access session.</p>
-   */
-  projectArn: string | undefined;
-
-  /**
-   * <p>Set to <code>true</code> if you want to access devices remotely for debugging in
-   *             your remote access session.</p>
+   * <p>Ignored. The public key of the <code>ssh</code> key pair you want to use for connecting to remote
+   *             devices in your remote debugging session. This key is required only if <code>remoteDebugEnabled</code> is
+   *             set to <code>true</code>.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
    *                 longer supported</a>.</p>
    */
-  remoteDebugEnabled?: boolean;
+  sshPublicKey?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the app to be recorded in the remote access
-   *             session.</p>
+   * <p>The Amazon Resource Name (ARN) of the device instance for which you want to create a
+   *             remote access session.</p>
    */
-  remoteRecordAppArn?: string;
-
-  /**
-   * <p>Set to <code>true</code> to enable remote recording for the remote access
-   *             session.</p>
-   */
-  remoteRecordEnabled?: boolean;
+  instanceArn?: string;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -713,13 +705,21 @@ export interface CreateRemoteAccessSessionRequest {
   skipAppResign?: boolean;
 
   /**
-   * <p>Ignored. The public key of the <code>ssh</code> key pair you want to use for connecting to remote
-   *             devices in your remote debugging session. This key is required only if <code>remoteDebugEnabled</code> is
-   *             set to <code>true</code>.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a remote
+   *             access session.</p>
    */
-  sshPublicKey?: string;
+  projectArn: string | undefined;
+
+  /**
+   * <p>The ARN of the device for which you want to create a remote access session.</p>
+   */
+  deviceArn: string | undefined;
+
+  /**
+   * <p>Set to <code>true</code> to enable remote recording for the remote access
+   *             session.</p>
+   */
+  remoteRecordEnabled?: boolean;
 }
 
 export namespace CreateRemoteAccessSessionRequest {
@@ -752,14 +752,14 @@ export namespace CreateRemoteAccessSessionResult {
 export interface CreateTestGridProjectRequest {
   __type?: "CreateTestGridProjectRequest";
   /**
-   * <p>Human-readable description of the project.</p>
-   */
-  description?: string;
-
-  /**
    * <p>Human-readable name of the Selenium testing project.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>Human-readable description of the project.</p>
+   */
+  description?: string;
 }
 
 export namespace CreateTestGridProjectRequest {
@@ -832,9 +832,9 @@ export namespace CreateTestGridUrlResult {
 export interface CreateUploadRequest {
   __type?: "CreateUploadRequest";
   /**
-   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
+   * <p>The ARN of the project for the upload.</p>
    */
-  contentType?: string;
+  projectArn: string | undefined;
 
   /**
    * <p>The upload's file name. The name should not contain any forward slashes (<code>/</code>). If you are
@@ -845,9 +845,9 @@ export interface CreateUploadRequest {
   name: string | undefined;
 
   /**
-   * <p>The ARN of the project for the upload.</p>
+   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
    */
-  projectArn: string | undefined;
+  contentType?: string;
 
   /**
    * <p>The upload's upload type.</p>
@@ -984,6 +984,11 @@ export namespace CreateUploadResult {
 export interface CreateVPCEConfigurationRequest {
   __type?: "CreateVPCEConfigurationRequest";
   /**
+   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
+   */
+  vpceServiceName: string | undefined;
+
+  /**
    * <p>The DNS name of the service running in your VPC that you want Device Farm to
    *             test.</p>
    */
@@ -999,11 +1004,6 @@ export interface CreateVPCEConfigurationRequest {
    *             configurations more easily.</p>
    */
   vpceConfigurationName: string | undefined;
-
-  /**
-   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
-   */
-  vpceServiceName: string | undefined;
 }
 
 export namespace CreateVPCEConfigurationRequest {
@@ -1043,6 +1043,12 @@ export enum CurrencyCode {
 export interface CustomerArtifactPaths {
   __type?: "CustomerArtifactPaths";
   /**
+   * <p>Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests
+   *             are pulled from.</p>
+   */
+  iosPaths?: string[];
+
+  /**
    * <p>Comma-separated list of paths on the Android device where the artifacts generated by the customer's
    *             tests are pulled from.</p>
    */
@@ -1053,12 +1059,6 @@ export interface CustomerArtifactPaths {
    *             customer's tests are pulled from.</p>
    */
   deviceHostPaths?: string[];
-
-  /**
-   * <p>Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests
-   *             are pulled from.</p>
-   */
-  iosPaths?: string[];
 }
 
 export namespace CustomerArtifactPaths {
@@ -1342,34 +1342,46 @@ export namespace DeleteVPCEConfigurationResult {
 export interface Device {
   __type?: "Device";
   /**
+   * <p>The device's platform.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>ANDROID</p>
+   *             </li>
+   *             <li>
+   *                 <p>IOS</p>
+   *             </li>
+   *          </ul>
+   */
+  platform?: DevicePlatform | string;
+
+  /**
+   * <p>The device's model name.</p>
+   */
+  model?: string;
+
+  /**
    * <p>The device's ARN.</p>
    */
   arn?: string;
 
   /**
-   * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
+   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the
+   *             device.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
    */
-  availability?: DeviceAvailability | string;
+  remoteDebugEnabled?: boolean;
 
   /**
-   * <p>The device's carrier.</p>
+   * <p>The device's display name.</p>
    */
-  carrier?: string;
+  name?: string;
 
   /**
-   * <p>Information about the device's CPU.</p>
+   * <p>The device's manufacturer name.</p>
    */
-  cpu?: CPU;
-
-  /**
-   * <p>The name of the fleet to which this device belongs.</p>
-   */
-  fleetName?: string;
-
-  /**
-   * <p>The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.</p>
-   */
-  fleetType?: string;
+  manufacturer?: string;
 
   /**
    * <p>The device's form factor.</p>
@@ -1386,24 +1398,9 @@ export interface Device {
   formFactor?: DeviceFormFactor | string;
 
   /**
-   * <p>The device's heap size, expressed in bytes.</p>
+   * <p>The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.</p>
    */
-  heapSize?: number;
-
-  /**
-   * <p>The device's image name.</p>
-   */
-  image?: string;
-
-  /**
-   * <p>The instances that belong to this device.</p>
-   */
-  instances?: DeviceInstance[];
-
-  /**
-   * <p>The device's manufacturer name.</p>
-   */
-  manufacturer?: string;
+  fleetType?: string;
 
   /**
    * <p>The device's total memory size, expressed in bytes.</p>
@@ -1411,9 +1408,14 @@ export interface Device {
   memory?: number;
 
   /**
-   * <p>The device's model name.</p>
+   * <p>The device's carrier.</p>
    */
-  model?: string;
+  carrier?: string;
+
+  /**
+   * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
+   */
+  availability?: DeviceAvailability | string;
 
   /**
    * <p>The device's model ID.</p>
@@ -1421,28 +1423,29 @@ export interface Device {
   modelId?: string;
 
   /**
-   * <p>The device's display name.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The device's operating system type.</p>
    */
   os?: string;
 
   /**
-   * <p>The device's platform.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>ANDROID</p>
-   *             </li>
-   *             <li>
-   *                 <p>IOS</p>
-   *             </li>
-   *          </ul>
+   * <p>The device's heap size, expressed in bytes.</p>
    */
-  platform?: DevicePlatform | string;
+  heapSize?: number;
+
+  /**
+   * <p>The instances that belong to this device.</p>
+   */
+  instances?: DeviceInstance[];
+
+  /**
+   * <p>Information about the device's CPU.</p>
+   */
+  cpu?: CPU;
+
+  /**
+   * <p>The resolution of the device.</p>
+   */
+  resolution?: Resolution;
 
   /**
    * <p>The device's radio.</p>
@@ -1456,17 +1459,14 @@ export interface Device {
   remoteAccessEnabled?: boolean;
 
   /**
-   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the
-   *             device.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   * <p>The name of the fleet to which this device belongs.</p>
    */
-  remoteDebugEnabled?: boolean;
+  fleetName?: string;
 
   /**
-   * <p>The resolution of the device.</p>
+   * <p>The device's image name.</p>
    */
-  resolution?: Resolution;
+  image?: string;
 }
 
 export namespace Device {
@@ -1676,9 +1676,14 @@ export enum DeviceFormFactor {
 export interface DeviceInstance {
   __type?: "DeviceInstance";
   /**
-   * <p>The Amazon Resource Name (ARN) of the device instance.</p>
+   * <p>Unique device identifier for the device instance.</p>
    */
-  arn?: string;
+  udid?: string;
+
+  /**
+   * <p>The status of the device instance. Valid values are listed here.</p>
+   */
+  status?: InstanceStatus | string;
 
   /**
    * <p>The ARN of the device.</p>
@@ -1691,19 +1696,14 @@ export interface DeviceInstance {
   instanceProfile?: InstanceProfile;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the device instance.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>An array of strings that describe the device instance.</p>
    */
   labels?: string[];
-
-  /**
-   * <p>The status of the device instance. Valid values are listed here.</p>
-   */
-  status?: InstanceStatus | string;
-
-  /**
-   * <p>Unique device identifier for the device instance.</p>
-   */
-  udid?: string;
 }
 
 export namespace DeviceInstance {
@@ -1720,16 +1720,16 @@ export namespace DeviceInstance {
 export interface DeviceMinutes {
   __type?: "DeviceMinutes";
   /**
-   * <p>When specified, represents only the sum of metered minutes used by the resource to
-   *             run tests.</p>
-   */
-  metered?: number;
-
-  /**
    * <p>When specified, represents the total minutes used by the resource to run
    *             tests.</p>
    */
   total?: number;
+
+  /**
+   * <p>When specified, represents only the sum of metered minutes used by the resource to
+   *             run tests.</p>
+   */
+  metered?: number;
 
   /**
    * <p>When specified, represents only the sum of unmetered minutes used by the resource
@@ -1756,11 +1756,6 @@ export enum DevicePlatform {
 export interface DevicePool {
   __type?: "DevicePool";
   /**
-   * <p>The device pool's ARN.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The device pool's description.</p>
    */
   description?: string;
@@ -1781,11 +1776,6 @@ export interface DevicePool {
   name?: string;
 
   /**
-   * <p>Information about the device pool's rules.</p>
-   */
-  rules?: Rule[];
-
-  /**
    * <p>The device pool's type.</p>
    *         <p>Allowed values include:</p>
    *         <ul>
@@ -1800,6 +1790,16 @@ export interface DevicePool {
    *          </ul>
    */
   type?: DevicePoolType | string;
+
+  /**
+   * <p>Information about the device pool's rules.</p>
+   */
+  rules?: Rule[];
+
+  /**
+   * <p>The device pool's ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace DevicePool {
@@ -1815,6 +1815,11 @@ export namespace DevicePool {
 export interface DevicePoolCompatibilityResult {
   __type?: "DevicePoolCompatibilityResult";
   /**
+   * <p>Information about the compatibility.</p>
+   */
+  incompatibilityMessages?: IncompatibilityMessage[];
+
+  /**
    * <p>Whether the result was compatible with the device pool.</p>
    */
   compatible?: boolean;
@@ -1823,11 +1828,6 @@ export interface DevicePoolCompatibilityResult {
    * <p>The device (phone or tablet) to return information about.</p>
    */
   device?: Device;
-
-  /**
-   * <p>Information about the compatibility.</p>
-   */
-  incompatibilityMessages?: IncompatibilityMessage[];
 }
 
 export namespace DevicePoolCompatibilityResult {
@@ -1848,6 +1848,11 @@ export enum DevicePoolType {
  */
 export interface DeviceSelectionConfiguration {
   __type?: "DeviceSelectionConfiguration";
+  /**
+   * <p>The maximum number of devices to be included in a test run.</p>
+   */
+  maxDevices: number | undefined;
+
   /**
    * <p>Used to dynamically select a set of devices for a test run. A filter is made up of an
    *             attribute, an operator, and one or more values.</p>
@@ -1973,11 +1978,6 @@ export interface DeviceSelectionConfiguration {
    *          </ul>
    */
   filters: DeviceFilter[] | undefined;
-
-  /**
-   * <p>The maximum number of devices to be included in a test run.</p>
-   */
-  maxDevices: number | undefined;
 }
 
 export namespace DeviceSelectionConfiguration {
@@ -1999,15 +1999,15 @@ export interface DeviceSelectionResult {
   filters?: DeviceFilter[];
 
   /**
-   * <p>The number of devices that matched the device filter selection criteria.</p>
-   */
-  matchedDevicesCount?: number;
-
-  /**
    * <p>The maximum number of devices to be selected by a device filter and included in a test
    *             run.</p>
    */
   maxDevices?: number;
+
+  /**
+   * <p>The number of devices that matched the device filter selection criteria.</p>
+   */
+  matchedDevicesCount?: number;
 }
 
 export namespace DeviceSelectionResult {
@@ -2024,19 +2024,9 @@ export namespace DeviceSelectionResult {
 export interface ExecutionConfiguration {
   __type?: "ExecutionConfiguration";
   /**
-   * <p>True if account cleanup is enabled at the beginning of the test. Otherwise, false.</p>
-   */
-  accountsCleanup?: boolean;
-
-  /**
    * <p>True if app package cleanup is enabled at the beginning of the test. Otherwise, false.</p>
    */
   appPackagesCleanup?: boolean;
-
-  /**
-   * <p>The number of minutes a test run executes before it times out.</p>
-   */
-  jobTimeoutMinutes?: number;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -2045,6 +2035,16 @@ export interface ExecutionConfiguration {
    *                 Farm FAQs</i>.</p>
    */
   skipAppResign?: boolean;
+
+  /**
+   * <p>True if account cleanup is enabled at the beginning of the test. Otherwise, false.</p>
+   */
+  accountsCleanup?: boolean;
+
+  /**
+   * <p>The number of minutes a test run executes before it times out.</p>
+   */
+  jobTimeoutMinutes?: number;
 
   /**
    * <p>Set to true to enable video capture. Otherwise, set to false. The default is true.</p>
@@ -2156,24 +2156,9 @@ export namespace GetDeviceInstanceResult {
 export interface GetDevicePoolCompatibilityRequest {
   __type?: "GetDevicePoolCompatibilityRequest";
   /**
-   * <p>The ARN of the app that is associated with the specified device pool.</p>
-   */
-  appArn?: string;
-
-  /**
-   * <p>An object that contains information about the settings for a run.</p>
-   */
-  configuration?: ScheduleRunConfiguration;
-
-  /**
    * <p>The device pool's ARN.</p>
    */
   devicePoolArn: string | undefined;
-
-  /**
-   * <p>Information about the uploaded test to be run against the device pool.</p>
-   */
-  test?: ScheduleRunTest;
 
   /**
    * <p>The test type for the specified device pool.</p>
@@ -2237,6 +2222,21 @@ export interface GetDevicePoolCompatibilityRequest {
    *          </ul>
    */
   testType?: TestType | string;
+
+  /**
+   * <p>The ARN of the app that is associated with the specified device pool.</p>
+   */
+  appArn?: string;
+
+  /**
+   * <p>An object that contains information about the settings for a run.</p>
+   */
+  configuration?: ScheduleRunConfiguration;
+
+  /**
+   * <p>Information about the uploaded test to be run against the device pool.</p>
+   */
+  test?: ScheduleRunTest;
 }
 
 export namespace GetDevicePoolCompatibilityRequest {
@@ -2252,14 +2252,14 @@ export namespace GetDevicePoolCompatibilityRequest {
 export interface GetDevicePoolCompatibilityResult {
   __type?: "GetDevicePoolCompatibilityResult";
   /**
-   * <p>Information about compatible devices.</p>
-   */
-  compatibleDevices?: DevicePoolCompatibilityResult[];
-
-  /**
    * <p>Information about incompatible devices.</p>
    */
   incompatibleDevices?: DevicePoolCompatibilityResult[];
+
+  /**
+   * <p>Information about compatible devices.</p>
+   */
+  compatibleDevices?: DevicePoolCompatibilityResult[];
 }
 
 export namespace GetDevicePoolCompatibilityResult {
@@ -2463,14 +2463,14 @@ export namespace GetOfferingStatusRequest {
 export interface GetOfferingStatusResult {
   __type?: "GetOfferingStatusResult";
   /**
-   * <p>When specified, gets the offering status for the current period.</p>
-   */
-  current?: { [key: string]: OfferingStatus };
-
-  /**
    * <p>When specified, gets the offering status for the next period.</p>
    */
   nextPeriod?: { [key: string]: OfferingStatus };
+
+  /**
+   * <p>When specified, gets the offering status for the current period.</p>
+   */
+  current?: { [key: string]: OfferingStatus };
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -2667,11 +2667,6 @@ export namespace GetTestGridProjectResult {
 export interface GetTestGridSessionRequest {
   __type?: "GetTestGridSessionRequest";
   /**
-   * <p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>
-   */
-  projectArn?: string;
-
-  /**
    * <p>An ARN that uniquely identifies a <a>TestGridSession</a>.</p>
    */
   sessionArn?: string;
@@ -2680,6 +2675,11 @@ export interface GetTestGridSessionRequest {
    * <p>An ID associated with this session.</p>
    */
   sessionId?: string;
+
+  /**
+   * <p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>
+   */
+  projectArn?: string;
 }
 
 export namespace GetTestGridSessionRequest {
@@ -2833,11 +2833,6 @@ export namespace IdempotencyException {
 export interface IncompatibilityMessage {
   __type?: "IncompatibilityMessage";
   /**
-   * <p>A message about the incompatibility.</p>
-   */
-  message?: string;
-
-  /**
    * <p>The type of incompatibility.</p>
    *         <p>Allowed values include:</p>
    *         <ul>
@@ -2862,6 +2857,11 @@ export interface IncompatibilityMessage {
    *          </ul>
    */
   type?: DeviceAttribute | string;
+
+  /**
+   * <p>A message about the incompatibility.</p>
+   */
+  message?: string;
 }
 
 export namespace IncompatibilityMessage {
@@ -2923,27 +2923,20 @@ export namespace InstallToRemoteAccessSessionResult {
 export interface InstanceProfile {
   __type?: "InstanceProfile";
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   * <p>The name of the instance profile.</p>
    */
-  arn?: string;
+  name?: string;
+
+  /**
+   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
+   *                 <code>true</code>.</p>
+   */
+  rebootAfterUse?: boolean;
 
   /**
    * <p>The description of the instance profile.</p>
    */
   description?: string;
-
-  /**
-   * <p>An array of strings containing the list of app packages that should not be cleaned up from the device
-   *             after a test run completes.</p>
-   *         <p>The list of packages is considered only if you set <code>packageCleanup</code> to
-   *             <code>true</code>.</p>
-   */
-  excludeAppPackagesFromCleanup?: string[];
-
-  /**
-   * <p>The name of the instance profile.</p>
-   */
-  name?: string;
 
   /**
    * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
@@ -2952,10 +2945,17 @@ export interface InstanceProfile {
   packageCleanup?: boolean;
 
   /**
-   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
-   *                 <code>true</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
    */
-  rebootAfterUse?: boolean;
+  arn?: string;
+
+  /**
+   * <p>An array of strings containing the list of app packages that should not be cleaned up from the device
+   *             after a test run completes.</p>
+   *         <p>The list of packages is considered only if you set <code>packageCleanup</code> to
+   *             <code>true</code>.</p>
+   */
+  excludeAppPackagesFromCleanup?: string[];
 }
 
 export namespace InstanceProfile {
@@ -3017,120 +3017,6 @@ export namespace InvalidOperationException {
  */
 export interface Job {
   __type?: "Job";
-  /**
-   * <p>The job's ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The job's result counters.</p>
-   */
-  counters?: Counters;
-
-  /**
-   * <p>When the job was created.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>The device (phone or tablet).</p>
-   */
-  device?: Device;
-
-  /**
-   * <p>Represents the total (metered or unmetered) minutes used by the job.</p>
-   */
-  deviceMinutes?: DeviceMinutes;
-
-  /**
-   * <p>The ARN of the instance.</p>
-   */
-  instanceArn?: string;
-
-  /**
-   * <p>A message about the job's result.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The job's name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The job's result.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                 <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                 <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                 <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                 <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPED</p>
-   *             </li>
-   *          </ul>
-   */
-  result?: ExecutionResult | string;
-
-  /**
-   * <p>The job's start time.</p>
-   */
-  started?: Date;
-
-  /**
-   * <p>The job's status.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                 <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                 <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                 <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                 <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPING</p>
-   *             </li>
-   *          </ul>
-   */
-  status?: ExecutionStatus | string;
-
-  /**
-   * <p>The job's stop time.</p>
-   */
-  stopped?: Date;
-
   /**
    * <p>The job's type.</p>
    *         <p>Allowed values include the following:</p>
@@ -3195,14 +3081,128 @@ export interface Job {
   type?: TestType | string;
 
   /**
+   * <p>A message about the job's result.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Represents the total (metered or unmetered) minutes used by the job.</p>
+   */
+  deviceMinutes?: DeviceMinutes;
+
+  /**
    * <p>This value is set to true if video capture is enabled. Otherwise, it is set to false.</p>
    */
   videoCapture?: boolean;
 
   /**
+   * <p>The job's result counters.</p>
+   */
+  counters?: Counters;
+
+  /**
+   * <p>The job's start time.</p>
+   */
+  started?: Date;
+
+  /**
    * <p>The endpoint for streaming device video.</p>
    */
   videoEndpoint?: string;
+
+  /**
+   * <p>The job's result.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PASSED</p>
+   *             </li>
+   *             <li>
+   *                 <p>WARNED</p>
+   *             </li>
+   *             <li>
+   *                 <p>FAILED</p>
+   *             </li>
+   *             <li>
+   *                 <p>SKIPPED</p>
+   *             </li>
+   *             <li>
+   *                 <p>ERRORED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPED</p>
+   *             </li>
+   *          </ul>
+   */
+  result?: ExecutionResult | string;
+
+  /**
+   * <p>The job's name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>When the job was created.</p>
+   */
+  created?: Date;
+
+  /**
+   * <p>The device (phone or tablet).</p>
+   */
+  device?: Device;
+
+  /**
+   * <p>The job's ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The job's status.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_CONCURRENCY</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_DEVICE</p>
+   *             </li>
+   *             <li>
+   *                 <p>PROCESSING</p>
+   *             </li>
+   *             <li>
+   *                 <p>SCHEDULING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PREPARING</p>
+   *             </li>
+   *             <li>
+   *                 <p>RUNNING</p>
+   *             </li>
+   *             <li>
+   *                 <p>COMPLETED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPING</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: ExecutionStatus | string;
+
+  /**
+   * <p>The ARN of the instance.</p>
+   */
+  instanceArn?: string;
+
+  /**
+   * <p>The job's stop time.</p>
+   */
+  stopped?: Date;
 }
 
 export namespace Job {
@@ -3237,15 +3237,15 @@ export namespace LimitExceededException {
 export interface ListArtifactsRequest {
   __type?: "ListArtifactsRequest";
   /**
-   * <p>The run, job, suite, or test ARN.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The run, job, suite, or test ARN.</p>
+   */
+  arn: string | undefined;
 
   /**
    * <p>The artifacts' type.</p>
@@ -3278,16 +3278,16 @@ export namespace ListArtifactsRequest {
 export interface ListArtifactsResult {
   __type?: "ListArtifactsResult";
   /**
-   * <p>Information about the artifacts.</p>
-   */
-  artifacts?: Artifact[];
-
-  /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
    *             list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Information about the artifacts.</p>
+   */
+  artifacts?: Artifact[];
 }
 
 export namespace ListArtifactsResult {
@@ -3300,15 +3300,15 @@ export namespace ListArtifactsResult {
 export interface ListDeviceInstancesRequest {
   __type?: "ListDeviceInstancesRequest";
   /**
-   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListDeviceInstancesRequest {
@@ -3345,11 +3345,6 @@ export namespace ListDeviceInstancesResult {
 export interface ListDevicePoolsRequest {
   __type?: "ListDevicePoolsRequest";
   /**
-   * <p>The project ARN.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
@@ -3370,6 +3365,11 @@ export interface ListDevicePoolsRequest {
    *          </ul>
    */
   type?: DevicePoolType | string;
+
+  /**
+   * <p>The project ARN.</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListDevicePoolsRequest {
@@ -3410,9 +3410,10 @@ export namespace ListDevicePoolsResult {
 export interface ListDevicesRequest {
   __type?: "ListDevicesRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * <p>An identifier that was returned from the previous call to this operation, which can
+   *             be used to return the next set of items in the list.</p>
    */
-  arn?: string;
+  nextToken?: string;
 
   /**
    * <p>Used to select a set of devices. A filter is made up of an attribute, an operator, and
@@ -3510,10 +3511,9 @@ export interface ListDevicesRequest {
   filters?: DeviceFilter[];
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
    */
-  nextToken?: string;
+  arn?: string;
 }
 
 export namespace ListDevicesRequest {
@@ -3529,16 +3529,16 @@ export namespace ListDevicesRequest {
 export interface ListDevicesResult {
   __type?: "ListDevicesResult";
   /**
-   * <p>Information about the devices.</p>
-   */
-  devices?: Device[];
-
-  /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
    *             list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Information about the devices.</p>
+   */
+  devices?: Device[];
 }
 
 export namespace ListDevicesResult {
@@ -3551,15 +3551,15 @@ export namespace ListDevicesResult {
 export interface ListInstanceProfilesRequest {
   __type?: "ListInstanceProfilesRequest";
   /**
-   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListInstanceProfilesRequest {
@@ -3572,15 +3572,15 @@ export namespace ListInstanceProfilesRequest {
 export interface ListInstanceProfilesResult {
   __type?: "ListInstanceProfilesResult";
   /**
-   * <p>An object that contains information about your instance profiles.</p>
-   */
-  instanceProfiles?: InstanceProfile[];
-
-  /**
    * <p>An identifier that can be used in the next call to this operation to return the next
    *             set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An object that contains information about your instance profiles.</p>
+   */
+  instanceProfiles?: InstanceProfile[];
 }
 
 export namespace ListInstanceProfilesResult {
@@ -3648,15 +3648,15 @@ export interface ListNetworkProfilesRequest {
   arn: string | undefined;
 
   /**
+   * <p>The type of network profile to return information about. Valid values are listed here.</p>
+   */
+  type?: NetworkProfileType | string;
+
+  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The type of network profile to return information about. Valid values are listed here.</p>
-   */
-  type?: NetworkProfileType | string;
 }
 
 export namespace ListNetworkProfilesRequest {
@@ -3669,15 +3669,15 @@ export namespace ListNetworkProfilesRequest {
 export interface ListNetworkProfilesResult {
   __type?: "ListNetworkProfilesResult";
   /**
-   * <p>A list of the available network profiles.</p>
-   */
-  networkProfiles?: NetworkProfile[];
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of the available network profiles.</p>
+   */
+  networkProfiles?: NetworkProfile[];
 }
 
 export namespace ListNetworkProfilesResult {
@@ -3792,16 +3792,16 @@ export namespace ListOfferingTransactionsRequest {
 export interface ListOfferingTransactionsResult {
   __type?: "ListOfferingTransactionsResult";
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The audit log of subscriptions you have purchased and modified through AWS Device
    *             Farm.</p>
    */
   offeringTransactions?: OfferingTransaction[];
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can
+   *             be used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListOfferingTransactionsResult {
@@ -3843,16 +3843,16 @@ export namespace ListProjectsRequest {
 export interface ListProjectsResult {
   __type?: "ListProjectsResult";
   /**
+   * <p>Information about the projects.</p>
+   */
+  projects?: Project[];
+
+  /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
    *             list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Information about the projects.</p>
-   */
-  projects?: Project[];
 }
 
 export namespace ListProjectsResult {
@@ -3920,16 +3920,16 @@ export namespace ListRemoteAccessSessionsResult {
 export interface ListRunsRequest {
   __type?: "ListRunsRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to list
-   *             runs.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project for which you want to list
+   *             runs.</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListRunsRequest {
@@ -3945,16 +3945,16 @@ export namespace ListRunsRequest {
 export interface ListRunsResult {
   __type?: "ListRunsResult";
   /**
+   * <p>Information about the runs.</p>
+   */
+  runs?: Run[];
+
+  /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
    *             list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Information about the runs.</p>
-   */
-  runs?: Run[];
 }
 
 export namespace ListRunsResult {
@@ -4019,15 +4019,15 @@ export namespace ListSamplesResult {
 export interface ListSuitesRequest {
   __type?: "ListSuitesRequest";
   /**
-   * <p>The job's Amazon Resource Name (ARN).</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The job's Amazon Resource Name (ARN).</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListSuitesRequest {
@@ -4141,11 +4141,6 @@ export namespace ListTestGridProjectsResult {
 export interface ListTestGridSessionActionsRequest {
   __type?: "ListTestGridSessionActionsRequest";
   /**
-   * <p>The maximum number of sessions to return per response.</p>
-   */
-  maxResult?: number;
-
-  /**
    * <p>Pagination token.</p>
    */
   nextToken?: string;
@@ -4154,6 +4149,11 @@ export interface ListTestGridSessionActionsRequest {
    * <p>The ARN of the session to retrieve.</p>
    */
   sessionArn: string | undefined;
+
+  /**
+   * <p>The maximum number of sessions to return per response.</p>
+   */
+  maxResult?: number;
 }
 
 export namespace ListTestGridSessionActionsRequest {
@@ -4166,14 +4166,14 @@ export namespace ListTestGridSessionActionsRequest {
 export interface ListTestGridSessionActionsResult {
   __type?: "ListTestGridSessionActionsResult";
   /**
-   * <p>The action taken by the session.</p>
-   */
-  actions?: TestGridSessionAction[];
-
-  /**
    * <p>Pagination token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The action taken by the session.</p>
+   */
+  actions?: TestGridSessionAction[];
 }
 
 export namespace ListTestGridSessionActionsResult {
@@ -4191,14 +4191,14 @@ export interface ListTestGridSessionArtifactsRequest {
   maxResult?: number;
 
   /**
-   * <p>Pagination token.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The ARN of a <a>TestGridSession</a>. </p>
    */
   sessionArn: string | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>Limit results to a specified type of artifact.</p>
@@ -4217,14 +4217,14 @@ export namespace ListTestGridSessionArtifactsRequest {
 export interface ListTestGridSessionArtifactsResult {
   __type?: "ListTestGridSessionArtifactsResult";
   /**
-   * <p>A list of test grid session artifacts for a <a>TestGridSession</a>.</p>
-   */
-  artifacts?: TestGridSessionArtifact[];
-
-  /**
    * <p>Pagination token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of test grid session artifacts for a <a>TestGridSession</a>.</p>
+   */
+  artifacts?: TestGridSessionArtifact[];
 }
 
 export namespace ListTestGridSessionArtifactsResult {
@@ -4243,19 +4243,29 @@ export interface ListTestGridSessionsRequest {
   creationTimeAfter?: Date;
 
   /**
+   * <p>Return only sessions that ended before this time.</p>
+   */
+  endTimeBefore?: Date;
+
+  /**
+   * <p>Return only sessions in this state.</p>
+   */
+  status?: TestGridSessionStatus | string;
+
+  /**
    * <p>Return only  sessions created before this time.</p>
    */
   creationTimeBefore?: Date;
 
   /**
+   * <p>ARN of a <a>TestGridProject</a>.</p>
+   */
+  projectArn: string | undefined;
+
+  /**
    * <p>Return only sessions that ended after this time.</p>
    */
   endTimeAfter?: Date;
-
-  /**
-   * <p>Return only sessions that ended before this time.</p>
-   */
-  endTimeBefore?: Date;
 
   /**
    * <p>Return only this many results at a time.</p>
@@ -4266,16 +4276,6 @@ export interface ListTestGridSessionsRequest {
    * <p>Pagination token.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>ARN of a <a>TestGridProject</a>.</p>
-   */
-  projectArn: string | undefined;
-
-  /**
-   * <p>Return only sessions in this state.</p>
-   */
-  status?: TestGridSessionStatus | string;
 }
 
 export namespace ListTestGridSessionsRequest {
@@ -4311,15 +4311,15 @@ export namespace ListTestGridSessionsResult {
 export interface ListTestsRequest {
   __type?: "ListTestsRequest";
   /**
-   * <p>The test suite's Amazon Resource Name (ARN).</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The test suite's Amazon Resource Name (ARN).</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListTestsRequest {
@@ -4384,13 +4384,6 @@ export namespace ListUniqueProblemsRequest {
 export interface ListUniqueProblemsResult {
   __type?: "ListUniqueProblemsResult";
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the unique problems.</p>
    *         <p>Allowed values include:</p>
    *         <ul>
@@ -4418,6 +4411,13 @@ export interface ListUniqueProblemsResult {
    *          </ul>
    */
   uniqueProblems?: { [key: string]: UniqueProblem[] };
+
+  /**
+   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
+   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
+   *             list.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListUniqueProblemsResult {
@@ -4605,16 +4605,16 @@ export namespace ListVPCEConfigurationsRequest {
 export interface ListVPCEConfigurationsResult {
   __type?: "ListVPCEConfigurationsResult";
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *             used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>An array of <code>VPCEConfiguration</code> objects that contain information about your VPC endpoint
    *             configuration.</p>
    */
   vpceConfigurations?: VPCEConfiguration[];
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *             used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListVPCEConfigurationsResult {
@@ -4632,14 +4632,14 @@ export namespace ListVPCEConfigurationsResult {
 export interface Location {
   __type?: "Location";
   /**
-   * <p>The latitude.</p>
-   */
-  latitude: number | undefined;
-
-  /**
    * <p>The longitude.</p>
    */
   longitude: number | undefined;
+
+  /**
+   * <p>The latitude.</p>
+   */
+  latitude: number | undefined;
 }
 
 export namespace Location {
@@ -4678,9 +4678,21 @@ export namespace MonetaryAmount {
 export interface NetworkProfile {
   __type?: "NetworkProfile";
   /**
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
+   */
+  downlinkDelayMs?: number;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the network profile.</p>
    */
   arn?: string;
+
+  /**
+   * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
+   *             percent.</p>
+   */
+  uplinkLossPercent?: number;
 
   /**
    * <p>The description of the network profile.</p>
@@ -4691,46 +4703,7 @@ export interface NetworkProfile {
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    */
-  downlinkBandwidthBits?: number;
-
-  /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
-   */
-  downlinkDelayMs?: number;
-
-  /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
-   */
-  downlinkJitterMs?: number;
-
-  /**
-   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
-   */
-  downlinkLossPercent?: number;
-
-  /**
-   * <p>The name of the network profile.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The type of network profile. Valid values are listed here.</p>
-   */
-  type?: NetworkProfileType | string;
-
-  /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
-   */
   uplinkBandwidthBits?: number;
-
-  /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
-   */
-  uplinkDelayMs?: number;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
@@ -4739,10 +4712,37 @@ export interface NetworkProfile {
   uplinkJitterMs?: number;
 
   /**
-   * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
-   *             percent.</p>
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
    */
-  uplinkLossPercent?: number;
+  uplinkDelayMs?: number;
+
+  /**
+   * <p>The name of the network profile.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+   */
+  downlinkLossPercent?: number;
+
+  /**
+   * <p>The data throughput rate in bits per second, as an integer from 0 to
+   *             104857600.</p>
+   */
+  downlinkBandwidthBits?: number;
+
+  /**
+   * <p>The type of network profile. Valid values are listed here.</p>
+   */
+  type?: NetworkProfileType | string;
+
+  /**
+   * <p>Time variation in the delay of received packets in milliseconds as an integer from
+   *             0 to 2000.</p>
+   */
+  downlinkJitterMs?: number;
 }
 
 export namespace NetworkProfile {
@@ -4807,24 +4807,24 @@ export interface Offering {
   description?: string;
 
   /**
-   * <p>The ID that corresponds to a device offering.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The platform of the device (for example, <code>ANDROID</code> or <code>IOS</code>).</p>
    */
   platform?: DevicePlatform | string;
 
   /**
-   * <p>Specifies whether there are recurring charges for the offering.</p>
-   */
-  recurringCharges?: RecurringCharge[];
-
-  /**
    * <p>The type of offering (for example, <code>RECURRING</code>) for a device.</p>
    */
   type?: OfferingType | string;
+
+  /**
+   * <p>The ID that corresponds to a device offering.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>Specifies whether there are recurring charges for the offering.</p>
+   */
+  recurringCharges?: RecurringCharge[];
 }
 
 export namespace Offering {
@@ -4863,14 +4863,14 @@ export namespace OfferingPromotion {
 export interface OfferingStatus {
   __type?: "OfferingStatus";
   /**
-   * <p>The date on which the offering is effective.</p>
-   */
-  effectiveOn?: Date;
-
-  /**
    * <p>Represents the metadata of an offering status.</p>
    */
   offering?: Offering;
+
+  /**
+   * <p>The date on which the offering is effective.</p>
+   */
+  effectiveOn?: Date;
 
   /**
    * <p>The number of available devices in the offering.</p>
@@ -4896,6 +4896,16 @@ export namespace OfferingStatus {
 export interface OfferingTransaction {
   __type?: "OfferingTransaction";
   /**
+   * <p>The ID that corresponds to a device offering promotion.</p>
+   */
+  offeringPromotionId?: string;
+
+  /**
+   * <p>The transaction ID of the offering transaction.</p>
+   */
+  transactionId?: string;
+
+  /**
    * <p>The cost of an offering transaction.</p>
    */
   cost?: MonetaryAmount;
@@ -4906,19 +4916,9 @@ export interface OfferingTransaction {
   createdOn?: Date;
 
   /**
-   * <p>The ID that corresponds to a device offering promotion.</p>
-   */
-  offeringPromotionId?: string;
-
-  /**
    * <p>The status of an offering transaction.</p>
    */
   offeringStatus?: OfferingStatus;
-
-  /**
-   * <p>The transaction ID of the offering transaction.</p>
-   */
-  transactionId?: string;
 }
 
 export namespace OfferingTransaction {
@@ -4944,19 +4944,9 @@ export enum OfferingType {
 export interface Problem {
   __type?: "Problem";
   /**
-   * <p>Information about the associated device.</p>
+   * <p>Information about the associated run.</p>
    */
-  device?: Device;
-
-  /**
-   * <p>Information about the associated job.</p>
-   */
-  job?: ProblemDetail;
-
-  /**
-   * <p>A message about the problem's result.</p>
-   */
-  message?: string;
+  run?: ProblemDetail;
 
   /**
    * <p>The problem's result.</p>
@@ -4988,19 +4978,29 @@ export interface Problem {
   result?: ExecutionResult | string;
 
   /**
-   * <p>Information about the associated run.</p>
+   * <p>Information about the associated test.</p>
    */
-  run?: ProblemDetail;
+  test?: ProblemDetail;
+
+  /**
+   * <p>Information about the associated job.</p>
+   */
+  job?: ProblemDetail;
+
+  /**
+   * <p>Information about the associated device.</p>
+   */
+  device?: Device;
+
+  /**
+   * <p>A message about the problem's result.</p>
+   */
+  message?: string;
 
   /**
    * <p>Information about the associated suite.</p>
    */
   suite?: ProblemDetail;
-
-  /**
-   * <p>Information about the associated test.</p>
-   */
-  test?: ProblemDetail;
 }
 
 export namespace Problem {
@@ -5040,14 +5040,9 @@ export namespace ProblemDetail {
 export interface Project {
   __type?: "Project";
   /**
-   * <p>The project's ARN.</p>
+   * <p>The project's name.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>When the project was created.</p>
-   */
-  created?: Date;
+  name?: string;
 
   /**
    * <p>The default number of minutes (at the project level) a test run executes before it times out. The
@@ -5056,9 +5051,14 @@ export interface Project {
   defaultJobTimeoutMinutes?: number;
 
   /**
-   * <p>The project's name.</p>
+   * <p>When the project was created.</p>
    */
-  name?: string;
+  created?: Date;
+
+  /**
+   * <p>The project's ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace Project {
@@ -5074,11 +5074,6 @@ export namespace Project {
 export interface PurchaseOfferingRequest {
   __type?: "PurchaseOfferingRequest";
   /**
-   * <p>The ID of the offering.</p>
-   */
-  offeringId?: string;
-
-  /**
    * <p>The ID of the offering promotion to be applied to the purchase.</p>
    */
   offeringPromotionId?: string;
@@ -5087,6 +5082,11 @@ export interface PurchaseOfferingRequest {
    * <p>The number of device slots to purchase in an offering request.</p>
    */
   quantity?: number;
+
+  /**
+   * <p>The ID of the offering.</p>
+   */
+  offeringId?: string;
 }
 
 export namespace PurchaseOfferingRequest {
@@ -5131,14 +5131,14 @@ export interface Radios {
   gps?: boolean;
 
   /**
-   * <p>True if NFC is enabled at the beginning of the test. Otherwise, false.</p>
-   */
-  nfc?: boolean;
-
-  /**
    * <p>True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.</p>
    */
   wifi?: boolean;
+
+  /**
+   * <p>True if NFC is enabled at the beginning of the test. Otherwise, false.</p>
+   */
+  nfc?: boolean;
 }
 
 export namespace Radios {
@@ -5181,40 +5181,53 @@ export enum RecurringChargeFrequency {
 export interface RemoteAccessSession {
   __type?: "RemoteAccessSession";
   /**
-   * <p>The Amazon Resource Name (ARN) of the remote access session.</p>
+   * <p>The ARN for the app to be recorded in the remote access session.</p>
    */
-  arn?: string;
+  remoteRecordAppArn?: string;
 
   /**
-   * <p>The billing method of the remote access session. Possible values include <code>METERED</code> or
-   *                 <code>UNMETERED</code>. For more information about metered devices, see <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology">AWS Device Farm
-   *                 terminology</a>.</p>
+   * <p>The date and time the remote access session was started.</p>
    */
-  billingMethod?: BillingMethod | string;
+  started?: Date;
 
   /**
-   * <p>Unique identifier of your client for the remote access session. Only returned if
-   *             remote debugging is enabled for the remote access session.</p>
+   * <p>IP address of the EC2 host where you need to connect to remotely debug devices.
+   *             Only returned if remote debugging is enabled for the remote access session.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
    *                 longer supported</a>.</p>
    */
-  clientId?: string;
+  hostAddress?: string;
 
   /**
-   * <p>The date and time the remote access session was created.</p>
+   * <p>The name of the remote access session.</p>
    */
-  created?: Date;
+  name?: string;
 
   /**
-   * <p>The device (phone or tablet) used in the remote access session.</p>
+   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
+   *             devices, Device Farm always signs your apps again.</p>
+   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
+   *                 Farm FAQs</i>.</p>
    */
-  device?: Device;
+  skipAppResign?: boolean;
 
   /**
-   * <p>The number of minutes a device is used in a remote access session (including setup
-   *             and teardown minutes).</p>
+   * <p>The ARN of the instance.</p>
    */
-  deviceMinutes?: DeviceMinutes;
+  instanceArn?: string;
+
+  /**
+   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the remote
+   *             access session.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
+   */
+  remoteDebugEnabled?: boolean;
+
+  /**
+   * <p>A message about the remote access session.</p>
+   */
+  message?: string;
 
   /**
    * <p>Unique device identifier for the remote device. Only returned if remote debugging
@@ -5230,108 +5243,32 @@ export interface RemoteAccessSession {
   endpoint?: string;
 
   /**
-   * <p>IP address of the EC2 host where you need to connect to remotely debug devices.
-   *             Only returned if remote debugging is enabled for the remote access session.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the remote access session.</p>
    */
-  hostAddress?: string;
+  arn?: string;
 
   /**
-   * <p>The ARN of the instance.</p>
+   * <p>The date and time the remote access session was stopped.</p>
    */
-  instanceArn?: string;
+  stopped?: Date;
 
   /**
-   * <p>The interaction mode of the remote access session. Valid values are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>INTERACTIVE: You can interact with the iOS device by viewing, touching, and
-   *                     rotating the screen. You cannot run XCUITest framework-based tests in this
-   *                     mode.</p>
-   *             </li>
-   *             <li>
-   *                 <p>NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This
-   *                     mode has the fastest test execution speed. You can run XCUITest framework-based tests in this
-   *                     mode.</p>
-   *             </li>
-   *             <li>
-   *                 <p>VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest
-   *                     framework-based tests and watch the screen in this mode.</p>
-   *             </li>
-   *          </ul>
+   * <p>The date and time the remote access session was created.</p>
    */
-  interactionMode?: InteractionMode | string;
+  created?: Date;
 
   /**
-   * <p>A message about the remote access session.</p>
+   * <p>The number of minutes a device is used in a remote access session (including setup
+   *             and teardown minutes).</p>
    */
-  message?: string;
+  deviceMinutes?: DeviceMinutes;
 
   /**
-   * <p>The name of the remote access session.</p>
+   * <p>The billing method of the remote access session. Possible values include <code>METERED</code> or
+   *                 <code>UNMETERED</code>. For more information about metered devices, see <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology">AWS Device Farm
+   *                 terminology</a>.</p>
    */
-  name?: string;
-
-  /**
-   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the remote
-   *             access session.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
-   */
-  remoteDebugEnabled?: boolean;
-
-  /**
-   * <p>The ARN for the app to be recorded in the remote access session.</p>
-   */
-  remoteRecordAppArn?: string;
-
-  /**
-   * <p>This flag is set to <code>true</code> if remote recording is enabled for the remote
-   *             access session.</p>
-   */
-  remoteRecordEnabled?: boolean;
-
-  /**
-   * <p>The result of the remote access session. Can be any of the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING.</p>
-   *             </li>
-   *             <li>
-   *                 <p>PASSED.</p>
-   *             </li>
-   *             <li>
-   *                 <p>WARNED.</p>
-   *             </li>
-   *             <li>
-   *                 <p>FAILED.</p>
-   *             </li>
-   *             <li>
-   *                 <p>SKIPPED.</p>
-   *             </li>
-   *             <li>
-   *                 <p>ERRORED.</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPED.</p>
-   *             </li>
-   *          </ul>
-   */
-  result?: ExecutionResult | string;
-
-  /**
-   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
-   *             devices, Device Farm always signs your apps again.</p>
-   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
-   *                 Farm FAQs</i>.</p>
-   */
-  skipAppResign?: boolean;
-
-  /**
-   * <p>The date and time the remote access session was started.</p>
-   */
-  started?: Date;
+  billingMethod?: BillingMethod | string;
 
   /**
    * <p>The status of the remote access session. Can be any of the following:</p>
@@ -5368,9 +5305,72 @@ export interface RemoteAccessSession {
   status?: ExecutionStatus | string;
 
   /**
-   * <p>The date and time the remote access session was stopped.</p>
+   * <p>The device (phone or tablet) used in the remote access session.</p>
    */
-  stopped?: Date;
+  device?: Device;
+
+  /**
+   * <p>This flag is set to <code>true</code> if remote recording is enabled for the remote
+   *             access session.</p>
+   */
+  remoteRecordEnabled?: boolean;
+
+  /**
+   * <p>The result of the remote access session. Can be any of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING.</p>
+   *             </li>
+   *             <li>
+   *                 <p>PASSED.</p>
+   *             </li>
+   *             <li>
+   *                 <p>WARNED.</p>
+   *             </li>
+   *             <li>
+   *                 <p>FAILED.</p>
+   *             </li>
+   *             <li>
+   *                 <p>SKIPPED.</p>
+   *             </li>
+   *             <li>
+   *                 <p>ERRORED.</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPED.</p>
+   *             </li>
+   *          </ul>
+   */
+  result?: ExecutionResult | string;
+
+  /**
+   * <p>The interaction mode of the remote access session. Valid values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>INTERACTIVE: You can interact with the iOS device by viewing, touching, and
+   *                     rotating the screen. You cannot run XCUITest framework-based tests in this
+   *                     mode.</p>
+   *             </li>
+   *             <li>
+   *                 <p>NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This
+   *                     mode has the fastest test execution speed. You can run XCUITest framework-based tests in this
+   *                     mode.</p>
+   *             </li>
+   *             <li>
+   *                 <p>VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest
+   *                     framework-based tests and watch the screen in this mode.</p>
+   *             </li>
+   *          </ul>
+   */
+  interactionMode?: InteractionMode | string;
+
+  /**
+   * <p>Unique identifier of your client for the remote access session. Only returned if
+   *             remote debugging is enabled for the remote access session.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
+   */
+  clientId?: string;
 }
 
 export namespace RemoteAccessSession {
@@ -5386,14 +5386,14 @@ export namespace RemoteAccessSession {
 export interface RenewOfferingRequest {
   __type?: "RenewOfferingRequest";
   /**
-   * <p>The ID of a request to renew an offering.</p>
-   */
-  offeringId?: string;
-
-  /**
    * <p>The quantity requested in an offering renewal.</p>
    */
   quantity?: number;
+
+  /**
+   * <p>The ID of a request to renew an offering.</p>
+   */
+  offeringId?: string;
 }
 
 export namespace RenewOfferingRequest {
@@ -5428,14 +5428,14 @@ export namespace RenewOfferingResult {
 export interface Resolution {
   __type?: "Resolution";
   /**
-   * <p>The screen resolution's height, expressed in pixels.</p>
-   */
-  height?: number;
-
-  /**
    * <p>The screen resolution's width, expressed in pixels.</p>
    */
   width?: number;
+
+  /**
+   * <p>The screen resolution's height, expressed in pixels.</p>
+   */
+  height?: number;
 }
 
 export namespace Resolution {
@@ -5554,16 +5554,16 @@ export interface Rule {
   attribute?: DeviceAttribute | string;
 
   /**
+   * <p>The rule's value.</p>
+   */
+  value?: string;
+
+  /**
    * <p>Specifies how Device Farm compares the rule's attribute to the value. For the
    *             operators that are supported by each attribute, see the attribute
    *             descriptions.</p>
    */
   operator?: RuleOperator | string;
-
-  /**
-   * <p>The rule's value.</p>
-   */
-  value?: string;
 }
 
 export namespace Rule {
@@ -5591,35 +5591,9 @@ export enum RuleOperator {
 export interface Run {
   __type?: "Run";
   /**
-   * <p>An app to upload or that has been uploaded.</p>
+   * <p>The results of a device filter used to select the devices for a test run.</p>
    */
-  appUpload?: string;
-
-  /**
-   * <p>The run's ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>Specifies the billing method for a test run: <code>metered</code> or
-   *                 <code>unmetered</code>. If the parameter is not specified, the default value is
-   *                 <code>metered</code>.</p>
-   *         <note>
-   *             <p>If you have unmetered device slots, you must set this to <code>unmetered</code> to use them.
-   *                 Otherwise, the run is counted toward metered device minutes.</p>
-   *         </note>
-   */
-  billingMethod?: BillingMethod | string;
-
-  /**
-   * <p>The total number of completed jobs.</p>
-   */
-  completedJobs?: number;
-
-  /**
-   * <p>The run's result counters.</p>
-   */
-  counters?: Counters;
+  deviceSelectionResult?: DeviceSelectionResult;
 
   /**
    * <p>When the run was created.</p>
@@ -5632,50 +5606,14 @@ export interface Run {
   customerArtifactPaths?: CustomerArtifactPaths;
 
   /**
+   * <p>The run's ARN.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>Represents the total (metered or unmetered) minutes used by the test run.</p>
    */
   deviceMinutes?: DeviceMinutes;
-
-  /**
-   * <p>The ARN of the device pool for the run.</p>
-   */
-  devicePoolArn?: string;
-
-  /**
-   * <p>The results of a device filter used to select the devices for a test run.</p>
-   */
-  deviceSelectionResult?: DeviceSelectionResult;
-
-  /**
-   * <p>For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz
-   *             test should perform.</p>
-   */
-  eventCount?: number;
-
-  /**
-   * <p>The number of minutes the job executes before it times out.</p>
-   */
-  jobTimeoutMinutes?: number;
-
-  /**
-   * <p>Information about the locale that is used for the run.</p>
-   */
-  locale?: string;
-
-  /**
-   * <p>Information about the location that is used for the run.</p>
-   */
-  location?: Location;
-
-  /**
-   * <p>A message about the run's result.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The run's name.</p>
-   */
-  name?: string;
 
   /**
    * <p>The network profile being used for a test run.</p>
@@ -5683,119 +5621,14 @@ export interface Run {
   networkProfile?: NetworkProfile;
 
   /**
-   * <p>Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package.
-   *             If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points
-   *             to.</p>
+   * <p>The total number of completed jobs.</p>
    */
-  parsingResultUrl?: string;
+  completedJobs?: number;
 
   /**
-   * <p>The run's platform.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>ANDROID</p>
-   *             </li>
-   *             <li>
-   *                 <p>IOS</p>
-   *             </li>
-   *          </ul>
+   * <p>The run's name.</p>
    */
-  platform?: DevicePlatform | string;
-
-  /**
-   * <p>Information about the radio states for the run.</p>
-   */
-  radios?: Radios;
-
-  /**
-   * <p>The run's result.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                 <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                 <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                 <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                 <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPED</p>
-   *             </li>
-   *          </ul>
-   */
-  result?: ExecutionResult | string;
-
-  /**
-   * <p>Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>.
-   *                 <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure.</p>
-   */
-  resultCode?: ExecutionResultCode | string;
-
-  /**
-   * <p>For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same
-   *             seed value between tests ensures identical event sequences.</p>
-   */
-  seed?: number;
-
-  /**
-   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
-   *             devices, Device Farm always signs your apps again.</p>
-   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
-   *                 Farm FAQs</i>.</p>
-   */
-  skipAppResign?: boolean;
-
-  /**
-   * <p>The run's start time.</p>
-   */
-  started?: Date;
-
-  /**
-   * <p>The run's status.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                 <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                 <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                 <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                 <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPING</p>
-   *             </li>
-   *          </ul>
-   */
-  status?: ExecutionStatus | string;
+  name?: string;
 
   /**
    * <p>The run's stop time.</p>
@@ -5803,14 +5636,14 @@ export interface Run {
   stopped?: Date;
 
   /**
-   * <p>The ARN of the YAML-formatted test specification for the run.</p>
+   * <p>The ARN of the device pool for the run.</p>
    */
-  testSpecArn?: string;
+  devicePoolArn?: string;
 
   /**
-   * <p>The total number of jobs for the run.</p>
+   * <p>Information about the locale that is used for the run.</p>
    */
-  totalJobs?: number;
+  locale?: string;
 
   /**
    * <p>The run's type.</p>
@@ -5879,9 +5712,176 @@ export interface Run {
   type?: TestType | string;
 
   /**
+   * <p>Information about the radio states for the run.</p>
+   */
+  radios?: Radios;
+
+  /**
+   * <p>A message about the run's result.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same
+   *             seed value between tests ensures identical event sequences.</p>
+   */
+  seed?: number;
+
+  /**
+   * <p>The number of minutes the job executes before it times out.</p>
+   */
+  jobTimeoutMinutes?: number;
+
+  /**
+   * <p>The run's result.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PASSED</p>
+   *             </li>
+   *             <li>
+   *                 <p>WARNED</p>
+   *             </li>
+   *             <li>
+   *                 <p>FAILED</p>
+   *             </li>
+   *             <li>
+   *                 <p>SKIPPED</p>
+   *             </li>
+   *             <li>
+   *                 <p>ERRORED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPED</p>
+   *             </li>
+   *          </ul>
+   */
+  result?: ExecutionResult | string;
+
+  /**
+   * <p>The run's start time.</p>
+   */
+  started?: Date;
+
+  /**
+   * <p>The run's platform.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>ANDROID</p>
+   *             </li>
+   *             <li>
+   *                 <p>IOS</p>
+   *             </li>
+   *          </ul>
+   */
+  platform?: DevicePlatform | string;
+
+  /**
+   * <p>For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz
+   *             test should perform.</p>
+   */
+  eventCount?: number;
+
+  /**
+   * <p>An app to upload or that has been uploaded.</p>
+   */
+  appUpload?: string;
+
+  /**
+   * <p>The run's result counters.</p>
+   */
+  counters?: Counters;
+
+  /**
+   * <p>The run's status.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_CONCURRENCY</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_DEVICE</p>
+   *             </li>
+   *             <li>
+   *                 <p>PROCESSING</p>
+   *             </li>
+   *             <li>
+   *                 <p>SCHEDULING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PREPARING</p>
+   *             </li>
+   *             <li>
+   *                 <p>RUNNING</p>
+   *             </li>
+   *             <li>
+   *                 <p>COMPLETED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPING</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: ExecutionStatus | string;
+
+  /**
+   * <p>Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package.
+   *             If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points
+   *             to.</p>
+   */
+  parsingResultUrl?: string;
+
+  /**
+   * <p>Specifies the billing method for a test run: <code>metered</code> or
+   *                 <code>unmetered</code>. If the parameter is not specified, the default value is
+   *                 <code>metered</code>.</p>
+   *         <note>
+   *             <p>If you have unmetered device slots, you must set this to <code>unmetered</code> to use them.
+   *                 Otherwise, the run is counted toward metered device minutes.</p>
+   *         </note>
+   */
+  billingMethod?: BillingMethod | string;
+
+  /**
+   * <p>Information about the location that is used for the run.</p>
+   */
+  location?: Location;
+
+  /**
+   * <p>The ARN of the YAML-formatted test specification for the run.</p>
+   */
+  testSpecArn?: string;
+
+  /**
    * <p>The Device Farm console URL for the recording of the run.</p>
    */
   webUrl?: string;
+
+  /**
+   * <p>Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>.
+   *                 <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure.</p>
+   */
+  resultCode?: ExecutionResultCode | string;
+
+  /**
+   * <p>The total number of jobs for the run.</p>
+   */
+  totalJobs?: number;
+
+  /**
+   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
+   *             devices, Device Farm always signs your apps again.</p>
+   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
+   *                 Farm FAQs</i>.</p>
+   */
+  skipAppResign?: boolean;
 }
 
 export namespace Run {
@@ -5900,6 +5900,12 @@ export interface Sample {
    * <p>The sample's ARN.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's
+   *             file.</p>
+   */
+  url?: string;
 
   /**
    * <p>The sample's type.</p>
@@ -5964,12 +5970,6 @@ export interface Sample {
    *          </ul>
    */
   type?: SampleType | string;
-
-  /**
-   * <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's
-   *             file.</p>
-   */
-  url?: string;
 }
 
 export namespace Sample {
@@ -6006,9 +6006,24 @@ export enum SampleType {
 export interface ScheduleRunConfiguration {
   __type?: "ScheduleRunConfiguration";
   /**
+   * <p>Information about the location that is used for the run.</p>
+   */
+  location?: Location;
+
+  /**
    * <p>A list of upload ARNs for app packages to be installed with your app.</p>
    */
   auxiliaryApps?: string[];
+
+  /**
+   * <p>An array of ARNs for your VPC endpoint configurations.</p>
+   */
+  vpceConfigurationArns?: string[];
+
+  /**
+   * <p>Information about the radio states for the run.</p>
+   */
+  radios?: Radios;
 
   /**
    * <p>Specifies the billing method for a test run: <code>metered</code> or
@@ -6022,10 +6037,9 @@ export interface ScheduleRunConfiguration {
   billingMethod?: BillingMethod | string;
 
   /**
-   * <p>Input <code>CustomerArtifactPaths</code> object for the scheduled run
-   *             configuration.</p>
+   * <p>Reserved for internal use.</p>
    */
-  customerArtifactPaths?: CustomerArtifactPaths;
+  networkProfileArn?: string;
 
   /**
    * <p>The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to
@@ -6034,29 +6048,15 @@ export interface ScheduleRunConfiguration {
   extraDataPackageArn?: string;
 
   /**
+   * <p>Input <code>CustomerArtifactPaths</code> object for the scheduled run
+   *             configuration.</p>
+   */
+  customerArtifactPaths?: CustomerArtifactPaths;
+
+  /**
    * <p>Information about the locale that is used for the run.</p>
    */
   locale?: string;
-
-  /**
-   * <p>Information about the location that is used for the run.</p>
-   */
-  location?: Location;
-
-  /**
-   * <p>Reserved for internal use.</p>
-   */
-  networkProfileArn?: string;
-
-  /**
-   * <p>Information about the radio states for the run.</p>
-   */
-  radios?: Radios;
-
-  /**
-   * <p>An array of ARNs for your VPC endpoint configurations.</p>
-   */
-  vpceConfigurationArns?: string[];
 }
 
 export namespace ScheduleRunConfiguration {
@@ -6078,14 +6078,9 @@ export interface ScheduleRunRequest {
   appArn?: string;
 
   /**
-   * <p>Information about the settings for the run to be scheduled.</p>
+   * <p>The name for the run to be scheduled.</p>
    */
-  configuration?: ScheduleRunConfiguration;
-
-  /**
-   * <p>The ARN of the device pool for the run to be scheduled.</p>
-   */
-  devicePoolArn?: string;
+  name?: string;
 
   /**
    * <p>The filter criteria used to dynamically select a set of devices for a test run and the maximum number of
@@ -6100,15 +6095,15 @@ export interface ScheduleRunRequest {
   deviceSelectionConfiguration?: DeviceSelectionConfiguration;
 
   /**
+   * <p>The ARN of the device pool for the run to be scheduled.</p>
+   */
+  devicePoolArn?: string;
+
+  /**
    * <p>Specifies configuration information about a test run, such as the execution timeout
    *             (in minutes).</p>
    */
   executionConfiguration?: ExecutionConfiguration;
-
-  /**
-   * <p>The name for the run to be scheduled.</p>
-   */
-  name?: string;
 
   /**
    * <p>The ARN of the project for the run to be scheduled.</p>
@@ -6119,6 +6114,11 @@ export interface ScheduleRunRequest {
    * <p>Information about the test for the run to be scheduled.</p>
    */
   test: ScheduleRunTest | undefined;
+
+  /**
+   * <p>Information about the settings for the run to be scheduled.</p>
+   */
+  configuration?: ScheduleRunConfiguration;
 }
 
 export namespace ScheduleRunRequest {
@@ -6153,9 +6153,78 @@ export namespace ScheduleRunResult {
 export interface ScheduleRunTest {
   __type?: "ScheduleRunTest";
   /**
+   * <p>The ARN of the uploaded test to be run.</p>
+   */
+  testPackageArn?: string;
+
+  /**
    * <p>The test's filter.</p>
    */
   filter?: string;
+
+  /**
+   * <p>The test's type.</p>
+   *         <p>Must be one of the following values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>BUILTIN_FUZZ</p>
+   *             </li>
+   *             <li>
+   *                 <p>BUILTIN_EXPLORER. For Android, an app explorer that traverses an
+   *                     Android app, interacting with it and capturing screenshots at the same
+   *                     time.</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_JAVA_JUNIT</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_JAVA_TESTNG</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_PYTHON</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_NODE</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_RUBY</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_WEB_JAVA_JUNIT</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_WEB_JAVA_TESTNG</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_WEB_PYTHON</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_WEB_NODE</p>
+   *             </li>
+   *             <li>
+   *                 <p>APPIUM_WEB_RUBY</p>
+   *             </li>
+   *             <li>
+   *                 <p>CALABASH</p>
+   *             </li>
+   *             <li>
+   *                 <p>INSTRUMENTATION</p>
+   *             </li>
+   *             <li>
+   *                 <p>UIAUTOMATION</p>
+   *             </li>
+   *             <li>
+   *                 <p>UIAUTOMATOR</p>
+   *             </li>
+   *             <li>
+   *                 <p>XCTEST</p>
+   *             </li>
+   *             <li>
+   *                 <p>XCTEST_UI</p>
+   *             </li>
+   *          </ul>
+   */
+  type: TestType | string | undefined;
 
   /**
    * <p>The test's parameters, such as test framework parameters and fixture settings.
@@ -6297,78 +6366,9 @@ export interface ScheduleRunTest {
   parameters?: { [key: string]: string };
 
   /**
-   * <p>The ARN of the uploaded test to be run.</p>
-   */
-  testPackageArn?: string;
-
-  /**
    * <p>The ARN of the YAML-formatted test specification.</p>
    */
   testSpecArn?: string;
-
-  /**
-   * <p>The test's type.</p>
-   *         <p>Must be one of the following values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>BUILTIN_FUZZ</p>
-   *             </li>
-   *             <li>
-   *                 <p>BUILTIN_EXPLORER. For Android, an app explorer that traverses an
-   *                     Android app, interacting with it and capturing screenshots at the same
-   *                     time.</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_NODE</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_RUBY</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_WEB_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_WEB_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_WEB_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_WEB_NODE</p>
-   *             </li>
-   *             <li>
-   *                 <p>APPIUM_WEB_RUBY</p>
-   *             </li>
-   *             <li>
-   *                 <p>CALABASH</p>
-   *             </li>
-   *             <li>
-   *                 <p>INSTRUMENTATION</p>
-   *             </li>
-   *             <li>
-   *                 <p>UIAUTOMATION</p>
-   *             </li>
-   *             <li>
-   *                 <p>UIAUTOMATOR</p>
-   *             </li>
-   *             <li>
-   *                 <p>XCTEST</p>
-   *             </li>
-   *             <li>
-   *                 <p>XCTEST_UI</p>
-   *             </li>
-   *          </ul>
-   */
-  type: TestType | string | undefined;
 }
 
 export namespace ScheduleRunTest {
@@ -6507,35 +6507,9 @@ export namespace StopRunResult {
 export interface Suite {
   __type?: "Suite";
   /**
-   * <p>The suite's ARN.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The suite's result counters.</p>
    */
   counters?: Counters;
-
-  /**
-   * <p>When the suite was created.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>Represents the total (metered or unmetered) minutes used by the test
-   *             suite.</p>
-   */
-  deviceMinutes?: DeviceMinutes;
-
-  /**
-   * <p>A message about the suite's result.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The suite's name.</p>
-   */
-  name?: string;
 
   /**
    * <p>The suite's result.</p>
@@ -6565,11 +6539,6 @@ export interface Suite {
    *          </ul>
    */
   result?: ExecutionResult | string;
-
-  /**
-   * <p>The suite's start time.</p>
-   */
-  started?: Date;
 
   /**
    * <p>The suite's status.</p>
@@ -6607,9 +6576,9 @@ export interface Suite {
   status?: ExecutionStatus | string;
 
   /**
-   * <p>The suite's stop time.</p>
+   * <p>A message about the suite's result.</p>
    */
-  stopped?: Date;
+  message?: string;
 
   /**
    * <p>The suite's type.</p>
@@ -6676,6 +6645,37 @@ export interface Suite {
    *          </ul>
    */
   type?: TestType | string;
+
+  /**
+   * <p>The suite's stop time.</p>
+   */
+  stopped?: Date;
+
+  /**
+   * <p>The suite's start time.</p>
+   */
+  started?: Date;
+
+  /**
+   * <p>The suite's name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The suite's ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Represents the total (metered or unmetered) minutes used by the test
+   *             suite.</p>
+   */
+  deviceMinutes?: DeviceMinutes;
+
+  /**
+   * <p>When the suite was created.</p>
+   */
+  created?: Date;
 }
 
 export namespace Suite {
@@ -6693,16 +6693,16 @@ export namespace Suite {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a
-   *             category for more specific tag values.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The optional part of a key-value pair that makes up a tag. A <code>value</code> acts as a descriptor in a
    *             tag category (key).</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a
+   *             category for more specific tag values.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -6718,8 +6718,8 @@ export namespace Tag {
 export interface TagOperationException extends __SmithyException, $MetadataBearer {
   name: "TagOperationException";
   $fault: "client";
-  message?: string;
   resourceName?: string;
+  message?: string;
 }
 
 export namespace TagOperationException {
@@ -6736,8 +6736,8 @@ export namespace TagOperationException {
 export interface TagPolicyException extends __SmithyException, $MetadataBearer {
   name: "TagPolicyException";
   $fault: "client";
-  message?: string;
   resourceName?: string;
+  message?: string;
 }
 
 export namespace TagPolicyException {
@@ -6750,6 +6750,12 @@ export namespace TagPolicyException {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
+   * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
+   *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
+   */
+  Tags: Tag[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources to which to add tags. You can associate tags
    *             with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
    *                 <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
@@ -6757,12 +6763,6 @@ export interface TagResourceRequest {
    *             <code>VPCE_CONFIGURATION</code>.</p>
    */
   ResourceARN: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
-   *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -6789,14 +6789,9 @@ export namespace TagResourceResponse {
 export interface Test {
   __type?: "Test";
   /**
-   * <p>The test's ARN.</p>
+   * <p>Represents the total (metered or unmetered) minutes used by the test.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The test's result counters.</p>
-   */
-  counters?: Counters;
+  deviceMinutes?: DeviceMinutes;
 
   /**
    * <p>When the test was created.</p>
@@ -6804,93 +6799,24 @@ export interface Test {
   created?: Date;
 
   /**
-   * <p>Represents the total (metered or unmetered) minutes used by the test.</p>
-   */
-  deviceMinutes?: DeviceMinutes;
-
-  /**
    * <p>A message about the test's result.</p>
    */
   message?: string;
 
   /**
-   * <p>The test's name.</p>
+   * <p>The test's ARN.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The test's result.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                 <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                 <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                 <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                 <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPED</p>
-   *             </li>
-   *          </ul>
-   */
-  result?: ExecutionResult | string;
-
-  /**
-   * <p>The test's start time.</p>
-   */
-  started?: Date;
-
-  /**
-   * <p>The test's status.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                 <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                 <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                 <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                 <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPING</p>
-   *             </li>
-   *          </ul>
-   */
-  status?: ExecutionStatus | string;
+  arn?: string;
 
   /**
    * <p>The test's stop time.</p>
    */
   stopped?: Date;
+
+  /**
+   * <p>The test's name.</p>
+   */
+  name?: string;
 
   /**
    * <p>The test's type.</p>
@@ -6957,6 +6883,80 @@ export interface Test {
    *          </ul>
    */
   type?: TestType | string;
+
+  /**
+   * <p>The test's status.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_CONCURRENCY</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_DEVICE</p>
+   *             </li>
+   *             <li>
+   *                 <p>PROCESSING</p>
+   *             </li>
+   *             <li>
+   *                 <p>SCHEDULING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PREPARING</p>
+   *             </li>
+   *             <li>
+   *                 <p>RUNNING</p>
+   *             </li>
+   *             <li>
+   *                 <p>COMPLETED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPING</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: ExecutionStatus | string;
+
+  /**
+   * <p>The test's result counters.</p>
+   */
+  counters?: Counters;
+
+  /**
+   * <p>The test's start time.</p>
+   */
+  started?: Date;
+
+  /**
+   * <p>The test's result.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PASSED</p>
+   *             </li>
+   *             <li>
+   *                 <p>WARNED</p>
+   *             </li>
+   *             <li>
+   *                 <p>FAILED</p>
+   *             </li>
+   *             <li>
+   *                 <p>SKIPPED</p>
+   *             </li>
+   *             <li>
+   *                 <p>ERRORED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPED</p>
+   *             </li>
+   *          </ul>
+   */
+  result?: ExecutionResult | string;
 }
 
 export namespace Test {
@@ -6972,14 +6972,9 @@ export namespace Test {
 export interface TestGridProject {
   __type?: "TestGridProject";
   /**
-   * <p>The ARN for the project.</p>
+   * <p>A human-readable name for the project.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>When the project was created.</p>
-   */
-  created?: Date;
+  name?: string;
 
   /**
    * <p>A human-readable description for the project.</p>
@@ -6987,9 +6982,14 @@ export interface TestGridProject {
   description?: string;
 
   /**
-   * <p>A human-readable name for the project.</p>
+   * <p>When the project was created.</p>
    */
-  name?: string;
+  created?: Date;
+
+  /**
+   * <p>The ARN for the project.</p>
+   */
+  arn?: string;
 }
 
 export namespace TestGridProject {
@@ -7006,9 +7006,9 @@ export namespace TestGridProject {
 export interface TestGridSession {
   __type?: "TestGridSession";
   /**
-   * <p>The ARN of the session.</p>
+   * <p>A JSON object of options and parameters passed to the Selenium WebDriver.</p>
    */
-  arn?: string;
+  seleniumProperties?: string;
 
   /**
    * <p>The number of billed minutes that were used for this session. </p>
@@ -7021,19 +7021,19 @@ export interface TestGridSession {
   created?: Date;
 
   /**
-   * <p>The time the session ended.</p>
-   */
-  ended?: Date;
-
-  /**
-   * <p>A JSON object of options and parameters passed to the Selenium WebDriver.</p>
-   */
-  seleniumProperties?: string;
-
-  /**
    * <p>The state of the session.</p>
    */
   status?: TestGridSessionStatus | string;
+
+  /**
+   * <p>The ARN of the session.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The time the session ended.</p>
+   */
+  ended?: Date;
 }
 
 export namespace TestGridSession {
@@ -7049,14 +7049,14 @@ export namespace TestGridSession {
 export interface TestGridSessionAction {
   __type?: "TestGridSessionAction";
   /**
-   * <p>The action taken by the session.</p>
-   */
-  action?: string;
-
-  /**
    * <p>The time, in milliseconds, that the action took to complete in the browser.</p>
    */
   duration?: number;
+
+  /**
+   * <p>The action taken by the session.</p>
+   */
+  action?: string;
 
   /**
    * <p>HTTP method that the browser used to make the request.</p>
@@ -7091,9 +7091,9 @@ export namespace TestGridSessionAction {
 export interface TestGridSessionArtifact {
   __type?: "TestGridSessionArtifact";
   /**
-   * <p>The file name of the artifact.</p>
+   * <p>A semi-stable URL to the content of the object.</p>
    */
-  filename?: string;
+  url?: string;
 
   /**
    * <p>The kind of artifact.</p>
@@ -7101,9 +7101,9 @@ export interface TestGridSessionArtifact {
   type?: TestGridSessionArtifactType | string;
 
   /**
-   * <p>A semi-stable URL to the content of the object.</p>
+   * <p>The file name of the artifact.</p>
    */
-  url?: string;
+  filename?: string;
 }
 
 export namespace TestGridSessionArtifact {
@@ -7179,14 +7179,14 @@ export namespace TooManyTagsException {
 export interface TrialMinutes {
   __type?: "TrialMinutes";
   /**
-   * <p>The number of free trial minutes remaining in the account.</p>
-   */
-  remaining?: number;
-
-  /**
    * <p>The total number of free trial minutes that the account started with.</p>
    */
   total?: number;
+
+  /**
+   * <p>The number of free trial minutes remaining in the account.</p>
+   */
+  remaining?: number;
 }
 
 export namespace TrialMinutes {
@@ -7222,6 +7222,11 @@ export namespace UniqueProblem {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
+   * <p>The keys of the tags to be removed.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources from which to delete tags. You can associate
    *             tags with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
    *                 <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
@@ -7229,11 +7234,6 @@ export interface UntagResourceRequest {
    *             <code>VPCE_CONFIGURATION</code>.</p>
    */
   ResourceARN: string | undefined;
-
-  /**
-   * <p>The keys of the tags to be removed.</p>
-   */
-  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -7257,6 +7257,11 @@ export namespace UntagResourceResponse {
 export interface UpdateDeviceInstanceRequest {
   __type?: "UpdateDeviceInstanceRequest";
   /**
+   * <p>The ARN of the profile that you want to associate with the device instance.</p>
+   */
+  profileArn?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the device instance.</p>
    */
   arn: string | undefined;
@@ -7265,11 +7270,6 @@ export interface UpdateDeviceInstanceRequest {
    * <p>An array of strings that you want to associate with the device instance.</p>
    */
   labels?: string[];
-
-  /**
-   * <p>The ARN of the profile that you want to associate with the device instance.</p>
-   */
-  profileArn?: string;
 }
 
 export namespace UpdateDeviceInstanceRequest {
@@ -7300,19 +7300,10 @@ export namespace UpdateDeviceInstanceResult {
 export interface UpdateDevicePoolRequest {
   __type?: "UpdateDevicePoolRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the Device Farm device pool to update.</p>
+   * <p>Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for
+   *             your request, the update replaces the existing rules.</p>
    */
-  arn: string | undefined;
-
-  /**
-   * <p>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If you set this parameter
-   *             to <code>true</code>, the <code>maxDevices</code> parameter does not apply, and Device Farm does not limit
-   *             the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices
-   *             that meet the criteria specified in the <code>rules</code> parameter.</p>
-   *         <p>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
-   *             parameter in the same request.</p>
-   */
-  clearMaxDevices?: boolean;
+  rules?: Rule[];
 
   /**
    * <p>A description of the device pool to update.</p>
@@ -7332,15 +7323,24 @@ export interface UpdateDevicePoolRequest {
   maxDevices?: number;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the Device Farm device pool to update.</p>
+   */
+  arn: string | undefined;
+
+  /**
    * <p>A string that represents the name of the device pool to update.</p>
    */
   name?: string;
 
   /**
-   * <p>Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for
-   *             your request, the update replaces the existing rules.</p>
+   * <p>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If you set this parameter
+   *             to <code>true</code>, the <code>maxDevices</code> parameter does not apply, and Device Farm does not limit
+   *             the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices
+   *             that meet the criteria specified in the <code>rules</code> parameter.</p>
+   *         <p>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
+   *             parameter in the same request.</p>
    */
-  rules?: Rule[];
+  clearMaxDevices?: boolean;
 }
 
 export namespace UpdateDevicePoolRequest {
@@ -7371,9 +7371,9 @@ export namespace UpdateDevicePoolResult {
 export interface UpdateInstanceProfileRequest {
   __type?: "UpdateInstanceProfileRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   * <p>The updated name for your instance profile.</p>
    */
-  arn: string | undefined;
+  name?: string;
 
   /**
    * <p>The updated description for your instance profile.</p>
@@ -7381,17 +7381,10 @@ export interface UpdateInstanceProfileRequest {
   description?: string;
 
   /**
-   * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
-   *             after a test run is over.</p>
-   *         <p>The list of packages is only considered if you set <code>packageCleanup</code> to
-   *                 <code>true</code>.</p>
+   * <p>The updated choice for whether you want to reboot the device after use. The default
+   *             value is <code>true</code>.</p>
    */
-  excludeAppPackagesFromCleanup?: string[];
-
-  /**
-   * <p>The updated name for your instance profile.</p>
-   */
-  name?: string;
+  rebootAfterUse?: boolean;
 
   /**
    * <p>The updated choice for whether you want to specify package cleanup. The default value
@@ -7400,10 +7393,17 @@ export interface UpdateInstanceProfileRequest {
   packageCleanup?: boolean;
 
   /**
-   * <p>The updated choice for whether you want to reboot the device after use. The default
-   *             value is <code>true</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
    */
-  rebootAfterUse?: boolean;
+  arn: string | undefined;
+
+  /**
+   * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
+   *             after a test run is over.</p>
+   *         <p>The list of packages is only considered if you set <code>packageCleanup</code> to
+   *                 <code>true</code>.</p>
+   */
+  excludeAppPackagesFromCleanup?: string[];
 }
 
 export namespace UpdateInstanceProfileRequest {
@@ -7431,62 +7431,16 @@ export namespace UpdateInstanceProfileResult {
 export interface UpdateNetworkProfileRequest {
   __type?: "UpdateNetworkProfileRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to update network
-   *             profile settings.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The description of the network profile about which you are returning
-   *             information.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
-   */
-  downlinkBandwidthBits?: number;
-
-  /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
    */
   downlinkDelayMs?: number;
 
   /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
-   */
-  downlinkJitterMs?: number;
-
-  /**
-   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
-   */
-  downlinkLossPercent?: number;
-
-  /**
-   * <p>The name of the network profile about which you are returning
-   *             information.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The type of network profile to return information about. Valid values are listed here.</p>
-   */
-  type?: NetworkProfileType | string;
-
-  /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    */
-  uplinkBandwidthBits?: number;
-
-  /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
-   */
-  uplinkDelayMs?: number;
+  downlinkBandwidthBits?: number;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
@@ -7499,6 +7453,52 @@ export interface UpdateNetworkProfileRequest {
    *             percent.</p>
    */
   uplinkLossPercent?: number;
+
+  /**
+   * <p>The name of the network profile about which you are returning
+   *             information.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
+   */
+  uplinkDelayMs?: number;
+
+  /**
+   * <p>Time variation in the delay of received packets in milliseconds as an integer from
+   *             0 to 2000.</p>
+   */
+  downlinkJitterMs?: number;
+
+  /**
+   * <p>The data throughput rate in bits per second, as an integer from 0 to
+   *             104857600.</p>
+   */
+  uplinkBandwidthBits?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project for which you want to update network
+   *             profile settings.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The type of network profile to return information about. Valid values are listed here.</p>
+   */
+  type?: NetworkProfileType | string;
+
+  /**
+   * <p>The description of the network profile about which you are returning
+   *             information.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+   */
+  downlinkLossPercent?: number;
 }
 
 export namespace UpdateNetworkProfileRequest {
@@ -7529,6 +7529,11 @@ export namespace UpdateNetworkProfileResult {
 export interface UpdateProjectRequest {
   __type?: "UpdateProjectRequest";
   /**
+   * <p>A string that represents the new name of the project that you are updating.</p>
+   */
+  name?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the project whose name to update.</p>
    */
   arn: string | undefined;
@@ -7537,11 +7542,6 @@ export interface UpdateProjectRequest {
    * <p>The number of minutes a test run in the project executes before it times out.</p>
    */
   defaultJobTimeoutMinutes?: number;
-
-  /**
-   * <p>A string that represents the new name of the project that you are updating.</p>
-   */
-  name?: string;
 }
 
 export namespace UpdateProjectRequest {
@@ -7572,11 +7572,6 @@ export namespace UpdateProjectResult {
 export interface UpdateTestGridProjectRequest {
   __type?: "UpdateTestGridProjectRequest";
   /**
-   * <p>Human-readable description for the project.</p>
-   */
-  description?: string;
-
-  /**
    * <p>Human-readable name for the project.</p>
    */
   name?: string;
@@ -7585,6 +7580,11 @@ export interface UpdateTestGridProjectRequest {
    * <p>ARN of the project to update.</p>
    */
   projectArn: string | undefined;
+
+  /**
+   * <p>Human-readable description for the project.</p>
+   */
+  description?: string;
 }
 
 export namespace UpdateTestGridProjectRequest {
@@ -7612,9 +7612,9 @@ export namespace UpdateTestGridProjectResult {
 export interface UpdateUploadRequest {
   __type?: "UpdateUploadRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the uploaded test spec.</p>
+   * <p>Set to true if the YAML file has changed and must be updated. Otherwise, set to false.</p>
    */
-  arn: string | undefined;
+  editContent?: boolean;
 
   /**
    * <p>The upload's content type (for example, <code>application/x-yaml</code>).</p>
@@ -7622,9 +7622,9 @@ export interface UpdateUploadRequest {
   contentType?: string;
 
   /**
-   * <p>Set to true if the YAML file has changed and must be updated. Otherwise, set to false.</p>
+   * <p>The Amazon Resource Name (ARN) of the uploaded test spec.</p>
    */
-  editContent?: boolean;
+  arn: string | undefined;
 
   /**
    * <p>The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file
@@ -7664,26 +7664,26 @@ export interface UpdateVPCEConfigurationRequest {
   arn: string | undefined;
 
   /**
+   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
+   */
+  vpceConfigurationDescription?: string;
+
+  /**
+   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
+   */
+  vpceServiceName?: string;
+
+  /**
    * <p>The DNS (domain) name used to connect to your private service in your VPC. The DNS name must not already
    *             be in use on the internet.</p>
    */
   serviceDnsName?: string;
 
   /**
-   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
-   */
-  vpceConfigurationDescription?: string;
-
-  /**
    * <p>The friendly name you give to your VPC endpoint configuration to manage your configurations more
    *             easily.</p>
    */
   vpceConfigurationName?: string;
-
-  /**
-   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
-   */
-  vpceServiceName?: string;
 }
 
 export namespace UpdateVPCEConfigurationRequest {
@@ -7715,69 +7715,11 @@ export namespace UpdateVPCEConfigurationResult {
 export interface Upload {
   __type?: "Upload";
   /**
-   * <p>The upload's ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The upload's category. Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>CURATED: An upload managed by AWS Device Farm.</p>
-   *             </li>
-   *             <li>
-   *                 <p>PRIVATE: An upload managed by the AWS Device Farm customer.</p>
-   *             </li>
-   *          </ul>
-   */
-  category?: UploadCategory | string;
-
-  /**
-   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
-   */
-  contentType?: string;
-
-  /**
-   * <p>When the upload was created.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>A message about the upload's result.</p>
-   */
-  message?: string;
-
-  /**
    * <p>The upload's metadata. For example, for Android, this contains information that is
    *             parsed from the manifest and is displayed in the AWS Device Farm console after the
    *             associated app is uploaded.</p>
    */
   metadata?: string;
-
-  /**
-   * <p>The upload's file name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The upload's status.</p>
-   *         <p>Must be one of the following values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                 <p>INITIALIZED</p>
-   *             </li>
-   *             <li>
-   *                 <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                 <p>SUCCEEDED</p>
-   *             </li>
-   *          </ul>
-   */
-  status?: UploadStatus | string;
 
   /**
    * <p>The upload's type.</p>
@@ -7884,9 +7826,67 @@ export interface Upload {
   type?: UploadType | string;
 
   /**
+   * <p>The upload's status.</p>
+   *         <p>Must be one of the following values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>FAILED</p>
+   *             </li>
+   *             <li>
+   *                 <p>INITIALIZED</p>
+   *             </li>
+   *             <li>
+   *                 <p>PROCESSING</p>
+   *             </li>
+   *             <li>
+   *                 <p>SUCCEEDED</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: UploadStatus | string;
+
+  /**
+   * <p>When the upload was created.</p>
+   */
+  created?: Date;
+
+  /**
+   * <p>The upload's file name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The upload's ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The upload's category. Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>CURATED: An upload managed by AWS Device Farm.</p>
+   *             </li>
+   *             <li>
+   *                 <p>PRIVATE: An upload managed by the AWS Device Farm customer.</p>
+   *             </li>
+   *          </ul>
+   */
+  category?: UploadCategory | string;
+
+  /**
    * <p>The presigned Amazon S3 URL that was used to store a file using a PUT request.</p>
    */
   url?: string;
+
+  /**
+   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
+   */
+  contentType?: string;
+
+  /**
+   * <p>A message about the upload's result.</p>
+   */
+  message?: string;
 }
 
 export namespace Upload {
@@ -7949,22 +7949,6 @@ export enum UploadType {
 export interface VPCEConfiguration {
   __type?: "VPCEConfiguration";
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The DNS name that maps to the private IP address of the service you want to
-   *             access.</p>
-   */
-  serviceDnsName?: string;
-
-  /**
-   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
-   */
-  vpceConfigurationDescription?: string;
-
-  /**
    * <p>The friendly name you give to your VPC endpoint configuration to manage your configurations more
    *             easily.</p>
    */
@@ -7974,6 +7958,22 @@ export interface VPCEConfiguration {
    * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
    */
   vpceServiceName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
+   */
+  vpceConfigurationDescription?: string;
+
+  /**
+   * <p>The DNS name that maps to the private IP address of the service you want to
+   *             access.</p>
+   */
+  serviceDnsName?: string;
 }
 
 export namespace VPCEConfiguration {

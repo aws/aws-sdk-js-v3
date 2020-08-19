@@ -134,11 +134,16 @@ import {
   EC2AccessDeniedException,
   EC2ThrottledException,
   EC2UnexpectedException,
+  EFSIOException,
+  EFSMountConnectivityException,
+  EFSMountFailureException,
+  EFSMountTimeoutException,
   ENILimitReachedException,
   Environment,
   EnvironmentError,
   EnvironmentResponse,
   EventSourceMappingConfiguration,
+  FileSystemConfig,
   FunctionCode,
   FunctionCodeLocation,
   FunctionConfiguration,
@@ -199,15 +204,6 @@ export const serializeAws_restJson1AddLayerVersionPermissionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
-  if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: LayerName.");
-    }
-    resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: LayerName.");
-  }
   if (input.VersionNumber !== undefined) {
     const labelValue: string = input.VersionNumber.toString();
     if (labelValue.length <= 0) {
@@ -216,6 +212,15 @@ export const serializeAws_restJson1AddLayerVersionPermissionCommand = async (
     resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
+  }
+  if (input.LayerName !== undefined) {
+    const labelValue: string = input.LayerName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: LayerName.");
+    }
+    resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: LayerName.");
   }
   const query: any = {
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
@@ -384,6 +389,9 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     ...(input.Environment !== undefined && {
       Environment: serializeAws_restJson1Environment(input.Environment, context),
     }),
+    ...(input.FileSystemConfigs !== undefined && {
+      FileSystemConfigs: serializeAws_restJson1FileSystemConfigList(input.FileSystemConfigs, context),
+    }),
     ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
     ...(input.Handler !== undefined && { Handler: input.Handler }),
     ...(input.KMSKeyArn !== undefined && { KMSKeyArn: input.KMSKeyArn }),
@@ -419,15 +427,6 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
-  if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FunctionName.");
-    }
-    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FunctionName.");
-  }
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -436,6 +435,15 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
     resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
+  }
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -681,15 +689,6 @@ export const serializeAws_restJson1GetAliasCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
-  if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FunctionName.");
-    }
-    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FunctionName.");
-  }
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -698,6 +697,15 @@ export const serializeAws_restJson1GetAliasCommand = async (
     resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
+  }
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -882,15 +890,6 @@ export const serializeAws_restJson1GetLayerVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
-  if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: LayerName.");
-    }
-    resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: LayerName.");
-  }
   if (input.VersionNumber !== undefined) {
     const labelValue: string = input.VersionNumber.toString();
     if (labelValue.length <= 0) {
@@ -899,6 +898,15 @@ export const serializeAws_restJson1GetLayerVersionCommand = async (
     resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
+  }
+  if (input.LayerName !== undefined) {
+    const labelValue: string = input.LayerName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: LayerName.");
+    }
+    resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: LayerName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -947,15 +955,6 @@ export const serializeAws_restJson1GetLayerVersionPolicyCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
-  if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: LayerName.");
-    }
-    resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: LayerName.");
-  }
   if (input.VersionNumber !== undefined) {
     const labelValue: string = input.VersionNumber.toString();
     if (labelValue.length <= 0) {
@@ -964,6 +963,15 @@ export const serializeAws_restJson1GetLayerVersionPolicyCommand = async (
     resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
+  }
+  if (input.LayerName !== undefined) {
+    const labelValue: string = input.LayerName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: LayerName.");
+    }
+    resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: LayerName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1052,9 +1060,9 @@ export const serializeAws_restJson1InvokeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.LogType) && { "X-Amz-Log-Type": input.LogType! }),
     ...(isSerializableHeaderValue(input.ClientContext) && { "X-Amz-Client-Context": input.ClientContext! }),
     ...(isSerializableHeaderValue(input.InvocationType) && { "X-Amz-Invocation-Type": input.InvocationType! }),
-    ...(isSerializableHeaderValue(input.LogType) && { "X-Amz-Log-Type": input.LogType! }),
   };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/invocations";
   if (input.FunctionName !== undefined) {
@@ -1138,8 +1146,8 @@ export const serializeAws_restJson1ListAliasesCommand = async (
   }
   const query: any = {
     ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1164,10 +1172,10 @@ export const serializeAws_restJson1ListEventSourceMappingsCommand = async (
   };
   let resolvedPath = "/2015-03-31/event-source-mappings";
   const query: any = {
-    ...(input.EventSourceArn !== undefined && { EventSourceArn: input.EventSourceArn }),
-    ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.EventSourceArn !== undefined && { EventSourceArn: input.EventSourceArn }),
+    ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1201,8 +1209,8 @@ export const serializeAws_restJson1ListFunctionEventInvokeConfigsCommand = async
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1227,9 +1235,9 @@ export const serializeAws_restJson1ListFunctionsCommand = async (
   };
   let resolvedPath = "/2015-03-31/functions";
   const query: any = {
-    ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MasterRegion !== undefined && { MasterRegion: input.MasterRegion }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
@@ -1255,9 +1263,9 @@ export const serializeAws_restJson1ListLayersCommand = async (
   };
   let resolvedPath = "/2018-10-31/layers";
   const query: any = {
-    ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1291,8 +1299,8 @@ export const serializeAws_restJson1ListLayerVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: LayerName.");
   }
   const query: any = {
-    ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
@@ -1328,8 +1336,8 @@ export const serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = as
   }
   const query: any = {
     List: "ALL",
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1393,8 +1401,8 @@ export const serializeAws_restJson1ListVersionsByFunctionCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1608,15 +1616,6 @@ export const serializeAws_restJson1RemoveLayerVersionPermissionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
-  if (input.LayerName !== undefined) {
-    const labelValue: string = input.LayerName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: LayerName.");
-    }
-    resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: LayerName.");
-  }
   if (input.StatementId !== undefined) {
     const labelValue: string = input.StatementId;
     if (labelValue.length <= 0) {
@@ -1634,6 +1633,15 @@ export const serializeAws_restJson1RemoveLayerVersionPermissionCommand = async (
     resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
+  }
+  if (input.LayerName !== undefined) {
+    const labelValue: string = input.LayerName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: LayerName.");
+    }
+    resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: LayerName.");
   }
   const query: any = {
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
@@ -1660,15 +1668,6 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
-  if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FunctionName.");
-    }
-    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FunctionName.");
-  }
   if (input.StatementId !== undefined) {
     const labelValue: string = input.StatementId;
     if (labelValue.length <= 0) {
@@ -1677,6 +1676,15 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
     resolvedPath = resolvedPath.replace("{StatementId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StatementId.");
+  }
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   const query: any = {
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
@@ -1771,15 +1779,6 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
-  if (input.FunctionName !== undefined) {
-    const labelValue: string = input.FunctionName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FunctionName.");
-    }
-    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FunctionName.");
-  }
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1788,6 +1787,15 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
     resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
+  }
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1923,6 +1931,9 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Environment !== undefined && {
       Environment: serializeAws_restJson1Environment(input.Environment, context),
+    }),
+    ...(input.FileSystemConfigs !== undefined && {
+      FileSystemConfigs: serializeAws_restJson1FileSystemConfigList(input.FileSystemConfigs, context),
     }),
     ...(input.Handler !== undefined && { Handler: input.Handler }),
     ...(input.KMSKeyArn !== undefined && { KMSKeyArn: input.KMSKeyArn }),
@@ -2465,6 +2476,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
@@ -2502,6 +2514,9 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
@@ -3731,6 +3746,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
@@ -3768,6 +3784,9 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
@@ -4508,14 +4527,14 @@ export const deserializeAws_restJson1InvokeCommand = async (
     LogResult: undefined,
     Payload: undefined,
   };
-  if (output.headers["x-amz-executed-version"] !== undefined) {
-    contents.ExecutedVersion = output.headers["x-amz-executed-version"];
-  }
   if (output.headers["x-amz-function-error"] !== undefined) {
     contents.FunctionError = output.headers["x-amz-function-error"];
   }
   if (output.headers["x-amz-log-result"] !== undefined) {
     contents.LogResult = output.headers["x-amz-log-result"];
+  }
+  if (output.headers["x-amz-executed-version"] !== undefined) {
+    contents.ExecutedVersion = output.headers["x-amz-executed-version"];
   }
   const data: any = await collectBody(output.body, context);
   contents.Payload = data;
@@ -4554,6 +4573,38 @@ const deserializeAws_restJson1InvokeCommandError = async (
     case "com.amazonaws.lambda#EC2UnexpectedException":
       response = {
         ...(await deserializeAws_restJson1EC2UnexpectedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EFSIOException":
+    case "com.amazonaws.lambda#EFSIOException":
+      response = {
+        ...(await deserializeAws_restJson1EFSIOExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EFSMountConnectivityException":
+    case "com.amazonaws.lambda#EFSMountConnectivityException":
+      response = {
+        ...(await deserializeAws_restJson1EFSMountConnectivityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EFSMountFailureException":
+    case "com.amazonaws.lambda#EFSMountFailureException":
+      response = {
+        ...(await deserializeAws_restJson1EFSMountFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EFSMountTimeoutException":
+    case "com.amazonaws.lambda#EFSMountTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1EFSMountTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5684,6 +5735,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
@@ -5721,6 +5773,9 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
@@ -6785,6 +6840,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
@@ -6822,6 +6878,9 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
@@ -6989,6 +7048,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
@@ -7026,6 +7086,9 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
@@ -7345,6 +7408,90 @@ const deserializeAws_restJson1EC2UnexpectedExceptionResponse = async (
   if (data.EC2ErrorCode !== undefined && data.EC2ErrorCode !== null) {
     contents.EC2ErrorCode = data.EC2ErrorCode;
   }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = data.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1EFSIOExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EFSIOException> => {
+  const contents: EFSIOException = {
+    name: "EFSIOException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    Type: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = data.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1EFSMountConnectivityExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EFSMountConnectivityException> => {
+  const contents: EFSMountConnectivityException = {
+    name: "EFSMountConnectivityException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    Type: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = data.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1EFSMountFailureExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EFSMountFailureException> => {
+  const contents: EFSMountFailureException = {
+    name: "EFSMountFailureException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    Type: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = data.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1EFSMountTimeoutExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EFSMountTimeoutException> => {
+  const contents: EFSMountTimeoutException = {
+    name: "EFSMountTimeoutException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    Type: undefined,
+  };
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -7904,6 +8051,17 @@ const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: stri
   );
 };
 
+const serializeAws_restJson1FileSystemConfig = (input: FileSystemConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.LocalMountPath !== undefined && { LocalMountPath: input.LocalMountPath }),
+  };
+};
+
+const serializeAws_restJson1FileSystemConfigList = (input: FileSystemConfig[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1FileSystemConfig(entry, context));
+};
+
 const serializeAws_restJson1FunctionCode = (input: FunctionCode, context: __SerdeContext): any => {
   return {
     ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
@@ -8178,6 +8336,19 @@ const deserializeAws_restJson1EventSourceMappingsList = (
   return (output || []).map((entry: any) => deserializeAws_restJson1EventSourceMappingConfiguration(entry, context));
 };
 
+const deserializeAws_restJson1FileSystemConfig = (output: any, context: __SerdeContext): FileSystemConfig => {
+  return {
+    __type: "FileSystemConfig",
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    LocalMountPath:
+      output.LocalMountPath !== undefined && output.LocalMountPath !== null ? output.LocalMountPath : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FileSystemConfigList = (output: any, context: __SerdeContext): FileSystemConfig[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1FileSystemConfig(entry, context));
+};
+
 const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __SerdeContext): FunctionCodeLocation => {
   return {
     __type: "FunctionCodeLocation",
@@ -8200,6 +8371,10 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     Environment:
       output.Environment !== undefined && output.Environment !== null
         ? deserializeAws_restJson1EnvironmentResponse(output.Environment, context)
+        : undefined,
+    FileSystemConfigs:
+      output.FileSystemConfigs !== undefined && output.FileSystemConfigs !== null
+        ? deserializeAws_restJson1FileSystemConfigList(output.FileSystemConfigs, context)
         : undefined,
     FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
     FunctionName: output.FunctionName !== undefined && output.FunctionName !== null ? output.FunctionName : undefined,

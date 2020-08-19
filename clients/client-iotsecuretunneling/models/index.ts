@@ -39,15 +39,15 @@ export namespace CloseTunnelResponse {
 export interface ConnectionState {
   __type?: "ConnectionState";
   /**
-   * <p>The last time the connection status was updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
    * <p>The connection status of the tunnel. Valid values are <code>CONNECTED</code> and
    * 				<code>DISCONNECTED</code>.</p>
    */
   status?: ConnectionStatus | string;
+
+  /**
+   * <p>The last time the connection status was updated.</p>
+   */
+  lastUpdatedAt?: Date;
 }
 
 export namespace ConnectionState {
@@ -213,9 +213,9 @@ export namespace ListTunnelsResponse {
 export interface OpenTunnelRequest {
   __type?: "OpenTunnelRequest";
   /**
-   * <p>A short text description of the tunnel. </p>
+   * <p>A collection of tag metadata.</p>
    */
-  description?: string;
+  tags?: Tag[];
 
   /**
    * <p>The destination configuration for the OpenTunnel request.</p>
@@ -223,9 +223,9 @@ export interface OpenTunnelRequest {
   destinationConfig?: DestinationConfig;
 
   /**
-   * <p>A collection of tag metadata.</p>
+   * <p>A short text description of the tunnel. </p>
    */
-  tags?: Tag[];
+  description?: string;
 
   /**
    * <p>Timeout configuration for a tunnel.</p>
@@ -243,18 +243,6 @@ export namespace OpenTunnelRequest {
 export interface OpenTunnelResponse {
   __type?: "OpenTunnelResponse";
   /**
-   * <p>The access token the destination local proxy uses to connect to AWS IoT Secure
-   * 			Tunneling.</p>
-   */
-  destinationAccessToken?: string;
-
-  /**
-   * <p>The access token the source local proxy uses to connect to AWS IoT Secure
-   * 			Tunneling.</p>
-   */
-  sourceAccessToken?: string;
-
-  /**
    * <p>The Amazon Resource Name for the tunnel. The tunnel ARN format is
    * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
    *          </p>
@@ -265,13 +253,25 @@ export interface OpenTunnelResponse {
    * <p>A unique alpha-numeric tunnel ID.</p>
    */
   tunnelId?: string;
+
+  /**
+   * <p>The access token the source local proxy uses to connect to AWS IoT Secure
+   * 			Tunneling.</p>
+   */
+  sourceAccessToken?: string;
+
+  /**
+   * <p>The access token the destination local proxy uses to connect to AWS IoT Secure
+   * 			Tunneling.</p>
+   */
+  destinationAccessToken?: string;
 }
 
 export namespace OpenTunnelResponse {
   export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
     ...obj,
-    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
     ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
+    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is OpenTunnelResponse => __isa(o, "OpenTunnelResponse");
 }
@@ -319,14 +319,14 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The tags for the resource.</p>
    */
   tags: Tag[] | undefined;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -373,16 +373,6 @@ export namespace TimeoutConfig {
 export interface Tunnel {
   __type?: "Tunnel";
   /**
-   * <p>The time when the tunnel was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>A description of the tunnel.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The destination configuration that specifies the thing name of the destination
    * 			device and a service name that the local proxy uses to connect to the destination
    * 			application.</p>
@@ -390,19 +380,19 @@ export interface Tunnel {
   destinationConfig?: DestinationConfig;
 
   /**
-   * <p>The connection state of the destination application.</p>
+   * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
    */
-  destinationConnectionState?: ConnectionState;
+  tunnelId?: string;
 
   /**
-   * <p>The last time the tunnel was updated.</p>
+   * <p>The time when the tunnel was created.</p>
    */
-  lastUpdatedAt?: Date;
+  createdAt?: Date;
 
   /**
-   * <p>The connection state of the source application.</p>
+   * <p>Timeout configuration for the tunnel.</p>
    */
-  sourceConnectionState?: ConnectionState;
+  timeoutConfig?: TimeoutConfig;
 
   /**
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
@@ -415,9 +405,19 @@ export interface Tunnel {
   tags?: Tag[];
 
   /**
-   * <p>Timeout configuration for the tunnel.</p>
+   * <p>The connection state of the destination application.</p>
    */
-  timeoutConfig?: TimeoutConfig;
+  destinationConnectionState?: ConnectionState;
+
+  /**
+   * <p>A description of the tunnel.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The last time the tunnel was updated.</p>
+   */
+  lastUpdatedAt?: Date;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is
@@ -427,9 +427,9 @@ export interface Tunnel {
   tunnelArn?: string;
 
   /**
-   * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
+   * <p>The connection state of the source application.</p>
    */
-  tunnelId?: string;
+  sourceConnectionState?: ConnectionState;
 }
 
 export namespace Tunnel {
@@ -450,19 +450,9 @@ export enum TunnelStatus {
 export interface TunnelSummary {
   __type?: "TunnelSummary";
   /**
-   * <p>The time the tunnel was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
    * <p>A description of the tunnel.</p>
    */
   description?: string;
-
-  /**
-   * <p>The time the tunnel was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
 
   /**
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
@@ -470,16 +460,26 @@ export interface TunnelSummary {
   status?: TunnelStatus | string;
 
   /**
-   * <p>The Amazon Resource Name of the tunnel. The tunnel ARN format is
-   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
-   *          </p>
+   * <p>The time the tunnel was created.</p>
    */
-  tunnelArn?: string;
+  createdAt?: Date;
 
   /**
    * <p>The unique alpha-numeric identifier for the tunnel.</p>
    */
   tunnelId?: string;
+
+  /**
+   * <p>The time the tunnel was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name of the tunnel. The tunnel ARN format is
+   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
+   *          </p>
+   */
+  tunnelArn?: string;
 }
 
 export namespace TunnelSummary {

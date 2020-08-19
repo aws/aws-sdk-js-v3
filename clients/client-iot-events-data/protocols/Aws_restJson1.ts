@@ -139,8 +139,8 @@ export const serializeAws_restJson1ListDetectorsCommand = async (
     throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.stateName !== undefined && { stateName: input.stateName }),
   };
   let body: any;

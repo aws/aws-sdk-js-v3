@@ -21,7 +21,9 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  AvailSuppression,
   BadRequestException,
+  Bumper,
   CdnConfiguration,
   DashConfiguration,
   DashConfigurationForPut,
@@ -168,6 +170,10 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AdDecisionServerUrl !== undefined && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
+    ...(input.AvailSuppression !== undefined && {
+      AvailSuppression: serializeAws_restJson1AvailSuppression(input.AvailSuppression, context),
+    }),
+    ...(input.Bumper !== undefined && { Bumper: serializeAws_restJson1Bumper(input.Bumper, context) }),
     ...(input.CdnConfiguration !== undefined && {
       CdnConfiguration: serializeAws_restJson1CdnConfiguration(input.CdnConfiguration, context),
     }),
@@ -178,6 +184,9 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
       LivePreRollConfiguration: serializeAws_restJson1LivePreRollConfiguration(input.LivePreRollConfiguration, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.PersonalizationThresholdSeconds !== undefined && {
+      PersonalizationThresholdSeconds: input.PersonalizationThresholdSeconds,
+    }),
     ...(input.SlateAdUrl !== undefined && { SlateAdUrl: input.SlateAdUrl }),
     ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
     ...(input.TranscodeProfileName !== undefined && { TranscodeProfileName: input.TranscodeProfileName }),
@@ -317,11 +326,14 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "GetPlaybackConfigurationResponse",
     AdDecisionServerUrl: undefined,
+    AvailSuppression: undefined,
+    Bumper: undefined,
     CdnConfiguration: undefined,
     DashConfiguration: undefined,
     HlsConfiguration: undefined,
     LivePreRollConfiguration: undefined,
     Name: undefined,
+    PersonalizationThresholdSeconds: undefined,
     PlaybackConfigurationArn: undefined,
     PlaybackEndpointPrefix: undefined,
     SessionInitializationEndpointPrefix: undefined,
@@ -333,6 +345,12 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.AdDecisionServerUrl !== undefined && data.AdDecisionServerUrl !== null) {
     contents.AdDecisionServerUrl = data.AdDecisionServerUrl;
+  }
+  if (data.AvailSuppression !== undefined && data.AvailSuppression !== null) {
+    contents.AvailSuppression = deserializeAws_restJson1AvailSuppression(data.AvailSuppression, context);
+  }
+  if (data.Bumper !== undefined && data.Bumper !== null) {
+    contents.Bumper = deserializeAws_restJson1Bumper(data.Bumper, context);
   }
   if (data.CdnConfiguration !== undefined && data.CdnConfiguration !== null) {
     contents.CdnConfiguration = deserializeAws_restJson1CdnConfiguration(data.CdnConfiguration, context);
@@ -351,6 +369,9 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
+  }
+  if (data.PersonalizationThresholdSeconds !== undefined && data.PersonalizationThresholdSeconds !== null) {
+    contents.PersonalizationThresholdSeconds = data.PersonalizationThresholdSeconds;
   }
   if (data.PlaybackConfigurationArn !== undefined && data.PlaybackConfigurationArn !== null) {
     contents.PlaybackConfigurationArn = data.PlaybackConfigurationArn;
@@ -524,11 +545,14 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "PutPlaybackConfigurationResponse",
     AdDecisionServerUrl: undefined,
+    AvailSuppression: undefined,
+    Bumper: undefined,
     CdnConfiguration: undefined,
     DashConfiguration: undefined,
     HlsConfiguration: undefined,
     LivePreRollConfiguration: undefined,
     Name: undefined,
+    PersonalizationThresholdSeconds: undefined,
     PlaybackConfigurationArn: undefined,
     PlaybackEndpointPrefix: undefined,
     SessionInitializationEndpointPrefix: undefined,
@@ -540,6 +564,12 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.AdDecisionServerUrl !== undefined && data.AdDecisionServerUrl !== null) {
     contents.AdDecisionServerUrl = data.AdDecisionServerUrl;
+  }
+  if (data.AvailSuppression !== undefined && data.AvailSuppression !== null) {
+    contents.AvailSuppression = deserializeAws_restJson1AvailSuppression(data.AvailSuppression, context);
+  }
+  if (data.Bumper !== undefined && data.Bumper !== null) {
+    contents.Bumper = deserializeAws_restJson1Bumper(data.Bumper, context);
   }
   if (data.CdnConfiguration !== undefined && data.CdnConfiguration !== null) {
     contents.CdnConfiguration = deserializeAws_restJson1CdnConfiguration(data.CdnConfiguration, context);
@@ -558,6 +588,9 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
+  }
+  if (data.PersonalizationThresholdSeconds !== undefined && data.PersonalizationThresholdSeconds !== null) {
+    contents.PersonalizationThresholdSeconds = data.PersonalizationThresholdSeconds;
   }
   if (data.PlaybackConfigurationArn !== undefined && data.PlaybackConfigurationArn !== null) {
     contents.PlaybackConfigurationArn = data.PlaybackConfigurationArn;
@@ -741,6 +774,20 @@ const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string },
   );
 };
 
+const serializeAws_restJson1AvailSuppression = (input: AvailSuppression, context: __SerdeContext): any => {
+  return {
+    ...(input.Mode !== undefined && { Mode: input.Mode }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1Bumper = (input: Bumper, context: __SerdeContext): any => {
+  return {
+    ...(input.EndUrl !== undefined && { EndUrl: input.EndUrl }),
+    ...(input.StartUrl !== undefined && { StartUrl: input.StartUrl }),
+  };
+};
+
 const serializeAws_restJson1CdnConfiguration = (input: CdnConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AdSegmentUrlPrefix !== undefined && { AdSegmentUrlPrefix: input.AdSegmentUrlPrefix }),
@@ -783,6 +830,22 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1AvailSuppression = (output: any, context: __SerdeContext): AvailSuppression => {
+  return {
+    __type: "AvailSuppression",
+    Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Bumper = (output: any, context: __SerdeContext): Bumper => {
+  return {
+    __type: "Bumper",
+    EndUrl: output.EndUrl !== undefined && output.EndUrl !== null ? output.EndUrl : undefined,
+    StartUrl: output.StartUrl !== undefined && output.StartUrl !== null ? output.StartUrl : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1CdnConfiguration = (output: any, context: __SerdeContext): CdnConfiguration => {
@@ -848,6 +911,14 @@ const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __S
       output.AdDecisionServerUrl !== undefined && output.AdDecisionServerUrl !== null
         ? output.AdDecisionServerUrl
         : undefined,
+    AvailSuppression:
+      output.AvailSuppression !== undefined && output.AvailSuppression !== null
+        ? deserializeAws_restJson1AvailSuppression(output.AvailSuppression, context)
+        : undefined,
+    Bumper:
+      output.Bumper !== undefined && output.Bumper !== null
+        ? deserializeAws_restJson1Bumper(output.Bumper, context)
+        : undefined,
     CdnConfiguration:
       output.CdnConfiguration !== undefined && output.CdnConfiguration !== null
         ? deserializeAws_restJson1CdnConfiguration(output.CdnConfiguration, context)
@@ -861,6 +932,10 @@ const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __S
         ? deserializeAws_restJson1HlsConfiguration(output.HlsConfiguration, context)
         : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    PersonalizationThresholdSeconds:
+      output.PersonalizationThresholdSeconds !== undefined && output.PersonalizationThresholdSeconds !== null
+        ? output.PersonalizationThresholdSeconds
+        : undefined,
     PlaybackConfigurationArn:
       output.PlaybackConfigurationArn !== undefined && output.PlaybackConfigurationArn !== null
         ? output.PlaybackConfigurationArn

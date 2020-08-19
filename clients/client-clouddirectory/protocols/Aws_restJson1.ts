@@ -1081,8 +1081,8 @@ export const serializeAws_restJson1GetObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
@@ -1115,8 +1115,8 @@ export const serializeAws_restJson1GetObjectInformationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
@@ -1217,8 +1217,8 @@ export const serializeAws_restJson1ListAttachedIndicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
@@ -1446,8 +1446,8 @@ export const serializeAws_restJson1ListObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
@@ -1479,8 +1479,8 @@ export const serializeAws_restJson1ListObjectChildrenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
@@ -1538,8 +1538,8 @@ export const serializeAws_restJson1ListObjectParentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
@@ -1571,8 +1571,8 @@ export const serializeAws_restJson1ListObjectPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
@@ -1637,8 +1637,8 @@ export const serializeAws_restJson1ListPolicyAttachmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;

@@ -529,7 +529,7 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    *
-   *          <p>The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:</p>
+   *          <p>The following operations are related to <code>CompleteMultipartUpload</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -591,255 +591,159 @@ export class S3 extends S3Client {
    * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
    *          <note>
    *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your object
-   *             up to 5 GB in size in a single atomic operation using this API. However, for copying an
+   *             up to 5 GB in size in a single atomic operation using this API. However, to copy an
    *             object greater than 5 GB, you must use the multipart upload Upload Part - Copy API. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object Using the REST Multipart Upload API</a>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+   *                Object Using the REST Multipart Upload API</a>.</p>
    *          </note>
-   *          <p>When copying an object, you can preserve all metadata (default) or specify new metadata. However, the ACL is not preserved and is set to private for the user making the request. To override the default ACL setting, specify a new ACL when generating a copy request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>.</p>
-   *          <important>
-   *             <p>Amazon S3 transfer acceleration does not support cross-region copies. If you request a
-   *             cross-region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
-   *                Request</code> error. For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
-   *          </important>
    *          <p>All copy requests must be authenticated. Additionally, you must have <i>read</i> access to the source object and <i>write</i> access to the destination bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>. Both the Region that you want to copy the object from and the Region that you want to copy the object to must be enabled for your account.</p>
+   *          <p>A copy request might return an error when Amazon S3 receives the copy request or while
+   *          Amazon S3 is copying the files. If the error occurs before the copy operation starts, you
+   *          receive a standard Amazon S3 error. If the error occurs during the copy operation, the
+   *
+   *          error response is embedded in the <code>200 OK</code> response. This means that a <code>200
+   *             OK</code> response can contain either a success or an error. Design your application to
+   *          parse the contents of the response and handle it appropriately.</p>
+   *          <p>If the copy is successful, you receive a response with information about the copied
+   *          object.</p>
+   *          <note>
+   *             <p>If the request is an HTTP 1.1 request, the response is chunk encoded. If it were not,
+   *             it would not contain the content-length, and you would need to read the entire
+   *             body.</p>
+   *          </note>
+   *          <p>The copy request charge is based on the storage class and Region that you specify for
+   *          the destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon S3 pricing</a>.</p>
+   *          <important>
+   *             <p>Amazon S3 transfer acceleration does not support cross-Region copies. If you request a
+   *             cross-Region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
+   *                Request</code> error. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
+   *          </important>
+   *          <p>
+   *             <b>Metadata</b>
+   *          </p>
+   *          <p>When copying an object, you can preserve all metadata (default) or specify new metadata.
+   *          However, the ACL is not preserved and is set to private for the user making the request. To
+   *          override the default ACL setting, specify a new ACL when generating a copy request. For
+   *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. </p>
+   *          <p>To specify whether you want the object metadata copied from the source object or
+   *          replaced with metadata provided in the request, you can optionally add the
+   *             <code>x-amz-metadata-directive</code> header. When you grant permissions, you can use
+   *          the <code>s3:x-amz-metadata-directive</code> condition key to enforce certain metadata
+   *          behavior when objects are uploaded. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html">Specifying Conditions in a
+   *             Policy</a> in the <i>Amazon S3 Developer Guide</i>. For a complete list of
+   *          Amazon S3-specific condition keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, Resources, and Condition Keys for
+   *             Amazon S3</a>.</p>
+   *          <p>
+   *             <b>
+   *                <code>x-amz-copy-source-if</code> Headers</b>
+   *          </p>
    *          <p>To only copy an object under certain conditions, such as whether the <code>Etag</code>
    *          matches or whether the object was modified before or after a specified date, use the
-   *          request parameters <code>x-amz-copy-source-if-match</code>,
-   *             <code>x-amz-copy-source-if-none-match</code>,
-   *             <code>x-amz-copy-source-if-unmodified-since</code>, or <code>
-   *             x-amz-copy-source-if-modified-since</code>.</p>
+   *          following request parameters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-match</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-none-match</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-unmodified-since</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-modified-since</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p> If both the <code>x-amz-copy-source-if-match</code> and
+   *                   <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the
+   *
+   *            request and evaluate as follows, Amazon S3 returns <code>200 OK</code> and copies the
+   *                data:</p>
+   *            <ul>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-match</code> condition evaluates to true</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to false</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>If both the <code>x-amz-copy-source-if-none-match</code> and
+   *
+   *                   <code>x-amz-copy-source-if-modified-since</code> headers are present in the
+   *                request and evaluate as follows, Amazon S3 returns the <code>412 Precondition
+   *                   Failed</code> response code:</p>
+   *            <ul>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-none-match</code> condition evaluates to false</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-modified-since</code> condition evaluates to true</p>
+   *             </li>
+   *          </ul>
+   *
    *          <note>
    *             <p>All headers with the <code>x-amz-</code> prefix, including <code>x-amz-copy-source</code>,
    *             must be signed.</p>
    *          </note>
-   *          <p>You can use this operation to change the storage class of an object that is already
-   *          stored in Amazon S3 using the <code>StorageClass</code> parameter. For more information,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
-   *          <p>The source object that you are copying can be encrypted or unencrypted. If the source
-   *          object is encrypted, it can be encrypted by server-side encryption using AWS managed
-   *          encryption keys or by using a customer-provided encryption key. When copying an object, you
-   *          can request that Amazon S3 encrypt the target object by using either the AWS managed
-   *          encryption keys or by using your own encryption key. You can do this regardless of the form
-   *          of server-side encryption that was used to encrypt the source, or even if the source object
-   *          was not encrypted. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using Server-Side Encryption</a>.</p>
-   *          <p>A copy request might return an error when Amazon S3 receives the copy request or while
-   *          Amazon S3 is copying the files. If the error occurs before the copy operation starts, you
-   *          receive a standard Amazon S3 error. If the error occurs during the copy operation, the
-   *          error response is embedded in the <code>200 OK</code> response. This means that a <code>200
-   *             OK</code> response can contain either a success or an error. Design your application to
-   *          parse the contents of the response and handle it appropriately.</p>
-   *          <p>If the copy is successful, you receive a response with information about the copied object.</p>
-   *          <note>
-   *             <p>If the request is an HTTP 1.1 request, the response is chunk encoded. If it were not, it would not contain the content-length, and you would need to read the entire body.</p>
-   *          </note>
+   *          <p>
+   *             <b>Encryption</b>
+   *          </p>
+   *          <p>The source object that you are copying can be encrypted or unencrypted. The source object
+   *          can be encrypted with server-side encryption using AWS managed encryption keys (SSE-S3 or
+   *          SSE-KMS) or by using a customer-provided encryption key. With server-side encryption, Amazon S3
+   *          encrypts your data as it writes it to disks in its data centers and decrypts the data when
+   *          you access it. </p>
+   *          <p>You can optionally use the appropriate encryption-related headers to request server-side
+   *          encryption for the target object. You have the option to provide your own encryption key or
+   *          use SSE-S3 or SSE-KMS, regardless of the form of server-side encryption that was used to
+   *          encrypt the source object. You can even request encryption if the source object was not
+   *          encrypted. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
+   *             Server-Side Encryption</a>.</p>
+   *          <p>
+   *             <b>Access Control List (ACL)-Specific Request Headers</b>
+   *          </p>
+   *          <p>When copying an object, you can optionally use headers to grant ACL-based permissions. By
+   *          default, all objects are private. Only the owner has full access control. When adding a new
+   *          object, you can grant permissions to individual AWS accounts or to predefined groups
+   *          defined by Amazon S3. These permissions are then added to the ACL on the object. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
+   *             API</a>. </p>
    *
-   *          <p>Consider the following when using request headers:</p>
-   *          <ul>
-   *             <li>
-   *                <p> Consideration 1 – If both the <code>x-amz-copy-source-if-match</code> and
-   *                   <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the
-   *                request and evaluate as follows, Amazon S3 returns 200 OK and copies the data:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>x-amz-copy-source-if-match</code> condition evaluates to true</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to false</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p> Consideration 2 – If both of the <code>x-amz-copy-source-if-none-match</code> and
-   *                   <code>x-amz-copy-source-if-modified-since</code> headers are present in the
-   *                request and evaluate as follows, Amazon S3 returns the <code>412 Precondition
-   *                   Failed</code> response code:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>x-amz-copy-source-if-none-match</code> condition evaluates to false</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>x-amz-copy-source-if-modified-since</code> condition evaluates to true</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *          <p>The copy request charge is based on the storage class and Region you specify for the destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon S3 Pricing</a>.</p>
-   *          <p>Following are other considerations when using <code>CopyObject</code>:</p>
-   *
-   *
-   *          <dl>
-   *             <dt>Versioning</dt>
-   *             <dd>
-   *                <p>By default, <code>x-amz-copy-source</code> identifies the current version of an object to copy. (If the current version is a delete marker, Amazon S3 behaves as if the object was deleted.) To copy a different version, use the <code>versionId</code> subresource.</p>
-   *
-   *               <p>If you enable versioning on the target bucket, Amazon S3 generates a unique
-   *                   version ID for the object being copied. This version ID is different from the
-   *                   version ID of the source object. Amazon S3 returns the version ID of the copied
-   *                   object in the <code>x-amz-version-id</code> response header in the
-   *                   response.</p>
-   *               <p>If you do not enable versioning or suspend it on the target bucket, the version ID that Amazon S3 generates is always null.</p>
-   *               <p>If the source object's storage class is GLACIER, you must restore a copy of this
-   *                   object before you can use it as a source object for the copy operation. For more
-   *                   information, see .</p>
-   *
-   *            </dd>
-   *             <dt>Access Permissions</dt>
-   *             <dd>
-   *                <p>When copying an object, you can optionally specify the accounts or groups that should be granted specific permissions on the new object. There are two ways to grant the permissions using the request headers:</p>
-   *               <ul>
-   *                   <li>
-   *                      <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code> headers. These parameters map to the set of permissions that Amazon S3 supports in an ACL. For more information,
-   *                     see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p>
-   *                   </li>
-   *                </ul>
-   *               <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do both.</p>
-   *             </dd>
-   *             <dt>Server-Side- Encryption-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>To encrypt the target object, you must provide the appropriate encryption-related request
-   *                   headers. The one you use depends on whether you want to use AWS managed encryption
-   *                   keys or provide your own encryption key. </p>
-   *               <ul>
-   *                   <li>
-   *                      <p>To encrypt the target object using server-side encryption with an AWS managed encryption key,
-   *                         provide the following request headers, as appropriate.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>
-   *                               <code>x-amz-server-side​-encryption</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>x-amz-server-side-encryption-aws-kms-key-id</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>x-amz-server-side-encryption-context</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                     <note>
-   *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide
-   *                        <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3
-   *                        uses the AWS managed CMK in AWS KMS to protect the data. If you want to use a customer managed AWS KMS CMK, you must provide the <code>x-amz-server-side-encryption-aws-kms-key-id</code> of the symmetric customer managed CMK. Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *                      </note>
-   *                      <important>
-   *                         <p>All GET and PUT requests for an object protected by AWS KMS fail if you don't make them with SSL or by using SigV4.</p>
-   *                      </important>
-   *                      <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in
-   *                            KMS</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                     <p>To encrypt the target object using server-side encryption with an encryption key that you provide, use the following headers.</p>
-   *                     <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-algorithm</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key-MD5</p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                     <p>If the source object is encrypted using server-side encryption with customer-provided encryption keys, you must use the following headers.</p>
-   *                     <ul>
-   *                         <li>
-   *                            <p>x-amz-copy-source​-server-side​-encryption​-customer-algorithm</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-copy-source​-server-side​-encryption​-customer-key</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-copy-source-​server-side​-encryption​-customer-key-MD5</p>
-   *                         </li>
-   *                      </ul>
-   *
-   *                     <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in Amazon
-   *                            KMS</a>.</p>
-   *                  </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Access-Control-List (ACL)-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>You also can use the following access control–related headers with this operation. By default,
-   *                   all objects are private. Only the owner has full access control. When adding a new
-   *                   object, you can grant permissions to individual AWS accounts or to predefined
-   *                   groups defined by Amazon S3. These permissions are then added to the access
-   *                   control list (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this operation, you can grant access permissions
-   *                   using one of the following two methods:</p>
-   *               <ul>
-   *                   <li>
-   *                      <p>Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of predefined ACLs,
-   *                         known as <i>canned ACLs</i>. Each canned ACL has a predefined
-   *                         set of grantees and permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Specify access permissions explicitly — To explicitly grant access permissions to specific AWS
-   *                         accounts or groups, use the following headers. Each header maps to specific
-   *                         permissions that Amazon S3 supports in an ACL. For more information, see
-   *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>. In the header, you specify a
-   *                         list of grantees who get the specific permission. To grant permissions
-   *                         explicitly, use:</p>
-   *                     <ul>
-   *                         <li>
-   *                            <p>x-amz-grant-read</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-write</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-read-acp</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-write-acp</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-full-control</p>
-   *                         </li>
-   *                      </ul>
-   *                     <p>You specify each grantee as a type=value pair, where the type is one of the following:</p>
-   *                     <ul>
-   *                         <li>
-   *                            <p>
-   *                               <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                               account</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>uri</code> – if you are granting permissions to a predefined group</p>
-   *                         </li>
-   *                      </ul>
-   *                     <p>For example, the following <code>x-amz-grant-read</code> header grants the
-   *                         AWS accounts identified by email addresses permissions to read object data
-   *                         and its metadata:</p>
-   *                     <p>
-   *                         <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-   *                     </code>
-   *                      </p>
-   *
-   *                  </li>
-   *                </ul>
-   *
-   *            </dd>
-   *          </dl>
+   *          <p>
+   *             <b>Storage Class Options</b>
+   *          </p>
+   *          <p>You can use the <code>CopyObject</code> operation to change the storage class of an
+   *          object that is already stored in Amazon S3 using the <code>StorageClass</code> parameter.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+   *             Classes</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
+   *          <p>
+   *             <b>Versioning</b>
+   *          </p>
+   *          <p>By default, <code>x-amz-copy-source</code> identifies the current version of an object
+   *          to copy. If the current version is a delete marker, Amazon S3 behaves as if the object was
+   *          deleted. To copy a different version, use the <code>versionId</code> subresource.</p>
+   *          <p>If you enable versioning on the target bucket, Amazon S3 generates a unique version ID
+   *          for the object being copied. This version ID is different from the version ID of the source
+   *          object. Amazon S3 returns the version ID of the copied object in the
+   *             <code>x-amz-version-id</code> response header in the response.</p>
+   *          <p>If you do not enable versioning or suspend it on the target bucket, the version ID that
+   *          Amazon S3 generates is always null.</p>
+   *          <p>If the source object's storage class is GLACIER, you must restore a copy of this object
+   *          before you can use it as a source object for the copy operation. For more information, see
+   *             .</p>
    *          <p>The following operations are related to <code>CopyObject</code>:</p>
    *          <ul>
    *             <li>
@@ -884,7 +788,7 @@ export class S3 extends S3Client {
    *          <p>By default, the bucket is created in the US East (N. Virginia) Region. You can
    *          optionally specify a Region in the request body. You might choose a Region to optimize
    *          latency, minimize costs, or address regulatory requirements. For example, if you reside in
-   *          Europe, you will probably find it advantageous to create buckets in the EU (Ireland)
+   *          Europe, you will probably find it advantageous to create buckets in the Europe (Ireland)
    *          Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro">How to Select a Region for Your Buckets</a>.</p>
    *          <note>
    *             <p>If you send your create bucket request to the <code>s3.amazonaws.com</code> endpoint, the
@@ -913,24 +817,51 @@ export class S3 extends S3Client {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                      account</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
    *                         <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>uri</code> – if you are granting permissions to a predefined group</p>
    *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
+   *                   account</p>
+   *                      <note>
+   *                         <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                         <ul>
+   *                            <li>
+   *                               <p>US East (N. Virginia)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>US West (N. California)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> US West (Oregon)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> Asia Pacific (Singapore)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Sydney)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Tokyo)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Europe (Ireland)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>South America (São Paulo)</p>
+   *                            </li>
+   *                         </ul>
+   *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                      </note>
+   *                   </li>
    *                </ul>
-   *                <p>For example, the following <code>x-amz-grant-read</code> header grants the AWS
-   *                accounts identified by email addresses permissions to read object data and its
-   *                metadata:</p>
+   *                <p>For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts identified by account IDs permissions to read object data and its metadata:</p>
    *                <p>
-   *                   <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-   *             </code>
+   *                   <code>x-amz-grant-read: id="11112222333", id="444455556666" </code>
    *                </p>
    *
    *             </li>
@@ -1114,26 +1045,52 @@ export class S3 extends S3Client {
    *                      <ul>
    *                         <li>
    *                            <p>
-   *                               <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                               account</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
    *                               <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
    *                         </li>
    *                         <li>
    *                            <p>
    *                               <code>uri</code> – if you are granting permissions to a predefined group</p>
    *                         </li>
+   *                         <li>
+   *                            <p>
+   *                               <code>emailAddress</code> – if the value specified is the email address of an AWS
+   *                            account</p>
+   *                            <note>
+   *                               <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                               <ul>
+   *                                  <li>
+   *                                     <p>US East (N. Virginia)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>US West (N. California)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p> US West (Oregon)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p> Asia Pacific (Singapore)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>Asia Pacific (Sydney)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>Asia Pacific (Tokyo)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>Europe (Ireland)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>South America (São Paulo)</p>
+   *                                  </li>
+   *                               </ul>
+   *                               <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                            </note>
+   *                         </li>
    *                      </ul>
-   *                      <p>For example, the following <code>x-amz-grant-read</code> header grants
-   *                         the AWS accounts identified by email addresses permissions to read object
-   *                         data and its metadata:</p>
+   *                      <p>For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts identified by account IDs permissions to read object data and its metadata:</p>
    *                      <p>
-   *                         <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-   *                      </code>
+   *                         <code>x-amz-grant-read: id="11112222333", id="444455556666" </code>
    *                      </p>
-   *
    *                   </li>
    *                </ul>
    *
@@ -1249,7 +1206,7 @@ export class S3 extends S3Client {
    *          <p>To use this operation, you must have permissions to perform the
    *             <code>s3:PutAnalyticsConfiguration</code> action. The bucket owner has this permission
    *          by default. The bucket owner can grant this permission to others. For more information
-   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
    *             Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
    *          <p>For information about the Amazon S3 analytics feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html">Amazon S3 Analytics – Storage Class Analysis</a>. </p>
@@ -1356,12 +1313,12 @@ export class S3 extends S3Client {
 
   /**
    * <p>This implementation of the DELETE operation removes default encryption from the bucket. For information about the Amazon S3
-   *         default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the
+   *         default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the
    *         <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>To use this operation, you must have permissions to perform the <code>s3:PutEncryptionConfiguration</code> action. The bucket owner
    *         has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see
-   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to
-   *            Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//s3-access-control.html">Managing Access Permissions to your Amazon S3
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to
+   *            Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to your Amazon S3
    *               Resources</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *
    *          <p class="title">
@@ -1990,7 +1947,7 @@ export class S3 extends S3Client {
   /**
    * <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code> permission. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
-   *          <p>The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:</p>
+   *          <p>The following operations are related to <code>DeletePublicAccessBlock</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2050,7 +2007,7 @@ export class S3 extends S3Client {
    *          <p>To use this operation, you must have permission to perform the
    *             <code>s3:GetAccelerateConfiguration</code> action. The bucket owner has this permission
    *          by default. The bucket owner can grant this permission to others. For more information
-   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//s3-access-control.html">Managing Access Permissions to your Amazon S3
+   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to your Amazon S3
    *             Resources</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>You set the Transfer Acceleration state of an existing bucket to <code>Enabled</code> or <code>Suspended</code> by using
    *         the <a>PutBucketAccelerateConfiguration</a> operation. </p>
@@ -2058,7 +2015,7 @@ export class S3 extends S3Client {
    *          no transfer acceleration state. A bucket has no Transfer Acceleration state if a state has
    *          never been set on the bucket. </p>
    *
-   *          <p>For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//transfer-acceleration.html">Transfer Acceleration</a> in the
+   *          <p>For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a> in the
    *          Amazon Simple Storage Service Developer Guide.</p>
    *          <p class="title">
    *             <b>Related Resources</b>
@@ -2384,7 +2341,7 @@ export class S3 extends S3Client {
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:</p>
+   *          <p>The following operations are related to <code>GetBucketLifecycleConfiguration</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4233,23 +4190,53 @@ export class S3 extends S3Client {
    *                      <ul>
    *                   <li>
    *                      <p>
-   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                      account</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
    *                         <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>uri</code> – if you are granting permissions to a predefined group</p>
    *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
+   *                            account</p>
+   *                      <note>
+   *                         <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                         <ul>
+   *                            <li>
+   *                               <p>US East (N. Virginia)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>US West (N. California)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> US West (Oregon)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> Asia Pacific (Singapore)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Sydney)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Tokyo)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Europe (Ireland)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>South America (São Paulo)</p>
+   *                            </li>
+   *                         </ul>
+   *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                      </note>
+   *                   </li>
    *                </ul>
    *                      <p>For example, the following <code>x-amz-grant-write</code> header grants
    *                create, overwrite, and delete objects permission to LogDelivery group predefined by
    *                Amazon S3 and two AWS accounts identified by their email addresses.</p>
    *                      <p>
-   *                   <code>x-amz-grant-write: uri="http://acs.amazonaws.com/groups/s3/LogDelivery", emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
+   *                   <code>x-amz-grant-write: uri="http://acs.amazonaws.com/groups/s3/LogDelivery", id="111122223333", id="555566667777"
    *                      </code>
    *                </p>
    *
@@ -4261,13 +4248,6 @@ export class S3 extends S3Client {
    *          </p>
    *          <p>You can specify the person (grantee) to whom you're assigning access rights (using request elements) in the following ways:</p>
    *          <ul>
-   *             <li>
-   *                <p>By Email address:</p>
-   *                <p>
-   *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
-   *                </p>
-   *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.</p>
-   *             </li>
    *             <li>
    *                <p>By the person's ID:</p>
    *                <p>
@@ -4281,6 +4261,44 @@ export class S3 extends S3Client {
    *                <p>
    *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
    *                </p>
+   *             </li>
+   *             <li>
+   *                <p>By Email address:</p>
+   *                <p>
+   *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
+   *                </p>
+   *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.
+   *             </p>
+   *                <note>
+   *                   <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>US East (N. Virginia)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>US West (N. California)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p> US West (Oregon)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p> Asia Pacific (Singapore)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Asia Pacific (Sydney)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Asia Pacific (Tokyo)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Europe (Ireland)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>South America (São Paulo)</p>
+   *                      </li>
+   *                   </ul>
+   *                   <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                </note>
    *             </li>
    *          </ul>
    *
@@ -4556,7 +4574,7 @@ export class S3 extends S3Client {
    *         state of an existing bucket.</p>
    *          <p>This implementation of the <code>PUT</code> operation sets default encryption for a
    *          bucket using server-side encryption with Amazon S3-managed keys SSE-S3 or AWS KMS customer
-   *          master keys (CMKs) (SSE-KMS).</p>
+   *          master keys (CMKs) (SSE-KMS). For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a>.</p>
    *          <important>
    *             <p>This operation requires AWS Signature Version 4. For more information, see <a href="sig-v4-authenticating-requests.html">
    *         Authenticating Requests (AWS Signature Version 4)</a>.
@@ -4625,17 +4643,17 @@ export class S3 extends S3Client {
    *          <p>When you configure an inventory for a <i>source</i> bucket, you specify the <i>destination</i> bucket
    *         where you want the inventory to be stored, and whether to generate the inventory daily or weekly. You can also configure what object
    *         metadata to include and whether to inventory all object versions or only current versions. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//storage-inventory.html">Amazon S3 Inventory</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon S3 Inventory</a> in the Amazon Simple Storage Service Developer Guide.</p>
    *          <important>
-   *             <p>You must create a bucket policy on the <i>destination</i> bucket to grant permissions to Amazon S3 to write objects to the bucket in the
-   *         defined location. For an example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9">
-   *            Granting Permissions for Amazon S3 Inventory and Storage Class Analysis.</a>
-   *             </p>
+   *             <p>You must create a bucket policy on the <i>destination</i> bucket to grant
+   *             permissions to Amazon S3 to write objects to the bucket in the defined location. For an
+   *             example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9">
+   *                Granting Permissions for Amazon S3 Inventory and Storage Class Analysis</a>.</p>
    *          </important>
    *          <p>To use this operation, you must have permissions to perform the <code>s3:PutInventoryConfiguration</code> action. The bucket
    *         owner has this permission by default and can grant this permission to others. For more information about permissions, see
-   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to
-   *            Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//s3-access-control.html">Managing Access Permissions to Your
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to
+   *            Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your
    *               Amazon S3 Resources</a> in the Amazon Simple Storage Service Developer Guide.</p>
    *
    *          <p class="title">
@@ -4684,8 +4702,9 @@ export class S3 extends S3Client {
    *                  </li>
    *                   <li>
    *                     <p>
-   *                         <i>Cause:</i> You are not the owner of the specified bucket, or you do not have the <code>s3:PutInventoryConfiguration</code>
-   *                        bucket permission to set the configuration on the bucket </p>
+   *                         <i>Cause:</i> You are not the owner of the specified bucket,
+   *                      or you do not have the <code>s3:PutInventoryConfiguration</code> bucket
+   *                      permission to set the configuration on the bucket. </p>
    *                  </li>
    *                </ul>
    *            </li>
@@ -5100,7 +5119,7 @@ export class S3 extends S3Client {
   /**
    * <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity must have the <code>PutBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.</p>
    *
-   *          <p>If you don't have <code>PutBucketPolic</code>y permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>
+   *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>
    *
    *          <important>
    *             <p> As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy explicitly denies the root user the ability to perform this action.
@@ -5277,9 +5296,6 @@ export class S3 extends S3Client {
    *          </note>
    *          <p>To use this operation, you must have permissions to perform the <code>s3:PutBucketTagging</code> action. The bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
-   *
-   *
-   *
    *          <p>
    *             <code>PutBucketTagging</code> has the following special errors:</p>
    *          <ul>
@@ -5288,7 +5304,7 @@ export class S3 extends S3Client {
    *                </p>
    *                <ul>
    *                   <li>
-   *                      <p>Description: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//allocation-tag-restrictions.html">User-Defined Tag Restrictions</a>  and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//aws-tag-restrictions.html">AWS-Generated Cost Allocation Tag Restrictions</a>.</p>
+   *                      <p>Description: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a>  and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">AWS-Generated Cost Allocation Tag Restrictions</a>.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5548,6 +5564,10 @@ export class S3 extends S3Client {
    *                </p>
    *             </li>
    *          </ul>
+   *
+   *          <p>Amazon S3 has a limitation of 50 routing rules per website configuration. If you require more
+   *          than 50 routing rules, you can use object redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring an Object Redirect</a> in the
+   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   public putBucketWebsite(
     args: PutBucketWebsiteCommandInput,
@@ -5581,247 +5601,56 @@ export class S3 extends S3Client {
   /**
    * <p>Adds an object to a bucket. You must have WRITE permissions on a bucket to add an object to it.</p>
    *
+   *
    *          <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the entire object to the bucket.</p>
    *
    *          <p>Amazon S3 is a distributed system. If it receives multiple write requests for the same object simultaneously, it overwrites all but the last object written. Amazon S3 does not provide object locking; if you need this, make sure to build it into your application layer or use versioning instead.</p>
    *
    *          <p>To ensure that data is not corrupted traversing the network, use the <code>Content-MD5</code> header. When you use this header, Amazon S3 checks the object against the provided MD5 value and, if they do not match, returns an error. Additionally, you can calculate the MD5 while putting an object to Amazon S3 and compare the returned ETag to the calculated MD5 value.</p>
-   *
    *          <note>
-   *             <p>To configure your application to send the request headers before sending the request body, use the <code>100-continue</code> HTTP status code. For PUT operations, this helps you avoid sending the message body if the message is rejected based on the headers (for example, because authentication fails or a redirect occurs). For more information on the <code>100-continue</code> HTTP status code, see Section 8.2.3 of <a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt</a>.</p>
+   *             <p>
+   *             The <code>Content-MD5</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information about Amazon S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html">Amazon S3 Object Lock Overview</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+   *          </p>
    *          </note>
    *
-   *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon
-   *          S3 encrypts your data as it writes it to disks in its data centers and decrypts the data
+   *
+   *          <p>
+   *             <b>Server-side Encryption</b>
+   *          </p>
+   *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data
    *          when you access it. You have the option to provide your own encryption key or use AWS
-   *          managed encryption keys. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side Encryption</a>.</p>
-   *
-   *
-   *
-   *          <dl>
-   *             <dt>Access Permissions</dt>
-   *             <dd>
-   *                <p>You can optionally specify the accounts or groups that should be granted specific permissions on the new object. There are two ways to grant the permissions using the request headers:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code> headers. These parameters map to the set of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p>
-   *                   </li>
-   *                </ul>
-   *                <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do both.</p>
-   *             </dd>
-   *             <dt>Server-Side- Encryption-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>You can optionally tell Amazon S3 to encrypt data at rest using server-side encryption.
-   *                   Server-side encryption is for data encryption at rest. Amazon S3 encrypts your
-   *                   data as it writes it to disks in its data centers and decrypts it when you access
-   *                   it. The option you use depends on whether you want to use AWS managed encryption
-   *                   keys or provide your own encryption key. </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Use encryption keys managed by Amazon S3 or customer master keys (CMKs) stored in AWS Key
-   *                         Management Service (AWS KMS) – If you want AWS to manage the keys used to
-   *                         encrypt data, specify the following headers in the request.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side-encryption-aws-kms-key-id</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side-encryption-context</p>
-   *                         </li>
-   *                      </ul>
-   *                      <note>
-   *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide
-   *                               <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3
-   *                         uses the AWS managed CMK in AWS KMS to protect the data. If you want to use a customer managed AWS KMS CMK, you must provide the <code>x-amz-server-side-encryption-aws-kms-key-id</code> of the symmetric customer managed CMK. Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *                      </note>
-   *                      <important>
-   *                         <p>All GET and PUT requests for an object protected by AWS KMS fail if you don't make them with SSL or by using SigV4.</p>
-   *                      </important>
-   *                      <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in
-   *                            AWS</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Use customer-provided encryption keys – If you want to manage your own encryption keys, provide all the following headers in the request.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-algorithm</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key-MD5</p>
-   *                         </li>
-   *                      </ul>
-   *                      <p>For more information about server-side encryption with CMKs stored in KMS
-   *                         (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in
-   *                         AWS</a>.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Access-Control-List (ACL)-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>You also can use the following access control–related headers with this operation. By default, all objects are private. Only the owner has full access control. When adding a new object, you can grant permissions to individual AWS accounts or to predefined groups defined by Amazon S3. These permissions are then added to the Access Control List (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this operation, you can grant access permissions using one of the following two methods:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of predefined ACLs,
-   *                         known as canned ACLs. Each canned ACL has a predefined set of grantees and
-   *                         permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Specify access permissions explicitly — To explicitly grant access permissions to specific AWS accounts or groups, use the following headers. Each header maps to specific permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>. In the header, you specify a list of grantees who get the specific permission. To grant permissions explicitly use:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-grant-read</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-write</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-read-acp</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-write-acp</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-full-control</p>
-   *                         </li>
-   *                      </ul>
-   *                      <p>You specify each grantee as a type=value pair, where the type is one of the following:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>
-   *                               <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                               account</p>
-   *                            <important>
-   *                               <p>Using email addresses to specify a grantee is only supported in the following AWS Regions:
-   *                            </p>
-   *                               <ul>
-   *                                  <li>
-   *                                     <p>US East (N. Virginia)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>US West (N. California)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p> US West (Oregon)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p> Asia Pacific (Singapore)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>Asia Pacific (Sydney)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>Asia Pacific (Tokyo)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>EU (Ireland)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>South America (São Paulo)</p>
-   *                                  </li>
-   *                               </ul>
-   *                               <p>For a list of all the Amazon S3 supported Regions and endpoints,
-   *                                  see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General
-   *                                  Reference</p>
-   *                            </important>
-   *
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>uri</code> – if you are granting permissions to a predefined group</p>
-   *                         </li>
-   *                      </ul>
-   *                      <p>For example, the following <code>x-amz-grant-read</code> header grants
-   *                         the AWS accounts identified by email addresses permissions to read object
-   *                         data and its metadata:</p>
-   *                      <p>
-   *                         <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-   *                      </code>
-   *                      </p>
-   *
-   *                   </li>
-   *                </ul>
-   *
-   *             </dd>
-   *             <dt>Server-Side- Encryption-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>You can optionally tell Amazon S3 to encrypt data at rest using server-side encryption. Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts it when you access it. The option you use depends on whether you want to use AWS-managed encryption keys or provide your own encryption key. </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Use encryption keys managed by Amazon S3 or customer master keys (CMKs) stored in AWS Key
-   *                         Management Service (AWS KMS) – If you want AWS to manage the keys used to
-   *                         encrypt data, specify the following headers in the request.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side-encryption-aws-kms-key-id</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side-encryption-context</p>
-   *                         </li>
-   *                      </ul>
-   *                      <note>
-   *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide
-   *                         <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3
-   *                         uses the AWS managed CMK in AWS KMS to protect the data. If you want to use a customer managed AWS KMS CMK, you must provide the <code>x-amz-server-side-encryption-aws-kms-key-id</code> of the symmetric customer managed CMK. Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *                      </note>
-   *                      <important>
-   *                         <p>All GET and PUT requests for an object protected by AWS KMS fail if you don't make them with SSL or by using SigV4.</p>
-   *                      </important>
-   *                      <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in AWS
-   *                            KMS</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Use customer-provided encryption keys – If you want to manage your own encryption keys, provide all the following headers in the request.</p>
-   *                      <note>
-   *                         <p>If you use this feature, the ETag value that Amazon S3 returns in the response is not the MD5 of the object.</p>
-   *                      </note>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-algorithm</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key-MD5</p>
-   *                         </li>
-   *                      </ul>
-   *                      <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in AWS
-   *                            KMS</a>.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *          </dl>
+   *          managed encryption keys. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
+   *          Encryption</a>.</p>
+   *          <p>
+   *             <b>Access Control List (ACL)-Specific Request Headers</b>
+   *          </p>
+   *          <p>You can use headers to grant ACL- based permissions. By default, all objects are
+   *          private. Only the owner has full access control. When adding a new object, you can grant
+   *          permissions to individual AWS accounts or to predefined groups defined by Amazon S3. These
+   *          permissions are then added to the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List
+   *             (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
+   *             API</a>. </p>
    *
    *          <p>
    *             <b>Storage Class Options</b>
    *          </p>
-   *          <p>By default, Amazon S3 uses the Standard storage class to store newly created objects. The Standard storage class provides high durability and high availability. You can specify other storage classes depending on the performance needs. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   *          <p>By default, Amazon S3 uses the STANDARD storage class to store newly created objects.
+   *          The STANDARD storage class provides high durability and high availability. Depending on
+   *          performance needs, you can specify a different storage class. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
+   *             <i>Amazon S3 Service Developer Guide</i>.</p>
    *
    *          <p>
    *             <b>Versioning</b>
    *          </p>
-   *          <p>If you enable versioning for a bucket, Amazon S3 automatically generates a unique version ID for the object being stored. Amazon S3 returns this ID in the response using the <code>x-amz-version-id response</code> header. If versioning is suspended, Amazon S3 always uses null as the version ID for the object stored. For more information about returning the versioning state of a bucket, see <a>GetBucketVersioning</a>.
+   *          <p>If you enable versioning for a bucket, Amazon S3 automatically generates a unique
+   *          version ID for the object being stored. Amazon S3 returns this ID in the response. When you
+   *          enable versioning for a bucket, if Amazon S3 receives multiple write requests for the
+   *          same object simultaneously, it stores all of the objects.</p>
+   *          <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to
+   *             Versioning Enabled Buckets</a>. For information about returning the versioning state
+   *          of a bucket, see <a>GetBucketVersioning</a>. </p>
    *
-   *          If you enable versioning for a bucket, when Amazon S3 receives multiple write requests for the same object simultaneously, it stores all of the objects.</p>
    *
    *          <p class="title">
    *             <b>Related Resources</b>
@@ -5869,7 +5698,8 @@ export class S3 extends S3Client {
    *          <p>Depending on your application needs, you can choose to set the ACL on an object using
    *          either the request body or the headers. For example, if you have an existing application
    *          that updates a bucket ACL using the request body, you can continue to use that
-   *          approach.</p>
+   *          approach. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 Developer Guide</i>.</p>
    *
    *
    *
@@ -5892,15 +5722,12 @@ export class S3 extends S3Client {
    *                specify explicit access permissions and grantees (AWS accounts or Amazon S3 groups)
    *                who will receive the permission. If you use these ACL-specific headers, you cannot
    *                use <code>x-amz-acl</code> header to set a canned ACL. These parameters map to the
+   *
    *                set of permissions that Amazon S3 supports in an ACL. For more information, see
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p>
+   *
    *                <p>You specify each grantee as a type=value pair, where the type is one of the following:</p>
    *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                      account</p>
-   *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
@@ -5908,6 +5735,41 @@ export class S3 extends S3Client {
    *                   <li>
    *                      <p>
    *                         <code>uri</code> – if you are granting permissions to a predefined group</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
+   *                      account</p>
+   *                      <note>
+   *                         <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                         <ul>
+   *                            <li>
+   *                               <p>US East (N. Virginia)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>US West (N. California)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> US West (Oregon)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> Asia Pacific (Singapore)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Sydney)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Tokyo)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Europe (Ireland)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>South America (São Paulo)</p>
+   *                            </li>
+   *                         </ul>
+   *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                      </note>
    *                   </li>
    *                </ul>
    *                <p>For example, the following <code>x-amz-grant-read</code> header grants list
@@ -5927,13 +5789,6 @@ export class S3 extends S3Client {
    *          <p>You can specify the person (grantee) to whom you're assigning access rights (using request elements) in the following ways:</p>
    *          <ul>
    *             <li>
-   *                <p>By Email address:</p>
-   *                <p>
-   *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
-   *                </p>
-   *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.</p>
-   *             </li>
-   *             <li>
    *                <p>By the person's ID:</p>
    *                <p>
    *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
@@ -5946,6 +5801,43 @@ export class S3 extends S3Client {
    *                <p>
    *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
    *                </p>
+   *             </li>
+   *             <li>
+   *                <p>By Email address:</p>
+   *                <p>
+   *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
+   *                </p>
+   *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.</p>
+   *                <note>
+   *                   <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>US East (N. Virginia)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>US West (N. California)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p> US West (Oregon)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p> Asia Pacific (Singapore)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Asia Pacific (Sydney)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Asia Pacific (Tokyo)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Europe (Ireland)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>South America (São Paulo)</p>
+   *                      </li>
+   *                   </ul>
+   *                   <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                </note>
    *             </li>
    *          </ul>
    *          <p>
@@ -6125,7 +6017,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Sets the supplied tag-set to an object that already exists in a bucket</p>
+   * <p>Sets the supplied tag-set to an object that already exists in a bucket.</p>
    *          <p>A tag is a key-value pair. You can associate tags with an object by sending a PUT request against the tagging subresource that is associated with the object. You can retrieve tags by sending a GET request. For more information, see <a>GetObjectTagging</a>.</p>
    *
    *          <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">Tag Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags per object.</p>
@@ -6338,7 +6230,7 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    *          <p>To use this operation, you must have permissions to perform the
-   *             <code>s3:RestoreObject</code> and <code>s3:GetObject</code> actions. The bucket owner
+   *             <code>s3:RestoreObject</code> action. The bucket owner
    *          has this permission by default and can grant this permission to others. For more
    *          information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
    *             Resources</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
@@ -6414,8 +6306,8 @@ export class S3 extends S3Client {
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>For more information about using SQL with Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL Reference for Amazon S3 Select and
-   *             Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
+   *          <p>For more information about using SQL with S3 Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL Reference for Amazon S3 Select and
+   *         S3 Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
    *          <p>When making a select request, you can also do the following:</p>
    *          <ul>
    *             <li>
@@ -6476,10 +6368,10 @@ export class S3 extends S3Client {
    *                <p>
    *                   <b>
    *                      <code>Standard</code>
-   *                   </b> - Standard retrievals allow
+   *                   </b> - S3 Standard retrievals allow
    *                you to access any of your archived objects within several hours. This is the default
    *                option for the GLACIER and DEEP_ARCHIVE retrieval requests that do not specify the
-   *                retrieval option. Standard retrievals typically complete within 3-5 hours from the
+   *                retrieval option. S3 Standard retrievals typically complete within 3-5 hours from the
    *                GLACIER storage class and typically complete within 12 hours from the DEEP_ARCHIVE
    *                storage class. </p>
    *             </li>
@@ -6580,10 +6472,10 @@ export class S3 extends S3Client {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <i>Cause: Glacier expedited retrievals are currently not available.
+   *                         <i>Cause: S3 Glacier expedited retrievals are currently not available.
    *                         Try again later. (Returned if there is insufficient capacity to process the
    *                         Expedited request. This error applies only to Expedited retrievals and not
-   *                         to Standard or Bulk retrievals.)</i>
+   *                         to S3 Standard or Bulk retrievals.)</i>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -6617,7 +6509,7 @@ export class S3 extends S3Client {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL Reference for
-   *                   Amazon S3 Select and Glacier Select </a> in the <i>Amazon Simple Storage Service Developer Guide</i>
+   *                Amazon S3 Select and S3 Glacier Select </a> in the <i>Amazon Simple Storage Service Developer Guide</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -6662,7 +6554,7 @@ export class S3 extends S3Client {
    *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from Objects</a>
    *         in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>For more information about using SQL with Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html"> SQL Reference for Amazon S3
-   *         Select and Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *         Select and S3 Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *         <p></p>
    *          <p>
    *             <b>Permissions</b>
@@ -6732,8 +6624,9 @@ export class S3 extends S3Client {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Range</code>: While you can specify a scan range for a Amazon S3 Select request, see <a>SelectObjectContentRequest$ScanRange</a> in the request parameters below, you cannot specify the range of bytes of an object to return.
-   *            </p>
+   *                   <code>Range</code>: Although you can specify a scan range for an Amazon S3 Select request
+   *                (see <a>SelectObjectContentRequest$ScanRange</a> in the request
+   *                parameters), you cannot specify the range of bytes of an object to return. </p>
    *             </li>
    *             <li>
    *                <p>GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You
@@ -6747,8 +6640,8 @@ export class S3 extends S3Client {
    *          <p>
    *             <b>Special Errors</b>
    *          </p>
-   *          <p>For a list of special errors for this operation and for general information about Amazon S3 errors
-   *         and a list of error codes, see <a>ErrorResponses</a>
+   *
+   *          <p>For a list of special errors for this operation, see <a>SelectObjectContentErrorCodeList</a>
    *          </p>
    *          <p class="title">
    *             <b>Related Resources</b>

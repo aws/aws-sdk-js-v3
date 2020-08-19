@@ -23,6 +23,10 @@ import {
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
 import {
+  GetManagedScalingPolicyCommandInput,
+  GetManagedScalingPolicyCommandOutput,
+} from "./commands/GetManagedScalingPolicyCommand";
+import {
   ListBootstrapActionsCommandInput,
   ListBootstrapActionsCommandOutput,
 } from "./commands/ListBootstrapActionsCommand";
@@ -53,9 +57,17 @@ import {
   PutBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/PutBlockPublicAccessConfigurationCommand";
 import {
+  PutManagedScalingPolicyCommandInput,
+  PutManagedScalingPolicyCommandOutput,
+} from "./commands/PutManagedScalingPolicyCommand";
+import {
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput,
 } from "./commands/RemoveAutoScalingPolicyCommand";
+import {
+  RemoveManagedScalingPolicyCommandInput,
+  RemoveManagedScalingPolicyCommandOutput,
+} from "./commands/RemoveManagedScalingPolicyCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
 import {
@@ -127,6 +139,7 @@ export type ServiceInputTypes =
   | DescribeSecurityConfigurationCommandInput
   | DescribeStepCommandInput
   | GetBlockPublicAccessConfigurationCommandInput
+  | GetManagedScalingPolicyCommandInput
   | ListBootstrapActionsCommandInput
   | ListClustersCommandInput
   | ListInstanceFleetsCommandInput
@@ -139,7 +152,9 @@ export type ServiceInputTypes =
   | ModifyInstanceGroupsCommandInput
   | PutAutoScalingPolicyCommandInput
   | PutBlockPublicAccessConfigurationCommandInput
+  | PutManagedScalingPolicyCommandInput
   | RemoveAutoScalingPolicyCommandInput
+  | RemoveManagedScalingPolicyCommandInput
   | RemoveTagsCommandInput
   | RunJobFlowCommandInput
   | SetTerminationProtectionCommandInput
@@ -159,6 +174,7 @@ export type ServiceOutputTypes =
   | DescribeSecurityConfigurationCommandOutput
   | DescribeStepCommandOutput
   | GetBlockPublicAccessConfigurationCommandOutput
+  | GetManagedScalingPolicyCommandOutput
   | ListBootstrapActionsCommandOutput
   | ListClustersCommandOutput
   | ListInstanceFleetsCommandOutput
@@ -171,7 +187,9 @@ export type ServiceOutputTypes =
   | ModifyInstanceGroupsCommandOutput
   | PutAutoScalingPolicyCommandOutput
   | PutBlockPublicAccessConfigurationCommandOutput
+  | PutManagedScalingPolicyCommandOutput
   | RemoveAutoScalingPolicyCommandOutput
+  | RemoveManagedScalingPolicyCommandOutput
   | RemoveTagsCommandOutput
   | RunJobFlowCommandOutput
   | SetTerminationProtectionCommandOutput

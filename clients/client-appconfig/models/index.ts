@@ -63,12 +63,17 @@ export namespace BadRequestException {
   export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
+export enum BytesMeasure {
+  KILOBYTES = "KILOBYTES",
+}
+
 export interface Configuration {
   __type?: "Configuration";
   /**
-   * <p>The configuration version.</p>
+   * <p>A standard MIME type describing the format of the configuration content. For more
+   *          information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
-  ConfigurationVersion?: string;
+  ContentType?: string;
 
   /**
    * <p>The content of the configuration or the configuration data.</p>
@@ -76,15 +81,15 @@ export interface Configuration {
   Content?: Uint8Array;
 
   /**
-   * <p>A standard MIME type describing the format of the configuration content. For more
-   *          information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   * <p>The configuration version.</p>
    */
-  ContentType?: string;
+  ConfigurationVersion?: string;
 }
 
 export namespace Configuration {
   export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
 }
@@ -92,9 +97,15 @@ export namespace Configuration {
 export interface ConfigurationProfile {
   __type?: "ConfigurationProfile";
   /**
-   * <p>The application ID.</p>
+   * <p>The ARN of an IAM role with permission to access the configuration at the specified
+   *          LocationUri.</p>
    */
-  ApplicationId?: string;
+  RetrievalRoleArn?: string;
+
+  /**
+   * <p>A list of methods for validating the configuration.</p>
+   */
+  Validators?: Validator[];
 
   /**
    * <p>The configuration profile description.</p>
@@ -112,25 +123,20 @@ export interface ConfigurationProfile {
   LocationUri?: string;
 
   /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId?: string;
+
+  /**
    * <p>The name of the configuration profile.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The ARN of an IAM role with permission to access the configuration at the specified
-   *          LocationUri.</p>
-   */
-  RetrievalRoleArn?: string;
-
-  /**
-   * <p>A list of methods for validating the configuration.</p>
-   */
-  Validators?: Validator[];
 }
 
 export namespace ConfigurationProfile {
   export const filterSensitiveLog = (obj: ConfigurationProfile): any => ({
     ...obj,
+    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ConfigurationProfile => __isa(o, "ConfigurationProfile");
 }
@@ -162,14 +168,14 @@ export namespace ConfigurationProfiles {
 export interface ConfigurationProfileSummary {
   __type?: "ConfigurationProfileSummary";
   /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId?: string;
-
-  /**
    * <p>The ID of the configuration profile.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The types of validators in the configuration profile.</p>
+   */
+  ValidatorTypes?: (ValidatorType | string)[];
 
   /**
    * <p>The URI location of the configuration.</p>
@@ -177,14 +183,14 @@ export interface ConfigurationProfileSummary {
   LocationUri?: string;
 
   /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId?: string;
+
+  /**
    * <p>The name of the configuration profile.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The types of validators in the configuration profile.</p>
-   */
-  ValidatorTypes?: (ValidatorType | string)[];
 }
 
 export namespace ConfigurationProfileSummary {
@@ -219,16 +225,16 @@ export interface CreateApplicationRequest {
   Description?: string;
 
   /**
-   * <p>A name for the application.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Metadata to assign to the application. Tags help organize and categorize your AppConfig
    *          resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A name for the application.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateApplicationRequest {
@@ -241,19 +247,25 @@ export namespace CreateApplicationRequest {
 export interface CreateConfigurationProfileRequest {
   __type?: "CreateConfigurationProfileRequest";
   /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>A description of the configuration profile.</p>
    */
   Description?: string;
 
   /**
-   * <p>A URI to locate the configuration. You can specify either a Systems Manager (SSM) document or an SSM Parameter Store parameter. For an SSM document, specify either the document name in the format <code>ssm-document://<Document name></code> or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format <code>ssm-parameter://<Parameter name></code> or the ARN.</p>
+   * <p>A URI to locate the configuration. You can specify a Systems Manager (SSM) document, an SSM
+   *          Parameter Store parameter, or an Amazon S3 object. For an SSM document, specify either the
+   *          document name in the format <code>ssm-document://<Document_name></code> or the Amazon
+   *          Resource Name (ARN). For a parameter, specify either the parameter name in the format
+   *             <code>ssm-parameter://<Parameter_name></code> or the ARN. For an Amazon S3 object,
+   *          specify the URI in the following format: <code>s3://<bucket>/<objectKey>
+   *          </code>. Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json</p>
    */
   LocationUri: string | undefined;
+
+  /**
+   * <p>A list of methods for validating the configuration.</p>
+   */
+  Validators?: Validator[];
 
   /**
    * <p>A name for the configuration profile.</p>
@@ -264,7 +276,7 @@ export interface CreateConfigurationProfileRequest {
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
    *          LocationUri.</p>
    */
-  RetrievalRoleArn: string | undefined;
+  RetrievalRoleArn?: string;
 
   /**
    * <p>Metadata to assign to the configuration profile. Tags help organize and categorize your
@@ -274,14 +286,15 @@ export interface CreateConfigurationProfileRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>A list of methods for validating the configuration.</p>
+   * <p>The application ID.</p>
    */
-  Validators?: Validator[];
+  ApplicationId: string | undefined;
 }
 
 export namespace CreateConfigurationProfileRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationProfileRequest): any => ({
     ...obj,
+    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is CreateConfigurationProfileRequest => __isa(o, "CreateConfigurationProfileRequest");
 }
@@ -289,14 +302,14 @@ export namespace CreateConfigurationProfileRequest {
 export interface CreateDeploymentStrategyRequest {
   __type?: "CreateDeploymentStrategyRequest";
   /**
-   * <p>Total amount of time for a deployment to last.</p>
-   */
-  DeploymentDurationInMinutes: number | undefined;
-
-  /**
    * <p>A description of the deployment strategy.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
+   */
+  ReplicateTo: ReplicateTo | string | undefined;
 
   /**
    * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
@@ -311,19 +324,48 @@ export interface CreateDeploymentStrategyRequest {
   GrowthFactor: number | undefined;
 
   /**
-   * <p>The algorithm used to define how percentage grows over time.</p>
+   * <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the
+   *          following growth types:</p>
+   *          <p>
+   *             <b>Linear</b>: For this type, AppConfig processes the
+   *          deployment by dividing the total number of targets by the value specified for <code>Step
+   *             percentage</code>. For example, a linear deployment that uses a <code>Step
+   *             percentage</code> of 10 deploys the configuration to 10 percent of the hosts. After
+   *          those deployments are complete, the system deploys the configuration to the next 10
+   *          percent. This continues until 100% of the targets have successfully received the
+   *          configuration.</p>
+   *
+   *          <p>
+   *             <b>Exponential</b>: For this type, AppConfig processes the
+   *          deployment exponentially using the following formula: <code>G*(2^N)</code>. In this
+   *          formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is
+   *          the number of steps until the configuration is deployed to all targets. For example, if you
+   *          specify a growth factor of 2, then the system rolls out the configuration as
+   *          follows:</p>
+   *          <p>
+   *             <code>2*(2^0)</code>
+   *          </p>
+   *          <p>
+   *             <code>2*(2^1)</code>
+   *          </p>
+   *          <p>
+   *             <code>2*(2^2)</code>
+   *          </p>
+   *          <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the
+   *          targets, 8% of the targets, and continues until the configuration has been deployed to all
+   *          targets.</p>
    */
   GrowthType?: GrowthType | string;
+
+  /**
+   * <p>Total amount of time for a deployment to last.</p>
+   */
+  DeploymentDurationInMinutes: number | undefined;
 
   /**
    * <p>A name for the deployment strategy.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
-   */
-  ReplicateTo: ReplicateTo | string | undefined;
 
   /**
    * <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your
@@ -343,14 +385,9 @@ export namespace CreateDeploymentStrategyRequest {
 export interface CreateEnvironmentRequest {
   __type?: "CreateEnvironmentRequest";
   /**
-   * <p>The application ID.</p>
+   * <p>A name for the environment.</p>
    */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>A description of the environment.</p>
-   */
-  Description?: string;
+  Name: string | undefined;
 
   /**
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
@@ -358,9 +395,9 @@ export interface CreateEnvironmentRequest {
   Monitors?: Monitor[];
 
   /**
-   * <p>A name for the environment.</p>
+   * <p>The application ID.</p>
    */
-  Name: string | undefined;
+  ApplicationId: string | undefined;
 
   /**
    * <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig
@@ -368,6 +405,11 @@ export interface CreateEnvironmentRequest {
    *          define.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A description of the environment.</p>
+   */
+  Description?: string;
 }
 
 export namespace CreateEnvironmentRequest {
@@ -375,6 +417,52 @@ export namespace CreateEnvironmentRequest {
     ...obj,
   });
   export const isa = (o: any): o is CreateEnvironmentRequest => __isa(o, "CreateEnvironmentRequest");
+}
+
+export interface CreateHostedConfigurationVersionRequest {
+  __type?: "CreateHostedConfigurationVersionRequest";
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The content of the configuration or the configuration data.</p>
+   */
+  Content: Uint8Array | undefined;
+
+  /**
+   * <p>A standard MIME type describing the format of the configuration content. For more
+   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   */
+  ContentType: string | undefined;
+
+  /**
+   * <p>An optional locking token used to prevent race conditions from overwriting configuration
+   *          updates when creating a new version. To ensure your data is not overwritten when creating
+   *          multiple hosted configuration versions in rapid succession, specify the version of the
+   *          latest hosted configuration version.</p>
+   */
+  LatestVersionNumber?: number;
+
+  /**
+   * <p>A description of the configuration.</p>
+   */
+  Description?: string;
+}
+
+export namespace CreateHostedConfigurationVersionRequest {
+  export const filterSensitiveLog = (obj: CreateHostedConfigurationVersionRequest): any => ({
+    ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is CreateHostedConfigurationVersionRequest =>
+    __isa(o, "CreateHostedConfigurationVersionRequest");
 }
 
 export interface DeleteApplicationRequest {
@@ -395,14 +483,14 @@ export namespace DeleteApplicationRequest {
 export interface DeleteConfigurationProfileRequest {
   __type?: "DeleteConfigurationProfileRequest";
   /**
-   * <p>The application ID that includes the configuration profile you want to delete.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The ID of the configuration profile you want to delete.</p>
    */
   ConfigurationProfileId: string | undefined;
+
+  /**
+   * <p>The application ID that includes the configuration profile you want to delete.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace DeleteConfigurationProfileRequest {
@@ -447,8 +535,39 @@ export namespace DeleteEnvironmentRequest {
   export const isa = (o: any): o is DeleteEnvironmentRequest => __isa(o, "DeleteEnvironmentRequest");
 }
 
+export interface DeleteHostedConfigurationVersionRequest {
+  __type?: "DeleteHostedConfigurationVersionRequest";
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The versions number to delete.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+}
+
+export namespace DeleteHostedConfigurationVersionRequest {
+  export const filterSensitiveLog = (obj: DeleteHostedConfigurationVersionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteHostedConfigurationVersionRequest =>
+    __isa(o, "DeleteHostedConfigurationVersionRequest");
+}
+
 export interface Deployment {
   __type?: "Deployment";
+  /**
+   * <p>The name of the configuration.</p>
+   */
+  ConfigurationName?: string;
+
   /**
    * <p>The ID of the application that was deployed.</p>
    */
@@ -460,44 +579,9 @@ export interface Deployment {
   CompletedAt?: Date;
 
   /**
-   * <p>Information about the source location of the configuration.</p>
-   */
-  ConfigurationLocationUri?: string;
-
-  /**
-   * <p>The name of the configuration.</p>
-   */
-  ConfigurationName?: string;
-
-  /**
-   * <p>The ID of the configuration profile that was deployed.</p>
-   */
-  ConfigurationProfileId?: string;
-
-  /**
-   * <p>The configuration version that was deployed.</p>
-   */
-  ConfigurationVersion?: string;
-
-  /**
-   * <p>Total amount of time the deployment lasted.</p>
-   */
-  DeploymentDurationInMinutes?: number;
-
-  /**
-   * <p>The sequence number of the deployment.</p>
-   */
-  DeploymentNumber?: number;
-
-  /**
    * <p>The ID of the deployment strategy that was deployed.</p>
    */
   DeploymentStrategyId?: string;
-
-  /**
-   * <p>The description of the deployment.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The ID of the environment that was deployed.</p>
@@ -505,10 +589,35 @@ export interface Deployment {
   EnvironmentId?: string;
 
   /**
-   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>A list containing all events related to a deployment. The most recent events are
+   *          displayed first.</p>
    */
-  FinalBakeTimeInMinutes?: number;
+  EventLog?: DeploymentEvent[];
+
+  /**
+   * <p>The description of the deployment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Total amount of time the deployment lasted.</p>
+   */
+  DeploymentDurationInMinutes?: number;
+
+  /**
+   * <p>The ID of the configuration profile that was deployed.</p>
+   */
+  ConfigurationProfileId?: string;
+
+  /**
+   * <p>The sequence number of the deployment.</p>
+   */
+  DeploymentNumber?: number;
+
+  /**
+   * <p>The percentage of targets for which the deployment is available.</p>
+   */
+  PercentageComplete?: number;
 
   /**
    * <p>The percentage of targets to receive a deployed configuration during each
@@ -517,14 +626,10 @@ export interface Deployment {
   GrowthFactor?: number;
 
   /**
-   * <p>The algorithm used to define how percentage grew over time.</p>
+   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
+   *          complete and no longer eligible for automatic roll back.</p>
    */
-  GrowthType?: GrowthType | string;
-
-  /**
-   * <p>The percentage of targets for which the deployment is available.</p>
-   */
-  PercentageComplete?: number;
+  FinalBakeTimeInMinutes?: number;
 
   /**
    * <p>The time the deployment started.</p>
@@ -535,6 +640,21 @@ export interface Deployment {
    * <p>The state of the deployment.</p>
    */
   State?: DeploymentState | string;
+
+  /**
+   * <p>The configuration version that was deployed.</p>
+   */
+  ConfigurationVersion?: string;
+
+  /**
+   * <p>Information about the source location of the configuration.</p>
+   */
+  ConfigurationLocationUri?: string;
+
+  /**
+   * <p>The algorithm used to define how percentage grew over time.</p>
+   */
+  GrowthType?: GrowthType | string;
 }
 
 export namespace Deployment {
@@ -542,6 +662,54 @@ export namespace Deployment {
     ...obj,
   });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
+}
+
+/**
+ * <p>An object that describes a deployment event.</p>
+ */
+export interface DeploymentEvent {
+  __type?: "DeploymentEvent";
+  /**
+   * <p>The entity that triggered the deployment event. Events can be triggered by a user, AWS
+   *          AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
+   */
+  TriggeredBy?: TriggeredBy | string;
+
+  /**
+   * <p>A description of the deployment event. Descriptions include, but are not limited to, the
+   *          user account or the CloudWatch alarm ARN that initiated a rollback, the percentage of hosts
+   *          that received the deployment, or in the case of an internal error, a recommendation to
+   *          attempt a new deployment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of deployment event. Deployment event types include the start, stop, or
+   *          completion of a deployment; a percentage update; the start or stop of a bake period; the
+   *          start or completion of a rollback.</p>
+   */
+  EventType?: DeploymentEventType | string;
+
+  /**
+   * <p>The date and time the event occurred.</p>
+   */
+  OccurredAt?: Date;
+}
+
+export namespace DeploymentEvent {
+  export const filterSensitiveLog = (obj: DeploymentEvent): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeploymentEvent => __isa(o, "DeploymentEvent");
+}
+
+export enum DeploymentEventType {
+  BAKE_TIME_STARTED = "BAKE_TIME_STARTED",
+  DEPLOYMENT_COMPLETED = "DEPLOYMENT_COMPLETED",
+  DEPLOYMENT_STARTED = "DEPLOYMENT_STARTED",
+  PERCENTAGE_UPDATED = "PERCENTAGE_UPDATED",
+  ROLLBACK_COMPLETED = "ROLLBACK_COMPLETED",
+  ROLLBACK_STARTED = "ROLLBACK_STARTED",
 }
 
 export interface Deployments {
@@ -598,31 +766,26 @@ export namespace DeploymentStrategies {
 export interface DeploymentStrategy {
   __type?: "DeploymentStrategy";
   /**
-   * <p>Total amount of time the deployment lasted.</p>
-   */
-  DeploymentDurationInMinutes?: number;
-
-  /**
-   * <p>The description of the deployment strategy.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
-   */
-  FinalBakeTimeInMinutes?: number;
-
-  /**
    * <p>The percentage of targets that received a deployed configuration during each
    *          interval.</p>
    */
   GrowthFactor?: number;
 
   /**
+   * <p>Total amount of time the deployment lasted.</p>
+   */
+  DeploymentDurationInMinutes?: number;
+
+  /**
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
   GrowthType?: GrowthType | string;
+
+  /**
+   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
+   *          complete and no longer eligible for automatic roll back.</p>
+   */
+  FinalBakeTimeInMinutes?: number;
 
   /**
    * <p>The deployment strategy ID.</p>
@@ -638,6 +801,11 @@ export interface DeploymentStrategy {
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
   ReplicateTo?: ReplicateTo | string;
+
+  /**
+   * <p>The description of the deployment strategy.</p>
+   */
+  Description?: string;
 }
 
 export namespace DeploymentStrategy {
@@ -653,14 +821,9 @@ export namespace DeploymentStrategy {
 export interface DeploymentSummary {
   __type?: "DeploymentSummary";
   /**
-   * <p>Time the deployment completed.</p>
+   * <p>The algorithm used to define how percentage grows over time.</p>
    */
-  CompletedAt?: Date;
-
-  /**
-   * <p>The name of the configuration.</p>
-   */
-  ConfigurationName?: string;
+  GrowthType?: GrowthType | string;
 
   /**
    * <p>The version of the configuration.</p>
@@ -671,6 +834,27 @@ export interface DeploymentSummary {
    * <p>Total amount of time the deployment lasted.</p>
    */
   DeploymentDurationInMinutes?: number;
+
+  /**
+   * <p>Time the deployment completed.</p>
+   */
+  CompletedAt?: Date;
+
+  /**
+   * <p>Time the deployment started.</p>
+   */
+  StartedAt?: Date;
+
+  /**
+   * <p>The percentage of targets to receive a deployed configuration during each
+   *          interval.</p>
+   */
+  GrowthFactor?: number;
+
+  /**
+   * <p>The state of the deployment.</p>
+   */
+  State?: DeploymentState | string;
 
   /**
    * <p>The sequence number of the deployment.</p>
@@ -684,30 +868,14 @@ export interface DeploymentSummary {
   FinalBakeTimeInMinutes?: number;
 
   /**
-   * <p>The percentage of targets to receive a deployed configuration during each
-   *          interval.</p>
-   */
-  GrowthFactor?: number;
-
-  /**
-   * <p>The algorithm used to define how percentage grows over time.</p>
-   */
-  GrowthType?: GrowthType | string;
-
-  /**
    * <p>The percentage of targets for which the deployment is available.</p>
    */
   PercentageComplete?: number;
 
   /**
-   * <p>Time the deployment started.</p>
+   * <p>The name of the configuration.</p>
    */
-  StartedAt?: Date;
-
-  /**
-   * <p>The state of the deployment.</p>
-   */
-  State?: DeploymentState | string;
+  ConfigurationName?: string;
 }
 
 export namespace DeploymentSummary {
@@ -720,14 +888,12 @@ export namespace DeploymentSummary {
 export interface Environment {
   __type?: "Environment";
   /**
-   * <p>The application ID.</p>
+   * <p>The state of the environment. An environment can be in one of the following states:
+   *             <code>READY_FOR_DEPLOYMENT</code>, <code>DEPLOYING</code>, <code>ROLLING_BACK</code>, or
+   *             <code>ROLLED_BACK</code>
+   *          </p>
    */
-  ApplicationId?: string;
-
-  /**
-   * <p>The description of the environment.</p>
-   */
-  Description?: string;
+  State?: EnvironmentState | string;
 
   /**
    * <p>The environment ID.</p>
@@ -740,17 +906,19 @@ export interface Environment {
   Monitors?: Monitor[];
 
   /**
+   * <p>The description of the environment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId?: string;
+
+  /**
    * <p>The name of the environment.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The state of the environment. An environment can be in one of the following states:
-   *             <code>READY_FOR_DEPLOYMENT</code>, <code>DEPLOYING</code>, <code>ROLLING_BACK</code>, or
-   *             <code>ROLLED_BACK</code>
-   *          </p>
-   */
-  State?: EnvironmentState | string;
 }
 
 export namespace Environment {
@@ -827,30 +995,48 @@ export namespace GetConfigurationProfileRequest {
 export interface GetConfigurationRequest {
   __type?: "GetConfigurationRequest";
   /**
-   * <p>The application to get.</p>
-   */
-  Application: string | undefined;
-
-  /**
-   * <p>The configuration version returned in the most recent GetConfiguration response.</p>
+   * <p>The configuration version returned in the most recent <code>GetConfiguration</code>
+   *          response.</p>
+   *          <important>
+   *             <p>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
+   *             to identify the configuration version on your clients. If you don’t send
+   *                <code>ClientConfigurationVersion</code> with each call to
+   *                <code>GetConfiguration</code>, your clients receive the current configuration. You
+   *             are charged each time your clients receive a configuration.</p>
+   *             <p>To avoid excess charges, we recommend that you include the
+   *                <code>ClientConfigurationVersion</code> value with every call to
+   *                <code>GetConfiguration</code>. This value must be saved on your client. Subsequent
+   *             calls to <code>GetConfiguration</code> must pass this value by using the
+   *                <code>ClientConfigurationVersion</code> parameter. </p>
+   *          </important>
+   *          <p>For more information about working with configurations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving the Configuration</a> in the
+   *          <i>AWS AppConfig User Guide</i>.</p>
    */
   ClientConfigurationVersion?: string;
 
   /**
-   * <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to deploy
-   *          the configuration in intervals, as defined in the deployment strategy.</p>
+   * <p>The environment to get. Specify either the environment name or the environment
+   *          ID.</p>
    */
-  ClientId: string | undefined;
+  Environment: string | undefined;
 
   /**
-   * <p>The configuration to get.</p>
+   * <p>The application to get. Specify either the application name or the application
+   *          ID.</p>
+   */
+  Application: string | undefined;
+
+  /**
+   * <p>The configuration to get. Specify either the configuration name or the configuration
+   *          ID.</p>
    */
   Configuration: string | undefined;
 
   /**
-   * <p>The environment to get.</p>
+   * <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to
+   *          deploy the configuration in intervals, as defined in the deployment strategy.</p>
    */
-  Environment: string | undefined;
+  ClientId: string | undefined;
 }
 
 export namespace GetConfigurationRequest {
@@ -863,9 +1049,9 @@ export namespace GetConfigurationRequest {
 export interface GetDeploymentRequest {
   __type?: "GetDeploymentRequest";
   /**
-   * <p>The ID of the application that includes the deployment you want to get. </p>
+   * <p>The ID of the environment that includes the deployment you want to get. </p>
    */
-  ApplicationId: string | undefined;
+  EnvironmentId: string | undefined;
 
   /**
    * <p>The sequence number of the deployment.</p>
@@ -873,9 +1059,9 @@ export interface GetDeploymentRequest {
   DeploymentNumber: number | undefined;
 
   /**
-   * <p>The ID of the environment that includes the deployment you want to get. </p>
+   * <p>The ID of the application that includes the deployment you want to get. </p>
    */
-  EnvironmentId: string | undefined;
+  ApplicationId: string | undefined;
 }
 
 export namespace GetDeploymentRequest {
@@ -903,14 +1089,14 @@ export namespace GetDeploymentStrategyRequest {
 export interface GetEnvironmentRequest {
   __type?: "GetEnvironmentRequest";
   /**
-   * <p>The ID of the application that includes the environment you want to get.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The ID of the environment you wnat to get.</p>
    */
   EnvironmentId: string | undefined;
+
+  /**
+   * <p>The ID of the application that includes the environment you want to get.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace GetEnvironmentRequest {
@@ -920,8 +1106,137 @@ export namespace GetEnvironmentRequest {
   export const isa = (o: any): o is GetEnvironmentRequest => __isa(o, "GetEnvironmentRequest");
 }
 
+export interface GetHostedConfigurationVersionRequest {
+  __type?: "GetHostedConfigurationVersionRequest";
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The version.</p>
+   */
+  VersionNumber: number | undefined;
+}
+
+export namespace GetHostedConfigurationVersionRequest {
+  export const filterSensitiveLog = (obj: GetHostedConfigurationVersionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetHostedConfigurationVersionRequest =>
+    __isa(o, "GetHostedConfigurationVersionRequest");
+}
+
 export enum GrowthType {
+  EXPONENTIAL = "EXPONENTIAL",
   LINEAR = "LINEAR",
+}
+
+export interface HostedConfigurationVersion {
+  __type?: "HostedConfigurationVersion";
+  /**
+   * <p>The configuration version.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>The content of the configuration or the configuration data.</p>
+   */
+  Content?: Uint8Array;
+
+  /**
+   * <p>A description of the configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A standard MIME type describing the format of the configuration content. For more
+   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId?: string;
+}
+
+export namespace HostedConfigurationVersion {
+  export const filterSensitiveLog = (obj: HostedConfigurationVersion): any => ({
+    ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is HostedConfigurationVersion => __isa(o, "HostedConfigurationVersion");
+}
+
+export interface HostedConfigurationVersions {
+  __type?: "HostedConfigurationVersions";
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: HostedConfigurationVersionSummary[];
+}
+
+export namespace HostedConfigurationVersions {
+  export const filterSensitiveLog = (obj: HostedConfigurationVersions): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is HostedConfigurationVersions => __isa(o, "HostedConfigurationVersions");
+}
+
+/**
+ * <p>Information about the configuration.</p>
+ */
+export interface HostedConfigurationVersionSummary {
+  __type?: "HostedConfigurationVersionSummary";
+  /**
+   * <p>The configuration version.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId?: string;
+
+  /**
+   * <p>A description of the configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A standard MIME type describing the format of the configuration content. For more
+   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId?: string;
+}
+
+export namespace HostedConfigurationVersionSummary {
+  export const filterSensitiveLog = (obj: HostedConfigurationVersionSummary): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is HostedConfigurationVersionSummary => __isa(o, "HostedConfigurationVersionSummary");
 }
 
 /**
@@ -964,9 +1279,9 @@ export namespace ListApplicationsRequest {
 export interface ListConfigurationProfilesRequest {
   __type?: "ListConfigurationProfilesRequest";
   /**
-   * <p>The application ID.</p>
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
-  ApplicationId: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
@@ -975,9 +1290,9 @@ export interface ListConfigurationProfilesRequest {
   MaxResults?: number;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   * <p>The application ID.</p>
    */
-  NextToken?: string;
+  ApplicationId: string | undefined;
 }
 
 export namespace ListConfigurationProfilesRequest {
@@ -990,9 +1305,10 @@ export namespace ListConfigurationProfilesRequest {
 export interface ListDeploymentsRequest {
   __type?: "ListDeploymentsRequest";
   /**
-   * <p>The application ID.</p>
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
    */
-  ApplicationId: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The environment ID.</p>
@@ -1000,15 +1316,14 @@ export interface ListDeploymentsRequest {
   EnvironmentId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that
-   *          you can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace ListDeploymentsRequest {
@@ -1042,9 +1357,9 @@ export namespace ListDeploymentStrategiesRequest {
 export interface ListEnvironmentsRequest {
   __type?: "ListEnvironmentsRequest";
   /**
-   * <p>The application ID.</p>
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
-  ApplicationId: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
@@ -1053,9 +1368,9 @@ export interface ListEnvironmentsRequest {
   MaxResults?: number;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   * <p>The application ID.</p>
    */
-  NextToken?: string;
+  ApplicationId: string | undefined;
 }
 
 export namespace ListEnvironmentsRequest {
@@ -1063,6 +1378,38 @@ export namespace ListEnvironmentsRequest {
     ...obj,
   });
   export const isa = (o: any): o is ListEnvironmentsRequest => __isa(o, "ListEnvironmentsRequest");
+}
+
+export interface ListHostedConfigurationVersionsRequest {
+  __type?: "ListHostedConfigurationVersionsRequest";
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+}
+
+export namespace ListHostedConfigurationVersionsRequest {
+  export const filterSensitiveLog = (obj: ListHostedConfigurationVersionsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListHostedConfigurationVersionsRequest =>
+    __isa(o, "ListHostedConfigurationVersionsRequest");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1086,14 +1433,14 @@ export namespace ListTagsForResourceRequest {
 export interface Monitor {
   __type?: "Monitor";
   /**
-   * <p>ARN of the Amazon CloudWatch alarm.</p>
-   */
-  AlarmArn?: string;
-
-  /**
    * <p>ARN of an IAM role for AppConfig to monitor <code>AlarmArn</code>.</p>
    */
   AlarmRoleArn?: string;
+
+  /**
+   * <p>ARN of the Amazon CloudWatch alarm.</p>
+   */
+  AlarmArn?: string;
 }
 
 export namespace Monitor {
@@ -1101,6 +1448,25 @@ export namespace Monitor {
     ...obj,
   });
   export const isa = (o: any): o is Monitor => __isa(o, "Monitor");
+}
+
+/**
+ * <p>The configuration size is too large.</p>
+ */
+export interface PayloadTooLargeException extends __SmithyException, $MetadataBearer {
+  name: "PayloadTooLargeException";
+  $fault: "client";
+  Message?: string;
+  Limit?: number;
+  Measure?: BytesMeasure | string;
+  Size?: number;
+}
+
+export namespace PayloadTooLargeException {
+  export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PayloadTooLargeException => __isa(o, "PayloadTooLargeException");
 }
 
 export enum ReplicateTo {
@@ -1114,8 +1480,8 @@ export enum ReplicateTo {
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
-  Message?: string;
   ResourceName?: string;
+  Message?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -1128,8 +1494,8 @@ export namespace ResourceNotFoundException {
 export interface ResourceTags {
   __type?: "ResourceTags";
   /**
-   * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your AppConfig
-   *          resources. Each tag consists of a key and an optional value, both of which you
+   * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your
+   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
   Tags?: { [key: string]: string };
@@ -1142,12 +1508,29 @@ export namespace ResourceTags {
   export const isa = (o: any): o is ResourceTags => __isa(o, "ResourceTags");
 }
 
+/**
+ * <p>The number of hosted configuration versions exceeds the limit for the AppConfig
+ *          configuration store. Delete one or more versions and try again.</p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ServiceQuotaExceededException {
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
+}
+
 export interface StartDeploymentRequest {
   __type?: "StartDeploymentRequest";
   /**
-   * <p>The application ID.</p>
+   * <p>The configuration version to deploy.</p>
    */
-  ApplicationId: string | undefined;
+  ConfigurationVersion: string | undefined;
 
   /**
    * <p>The configuration profile ID.</p>
@@ -1155,19 +1538,14 @@ export interface StartDeploymentRequest {
   ConfigurationProfileId: string | undefined;
 
   /**
-   * <p>The configuration version to deploy.</p>
-   */
-  ConfigurationVersion: string | undefined;
-
-  /**
-   * <p>The deployment strategy ID.</p>
-   */
-  DeploymentStrategyId: string | undefined;
-
-  /**
    * <p>A description of the deployment.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
 
   /**
    * <p>The environment ID.</p>
@@ -1180,6 +1558,11 @@ export interface StartDeploymentRequest {
    *          define.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The deployment strategy ID.</p>
+   */
+  DeploymentStrategyId: string | undefined;
 }
 
 export namespace StartDeploymentRequest {
@@ -1192,14 +1575,14 @@ export namespace StartDeploymentRequest {
 export interface StopDeploymentRequest {
   __type?: "StopDeploymentRequest";
   /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The sequence number of the deployment.</p>
    */
   DeploymentNumber: number | undefined;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
 
   /**
    * <p>The environment ID.</p>
@@ -1217,16 +1600,16 @@ export namespace StopDeploymentRequest {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The ARN of the resource for which to retrieve tags.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The key-value string map. The valid character set is [a-zA-Z+-=._:/]. The tag key can be
    *          up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to
    *          256 characters.</p>
    */
   Tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The ARN of the resource for which to retrieve tags.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1234,6 +1617,13 @@ export namespace TagResourceRequest {
     ...obj,
   });
   export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
+}
+
+export enum TriggeredBy {
+  APPCONFIG = "APPCONFIG",
+  CLOUDWATCH_ALARM = "CLOUDWATCH_ALARM",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  USER = "USER",
 }
 
 export interface UntagResourceRequest {
@@ -1259,6 +1649,11 @@ export namespace UntagResourceRequest {
 export interface UpdateApplicationRequest {
   __type?: "UpdateApplicationRequest";
   /**
+   * <p>The name of the application.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
@@ -1267,11 +1662,6 @@ export interface UpdateApplicationRequest {
    * <p>A description of the application.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The name of the application.</p>
-   */
-  Name?: string;
 }
 
 export namespace UpdateApplicationRequest {
@@ -1284,6 +1674,16 @@ export namespace UpdateApplicationRequest {
 export interface UpdateConfigurationProfileRequest {
   __type?: "UpdateConfigurationProfileRequest";
   /**
+   * <p>A description of the configuration profile.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of methods for validating the configuration.</p>
+   */
+  Validators?: Validator[];
+
+  /**
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
@@ -1292,11 +1692,6 @@ export interface UpdateConfigurationProfileRequest {
    * <p>The ID of the configuration profile.</p>
    */
   ConfigurationProfileId: string | undefined;
-
-  /**
-   * <p>A description of the configuration profile.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The name of the configuration profile.</p>
@@ -1308,16 +1703,12 @@ export interface UpdateConfigurationProfileRequest {
    *          LocationUri.</p>
    */
   RetrievalRoleArn?: string;
-
-  /**
-   * <p>A list of methods for validating the configuration.</p>
-   */
-  Validators?: Validator[];
 }
 
 export namespace UpdateConfigurationProfileRequest {
   export const filterSensitiveLog = (obj: UpdateConfigurationProfileRequest): any => ({
     ...obj,
+    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is UpdateConfigurationProfileRequest => __isa(o, "UpdateConfigurationProfileRequest");
 }
@@ -1325,14 +1716,10 @@ export namespace UpdateConfigurationProfileRequest {
 export interface UpdateDeploymentStrategyRequest {
   __type?: "UpdateDeploymentStrategyRequest";
   /**
-   * <p>Total amount of time for a deployment to last.</p>
+   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
+   *          complete and no longer eligible for automatic roll back.</p>
    */
-  DeploymentDurationInMinutes?: number;
-
-  /**
-   * <p>The deployment strategy ID.</p>
-   */
-  DeploymentStrategyId: string | undefined;
+  FinalBakeTimeInMinutes?: number;
 
   /**
    * <p>A description of the deployment strategy.</p>
@@ -1340,10 +1727,42 @@ export interface UpdateDeploymentStrategyRequest {
   Description?: string;
 
   /**
-   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the
+   *          following growth types:</p>
+   *          <p>
+   *             <b>Linear</b>: For this type, AppConfig processes the
+   *          deployment by increments of the growth factor evenly distributed over the deployment time.
+   *          For example, a linear deployment that uses a growth factor of 20 initially makes the
+   *          configuration available to 20 percent of the targets. After 1/5th of the deployment time
+   *          has passed, the system updates the percentage to 40 percent. This continues until 100% of
+   *          the targets are set to receive the deployed configuration.</p>
+   *
+   *          <p>
+   *             <b>Exponential</b>: For this type, AppConfig processes the
+   *          deployment exponentially using the following formula: <code>G*(2^N)</code>. In this
+   *          formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is
+   *          the number of steps until the configuration is deployed to all targets. For example, if you
+   *          specify a growth factor of 2, then the system rolls out the configuration as
+   *          follows:</p>
+   *          <p>
+   *             <code>2*(2^0)</code>
+   *          </p>
+   *          <p>
+   *             <code>2*(2^1)</code>
+   *          </p>
+   *          <p>
+   *             <code>2*(2^2)</code>
+   *          </p>
+   *          <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the
+   *          targets, 8% of the targets, and continues until the configuration has been deployed to all
+   *          targets.</p>
    */
-  FinalBakeTimeInMinutes?: number;
+  GrowthType?: GrowthType | string;
+
+  /**
+   * <p>Total amount of time for a deployment to last.</p>
+   */
+  DeploymentDurationInMinutes?: number;
 
   /**
    * <p>The percentage of targets to receive a deployed configuration during each
@@ -1352,9 +1771,9 @@ export interface UpdateDeploymentStrategyRequest {
   GrowthFactor?: number;
 
   /**
-   * <p>The algorithm used to define how percentage grows over time.</p>
+   * <p>The deployment strategy ID.</p>
    */
-  GrowthType?: GrowthType | string;
+  DeploymentStrategyId: string | undefined;
 }
 
 export namespace UpdateDeploymentStrategyRequest {
@@ -1367,11 +1786,6 @@ export namespace UpdateDeploymentStrategyRequest {
 export interface UpdateEnvironmentRequest {
   __type?: "UpdateEnvironmentRequest";
   /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>A description of the environment.</p>
    */
   Description?: string;
@@ -1382,14 +1796,19 @@ export interface UpdateEnvironmentRequest {
   EnvironmentId: string | undefined;
 
   /**
+   * <p>The name of the environment.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
    */
   Monitors?: Monitor[];
 
   /**
-   * <p>The name of the environment.</p>
+   * <p>The application ID.</p>
    */
-  Name?: string;
+  ApplicationId: string | undefined;
 }
 
 export namespace UpdateEnvironmentRequest {
@@ -1434,20 +1853,23 @@ export namespace ValidateConfigurationRequest {
 export interface Validator {
   __type?: "Validator";
   /**
-   * <p>Either the JSON Schema content or an AWS Lambda function name.</p>
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and <code>LAMBDA</code>
+   * <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and
+   *          <code>LAMBDA</code>
    *          </p>
    */
   Type: ValidatorType | string | undefined;
+
+  /**
+   * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda
+   *          function.</p>
+   */
+  Content: string | undefined;
 }
 
 export namespace Validator {
   export const filterSensitiveLog = (obj: Validator): any => ({
     ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Validator => __isa(o, "Validator");
 }

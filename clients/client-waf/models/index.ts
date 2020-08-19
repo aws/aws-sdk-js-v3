@@ -2,13 +2,34 @@ import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } 
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete,
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete,
  * 			the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code>
  * 			(<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p>
  * 		       <p>To specify whether to insert or delete a <code>Rule</code>, use the <code>Action</code> parameter in the <a>WebACLUpdate</a> data type.</p>
  */
 export interface ActivatedRule {
   __type?: "ActivatedRule";
+  /**
+   * <p>Specifies the order in which the <code>Rules</code> in a <code>WebACL</code> are evaluated. Rules with a lower value for
+   * 			<code>Priority</code> are evaluated before <code>Rules</code> with a higher value. The value must be a unique integer. If you add multiple
+   * 			<code>Rules</code> to a <code>WebACL</code>, the values don't need to be consecutive.</p>
+   */
+  Priority: number | undefined;
+
+  /**
+   * <p>The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>, or <code>GROUP</code>, as defined by <a>RuleGroup</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist.
+   * 			</p>
+   */
+  Type?: WafRuleType | string;
+
   /**
    * <p>Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the <code>Rule</code>.
    * 			Valid values for <code>Action</code> include the following:</p>
@@ -36,6 +57,23 @@ export interface ActivatedRule {
    *             <code>ActivatedRule|OverrideAction</code>.</p>
    */
   Action?: WafAction;
+
+  /**
+   * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
+   *          <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to <code>None</code>, the <code>RuleGroup</code> will block a request if any individual rule in the <code>RuleGroup</code> matches the request and is configured to block that request. However if you first want to test the <code>RuleGroup</code>, set the  <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code> will then override any block action specified by individual rules contained within the group. Instead of blocking matching requests, those requests will be counted. You can view a record of counted requests using  <a>GetSampledRequests</a>. </p>
+   * 	        <p>
+   *             <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>.  For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.</p>
+   */
+  OverrideAction?: WafOverrideAction;
+
+  /**
+   * <p>The <code>RuleId</code> for a <code>Rule</code>. You use <code>RuleId</code> to get more information about a <code>Rule</code> (see <a>GetRule</a>),
+   * 			update a <code>Rule</code> (see <a>UpdateRule</a>), insert a <code>Rule</code> into a <code>WebACL</code> or delete a
+   * 			one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>Rule</code> from AWS WAF (see <a>DeleteRule</a>).</p>
+   * 		       <p>
+   *             <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>
+   */
+  RuleId: string | undefined;
 
   /**
    * <p>An array of rules to exclude from a rule group. This is applicable only when the <code>ActivatedRule</code> refers to a <code>RuleGroup</code>.</p>
@@ -81,36 +119,6 @@ export interface ActivatedRule {
    *          </ol>
    */
   ExcludedRules?: ExcludedRule[];
-
-  /**
-   * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
-   *          <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to <code>None</code>, the <code>RuleGroup</code> will block a request if any individual rule in the <code>RuleGroup</code> matches the request and is configured to block that request. However if you first want to test the <code>RuleGroup</code>, set the  <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code> will then override any block action specified by individual rules contained within the group. Instead of blocking matching requests, those requests will be counted. You can view a record of counted requests using  <a>GetSampledRequests</a>. </p>
-   * 	        <p>
-   *             <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>.  For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.</p>
-   */
-  OverrideAction?: WafOverrideAction;
-
-  /**
-   * <p>Specifies the order in which the <code>Rules</code> in a <code>WebACL</code> are evaluated. Rules with a lower value for
-   * 			<code>Priority</code> are evaluated before <code>Rules</code> with a higher value. The value must be a unique integer. If you add multiple
-   * 			<code>Rules</code> to a <code>WebACL</code>, the values don't need to be consecutive.</p>
-   */
-  Priority: number | undefined;
-
-  /**
-   * <p>The <code>RuleId</code> for a <code>Rule</code>. You use <code>RuleId</code> to get more information about a <code>Rule</code> (see <a>GetRule</a>),
-   * 			update a <code>Rule</code> (see <a>UpdateRule</a>), insert a <code>Rule</code> into a <code>WebACL</code> or delete a
-   * 			one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>Rule</code> from AWS WAF (see <a>DeleteRule</a>).</p>
-   * 		       <p>
-   *             <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>
-   */
-  RuleId: string | undefined;
-
-  /**
-   * <p>The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>, or <code>GROUP</code>, as defined by <a>RuleGroup</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist.
-   * 			</p>
-   */
-  Type?: WafRuleType | string;
 }
 
 export namespace ActivatedRule {
@@ -121,7 +129,15 @@ export namespace ActivatedRule {
 }
 
 /**
- * <p>In a <a>GetByteMatchSet</a> request, <code>ByteMatchSet</code> is a complex type that contains the <code>ByteMatchSetId</code> and
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>In a <a>GetByteMatchSet</a> request, <code>ByteMatchSet</code> is a complex type that contains the <code>ByteMatchSetId</code> and
  * 			<code>Name</code> of a <code>ByteMatchSet</code>, and the values that you specified when you updated the <code>ByteMatchSet</code>. </p>
  * 		       <p>A complex type that contains <code>ByteMatchTuple</code> objects, which specify the parts of web requests that you
  * 			want AWS WAF to inspect and the values that you want AWS WAF to search for. If a <code>ByteMatchSet</code> contains more than one
@@ -159,11 +175,24 @@ export namespace ByteMatchSet {
 }
 
 /**
- * <p>Returned by <a>ListByteMatchSets</a>. Each <code>ByteMatchSetSummary</code> object includes the <code>Name</code> and
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Returned by <a>ListByteMatchSets</a>. Each <code>ByteMatchSetSummary</code> object includes the <code>Name</code> and
  * 			<code>ByteMatchSetId</code> for one <a>ByteMatchSet</a>.</p>
  */
 export interface ByteMatchSetSummary {
   __type?: "ByteMatchSetSummary";
+  /**
+   * <p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a <code>ByteMatchSet</code>.</p>
+   */
+  Name: string | undefined;
+
   /**
    * <p>The <code>ByteMatchSetId</code> for a <code>ByteMatchSet</code>. You use <code>ByteMatchSetId</code> to get information about a <code>ByteMatchSet</code>,
    * 			update a <code>ByteMatchSet</code>, remove a <code>ByteMatchSet</code> from a <code>Rule</code>, and delete a <code>ByteMatchSet</code> from AWS WAF.</p>
@@ -171,11 +200,6 @@ export interface ByteMatchSetSummary {
    *             <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>
    */
   ByteMatchSetId: string | undefined;
-
-  /**
-   * <p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a <code>ByteMatchSet</code>.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace ByteMatchSetSummary {
@@ -186,7 +210,15 @@ export namespace ByteMatchSetSummary {
 }
 
 /**
- * <p>In an <a>UpdateByteMatchSet</a> request, <code>ByteMatchSetUpdate</code> specifies whether to insert or delete a
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>In an <a>UpdateByteMatchSet</a> request, <code>ByteMatchSetUpdate</code> specifies whether to insert or delete a
  * 			<a>ByteMatchTuple</a> and includes the settings for the <code>ByteMatchTuple</code>.</p>
  */
 export interface ByteMatchSetUpdate {
@@ -212,65 +244,18 @@ export namespace ByteMatchSetUpdate {
 }
 
 /**
- * <p>The bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>The bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.</p>
  */
 export interface ByteMatchTuple {
   __type?: "ByteMatchTuple";
-  /**
-   * <p>The part of a web request that you want AWS WAF to search, such as a specified header or a query string. For more information, see
-   * 			<a>FieldToMatch</a>.</p>
-   */
-  FieldToMatch: FieldToMatch | undefined;
-
-  /**
-   * <p>Within the portion of a web request that you want to search (for example, in the query string, if any), specify where you want AWS WAF to search. Valid values include the following:</p>
-   * 		       <p>
-   *             <b>CONTAINS</b>
-   *          </p>
-   * 		       <p>The specified part of the web request must include the value of <code>TargetString</code>, but the location doesn't matter.</p>
-   * 		       <p>
-   *             <b>CONTAINS_WORD</b>
-   *          </p>
-   * 		       <p>The specified part of the web request must include the value of <code>TargetString</code>, and
-   * 			<code>TargetString</code> must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition,
-   * 			<code>TargetString</code> must be a word, which means one of the following:</p>
-   * 			      <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TargetString</code> exactly matches the value of the specified part of the web request, such as the value of a
-   * 					header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TargetString</code> is at the beginning of the specified part of the web request and is followed by a character
-   * 					other than an alphanumeric character or underscore (_), for example, <code>BadBot;</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TargetString</code> is at the end of the specified part of the web request and is preceded by a character
-   * 					other than an alphanumeric character or underscore (_), for example, <code>;BadBot</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TargetString</code> is in the middle of the specified part of the web request and is preceded and followed
-   * 					by characters other than alphanumeric characters or underscore (_), for example, <code>-BadBot;</code>.</p>
-   *             </li>
-   *          </ul>
-   * 		       <p>
-   *             <b>EXACTLY</b>
-   *          </p>
-   * 		       <p>The value of the specified part of the web request must exactly match the value of <code>TargetString</code>.</p>
-   * 		       <p>
-   *             <b>STARTS_WITH</b>
-   *          </p>
-   * 		       <p>The value of <code>TargetString</code> must appear at the beginning of the specified part of the web request.</p>
-   * 		       <p>
-   *             <b>ENDS_WITH</b>
-   *          </p>
-   * 		       <p>The value of <code>TargetString</code> must appear at the end of the specified part of the web request.</p>
-   */
-  PositionalConstraint: PositionalConstraint | string | undefined;
-
   /**
    * <p>The value that you want AWS WAF to search for. AWS WAF searches for the specified string in the part of web requests that you
    * 			specified in <code>FieldToMatch</code>. The maximum length of the value is 50 bytes.</p>
@@ -338,8 +323,63 @@ export interface ByteMatchTuple {
   TargetString: Uint8Array | undefined;
 
   /**
+   * <p>The part of a web request that you want AWS WAF to search, such as a specified header or a query string. For more information, see
+   * 			<a>FieldToMatch</a>.</p>
+   */
+  FieldToMatch: FieldToMatch | undefined;
+
+  /**
+   * <p>Within the portion of a web request that you want to search (for example, in the query string, if any), specify where you want AWS WAF to search. Valid values include the following:</p>
+   * 		       <p>
+   *             <b>CONTAINS</b>
+   *          </p>
+   * 		       <p>The specified part of the web request must include the value of <code>TargetString</code>, but the location doesn't matter.</p>
+   * 		       <p>
+   *             <b>CONTAINS_WORD</b>
+   *          </p>
+   * 		       <p>The specified part of the web request must include the value of <code>TargetString</code>, and
+   * 			<code>TargetString</code> must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition,
+   * 			<code>TargetString</code> must be a word, which means one of the following:</p>
+   * 			      <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TargetString</code> exactly matches the value of the specified part of the web request, such as the value of a
+   * 					header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TargetString</code> is at the beginning of the specified part of the web request and is followed by a character
+   * 					other than an alphanumeric character or underscore (_), for example, <code>BadBot;</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TargetString</code> is at the end of the specified part of the web request and is preceded by a character
+   * 					other than an alphanumeric character or underscore (_), for example, <code>;BadBot</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TargetString</code> is in the middle of the specified part of the web request and is preceded and followed
+   * 					by characters other than alphanumeric characters or underscore (_), for example, <code>-BadBot;</code>.</p>
+   *             </li>
+   *          </ul>
+   * 		       <p>
+   *             <b>EXACTLY</b>
+   *          </p>
+   * 		       <p>The value of the specified part of the web request must exactly match the value of <code>TargetString</code>.</p>
+   * 		       <p>
+   *             <b>STARTS_WITH</b>
+   *          </p>
+   * 		       <p>The value of <code>TargetString</code> must appear at the beginning of the specified part of the web request.</p>
+   * 		       <p>
+   *             <b>ENDS_WITH</b>
+   *          </p>
+   * 		       <p>The value of <code>TargetString</code> must appear at the end of the specified part of the web request.</p>
+   */
+  PositionalConstraint: PositionalConstraint | string | undefined;
+
+  /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-   * 			If you specify a transformation, AWS WAF performs the transformation on <code>TargetString</code> before inspecting a request for a match.</p>
+   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
    *          <p>You can only specify a single type of TextTransformation.</p>
    * 		       <p>
    *             <b>CMD_LINE</b>
@@ -466,15 +506,15 @@ export enum ComparisonOperator {
 export interface CreateByteMatchSetRequest {
   __type?: "CreateByteMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a
    * 			<code>ByteMatchSet</code>.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace CreateByteMatchSetRequest {
@@ -508,14 +548,14 @@ export namespace CreateByteMatchSetResponse {
 export interface CreateGeoMatchSetRequest {
   __type?: "CreateGeoMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>A friendly name or description of the <a>GeoMatchSet</a>. You can't change <code>Name</code> after you create the <code>GeoMatchSet</code>.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace CreateGeoMatchSetRequest {
@@ -528,15 +568,15 @@ export namespace CreateGeoMatchSetRequest {
 export interface CreateGeoMatchSetResponse {
   __type?: "CreateGeoMatchSetResponse";
   /**
+   * <p>The <a>GeoMatchSet</a> returned in the <code>CreateGeoMatchSet</code> response. The <code>GeoMatchSet</code> contains no <code>GeoMatchConstraints</code>.</p>
+   */
+  GeoMatchSet?: GeoMatchSet;
+
+  /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateGeoMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-
-  /**
-   * <p>The <a>GeoMatchSet</a> returned in the <code>CreateGeoMatchSet</code> response. The <code>GeoMatchSet</code> contains no <code>GeoMatchConstraints</code>.</p>
-   */
-  GeoMatchSet?: GeoMatchSet;
 }
 
 export namespace CreateGeoMatchSetResponse {
@@ -549,14 +589,14 @@ export namespace CreateGeoMatchSetResponse {
 export interface CreateIPSetRequest {
   __type?: "CreateIPSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>A friendly name or description of the <a>IPSet</a>. You can't change <code>Name</code> after you create the <code>IPSet</code>.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace CreateIPSetRequest {
@@ -590,11 +630,17 @@ export namespace CreateIPSetResponse {
 export interface CreateRateBasedRuleRequest {
   __type?: "CreateRateBasedRuleRequest";
   /**
-   * <p>The <code>ChangeToken</code> that you used to submit the
-   *             <code>CreateRateBasedRule</code> request. You can also use this value to query the
-   *          status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
+   * <p>The maximum number of requests, which have an identical value in the field that is
+   *          specified by <code>RateKey</code>, allowed in a five-minute period. If the number of
+   *          requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule
+   *          are also met, AWS WAF triggers the action that is specified for this rule.</p>
    */
-  ChangeToken: string | undefined;
+  RateLimit: number | undefined;
+
+  /**
+   * <p></p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>A friendly name or description for the metrics for this <code>RateBasedRule</code>.
@@ -603,12 +649,6 @@ export interface CreateRateBasedRuleRequest {
    *             <code>RateBasedRule</code>.</p>
    */
   MetricName: string | undefined;
-
-  /**
-   * <p>A friendly name or description of the <a>RateBasedRule</a>. You can't
-   *          change the name of a <code>RateBasedRule</code> after you create it.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>The field that AWS WAF uses to determine if requests are likely arriving from a single
@@ -620,14 +660,17 @@ export interface CreateRateBasedRuleRequest {
   RateKey: RateKey | string | undefined;
 
   /**
-   * <p>The maximum number of requests, which have an identical value in the field that is
-   *          specified by <code>RateKey</code>, allowed in a five-minute period. If the number of
-   *          requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule
-   *          are also met, AWS WAF triggers the action that is specified for this rule.</p>
+   * <p>The <code>ChangeToken</code> that you used to submit the
+   *             <code>CreateRateBasedRule</code> request. You can also use this value to query the
+   *          status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
-  RateLimit: number | undefined;
+  ChangeToken: string | undefined;
 
-  Tags?: Tag[];
+  /**
+   * <p>A friendly name or description of the <a>RateBasedRule</a>. You can't
+   *          change the name of a <code>RateBasedRule</code> after you create it.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateRateBasedRuleRequest {
@@ -640,17 +683,17 @@ export namespace CreateRateBasedRuleRequest {
 export interface CreateRateBasedRuleResponse {
   __type?: "CreateRateBasedRuleResponse";
   /**
+   * <p>The <a>RateBasedRule</a>
+   *          that is returned in the <code>CreateRateBasedRule</code> response.</p>
+   */
+  Rule?: RateBasedRule;
+
+  /**
    * <p>The <code>ChangeToken</code> that you used to submit the
    *             <code>CreateRateBasedRule</code> request. You can also use this value to query the
    *          status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-
-  /**
-   * <p>The <a>RateBasedRule</a>
-   *          that is returned in the <code>CreateRateBasedRule</code> response.</p>
-   */
-  Rule?: RateBasedRule;
 }
 
 export namespace CreateRateBasedRuleResponse {
@@ -663,15 +706,15 @@ export namespace CreateRateBasedRuleResponse {
 export interface CreateRegexMatchSetRequest {
   __type?: "CreateRegexMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a
    * 			<code>RegexMatchSet</code>.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace CreateRegexMatchSetRequest {
@@ -705,15 +748,15 @@ export namespace CreateRegexMatchSetResponse {
 export interface CreateRegexPatternSetRequest {
   __type?: "CreateRegexPatternSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a
    * 			<code>RegexPatternSet</code>.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace CreateRegexPatternSetRequest {
@@ -747,6 +790,12 @@ export namespace CreateRegexPatternSetResponse {
 export interface CreateRuleGroupRequest {
   __type?: "CreateRuleGroupRequest";
   /**
+   * <p>A friendly name or description of the <a>RuleGroup</a>. You can't change <code>Name</code> after you create a
+   *          <code>RuleGroup</code>.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
   ChangeToken: string | undefined;
@@ -758,11 +807,8 @@ export interface CreateRuleGroupRequest {
   MetricName: string | undefined;
 
   /**
-   * <p>A friendly name or description of the <a>RuleGroup</a>. You can't change <code>Name</code> after you create a
-   *          <code>RuleGroup</code>.</p>
+   * <p></p>
    */
-  Name: string | undefined;
-
   Tags?: Tag[];
 }
 
@@ -776,15 +822,15 @@ export namespace CreateRuleGroupRequest {
 export interface CreateRuleGroupResponse {
   __type?: "CreateRuleGroupResponse";
   /**
+   * <p>An empty  <a>RuleGroup</a>.</p>
+   */
+  RuleGroup?: RuleGroup;
+
+  /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRuleGroup</code> request. You can also use this value
    *          to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-
-  /**
-   * <p>An empty  <a>RuleGroup</a>.</p>
-   */
-  RuleGroup?: RuleGroup;
 }
 
 export namespace CreateRuleGroupResponse {
@@ -797,11 +843,6 @@ export namespace CreateRuleGroupResponse {
 export interface CreateRuleRequest {
   __type?: "CreateRuleRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>A friendly name or description for the metrics for this <code>Rule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
    * 	        whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the
    *             <code>Rule</code>.</p>
@@ -813,7 +854,15 @@ export interface CreateRuleRequest {
    */
   Name: string | undefined;
 
+  /**
+   * <p></p>
+   */
   Tags?: Tag[];
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace CreateRuleRequest {
@@ -892,15 +941,15 @@ export namespace CreateSizeConstraintSetResponse {
 export interface CreateSqlInjectionMatchSetRequest {
   __type?: "CreateSqlInjectionMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>A friendly name or description for the <a>SqlInjectionMatchSet</a> that you're creating. You can't change <code>Name</code>
    * 			after you create the <code>SqlInjectionMatchSet</code>.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace CreateSqlInjectionMatchSetRequest {
@@ -916,15 +965,15 @@ export namespace CreateSqlInjectionMatchSetRequest {
 export interface CreateSqlInjectionMatchSetResponse {
   __type?: "CreateSqlInjectionMatchSetResponse";
   /**
+   * <p>A <a>SqlInjectionMatchSet</a>.</p>
+   */
+  SqlInjectionMatchSet?: SqlInjectionMatchSet;
+
+  /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateSqlInjectionMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-
-  /**
-   * <p>A <a>SqlInjectionMatchSet</a>.</p>
-   */
-  SqlInjectionMatchSet?: SqlInjectionMatchSet;
 }
 
 export namespace CreateSqlInjectionMatchSetResponse {
@@ -933,6 +982,62 @@ export namespace CreateSqlInjectionMatchSetResponse {
   });
   export const isa = (o: any): o is CreateSqlInjectionMatchSetResponse =>
     __isa(o, "CreateSqlInjectionMatchSetResponse");
+}
+
+export interface CreateWebACLMigrationStackRequest {
+  __type?: "CreateWebACLMigrationStackRequest";
+  /**
+   * <p>The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.</p>
+   */
+  WebACLId: string | undefined;
+
+  /**
+   * <p>Indicates whether to exclude entities that can't be migrated or to stop the migration.
+   *            Set this to true to ignore unsupported entities in the web ACL during the migration. Otherwise, if AWS WAF encounters unsupported
+   *            entities, it stops the process and throws an exception. </p>
+   */
+  IgnoreUnsupportedType: boolean | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket to store the CloudFormation template in. The S3 bucket must be
+   *            configured as follows for the migration:  </p>
+   *          <ul>
+   *             <li>
+   *                <p>The bucket name must start with <code>aws-waf-migration-</code>. For example, <code>aws-waf-migration-my-web-acl</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The bucket must be in the Region where you are deploying the template. For example, for a web ACL in us-west-2, you must use an Amazon S3 bucket in us-west-2 and you must deploy the template stack to us-west-2. </p>
+   *             </li>
+   *             <li>
+   *                <p>The bucket policies must permit the migration process to write data. For listings of the
+   *        bucket policies, see the Examples section. </p>
+   *            </li>
+   *          </ul>
+   */
+  S3BucketName: string | undefined;
+}
+
+export namespace CreateWebACLMigrationStackRequest {
+  export const filterSensitiveLog = (obj: CreateWebACLMigrationStackRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateWebACLMigrationStackRequest => __isa(o, "CreateWebACLMigrationStackRequest");
+}
+
+export interface CreateWebACLMigrationStackResponse {
+  __type?: "CreateWebACLMigrationStackResponse";
+  /**
+   * <p>The URL of the template created in Amazon S3. </p>
+   */
+  S3ObjectUrl: string | undefined;
+}
+
+export namespace CreateWebACLMigrationStackResponse {
+  export const filterSensitiveLog = (obj: CreateWebACLMigrationStackResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateWebACLMigrationStackResponse =>
+    __isa(o, "CreateWebACLMigrationStackResponse");
 }
 
 export interface CreateWebACLRequest {
@@ -960,6 +1065,9 @@ export interface CreateWebACLRequest {
    */
   Name: string | undefined;
 
+  /**
+   * <p></p>
+   */
   Tags?: Tag[];
 }
 
@@ -973,15 +1081,15 @@ export namespace CreateWebACLRequest {
 export interface CreateWebACLResponse {
   __type?: "CreateWebACLResponse";
   /**
+   * <p>The <a>WebACL</a> returned in the <code>CreateWebACL</code> response.</p>
+   */
+  WebACL?: WebACL;
+
+  /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateWebACL</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-
-  /**
-   * <p>The <a>WebACL</a> returned in the <code>CreateWebACL</code> response.</p>
-   */
-  WebACL?: WebACL;
 }
 
 export namespace CreateWebACLResponse {
@@ -1021,15 +1129,15 @@ export namespace CreateXssMatchSetRequest {
 export interface CreateXssMatchSetResponse {
   __type?: "CreateXssMatchSetResponse";
   /**
+   * <p>An <a>XssMatchSet</a>.</p>
+   */
+  XssMatchSet?: XssMatchSet;
+
+  /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateXssMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-
-  /**
-   * <p>An <a>XssMatchSet</a>.</p>
-   */
-  XssMatchSet?: XssMatchSet;
 }
 
 export namespace CreateXssMatchSetResponse {
@@ -1116,15 +1224,15 @@ export namespace DeleteGeoMatchSetResponse {
 export interface DeleteIPSetRequest {
   __type?: "DeleteIPSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to delete. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
    * 			<a>ListIPSets</a>.</p>
    */
   IPSetId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace DeleteIPSetRequest {
@@ -1207,16 +1315,16 @@ export namespace DeletePermissionPolicyResponse {
 export interface DeleteRateBasedRuleRequest {
   __type?: "DeleteRateBasedRuleRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to
    *          delete. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by
    *             <a>ListRateBasedRules</a>.</p>
    */
   RuleId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace DeleteRateBasedRuleRequest {
@@ -1246,15 +1354,15 @@ export namespace DeleteRateBasedRuleResponse {
 export interface DeleteRegexMatchSetRequest {
   __type?: "DeleteRegexMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to delete. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by
    * 			<a>ListRegexMatchSets</a>.</p>
    */
   RegexMatchSetId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace DeleteRegexMatchSetRequest {
@@ -1394,15 +1502,15 @@ export namespace DeleteRuleResponse {
 export interface DeleteSizeConstraintSetRequest {
   __type?: "DeleteSizeConstraintSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to delete. <code>SizeConstraintSetId</code>
    * 			is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
    */
   SizeConstraintSetId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace DeleteSizeConstraintSetRequest {
@@ -1434,15 +1542,15 @@ export namespace DeleteSizeConstraintSetResponse {
 export interface DeleteSqlInjectionMatchSetRequest {
   __type?: "DeleteSqlInjectionMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you want to delete.
    * 			<code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
    */
   SqlInjectionMatchSetId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace DeleteSqlInjectionMatchSetRequest {
@@ -1515,15 +1623,15 @@ export namespace DeleteWebACLResponse {
 export interface DeleteXssMatchSetRequest {
   __type?: "DeleteXssMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to delete.
    * 			<code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>
    */
   XssMatchSetId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace DeleteXssMatchSetRequest {
@@ -1553,7 +1661,15 @@ export namespace DeleteXssMatchSetResponse {
 }
 
 /**
- * <p>The rule to exclude from a rule group. This is applicable only when the
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>The rule to exclude from a rule group. This is applicable only when the
  *             <code>ActivatedRule</code> refers to a <code>RuleGroup</code>. The rule must belong to
  *          the <code>RuleGroup</code> that is specified by the <code>ActivatedRule</code>. </p>
  */
@@ -1573,19 +1689,18 @@ export namespace ExcludedRule {
 }
 
 /**
- * <p>Specifies where in a web request to look for <code>TargetString</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies where in a web request to look for <code>TargetString</code>.</p>
  */
 export interface FieldToMatch {
   __type?: "FieldToMatch";
-  /**
-   * <p>When the value of <code>Type</code> is <code>HEADER</code>, enter the name of the header that you want AWS WAF to search,
-   * 			for example, <code>User-Agent</code> or <code>Referer</code>. The name of the header is not case sensitive.</p>
-   * 	        <p>When the value of <code>Type</code> is <code>SINGLE_QUERY_ARG</code>, enter the name of the parameter that you want AWS WAF to search,
-   * 	        for example, <code>UserName</code> or <code>SalesRegion</code>. The parameter name is not case sensitive.</p>
-   * 	        <p>If the value of <code>Type</code> is any other value, omit <code>Data</code>.</p>
-   */
-  Data?: string;
-
   /**
    * <p>The part of the web request that you want AWS WAF to search for a specified string. Parts of a request that you can search include the following:</p>
    * 		       <ul>
@@ -1628,6 +1743,15 @@ export interface FieldToMatch {
    *          </ul>
    */
   Type: MatchFieldType | string | undefined;
+
+  /**
+   * <p>When the value of <code>Type</code> is <code>HEADER</code>, enter the name of the header that you want AWS WAF to search,
+   * 			for example, <code>User-Agent</code> or <code>Referer</code>. The name of the header is not case sensitive.</p>
+   * 	        <p>When the value of <code>Type</code> is <code>SINGLE_QUERY_ARG</code>, enter the name of the parameter that you want AWS WAF to search,
+   * 	        for example, <code>UserName</code> or <code>SalesRegion</code>. The parameter name is not case sensitive.</p>
+   * 	        <p>If the value of <code>Type</code> is any other value, omit <code>Data</code>.</p>
+   */
+  Data?: string;
 }
 
 export namespace FieldToMatch {
@@ -1638,7 +1762,15 @@ export namespace FieldToMatch {
 }
 
 /**
- * <p>The country from which web requests originate that you want AWS WAF to search for.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>The country from which web requests originate that you want AWS WAF to search for.</p>
  */
 export interface GeoMatchConstraint {
   __type?: "GeoMatchConstraint";
@@ -1917,7 +2049,15 @@ export enum GeoMatchConstraintValue {
 }
 
 /**
- * <p>Contains one or more countries that AWS WAF will search for.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>Contains one or more countries that AWS WAF will search for.</p>
  */
 export interface GeoMatchSet {
   __type?: "GeoMatchSet";
@@ -1948,7 +2088,15 @@ export namespace GeoMatchSet {
 }
 
 /**
- * <p>Contains the identifier and the name of the <code>GeoMatchSet</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>Contains the identifier and the name of the <code>GeoMatchSet</code>.</p>
  */
 export interface GeoMatchSetSummary {
   __type?: "GeoMatchSetSummary";
@@ -1971,19 +2119,27 @@ export namespace GeoMatchSetSummary {
 }
 
 /**
- * <p>Specifies the type of update to perform to an <a>GeoMatchSet</a> with <a>UpdateGeoMatchSet</a>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>Specifies the type of update to perform to an <a>GeoMatchSet</a> with <a>UpdateGeoMatchSet</a>.</p>
  */
 export interface GeoMatchSetUpdate {
   __type?: "GeoMatchSetUpdate";
   /**
-   * <p>Specifies whether to insert or delete a country with <a>UpdateGeoMatchSet</a>.</p>
-   */
-  Action: ChangeAction | string | undefined;
-
-  /**
    * <p>The country from which web requests originate that you want AWS WAF to search for.</p>
    */
   GeoMatchConstraint: GeoMatchConstraint | undefined;
+
+  /**
+   * <p>Specifies whether to insert or delete a country with <a>UpdateGeoMatchSet</a>.</p>
+   */
+  Action: ChangeAction | string | undefined;
 }
 
 export namespace GeoMatchSetUpdate {
@@ -2454,11 +2610,23 @@ export namespace GetRuleResponse {
 export interface GetSampledRequestsRequest {
   __type?: "GetSampledRequestsRequest";
   /**
+   * <p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a
+   *                         sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special
+   *                         designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
+   */
+  TimeWindow: TimeWindow | undefined;
+
+  /**
    * <p>The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received
    * 			during the time range. If your resource received fewer requests than the value of <code>MaxItems</code>, <code>GetSampledRequests</code>
    * 			returns information about all of them. </p>
    */
   MaxItems: number | undefined;
+
+  /**
+   * <p>The <code>WebACLId</code> of the <code>WebACL</code> for which you want <code>GetSampledRequests</code> to return a sample of requests.</p>
+   */
+  WebAclId: string | undefined;
 
   /**
    * <p>
@@ -2475,18 +2643,6 @@ export interface GetSampledRequestsRequest {
    *          </ul>
    */
   RuleId: string | undefined;
-
-  /**
-   * <p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a
-   * 		    	sample of requests. Specify the date and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the
-   * 			previous three hours.</p>
-   */
-  TimeWindow: TimeWindow | undefined;
-
-  /**
-   * <p>The <code>WebACLId</code> of the <code>WebACL</code> for which you want <code>GetSampledRequests</code> to return a sample of requests.</p>
-   */
-  WebAclId: string | undefined;
 }
 
 export namespace GetSampledRequestsRequest {
@@ -2506,16 +2662,16 @@ export interface GetSampledRequestsResponse {
   PopulationSize?: number;
 
   /**
+   * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However,
+   * 			if your AWS resource received more than 5,000 requests during the time range that you specified in the request,
+   * 			<code>GetSampledRequests</code> returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.</p>
+   */
+  TimeWindow?: TimeWindow;
+
+  /**
    * <p>A complex type that contains detailed information about each of the requests in the sample.</p>
    */
   SampledRequests?: SampledHTTPRequest[];
-
-  /**
-   * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However,
-   * 			if your AWS resource received more than 5,000 requests during the time range that you specified in the request,
-   * 			<code>GetSampledRequests</code> returns the time range for the first 5,000 requests.</p>
-   */
-  TimeWindow?: TimeWindow;
 }
 
 export namespace GetSampledRequestsResponse {
@@ -2745,7 +2901,15 @@ export namespace GetXssMatchSetResponse {
 }
 
 /**
- * <p>The response from a <a>GetSampledRequests</a> request includes an <code>HTTPHeader</code> complex type that
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>The response from a <a>GetSampledRequests</a> request includes an <code>HTTPHeader</code> complex type that
  * 			appears as <code>Headers</code> in the response syntax. <code>HTTPHeader</code> contains the names and values of
  * 			all of the headers that appear in one of the web requests that were returned by <code>GetSampledRequests</code>. </p>
  */
@@ -2770,12 +2934,36 @@ export namespace HTTPHeader {
 }
 
 /**
- * <p>The response from a <a>GetSampledRequests</a> request includes an <code>HTTPRequest</code> complex type that
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>The response from a <a>GetSampledRequests</a> request includes an <code>HTTPRequest</code> complex type that
  * 			appears as <code>Request</code> in the response syntax. <code>HTTPRequest</code> contains information about
  * 			one of the web requests that were returned by <code>GetSampledRequests</code>. </p>
  */
 export interface HTTPRequest {
   __type?: "HTTPRequest";
+  /**
+   * <p>The two-letter country code for the country that the request originated from. For a current list of country codes,
+   * 			see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+   */
+  Country?: string;
+
+  /**
+   * <p>A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.</p>
+   */
+  Headers?: HTTPHeader[];
+
+  /**
+   * <p>The HTTP version specified in the sampled web request, for example, <code>HTTP/1.1</code>.</p>
+   */
+  HTTPVersion?: string;
+
   /**
    * <p>The IP address that the request originated from. If the <code>WebACL</code> is associated with a CloudFront distribution,
    * 			this is the value of one of the following fields in CloudFront access logs:</p>
@@ -2791,22 +2979,6 @@ export interface HTTPRequest {
    *          </ul>
    */
   ClientIP?: string;
-
-  /**
-   * <p>The two-letter country code for the country that the request originated from. For a current list of country codes,
-   * 			see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
-   */
-  Country?: string;
-
-  /**
-   * <p>The HTTP version specified in the sampled web request, for example, <code>HTTP/1.1</code>.</p>
-   */
-  HTTPVersion?: string;
-
-  /**
-   * <p>A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.</p>
-   */
-  Headers?: HTTPHeader[];
 
   /**
    * <p>The HTTP method specified in the sampled web request. CloudFront supports the following methods: <code>DELETE</code>,
@@ -2828,7 +3000,15 @@ export namespace HTTPRequest {
 }
 
 /**
- * <p>Contains one or more IP addresses or blocks of IP addresses specified in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32.  AWS WAF supports IPv6 address ranges: /24, /32, /48, /56, /64, and /128.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 	        <p>Contains one or more IP addresses or blocks of IP addresses specified in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32.  AWS WAF supports IPv6 address ranges: /24, /32, /48, /56, /64, and /128.</p>
  * 	        <p>To specify an individual IP address, you specify the four-part IP address followed by a
  *             <code>/32</code>, for example, 192.0.2.0/32. To block a range of IP addresses, you can
  *          specify /8 or any range between /16 through /32 (for IPv4) or /24, /32, /48, /56, /64, or
@@ -2838,12 +3018,6 @@ export namespace HTTPRequest {
 export interface IPSet {
   __type?: "IPSet";
   /**
-   * <p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.
-   * 			If the <code>WebACL</code> is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.</p>
-   */
-  IPSetDescriptors: IPSetDescriptor[] | undefined;
-
-  /**
    * <p>The <code>IPSetId</code> for an <code>IPSet</code>. You use <code>IPSetId</code> to get information about an
    * 			<code>IPSet</code> (see <a>GetIPSet</a>), update an <code>IPSet</code> (see <a>UpdateIPSet</a>),
    * 			insert an <code>IPSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and
@@ -2852,6 +3026,12 @@ export interface IPSet {
    *             <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by <a>ListIPSets</a>.</p>
    */
   IPSetId: string | undefined;
+
+  /**
+   * <p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.
+   * 			If the <code>WebACL</code> is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.</p>
+   */
+  IPSetDescriptors: IPSetDescriptor[] | undefined;
 
   /**
    * <p>A friendly name or description of the <a>IPSet</a>. You can't change the name of an <code>IPSet</code> after you create it.</p>
@@ -2867,15 +3047,18 @@ export namespace IPSet {
 }
 
 /**
- * <p>Specifies the IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR format) that web requests originate from.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies the IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR format) that web requests originate from.</p>
  */
 export interface IPSetDescriptor {
   __type?: "IPSetDescriptor";
-  /**
-   * <p>Specify <code>IPV4</code> or <code>IPV6</code>.</p>
-   */
-  Type: IPSetDescriptorType | string | undefined;
-
   /**
    * <p>Specify an IPv4 address by using CIDR notation. For example:</p>
    * 		       <ul>
@@ -2901,6 +3084,11 @@ export interface IPSetDescriptor {
    *          </ul>
    */
   Value: string | undefined;
+
+  /**
+   * <p>Specify <code>IPV4</code> or <code>IPV6</code>.</p>
+   */
+  Type: IPSetDescriptorType | string | undefined;
 }
 
 export namespace IPSetDescriptor {
@@ -2916,20 +3104,28 @@ export enum IPSetDescriptorType {
 }
 
 /**
- * <p>Contains the identifier and the name of the <code>IPSet</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Contains the identifier and the name of the <code>IPSet</code>.</p>
  */
 export interface IPSetSummary {
   __type?: "IPSetSummary";
+  /**
+   * <p>A friendly name or description of the <a>IPSet</a>. You can't change the name of an <code>IPSet</code> after you create it.</p>
+   */
+  Name: string | undefined;
+
   /**
    * <p>The <code>IPSetId</code> for an <a>IPSet</a>. You can use <code>IPSetId</code> in a <a>GetIPSet</a> request to get detailed
    * 			information about an <a>IPSet</a>.</p>
    */
   IPSetId: string | undefined;
-
-  /**
-   * <p>A friendly name or description of the <a>IPSet</a>. You can't change the name of an <code>IPSet</code> after you create it.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace IPSetSummary {
@@ -2940,7 +3136,15 @@ export namespace IPSetSummary {
 }
 
 /**
- * <p>Specifies the type of update to perform to an <a>IPSet</a> with <a>UpdateIPSet</a>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies the type of update to perform to an <a>IPSet</a> with <a>UpdateIPSet</a>.</p>
  */
 export interface IPSetUpdate {
   __type?: "IPSetUpdate";
@@ -2965,18 +3169,18 @@ export namespace IPSetUpdate {
 export interface ListActivatedRulesInRuleGroupRequest {
   __type?: "ListActivatedRulesInRuleGroupRequest";
   /**
-   * <p>Specifies the number of <code>ActivatedRules</code> that you want AWS WAF to return for this request. If you have more <code>ActivatedRules</code> than the number that you specify for <code>Limit</code>, the response includes a
-   *          <code>NextMarker</code> value that you can use to get another batch of <code>ActivatedRules</code>.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>ActivatedRules</code> than the value of <code>Limit</code>,
    *          AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ActivatedRules</code>.
    *          For the second and subsequent <code>ListActivatedRulesInRuleGroup</code> requests, specify the value of <code>NextMarker</code>
    *          from the previous response to get information about another batch of <code>ActivatedRules</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>ActivatedRules</code> that you want AWS WAF to return for this request. If you have more <code>ActivatedRules</code> than the number that you specify for <code>Limit</code>, the response includes a
+   *          <code>NextMarker</code> value that you can use to get another batch of <code>ActivatedRules</code>.</p>
+   */
+  Limit?: number;
 
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to get a list of <a>ActivatedRule</a> objects.</p>
@@ -2995,14 +3199,14 @@ export namespace ListActivatedRulesInRuleGroupRequest {
 export interface ListActivatedRulesInRuleGroupResponse {
   __type?: "ListActivatedRulesInRuleGroupResponse";
   /**
-   * <p>An array of <code>ActivatedRules</code> objects.</p>
-   */
-  ActivatedRules?: ActivatedRule[];
-
-  /**
    * <p>If you have more <code>ActivatedRules</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>ActivatedRules</code>, submit another <code>ListActivatedRulesInRuleGroup</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>An array of <code>ActivatedRules</code> objects.</p>
+   */
+  ActivatedRules?: ActivatedRule[];
 }
 
 export namespace ListActivatedRulesInRuleGroupResponse {
@@ -3016,19 +3220,19 @@ export namespace ListActivatedRulesInRuleGroupResponse {
 export interface ListByteMatchSetsRequest {
   __type?: "ListByteMatchSetsRequest";
   /**
-   * <p>Specifies the number of <code>ByteMatchSet</code> objects that you want AWS WAF to return for this request. If you have more
-   * 			<code>ByteMatchSets</code> objects than the number you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of <code>ByteMatchSet</code> objects.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code> than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>.
    * 			For the second and subsequent <code>ListByteMatchSets</code> requests, specify the value of <code>NextMarker</code>
    * 			from the previous response to get information about another batch of <code>ByteMatchSets</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>ByteMatchSet</code> objects that you want AWS WAF to return for this request. If you have more
+   * 			<code>ByteMatchSets</code> objects than the number you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of <code>ByteMatchSet</code> objects.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListByteMatchSetsRequest {
@@ -3064,19 +3268,19 @@ export namespace ListByteMatchSetsResponse {
 export interface ListGeoMatchSetsRequest {
   __type?: "ListGeoMatchSetsRequest";
   /**
-   * <p>Specifies the number of <code>GeoMatchSet</code> objects that you want AWS WAF to return for this request. If you have more
-   * 			<code>GeoMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of <code>GeoMatchSet</code> objects.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>GeoMatchSet</code>s than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>GeoMatchSet</code> objects.
    * 			For the second and subsequent <code>ListGeoMatchSets</code> requests, specify the value of <code>NextMarker</code>
    * 			from the previous response to get information about another batch of <code>GeoMatchSet</code> objects.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>GeoMatchSet</code> objects that you want AWS WAF to return for this request. If you have more
+   * 			<code>GeoMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of <code>GeoMatchSet</code> objects.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListGeoMatchSetsRequest {
@@ -3112,19 +3316,19 @@ export namespace ListGeoMatchSetsResponse {
 export interface ListIPSetsRequest {
   __type?: "ListIPSetsRequest";
   /**
-   * <p>Specifies the number of <code>IPSet</code> objects that you want AWS WAF to return for this request. If you have more
-   * 			<code>IPSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of <code>IPSet</code> objects.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>AWS WAF returns a <code>NextMarker</code> value in the response that allows you to
    *          list another group of <code>IPSets</code>. For the second and subsequent
    *             <code>ListIPSets</code> requests, specify the value of <code>NextMarker</code> from the
    *          previous response to get information about another batch of <code>IPSets</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>IPSet</code> objects that you want AWS WAF to return for this request. If you have more
+   * 			<code>IPSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of <code>IPSet</code> objects.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListIPSetsRequest {
@@ -3137,16 +3341,16 @@ export namespace ListIPSetsRequest {
 export interface ListIPSetsResponse {
   __type?: "ListIPSetsResponse";
   /**
-   * <p>An array of <a>IPSetSummary</a> objects.</p>
-   */
-  IPSets?: IPSetSummary[];
-
-  /**
    * <p>To list more <code>IPSet</code> objects, submit another <code>ListIPSets</code>
    *          request, and in the next request use the <code>NextMarker</code> response value as the
    *             <code>NextMarker</code> value.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>An array of <a>IPSetSummary</a> objects.</p>
+   */
+  IPSets?: IPSetSummary[];
 }
 
 export namespace ListIPSetsResponse {
@@ -3159,17 +3363,17 @@ export namespace ListIPSetsResponse {
 export interface ListLoggingConfigurationsRequest {
   __type?: "ListLoggingConfigurationsRequest";
   /**
-   * <p>Specifies the number of <code>LoggingConfigurations</code> that you want AWS WAF to return for this request. If you have more <code>LoggingConfigurations</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>LoggingConfigurations</code>.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>LoggingConfigurations</code> than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>LoggingConfigurations</code>.
    * 			For the second and subsequent <code>ListLoggingConfigurations</code> requests, specify the value of <code>NextMarker</code>
    * 			from the previous response to get information about another batch of <code>ListLoggingConfigurations</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>LoggingConfigurations</code> that you want AWS WAF to return for this request. If you have more <code>LoggingConfigurations</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>LoggingConfigurations</code>.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListLoggingConfigurationsRequest {
@@ -3182,14 +3386,14 @@ export namespace ListLoggingConfigurationsRequest {
 export interface ListLoggingConfigurationsResponse {
   __type?: "ListLoggingConfigurationsResponse";
   /**
-   * <p>An array of <a>LoggingConfiguration</a> objects.</p>
-   */
-  LoggingConfigurations?: LoggingConfiguration[];
-
-  /**
    * <p>If you have more <code>LoggingConfigurations</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>LoggingConfigurations</code>, submit another <code>ListLoggingConfigurations</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>An array of <a>LoggingConfiguration</a> objects.</p>
+   */
+  LoggingConfigurations?: LoggingConfiguration[];
 }
 
 export namespace ListLoggingConfigurationsResponse {
@@ -3202,14 +3406,6 @@ export namespace ListLoggingConfigurationsResponse {
 export interface ListRateBasedRulesRequest {
   __type?: "ListRateBasedRulesRequest";
   /**
-   * <p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this
-   *          request. If you have more <code>Rules</code> than the number that you specify for
-   *             <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can
-   *          use to get another batch of <code>Rules</code>.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code>
    *          than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the
    *          response that allows you to list another group of <code>Rules</code>. For the second and
@@ -3218,6 +3414,14 @@ export interface ListRateBasedRulesRequest {
    *          batch of <code>Rules</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this
+   *          request. If you have more <code>Rules</code> than the number that you specify for
+   *             <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can
+   *          use to get another batch of <code>Rules</code>.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListRateBasedRulesRequest {
@@ -3230,6 +3434,11 @@ export namespace ListRateBasedRulesRequest {
 export interface ListRateBasedRulesResponse {
   __type?: "ListRateBasedRulesResponse";
   /**
+   * <p>An array of <a>RuleSummary</a> objects.</p>
+   */
+  Rules?: RuleSummary[];
+
+  /**
    * <p>If you have more <code>Rules</code> than the number that you specified for
    *             <code>Limit</code> in the request, the response includes a <code>NextMarker</code>
    *          value. To list more <code>Rules</code>, submit another <code>ListRateBasedRules</code>
@@ -3237,11 +3446,6 @@ export interface ListRateBasedRulesResponse {
    *             <code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>An array of <a>RuleSummary</a> objects.</p>
-   */
-  Rules?: RuleSummary[];
 }
 
 export namespace ListRateBasedRulesResponse {
@@ -3254,19 +3458,19 @@ export namespace ListRateBasedRulesResponse {
 export interface ListRegexMatchSetsRequest {
   __type?: "ListRegexMatchSetsRequest";
   /**
-   * <p>Specifies the number of <code>RegexMatchSet</code> objects that you want AWS WAF to return for this request. If you have more
-   * 			<code>RegexMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of <code>RegexMatchSet</code> objects.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>RegexMatchSet</code> objects than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>.
    * 			For the second and subsequent <code>ListRegexMatchSets</code> requests, specify the value of <code>NextMarker</code>
    * 			from the previous response to get information about another batch of <code>RegexMatchSet</code> objects.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>RegexMatchSet</code> objects that you want AWS WAF to return for this request. If you have more
+   * 			<code>RegexMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of <code>RegexMatchSet</code> objects.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListRegexMatchSetsRequest {
@@ -3279,17 +3483,17 @@ export namespace ListRegexMatchSetsRequest {
 export interface ListRegexMatchSetsResponse {
   __type?: "ListRegexMatchSetsResponse";
   /**
+   * <p>An array of <a>RegexMatchSetSummary</a> objects.</p>
+   */
+  RegexMatchSets?: RegexMatchSetSummary[];
+
+  /**
    * <p>If you have more <code>RegexMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>RegexMatchSet</code> objects, submit another
    * 			<code>ListRegexMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the
    * 			<code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>An array of <a>RegexMatchSetSummary</a> objects.</p>
-   */
-  RegexMatchSets?: RegexMatchSetSummary[];
 }
 
 export namespace ListRegexMatchSetsResponse {
@@ -3327,17 +3531,17 @@ export namespace ListRegexPatternSetsRequest {
 export interface ListRegexPatternSetsResponse {
   __type?: "ListRegexPatternSetsResponse";
   /**
+   * <p>An array of <a>RegexPatternSetSummary</a> objects.</p>
+   */
+  RegexPatternSets?: RegexPatternSetSummary[];
+
+  /**
    * <p>If you have more <code>RegexPatternSet</code> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>RegexPatternSet</code> objects, submit another
    * 			<code>ListRegexPatternSets</code> request, and specify the <code>NextMarker</code> value from the response in the
    * 			<code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>An array of <a>RegexPatternSetSummary</a> objects.</p>
-   */
-  RegexPatternSets?: RegexPatternSetSummary[];
 }
 
 export namespace ListRegexPatternSetsResponse {
@@ -3393,18 +3597,18 @@ export namespace ListRuleGroupsResponse {
 export interface ListRulesRequest {
   __type?: "ListRulesRequest";
   /**
-   * <p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this request. If you have more 			<code>Rules</code> than the number that you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code> than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>Rules</code>.
    * 			For the second and subsequent <code>ListRules</code> requests, specify the value of <code>NextMarker</code>
    * 			from the previous response to get information about another batch of <code>Rules</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this request. If you have more 			<code>Rules</code> than the number that you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListRulesRequest {
@@ -3417,16 +3621,16 @@ export namespace ListRulesRequest {
 export interface ListRulesResponse {
   __type?: "ListRulesResponse";
   /**
+   * <p>An array of <a>RuleSummary</a> objects.</p>
+   */
+  Rules?: RuleSummary[];
+
+  /**
    * <p>If you have more <code>Rules</code> than the number that you specified for <code>Limit</code> in the request, 			the response includes a <code>NextMarker</code> value. To list more <code>Rules</code>, submit another
    * 			<code>ListRules</code> request, and specify the <code>NextMarker</code> value from the response in the
    * 			<code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>An array of <a>RuleSummary</a> objects.</p>
-   */
-  Rules?: RuleSummary[];
 }
 
 export namespace ListRulesResponse {
@@ -3439,18 +3643,18 @@ export namespace ListRulesResponse {
 export interface ListSizeConstraintSetsRequest {
   __type?: "ListSizeConstraintSetsRequest";
   /**
-   * <p>Specifies the number of <code>SizeConstraintSet</code> objects that you want AWS WAF to return for this request. If you have more
-   * 			<code>SizeConstraintSets</code> objects than the number you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of <code>SizeConstraintSet</code> objects.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>SizeConstraintSets</code> than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>SizeConstraintSets</code>.
    * 			For the second and subsequent <code>ListSizeConstraintSets</code> requests, specify the value of <code>NextMarker</code> 			from the previous response to get information about another batch of <code>SizeConstraintSets</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <code>SizeConstraintSet</code> objects that you want AWS WAF to return for this request. If you have more
+   * 			<code>SizeConstraintSets</code> objects than the number you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of <code>SizeConstraintSet</code> objects.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListSizeConstraintSetsRequest {
@@ -3489,19 +3693,19 @@ export namespace ListSizeConstraintSetsResponse {
 export interface ListSqlInjectionMatchSetsRequest {
   __type?: "ListSqlInjectionMatchSetsRequest";
   /**
-   * <p>Specifies the number of <a>SqlInjectionMatchSet</a> objects that you want AWS WAF to return for this request. If you have more
-   * 			<code>SqlInjectionMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <a>SqlInjectionMatchSet</a> objects than the value of
    * 			<code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of
    * 			<code>SqlInjectionMatchSets</code>. For the second and subsequent <code>ListSqlInjectionMatchSets</code> requests, specify the
    * 			value of <code>NextMarker</code> from the previous response to get information about another batch of <code>SqlInjectionMatchSets</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <a>SqlInjectionMatchSet</a> objects that you want AWS WAF to return for this request. If you have more
+   * 			<code>SqlInjectionMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListSqlInjectionMatchSetsRequest {
@@ -3517,17 +3721,17 @@ export namespace ListSqlInjectionMatchSetsRequest {
 export interface ListSqlInjectionMatchSetsResponse {
   __type?: "ListSqlInjectionMatchSetsResponse";
   /**
+   * <p>An array of <a>SqlInjectionMatchSetSummary</a> objects.</p>
+   */
+  SqlInjectionMatchSets?: SqlInjectionMatchSetSummary[];
+
+  /**
    * <p>If you have more <a>SqlInjectionMatchSet</a> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>SqlInjectionMatchSet</code> objects, submit another
    * 			<code>ListSqlInjectionMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the
    * 			<code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>An array of <a>SqlInjectionMatchSetSummary</a> objects.</p>
-   */
-  SqlInjectionMatchSets?: SqlInjectionMatchSetSummary[];
 }
 
 export namespace ListSqlInjectionMatchSetsResponse {
@@ -3540,19 +3744,19 @@ export namespace ListSqlInjectionMatchSetsResponse {
 export interface ListSubscribedRuleGroupsRequest {
   __type?: "ListSubscribedRuleGroupsRequest";
   /**
-   * <p>Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more
-   * 			objects than the number you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of objects.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code>subscribed rule groups than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of subscribed rule groups.
    * 			For the second and subsequent <code>ListSubscribedRuleGroupsRequest</code> requests, specify the value of <code>NextMarker</code>
    * 			from the previous response to get information about another batch of subscribed rule groups.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more
+   * 			objects than the number you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of objects.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListSubscribedRuleGroupsRequest {
@@ -3565,17 +3769,17 @@ export namespace ListSubscribedRuleGroupsRequest {
 export interface ListSubscribedRuleGroupsResponse {
   __type?: "ListSubscribedRuleGroupsResponse";
   /**
+   * <p>An array of <a>RuleGroup</a> objects.</p>
+   */
+  RuleGroups?: SubscribedRuleGroupSummary[];
+
+  /**
    * <p>If you have more objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more objects, submit another
    * 			<code>ListSubscribedRuleGroups</code> request, and specify the <code>NextMarker</code> value from the response in the
    * 			<code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>An array of <a>RuleGroup</a> objects.</p>
-   */
-  RuleGroups?: SubscribedRuleGroupSummary[];
 }
 
 export namespace ListSubscribedRuleGroupsResponse {
@@ -3587,8 +3791,19 @@ export namespace ListSubscribedRuleGroupsResponse {
 
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
-  Limit?: number;
+  /**
+   * <p></p>
+   */
   NextMarker?: string;
+
+  /**
+   * <p></p>
+   */
+  Limit?: number;
+
+  /**
+   * <p></p>
+   */
   ResourceARN: string | undefined;
 }
 
@@ -3601,8 +3816,15 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
-  NextMarker?: string;
+  /**
+   * <p></p>
+   */
   TagInfoForResource?: TagInfoForResource;
+
+  /**
+   * <p></p>
+   */
+  NextMarker?: string;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3640,17 +3862,17 @@ export namespace ListWebACLsRequest {
 export interface ListWebACLsResponse {
   __type?: "ListWebACLsResponse";
   /**
+   * <p>An array of <a>WebACLSummary</a> objects.</p>
+   */
+  WebACLs?: WebACLSummary[];
+
+  /**
    * <p>If you have more <code>WebACL</code> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>WebACL</code> objects, submit another
    * 			<code>ListWebACLs</code> request, and specify the <code>NextMarker</code> value from the response in the
    * 			<code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>An array of <a>WebACLSummary</a> objects.</p>
-   */
-  WebACLs?: WebACLSummary[];
 }
 
 export namespace ListWebACLsResponse {
@@ -3666,19 +3888,19 @@ export namespace ListWebACLsResponse {
 export interface ListXssMatchSetsRequest {
   __type?: "ListXssMatchSetsRequest";
   /**
-   * <p>Specifies the number of <a>XssMatchSet</a> objects that you want AWS WAF to return for this request. If you have more
-   * 			<code>XssMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
-   * 			<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>If you specify a value for <code>Limit</code> and you have more <a>XssMatchSet</a> objects than the value of
    * 			<code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of
    * 			<code>XssMatchSets</code>. For the second and subsequent <code>ListXssMatchSets</code> requests, specify the
    * 			value of <code>NextMarker</code> from the previous response to get information about another batch of <code>XssMatchSets</code>.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Specifies the number of <a>XssMatchSet</a> objects that you want AWS WAF to return for this request. If you have more
+   * 			<code>XssMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a
+   * 			<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListXssMatchSetsRequest {
@@ -3694,17 +3916,17 @@ export namespace ListXssMatchSetsRequest {
 export interface ListXssMatchSetsResponse {
   __type?: "ListXssMatchSetsResponse";
   /**
+   * <p>An array of <a>XssMatchSetSummary</a> objects.</p>
+   */
+  XssMatchSets?: XssMatchSetSummary[];
+
+  /**
    * <p>If you have more <a>XssMatchSet</a> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>XssMatchSet</code> objects, submit another
    * 			<code>ListXssMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the
    * 			<code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>An array of <a>XssMatchSetSummary</a> objects.</p>
-   */
-  XssMatchSets?: XssMatchSetSummary[];
 }
 
 export namespace ListXssMatchSetsResponse {
@@ -3715,7 +3937,15 @@ export namespace ListXssMatchSetsResponse {
 }
 
 /**
- * <p>The Amazon Kinesis Data Firehose, <code>RedactedFields</code>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>The Amazon Kinesis Data Firehose, <code>RedactedFields</code>
  *          information, and the web ACL Amazon Resource Name (ARN).</p>
  */
 export interface LoggingConfiguration {
@@ -3726,18 +3956,18 @@ export interface LoggingConfiguration {
   LogDestinationConfigs: string[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL that you want to associate with
+   *             <code>LogDestinationConfigs</code>.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
    * <p>The parts of the request that you want redacted from the logs. For
    *          example,
    *          if you redact the cookie field, the cookie field in the firehose will be
    *             <code>xxx</code>. </p>
    */
   RedactedFields?: FieldToMatch[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the web ACL that you want to associate with
-   *             <code>LogDestinationConfigs</code>.</p>
-   */
-  ResourceArn: string | undefined;
 }
 
 export namespace LoggingConfiguration {
@@ -3755,6 +3985,16 @@ export enum MatchFieldType {
   QUERY_STRING = "QUERY_STRING",
   SINGLE_QUERY_ARG = "SINGLE_QUERY_ARG",
   URI = "URI",
+}
+
+export enum MigrationErrorType {
+  ENTITY_NOT_FOUND = "ENTITY_NOT_FOUND",
+  ENTITY_NOT_SUPPORTED = "ENTITY_NOT_SUPPORTED",
+  S3_BUCKET_INVALID_REGION = "S3_BUCKET_INVALID_REGION",
+  S3_BUCKET_NOT_ACCESSIBLE = "S3_BUCKET_NOT_ACCESSIBLE",
+  S3_BUCKET_NOT_FOUND = "S3_BUCKET_NOT_FOUND",
+  S3_BUCKET_NO_PERMISSION = "S3_BUCKET_NO_PERMISSION",
+  S3_INTERNAL_ERROR = "S3_INTERNAL_ERROR",
 }
 
 export enum ParameterExceptionField {
@@ -3794,18 +4034,20 @@ export enum PositionalConstraint {
 }
 
 /**
- * <p>Specifies the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>,  <a>GeoMatchSet</a>, and <a>SizeConstraintSet</a> objects
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 	        <p>Specifies the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>,  <a>GeoMatchSet</a>, and <a>SizeConstraintSet</a> objects
  * 			that you want to add to a <code>Rule</code> and, for each object, indicates whether you want to negate the settings, for example, requests that do
  * 			NOT originate from the IP address 192.0.2.44. </p>
  */
 export interface Predicate {
   __type?: "Predicate";
-  /**
-   * <p>A unique identifier for a predicate in a <code>Rule</code>, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
-   * 			The ID is returned by the corresponding <code>Create</code> or <code>List</code> command.</p>
-   */
-  DataId: string | undefined;
-
   /**
    * <p>Set <code>Negated</code> to <code>False</code> if you want AWS WAF to allow, block, or count requests based on the settings in the
    * 		       specified <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>,  <a>GeoMatchSet</a>,  or <a>SizeConstraintSet</a>.
@@ -3817,6 +4059,12 @@ export interface Predicate {
    *             <code>192.0.2.44</code>.</p>
    */
   Negated: boolean | undefined;
+
+  /**
+   * <p>A unique identifier for a predicate in a <code>Rule</code>, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
+   * 			The ID is returned by the corresponding <code>Create</code> or <code>List</code> command.</p>
+   */
+  DataId: string | undefined;
 
   /**
    * <p>The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.</p>
@@ -3881,14 +4129,14 @@ export namespace PutLoggingConfigurationResponse {
 export interface PutPermissionPolicyRequest {
   __type?: "PutPermissionPolicyRequest";
   /**
-   * <p>The policy to attach to the specified RuleGroup.</p>
-   */
-  Policy: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The policy to attach to the specified RuleGroup.</p>
+   */
+  Policy: string | undefined;
 }
 
 export namespace PutPermissionPolicyRequest {
@@ -3910,7 +4158,15 @@ export namespace PutPermissionPolicyResponse {
 }
 
 /**
- * <p>A <code>RateBasedRule</code> is identical to a regular <a>Rule</a>, with
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>A <code>RateBasedRule</code> is identical to a regular <a>Rule</a>, with
  *          one addition: a <code>RateBasedRule</code> counts the number of requests that arrive from a
  *          specified IP address every five minutes. For example, based on recent requests that you've
  *          seen from an attacker, you might create a <code>RateBasedRule</code> that includes the
@@ -3924,19 +4180,33 @@ export namespace PutPermissionPolicyResponse {
  *                header.</p>
  *             </li>
  *          </ul>
- *          <p>In the rule, you also define the rate limit as 15,000.</p>
- *          <p>Requests that meet both of these conditions and exceed 15,000 requests every five
+ *          <p>In the rule, you also define the rate limit as 1,000.</p>
+ *          <p>Requests that meet both of these conditions and exceed 1,000 requests every five
  *          minutes trigger the rule's action (block or count), which is defined in the web
  *          ACL.</p>
  */
 export interface RateBasedRule {
   __type?: "RateBasedRule";
   /**
-   * <p>The <code>Predicates</code> object contains one <code>Predicate</code> element for
-   *          each <a>ByteMatchSet</a>, <a>IPSet</a>, or <a>SqlInjectionMatchSet</a> object that you want to include in a
-   *             <code>RateBasedRule</code>.</p>
+   * <p>A unique identifier for a <code>RateBasedRule</code>. You use <code>RuleId</code> to
+   *          get more information about a <code>RateBasedRule</code> (see <a>GetRateBasedRule</a>), update a <code>RateBasedRule</code> (see <a>UpdateRateBasedRule</a>), insert a <code>RateBasedRule</code> into a
+   *             <code>WebACL</code> or delete one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RateBasedRule</code> from AWS WAF (see <a>DeleteRateBasedRule</a>).</p>
    */
-  MatchPredicates: Predicate[] | undefined;
+  RuleId: string | undefined;
+
+  /**
+   * <p>A friendly name or description for a <code>RateBasedRule</code>. You can't change the
+   *          name of a <code>RateBasedRule</code> after you create it.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The maximum number of requests, which have an identical value in the field specified
+   *          by the <code>RateKey</code>, allowed in a five-minute period. If the number of requests
+   *          exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also
+   *          met, AWS WAF triggers the action that is specified for this rule.</p>
+   */
+  RateLimit: number | undefined;
 
   /**
    * <p>A friendly name or description for the metrics for a <code>RateBasedRule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
@@ -3944,12 +4214,6 @@ export interface RateBasedRule {
    *             <code>RateBasedRule</code>.</p>
    */
   MetricName?: string;
-
-  /**
-   * <p>A friendly name or description for a <code>RateBasedRule</code>. You can't change the
-   *          name of a <code>RateBasedRule</code> after you create it.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The field that AWS WAF uses to determine if requests are likely arriving from single
@@ -3961,19 +4225,11 @@ export interface RateBasedRule {
   RateKey: RateKey | string | undefined;
 
   /**
-   * <p>The maximum number of requests, which have an identical value in the field specified
-   *          by the <code>RateKey</code>, allowed in a five-minute period. If the number of requests
-   *          exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also
-   *          met, AWS WAF triggers the action that is specified for this rule.</p>
+   * <p>The <code>Predicates</code> object contains one <code>Predicate</code> element for
+   *          each <a>ByteMatchSet</a>, <a>IPSet</a>, or <a>SqlInjectionMatchSet</a> object that you want to include in a
+   *             <code>RateBasedRule</code>.</p>
    */
-  RateLimit: number | undefined;
-
-  /**
-   * <p>A unique identifier for a <code>RateBasedRule</code>. You use <code>RuleId</code> to
-   *          get more information about a <code>RateBasedRule</code> (see <a>GetRateBasedRule</a>), update a <code>RateBasedRule</code> (see <a>UpdateRateBasedRule</a>), insert a <code>RateBasedRule</code> into a
-   *             <code>WebACL</code> or delete one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RateBasedRule</code> from AWS WAF (see <a>DeleteRateBasedRule</a>).</p>
-   */
-  RuleId: string | undefined;
+  MatchPredicates: Predicate[] | undefined;
 }
 
 export namespace RateBasedRule {
@@ -3988,7 +4244,15 @@ export enum RateKey {
 }
 
 /**
- * <p>In a <a>GetRegexMatchSet</a> request, <code>RegexMatchSet</code> is a complex type that contains the <code>RegexMatchSetId</code> and
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>In a <a>GetRegexMatchSet</a> request, <code>RegexMatchSet</code> is a complex type that contains the <code>RegexMatchSetId</code> and
  * 			<code>Name</code> of a <code>RegexMatchSet</code>, and the values that you specified when you updated the <code>RegexMatchSet</code>.</p>
  *          <p> The values are contained in a <code>RegexMatchTuple</code> object, which specify the parts of web requests that you want AWS WAF to inspect and the values that you want AWS WAF to search for. If a <code>RegexMatchSet</code> contains more than one
  * 			<code>RegexMatchTuple</code> object, a request needs to match the settings in only one <code>ByteMatchTuple</code>
@@ -3996,22 +4260,6 @@ export enum RateKey {
  */
 export interface RegexMatchSet {
   __type?: "RegexMatchSet";
-  /**
-   * <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a
-   * 			<code>RegexMatchSet</code>.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a
-   * 			<code>RegexMatchSet</code> (see <a>GetRegexMatchSet</a>), update a <code>RegexMatchSet</code> (see <a>UpdateRegexMatchSet</a>),
-   * 			insert a <code>RegexMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and
-   * 			delete a <code>RegexMatchSet</code> from AWS WAF (see <a>DeleteRegexMatchSet</a>).</p>
-   * 		       <p>
-   *             <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>
-   */
-  RegexMatchSetId?: string;
-
   /**
    * <p>Contains an array of <a>RegexMatchTuple</a> objects. Each <code>RegexMatchTuple</code>
    * 				object contains: </p>
@@ -4028,6 +4276,22 @@ export interface RegexMatchSet {
    *          </ul>
    */
   RegexMatchTuples?: RegexMatchTuple[];
+
+  /**
+   * <p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a
+   * 			<code>RegexMatchSet</code> (see <a>GetRegexMatchSet</a>), update a <code>RegexMatchSet</code> (see <a>UpdateRegexMatchSet</a>),
+   * 			insert a <code>RegexMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and
+   * 			delete a <code>RegexMatchSet</code> from AWS WAF (see <a>DeleteRegexMatchSet</a>).</p>
+   * 		       <p>
+   *             <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>
+   */
+  RegexMatchSetId?: string;
+
+  /**
+   * <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a
+   * 			<code>RegexMatchSet</code>.</p>
+   */
+  Name?: string;
 }
 
 export namespace RegexMatchSet {
@@ -4038,16 +4302,19 @@ export namespace RegexMatchSet {
 }
 
 /**
- * <p>Returned by <a>ListRegexMatchSets</a>. Each <code>RegexMatchSetSummary</code> object includes the <code>Name</code> and
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>Returned by <a>ListRegexMatchSets</a>. Each <code>RegexMatchSetSummary</code> object includes the <code>Name</code> and
  * 			<code>RegexMatchSetId</code> for one <a>RegexMatchSet</a>.</p>
  */
 export interface RegexMatchSetSummary {
   __type?: "RegexMatchSetSummary";
-  /**
-   * <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a <code>RegexMatchSet</code>,
    * 			update a <code>RegexMatchSet</code>, remove a <code>RegexMatchSet</code> from a <code>Rule</code>, and delete a <code>RegexMatchSet</code> from AWS WAF.</p>
@@ -4055,6 +4322,11 @@ export interface RegexMatchSetSummary {
    *             <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>
    */
   RegexMatchSetId: string | undefined;
+
+  /**
+   * <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace RegexMatchSetSummary {
@@ -4065,22 +4337,30 @@ export namespace RegexMatchSetSummary {
 }
 
 /**
- * <p>In an <a>UpdateRegexMatchSet</a> request, <code>RegexMatchSetUpdate</code> specifies whether to insert or delete a
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>In an <a>UpdateRegexMatchSet</a> request, <code>RegexMatchSetUpdate</code> specifies whether to insert or delete a
  *          <a>RegexMatchTuple</a> and includes the settings for the <code>RegexMatchTuple</code>.</p>
  */
 export interface RegexMatchSetUpdate {
   __type?: "RegexMatchSetUpdate";
-  /**
-   * <p>Specifies whether to insert or delete a <a>RegexMatchTuple</a>.</p>
-   */
-  Action: ChangeAction | string | undefined;
-
   /**
    * <p>Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for.
    *          If you specify <code>DELETE</code> for the value of <code>Action</code>, the <code>RegexMatchTuple</code> values must
    *          exactly match the values in the <code>RegexMatchTuple</code> that you want to delete from the <code>RegexMatchSet</code>.</p>
    */
   RegexMatchTuple: RegexMatchTuple | undefined;
+
+  /**
+   * <p>Specifies whether to insert or delete a <a>RegexMatchTuple</a>.</p>
+   */
+  Action: ChangeAction | string | undefined;
 }
 
 export namespace RegexMatchSetUpdate {
@@ -4091,7 +4371,15 @@ export namespace RegexMatchSetUpdate {
 }
 
 /**
- * <p>The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. Each <code>RegexMatchTuple</code> object contains: </p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. Each <code>RegexMatchTuple</code> object contains: </p>
  * 		       <ul>
  *             <li>
  *                <p>The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the <code>User-Agent</code> header. </p>
@@ -4110,16 +4398,6 @@ export interface RegexMatchTuple {
    * <p>Specifies where in a web request to look for the <code>RegexPatternSet</code>.</p>
    */
   FieldToMatch: FieldToMatch | undefined;
-
-  /**
-   * <p>The <code>RegexPatternSetId</code> for a <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a
-   * 			<code>RegexPatternSet</code> (see <a>GetRegexPatternSet</a>), update a <code>RegexPatternSet</code> (see <a>UpdateRegexPatternSet</a>),
-   * 			insert a <code>RegexPatternSet</code> into a <code>RegexMatchSet</code> or delete one from a <code>RegexMatchSet</code> (see <a>UpdateRegexMatchSet</a>), and
-   * 			delete an <code>RegexPatternSet</code> from AWS WAF (see <a>DeleteRegexPatternSet</a>).</p>
-   * 		       <p>
-   * 		          <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
-   */
-  RegexPatternSetId: string | undefined;
 
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
@@ -4216,6 +4494,16 @@ export interface RegexMatchTuple {
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
   TextTransformation: TextTransformation | string | undefined;
+
+  /**
+   * <p>The <code>RegexPatternSetId</code> for a <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a
+   * 			<code>RegexPatternSet</code> (see <a>GetRegexPatternSet</a>), update a <code>RegexPatternSet</code> (see <a>UpdateRegexPatternSet</a>),
+   * 			insert a <code>RegexPatternSet</code> into a <code>RegexMatchSet</code> or delete one from a <code>RegexMatchSet</code> (see <a>UpdateRegexMatchSet</a>), and
+   * 			delete an <code>RegexPatternSet</code> from AWS WAF (see <a>DeleteRegexPatternSet</a>).</p>
+   * 		       <p>
+   * 		          <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
+   */
+  RegexPatternSetId: string | undefined;
 }
 
 export namespace RegexMatchTuple {
@@ -4226,7 +4514,15 @@ export namespace RegexMatchTuple {
 }
 
 /**
- * <p>The <code>RegexPatternSet</code> specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>The <code>RegexPatternSet</code> specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
  */
 export interface RegexPatternSet {
   __type?: "RegexPatternSet";
@@ -4236,17 +4532,17 @@ export interface RegexPatternSet {
   Name?: string;
 
   /**
+   * <p>Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>.</p>
+   */
+  RegexPatternStrings: string[] | undefined;
+
+  /**
    * <p>The identifier for the <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a <code>RegexPatternSet</code>,
    *          update a <code>RegexPatternSet</code>, remove a <code>RegexPatternSet</code> from a <code>RegexMatchSet</code>, and delete a <code>RegexPatternSet</code> from AWS WAF.</p>
    *          <p>
    *             <code>RegexMatchSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
    */
   RegexPatternSetId: string | undefined;
-
-  /**
-   * <p>Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>.</p>
-   */
-  RegexPatternStrings: string[] | undefined;
 }
 
 export namespace RegexPatternSet {
@@ -4257,7 +4553,15 @@ export namespace RegexPatternSet {
 }
 
 /**
- * <p>Returned by <a>ListRegexPatternSets</a>. Each <code>RegexPatternSetSummary</code> object includes the <code>Name</code> and
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>Returned by <a>ListRegexPatternSets</a>. Each <code>RegexPatternSetSummary</code> object includes the <code>Name</code> and
  *          <code>RegexPatternSetId</code> for one <a>RegexPatternSet</a>.</p>
  */
 export interface RegexPatternSetSummary {
@@ -4284,7 +4588,15 @@ export namespace RegexPatternSetSummary {
 }
 
 /**
- * <p>In an <a>UpdateRegexPatternSet</a> request, <code>RegexPatternSetUpdate</code> specifies whether to insert or delete a
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>In an <a>UpdateRegexPatternSet</a> request, <code>RegexPatternSetUpdate</code> specifies whether to insert or delete a
  *          <code>RegexPatternString</code> and includes the settings for the <code>RegexPatternString</code>.</p>
  */
 export interface RegexPatternSetUpdate {
@@ -4308,7 +4620,15 @@ export namespace RegexPatternSetUpdate {
 }
 
 /**
- * <p>A combination of <a>ByteMatchSet</a>, <a>IPSet</a>, and/or <a>SqlInjectionMatchSet</a> objects that identify the web requests that you
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>A combination of <a>ByteMatchSet</a>, <a>IPSet</a>, and/or <a>SqlInjectionMatchSet</a> objects that identify the web requests that you
  * 			want to allow, block, or count. For example, you might create a <code>Rule</code> that includes the following predicates:</p>
  * 		       <ul>
  *             <li>
@@ -4326,23 +4646,6 @@ export namespace RegexPatternSetUpdate {
 export interface Rule {
   __type?: "Rule";
   /**
-   * <p>A friendly name or description for the metrics for this <code>Rule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
-   *          whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change <code>MetricName</code> after you create the <code>Rule</code>.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>The friendly name or description for the <code>Rule</code>. You can't change the name of a <code>Rule</code> after you create it.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The <code>Predicates</code> object contains one <code>Predicate</code> element for each <a>ByteMatchSet</a>, <a>IPSet</a>, or
-   * 			<a>SqlInjectionMatchSet</a> object that you want to include in a <code>Rule</code>.</p>
-   */
-  Predicates: Predicate[] | undefined;
-
-  /**
    * <p>A unique identifier for a <code>Rule</code>. You use <code>RuleId</code> to get more information about a <code>Rule</code> (see <a>GetRule</a>),
    * 			update a <code>Rule</code> (see <a>UpdateRule</a>), insert a <code>Rule</code> into a <code>WebACL</code> or delete a
    * 			one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>Rule</code> from AWS WAF (see <a>DeleteRule</a>).</p>
@@ -4350,6 +4653,23 @@ export interface Rule {
    *             <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>
    */
   RuleId: string | undefined;
+
+  /**
+   * <p>The friendly name or description for the <code>Rule</code>. You can't change the name of a <code>Rule</code> after you create it.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A friendly name or description for the metrics for this <code>Rule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
+   *          whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change <code>MetricName</code> after you create the <code>Rule</code>.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The <code>Predicates</code> object contains one <code>Predicate</code> element for each <a>ByteMatchSet</a>, <a>IPSet</a>, or
+   * 			<a>SqlInjectionMatchSet</a> object that you want to include in a <code>Rule</code>.</p>
+   */
+  Predicates: Predicate[] | undefined;
 }
 
 export namespace Rule {
@@ -4360,7 +4680,15 @@ export namespace Rule {
 }
 
 /**
- * <p>A collection of predefined rules that you can add to a web ACL.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>A collection of predefined rules that you can add to a web ACL.</p>
  * 	        <p>Rule groups are subject to the following limits:</p>
  * 	        <ul>
  *             <li>
@@ -4377,17 +4705,6 @@ export namespace Rule {
 export interface RuleGroup {
   __type?: "RuleGroup";
   /**
-   * <p>A friendly name or description for the metrics for this <code>RuleGroup</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
-   *          whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the <code>RuleGroup</code>.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>The friendly name or description for the <code>RuleGroup</code>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>A unique identifier for a <code>RuleGroup</code>. You use <code>RuleGroupId</code> to get more information about a <code>RuleGroup</code> (see <a>GetRuleGroup</a>),
    *          update a <code>RuleGroup</code> (see <a>UpdateRuleGroup</a>), insert a <code>RuleGroup</code> into a <code>WebACL</code> or delete a
    *          one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RuleGroup</code> from AWS WAF (see <a>DeleteRuleGroup</a>).</p>
@@ -4395,6 +4712,17 @@ export interface RuleGroup {
    *             <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>
    */
   RuleGroupId: string | undefined;
+
+  /**
+   * <p>The friendly name or description for the <code>RuleGroup</code>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A friendly name or description for the metrics for this <code>RuleGroup</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
+   *          whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the <code>RuleGroup</code>.</p>
+   */
+  MetricName?: string;
 }
 
 export namespace RuleGroup {
@@ -4405,15 +4733,18 @@ export namespace RuleGroup {
 }
 
 /**
- * <p>Contains the identifier and the friendly name or description of the <code>RuleGroup</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>Contains the identifier and the friendly name or description of the <code>RuleGroup</code>.</p>
  */
 export interface RuleGroupSummary {
   __type?: "RuleGroupSummary";
-  /**
-   * <p>A friendly name or description of the <a>RuleGroup</a>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>A unique identifier for a <code>RuleGroup</code>. You use <code>RuleGroupId</code> to get more information about a <code>RuleGroup</code> (see <a>GetRuleGroup</a>),
    *          update a <code>RuleGroup</code> (see <a>UpdateRuleGroup</a>), insert a <code>RuleGroup</code> into a <code>WebACL</code> or delete
@@ -4422,6 +4753,11 @@ export interface RuleGroupSummary {
    *             <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>
    */
   RuleGroupId: string | undefined;
+
+  /**
+   * <p>A friendly name or description of the <a>RuleGroup</a>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace RuleGroupSummary {
@@ -4432,7 +4768,15 @@ export namespace RuleGroupSummary {
 }
 
 /**
- * <p>Specifies an <code>ActivatedRule</code> and indicates whether you want to add it to a
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>Specifies an <code>ActivatedRule</code> and indicates whether you want to add it to a
  *          <code>RuleGroup</code> or delete it from a <code>RuleGroup</code>.</p>
  */
 export interface RuleGroupUpdate {
@@ -4459,7 +4803,15 @@ export namespace RuleGroupUpdate {
 }
 
 /**
- * <p>Contains the identifier and the friendly name or description of the <code>Rule</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Contains the identifier and the friendly name or description of the <code>Rule</code>.</p>
  */
 export interface RuleSummary {
   __type?: "RuleSummary";
@@ -4486,21 +4838,29 @@ export namespace RuleSummary {
 }
 
 /**
- * <p>Specifies a <code>Predicate</code> (such as an <code>IPSet</code>) and indicates whether you want to add it to a
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies a <code>Predicate</code> (such as an <code>IPSet</code>) and indicates whether you want to add it to a
  * 			<code>Rule</code> or delete it from a <code>Rule</code>.</p>
  */
 export interface RuleUpdate {
   __type?: "RuleUpdate";
   /**
+   * <p>The ID of the <code>Predicate</code> (such as an <code>IPSet</code>) that you want to add to a <code>Rule</code>.</p>
+   */
+  Predicate: Predicate | undefined;
+
+  /**
    * <p>Specify <code>INSERT</code> to add a <code>Predicate</code> to a <code>Rule</code>. Use <code>DELETE</code> to remove a
    * 			<code>Predicate</code> from a <code>Rule</code>.</p>
    */
   Action: ChangeAction | string | undefined;
-
-  /**
-   * <p>The ID of the <code>Predicate</code> (such as an <code>IPSet</code>) that you want to add to a <code>Rule</code>.</p>
-   */
-  Predicate: Predicate | undefined;
 }
 
 export namespace RuleUpdate {
@@ -4511,21 +4871,24 @@ export namespace RuleUpdate {
 }
 
 /**
- * <p>The response from a <a>GetSampledRequests</a> request includes a <code>SampledHTTPRequests</code> complex type that
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>The response from a <a>GetSampledRequests</a> request includes a <code>SampledHTTPRequests</code> complex type that
  * 			appears as <code>SampledRequests</code> in the response syntax. <code>SampledHTTPRequests</code> contains one
  * 			<code>SampledHTTPRequest</code> object for each web request that is returned by <code>GetSampledRequests</code>.</p>
  */
 export interface SampledHTTPRequest {
   __type?: "SampledHTTPRequest";
   /**
-   * <p>The action for the <code>Rule</code> that the request matched: <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
+   * <p>The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).</p>
    */
-  Action?: string;
-
-  /**
-   * <p>A complex type that contains detailed information about the request.</p>
-   */
-  Request: HTTPRequest | undefined;
+  Timestamp?: Date;
 
   /**
    * <p>This value is returned if the <code>GetSampledRequests</code>  request specifies the ID of a <code>RuleGroup</code> rather than the ID of an individual rule. <code>RuleWithinRuleGroup</code> is the rule within the specified <code>RuleGroup</code> that matched the request listed in the response.</p>
@@ -4533,9 +4896,14 @@ export interface SampledHTTPRequest {
   RuleWithinRuleGroup?: string;
 
   /**
-   * <p>The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).</p>
+   * <p>A complex type that contains detailed information about the request.</p>
    */
-  Timestamp?: Date;
+  Request: HTTPRequest | undefined;
+
+  /**
+   * <p>The action for the <code>Rule</code> that the request matched: <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
+   */
+  Action?: string;
 
   /**
    * <p>A value that indicates how one result in the response relates proportionally to other results in the response.
@@ -4553,7 +4921,15 @@ export namespace SampledHTTPRequest {
 }
 
 /**
- * <p>Specifies a constraint on the size of a part of the web request. AWS WAF uses the <code>Size</code>, <code>ComparisonOperator</code>, and <code>FieldToMatch</code> to build
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies a constraint on the size of a part of the web request. AWS WAF uses the <code>Size</code>, <code>ComparisonOperator</code>, and <code>FieldToMatch</code> to build
  * 			an expression in the form of "<code>Size</code>
  *             <code>ComparisonOperator</code> size in bytes of <code>FieldToMatch</code>". If that expression is true, the
  * 			<code>SizeConstraint</code> is considered to match.</p>
@@ -4561,50 +4937,13 @@ export namespace SampledHTTPRequest {
 export interface SizeConstraint {
   __type?: "SizeConstraint";
   /**
-   * <p>The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided <code>Size</code> and <code>FieldToMatch</code>
-   * 			to build an expression in the form of "<code>Size</code>
-   *             <code>ComparisonOperator</code> size in bytes of <code>FieldToMatch</code>". If that expression
-   * 			is true, the <code>SizeConstraint</code> is considered to match.</p>
-   * 		       <p>
-   *             <b>EQ</b>: Used to test if the <code>Size</code> is equal to the size of the <code>FieldToMatch</code>
-   *          </p>
-   * 		       <p>
-   *             <b>NE</b>: Used to test if the <code>Size</code> is not equal to the size of the <code>FieldToMatch</code>
-   *          </p>
-   * 		       <p>
-   *             <b>LE</b>: Used to test if the <code>Size</code> is less than or equal to the size of the <code>FieldToMatch</code>
-   *          </p>
-   * 		       <p>
-   *             <b>LT</b>: Used to test if the <code>Size</code> is strictly less than the size of the <code>FieldToMatch</code>
-   *          </p>
-   * 		       <p>
-   *             <b>GE</b>: Used to test if the <code>Size</code> is greater than or equal to the size of the <code>FieldToMatch</code>
-   *          </p>
-   * 		       <p>
-   *             <b>GT</b>: Used to test if the <code>Size</code> is strictly greater than the size of the <code>FieldToMatch</code>
-   *          </p>
-   */
-  ComparisonOperator: ComparisonOperator | string | undefined;
-
-  /**
    * <p>Specifies where in a web request to look for the size constraint.</p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
   /**
-   * <p>The size in bytes that you want AWS WAF to compare against the size of the specified <code>FieldToMatch</code>. AWS WAF uses this in combination
-   * 			with <code>ComparisonOperator</code> and <code>FieldToMatch</code> to build an expression in the form of "<code>Size</code>
-   *             <code>ComparisonOperator</code> size
-   * 			in bytes of <code>FieldToMatch</code>". If that expression is true, the <code>SizeConstraint</code> is considered to match.</p>
-   * 		       <p>Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).</p>
-   * 		       <p>If you specify <code>URI</code> for the value of <code>Type</code>, the / in the URI counts as one character.
-   * 			For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
-   */
-  Size: number | undefined;
-
-  /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting a request for a match.</p>
+   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
    *          <p>You can only specify a single type of TextTransformation.</p>
    * 		       <p>Note that if you choose <code>BODY</code> for the value of <code>Type</code>, you must choose <code>NONE</code> for <code>TextTransformation</code>
    * 			because CloudFront forwards only the first 8192 bytes for inspection. </p>
@@ -4698,6 +5037,43 @@ export interface SizeConstraint {
    * 		       <p>Use this option to decode a URL-encoded value.</p>
    */
   TextTransformation: TextTransformation | string | undefined;
+
+  /**
+   * <p>The size in bytes that you want AWS WAF to compare against the size of the specified <code>FieldToMatch</code>. AWS WAF uses this in combination
+   * 			with <code>ComparisonOperator</code> and <code>FieldToMatch</code> to build an expression in the form of "<code>Size</code>
+   *             <code>ComparisonOperator</code> size
+   * 			in bytes of <code>FieldToMatch</code>". If that expression is true, the <code>SizeConstraint</code> is considered to match.</p>
+   * 		       <p>Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).</p>
+   * 		       <p>If you specify <code>URI</code> for the value of <code>Type</code>, the / in the URI counts as one character.
+   * 			For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
+   */
+  Size: number | undefined;
+
+  /**
+   * <p>The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided <code>Size</code> and <code>FieldToMatch</code>
+   * 			to build an expression in the form of "<code>Size</code>
+   *             <code>ComparisonOperator</code> size in bytes of <code>FieldToMatch</code>". If that expression
+   * 			is true, the <code>SizeConstraint</code> is considered to match.</p>
+   * 		       <p>
+   *             <b>EQ</b>: Used to test if the <code>Size</code> is equal to the size of the <code>FieldToMatch</code>
+   *          </p>
+   * 		       <p>
+   *             <b>NE</b>: Used to test if the <code>Size</code> is not equal to the size of the <code>FieldToMatch</code>
+   *          </p>
+   * 		       <p>
+   *             <b>LE</b>: Used to test if the <code>Size</code> is less than or equal to the size of the <code>FieldToMatch</code>
+   *          </p>
+   * 		       <p>
+   *             <b>LT</b>: Used to test if the <code>Size</code> is strictly less than the size of the <code>FieldToMatch</code>
+   *          </p>
+   * 		       <p>
+   *             <b>GE</b>: Used to test if the <code>Size</code> is greater than or equal to the size of the <code>FieldToMatch</code>
+   *          </p>
+   * 		       <p>
+   *             <b>GT</b>: Used to test if the <code>Size</code> is strictly greater than the size of the <code>FieldToMatch</code>
+   *          </p>
+   */
+  ComparisonOperator: ComparisonOperator | string | undefined;
 }
 
 export namespace SizeConstraint {
@@ -4708,7 +5084,15 @@ export namespace SizeConstraint {
 }
 
 /**
- * <p>A complex type that contains <code>SizeConstraint</code> objects, which specify the parts of web requests that you
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>A complex type that contains <code>SizeConstraint</code> objects, which specify the parts of web requests that you
  * 			want AWS WAF to inspect the size of. If a <code>SizeConstraintSet</code> contains more than one <code>SizeConstraint</code>
  * 			object, a request only needs to match one constraint to be considered a match.</p>
  */
@@ -4744,15 +5128,18 @@ export namespace SizeConstraintSet {
 }
 
 /**
- * <p>The <code>Id</code> and <code>Name</code> of a <code>SizeConstraintSet</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>The <code>Id</code> and <code>Name</code> of a <code>SizeConstraintSet</code>.</p>
  */
 export interface SizeConstraintSetSummary {
   __type?: "SizeConstraintSetSummary";
-  /**
-   * <p>The name of the <code>SizeConstraintSet</code>, if any.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>A unique identifier for a <code>SizeConstraintSet</code>. You use <code>SizeConstraintSetId</code> to get information about a
    * 			<code>SizeConstraintSet</code> (see <a>GetSizeConstraintSet</a>), update a <code>SizeConstraintSet</code>
@@ -4763,6 +5150,11 @@ export interface SizeConstraintSetSummary {
    *             <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
    */
   SizeConstraintSetId: string | undefined;
+
+  /**
+   * <p>The name of the <code>SizeConstraintSet</code>, if any.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace SizeConstraintSetSummary {
@@ -4773,17 +5165,19 @@ export namespace SizeConstraintSetSummary {
 }
 
 /**
- * <p>Specifies the part of a web request that you want to inspect the size of and indicates whether you want to
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies the part of a web request that you want to inspect the size of and indicates whether you want to
  * 			add the specification to a <a>SizeConstraintSet</a> or delete it from a <code>SizeConstraintSet</code>.</p>
  */
 export interface SizeConstraintSetUpdate {
   __type?: "SizeConstraintSetUpdate";
-  /**
-   * <p>Specify <code>INSERT</code> to add a <a>SizeConstraintSetUpdate</a> to a <a>SizeConstraintSet</a>.
-   * 			Use <code>DELETE</code> to remove a <code>SizeConstraintSetUpdate</code> from a <code>SizeConstraintSet</code>.</p>
-   */
-  Action: ChangeAction | string | undefined;
-
   /**
    * <p>Specifies a constraint on the size of a part of the web request. AWS WAF uses the <code>Size</code>, <code>ComparisonOperator</code>, and <code>FieldToMatch</code> to build
    * 			an expression in the form of "<code>Size</code>
@@ -4791,6 +5185,12 @@ export interface SizeConstraintSetUpdate {
    * 			<code>SizeConstraint</code> is considered to match.</p>
    */
   SizeConstraint: SizeConstraint | undefined;
+
+  /**
+   * <p>Specify <code>INSERT</code> to add a <a>SizeConstraintSetUpdate</a> to a <a>SizeConstraintSet</a>.
+   * 			Use <code>DELETE</code> to remove a <code>SizeConstraintSetUpdate</code> from a <code>SizeConstraintSet</code>.</p>
+   */
+  Action: ChangeAction | string | undefined;
 }
 
 export namespace SizeConstraintSetUpdate {
@@ -4801,18 +5201,21 @@ export namespace SizeConstraintSetUpdate {
 }
 
 /**
- * <p>A complex type that contains <code>SqlInjectionMatchTuple</code> objects, which specify the parts of web requests that you
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>A complex type that contains <code>SqlInjectionMatchTuple</code> objects, which specify the parts of web requests that you
  * 			want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header. If a
  * 			<code>SqlInjectionMatchSet</code> contains more than one <code>SqlInjectionMatchTuple</code> object, a request needs to
  * 			include snippets of SQL code in only one of the specified parts of the request to be considered a match.</p>
  */
 export interface SqlInjectionMatchSet {
   __type?: "SqlInjectionMatchSet";
-  /**
-   * <p>The name, if any, of the <code>SqlInjectionMatchSet</code>.</p>
-   */
-  Name?: string;
-
   /**
    * <p>A unique identifier for a <code>SqlInjectionMatchSet</code>. You use <code>SqlInjectionMatchSetId</code> to get information about a
    * 			<code>SqlInjectionMatchSet</code> (see <a>GetSqlInjectionMatchSet</a>), update a <code>SqlInjectionMatchSet</code>
@@ -4823,6 +5226,11 @@ export interface SqlInjectionMatchSet {
    *             <code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
    */
   SqlInjectionMatchSetId: string | undefined;
+
+  /**
+   * <p>The name, if any, of the <code>SqlInjectionMatchSet</code>.</p>
+   */
+  Name?: string;
 
   /**
    * <p>Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.</p>
@@ -4838,15 +5246,18 @@ export namespace SqlInjectionMatchSet {
 }
 
 /**
- * <p>The <code>Id</code> and <code>Name</code> of a <code>SqlInjectionMatchSet</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>The <code>Id</code> and <code>Name</code> of a <code>SqlInjectionMatchSet</code>.</p>
  */
 export interface SqlInjectionMatchSetSummary {
   __type?: "SqlInjectionMatchSetSummary";
-  /**
-   * <p>The name of the <code>SqlInjectionMatchSet</code>, if any, specified by <code>Id</code>.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>A unique identifier for a <code>SqlInjectionMatchSet</code>. You use <code>SqlInjectionMatchSetId</code> to get information about a
    * 			<code>SqlInjectionMatchSet</code> (see <a>GetSqlInjectionMatchSet</a>), update a <code>SqlInjectionMatchSet</code>
@@ -4857,6 +5268,11 @@ export interface SqlInjectionMatchSetSummary {
    *             <code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
    */
   SqlInjectionMatchSetId: string | undefined;
+
+  /**
+   * <p>The name of the <code>SqlInjectionMatchSet</code>, if any, specified by <code>Id</code>.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace SqlInjectionMatchSetSummary {
@@ -4867,7 +5283,15 @@ export namespace SqlInjectionMatchSetSummary {
 }
 
 /**
- * <p>Specifies the part of a web request that you want to inspect for snippets of malicious SQL code and indicates whether you want to
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies the part of a web request that you want to inspect for snippets of malicious SQL code and indicates whether you want to
  * 			add the specification to a <a>SqlInjectionMatchSet</a> or delete it from a <code>SqlInjectionMatchSet</code>.</p>
  */
 export interface SqlInjectionMatchSetUpdate {
@@ -4892,18 +5316,21 @@ export namespace SqlInjectionMatchSetUpdate {
 }
 
 /**
- * <p>Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.</p>
  */
 export interface SqlInjectionMatchTuple {
   __type?: "SqlInjectionMatchTuple";
   /**
-   * <p>Specifies where in a web request to look for snippets of malicious SQL code.</p>
-   */
-  FieldToMatch: FieldToMatch | undefined;
-
-  /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting a request for a match.</p>
+   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
    *          <p>You can only specify a single type of TextTransformation.</p>
    * 		       <p>
    *             <b>CMD_LINE</b>
@@ -4997,6 +5424,11 @@ export interface SqlInjectionMatchTuple {
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
   TextTransformation: TextTransformation | string | undefined;
+
+  /**
+   * <p>Specifies where in a web request to look for snippets of malicious SQL code.</p>
+   */
+  FieldToMatch: FieldToMatch | undefined;
 }
 
 export namespace SqlInjectionMatchTuple {
@@ -5007,10 +5439,23 @@ export namespace SqlInjectionMatchTuple {
 }
 
 /**
- * <p>A summary of the rule groups you are subscribed to.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>A summary of the rule groups you are subscribed to.</p>
  */
 export interface SubscribedRuleGroupSummary {
   __type?: "SubscribedRuleGroupSummary";
+  /**
+   * <p>A unique identifier for a <code>RuleGroup</code>.</p>
+   */
+  RuleGroupId: string | undefined;
+
   /**
    * <p>A friendly name or description for the metrics for this <code>RuleGroup</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
    *          whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the <code>RuleGroup</code>.</p>
@@ -5021,11 +5466,6 @@ export interface SubscribedRuleGroupSummary {
    * <p>A friendly name or description of the <code>RuleGroup</code>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>A unique identifier for a <code>RuleGroup</code>.</p>
-   */
-  RuleGroupId: string | undefined;
 }
 
 export namespace SubscribedRuleGroupSummary {
@@ -5035,10 +5475,29 @@ export namespace SubscribedRuleGroupSummary {
   export const isa = (o: any): o is SubscribedRuleGroupSummary => __isa(o, "SubscribedRuleGroupSummary");
 }
 
+/**
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *         <p>A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+ *         <p>Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.  </p>
+ */
 export interface Tag {
   __type?: "Tag";
-  Key?: string;
-  Value?: string;
+  /**
+   * <p></p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p></p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -5048,9 +5507,28 @@ export namespace Tag {
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
+/**
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *         <p>Information for a tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+ *         <p>Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.  </p>
+ */
 export interface TagInfoForResource {
   __type?: "TagInfoForResource";
+  /**
+   * <p></p>
+   */
   ResourceARN?: string;
+
+  /**
+   * <p></p>
+   */
   TagList?: Tag[];
 }
 
@@ -5063,7 +5541,14 @@ export namespace TagInfoForResource {
 
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
+  /**
+   * <p></p>
+   */
   ResourceARN: string | undefined;
+
+  /**
+   * <p></p>
+   */
   Tags: Tag[] | undefined;
 }
 
@@ -5095,8 +5580,18 @@ export enum TextTransformation {
 }
 
 /**
- * <p>In a <a>GetSampledRequests</a> request, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>In a <a>GetSampledRequests</a> request, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range
  * 			for which you want AWS WAF to return a sample of web requests.</p>
+ *                     <p>You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special
+ *                         designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. </p>
  * 		       <p>In a <a>GetSampledRequests</a> response, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range
  * 			for which AWS WAF actually returned a sample of web requests. AWS WAF gets the specified number of requests from among the first
  * 			5,000 requests that your AWS resource receives during the specified time period. If your resource receives more than 5,000
@@ -5106,16 +5601,20 @@ export enum TextTransformation {
 export interface TimeWindow {
   __type?: "TimeWindow";
   /**
-   * <p>The end of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your
-   * 		    	AWS resource received. Specify the date and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your
-   * 		    	AWS resource received. Specify the date and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
+   * <p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the
+   *                   requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format.
+   *                   UTC format includes the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>.
+   *                       You can specify any time range in the previous three hours.</p>
    */
   StartTime: Date | undefined;
+
+  /**
+   * <p>The end of the time range from which you want <code>GetSampledRequests</code> to return a sample of the
+   *                   requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format.
+   *                   UTC format includes the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>.
+   *                       You can specify any time range in the previous three hours.</p>
+   */
+  EndTime: Date | undefined;
 }
 
 export namespace TimeWindow {
@@ -5127,7 +5626,14 @@ export namespace TimeWindow {
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
+  /**
+   * <p></p>
+   */
   ResourceARN: string | undefined;
+
+  /**
+   * <p></p>
+   */
   TagKeys: string[] | undefined;
 }
 
@@ -5152,17 +5658,6 @@ export namespace UntagResourceResponse {
 export interface UpdateByteMatchSetRequest {
   __type?: "UpdateByteMatchSetRequest";
   /**
-   * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to update. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by
-   * 			<a>ListByteMatchSets</a>.</p>
-   */
-  ByteMatchSetId: string | undefined;
-
-  /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>An array of <code>ByteMatchSetUpdate</code> objects that you want to insert into or delete from a <a>ByteMatchSet</a>.
    * 			For more information, see the applicable data types:</p>
    * 		       <ul>
@@ -5185,6 +5680,17 @@ export interface UpdateByteMatchSetRequest {
    *          </ul>
    */
   Updates: ByteMatchSetUpdate[] | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
+
+  /**
+   * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to update. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by
+   * 			<a>ListByteMatchSets</a>.</p>
+   */
+  ByteMatchSetId: string | undefined;
 }
 
 export namespace UpdateByteMatchSetRequest {
@@ -5213,17 +5719,6 @@ export namespace UpdateByteMatchSetResponse {
 export interface UpdateGeoMatchSetRequest {
   __type?: "UpdateGeoMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
-   * <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to update. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by
-   * 			<a>ListGeoMatchSets</a>.</p>
-   */
-  GeoMatchSetId: string | undefined;
-
-  /**
    * <p>An array of <code>GeoMatchSetUpdate</code> objects that you want to insert into or delete from an <a>GeoMatchSet</a>.
    * 			For more information, see the applicable data types:</p>
    * 		       <ul>
@@ -5241,6 +5736,17 @@ export interface UpdateGeoMatchSetRequest {
    *          </ul>
    */
   Updates: GeoMatchSetUpdate[] | undefined;
+
+  /**
+   * <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to update. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by
+   * 			<a>ListGeoMatchSets</a>.</p>
+   */
+  GeoMatchSetId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace UpdateGeoMatchSetRequest {
@@ -5269,11 +5775,6 @@ export namespace UpdateGeoMatchSetResponse {
 export interface UpdateIPSetRequest {
   __type?: "UpdateIPSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to update. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
    * 			<a>ListIPSets</a>.</p>
    */
@@ -5297,6 +5798,11 @@ export interface UpdateIPSetRequest {
    * 	        <p>You can insert a maximum of 1000 addresses in a single request.</p>
    */
   Updates: IPSetUpdate[] | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace UpdateIPSetRequest {
@@ -5325,11 +5831,6 @@ export namespace UpdateIPSetResponse {
 export interface UpdateRateBasedRuleRequest {
   __type?: "UpdateRateBasedRuleRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The maximum number of requests, which have an identical value in the field specified by the <code>RateKey</code>, allowed in a
    *          five-minute period. If the number of requests exceeds the <code>RateLimit</code> and the other
    *          predicates specified in the rule are also met,
@@ -5348,6 +5849,11 @@ export interface UpdateRateBasedRuleRequest {
    *          from a <a>RateBasedRule</a>. </p>
    */
   Updates: RuleUpdate[] | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 }
 
 export namespace UpdateRateBasedRuleRequest {
@@ -5377,9 +5883,10 @@ export namespace UpdateRateBasedRuleResponse {
 export interface UpdateRegexMatchSetRequest {
   __type?: "UpdateRegexMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   * <p>An array of <code>RegexMatchSetUpdate</code> objects that you want to insert into or delete from a <a>RegexMatchSet</a>.
+   * 			For more information, see <a>RegexMatchTuple</a>.</p>
    */
-  ChangeToken: string | undefined;
+  Updates: RegexMatchSetUpdate[] | undefined;
 
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by
@@ -5388,10 +5895,9 @@ export interface UpdateRegexMatchSetRequest {
   RegexMatchSetId: string | undefined;
 
   /**
-   * <p>An array of <code>RegexMatchSetUpdate</code> objects that you want to insert into or delete from a <a>RegexMatchSet</a>.
-   * 			For more information, see <a>RegexMatchTuple</a>.</p>
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
-  Updates: RegexMatchSetUpdate[] | undefined;
+  ChangeToken: string | undefined;
 }
 
 export namespace UpdateRegexMatchSetRequest {
@@ -5425,15 +5931,15 @@ export interface UpdateRegexPatternSetRequest {
   ChangeToken: string | undefined;
 
   /**
+   * <p>An array of <code>RegexPatternSetUpdate</code> objects that you want to insert into or delete from a <a>RegexPatternSet</a>.</p>
+   */
+  Updates: RegexPatternSetUpdate[] | undefined;
+
+  /**
    * <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to update. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by
    * 			<a>ListRegexPatternSets</a>.</p>
    */
   RegexPatternSetId: string | undefined;
-
-  /**
-   * <p>An array of <code>RegexPatternSetUpdate</code> objects that you want to insert into or delete from a <a>RegexPatternSet</a>.</p>
-   */
-  Updates: RegexPatternSetUpdate[] | undefined;
 }
 
 export namespace UpdateRegexPatternSetRequest {
@@ -5462,6 +5968,15 @@ export namespace UpdateRegexPatternSetResponse {
 export interface UpdateRuleGroupRequest {
   __type?: "UpdateRuleGroupRequest";
   /**
+   * <p>An array of <code>RuleGroupUpdate</code> objects that you want to insert into or delete from a
+   *          <a>RuleGroup</a>.</p>
+   * 		       <p>You can only insert <code>REGULAR</code> rules into a rule group.</p>
+   * 		       <p>
+   *             <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>.  For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.</p>
+   */
+  Updates: RuleGroupUpdate[] | undefined;
+
+  /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
   ChangeToken: string | undefined;
@@ -5471,15 +5986,6 @@ export interface UpdateRuleGroupRequest {
    *          <a>ListRuleGroups</a>.</p>
    */
   RuleGroupId: string | undefined;
-
-  /**
-   * <p>An array of <code>RuleGroupUpdate</code> objects that you want to insert into or delete from a
-   *          <a>RuleGroup</a>.</p>
-   * 		       <p>You can only insert <code>REGULAR</code> rules into a rule group.</p>
-   * 		       <p>
-   *             <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>.  For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.</p>
-   */
-  Updates: RuleGroupUpdate[] | undefined;
 }
 
 export namespace UpdateRuleGroupRequest {
@@ -5508,15 +6014,15 @@ export namespace UpdateRuleGroupResponse {
 export interface UpdateRuleRequest {
   __type?: "UpdateRuleRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>RuleId</code> of the <code>Rule</code> that you want to update. <code>RuleId</code> is returned by
    * 			<code>CreateRule</code> and by <a>ListRules</a>.</p>
    */
   RuleId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 
   /**
    * <p>An array of <code>RuleUpdate</code> objects that you want to insert into or delete from a
@@ -5568,15 +6074,15 @@ export namespace UpdateRuleResponse {
 export interface UpdateSizeConstraintSetRequest {
   __type?: "UpdateSizeConstraintSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to update. <code>SizeConstraintSetId</code>
    * 			is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
    */
   SizeConstraintSetId: string | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 
   /**
    * <p>An array of <code>SizeConstraintSetUpdate</code> objects that you want to insert into or delete from a <a>SizeConstraintSet</a>.
@@ -5637,12 +6143,6 @@ export interface UpdateSqlInjectionMatchSetRequest {
   ChangeToken: string | undefined;
 
   /**
-   * <p>The <code>SqlInjectionMatchSetId</code> of the <code>SqlInjectionMatchSet</code> that you want to update.
-   * 			<code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
-   */
-  SqlInjectionMatchSetId: string | undefined;
-
-  /**
    * <p>An array of <code>SqlInjectionMatchSetUpdate</code> objects that you want to insert into or delete from a
    * 			<a>SqlInjectionMatchSet</a>. For more information, see the applicable data types:</p>
    * 		       <ul>
@@ -5664,6 +6164,12 @@ export interface UpdateSqlInjectionMatchSetRequest {
    *          </ul>
    */
   Updates: SqlInjectionMatchSetUpdate[] | undefined;
+
+  /**
+   * <p>The <code>SqlInjectionMatchSetId</code> of the <code>SqlInjectionMatchSet</code> that you want to update.
+   * 			<code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
+   */
+  SqlInjectionMatchSetId: string | undefined;
 }
 
 export namespace UpdateSqlInjectionMatchSetRequest {
@@ -5701,10 +6207,10 @@ export interface UpdateWebACLRequest {
   ChangeToken: string | undefined;
 
   /**
-   * <p>A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default
-   *          action if a request doesn't match the criteria in any of the rules in a web ACL.</p>
+   * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to update. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
+   * 			<a>ListWebACLs</a>.</p>
    */
-  DefaultAction?: WafAction;
+  WebACLId: string | undefined;
 
   /**
    * <p>An array of updates to make to the <a>WebACL</a>.</p>
@@ -5737,10 +6243,10 @@ export interface UpdateWebACLRequest {
   Updates?: WebACLUpdate[];
 
   /**
-   * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to update. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
-   * 			<a>ListWebACLs</a>.</p>
+   * <p>A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default
+   *          action if a request doesn't match the criteria in any of the rules in a web ACL.</p>
    */
-  WebACLId: string | undefined;
+  DefaultAction?: WafAction;
 }
 
 export namespace UpdateWebACLRequest {
@@ -5772,11 +6278,6 @@ export namespace UpdateWebACLResponse {
 export interface UpdateXssMatchSetRequest {
   __type?: "UpdateXssMatchSetRequest";
   /**
-   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
-   */
-  ChangeToken: string | undefined;
-
-  /**
    * <p>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or
    *          delete from an
    *          <a>XssMatchSet</a>. For more information, see the applicable data
@@ -5800,6 +6301,11 @@ export interface UpdateXssMatchSetRequest {
    *          </ul>
    */
   Updates: XssMatchSetUpdate[] | undefined;
+
+  /**
+   * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+   */
+  ChangeToken: string | undefined;
 
   /**
    * <p>The <code>XssMatchSetId</code> of the <code>XssMatchSet</code> that you want to update.
@@ -5835,7 +6341,15 @@ export namespace UpdateXssMatchSetResponse {
 }
 
 /**
- * <p>For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a
  * 			web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want
  * 			AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. </p>
  */
@@ -5876,6 +6390,9 @@ export enum WafActionType {
   COUNT = "COUNT",
 }
 
+/**
+ * <p></p>
+ */
 export interface WAFBadRequestException extends __SmithyException, $MetadataBearer {
   name: "WAFBadRequestException";
   $fault: "client";
@@ -5903,6 +6420,54 @@ export namespace WAFDisallowedNameException {
     ...obj,
   });
   export const isa = (o: any): o is WAFDisallowedNameException => __isa(o, "WAFDisallowedNameException");
+}
+
+/**
+ * <p>The operation failed due to a problem with the migration. The failure cause is provided in the exception, in the <code>MigrationErrorType</code>: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ENTITY_NOT_SUPPORTED</code> - The web ACL has an unsupported entity but the <code>IgnoreUnsupportedType</code> is not set to true.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ENTITY_NOT_FOUND</code> - The web ACL doesn't exist.  </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>S3_BUCKET_NO_PERMISSION</code> - You don't have permission to perform the <code>PutObject</code> action to the specified Amazon S3 bucket.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>S3_BUCKET_NOT_ACCESSIBLE</code> - The bucket policy doesn't allow AWS WAF to perform the <code>PutObject</code> action in the bucket.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>S3_BUCKET_NOT_FOUND</code> - The S3 bucket doesn't exist. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>S3_BUCKET_INVALID_REGION</code> - The S3 bucket is not in the same Region as the web ACL.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>S3_INTERNAL_ERROR</code> - AWS WAF failed to create the template in the S3 bucket for another reason.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface WAFEntityMigrationException extends __SmithyException, $MetadataBearer {
+  name: "WAFEntityMigrationException";
+  $fault: "client";
+  MigrationErrorReason?: string;
+  MigrationErrorType?: MigrationErrorType | string;
+  message?: string;
+}
+
+export namespace WAFEntityMigrationException {
+  export const filterSensitiveLog = (obj: WAFEntityMigrationException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is WAFEntityMigrationException => __isa(o, "WAFEntityMigrationException");
 }
 
 /**
@@ -6015,9 +6580,9 @@ export namespace WAFInvalidOperationException {
 export interface WAFInvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidParameterException";
   $fault: "client";
+  reason?: ParameterExceptionReason | string;
   field?: ParameterExceptionField | string;
   parameter?: string;
-  reason?: ParameterExceptionReason | string;
 }
 
 export namespace WAFInvalidParameterException {
@@ -6186,7 +6751,15 @@ export namespace WAFNonexistentItemException {
 }
 
 /**
- * <p>The action to take if any rule within the <code>RuleGroup</code> matches a request. </p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>The action to take if any rule within the <code>RuleGroup</code> matches a request. </p>
  */
 export interface WafOverrideAction {
   __type?: "WafOverrideAction";
@@ -6288,6 +6861,9 @@ export namespace WAFSubscriptionNotFoundException {
   export const isa = (o: any): o is WAFSubscriptionNotFoundException => __isa(o, "WAFSubscriptionNotFoundException");
 }
 
+/**
+ * <p></p>
+ */
 export interface WAFTagOperationException extends __SmithyException, $MetadataBearer {
   name: "WAFTagOperationException";
   $fault: "client";
@@ -6301,6 +6877,9 @@ export namespace WAFTagOperationException {
   export const isa = (o: any): o is WAFTagOperationException => __isa(o, "WAFTagOperationException");
 }
 
+/**
+ * <p></p>
+ */
 export interface WAFTagOperationInternalErrorException extends __SmithyException, $MetadataBearer {
   name: "WAFTagOperationInternalErrorException";
   $fault: "server";
@@ -6316,7 +6895,15 @@ export namespace WAFTagOperationInternalErrorException {
 }
 
 /**
- * <p>Contains the <code>Rules</code> that identify the requests that you want to allow, block, or count. In a <code>WebACL</code>, you also specify a
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Contains the <code>Rules</code> that identify the requests that you want to allow, block, or count. In a <code>WebACL</code>, you also specify a
  * 			default action (<code>ALLOW</code> or <code>BLOCK</code>), and the action for each <code>Rule</code> that you add to a
  * 			<code>WebACL</code>, for example, block requests from specified IP addresses or block requests from specified referrers.
  * 			You also associate the <code>WebACL</code> with a CloudFront distribution to identify the requests that you want AWS WAF to filter.
@@ -6325,6 +6912,15 @@ export namespace WAFTagOperationInternalErrorException {
  */
 export interface WebACL {
   __type?: "WebACL";
+  /**
+   * <p>A unique identifier for a <code>WebACL</code>. You use <code>WebACLId</code> to get information about a <code>WebACL</code>
+   * 			(see <a>GetWebACL</a>), update a <code>WebACL</code> (see <a>UpdateWebACL</a>), and delete a <code>WebACL</code> from AWS WAF
+   * 			(see <a>DeleteWebACL</a>).</p>
+   * 		       <p>
+   *             <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>
+   */
+  WebACLId: string | undefined;
+
   /**
    * <p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. The action is specified by the
    * 			<a>WafAction</a> object.</p>
@@ -6338,9 +6934,9 @@ export interface WebACL {
   MetricName?: string;
 
   /**
-   * <p>A friendly name or description of the <code>WebACL</code>. You can't change the name of a <code>WebACL</code> after you create it.</p>
+   * <p>Tha Amazon Resource Name (ARN) of the web ACL.</p>
    */
-  Name?: string;
+  WebACLArn?: string;
 
   /**
    * <p>An array that contains the action for each <code>Rule</code> in a <code>WebACL</code>, the priority of the <code>Rule</code>,
@@ -6349,18 +6945,9 @@ export interface WebACL {
   Rules: ActivatedRule[] | undefined;
 
   /**
-   * <p>Tha Amazon Resource Name (ARN) of the web ACL.</p>
+   * <p>A friendly name or description of the <code>WebACL</code>. You can't change the name of a <code>WebACL</code> after you create it.</p>
    */
-  WebACLArn?: string;
-
-  /**
-   * <p>A unique identifier for a <code>WebACL</code>. You use <code>WebACLId</code> to get information about a <code>WebACL</code>
-   * 			(see <a>GetWebACL</a>), update a <code>WebACL</code> (see <a>UpdateWebACL</a>), and delete a <code>WebACL</code> from AWS WAF
-   * 			(see <a>DeleteWebACL</a>).</p>
-   * 		       <p>
-   *             <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>
-   */
-  WebACLId: string | undefined;
+  Name?: string;
 }
 
 export namespace WebACL {
@@ -6371,7 +6958,15 @@ export namespace WebACL {
 }
 
 /**
- * <p>Contains the identifier and the name or description of the <a>WebACL</a>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Contains the identifier and the name or description of the <a>WebACL</a>.</p>
  */
 export interface WebACLSummary {
   __type?: "WebACLSummary";
@@ -6398,21 +6993,29 @@ export namespace WebACLSummary {
 }
 
 /**
- * <p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>
  */
 export interface WebACLUpdate {
   __type?: "WebACLUpdate";
-  /**
-   * <p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>
-   */
-  Action: ChangeAction | string | undefined;
-
   /**
    * <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete,
    *          the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code>
    *          (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p>
    */
   ActivatedRule: ActivatedRule | undefined;
+
+  /**
+   * <p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>
+   */
+  Action: ChangeAction | string | undefined;
 }
 
 export namespace WebACLUpdate {
@@ -6423,7 +7026,15 @@ export namespace WebACLUpdate {
 }
 
 /**
- * <p>A complex type that contains <code>XssMatchTuple</code> objects, which specify the parts of web requests that you
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>A complex type that contains <code>XssMatchTuple</code> objects, which specify the parts of web requests that you
  * 			want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header. If a
  * 			<code>XssMatchSet</code> contains more than one <code>XssMatchTuple</code> object, a request needs to
  * 			include cross-site scripting attacks in only one of the specified parts of the request to be considered a match.</p>
@@ -6460,15 +7071,18 @@ export namespace XssMatchSet {
 }
 
 /**
- * <p>The <code>Id</code> and <code>Name</code> of an <code>XssMatchSet</code>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>The <code>Id</code> and <code>Name</code> of an <code>XssMatchSet</code>.</p>
  */
 export interface XssMatchSetSummary {
   __type?: "XssMatchSetSummary";
-  /**
-   * <p>The name of the <code>XssMatchSet</code>, if any, specified by <code>Id</code>.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>A unique identifier for an <code>XssMatchSet</code>. You use <code>XssMatchSetId</code> to get information about a
    * 			<code>XssMatchSet</code> (see <a>GetXssMatchSet</a>), update an <code>XssMatchSet</code>
@@ -6479,6 +7093,11 @@ export interface XssMatchSetSummary {
    *             <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>
    */
   XssMatchSetId: string | undefined;
+
+  /**
+   * <p>The name of the <code>XssMatchSet</code>, if any, specified by <code>Id</code>.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace XssMatchSetSummary {
@@ -6489,11 +7108,24 @@ export namespace XssMatchSetSummary {
 }
 
 /**
- * <p>Specifies the part of a web request that you want to inspect for cross-site scripting attacks and indicates whether you want to
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies the part of a web request that you want to inspect for cross-site scripting attacks and indicates whether you want to
  * 			add the specification to an <a>XssMatchSet</a> or delete it from an <code>XssMatchSet</code>.</p>
  */
 export interface XssMatchSetUpdate {
   __type?: "XssMatchSetUpdate";
+  /**
+   * <p>Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.</p>
+   */
+  XssMatchTuple: XssMatchTuple | undefined;
+
   /**
    * <p>Specify <code>INSERT</code> to add an
    *          <a>XssMatchSetUpdate</a> to an <a>XssMatchSet</a>. Use
@@ -6501,11 +7133,6 @@ export interface XssMatchSetUpdate {
    *          <code>XssMatchSetUpdate</code> from an <code>XssMatchSet</code>.</p>
    */
   Action: ChangeAction | string | undefined;
-
-  /**
-   * <p>Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.</p>
-   */
-  XssMatchTuple: XssMatchTuple | undefined;
 }
 
 export namespace XssMatchSetUpdate {
@@ -6516,7 +7143,15 @@ export namespace XssMatchSetUpdate {
 }
 
 /**
- * <p>Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.</p>
  */
 export interface XssMatchTuple {
   __type?: "XssMatchTuple";
@@ -6527,7 +7162,7 @@ export interface XssMatchTuple {
 
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting a request for a match.</p>
+   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
    *          <p>You can only specify a single type of TextTransformation.</p>
    * 		       <p>
    *             <b>CMD_LINE</b>

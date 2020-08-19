@@ -16,6 +16,10 @@ import {
   BatchPutScheduledUpdateGroupActionCommandOutput,
 } from "../commands/BatchPutScheduledUpdateGroupActionCommand";
 import {
+  CancelInstanceRefreshCommandInput,
+  CancelInstanceRefreshCommandOutput,
+} from "../commands/CancelInstanceRefreshCommand";
+import {
   CompleteLifecycleActionCommandInput,
   CompleteLifecycleActionCommandOutput,
 } from "../commands/CompleteLifecycleActionCommand";
@@ -70,6 +74,10 @@ import {
   DescribeAutoScalingNotificationTypesCommandInput,
   DescribeAutoScalingNotificationTypesCommandOutput,
 } from "../commands/DescribeAutoScalingNotificationTypesCommand";
+import {
+  DescribeInstanceRefreshesCommandInput,
+  DescribeInstanceRefreshesCommandOutput,
+} from "../commands/DescribeInstanceRefreshesCommand";
 import {
   DescribeLaunchConfigurationsCommandInput,
   DescribeLaunchConfigurationsCommandOutput,
@@ -157,6 +165,10 @@ import {
   SetInstanceProtectionCommandInput,
   SetInstanceProtectionCommandOutput,
 } from "../commands/SetInstanceProtectionCommand";
+import {
+  StartInstanceRefreshCommandInput,
+  StartInstanceRefreshCommandOutput,
+} from "../commands/StartInstanceRefreshCommand";
 import { SuspendProcessesCommandInput, SuspendProcessesCommandOutput } from "../commands/SuspendProcessesCommand";
 import {
   TerminateInstanceInAutoScalingGroupCommandInput,
@@ -167,6 +179,7 @@ import {
   UpdateAutoScalingGroupCommandOutput,
 } from "../commands/UpdateAutoScalingGroupCommand";
 import {
+  ActiveInstanceRefreshNotFoundFault,
   ActivitiesType,
   Activity,
   ActivityType,
@@ -188,6 +201,8 @@ import {
   BatchPutScheduledUpdateGroupActionAnswer,
   BatchPutScheduledUpdateGroupActionType,
   BlockDeviceMapping,
+  CancelInstanceRefreshAnswer,
+  CancelInstanceRefreshType,
   CompleteLifecycleActionAnswer,
   CompleteLifecycleActionType,
   CreateAutoScalingGroupType,
@@ -205,6 +220,8 @@ import {
   DescribeAdjustmentTypesAnswer,
   DescribeAutoScalingInstancesType,
   DescribeAutoScalingNotificationTypesAnswer,
+  DescribeInstanceRefreshesAnswer,
+  DescribeInstanceRefreshesType,
   DescribeLifecycleHookTypesAnswer,
   DescribeLifecycleHooksAnswer,
   DescribeLifecycleHooksType,
@@ -238,7 +255,10 @@ import {
   FailedScheduledUpdateGroupActionRequest,
   Filter,
   Instance,
+  InstanceMetadataOptions,
   InstanceMonitoring,
+  InstanceRefresh,
+  InstanceRefreshInProgressFault,
   InstancesDistribution,
   InvalidNextToken,
   LaunchConfiguration,
@@ -270,6 +290,7 @@ import {
   PutScheduledUpdateGroupActionType,
   RecordLifecycleActionHeartbeatAnswer,
   RecordLifecycleActionHeartbeatType,
+  RefreshPreferences,
   ResourceContentionFault,
   ResourceInUseFault,
   ScalingActivityInProgressFault,
@@ -283,6 +304,8 @@ import {
   SetInstanceHealthQuery,
   SetInstanceProtectionAnswer,
   SetInstanceProtectionQuery,
+  StartInstanceRefreshAnswer,
+  StartInstanceRefreshType,
   StepAdjustment,
   SuspendedProcess,
   Tag,
@@ -383,6 +406,22 @@ export const serializeAws_queryBatchPutScheduledUpdateGroupActionCommand = async
   body = buildFormUrlencodedString({
     ...serializeAws_queryBatchPutScheduledUpdateGroupActionType(input, context),
     Action: "BatchPutScheduledUpdateGroupAction",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCancelInstanceRefreshCommand = async (
+  input: CancelInstanceRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCancelInstanceRefreshType(input, context),
+    Action: "CancelInstanceRefresh",
     Version: "2011-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -633,6 +672,22 @@ export const serializeAws_queryDescribeAutoScalingNotificationTypesCommand = asy
   };
   const body = buildFormUrlencodedString({
     Action: "DescribeAutoScalingNotificationTypes",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeInstanceRefreshesCommand = async (
+  input: DescribeInstanceRefreshesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeInstanceRefreshesType(input, context),
+    Action: "DescribeInstanceRefreshes",
     Version: "2011-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1110,6 +1165,22 @@ export const serializeAws_querySetInstanceProtectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryStartInstanceRefreshCommand = async (
+  input: StartInstanceRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryStartInstanceRefreshType(input, context),
+    Action: "StartInstanceRefresh",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_querySuspendProcessesCommand = async (
   input: SuspendProcessesCommandInput,
   context: __SerdeContext
@@ -1438,6 +1509,77 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryCancelInstanceRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelInstanceRefreshCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryCancelInstanceRefreshCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCancelInstanceRefreshAnswer(data.CancelInstanceRefreshResult, context);
+  const response: CancelInstanceRefreshCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CancelInstanceRefreshAnswer",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCancelInstanceRefreshCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelInstanceRefreshCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ActiveInstanceRefreshNotFoundFault":
+    case "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryActiveInstanceRefreshNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2417,6 +2559,69 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeInstanceRefreshesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceRefreshesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryDescribeInstanceRefreshesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeInstanceRefreshesAnswer(data.DescribeInstanceRefreshesResult, context);
+  const response: DescribeInstanceRefreshesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeInstanceRefreshesAnswer",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeInstanceRefreshesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceRefreshesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
@@ -4219,6 +4424,77 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryStartInstanceRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInstanceRefreshCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_queryStartInstanceRefreshCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryStartInstanceRefreshAnswer(data.StartInstanceRefreshResult, context);
+  const response: StartInstanceRefreshCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartInstanceRefreshAnswer",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryStartInstanceRefreshCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInstanceRefreshCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InstanceRefreshInProgressFault":
+    case "com.amazonaws.autoscaling#InstanceRefreshInProgressFault":
+      response = {
+        ...(await deserializeAws_queryInstanceRefreshInProgressFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_querySuspendProcessesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4408,6 +4684,21 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_queryActiveInstanceRefreshNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ActiveInstanceRefreshNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryActiveInstanceRefreshNotFoundFault(body.Error, context);
+  const contents: ActiveInstanceRefreshNotFoundFault = {
+    name: "ActiveInstanceRefreshNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4416,6 +4707,21 @@ const deserializeAws_queryAlreadyExistsFaultResponse = async (
   const deserialized: any = deserializeAws_queryAlreadyExistsFault(body.Error, context);
   const contents: AlreadyExistsFault = {
     name: "AlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInstanceRefreshInProgressFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InstanceRefreshInProgressFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInstanceRefreshInProgressFault(body.Error, context);
+  const contents: InstanceRefreshInProgressFault = {
+    name: "InstanceRefreshInProgressFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4525,9 +4831,6 @@ const serializeAws_queryActivityIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_queryAttachInstancesQuery = (input: AttachInstancesQuery, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.InstanceIds !== undefined) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4535,20 +4838,23 @@ const serializeAws_queryAttachInstancesQuery = (input: AttachInstancesQuery, con
       entries[loc] = value;
     });
   }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
   return entries;
 };
 
 const serializeAws_queryAttachLoadBalancersType = (input: AttachLoadBalancersType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.LoadBalancerNames !== undefined) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -4586,6 +4892,9 @@ const serializeAws_queryAutoScalingGroupNamesType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
   if (input.AutoScalingGroupNames !== undefined) {
     const memberEntries = serializeAws_queryAutoScalingGroupNames(input.AutoScalingGroupNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4595,9 +4904,6 @@ const serializeAws_queryAutoScalingGroupNamesType = (
   }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -4627,15 +4933,15 @@ const serializeAws_queryBatchDeleteScheduledActionType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.ScheduledActionNames !== undefined) {
     const memberEntries = serializeAws_queryScheduledActionNames(input.ScheduledActionNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledActionNames.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -4645,9 +4951,6 @@ const serializeAws_queryBatchPutScheduledUpdateGroupActionType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.ScheduledUpdateGroupActions !== undefined) {
     const memberEntries = serializeAws_queryScheduledUpdateGroupActionRequests(
       input.ScheduledUpdateGroupActions,
@@ -4657,6 +4960,9 @@ const serializeAws_queryBatchPutScheduledUpdateGroupActionType = (
       const loc = `ScheduledUpdateGroupActions.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -4695,6 +5001,17 @@ const serializeAws_queryBlockDeviceMappings = (input: BlockDeviceMapping[], cont
   return entries;
 };
 
+const serializeAws_queryCancelInstanceRefreshType = (
+  input: CancelInstanceRefreshType,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  return entries;
+};
+
 const serializeAws_queryClassicLinkVPCSecurityGroups = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -4716,14 +5033,14 @@ const serializeAws_queryCompleteLifecycleActionType = (
   if (input.InstanceId !== undefined) {
     entries["InstanceId"] = input.InstanceId;
   }
+  if (input.LifecycleHookName !== undefined) {
+    entries["LifecycleHookName"] = input.LifecycleHookName;
+  }
   if (input.LifecycleActionResult !== undefined) {
     entries["LifecycleActionResult"] = input.LifecycleActionResult;
   }
   if (input.LifecycleActionToken !== undefined) {
     entries["LifecycleActionToken"] = input.LifecycleActionToken;
-  }
-  if (input.LifecycleHookName !== undefined) {
-    entries["LifecycleHookName"] = input.LifecycleHookName;
   }
   return entries;
 };
@@ -4733,6 +5050,41 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.NewInstancesProtectedFromScaleIn !== undefined) {
+    entries["NewInstancesProtectedFromScaleIn"] = input.NewInstancesProtectedFromScaleIn;
+  }
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTags(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MinSize !== undefined) {
+    entries["MinSize"] = input.MinSize;
+  }
+  if (input.VPCZoneIdentifier !== undefined) {
+    entries["VPCZoneIdentifier"] = input.VPCZoneIdentifier;
+  }
+  if (input.PlacementGroup !== undefined) {
+    entries["PlacementGroup"] = input.PlacementGroup;
+  }
+  if (input.DesiredCapacity !== undefined) {
+    entries["DesiredCapacity"] = input.DesiredCapacity;
+  }
+  if (input.ServiceLinkedRoleARN !== undefined) {
+    entries["ServiceLinkedRoleARN"] = input.ServiceLinkedRoleARN;
+  }
+  if (input.HealthCheckType !== undefined) {
+    entries["HealthCheckType"] = input.HealthCheckType;
+  }
+  if (input.TerminationPolicies !== undefined) {
+    const memberEntries = serializeAws_queryTerminationPolicies(input.TerminationPolicies, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TerminationPolicies.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.AutoScalingGroupName !== undefined) {
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
@@ -4743,23 +5095,41 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       entries[loc] = value;
     });
   }
-  if (input.DefaultCooldown !== undefined) {
-    entries["DefaultCooldown"] = input.DefaultCooldown;
+  if (input.LaunchConfigurationName !== undefined) {
+    entries["LaunchConfigurationName"] = input.LaunchConfigurationName;
   }
-  if (input.DesiredCapacity !== undefined) {
-    entries["DesiredCapacity"] = input.DesiredCapacity;
+  if (input.LoadBalancerNames !== undefined) {
+    const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LoadBalancerNames.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxInstanceLifetime !== undefined) {
+    entries["MaxInstanceLifetime"] = input.MaxInstanceLifetime;
+  }
+  if (input.TargetGroupARNs !== undefined) {
+    const memberEntries = serializeAws_queryTargetGroupARNs(input.TargetGroupARNs, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TargetGroupARNs.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.HealthCheckGracePeriod !== undefined) {
     entries["HealthCheckGracePeriod"] = input.HealthCheckGracePeriod;
   }
-  if (input.HealthCheckType !== undefined) {
-    entries["HealthCheckType"] = input.HealthCheckType;
+  if (input.MixedInstancesPolicy !== undefined) {
+    const memberEntries = serializeAws_queryMixedInstancesPolicy(input.MixedInstancesPolicy, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MixedInstancesPolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxSize !== undefined) {
+    entries["MaxSize"] = input.MaxSize;
   }
   if (input.InstanceId !== undefined) {
     entries["InstanceId"] = input.InstanceId;
-  }
-  if (input.LaunchConfigurationName !== undefined) {
-    entries["LaunchConfigurationName"] = input.LaunchConfigurationName;
   }
   if (input.LaunchTemplate !== undefined) {
     const memberEntries = serializeAws_queryLaunchTemplateSpecification(input.LaunchTemplate, context);
@@ -4775,61 +5145,8 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       entries[loc] = value;
     });
   }
-  if (input.LoadBalancerNames !== undefined) {
-    const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `LoadBalancerNames.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.MaxInstanceLifetime !== undefined) {
-    entries["MaxInstanceLifetime"] = input.MaxInstanceLifetime;
-  }
-  if (input.MaxSize !== undefined) {
-    entries["MaxSize"] = input.MaxSize;
-  }
-  if (input.MinSize !== undefined) {
-    entries["MinSize"] = input.MinSize;
-  }
-  if (input.MixedInstancesPolicy !== undefined) {
-    const memberEntries = serializeAws_queryMixedInstancesPolicy(input.MixedInstancesPolicy, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `MixedInstancesPolicy.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.NewInstancesProtectedFromScaleIn !== undefined) {
-    entries["NewInstancesProtectedFromScaleIn"] = input.NewInstancesProtectedFromScaleIn;
-  }
-  if (input.PlacementGroup !== undefined) {
-    entries["PlacementGroup"] = input.PlacementGroup;
-  }
-  if (input.ServiceLinkedRoleARN !== undefined) {
-    entries["ServiceLinkedRoleARN"] = input.ServiceLinkedRoleARN;
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.TargetGroupARNs !== undefined) {
-    const memberEntries = serializeAws_queryTargetGroupARNs(input.TargetGroupARNs, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TargetGroupARNs.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.TerminationPolicies !== undefined) {
-    const memberEntries = serializeAws_queryTerminationPolicies(input.TerminationPolicies, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TerminationPolicies.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.VPCZoneIdentifier !== undefined) {
-    entries["VPCZoneIdentifier"] = input.VPCZoneIdentifier;
+  if (input.DefaultCooldown !== undefined) {
+    entries["DefaultCooldown"] = input.DefaultCooldown;
   }
   return entries;
 };
@@ -4839,25 +5156,14 @@ const serializeAws_queryCreateLaunchConfigurationType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AssociatePublicIpAddress !== undefined) {
-    entries["AssociatePublicIpAddress"] = input.AssociatePublicIpAddress;
+  if (input.KeyName !== undefined) {
+    entries["KeyName"] = input.KeyName;
   }
-  if (input.BlockDeviceMappings !== undefined) {
-    const memberEntries = serializeAws_queryBlockDeviceMappings(input.BlockDeviceMappings, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `BlockDeviceMappings.${key}`;
-      entries[loc] = value;
-    });
+  if (input.RamdiskId !== undefined) {
+    entries["RamdiskId"] = input.RamdiskId;
   }
-  if (input.ClassicLinkVPCId !== undefined) {
-    entries["ClassicLinkVPCId"] = input.ClassicLinkVPCId;
-  }
-  if (input.ClassicLinkVPCSecurityGroups !== undefined) {
-    const memberEntries = serializeAws_queryClassicLinkVPCSecurityGroups(input.ClassicLinkVPCSecurityGroups, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ClassicLinkVPCSecurityGroups.${key}`;
-      entries[loc] = value;
-    });
+  if (input.SpotPrice !== undefined) {
+    entries["SpotPrice"] = input.SpotPrice;
   }
   if (input.EbsOptimized !== undefined) {
     entries["EbsOptimized"] = input.EbsOptimized;
@@ -4865,36 +5171,15 @@ const serializeAws_queryCreateLaunchConfigurationType = (
   if (input.IamInstanceProfile !== undefined) {
     entries["IamInstanceProfile"] = input.IamInstanceProfile;
   }
-  if (input.ImageId !== undefined) {
-    entries["ImageId"] = input.ImageId;
-  }
-  if (input.InstanceId !== undefined) {
-    entries["InstanceId"] = input.InstanceId;
-  }
-  if (input.InstanceMonitoring !== undefined) {
-    const memberEntries = serializeAws_queryInstanceMonitoring(input.InstanceMonitoring, context);
+  if (input.MetadataOptions !== undefined) {
+    const memberEntries = serializeAws_queryInstanceMetadataOptions(input.MetadataOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `InstanceMonitoring.${key}`;
+      const loc = `MetadataOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.InstanceType !== undefined) {
-    entries["InstanceType"] = input.InstanceType;
-  }
-  if (input.KernelId !== undefined) {
-    entries["KernelId"] = input.KernelId;
-  }
-  if (input.KeyName !== undefined) {
-    entries["KeyName"] = input.KeyName;
-  }
-  if (input.LaunchConfigurationName !== undefined) {
-    entries["LaunchConfigurationName"] = input.LaunchConfigurationName;
-  }
   if (input.PlacementTenancy !== undefined) {
     entries["PlacementTenancy"] = input.PlacementTenancy;
-  }
-  if (input.RamdiskId !== undefined) {
-    entries["RamdiskId"] = input.RamdiskId;
   }
   if (input.SecurityGroups !== undefined) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
@@ -4903,11 +5188,50 @@ const serializeAws_queryCreateLaunchConfigurationType = (
       entries[loc] = value;
     });
   }
-  if (input.SpotPrice !== undefined) {
-    entries["SpotPrice"] = input.SpotPrice;
+  if (input.LaunchConfigurationName !== undefined) {
+    entries["LaunchConfigurationName"] = input.LaunchConfigurationName;
+  }
+  if (input.AssociatePublicIpAddress !== undefined) {
+    entries["AssociatePublicIpAddress"] = input.AssociatePublicIpAddress;
+  }
+  if (input.InstanceType !== undefined) {
+    entries["InstanceType"] = input.InstanceType;
+  }
+  if (input.InstanceMonitoring !== undefined) {
+    const memberEntries = serializeAws_queryInstanceMonitoring(input.InstanceMonitoring, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceMonitoring.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClassicLinkVPCId !== undefined) {
+    entries["ClassicLinkVPCId"] = input.ClassicLinkVPCId;
+  }
+  if (input.ImageId !== undefined) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.BlockDeviceMappings !== undefined) {
+    const memberEntries = serializeAws_queryBlockDeviceMappings(input.BlockDeviceMappings, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `BlockDeviceMappings.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.KernelId !== undefined) {
+    entries["KernelId"] = input.KernelId;
   }
   if (input.UserData !== undefined) {
     entries["UserData"] = input.UserData;
+  }
+  if (input.InstanceId !== undefined) {
+    entries["InstanceId"] = input.InstanceId;
+  }
+  if (input.ClassicLinkVPCSecurityGroups !== undefined) {
+    const memberEntries = serializeAws_queryClassicLinkVPCSecurityGroups(input.ClassicLinkVPCSecurityGroups, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ClassicLinkVPCSecurityGroups.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -4936,14 +5260,14 @@ const serializeAws_queryCustomizedMetricSpecification = (
       entries[loc] = value;
     });
   }
-  if (input.MetricName !== undefined) {
-    entries["MetricName"] = input.MetricName;
-  }
   if (input.Namespace !== undefined) {
     entries["Namespace"] = input.Namespace;
   }
   if (input.Statistic !== undefined) {
     entries["Statistic"] = input.Statistic;
+  }
+  if (input.MetricName !== undefined) {
+    entries["MetricName"] = input.MetricName;
   }
   if (input.Unit !== undefined) {
     entries["Unit"] = input.Unit;
@@ -4956,22 +5280,22 @@ const serializeAws_queryDeleteAutoScalingGroupType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.ForceDelete !== undefined) {
     entries["ForceDelete"] = input.ForceDelete;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
 
 const serializeAws_queryDeleteLifecycleHookType = (input: DeleteLifecycleHookType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.LifecycleHookName !== undefined) {
     entries["LifecycleHookName"] = input.LifecycleHookName;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -4981,11 +5305,11 @@ const serializeAws_queryDeleteNotificationConfigurationType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.TopicARN !== undefined) {
     entries["TopicARN"] = input.TopicARN;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -5006,11 +5330,11 @@ const serializeAws_queryDeleteScheduledActionType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.ScheduledActionName !== undefined) {
     entries["ScheduledActionName"] = input.ScheduledActionName;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -5032,6 +5356,12 @@ const serializeAws_queryDescribeAutoScalingInstancesType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
   if (input.InstanceIds !== undefined) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5039,11 +5369,29 @@ const serializeAws_queryDescribeAutoScalingInstancesType = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
+  return entries;
+};
+
+const serializeAws_queryDescribeInstanceRefreshesType = (
+  input: DescribeInstanceRefreshesType,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.InstanceRefreshIds !== undefined) {
+    const memberEntries = serializeAws_queryInstanceRefreshIds(input.InstanceRefreshIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceRefreshIds.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -5053,15 +5401,15 @@ const serializeAws_queryDescribeLifecycleHooksType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.LifecycleHookNames !== undefined) {
     const memberEntries = serializeAws_queryLifecycleHookNames(input.LifecycleHookNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LifecycleHookNames.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -5088,11 +5436,11 @@ const serializeAws_queryDescribeLoadBalancerTargetGroupsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
@@ -5105,15 +5453,15 @@ const serializeAws_queryDescribeNotificationConfigurationsType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
   if (input.AutoScalingGroupNames !== undefined) {
     const memberEntries = serializeAws_queryAutoScalingGroupNames(input.AutoScalingGroupNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoScalingGroupNames.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
   }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
@@ -5129,9 +5477,6 @@ const serializeAws_queryDescribePoliciesType = (input: DescribePoliciesType, con
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
   if (input.PolicyNames !== undefined) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5146,6 +5491,9 @@ const serializeAws_queryDescribePoliciesType = (input: DescribePoliciesType, con
       entries[loc] = value;
     });
   }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
   return entries;
 };
 
@@ -5154,21 +5502,21 @@ const serializeAws_queryDescribeScalingActivitiesType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
   if (input.ActivityIds !== undefined) {
     const memberEntries = serializeAws_queryActivityIds(input.ActivityIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActivityIds.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -5178,17 +5526,20 @@ const serializeAws_queryDescribeScheduledActionsType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.StartTime !== undefined) {
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
   if (input.AutoScalingGroupName !== undefined) {
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.EndTime !== undefined) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
   }
   if (input.ScheduledActionNames !== undefined) {
     const memberEntries = serializeAws_queryScheduledActionNames(input.ScheduledActionNames, context);
@@ -5196,9 +5547,6 @@ const serializeAws_queryDescribeScheduledActionsType = (
       const loc = `ScheduledActionNames.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -5212,11 +5560,11 @@ const serializeAws_queryDescribeTagsType = (input: DescribeTagsType, context: __
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
   }
   return entries;
 };
@@ -5226,6 +5574,9 @@ const serializeAws_queryDetachInstancesQuery = (input: DetachInstancesQuery, con
   if (input.AutoScalingGroupName !== undefined) {
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
+  if (input.ShouldDecrementDesiredCapacity !== undefined) {
+    entries["ShouldDecrementDesiredCapacity"] = input.ShouldDecrementDesiredCapacity;
+  }
   if (input.InstanceIds !== undefined) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5233,23 +5584,20 @@ const serializeAws_queryDetachInstancesQuery = (input: DetachInstancesQuery, con
       entries[loc] = value;
     });
   }
-  if (input.ShouldDecrementDesiredCapacity !== undefined) {
-    entries["ShouldDecrementDesiredCapacity"] = input.ShouldDecrementDesiredCapacity;
-  }
   return entries;
 };
 
 const serializeAws_queryDetachLoadBalancersType = (input: DetachLoadBalancersType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.LoadBalancerNames !== undefined) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -5292,23 +5640,23 @@ const serializeAws_queryDisableMetricsCollectionQuery = (
 
 const serializeAws_queryEbs = (input: Ebs, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.VolumeType !== undefined) {
+    entries["VolumeType"] = input.VolumeType;
+  }
+  if (input.Iops !== undefined) {
+    entries["Iops"] = input.Iops;
+  }
+  if (input.VolumeSize !== undefined) {
+    entries["VolumeSize"] = input.VolumeSize;
+  }
   if (input.DeleteOnTermination !== undefined) {
     entries["DeleteOnTermination"] = input.DeleteOnTermination;
   }
   if (input.Encrypted !== undefined) {
     entries["Encrypted"] = input.Encrypted;
   }
-  if (input.Iops !== undefined) {
-    entries["Iops"] = input.Iops;
-  }
   if (input.SnapshotId !== undefined) {
     entries["SnapshotId"] = input.SnapshotId;
-  }
-  if (input.VolumeSize !== undefined) {
-    entries["VolumeSize"] = input.VolumeSize;
-  }
-  if (input.VolumeType !== undefined) {
-    entries["VolumeType"] = input.VolumeType;
   }
   return entries;
 };
@@ -5318,11 +5666,11 @@ const serializeAws_queryEnableMetricsCollectionQuery = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.Granularity !== undefined) {
     entries["Granularity"] = input.Granularity;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.Metrics !== undefined) {
     const memberEntries = serializeAws_queryMetrics(input.Metrics, context);
@@ -5336,9 +5684,6 @@ const serializeAws_queryEnableMetricsCollectionQuery = (
 
 const serializeAws_queryEnterStandbyQuery = (input: EnterStandbyQuery, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.InstanceIds !== undefined) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5349,40 +5694,43 @@ const serializeAws_queryEnterStandbyQuery = (input: EnterStandbyQuery, context: 
   if (input.ShouldDecrementDesiredCapacity !== undefined) {
     entries["ShouldDecrementDesiredCapacity"] = input.ShouldDecrementDesiredCapacity;
   }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
   return entries;
 };
 
 const serializeAws_queryExecutePolicyType = (input: ExecutePolicyType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
-  if (input.BreachThreshold !== undefined) {
-    entries["BreachThreshold"] = input.BreachThreshold;
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
   }
   if (input.HonorCooldown !== undefined) {
     entries["HonorCooldown"] = input.HonorCooldown;
   }
+  if (input.BreachThreshold !== undefined) {
+    entries["BreachThreshold"] = input.BreachThreshold;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
   if (input.MetricValue !== undefined) {
     entries["MetricValue"] = input.MetricValue;
-  }
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
   }
   return entries;
 };
 
 const serializeAws_queryExitStandbyQuery = (input: ExitStandbyQuery, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.InstanceIds !== undefined) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -5425,10 +5773,34 @@ const serializeAws_queryInstanceIds = (input: string[], context: __SerdeContext)
   return entries;
 };
 
+const serializeAws_queryInstanceMetadataOptions = (input: InstanceMetadataOptions, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.HttpEndpoint !== undefined) {
+    entries["HttpEndpoint"] = input.HttpEndpoint;
+  }
+  if (input.HttpPutResponseHopLimit !== undefined) {
+    entries["HttpPutResponseHopLimit"] = input.HttpPutResponseHopLimit;
+  }
+  if (input.HttpTokens !== undefined) {
+    entries["HttpTokens"] = input.HttpTokens;
+  }
+  return entries;
+};
+
 const serializeAws_queryInstanceMonitoring = (input: InstanceMonitoring, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Enabled !== undefined) {
     entries["Enabled"] = input.Enabled;
+  }
+  return entries;
+};
+
+const serializeAws_queryInstanceRefreshIds = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -5438,14 +5810,14 @@ const serializeAws_queryInstancesDistribution = (input: InstancesDistribution, c
   if (input.OnDemandAllocationStrategy !== undefined) {
     entries["OnDemandAllocationStrategy"] = input.OnDemandAllocationStrategy;
   }
-  if (input.OnDemandBaseCapacity !== undefined) {
-    entries["OnDemandBaseCapacity"] = input.OnDemandBaseCapacity;
-  }
   if (input.OnDemandPercentageAboveBaseCapacity !== undefined) {
     entries["OnDemandPercentageAboveBaseCapacity"] = input.OnDemandPercentageAboveBaseCapacity;
   }
   if (input.SpotAllocationStrategy !== undefined) {
     entries["SpotAllocationStrategy"] = input.SpotAllocationStrategy;
+  }
+  if (input.OnDemandBaseCapacity !== undefined) {
+    entries["OnDemandBaseCapacity"] = input.OnDemandBaseCapacity;
   }
   if (input.SpotInstancePools !== undefined) {
     entries["SpotInstancePools"] = input.SpotInstancePools;
@@ -5471,18 +5843,18 @@ const serializeAws_queryLaunchConfigurationNamesType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
   if (input.LaunchConfigurationNames !== undefined) {
     const memberEntries = serializeAws_queryLaunchConfigurationNames(input.LaunchConfigurationNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchConfigurationNames.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -5519,11 +5891,11 @@ const serializeAws_queryLaunchTemplate = (input: LaunchTemplate, context: __Serd
 
 const serializeAws_queryLaunchTemplateOverrides = (input: LaunchTemplateOverrides, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceType !== undefined) {
-    entries["InstanceType"] = input.InstanceType;
-  }
   if (input.WeightedCapacity !== undefined) {
     entries["WeightedCapacity"] = input.WeightedCapacity;
+  }
+  if (input.InstanceType !== undefined) {
+    entries["InstanceType"] = input.InstanceType;
   }
   return entries;
 };
@@ -5533,14 +5905,14 @@ const serializeAws_queryLaunchTemplateSpecification = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Version !== undefined) {
+    entries["Version"] = input.Version;
+  }
   if (input.LaunchTemplateId !== undefined) {
     entries["LaunchTemplateId"] = input.LaunchTemplateId;
   }
   if (input.LaunchTemplateName !== undefined) {
     entries["LaunchTemplateName"] = input.LaunchTemplateName;
-  }
-  if (input.Version !== undefined) {
-    entries["Version"] = input.Version;
   }
   return entries;
 };
@@ -5560,17 +5932,11 @@ const serializeAws_queryLifecycleHookSpecification = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DefaultResult !== undefined) {
-    entries["DefaultResult"] = input.DefaultResult;
+  if (input.LifecycleTransition !== undefined) {
+    entries["LifecycleTransition"] = input.LifecycleTransition;
   }
   if (input.HeartbeatTimeout !== undefined) {
     entries["HeartbeatTimeout"] = input.HeartbeatTimeout;
-  }
-  if (input.LifecycleHookName !== undefined) {
-    entries["LifecycleHookName"] = input.LifecycleHookName;
-  }
-  if (input.LifecycleTransition !== undefined) {
-    entries["LifecycleTransition"] = input.LifecycleTransition;
   }
   if (input.NotificationMetadata !== undefined) {
     entries["NotificationMetadata"] = input.NotificationMetadata;
@@ -5578,8 +5944,14 @@ const serializeAws_queryLifecycleHookSpecification = (
   if (input.NotificationTargetARN !== undefined) {
     entries["NotificationTargetARN"] = input.NotificationTargetARN;
   }
+  if (input.DefaultResult !== undefined) {
+    entries["DefaultResult"] = input.DefaultResult;
+  }
   if (input.RoleARN !== undefined) {
     entries["RoleARN"] = input.RoleARN;
+  }
+  if (input.LifecycleHookName !== undefined) {
+    entries["LifecycleHookName"] = input.LifecycleHookName;
   }
   return entries;
 };
@@ -5612,11 +5984,11 @@ const serializeAws_queryLoadBalancerNames = (input: string[], context: __SerdeCo
 
 const serializeAws_queryMetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
-    entries["Name"] = input.Name;
-  }
   if (input.Value !== undefined) {
     entries["Value"] = input.Value;
+  }
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
   }
   return entries;
 };
@@ -5646,17 +6018,17 @@ const serializeAws_queryMetrics = (input: string[], context: __SerdeContext): an
 
 const serializeAws_queryMixedInstancesPolicy = (input: MixedInstancesPolicy, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstancesDistribution !== undefined) {
-    const memberEntries = serializeAws_queryInstancesDistribution(input.InstancesDistribution, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `InstancesDistribution.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.LaunchTemplate !== undefined) {
     const memberEntries = serializeAws_queryLaunchTemplate(input.LaunchTemplate, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplate.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstancesDistribution !== undefined) {
+    const memberEntries = serializeAws_queryInstancesDistribution(input.InstancesDistribution, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstancesDistribution.${key}`;
       entries[loc] = value;
     });
   }
@@ -5722,29 +6094,29 @@ const serializeAws_queryProcessNames = (input: string[], context: __SerdeContext
 
 const serializeAws_queryPutLifecycleHookType = (input: PutLifecycleHookType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
-  if (input.DefaultResult !== undefined) {
-    entries["DefaultResult"] = input.DefaultResult;
-  }
-  if (input.HeartbeatTimeout !== undefined) {
-    entries["HeartbeatTimeout"] = input.HeartbeatTimeout;
-  }
-  if (input.LifecycleHookName !== undefined) {
-    entries["LifecycleHookName"] = input.LifecycleHookName;
-  }
   if (input.LifecycleTransition !== undefined) {
     entries["LifecycleTransition"] = input.LifecycleTransition;
   }
   if (input.NotificationMetadata !== undefined) {
     entries["NotificationMetadata"] = input.NotificationMetadata;
   }
+  if (input.RoleARN !== undefined) {
+    entries["RoleARN"] = input.RoleARN;
+  }
+  if (input.LifecycleHookName !== undefined) {
+    entries["LifecycleHookName"] = input.LifecycleHookName;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.DefaultResult !== undefined) {
+    entries["DefaultResult"] = input.DefaultResult;
+  }
   if (input.NotificationTargetARN !== undefined) {
     entries["NotificationTargetARN"] = input.NotificationTargetARN;
   }
-  if (input.RoleARN !== undefined) {
-    entries["RoleARN"] = input.RoleARN;
+  if (input.HeartbeatTimeout !== undefined) {
+    entries["HeartbeatTimeout"] = input.HeartbeatTimeout;
   }
   return entries;
 };
@@ -5754,15 +6126,15 @@ const serializeAws_queryPutNotificationConfigurationType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.NotificationTypes !== undefined) {
     const memberEntries = serializeAws_queryAutoScalingNotificationTypes(input.NotificationTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationTypes.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.TopicARN !== undefined) {
     entries["TopicARN"] = input.TopicARN;
@@ -5772,35 +6144,14 @@ const serializeAws_queryPutNotificationConfigurationType = (
 
 const serializeAws_queryPutScalingPolicyType = (input: PutScalingPolicyType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AdjustmentType !== undefined) {
-    entries["AdjustmentType"] = input.AdjustmentType;
-  }
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
-  if (input.Cooldown !== undefined) {
-    entries["Cooldown"] = input.Cooldown;
+  if (input.ScalingAdjustment !== undefined) {
+    entries["ScalingAdjustment"] = input.ScalingAdjustment;
   }
   if (input.EstimatedInstanceWarmup !== undefined) {
     entries["EstimatedInstanceWarmup"] = input.EstimatedInstanceWarmup;
   }
   if (input.MetricAggregationType !== undefined) {
     entries["MetricAggregationType"] = input.MetricAggregationType;
-  }
-  if (input.MinAdjustmentMagnitude !== undefined) {
-    entries["MinAdjustmentMagnitude"] = input.MinAdjustmentMagnitude;
-  }
-  if (input.MinAdjustmentStep !== undefined) {
-    entries["MinAdjustmentStep"] = input.MinAdjustmentStep;
-  }
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
-  if (input.PolicyType !== undefined) {
-    entries["PolicyType"] = input.PolicyType;
-  }
-  if (input.ScalingAdjustment !== undefined) {
-    entries["ScalingAdjustment"] = input.ScalingAdjustment;
   }
   if (input.StepAdjustments !== undefined) {
     const memberEntries = serializeAws_queryStepAdjustments(input.StepAdjustments, context);
@@ -5809,12 +6160,36 @@ const serializeAws_queryPutScalingPolicyType = (input: PutScalingPolicyType, con
       entries[loc] = value;
     });
   }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.Cooldown !== undefined) {
+    entries["Cooldown"] = input.Cooldown;
+  }
+  if (input.PolicyType !== undefined) {
+    entries["PolicyType"] = input.PolicyType;
+  }
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
+  }
+  if (input.MinAdjustmentStep !== undefined) {
+    entries["MinAdjustmentStep"] = input.MinAdjustmentStep;
+  }
   if (input.TargetTrackingConfiguration !== undefined) {
     const memberEntries = serializeAws_queryTargetTrackingConfiguration(input.TargetTrackingConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetTrackingConfiguration.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.Enabled !== undefined) {
+    entries["Enabled"] = input.Enabled;
+  }
+  if (input.MinAdjustmentMagnitude !== undefined) {
+    entries["MinAdjustmentMagnitude"] = input.MinAdjustmentMagnitude;
+  }
+  if (input.AdjustmentType !== undefined) {
+    entries["AdjustmentType"] = input.AdjustmentType;
   }
   return entries;
 };
@@ -5824,32 +6199,32 @@ const serializeAws_queryPutScheduledUpdateGroupActionType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  if (input.ScheduledActionName !== undefined) {
+    entries["ScheduledActionName"] = input.ScheduledActionName;
   }
   if (input.DesiredCapacity !== undefined) {
     entries["DesiredCapacity"] = input.DesiredCapacity;
   }
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
-  }
   if (input.MaxSize !== undefined) {
     entries["MaxSize"] = input.MaxSize;
   }
-  if (input.MinSize !== undefined) {
-    entries["MinSize"] = input.MinSize;
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Recurrence !== undefined) {
     entries["Recurrence"] = input.Recurrence;
   }
-  if (input.ScheduledActionName !== undefined) {
-    entries["ScheduledActionName"] = input.ScheduledActionName;
-  }
-  if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input.MinSize !== undefined) {
+    entries["MinSize"] = input.MinSize;
   }
   if (input.Time !== undefined) {
     entries["Time"] = input.Time.toISOString().split(".")[0] + "Z";
+  }
+  if (input.StartTime !== undefined) {
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -5859,6 +6234,9 @@ const serializeAws_queryRecordLifecycleActionHeartbeatType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.LifecycleHookName !== undefined) {
+    entries["LifecycleHookName"] = input.LifecycleHookName;
+  }
   if (input.AutoScalingGroupName !== undefined) {
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
@@ -5868,23 +6246,31 @@ const serializeAws_queryRecordLifecycleActionHeartbeatType = (
   if (input.LifecycleActionToken !== undefined) {
     entries["LifecycleActionToken"] = input.LifecycleActionToken;
   }
-  if (input.LifecycleHookName !== undefined) {
-    entries["LifecycleHookName"] = input.LifecycleHookName;
+  return entries;
+};
+
+const serializeAws_queryRefreshPreferences = (input: RefreshPreferences, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.InstanceWarmup !== undefined) {
+    entries["InstanceWarmup"] = input.InstanceWarmup;
+  }
+  if (input.MinHealthyPercentage !== undefined) {
+    entries["MinHealthyPercentage"] = input.MinHealthyPercentage;
   }
   return entries;
 };
 
 const serializeAws_queryScalingProcessQuery = (input: ScalingProcessQuery, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.ScalingProcesses !== undefined) {
     const memberEntries = serializeAws_queryProcessNames(input.ScalingProcesses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingProcesses.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   return entries;
 };
@@ -5904,26 +6290,26 @@ const serializeAws_queryScheduledUpdateGroupActionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ScheduledActionName !== undefined) {
+    entries["ScheduledActionName"] = input.ScheduledActionName;
+  }
   if (input.DesiredCapacity !== undefined) {
     entries["DesiredCapacity"] = input.DesiredCapacity;
-  }
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.MaxSize !== undefined) {
     entries["MaxSize"] = input.MaxSize;
   }
-  if (input.MinSize !== undefined) {
-    entries["MinSize"] = input.MinSize;
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Recurrence !== undefined) {
     entries["Recurrence"] = input.Recurrence;
   }
-  if (input.ScheduledActionName !== undefined) {
-    entries["ScheduledActionName"] = input.ScheduledActionName;
-  }
   if (input.StartTime !== undefined) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.MinSize !== undefined) {
+    entries["MinSize"] = input.MinSize;
   }
   return entries;
 };
@@ -5956,11 +6342,11 @@ const serializeAws_querySecurityGroups = (input: string[], context: __SerdeConte
 
 const serializeAws_querySetDesiredCapacityType = (input: SetDesiredCapacityType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.DesiredCapacity !== undefined) {
     entries["DesiredCapacity"] = input.DesiredCapacity;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.HonorCooldown !== undefined) {
     entries["HonorCooldown"] = input.HonorCooldown;
@@ -5987,9 +6373,6 @@ const serializeAws_querySetInstanceProtectionQuery = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
-  }
   if (input.InstanceIds !== undefined) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5997,22 +6380,43 @@ const serializeAws_querySetInstanceProtectionQuery = (
       entries[loc] = value;
     });
   }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
   if (input.ProtectedFromScaleIn !== undefined) {
     entries["ProtectedFromScaleIn"] = input.ProtectedFromScaleIn;
   }
   return entries;
 };
 
+const serializeAws_queryStartInstanceRefreshType = (input: StartInstanceRefreshType, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Preferences !== undefined) {
+    const memberEntries = serializeAws_queryRefreshPreferences(input.Preferences, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Preferences.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Strategy !== undefined) {
+    entries["Strategy"] = input.Strategy;
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  return entries;
+};
+
 const serializeAws_queryStepAdjustment = (input: StepAdjustment, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MetricIntervalLowerBound !== undefined) {
-    entries["MetricIntervalLowerBound"] = input.MetricIntervalLowerBound;
+  if (input.ScalingAdjustment !== undefined) {
+    entries["ScalingAdjustment"] = input.ScalingAdjustment;
   }
   if (input.MetricIntervalUpperBound !== undefined) {
     entries["MetricIntervalUpperBound"] = input.MetricIntervalUpperBound;
   }
-  if (input.ScalingAdjustment !== undefined) {
-    entries["ScalingAdjustment"] = input.ScalingAdjustment;
+  if (input.MetricIntervalLowerBound !== undefined) {
+    entries["MetricIntervalLowerBound"] = input.MetricIntervalLowerBound;
   }
   return entries;
 };
@@ -6032,20 +6436,20 @@ const serializeAws_queryStepAdjustments = (input: StepAdjustment[], context: __S
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
-    entries["Key"] = input.Key;
+  if (input.ResourceId !== undefined) {
+    entries["ResourceId"] = input.ResourceId;
   }
   if (input.PropagateAtLaunch !== undefined) {
     entries["PropagateAtLaunch"] = input.PropagateAtLaunch;
   }
-  if (input.ResourceId !== undefined) {
-    entries["ResourceId"] = input.ResourceId;
-  }
-  if (input.ResourceType !== undefined) {
-    entries["ResourceType"] = input.ResourceType;
+  if (input.Key !== undefined) {
+    entries["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
     entries["Value"] = input.Value;
+  }
+  if (input.ResourceType !== undefined) {
+    entries["ResourceType"] = input.ResourceType;
   }
   return entries;
 };
@@ -6078,6 +6482,12 @@ const serializeAws_queryTargetTrackingConfiguration = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.TargetValue !== undefined) {
+    entries["TargetValue"] = input.TargetValue;
+  }
+  if (input.DisableScaleIn !== undefined) {
+    entries["DisableScaleIn"] = input.DisableScaleIn;
+  }
   if (input.CustomizedMetricSpecification !== undefined) {
     const memberEntries = serializeAws_queryCustomizedMetricSpecification(input.CustomizedMetricSpecification, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6085,18 +6495,12 @@ const serializeAws_queryTargetTrackingConfiguration = (
       entries[loc] = value;
     });
   }
-  if (input.DisableScaleIn !== undefined) {
-    entries["DisableScaleIn"] = input.DisableScaleIn;
-  }
   if (input.PredefinedMetricSpecification !== undefined) {
     const memberEntries = serializeAws_queryPredefinedMetricSpecification(input.PredefinedMetricSpecification, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PredefinedMetricSpecification.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.TargetValue !== undefined) {
-    entries["TargetValue"] = input.TargetValue;
   }
   return entries;
 };
@@ -6106,11 +6510,11 @@ const serializeAws_queryTerminateInstanceInAutoScalingGroupType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceId !== undefined) {
-    entries["InstanceId"] = input.InstanceId;
-  }
   if (input.ShouldDecrementDesiredCapacity !== undefined) {
     entries["ShouldDecrementDesiredCapacity"] = input.ShouldDecrementDesiredCapacity;
+  }
+  if (input.InstanceId !== undefined) {
+    entries["InstanceId"] = input.InstanceId;
   }
   return entries;
 };
@@ -6130,8 +6534,20 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AutoScalingGroupName !== undefined) {
-    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  if (input.VPCZoneIdentifier !== undefined) {
+    entries["VPCZoneIdentifier"] = input.VPCZoneIdentifier;
+  }
+  if (input.NewInstancesProtectedFromScaleIn !== undefined) {
+    entries["NewInstancesProtectedFromScaleIn"] = input.NewInstancesProtectedFromScaleIn;
+  }
+  if (input.DesiredCapacity !== undefined) {
+    entries["DesiredCapacity"] = input.DesiredCapacity;
+  }
+  if (input.ServiceLinkedRoleARN !== undefined) {
+    entries["ServiceLinkedRoleARN"] = input.ServiceLinkedRoleARN;
+  }
+  if (input.MinSize !== undefined) {
+    entries["MinSize"] = input.MinSize;
   }
   if (input.AvailabilityZones !== undefined) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
@@ -6140,52 +6556,17 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
       entries[loc] = value;
     });
   }
-  if (input.DefaultCooldown !== undefined) {
-    entries["DefaultCooldown"] = input.DefaultCooldown;
-  }
-  if (input.DesiredCapacity !== undefined) {
-    entries["DesiredCapacity"] = input.DesiredCapacity;
-  }
-  if (input.HealthCheckGracePeriod !== undefined) {
-    entries["HealthCheckGracePeriod"] = input.HealthCheckGracePeriod;
-  }
-  if (input.HealthCheckType !== undefined) {
-    entries["HealthCheckType"] = input.HealthCheckType;
+  if (input.PlacementGroup !== undefined) {
+    entries["PlacementGroup"] = input.PlacementGroup;
   }
   if (input.LaunchConfigurationName !== undefined) {
     entries["LaunchConfigurationName"] = input.LaunchConfigurationName;
   }
-  if (input.LaunchTemplate !== undefined) {
-    const memberEntries = serializeAws_queryLaunchTemplateSpecification(input.LaunchTemplate, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `LaunchTemplate.${key}`;
-      entries[loc] = value;
-    });
+  if (input.HealthCheckType !== undefined) {
+    entries["HealthCheckType"] = input.HealthCheckType;
   }
   if (input.MaxInstanceLifetime !== undefined) {
     entries["MaxInstanceLifetime"] = input.MaxInstanceLifetime;
-  }
-  if (input.MaxSize !== undefined) {
-    entries["MaxSize"] = input.MaxSize;
-  }
-  if (input.MinSize !== undefined) {
-    entries["MinSize"] = input.MinSize;
-  }
-  if (input.MixedInstancesPolicy !== undefined) {
-    const memberEntries = serializeAws_queryMixedInstancesPolicy(input.MixedInstancesPolicy, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `MixedInstancesPolicy.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.NewInstancesProtectedFromScaleIn !== undefined) {
-    entries["NewInstancesProtectedFromScaleIn"] = input.NewInstancesProtectedFromScaleIn;
-  }
-  if (input.PlacementGroup !== undefined) {
-    entries["PlacementGroup"] = input.PlacementGroup;
-  }
-  if (input.ServiceLinkedRoleARN !== undefined) {
-    entries["ServiceLinkedRoleARN"] = input.ServiceLinkedRoleARN;
   }
   if (input.TerminationPolicies !== undefined) {
     const memberEntries = serializeAws_queryTerminationPolicies(input.TerminationPolicies, context);
@@ -6194,8 +6575,31 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
       entries[loc] = value;
     });
   }
-  if (input.VPCZoneIdentifier !== undefined) {
-    entries["VPCZoneIdentifier"] = input.VPCZoneIdentifier;
+  if (input.HealthCheckGracePeriod !== undefined) {
+    entries["HealthCheckGracePeriod"] = input.HealthCheckGracePeriod;
+  }
+  if (input.MixedInstancesPolicy !== undefined) {
+    const memberEntries = serializeAws_queryMixedInstancesPolicy(input.MixedInstancesPolicy, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MixedInstancesPolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AutoScalingGroupName !== undefined) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.LaunchTemplate !== undefined) {
+    const memberEntries = serializeAws_queryLaunchTemplateSpecification(input.LaunchTemplate, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LaunchTemplate.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxSize !== undefined) {
+    entries["MaxSize"] = input.MaxSize;
+  }
+  if (input.DefaultCooldown !== undefined) {
+    entries["DefaultCooldown"] = input.DefaultCooldown;
   }
   return entries;
 };
@@ -6208,6 +6612,20 @@ const serializeAws_queryValues = (input: string[], context: __SerdeContext): any
     counter++;
   }
   return entries;
+};
+
+const deserializeAws_queryActiveInstanceRefreshNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ActiveInstanceRefreshNotFoundFault => {
+  let contents: any = {
+    __type: "ActiveInstanceRefreshNotFoundFault",
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryActivities = (output: any, context: __SerdeContext): Activity[] => {
@@ -6238,43 +6656,43 @@ const deserializeAws_queryActivitiesType = (output: any, context: __SerdeContext
 const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Activity => {
   let contents: any = {
     __type: "Activity",
-    ActivityId: undefined,
-    AutoScalingGroupName: undefined,
-    Cause: undefined,
     Description: undefined,
-    Details: undefined,
-    EndTime: undefined,
-    Progress: undefined,
-    StartTime: undefined,
+    AutoScalingGroupName: undefined,
     StatusCode: undefined,
+    EndTime: undefined,
+    ActivityId: undefined,
+    Progress: undefined,
+    Details: undefined,
+    StartTime: undefined,
+    Cause: undefined,
     StatusMessage: undefined,
   };
-  if (output["ActivityId"] !== undefined) {
-    contents.ActivityId = output["ActivityId"];
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
-  if (output["Cause"] !== undefined) {
-    contents.Cause = output["Cause"];
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["Details"] !== undefined) {
-    contents.Details = output["Details"];
+  if (output["StatusCode"] !== undefined) {
+    contents.StatusCode = output["StatusCode"];
   }
   if (output["EndTime"] !== undefined) {
     contents.EndTime = new Date(output["EndTime"]);
   }
+  if (output["ActivityId"] !== undefined) {
+    contents.ActivityId = output["ActivityId"];
+  }
   if (output["Progress"] !== undefined) {
     contents.Progress = parseInt(output["Progress"]);
+  }
+  if (output["Details"] !== undefined) {
+    contents.Details = output["Details"];
   }
   if (output["StartTime"] !== undefined) {
     contents.StartTime = new Date(output["StartTime"]);
   }
-  if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = output["StatusCode"];
+  if (output["Cause"] !== undefined) {
+    contents.Cause = output["Cause"];
   }
   if (output["StatusMessage"] !== undefined) {
     contents.StatusMessage = output["StatusMessage"];
@@ -6311,14 +6729,14 @@ const deserializeAws_queryAdjustmentTypes = (output: any, context: __SerdeContex
 const deserializeAws_queryAlarm = (output: any, context: __SerdeContext): Alarm => {
   let contents: any = {
     __type: "Alarm",
-    AlarmARN: undefined,
     AlarmName: undefined,
+    AlarmARN: undefined,
   };
-  if (output["AlarmARN"] !== undefined) {
-    contents.AlarmARN = output["AlarmARN"];
-  }
   if (output["AlarmName"] !== undefined) {
     contents.AlarmName = output["AlarmName"];
+  }
+  if (output["AlarmARN"] !== undefined) {
+    contents.AlarmARN = output["AlarmARN"];
   }
   return contents;
 };
@@ -6361,56 +6779,68 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsResultType = (
 const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
   let contents: any = {
     __type: "AutoScalingGroup",
-    AutoScalingGroupARN: undefined,
-    AutoScalingGroupName: undefined,
-    AvailabilityZones: undefined,
-    CreatedTime: undefined,
-    DefaultCooldown: undefined,
-    DesiredCapacity: undefined,
-    EnabledMetrics: undefined,
-    HealthCheckGracePeriod: undefined,
-    HealthCheckType: undefined,
-    Instances: undefined,
-    LaunchConfigurationName: undefined,
-    LaunchTemplate: undefined,
-    LoadBalancerNames: undefined,
-    MaxInstanceLifetime: undefined,
-    MaxSize: undefined,
-    MinSize: undefined,
-    MixedInstancesPolicy: undefined,
     NewInstancesProtectedFromScaleIn: undefined,
+    CreatedTime: undefined,
+    LaunchTemplate: undefined,
+    TargetGroupARNs: undefined,
     PlacementGroup: undefined,
+    MaxInstanceLifetime: undefined,
+    AutoScalingGroupName: undefined,
+    TerminationPolicies: undefined,
+    EnabledMetrics: undefined,
+    MinSize: undefined,
+    AvailabilityZones: undefined,
     ServiceLinkedRoleARN: undefined,
-    Status: undefined,
+    DesiredCapacity: undefined,
+    VPCZoneIdentifier: undefined,
+    MaxSize: undefined,
     SuspendedProcesses: undefined,
     Tags: undefined,
-    TargetGroupARNs: undefined,
-    TerminationPolicies: undefined,
-    VPCZoneIdentifier: undefined,
+    Status: undefined,
+    HealthCheckType: undefined,
+    MixedInstancesPolicy: undefined,
+    HealthCheckGracePeriod: undefined,
+    AutoScalingGroupARN: undefined,
+    LaunchConfigurationName: undefined,
+    DefaultCooldown: undefined,
+    Instances: undefined,
+    LoadBalancerNames: undefined,
   };
-  if (output["AutoScalingGroupARN"] !== undefined) {
-    contents.AutoScalingGroupARN = output["AutoScalingGroupARN"];
-  }
-  if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
-  }
-  if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  }
-  if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
-      context
-    );
+  if (output["NewInstancesProtectedFromScaleIn"] !== undefined) {
+    contents.NewInstancesProtectedFromScaleIn = output["NewInstancesProtectedFromScaleIn"] == "true";
   }
   if (output["CreatedTime"] !== undefined) {
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
-  if (output["DefaultCooldown"] !== undefined) {
-    contents.DefaultCooldown = parseInt(output["DefaultCooldown"]);
+  if (output["LaunchTemplate"] !== undefined) {
+    contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(output["LaunchTemplate"], context);
   }
-  if (output["DesiredCapacity"] !== undefined) {
-    contents.DesiredCapacity = parseInt(output["DesiredCapacity"]);
+  if (output.TargetGroupARNs === "") {
+    contents.TargetGroupARNs = [];
+  }
+  if (output["TargetGroupARNs"] !== undefined && output["TargetGroupARNs"]["member"] !== undefined) {
+    contents.TargetGroupARNs = deserializeAws_queryTargetGroupARNs(
+      __getArrayIfSingleItem(output["TargetGroupARNs"]["member"]),
+      context
+    );
+  }
+  if (output["PlacementGroup"] !== undefined) {
+    contents.PlacementGroup = output["PlacementGroup"];
+  }
+  if (output["MaxInstanceLifetime"] !== undefined) {
+    contents.MaxInstanceLifetime = parseInt(output["MaxInstanceLifetime"]);
+  }
+  if (output["AutoScalingGroupName"] !== undefined) {
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
+  }
+  if (output.TerminationPolicies === "") {
+    contents.TerminationPolicies = [];
+  }
+  if (output["TerminationPolicies"] !== undefined && output["TerminationPolicies"]["member"] !== undefined) {
+    contents.TerminationPolicies = deserializeAws_queryTerminationPolicies(
+      __getArrayIfSingleItem(output["TerminationPolicies"]["member"]),
+      context
+    );
   }
   if (output.EnabledMetrics === "") {
     contents.EnabledMetrics = [];
@@ -6421,56 +6851,29 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
       context
     );
   }
-  if (output["HealthCheckGracePeriod"] !== undefined) {
-    contents.HealthCheckGracePeriod = parseInt(output["HealthCheckGracePeriod"]);
-  }
-  if (output["HealthCheckType"] !== undefined) {
-    contents.HealthCheckType = output["HealthCheckType"];
-  }
-  if (output.Instances === "") {
-    contents.Instances = [];
-  }
-  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = deserializeAws_queryInstances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
-  }
-  if (output["LaunchConfigurationName"] !== undefined) {
-    contents.LaunchConfigurationName = output["LaunchConfigurationName"];
-  }
-  if (output["LaunchTemplate"] !== undefined) {
-    contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(output["LaunchTemplate"], context);
-  }
-  if (output.LoadBalancerNames === "") {
-    contents.LoadBalancerNames = [];
-  }
-  if (output["LoadBalancerNames"] !== undefined && output["LoadBalancerNames"]["member"] !== undefined) {
-    contents.LoadBalancerNames = deserializeAws_queryLoadBalancerNames(
-      __getArrayIfSingleItem(output["LoadBalancerNames"]["member"]),
-      context
-    );
-  }
-  if (output["MaxInstanceLifetime"] !== undefined) {
-    contents.MaxInstanceLifetime = parseInt(output["MaxInstanceLifetime"]);
-  }
-  if (output["MaxSize"] !== undefined) {
-    contents.MaxSize = parseInt(output["MaxSize"]);
-  }
   if (output["MinSize"] !== undefined) {
     contents.MinSize = parseInt(output["MinSize"]);
   }
-  if (output["MixedInstancesPolicy"] !== undefined) {
-    contents.MixedInstancesPolicy = deserializeAws_queryMixedInstancesPolicy(output["MixedInstancesPolicy"], context);
+  if (output.AvailabilityZones === "") {
+    contents.AvailabilityZones = [];
   }
-  if (output["NewInstancesProtectedFromScaleIn"] !== undefined) {
-    contents.NewInstancesProtectedFromScaleIn = output["NewInstancesProtectedFromScaleIn"] == "true";
-  }
-  if (output["PlacementGroup"] !== undefined) {
-    contents.PlacementGroup = output["PlacementGroup"];
+  if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
+    contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
+      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
+      context
+    );
   }
   if (output["ServiceLinkedRoleARN"] !== undefined) {
     contents.ServiceLinkedRoleARN = output["ServiceLinkedRoleARN"];
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+  if (output["DesiredCapacity"] !== undefined) {
+    contents.DesiredCapacity = parseInt(output["DesiredCapacity"]);
+  }
+  if (output["VPCZoneIdentifier"] !== undefined) {
+    contents.VPCZoneIdentifier = output["VPCZoneIdentifier"];
+  }
+  if (output["MaxSize"] !== undefined) {
+    contents.MaxSize = parseInt(output["MaxSize"]);
   }
   if (output.SuspendedProcesses === "") {
     contents.SuspendedProcesses = [];
@@ -6487,26 +6890,41 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_queryTagDescriptionList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
-  if (output.TargetGroupARNs === "") {
-    contents.TargetGroupARNs = [];
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
-  if (output["TargetGroupARNs"] !== undefined && output["TargetGroupARNs"]["member"] !== undefined) {
-    contents.TargetGroupARNs = deserializeAws_queryTargetGroupARNs(
-      __getArrayIfSingleItem(output["TargetGroupARNs"]["member"]),
+  if (output["HealthCheckType"] !== undefined) {
+    contents.HealthCheckType = output["HealthCheckType"];
+  }
+  if (output["MixedInstancesPolicy"] !== undefined) {
+    contents.MixedInstancesPolicy = deserializeAws_queryMixedInstancesPolicy(output["MixedInstancesPolicy"], context);
+  }
+  if (output["HealthCheckGracePeriod"] !== undefined) {
+    contents.HealthCheckGracePeriod = parseInt(output["HealthCheckGracePeriod"]);
+  }
+  if (output["AutoScalingGroupARN"] !== undefined) {
+    contents.AutoScalingGroupARN = output["AutoScalingGroupARN"];
+  }
+  if (output["LaunchConfigurationName"] !== undefined) {
+    contents.LaunchConfigurationName = output["LaunchConfigurationName"];
+  }
+  if (output["DefaultCooldown"] !== undefined) {
+    contents.DefaultCooldown = parseInt(output["DefaultCooldown"]);
+  }
+  if (output.Instances === "") {
+    contents.Instances = [];
+  }
+  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
+    contents.Instances = deserializeAws_queryInstances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+  }
+  if (output.LoadBalancerNames === "") {
+    contents.LoadBalancerNames = [];
+  }
+  if (output["LoadBalancerNames"] !== undefined && output["LoadBalancerNames"]["member"] !== undefined) {
+    contents.LoadBalancerNames = deserializeAws_queryLoadBalancerNames(
+      __getArrayIfSingleItem(output["LoadBalancerNames"]["member"]),
       context
     );
-  }
-  if (output.TerminationPolicies === "") {
-    contents.TerminationPolicies = [];
-  }
-  if (output["TerminationPolicies"] !== undefined && output["TerminationPolicies"]["member"] !== undefined) {
-    contents.TerminationPolicies = deserializeAws_queryTerminationPolicies(
-      __getArrayIfSingleItem(output["TerminationPolicies"]["member"]),
-      context
-    );
-  }
-  if (output["VPCZoneIdentifier"] !== undefined) {
-    contents.VPCZoneIdentifier = output["VPCZoneIdentifier"];
   }
   return contents;
 };
@@ -6518,9 +6936,12 @@ const deserializeAws_queryAutoScalingGroups = (output: any, context: __SerdeCont
 const deserializeAws_queryAutoScalingGroupsType = (output: any, context: __SerdeContext): AutoScalingGroupsType => {
   let contents: any = {
     __type: "AutoScalingGroupsType",
-    AutoScalingGroups: undefined,
     NextToken: undefined,
+    AutoScalingGroups: undefined,
   };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.AutoScalingGroups === "") {
     contents.AutoScalingGroups = [];
   }
@@ -6529,9 +6950,6 @@ const deserializeAws_queryAutoScalingGroupsType = (output: any, context: __Serde
       __getArrayIfSingleItem(output["AutoScalingGroups"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -6542,31 +6960,25 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
 ): AutoScalingInstanceDetails => {
   let contents: any = {
     __type: "AutoScalingInstanceDetails",
-    AutoScalingGroupName: undefined,
-    AvailabilityZone: undefined,
-    HealthStatus: undefined,
-    InstanceId: undefined,
     InstanceType: undefined,
+    InstanceId: undefined,
+    AutoScalingGroupName: undefined,
     LaunchConfigurationName: undefined,
     LaunchTemplate: undefined,
-    LifecycleState: undefined,
     ProtectedFromScaleIn: undefined,
+    HealthStatus: undefined,
+    AvailabilityZone: undefined,
     WeightedCapacity: undefined,
+    LifecycleState: undefined,
   };
-  if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
-  }
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = output["AvailabilityZone"];
-  }
-  if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus = output["HealthStatus"];
+  if (output["InstanceType"] !== undefined) {
+    contents.InstanceType = output["InstanceType"];
   }
   if (output["InstanceId"] !== undefined) {
     contents.InstanceId = output["InstanceId"];
   }
-  if (output["InstanceType"] !== undefined) {
-    contents.InstanceType = output["InstanceType"];
+  if (output["AutoScalingGroupName"] !== undefined) {
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output["LaunchConfigurationName"] !== undefined) {
     contents.LaunchConfigurationName = output["LaunchConfigurationName"];
@@ -6574,14 +6986,20 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
   if (output["LaunchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(output["LaunchTemplate"], context);
   }
-  if (output["LifecycleState"] !== undefined) {
-    contents.LifecycleState = output["LifecycleState"];
-  }
   if (output["ProtectedFromScaleIn"] !== undefined) {
     contents.ProtectedFromScaleIn = output["ProtectedFromScaleIn"] == "true";
   }
+  if (output["HealthStatus"] !== undefined) {
+    contents.HealthStatus = output["HealthStatus"];
+  }
+  if (output["AvailabilityZone"] !== undefined) {
+    contents.AvailabilityZone = output["AvailabilityZone"];
+  }
   if (output["WeightedCapacity"] !== undefined) {
     contents.WeightedCapacity = output["WeightedCapacity"];
+  }
+  if (output["LifecycleState"] !== undefined) {
+    contents.LifecycleState = output["LifecycleState"];
   }
   return contents;
 };
@@ -6695,6 +7113,20 @@ const deserializeAws_queryBlockDeviceMappings = (output: any, context: __SerdeCo
   return (output || []).map((entry: any) => deserializeAws_queryBlockDeviceMapping(entry, context));
 };
 
+const deserializeAws_queryCancelInstanceRefreshAnswer = (
+  output: any,
+  context: __SerdeContext
+): CancelInstanceRefreshAnswer => {
+  let contents: any = {
+    __type: "CancelInstanceRefreshAnswer",
+    InstanceRefreshId: undefined,
+  };
+  if (output["InstanceRefreshId"] !== undefined) {
+    contents.InstanceRefreshId = output["InstanceRefreshId"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryClassicLinkVPCSecurityGroups = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -6716,9 +7148,9 @@ const deserializeAws_queryCustomizedMetricSpecification = (
   let contents: any = {
     __type: "CustomizedMetricSpecification",
     Dimensions: undefined,
-    MetricName: undefined,
     Namespace: undefined,
     Statistic: undefined,
+    MetricName: undefined,
     Unit: undefined,
   };
   if (output.Dimensions === "") {
@@ -6730,14 +7162,14 @@ const deserializeAws_queryCustomizedMetricSpecification = (
       context
     );
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = output["MetricName"];
-  }
   if (output["Namespace"] !== undefined) {
     contents.Namespace = output["Namespace"];
   }
   if (output["Statistic"] !== undefined) {
     contents.Statistic = output["Statistic"];
+  }
+  if (output["MetricName"] !== undefined) {
+    contents.MetricName = output["MetricName"];
   }
   if (output["Unit"] !== undefined) {
     contents.Unit = output["Unit"];
@@ -6824,6 +7256,30 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesAnswer = (
   return contents;
 };
 
+const deserializeAws_queryDescribeInstanceRefreshesAnswer = (
+  output: any,
+  context: __SerdeContext
+): DescribeInstanceRefreshesAnswer => {
+  let contents: any = {
+    __type: "DescribeInstanceRefreshesAnswer",
+    NextToken: undefined,
+    InstanceRefreshes: undefined,
+  };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
+  if (output.InstanceRefreshes === "") {
+    contents.InstanceRefreshes = [];
+  }
+  if (output["InstanceRefreshes"] !== undefined && output["InstanceRefreshes"]["member"] !== undefined) {
+    contents.InstanceRefreshes = deserializeAws_queryInstanceRefreshes(
+      __getArrayIfSingleItem(output["InstanceRefreshes"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryDescribeLifecycleHooksAnswer = (
   output: any,
   context: __SerdeContext
@@ -6870,9 +7326,12 @@ const deserializeAws_queryDescribeLoadBalancersResponse = (
 ): DescribeLoadBalancersResponse => {
   let contents: any = {
     __type: "DescribeLoadBalancersResponse",
-    LoadBalancers: undefined,
     NextToken: undefined,
+    LoadBalancers: undefined,
   };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.LoadBalancers === "") {
     contents.LoadBalancers = [];
   }
@@ -6881,9 +7340,6 @@ const deserializeAws_queryDescribeLoadBalancersResponse = (
       __getArrayIfSingleItem(output["LoadBalancers"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -6894,9 +7350,12 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse = (
 ): DescribeLoadBalancerTargetGroupsResponse => {
   let contents: any = {
     __type: "DescribeLoadBalancerTargetGroupsResponse",
-    LoadBalancerTargetGroups: undefined,
     NextToken: undefined,
+    LoadBalancerTargetGroups: undefined,
   };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.LoadBalancerTargetGroups === "") {
     contents.LoadBalancerTargetGroups = [];
   }
@@ -6905,9 +7364,6 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse = (
       __getArrayIfSingleItem(output["LoadBalancerTargetGroups"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -6918,24 +7374,24 @@ const deserializeAws_queryDescribeMetricCollectionTypesAnswer = (
 ): DescribeMetricCollectionTypesAnswer => {
   let contents: any = {
     __type: "DescribeMetricCollectionTypesAnswer",
-    Granularities: undefined,
     Metrics: undefined,
+    Granularities: undefined,
   };
-  if (output.Granularities === "") {
-    contents.Granularities = [];
-  }
-  if (output["Granularities"] !== undefined && output["Granularities"]["member"] !== undefined) {
-    contents.Granularities = deserializeAws_queryMetricGranularityTypes(
-      __getArrayIfSingleItem(output["Granularities"]["member"]),
-      context
-    );
-  }
   if (output.Metrics === "") {
     contents.Metrics = [];
   }
   if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
     contents.Metrics = deserializeAws_queryMetricCollectionTypes(
       __getArrayIfSingleItem(output["Metrics"]["member"]),
+      context
+    );
+  }
+  if (output.Granularities === "") {
+    contents.Granularities = [];
+  }
+  if (output["Granularities"] !== undefined && output["Granularities"]["member"] !== undefined) {
+    contents.Granularities = deserializeAws_queryMetricGranularityTypes(
+      __getArrayIfSingleItem(output["Granularities"]["member"]),
       context
     );
   }
@@ -7029,30 +7485,30 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsResultType = (
 const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
   let contents: any = {
     __type: "Ebs",
+    VolumeType: undefined,
+    Iops: undefined,
+    VolumeSize: undefined,
     DeleteOnTermination: undefined,
     Encrypted: undefined,
-    Iops: undefined,
     SnapshotId: undefined,
-    VolumeSize: undefined,
-    VolumeType: undefined,
   };
+  if (output["VolumeType"] !== undefined) {
+    contents.VolumeType = output["VolumeType"];
+  }
+  if (output["Iops"] !== undefined) {
+    contents.Iops = parseInt(output["Iops"]);
+  }
+  if (output["VolumeSize"] !== undefined) {
+    contents.VolumeSize = parseInt(output["VolumeSize"]);
+  }
   if (output["DeleteOnTermination"] !== undefined) {
     contents.DeleteOnTermination = output["DeleteOnTermination"] == "true";
   }
   if (output["Encrypted"] !== undefined) {
     contents.Encrypted = output["Encrypted"] == "true";
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = parseInt(output["Iops"]);
-  }
   if (output["SnapshotId"] !== undefined) {
     contents.SnapshotId = output["SnapshotId"];
-  }
-  if (output["VolumeSize"] !== undefined) {
-    contents.VolumeSize = parseInt(output["VolumeSize"]);
-  }
-  if (output["VolumeType"] !== undefined) {
-    contents.VolumeType = output["VolumeType"];
   }
   return contents;
 };
@@ -7116,18 +7572,18 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequest = (
 ): FailedScheduledUpdateGroupActionRequest => {
   let contents: any = {
     __type: "FailedScheduledUpdateGroupActionRequest",
-    ErrorCode: undefined,
     ErrorMessage: undefined,
     ScheduledActionName: undefined,
+    ErrorCode: undefined,
   };
-  if (output["ErrorCode"] !== undefined) {
-    contents.ErrorCode = output["ErrorCode"];
-  }
   if (output["ErrorMessage"] !== undefined) {
     contents.ErrorMessage = output["ErrorMessage"];
   }
   if (output["ScheduledActionName"] !== undefined) {
     contents.ScheduledActionName = output["ScheduledActionName"];
+  }
+  if (output["ErrorCode"] !== undefined) {
+    contents.ErrorCode = output["ErrorCode"];
   }
   return contents;
 };
@@ -7144,27 +7600,21 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequests = (
 const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
   let contents: any = {
     __type: "Instance",
-    AvailabilityZone: undefined,
-    HealthStatus: undefined,
-    InstanceId: undefined,
     InstanceType: undefined,
+    InstanceId: undefined,
     LaunchConfigurationName: undefined,
     LaunchTemplate: undefined,
-    LifecycleState: undefined,
+    HealthStatus: undefined,
     ProtectedFromScaleIn: undefined,
+    AvailabilityZone: undefined,
+    LifecycleState: undefined,
     WeightedCapacity: undefined,
   };
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = output["AvailabilityZone"];
-  }
-  if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus = output["HealthStatus"];
+  if (output["InstanceType"] !== undefined) {
+    contents.InstanceType = output["InstanceType"];
   }
   if (output["InstanceId"] !== undefined) {
     contents.InstanceId = output["InstanceId"];
-  }
-  if (output["InstanceType"] !== undefined) {
-    contents.InstanceType = output["InstanceType"];
   }
   if (output["LaunchConfigurationName"] !== undefined) {
     contents.LaunchConfigurationName = output["LaunchConfigurationName"];
@@ -7172,14 +7622,39 @@ const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Ins
   if (output["LaunchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(output["LaunchTemplate"], context);
   }
-  if (output["LifecycleState"] !== undefined) {
-    contents.LifecycleState = output["LifecycleState"];
+  if (output["HealthStatus"] !== undefined) {
+    contents.HealthStatus = output["HealthStatus"];
   }
   if (output["ProtectedFromScaleIn"] !== undefined) {
     contents.ProtectedFromScaleIn = output["ProtectedFromScaleIn"] == "true";
   }
+  if (output["AvailabilityZone"] !== undefined) {
+    contents.AvailabilityZone = output["AvailabilityZone"];
+  }
+  if (output["LifecycleState"] !== undefined) {
+    contents.LifecycleState = output["LifecycleState"];
+  }
   if (output["WeightedCapacity"] !== undefined) {
     contents.WeightedCapacity = output["WeightedCapacity"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInstanceMetadataOptions = (output: any, context: __SerdeContext): InstanceMetadataOptions => {
+  let contents: any = {
+    __type: "InstanceMetadataOptions",
+    HttpEndpoint: undefined,
+    HttpPutResponseHopLimit: undefined,
+    HttpTokens: undefined,
+  };
+  if (output["HttpEndpoint"] !== undefined) {
+    contents.HttpEndpoint = output["HttpEndpoint"];
+  }
+  if (output["HttpPutResponseHopLimit"] !== undefined) {
+    contents.HttpPutResponseHopLimit = parseInt(output["HttpPutResponseHopLimit"]);
+  }
+  if (output["HttpTokens"] !== undefined) {
+    contents.HttpTokens = output["HttpTokens"];
   }
   return contents;
 };
@@ -7195,6 +7670,63 @@ const deserializeAws_queryInstanceMonitoring = (output: any, context: __SerdeCon
   return contents;
 };
 
+const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContext): InstanceRefresh => {
+  let contents: any = {
+    __type: "InstanceRefresh",
+    InstanceRefreshId: undefined,
+    AutoScalingGroupName: undefined,
+    EndTime: undefined,
+    StatusReason: undefined,
+    Status: undefined,
+    StartTime: undefined,
+    InstancesToUpdate: undefined,
+    PercentageComplete: undefined,
+  };
+  if (output["InstanceRefreshId"] !== undefined) {
+    contents.InstanceRefreshId = output["InstanceRefreshId"];
+  }
+  if (output["AutoScalingGroupName"] !== undefined) {
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
+  }
+  if (output["EndTime"] !== undefined) {
+    contents.EndTime = new Date(output["EndTime"]);
+  }
+  if (output["StatusReason"] !== undefined) {
+    contents.StatusReason = output["StatusReason"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["StartTime"] !== undefined) {
+    contents.StartTime = new Date(output["StartTime"]);
+  }
+  if (output["InstancesToUpdate"] !== undefined) {
+    contents.InstancesToUpdate = parseInt(output["InstancesToUpdate"]);
+  }
+  if (output["PercentageComplete"] !== undefined) {
+    contents.PercentageComplete = parseInt(output["PercentageComplete"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInstanceRefreshes = (output: any, context: __SerdeContext): InstanceRefresh[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryInstanceRefresh(entry, context));
+};
+
+const deserializeAws_queryInstanceRefreshInProgressFault = (
+  output: any,
+  context: __SerdeContext
+): InstanceRefreshInProgressFault => {
+  let contents: any = {
+    __type: "InstanceRefreshInProgressFault",
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryInstances = (output: any, context: __SerdeContext): Instance[] => {
   return (output || []).map((entry: any) => deserializeAws_queryInstance(entry, context));
 };
@@ -7203,23 +7735,23 @@ const deserializeAws_queryInstancesDistribution = (output: any, context: __Serde
   let contents: any = {
     __type: "InstancesDistribution",
     OnDemandAllocationStrategy: undefined,
-    OnDemandBaseCapacity: undefined,
     OnDemandPercentageAboveBaseCapacity: undefined,
     SpotAllocationStrategy: undefined,
+    OnDemandBaseCapacity: undefined,
     SpotInstancePools: undefined,
     SpotMaxPrice: undefined,
   };
   if (output["OnDemandAllocationStrategy"] !== undefined) {
     contents.OnDemandAllocationStrategy = output["OnDemandAllocationStrategy"];
   }
-  if (output["OnDemandBaseCapacity"] !== undefined) {
-    contents.OnDemandBaseCapacity = parseInt(output["OnDemandBaseCapacity"]);
-  }
   if (output["OnDemandPercentageAboveBaseCapacity"] !== undefined) {
     contents.OnDemandPercentageAboveBaseCapacity = parseInt(output["OnDemandPercentageAboveBaseCapacity"]);
   }
   if (output["SpotAllocationStrategy"] !== undefined) {
     contents.SpotAllocationStrategy = output["SpotAllocationStrategy"];
+  }
+  if (output["OnDemandBaseCapacity"] !== undefined) {
+    contents.OnDemandBaseCapacity = parseInt(output["OnDemandBaseCapacity"]);
   }
   if (output["SpotInstancePools"] !== undefined) {
     contents.SpotInstancePools = parseInt(output["SpotInstancePools"]);
@@ -7244,28 +7776,41 @@ const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeConte
 const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeContext): LaunchConfiguration => {
   let contents: any = {
     __type: "LaunchConfiguration",
-    AssociatePublicIpAddress: undefined,
-    BlockDeviceMappings: undefined,
-    ClassicLinkVPCId: undefined,
-    ClassicLinkVPCSecurityGroups: undefined,
-    CreatedTime: undefined,
-    EbsOptimized: undefined,
-    IamInstanceProfile: undefined,
-    ImageId: undefined,
-    InstanceMonitoring: undefined,
-    InstanceType: undefined,
-    KernelId: undefined,
-    KeyName: undefined,
-    LaunchConfigurationARN: undefined,
-    LaunchConfigurationName: undefined,
     PlacementTenancy: undefined,
-    RamdiskId: undefined,
-    SecurityGroups: undefined,
-    SpotPrice: undefined,
     UserData: undefined,
+    ClassicLinkVPCId: undefined,
+    KernelId: undefined,
+    LaunchConfigurationARN: undefined,
+    BlockDeviceMappings: undefined,
+    CreatedTime: undefined,
+    MetadataOptions: undefined,
+    LaunchConfigurationName: undefined,
+    SecurityGroups: undefined,
+    InstanceMonitoring: undefined,
+    ImageId: undefined,
+    ClassicLinkVPCSecurityGroups: undefined,
+    InstanceType: undefined,
+    SpotPrice: undefined,
+    EbsOptimized: undefined,
+    RamdiskId: undefined,
+    KeyName: undefined,
+    IamInstanceProfile: undefined,
+    AssociatePublicIpAddress: undefined,
   };
-  if (output["AssociatePublicIpAddress"] !== undefined) {
-    contents.AssociatePublicIpAddress = output["AssociatePublicIpAddress"] == "true";
+  if (output["PlacementTenancy"] !== undefined) {
+    contents.PlacementTenancy = output["PlacementTenancy"];
+  }
+  if (output["UserData"] !== undefined) {
+    contents.UserData = output["UserData"];
+  }
+  if (output["ClassicLinkVPCId"] !== undefined) {
+    contents.ClassicLinkVPCId = output["ClassicLinkVPCId"];
+  }
+  if (output["KernelId"] !== undefined) {
+    contents.KernelId = output["KernelId"];
+  }
+  if (output["LaunchConfigurationARN"] !== undefined) {
+    contents.LaunchConfigurationARN = output["LaunchConfigurationARN"];
   }
   if (output.BlockDeviceMappings === "") {
     contents.BlockDeviceMappings = [];
@@ -7276,8 +7821,29 @@ const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeCo
       context
     );
   }
-  if (output["ClassicLinkVPCId"] !== undefined) {
-    contents.ClassicLinkVPCId = output["ClassicLinkVPCId"];
+  if (output["CreatedTime"] !== undefined) {
+    contents.CreatedTime = new Date(output["CreatedTime"]);
+  }
+  if (output["MetadataOptions"] !== undefined) {
+    contents.MetadataOptions = deserializeAws_queryInstanceMetadataOptions(output["MetadataOptions"], context);
+  }
+  if (output["LaunchConfigurationName"] !== undefined) {
+    contents.LaunchConfigurationName = output["LaunchConfigurationName"];
+  }
+  if (output.SecurityGroups === "") {
+    contents.SecurityGroups = [];
+  }
+  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
+    contents.SecurityGroups = deserializeAws_querySecurityGroups(
+      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
+      context
+    );
+  }
+  if (output["InstanceMonitoring"] !== undefined) {
+    contents.InstanceMonitoring = deserializeAws_queryInstanceMonitoring(output["InstanceMonitoring"], context);
+  }
+  if (output["ImageId"] !== undefined) {
+    contents.ImageId = output["ImageId"];
   }
   if (output.ClassicLinkVPCSecurityGroups === "") {
     contents.ClassicLinkVPCSecurityGroups = [];
@@ -7291,56 +7857,26 @@ const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeCo
       context
     );
   }
-  if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = new Date(output["CreatedTime"]);
-  }
-  if (output["EbsOptimized"] !== undefined) {
-    contents.EbsOptimized = output["EbsOptimized"] == "true";
-  }
-  if (output["IamInstanceProfile"] !== undefined) {
-    contents.IamInstanceProfile = output["IamInstanceProfile"];
-  }
-  if (output["ImageId"] !== undefined) {
-    contents.ImageId = output["ImageId"];
-  }
-  if (output["InstanceMonitoring"] !== undefined) {
-    contents.InstanceMonitoring = deserializeAws_queryInstanceMonitoring(output["InstanceMonitoring"], context);
-  }
   if (output["InstanceType"] !== undefined) {
     contents.InstanceType = output["InstanceType"];
-  }
-  if (output["KernelId"] !== undefined) {
-    contents.KernelId = output["KernelId"];
-  }
-  if (output["KeyName"] !== undefined) {
-    contents.KeyName = output["KeyName"];
-  }
-  if (output["LaunchConfigurationARN"] !== undefined) {
-    contents.LaunchConfigurationARN = output["LaunchConfigurationARN"];
-  }
-  if (output["LaunchConfigurationName"] !== undefined) {
-    contents.LaunchConfigurationName = output["LaunchConfigurationName"];
-  }
-  if (output["PlacementTenancy"] !== undefined) {
-    contents.PlacementTenancy = output["PlacementTenancy"];
-  }
-  if (output["RamdiskId"] !== undefined) {
-    contents.RamdiskId = output["RamdiskId"];
-  }
-  if (output.SecurityGroups === "") {
-    contents.SecurityGroups = [];
-  }
-  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = deserializeAws_querySecurityGroups(
-      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
-      context
-    );
   }
   if (output["SpotPrice"] !== undefined) {
     contents.SpotPrice = output["SpotPrice"];
   }
-  if (output["UserData"] !== undefined) {
-    contents.UserData = output["UserData"];
+  if (output["EbsOptimized"] !== undefined) {
+    contents.EbsOptimized = output["EbsOptimized"] == "true";
+  }
+  if (output["RamdiskId"] !== undefined) {
+    contents.RamdiskId = output["RamdiskId"];
+  }
+  if (output["KeyName"] !== undefined) {
+    contents.KeyName = output["KeyName"];
+  }
+  if (output["IamInstanceProfile"] !== undefined) {
+    contents.IamInstanceProfile = output["IamInstanceProfile"];
+  }
+  if (output["AssociatePublicIpAddress"] !== undefined) {
+    contents.AssociatePublicIpAddress = output["AssociatePublicIpAddress"] == "true";
   }
   return contents;
 };
@@ -7355,9 +7891,12 @@ const deserializeAws_queryLaunchConfigurationsType = (
 ): LaunchConfigurationsType => {
   let contents: any = {
     __type: "LaunchConfigurationsType",
-    LaunchConfigurations: undefined,
     NextToken: undefined,
+    LaunchConfigurations: undefined,
   };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.LaunchConfigurations === "") {
     contents.LaunchConfigurations = [];
   }
@@ -7366,9 +7905,6 @@ const deserializeAws_queryLaunchConfigurationsType = (
       __getArrayIfSingleItem(output["LaunchConfigurations"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7397,14 +7933,14 @@ const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext
 const deserializeAws_queryLaunchTemplateOverrides = (output: any, context: __SerdeContext): LaunchTemplateOverrides => {
   let contents: any = {
     __type: "LaunchTemplateOverrides",
-    InstanceType: undefined,
     WeightedCapacity: undefined,
+    InstanceType: undefined,
   };
-  if (output["InstanceType"] !== undefined) {
-    contents.InstanceType = output["InstanceType"];
-  }
   if (output["WeightedCapacity"] !== undefined) {
     contents.WeightedCapacity = output["WeightedCapacity"];
+  }
+  if (output["InstanceType"] !== undefined) {
+    contents.InstanceType = output["InstanceType"];
   }
   return contents;
 };
@@ -7415,18 +7951,18 @@ const deserializeAws_queryLaunchTemplateSpecification = (
 ): LaunchTemplateSpecification => {
   let contents: any = {
     __type: "LaunchTemplateSpecification",
+    Version: undefined,
     LaunchTemplateId: undefined,
     LaunchTemplateName: undefined,
-    Version: undefined,
   };
+  if (output["Version"] !== undefined) {
+    contents.Version = output["Version"];
+  }
   if (output["LaunchTemplateId"] !== undefined) {
     contents.LaunchTemplateId = output["LaunchTemplateId"];
   }
   if (output["LaunchTemplateName"] !== undefined) {
     contents.LaunchTemplateName = output["LaunchTemplateName"];
-  }
-  if (output["Version"] !== undefined) {
-    contents.Version = output["Version"];
   }
   return contents;
 };
@@ -7434,21 +7970,24 @@ const deserializeAws_queryLaunchTemplateSpecification = (
 const deserializeAws_queryLifecycleHook = (output: any, context: __SerdeContext): LifecycleHook => {
   let contents: any = {
     __type: "LifecycleHook",
-    AutoScalingGroupName: undefined,
-    DefaultResult: undefined,
+    LifecycleTransition: undefined,
+    NotificationTargetARN: undefined,
+    LifecycleHookName: undefined,
     GlobalTimeout: undefined,
     HeartbeatTimeout: undefined,
-    LifecycleHookName: undefined,
-    LifecycleTransition: undefined,
-    NotificationMetadata: undefined,
-    NotificationTargetARN: undefined,
     RoleARN: undefined,
+    AutoScalingGroupName: undefined,
+    DefaultResult: undefined,
+    NotificationMetadata: undefined,
   };
-  if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
+  if (output["LifecycleTransition"] !== undefined) {
+    contents.LifecycleTransition = output["LifecycleTransition"];
   }
-  if (output["DefaultResult"] !== undefined) {
-    contents.DefaultResult = output["DefaultResult"];
+  if (output["NotificationTargetARN"] !== undefined) {
+    contents.NotificationTargetARN = output["NotificationTargetARN"];
+  }
+  if (output["LifecycleHookName"] !== undefined) {
+    contents.LifecycleHookName = output["LifecycleHookName"];
   }
   if (output["GlobalTimeout"] !== undefined) {
     contents.GlobalTimeout = parseInt(output["GlobalTimeout"]);
@@ -7456,20 +7995,17 @@ const deserializeAws_queryLifecycleHook = (output: any, context: __SerdeContext)
   if (output["HeartbeatTimeout"] !== undefined) {
     contents.HeartbeatTimeout = parseInt(output["HeartbeatTimeout"]);
   }
-  if (output["LifecycleHookName"] !== undefined) {
-    contents.LifecycleHookName = output["LifecycleHookName"];
+  if (output["RoleARN"] !== undefined) {
+    contents.RoleARN = output["RoleARN"];
   }
-  if (output["LifecycleTransition"] !== undefined) {
-    contents.LifecycleTransition = output["LifecycleTransition"];
+  if (output["AutoScalingGroupName"] !== undefined) {
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
+  }
+  if (output["DefaultResult"] !== undefined) {
+    contents.DefaultResult = output["DefaultResult"];
   }
   if (output["NotificationMetadata"] !== undefined) {
     contents.NotificationMetadata = output["NotificationMetadata"];
-  }
-  if (output["NotificationTargetARN"] !== undefined) {
-    contents.NotificationTargetARN = output["NotificationTargetARN"];
-  }
-  if (output["RoleARN"] !== undefined) {
-    contents.RoleARN = output["RoleARN"];
   }
   return contents;
 };
@@ -7555,14 +8091,14 @@ const deserializeAws_queryMetricCollectionTypes = (output: any, context: __Serde
 const deserializeAws_queryMetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   let contents: any = {
     __type: "MetricDimension",
-    Name: undefined,
     Value: undefined,
+    Name: undefined,
   };
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
-  }
   if (output["Value"] !== undefined) {
     contents.Value = output["Value"];
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -7589,17 +8125,17 @@ const deserializeAws_queryMetricGranularityTypes = (output: any, context: __Serd
 const deserializeAws_queryMixedInstancesPolicy = (output: any, context: __SerdeContext): MixedInstancesPolicy => {
   let contents: any = {
     __type: "MixedInstancesPolicy",
-    InstancesDistribution: undefined,
     LaunchTemplate: undefined,
+    InstancesDistribution: undefined,
   };
+  if (output["LaunchTemplate"] !== undefined) {
+    contents.LaunchTemplate = deserializeAws_queryLaunchTemplate(output["LaunchTemplate"], context);
+  }
   if (output["InstancesDistribution"] !== undefined) {
     contents.InstancesDistribution = deserializeAws_queryInstancesDistribution(
       output["InstancesDistribution"],
       context
     );
-  }
-  if (output["LaunchTemplate"] !== undefined) {
-    contents.LaunchTemplate = deserializeAws_queryLaunchTemplate(output["LaunchTemplate"], context);
   }
   return contents;
 };
@@ -7610,15 +8146,15 @@ const deserializeAws_queryNotificationConfiguration = (
 ): NotificationConfiguration => {
   let contents: any = {
     __type: "NotificationConfiguration",
-    AutoScalingGroupName: undefined,
     NotificationType: undefined,
+    AutoScalingGroupName: undefined,
     TopicARN: undefined,
   };
-  if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
-  }
   if (output["NotificationType"] !== undefined) {
     contents.NotificationType = output["NotificationType"];
+  }
+  if (output["AutoScalingGroupName"] !== undefined) {
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output["TopicARN"] !== undefined) {
     contents.TopicARN = output["TopicARN"];
@@ -7661,17 +8197,17 @@ const deserializeAws_queryPoliciesType = (output: any, context: __SerdeContext):
 const deserializeAws_queryPolicyARNType = (output: any, context: __SerdeContext): PolicyARNType => {
   let contents: any = {
     __type: "PolicyARNType",
-    Alarms: undefined,
     PolicyARN: undefined,
+    Alarms: undefined,
   };
+  if (output["PolicyARN"] !== undefined) {
+    contents.PolicyARN = output["PolicyARN"];
+  }
   if (output.Alarms === "") {
     contents.Alarms = [];
   }
   if (output["Alarms"] !== undefined && output["Alarms"]["member"] !== undefined) {
     contents.Alarms = deserializeAws_queryAlarms(__getArrayIfSingleItem(output["Alarms"]["member"]), context);
-  }
-  if (output["PolicyARN"] !== undefined) {
-    contents.PolicyARN = output["PolicyARN"];
   }
   return contents;
 };
@@ -7783,59 +8319,30 @@ const deserializeAws_queryScalingPolicies = (output: any, context: __SerdeContex
 const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   let contents: any = {
     __type: "ScalingPolicy",
-    AdjustmentType: undefined,
-    Alarms: undefined,
-    AutoScalingGroupName: undefined,
-    Cooldown: undefined,
-    EstimatedInstanceWarmup: undefined,
-    MetricAggregationType: undefined,
+    Enabled: undefined,
     MinAdjustmentMagnitude: undefined,
-    MinAdjustmentStep: undefined,
-    PolicyARN: undefined,
-    PolicyName: undefined,
-    PolicyType: undefined,
-    ScalingAdjustment: undefined,
+    Cooldown: undefined,
     StepAdjustments: undefined,
+    MetricAggregationType: undefined,
+    EstimatedInstanceWarmup: undefined,
+    PolicyType: undefined,
+    PolicyARN: undefined,
+    AutoScalingGroupName: undefined,
+    MinAdjustmentStep: undefined,
     TargetTrackingConfiguration: undefined,
+    ScalingAdjustment: undefined,
+    PolicyName: undefined,
+    Alarms: undefined,
+    AdjustmentType: undefined,
   };
-  if (output["AdjustmentType"] !== undefined) {
-    contents.AdjustmentType = output["AdjustmentType"];
-  }
-  if (output.Alarms === "") {
-    contents.Alarms = [];
-  }
-  if (output["Alarms"] !== undefined && output["Alarms"]["member"] !== undefined) {
-    contents.Alarms = deserializeAws_queryAlarms(__getArrayIfSingleItem(output["Alarms"]["member"]), context);
-  }
-  if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
-  }
-  if (output["Cooldown"] !== undefined) {
-    contents.Cooldown = parseInt(output["Cooldown"]);
-  }
-  if (output["EstimatedInstanceWarmup"] !== undefined) {
-    contents.EstimatedInstanceWarmup = parseInt(output["EstimatedInstanceWarmup"]);
-  }
-  if (output["MetricAggregationType"] !== undefined) {
-    contents.MetricAggregationType = output["MetricAggregationType"];
+  if (output["Enabled"] !== undefined) {
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["MinAdjustmentMagnitude"] !== undefined) {
     contents.MinAdjustmentMagnitude = parseInt(output["MinAdjustmentMagnitude"]);
   }
-  if (output["MinAdjustmentStep"] !== undefined) {
-    contents.MinAdjustmentStep = parseInt(output["MinAdjustmentStep"]);
-  }
-  if (output["PolicyARN"] !== undefined) {
-    contents.PolicyARN = output["PolicyARN"];
-  }
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = output["PolicyName"];
-  }
-  if (output["PolicyType"] !== undefined) {
-    contents.PolicyType = output["PolicyType"];
-  }
-  if (output["ScalingAdjustment"] !== undefined) {
-    contents.ScalingAdjustment = parseInt(output["ScalingAdjustment"]);
+  if (output["Cooldown"] !== undefined) {
+    contents.Cooldown = parseInt(output["Cooldown"]);
   }
   if (output.StepAdjustments === "") {
     contents.StepAdjustments = [];
@@ -7846,11 +8353,44 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
       context
     );
   }
+  if (output["MetricAggregationType"] !== undefined) {
+    contents.MetricAggregationType = output["MetricAggregationType"];
+  }
+  if (output["EstimatedInstanceWarmup"] !== undefined) {
+    contents.EstimatedInstanceWarmup = parseInt(output["EstimatedInstanceWarmup"]);
+  }
+  if (output["PolicyType"] !== undefined) {
+    contents.PolicyType = output["PolicyType"];
+  }
+  if (output["PolicyARN"] !== undefined) {
+    contents.PolicyARN = output["PolicyARN"];
+  }
+  if (output["AutoScalingGroupName"] !== undefined) {
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
+  }
+  if (output["MinAdjustmentStep"] !== undefined) {
+    contents.MinAdjustmentStep = parseInt(output["MinAdjustmentStep"]);
+  }
   if (output["TargetTrackingConfiguration"] !== undefined) {
     contents.TargetTrackingConfiguration = deserializeAws_queryTargetTrackingConfiguration(
       output["TargetTrackingConfiguration"],
       context
     );
+  }
+  if (output["ScalingAdjustment"] !== undefined) {
+    contents.ScalingAdjustment = parseInt(output["ScalingAdjustment"]);
+  }
+  if (output["PolicyName"] !== undefined) {
+    contents.PolicyName = output["PolicyName"];
+  }
+  if (output.Alarms === "") {
+    contents.Alarms = [];
+  }
+  if (output["Alarms"] !== undefined && output["Alarms"]["member"] !== undefined) {
+    contents.Alarms = deserializeAws_queryAlarms(__getArrayIfSingleItem(output["Alarms"]["member"]), context);
+  }
+  if (output["AdjustmentType"] !== undefined) {
+    contents.AdjustmentType = output["AdjustmentType"];
   }
   return contents;
 };
@@ -7885,28 +8425,19 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
 ): ScheduledUpdateGroupAction => {
   let contents: any = {
     __type: "ScheduledUpdateGroupAction",
-    AutoScalingGroupName: undefined,
-    DesiredCapacity: undefined,
-    EndTime: undefined,
-    MaxSize: undefined,
+    ScheduledActionName: undefined,
     MinSize: undefined,
     Recurrence: undefined,
     ScheduledActionARN: undefined,
-    ScheduledActionName: undefined,
-    StartTime: undefined,
     Time: undefined,
+    DesiredCapacity: undefined,
+    EndTime: undefined,
+    StartTime: undefined,
+    MaxSize: undefined,
+    AutoScalingGroupName: undefined,
   };
-  if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
-  }
-  if (output["DesiredCapacity"] !== undefined) {
-    contents.DesiredCapacity = parseInt(output["DesiredCapacity"]);
-  }
-  if (output["EndTime"] !== undefined) {
-    contents.EndTime = new Date(output["EndTime"]);
-  }
-  if (output["MaxSize"] !== undefined) {
-    contents.MaxSize = parseInt(output["MaxSize"]);
+  if (output["ScheduledActionName"] !== undefined) {
+    contents.ScheduledActionName = output["ScheduledActionName"];
   }
   if (output["MinSize"] !== undefined) {
     contents.MinSize = parseInt(output["MinSize"]);
@@ -7917,14 +8448,23 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
   if (output["ScheduledActionARN"] !== undefined) {
     contents.ScheduledActionARN = output["ScheduledActionARN"];
   }
-  if (output["ScheduledActionName"] !== undefined) {
-    contents.ScheduledActionName = output["ScheduledActionName"];
+  if (output["Time"] !== undefined) {
+    contents.Time = new Date(output["Time"]);
+  }
+  if (output["DesiredCapacity"] !== undefined) {
+    contents.DesiredCapacity = parseInt(output["DesiredCapacity"]);
+  }
+  if (output["EndTime"] !== undefined) {
+    contents.EndTime = new Date(output["EndTime"]);
   }
   if (output["StartTime"] !== undefined) {
     contents.StartTime = new Date(output["StartTime"]);
   }
-  if (output["Time"] !== undefined) {
-    contents.Time = new Date(output["Time"]);
+  if (output["MaxSize"] !== undefined) {
+    contents.MaxSize = parseInt(output["MaxSize"]);
+  }
+  if (output["AutoScalingGroupName"] !== undefined) {
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   return contents;
 };
@@ -7964,21 +8504,35 @@ const deserializeAws_querySetInstanceProtectionAnswer = (
   return contents;
 };
 
+const deserializeAws_queryStartInstanceRefreshAnswer = (
+  output: any,
+  context: __SerdeContext
+): StartInstanceRefreshAnswer => {
+  let contents: any = {
+    __type: "StartInstanceRefreshAnswer",
+    InstanceRefreshId: undefined,
+  };
+  if (output["InstanceRefreshId"] !== undefined) {
+    contents.InstanceRefreshId = output["InstanceRefreshId"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryStepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
   let contents: any = {
     __type: "StepAdjustment",
-    MetricIntervalLowerBound: undefined,
-    MetricIntervalUpperBound: undefined,
     ScalingAdjustment: undefined,
+    MetricIntervalUpperBound: undefined,
+    MetricIntervalLowerBound: undefined,
   };
-  if (output["MetricIntervalLowerBound"] !== undefined) {
-    contents.MetricIntervalLowerBound = parseFloat(output["MetricIntervalLowerBound"]);
+  if (output["ScalingAdjustment"] !== undefined) {
+    contents.ScalingAdjustment = parseInt(output["ScalingAdjustment"]);
   }
   if (output["MetricIntervalUpperBound"] !== undefined) {
     contents.MetricIntervalUpperBound = parseFloat(output["MetricIntervalUpperBound"]);
   }
-  if (output["ScalingAdjustment"] !== undefined) {
-    contents.ScalingAdjustment = parseInt(output["ScalingAdjustment"]);
+  if (output["MetricIntervalLowerBound"] !== undefined) {
+    contents.MetricIntervalLowerBound = parseFloat(output["MetricIntervalLowerBound"]);
   }
   return contents;
 };
@@ -7990,14 +8544,14 @@ const deserializeAws_queryStepAdjustments = (output: any, context: __SerdeContex
 const deserializeAws_querySuspendedProcess = (output: any, context: __SerdeContext): SuspendedProcess => {
   let contents: any = {
     __type: "SuspendedProcess",
-    ProcessName: undefined,
     SuspensionReason: undefined,
+    ProcessName: undefined,
   };
-  if (output["ProcessName"] !== undefined) {
-    contents.ProcessName = output["ProcessName"];
-  }
   if (output["SuspensionReason"] !== undefined) {
     contents.SuspensionReason = output["SuspensionReason"];
+  }
+  if (output["ProcessName"] !== undefined) {
+    contents.ProcessName = output["ProcessName"];
   }
   return contents;
 };
@@ -8009,26 +8563,26 @@ const deserializeAws_querySuspendedProcesses = (output: any, context: __SerdeCon
 const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext): TagDescription => {
   let contents: any = {
     __type: "TagDescription",
+    Value: undefined,
+    ResourceType: undefined,
+    ResourceId: undefined,
     Key: undefined,
     PropagateAtLaunch: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    Value: undefined,
   };
+  if (output["Value"] !== undefined) {
+    contents.Value = output["Value"];
+  }
+  if (output["ResourceType"] !== undefined) {
+    contents.ResourceType = output["ResourceType"];
+  }
+  if (output["ResourceId"] !== undefined) {
+    contents.ResourceId = output["ResourceId"];
+  }
   if (output["Key"] !== undefined) {
     contents.Key = output["Key"];
   }
   if (output["PropagateAtLaunch"] !== undefined) {
     contents.PropagateAtLaunch = output["PropagateAtLaunch"] == "true";
-  }
-  if (output["ResourceId"] !== undefined) {
-    contents.ResourceId = output["ResourceId"];
-  }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = output["ResourceType"];
-  }
-  if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -8040,17 +8594,17 @@ const deserializeAws_queryTagDescriptionList = (output: any, context: __SerdeCon
 const deserializeAws_queryTagsType = (output: any, context: __SerdeContext): TagsType => {
   let contents: any = {
     __type: "TagsType",
-    NextToken: undefined,
     Tags: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.Tags === "") {
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_queryTagDescriptionList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -8065,28 +8619,28 @@ const deserializeAws_queryTargetTrackingConfiguration = (
 ): TargetTrackingConfiguration => {
   let contents: any = {
     __type: "TargetTrackingConfiguration",
-    CustomizedMetricSpecification: undefined,
-    DisableScaleIn: undefined,
-    PredefinedMetricSpecification: undefined,
     TargetValue: undefined,
+    DisableScaleIn: undefined,
+    CustomizedMetricSpecification: undefined,
+    PredefinedMetricSpecification: undefined,
   };
+  if (output["TargetValue"] !== undefined) {
+    contents.TargetValue = parseFloat(output["TargetValue"]);
+  }
+  if (output["DisableScaleIn"] !== undefined) {
+    contents.DisableScaleIn = output["DisableScaleIn"] == "true";
+  }
   if (output["CustomizedMetricSpecification"] !== undefined) {
     contents.CustomizedMetricSpecification = deserializeAws_queryCustomizedMetricSpecification(
       output["CustomizedMetricSpecification"],
       context
     );
   }
-  if (output["DisableScaleIn"] !== undefined) {
-    contents.DisableScaleIn = output["DisableScaleIn"] == "true";
-  }
   if (output["PredefinedMetricSpecification"] !== undefined) {
     contents.PredefinedMetricSpecification = deserializeAws_queryPredefinedMetricSpecification(
       output["PredefinedMetricSpecification"],
       context
     );
-  }
-  if (output["TargetValue"] !== undefined) {
-    contents.TargetValue = parseFloat(output["TargetValue"]);
   }
   return contents;
 };

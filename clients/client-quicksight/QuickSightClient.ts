@@ -1,4 +1,8 @@
 import { CancelIngestionCommandInput, CancelIngestionCommandOutput } from "./commands/CancelIngestionCommand";
+import {
+  CreateAccountCustomizationCommandInput,
+  CreateAccountCustomizationCommandOutput,
+} from "./commands/CreateAccountCustomizationCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
@@ -12,11 +16,18 @@ import {
   CreateIAMPolicyAssignmentCommandOutput,
 } from "./commands/CreateIAMPolicyAssignmentCommand";
 import { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
+import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
 import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
 } from "./commands/CreateTemplateAliasCommand";
 import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
+import { CreateThemeAliasCommandInput, CreateThemeAliasCommandOutput } from "./commands/CreateThemeAliasCommand";
+import { CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
+import {
+  DeleteAccountCustomizationCommandInput,
+  DeleteAccountCustomizationCommandOutput,
+} from "./commands/DeleteAccountCustomizationCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
@@ -29,16 +40,27 @@ import {
   DeleteIAMPolicyAssignmentCommandInput,
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
+import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
 import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
 } from "./commands/DeleteTemplateAliasCommand";
 import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
+import { DeleteThemeAliasCommandInput, DeleteThemeAliasCommandOutput } from "./commands/DeleteThemeAliasCommand";
+import { DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
 import {
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput,
 } from "./commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DescribeAccountCustomizationCommandInput,
+  DescribeAccountCustomizationCommandOutput,
+} from "./commands/DescribeAccountCustomizationCommand";
+import {
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "./commands/DescribeAccountSettingsCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
 import {
   DescribeDashboardPermissionsCommandInput,
@@ -60,6 +82,7 @@ import {
   DescribeIAMPolicyAssignmentCommandOutput,
 } from "./commands/DescribeIAMPolicyAssignmentCommand";
 import { DescribeIngestionCommandInput, DescribeIngestionCommandOutput } from "./commands/DescribeIngestionCommand";
+import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
 import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -69,11 +92,18 @@ import {
   DescribeTemplatePermissionsCommandInput,
   DescribeTemplatePermissionsCommandOutput,
 } from "./commands/DescribeTemplatePermissionsCommand";
+import { DescribeThemeAliasCommandInput, DescribeThemeAliasCommandOutput } from "./commands/DescribeThemeAliasCommand";
+import { DescribeThemeCommandInput, DescribeThemeCommandOutput } from "./commands/DescribeThemeCommand";
+import {
+  DescribeThemePermissionsCommandInput,
+  DescribeThemePermissionsCommandOutput,
+} from "./commands/DescribeThemePermissionsCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand";
+import { GetSessionEmbedUrlCommandInput, GetSessionEmbedUrlCommandOutput } from "./commands/GetSessionEmbedUrlCommand";
 import {
   ListDashboardVersionsCommandInput,
   ListDashboardVersionsCommandOutput,
@@ -95,6 +125,7 @@ import {
   ListIAMPolicyAssignmentsForUserCommandOutput,
 } from "./commands/ListIAMPolicyAssignmentsForUserCommand";
 import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
+import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -108,11 +139,23 @@ import {
   ListTemplateVersionsCommandOutput,
 } from "./commands/ListTemplateVersionsCommand";
 import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
+import { ListThemeAliasesCommandInput, ListThemeAliasesCommandOutput } from "./commands/ListThemeAliasesCommand";
+import { ListThemeVersionsCommandInput, ListThemeVersionsCommandOutput } from "./commands/ListThemeVersionsCommand";
+import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/RegisterUserCommand";
+import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "./commands/SearchDashboardsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccountCustomizationCommandInput,
+  UpdateAccountCustomizationCommandOutput,
+} from "./commands/UpdateAccountCustomizationCommand";
+import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
 import {
   UpdateDashboardPermissionsCommandInput,
@@ -146,6 +189,12 @@ import {
   UpdateTemplatePermissionsCommandInput,
   UpdateTemplatePermissionsCommandOutput,
 } from "./commands/UpdateTemplatePermissionsCommand";
+import { UpdateThemeAliasCommandInput, UpdateThemeAliasCommandOutput } from "./commands/UpdateThemeAliasCommand";
+import { UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
+import {
+  UpdateThemePermissionsCommandInput,
+  UpdateThemePermissionsCommandOutput,
+} from "./commands/UpdateThemePermissionsCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -196,6 +245,7 @@ import {
 
 export type ServiceInputTypes =
   | CancelIngestionCommandInput
+  | CreateAccountCustomizationCommandInput
   | CreateDashboardCommandInput
   | CreateDataSetCommandInput
   | CreateDataSourceCommandInput
@@ -203,18 +253,27 @@ export type ServiceInputTypes =
   | CreateGroupMembershipCommandInput
   | CreateIAMPolicyAssignmentCommandInput
   | CreateIngestionCommandInput
+  | CreateNamespaceCommandInput
   | CreateTemplateAliasCommandInput
   | CreateTemplateCommandInput
+  | CreateThemeAliasCommandInput
+  | CreateThemeCommandInput
+  | DeleteAccountCustomizationCommandInput
   | DeleteDashboardCommandInput
   | DeleteDataSetCommandInput
   | DeleteDataSourceCommandInput
   | DeleteGroupCommandInput
   | DeleteGroupMembershipCommandInput
   | DeleteIAMPolicyAssignmentCommandInput
+  | DeleteNamespaceCommandInput
   | DeleteTemplateAliasCommandInput
   | DeleteTemplateCommandInput
+  | DeleteThemeAliasCommandInput
+  | DeleteThemeCommandInput
   | DeleteUserByPrincipalIdCommandInput
   | DeleteUserCommandInput
+  | DescribeAccountCustomizationCommandInput
+  | DescribeAccountSettingsCommandInput
   | DescribeDashboardCommandInput
   | DescribeDashboardPermissionsCommandInput
   | DescribeDataSetCommandInput
@@ -224,11 +283,16 @@ export type ServiceInputTypes =
   | DescribeGroupCommandInput
   | DescribeIAMPolicyAssignmentCommandInput
   | DescribeIngestionCommandInput
+  | DescribeNamespaceCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
   | DescribeTemplatePermissionsCommandInput
+  | DescribeThemeAliasCommandInput
+  | DescribeThemeCommandInput
+  | DescribeThemePermissionsCommandInput
   | DescribeUserCommandInput
   | GetDashboardEmbedUrlCommandInput
+  | GetSessionEmbedUrlCommandInput
   | ListDashboardVersionsCommandInput
   | ListDashboardsCommandInput
   | ListDataSetsCommandInput
@@ -238,15 +302,22 @@ export type ServiceInputTypes =
   | ListIAMPolicyAssignmentsCommandInput
   | ListIAMPolicyAssignmentsForUserCommandInput
   | ListIngestionsCommandInput
+  | ListNamespacesCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateAliasesCommandInput
   | ListTemplateVersionsCommandInput
   | ListTemplatesCommandInput
+  | ListThemeAliasesCommandInput
+  | ListThemeVersionsCommandInput
+  | ListThemesCommandInput
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
   | RegisterUserCommandInput
+  | SearchDashboardsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccountCustomizationCommandInput
+  | UpdateAccountSettingsCommandInput
   | UpdateDashboardCommandInput
   | UpdateDashboardPermissionsCommandInput
   | UpdateDashboardPublishedVersionCommandInput
@@ -259,10 +330,14 @@ export type ServiceInputTypes =
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
+  | UpdateThemeAliasCommandInput
+  | UpdateThemeCommandInput
+  | UpdateThemePermissionsCommandInput
   | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
   | CancelIngestionCommandOutput
+  | CreateAccountCustomizationCommandOutput
   | CreateDashboardCommandOutput
   | CreateDataSetCommandOutput
   | CreateDataSourceCommandOutput
@@ -270,18 +345,27 @@ export type ServiceOutputTypes =
   | CreateGroupMembershipCommandOutput
   | CreateIAMPolicyAssignmentCommandOutput
   | CreateIngestionCommandOutput
+  | CreateNamespaceCommandOutput
   | CreateTemplateAliasCommandOutput
   | CreateTemplateCommandOutput
+  | CreateThemeAliasCommandOutput
+  | CreateThemeCommandOutput
+  | DeleteAccountCustomizationCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDataSetCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteGroupCommandOutput
   | DeleteGroupMembershipCommandOutput
   | DeleteIAMPolicyAssignmentCommandOutput
+  | DeleteNamespaceCommandOutput
   | DeleteTemplateAliasCommandOutput
   | DeleteTemplateCommandOutput
+  | DeleteThemeAliasCommandOutput
+  | DeleteThemeCommandOutput
   | DeleteUserByPrincipalIdCommandOutput
   | DeleteUserCommandOutput
+  | DescribeAccountCustomizationCommandOutput
+  | DescribeAccountSettingsCommandOutput
   | DescribeDashboardCommandOutput
   | DescribeDashboardPermissionsCommandOutput
   | DescribeDataSetCommandOutput
@@ -291,11 +375,16 @@ export type ServiceOutputTypes =
   | DescribeGroupCommandOutput
   | DescribeIAMPolicyAssignmentCommandOutput
   | DescribeIngestionCommandOutput
+  | DescribeNamespaceCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
   | DescribeTemplatePermissionsCommandOutput
+  | DescribeThemeAliasCommandOutput
+  | DescribeThemeCommandOutput
+  | DescribeThemePermissionsCommandOutput
   | DescribeUserCommandOutput
   | GetDashboardEmbedUrlCommandOutput
+  | GetSessionEmbedUrlCommandOutput
   | ListDashboardVersionsCommandOutput
   | ListDashboardsCommandOutput
   | ListDataSetsCommandOutput
@@ -305,15 +394,22 @@ export type ServiceOutputTypes =
   | ListIAMPolicyAssignmentsCommandOutput
   | ListIAMPolicyAssignmentsForUserCommandOutput
   | ListIngestionsCommandOutput
+  | ListNamespacesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateAliasesCommandOutput
   | ListTemplateVersionsCommandOutput
   | ListTemplatesCommandOutput
+  | ListThemeAliasesCommandOutput
+  | ListThemeVersionsCommandOutput
+  | ListThemesCommandOutput
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
   | RegisterUserCommandOutput
+  | SearchDashboardsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccountCustomizationCommandOutput
+  | UpdateAccountSettingsCommandOutput
   | UpdateDashboardCommandOutput
   | UpdateDashboardPermissionsCommandOutput
   | UpdateDashboardPublishedVersionCommandOutput
@@ -326,6 +422,9 @@ export type ServiceOutputTypes =
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput
+  | UpdateThemeAliasCommandOutput
+  | UpdateThemeCommandOutput
+  | UpdateThemePermissionsCommandOutput
   | UpdateUserCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

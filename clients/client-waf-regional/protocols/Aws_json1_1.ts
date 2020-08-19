@@ -25,6 +25,10 @@ import {
   CreateSqlInjectionMatchSetCommandOutput,
 } from "../commands/CreateSqlInjectionMatchSetCommand";
 import { CreateWebACLCommandInput, CreateWebACLCommandOutput } from "../commands/CreateWebACLCommand";
+import {
+  CreateWebACLMigrationStackCommandInput,
+  CreateWebACLMigrationStackCommandOutput,
+} from "../commands/CreateWebACLMigrationStackCommand";
 import { CreateXssMatchSetCommandInput, CreateXssMatchSetCommandOutput } from "../commands/CreateXssMatchSetCommand";
 import { DeleteByteMatchSetCommandInput, DeleteByteMatchSetCommandOutput } from "../commands/DeleteByteMatchSetCommand";
 import { DeleteGeoMatchSetCommandInput, DeleteGeoMatchSetCommandOutput } from "../commands/DeleteGeoMatchSetCommand";
@@ -208,6 +212,8 @@ import {
   CreateSizeConstraintSetResponse,
   CreateSqlInjectionMatchSetRequest,
   CreateSqlInjectionMatchSetResponse,
+  CreateWebACLMigrationStackRequest,
+  CreateWebACLMigrationStackResponse,
   CreateWebACLRequest,
   CreateWebACLResponse,
   CreateXssMatchSetRequest,
@@ -389,6 +395,7 @@ import {
   UpdateXssMatchSetResponse,
   WAFBadRequestException,
   WAFDisallowedNameException,
+  WAFEntityMigrationException,
   WAFInternalErrorException,
   WAFInvalidAccountException,
   WAFInvalidOperationException,
@@ -579,6 +586,19 @@ export const serializeAws_json1_1CreateWebACLCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateWebACLRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateWebACLMigrationStackCommand = async (
+  input: CreateWebACLMigrationStackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_Regional_20161128.CreateWebACLMigrationStack",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateWebACLMigrationStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2621,6 +2641,94 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
       response = {
         ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateWebACLMigrationStackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWebACLMigrationStackCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateWebACLMigrationStackCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateWebACLMigrationStackResponse(data, context);
+  const response: CreateWebACLMigrationStackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateWebACLMigrationStackResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateWebACLMigrationStackCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWebACLMigrationStackCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "WAFEntityMigrationException":
+    case "com.amazonaws.wafregional#WAFEntityMigrationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFEntityMigrationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafregional#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafregional#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafregional#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFNonexistentItemException":
+    case "com.amazonaws.wafregional#WAFNonexistentItemException":
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8440,6 +8548,21 @@ const deserializeAws_json1_1WAFDisallowedNameExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1WAFEntityMigrationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WAFEntityMigrationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1WAFEntityMigrationException(body, context);
+  const contents: WAFEntityMigrationException = {
+    name: "WAFEntityMigrationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1WAFInternalErrorExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -8837,6 +8960,17 @@ const serializeAws_json1_1CreateSqlInjectionMatchSetRequest = (
   return {
     ...(input.ChangeToken !== undefined && { ChangeToken: input.ChangeToken }),
     ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1CreateWebACLMigrationStackRequest = (
+  input: CreateWebACLMigrationStackRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IgnoreUnsupportedType !== undefined && { IgnoreUnsupportedType: input.IgnoreUnsupportedType }),
+    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
+    ...(input.WebACLId !== undefined && { WebACLId: input.WebACLId }),
   };
 };
 
@@ -9939,6 +10073,16 @@ const deserializeAws_json1_1CreateSqlInjectionMatchSetResponse = (
       output.SqlInjectionMatchSet !== undefined && output.SqlInjectionMatchSet !== null
         ? deserializeAws_json1_1SqlInjectionMatchSet(output.SqlInjectionMatchSet, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateWebACLMigrationStackResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateWebACLMigrationStackResponse => {
+  return {
+    __type: "CreateWebACLMigrationStackResponse",
+    S3ObjectUrl: output.S3ObjectUrl !== undefined && output.S3ObjectUrl !== null ? output.S3ObjectUrl : undefined,
   } as any;
 };
 
@@ -11228,6 +11372,24 @@ const deserializeAws_json1_1WAFDisallowedNameException = (
 ): WAFDisallowedNameException => {
   return {
     __type: "WAFDisallowedNameException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1WAFEntityMigrationException = (
+  output: any,
+  context: __SerdeContext
+): WAFEntityMigrationException => {
+  return {
+    __type: "WAFEntityMigrationException",
+    MigrationErrorReason:
+      output.MigrationErrorReason !== undefined && output.MigrationErrorReason !== null
+        ? output.MigrationErrorReason
+        : undefined,
+    MigrationErrorType:
+      output.MigrationErrorType !== undefined && output.MigrationErrorType !== null
+        ? output.MigrationErrorType
+        : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

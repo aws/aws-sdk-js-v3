@@ -1,4 +1,16 @@
 import {
+  DescribeAcceleratorOfferingsCommandInput,
+  DescribeAcceleratorOfferingsCommandOutput,
+} from "./commands/DescribeAcceleratorOfferingsCommand";
+import {
+  DescribeAcceleratorTypesCommandInput,
+  DescribeAcceleratorTypesCommandOutput,
+} from "./commands/DescribeAcceleratorTypesCommand";
+import {
+  DescribeAcceleratorsCommandInput,
+  DescribeAcceleratorsCommandOutput,
+} from "./commands/DescribeAcceleratorsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -51,9 +63,18 @@ import {
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = ListTagsForResourceCommandInput | TagResourceCommandInput | UntagResourceCommandInput;
+export type ServiceInputTypes =
+  | DescribeAcceleratorOfferingsCommandInput
+  | DescribeAcceleratorTypesCommandInput
+  | DescribeAcceleratorsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
+  | DescribeAcceleratorOfferingsCommandOutput
+  | DescribeAcceleratorTypesCommandOutput
+  | DescribeAcceleratorsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
@@ -166,7 +187,9 @@ export type ElasticInferenceClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * Elastic Inference public APIs.
+ * <p>
+ *             Elastic Inference public APIs.
+ *         </p>
  */
 export class ElasticInferenceClient extends __Client<
   __HttpHandlerOptions,

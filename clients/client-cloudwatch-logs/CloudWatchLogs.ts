@@ -45,6 +45,11 @@ import {
   DeleteMetricFilterCommandOutput,
 } from "./commands/DeleteMetricFilterCommand";
 import {
+  DeleteQueryDefinitionCommand,
+  DeleteQueryDefinitionCommandInput,
+  DeleteQueryDefinitionCommandOutput,
+} from "./commands/DeleteQueryDefinitionCommand";
+import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -89,6 +94,11 @@ import {
   DescribeQueriesCommandInput,
   DescribeQueriesCommandOutput,
 } from "./commands/DescribeQueriesCommand";
+import {
+  DescribeQueryDefinitionsCommand,
+  DescribeQueryDefinitionsCommandInput,
+  DescribeQueryDefinitionsCommandOutput,
+} from "./commands/DescribeQueryDefinitionsCommand";
 import {
   DescribeResourcePoliciesCommand,
   DescribeResourcePoliciesCommandInput,
@@ -154,6 +164,11 @@ import {
   PutMetricFilterCommandInput,
   PutMetricFilterCommandOutput,
 } from "./commands/PutMetricFilterCommand";
+import {
+  PutQueryDefinitionCommand,
+  PutQueryDefinitionCommandInput,
+  PutQueryDefinitionCommandOutput,
+} from "./commands/PutQueryDefinitionCommand";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
@@ -304,9 +319,9 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    *       log group to an Amazon S3 bucket.</p>
    *          <p>This is an asynchronous call. If all the required information is provided, this
    *       operation initiates an export task and responds with the ID of the task. After the task has started,
-   *       you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can
+   *       you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can
    *       only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time.
-   *       To cancel an export task, use <a>CancelExportTask</a>.</p>
+   *       To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.</p>
    *          <p>You can export logs from multiple log groups or multiple time ranges to the same S3
    *       bucket. To separate out log data for each export task, you can specify a prefix to be used as
    *       the Amazon S3 key prefix for all exported objects.</p>
@@ -567,6 +582,35 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
     cb?: (err: any, data?: DeleteMetricFilterCommandOutput) => void
   ): Promise<DeleteMetricFilterCommandOutput> | void {
     const command = new DeleteMetricFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteQueryDefinition(
+    args: DeleteQueryDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueryDefinitionCommandOutput>;
+  public deleteQueryDefinition(
+    args: DeleteQueryDefinitionCommandInput,
+    cb: (err: any, data?: DeleteQueryDefinitionCommandOutput) => void
+  ): void;
+  public deleteQueryDefinition(
+    args: DeleteQueryDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQueryDefinitionCommandOutput) => void
+  ): void;
+  public deleteQueryDefinition(
+    args: DeleteQueryDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueryDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteQueryDefinitionCommandOutput) => void
+  ): Promise<DeleteQueryDefinitionCommandOutput> | void {
+    const command = new DeleteQueryDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -876,6 +920,35 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
     }
   }
 
+  public describeQueryDefinitions(
+    args: DescribeQueryDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQueryDefinitionsCommandOutput>;
+  public describeQueryDefinitions(
+    args: DescribeQueryDefinitionsCommandInput,
+    cb: (err: any, data?: DescribeQueryDefinitionsCommandOutput) => void
+  ): void;
+  public describeQueryDefinitions(
+    args: DescribeQueryDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQueryDefinitionsCommandOutput) => void
+  ): void;
+  public describeQueryDefinitions(
+    args: DescribeQueryDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQueryDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeQueryDefinitionsCommandOutput) => void
+  ): Promise<DescribeQueryDefinitionsCommandOutput> | void {
+    const command = new DescribeQueryDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Lists the resource policies in this account.</p>
    */
@@ -1050,7 +1123,9 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    * <p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events
    *     that contain each field. The search is limited to a time period that you specify.</p>
    *          <p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For
-   *       example, <code>@timestamp</code> is the timestamp of each log event.</p>
+   *       example, <code>@timestamp</code> is the timestamp of each log event. For more information about the fields that are
+   *       generated by CloudWatch logs, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html">Supported Logs and Discovered Fields</a>.</p>
    *          <p>The response results are sorted by the frequency percentage, starting
    *     with the highest percentage.</p>
    */
@@ -1118,11 +1193,11 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   /**
    * <p>Returns the results from the specified query.</p>
    *          <p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field which
-   *       is the identifier for the log record. You can use the value of <code>@ptr</code> in a  operation
+   *         is the identifier for the log record. You can use the value of <code>@ptr</code> in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a> operation
    *     to get the full log record.</p>
    *          <p>
    *             <code>GetQueryResults</code>
-   *       does not start a query execution. To run a query, use .</p>
+   *       does not start a query execution. To run a query, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.</p>
    *          <p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation
    *       returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status,
    *       you can retry the operation later to see the final results. </p>
@@ -1192,11 +1267,11 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    * <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p>
    *          <p>A destination encapsulates a physical resource (such
    *       as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events
-   *       for a different account, ingested using <a>PutLogEvents</a>.</p>
+   *       for a different account, ingested using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
    *          <p>Through an access policy, a destination controls what is written to it.
    *       By default, <code>PutDestination</code> does not set any access policy with the destination,
-   *       which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against
-   *       this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+   *       which means a cross-account user cannot call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html">PutSubscriptionFilter</a> against
+   *       this destination. To enable this, the destination owner must call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
    */
   public putDestination(
     args: PutDestinationCommandInput,
@@ -1330,7 +1405,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   /**
    * <p>Creates or updates a metric filter and associates it with the specified log group.
    *       Metric filters allow you to configure rules to extract metric data from log events ingested
-   *       through <a>PutLogEvents</a>.</p>
+   *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
    *          <p>The maximum number of metric filters that can be associated with a log group is
    *       100.</p>
    */
@@ -1353,6 +1428,35 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
     cb?: (err: any, data?: PutMetricFilterCommandOutput) => void
   ): Promise<PutMetricFilterCommandOutput> | void {
     const command = new PutMetricFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public putQueryDefinition(
+    args: PutQueryDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutQueryDefinitionCommandOutput>;
+  public putQueryDefinition(
+    args: PutQueryDefinitionCommandInput,
+    cb: (err: any, data?: PutQueryDefinitionCommandOutput) => void
+  ): void;
+  public putQueryDefinition(
+    args: PutQueryDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutQueryDefinitionCommandOutput) => void
+  ): void;
+  public putQueryDefinition(
+    args: PutQueryDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutQueryDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: PutQueryDefinitionCommandOutput) => void
+  ): Promise<PutQueryDefinitionCommandOutput> | void {
+    const command = new PutQueryDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1433,7 +1537,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   /**
    * <p>Creates or updates a subscription filter and associates it with the specified log
    *       group. Subscription filters allow you to subscribe to a real-time stream of log events
-   *       ingested through <a>PutLogEvents</a> and have them delivered to a specific
+   *       ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific
    *       destination. Currently, the supported destinations are:</p>
    *          <ul>
    *             <li>
@@ -1546,9 +1650,9 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
 
   /**
    * <p>Adds or updates the specified tags for the specified log group.</p>
-   *          <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>.
-   *       To remove tags, use <a>UntagLogGroup</a>.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a>
+   *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
+   *       To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a>
    *       in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
    */
   public tagLogGroup(args: TagLogGroupCommandInput, options?: __HttpHandlerOptions): Promise<TagLogGroupCommandOutput>;
@@ -1609,8 +1713,8 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
 
   /**
    * <p>Removes the specified tags from the specified log group.</p>
-   *          <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>.
-   *       To add tags, use <a>UntagLogGroup</a>.</p>
+   *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
+   *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p>
    */
   public untagLogGroup(
     args: UntagLogGroupCommandInput,

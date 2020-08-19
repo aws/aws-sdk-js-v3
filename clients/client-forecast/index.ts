@@ -25,5 +25,8 @@ export * from "./commands/ListDatasetsCommand";
 export * from "./commands/ListForecastExportJobsCommand";
 export * from "./commands/ListForecastsCommand";
 export * from "./commands/ListPredictorsCommand";
+export * from "./commands/ListTagsForResourceCommand";
+export * from "./commands/TagResourceCommand";
+export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateDatasetGroupCommand";
 export * from "./models/index";

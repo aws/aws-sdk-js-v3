@@ -28,6 +28,10 @@ import {
 } from "../commands/CreateTapeWithBarcodeCommand";
 import { CreateTapesCommandInput, CreateTapesCommandOutput } from "../commands/CreateTapesCommand";
 import {
+  DeleteAutomaticTapeCreationPolicyCommandInput,
+  DeleteAutomaticTapeCreationPolicyCommandOutput,
+} from "../commands/DeleteAutomaticTapeCreationPolicyCommand";
+import {
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput,
 } from "../commands/DeleteBandwidthRateLimitCommand";
@@ -110,6 +114,10 @@ import {
 import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "../commands/DetachVolumeCommand";
 import { DisableGatewayCommandInput, DisableGatewayCommandOutput } from "../commands/DisableGatewayCommand";
 import { JoinDomainCommandInput, JoinDomainCommandOutput } from "../commands/JoinDomainCommand";
+import {
+  ListAutomaticTapeCreationPoliciesCommandInput,
+  ListAutomaticTapeCreationPoliciesCommandOutput,
+} from "../commands/ListAutomaticTapeCreationPoliciesCommand";
 import { ListFileSharesCommandInput, ListFileSharesCommandOutput } from "../commands/ListFileSharesCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "../commands/ListGatewaysCommand";
 import { ListLocalDisksCommandInput, ListLocalDisksCommandOutput } from "../commands/ListLocalDisksCommand";
@@ -156,6 +164,10 @@ import {
   StartAvailabilityMonitorTestCommandOutput,
 } from "../commands/StartAvailabilityMonitorTestCommand";
 import { StartGatewayCommandInput, StartGatewayCommandOutput } from "../commands/StartGatewayCommand";
+import {
+  UpdateAutomaticTapeCreationPolicyCommandInput,
+  UpdateAutomaticTapeCreationPolicyCommandOutput,
+} from "../commands/UpdateAutomaticTapeCreationPolicyCommand";
 import {
   UpdateBandwidthRateLimitCommandInput,
   UpdateBandwidthRateLimitCommandOutput,
@@ -205,6 +217,9 @@ import {
   AssignTapePoolOutput,
   AttachVolumeInput,
   AttachVolumeOutput,
+  AutomaticTapeCreationPolicyInfo,
+  AutomaticTapeCreationRule,
+  CacheAttributes,
   CachediSCSIVolume,
   CancelArchivalInput,
   CancelArchivalOutput,
@@ -227,6 +242,8 @@ import {
   CreateTapeWithBarcodeOutput,
   CreateTapesInput,
   CreateTapesOutput,
+  DeleteAutomaticTapeCreationPolicyInput,
+  DeleteAutomaticTapeCreationPolicyOutput,
   DeleteBandwidthRateLimitInput,
   DeleteBandwidthRateLimitOutput,
   DeleteChapCredentialsInput,
@@ -291,6 +308,8 @@ import {
   InvalidGatewayRequestException,
   JoinDomainInput,
   JoinDomainOutput,
+  ListAutomaticTapeCreationPoliciesInput,
+  ListAutomaticTapeCreationPoliciesOutput,
   ListFileSharesInput,
   ListFileSharesOutput,
   ListGatewaysInput,
@@ -341,6 +360,8 @@ import {
   TapeArchive,
   TapeInfo,
   TapeRecoveryPointInfo,
+  UpdateAutomaticTapeCreationPolicyInput,
+  UpdateAutomaticTapeCreationPolicyOutput,
   UpdateBandwidthRateLimitInput,
   UpdateBandwidthRateLimitOutput,
   UpdateChapCredentialsInput,
@@ -594,6 +615,19 @@ export const serializeAws_json1_1CreateTapeWithBarcodeCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTapeWithBarcodeInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = async (
+  input: DeleteAutomaticTapeCreationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteAutomaticTapeCreationPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -974,6 +1008,19 @@ export const serializeAws_json1_1JoinDomainCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = async (
+  input: ListAutomaticTapeCreationPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListAutomaticTapeCreationPolicies",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListAutomaticTapeCreationPoliciesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListFileSharesCommand = async (
   input: ListFileSharesCommandInput,
   context: __SerdeContext
@@ -1218,6 +1265,19 @@ export const serializeAws_json1_1StartGatewayCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartGatewayInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = async (
+  input: UpdateAutomaticTapeCreationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateAutomaticTapeCreationPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateAutomaticTapeCreationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2413,6 +2473,70 @@ const deserializeAws_json1_1CreateTapeWithBarcodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTapeWithBarcodeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput(data, context);
+  const response: DeleteAutomaticTapeCreationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteAutomaticTapeCreationPolicyOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4311,6 +4435,70 @@ const deserializeAws_json1_1JoinDomainCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomaticTapeCreationPoliciesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAutomaticTapeCreationPoliciesOutput(data, context);
+  const response: ListAutomaticTapeCreationPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListAutomaticTapeCreationPoliciesOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomaticTapeCreationPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListFileSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5527,6 +5715,70 @@ const deserializeAws_json1_1StartGatewayCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput(data, context);
+  const response: UpdateAutomaticTapeCreationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateAutomaticTapeCreationPolicyOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6270,6 +6522,33 @@ const serializeAws_json1_1AttachVolumeInput = (input: AttachVolumeInput, context
   };
 };
 
+const serializeAws_json1_1AutomaticTapeCreationRule = (
+  input: AutomaticTapeCreationRule,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MinimumNumTapes !== undefined && { MinimumNumTapes: input.MinimumNumTapes }),
+    ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
+    ...(input.TapeBarcodePrefix !== undefined && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
+    ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
+  };
+};
+
+const serializeAws_json1_1AutomaticTapeCreationRules = (
+  input: AutomaticTapeCreationRule[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1AutomaticTapeCreationRule(entry, context));
+};
+
+const serializeAws_json1_1CacheAttributes = (input: CacheAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.CacheStaleTimeoutInSeconds !== undefined && {
+      CacheStaleTimeoutInSeconds: input.CacheStaleTimeoutInSeconds,
+    }),
+  };
+};
+
 const serializeAws_json1_1CancelArchivalInput = (input: CancelArchivalInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
@@ -6304,11 +6583,15 @@ const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
 
 const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareInput, context: __SerdeContext): any => {
   return {
+    ...(input.CacheAttributes !== undefined && {
+      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+    }),
     ...(input.ClientList !== undefined && {
       ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context),
     }),
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
     ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
+    ...(input.FileShareName !== undefined && { FileShareName: input.FileShareName }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
     ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
     ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
@@ -6331,9 +6614,15 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
     ...(input.AdminUserList !== undefined && {
       AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
     }),
+    ...(input.AuditDestinationARN !== undefined && { AuditDestinationARN: input.AuditDestinationARN }),
     ...(input.Authentication !== undefined && { Authentication: input.Authentication }),
+    ...(input.CacheAttributes !== undefined && {
+      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+    }),
+    ...(input.CaseSensitivity !== undefined && { CaseSensitivity: input.CaseSensitivity }),
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
     ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
+    ...(input.FileShareName !== undefined && { FileShareName: input.FileShareName }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
     ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
     ...(input.InvalidUserList !== undefined && {
@@ -6416,6 +6705,15 @@ const serializeAws_json1_1CreateTapeWithBarcodeInput = (
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TapeBarcode !== undefined && { TapeBarcode: input.TapeBarcode }),
     ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
+  };
+};
+
+const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput = (
+  input: DeleteAutomaticTapeCreationPolicyInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -6700,6 +6998,15 @@ const serializeAws_json1_1JoinDomainInput = (input: JoinDomainInput, context: __
   };
 };
 
+const serializeAws_json1_1ListAutomaticTapeCreationPoliciesInput = (
+  input: ListAutomaticTapeCreationPoliciesInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+  };
+};
+
 const serializeAws_json1_1ListFileSharesInput = (input: ListFileSharesInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
@@ -6885,6 +7192,21 @@ const serializeAws_json1_1TapeARNs = (input: string[], context: __SerdeContext):
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1UpdateAutomaticTapeCreationPolicyInput = (
+  input: UpdateAutomaticTapeCreationPolicyInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutomaticTapeCreationRules !== undefined && {
+      AutomaticTapeCreationRules: serializeAws_json1_1AutomaticTapeCreationRules(
+        input.AutomaticTapeCreationRules,
+        context
+      ),
+    }),
+    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+  };
+};
+
 const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
   input: UpdateBandwidthRateLimitInput,
   context: __SerdeContext
@@ -6952,11 +7274,15 @@ const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
 
 const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareInput, context: __SerdeContext): any => {
   return {
+    ...(input.CacheAttributes !== undefined && {
+      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+    }),
     ...(input.ClientList !== undefined && {
       ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context),
     }),
     ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
     ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
+    ...(input.FileShareName !== undefined && { FileShareName: input.FileShareName }),
     ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
     ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
@@ -6975,8 +7301,14 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
     ...(input.AdminUserList !== undefined && {
       AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
     }),
+    ...(input.AuditDestinationARN !== undefined && { AuditDestinationARN: input.AuditDestinationARN }),
+    ...(input.CacheAttributes !== undefined && {
+      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+    }),
+    ...(input.CaseSensitivity !== undefined && { CaseSensitivity: input.CaseSensitivity }),
     ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
     ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
+    ...(input.FileShareName !== undefined && { FileShareName: input.FileShareName }),
     ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
     ...(input.InvalidUserList !== undefined && {
       InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
@@ -7087,6 +7419,62 @@ const deserializeAws_json1_1AttachVolumeOutput = (output: any, context: __SerdeC
     __type: "AttachVolumeOutput",
     TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AutomaticTapeCreationPolicyInfo = (
+  output: any,
+  context: __SerdeContext
+): AutomaticTapeCreationPolicyInfo => {
+  return {
+    __type: "AutomaticTapeCreationPolicyInfo",
+    AutomaticTapeCreationRules:
+      output.AutomaticTapeCreationRules !== undefined && output.AutomaticTapeCreationRules !== null
+        ? deserializeAws_json1_1AutomaticTapeCreationRules(output.AutomaticTapeCreationRules, context)
+        : undefined,
+    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AutomaticTapeCreationPolicyInfos = (
+  output: any,
+  context: __SerdeContext
+): AutomaticTapeCreationPolicyInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AutomaticTapeCreationPolicyInfo(entry, context));
+};
+
+const deserializeAws_json1_1AutomaticTapeCreationRule = (
+  output: any,
+  context: __SerdeContext
+): AutomaticTapeCreationRule => {
+  return {
+    __type: "AutomaticTapeCreationRule",
+    MinimumNumTapes:
+      output.MinimumNumTapes !== undefined && output.MinimumNumTapes !== null ? output.MinimumNumTapes : undefined,
+    PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
+    TapeBarcodePrefix:
+      output.TapeBarcodePrefix !== undefined && output.TapeBarcodePrefix !== null
+        ? output.TapeBarcodePrefix
+        : undefined,
+    TapeSizeInBytes:
+      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null ? output.TapeSizeInBytes : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AutomaticTapeCreationRules = (
+  output: any,
+  context: __SerdeContext
+): AutomaticTapeCreationRule[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AutomaticTapeCreationRule(entry, context));
+};
+
+const deserializeAws_json1_1CacheAttributes = (output: any, context: __SerdeContext): CacheAttributes => {
+  return {
+    __type: "CacheAttributes",
+    CacheStaleTimeoutInSeconds:
+      output.CacheStaleTimeoutInSeconds !== undefined && output.CacheStaleTimeoutInSeconds !== null
+        ? output.CacheStaleTimeoutInSeconds
+        : undefined,
   } as any;
 };
 
@@ -7251,6 +7639,16 @@ const deserializeAws_json1_1CreateTapeWithBarcodeOutput = (
   return {
     __type: "CreateTapeWithBarcodeOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteAutomaticTapeCreationPolicyOutput => {
+  return {
+    __type: "DeleteAutomaticTapeCreationPolicyOutput",
+    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 
@@ -7430,6 +7828,7 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
       output.Ec2InstanceRegion !== undefined && output.Ec2InstanceRegion !== null
         ? output.Ec2InstanceRegion
         : undefined,
+    EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GatewayId: output.GatewayId !== undefined && output.GatewayId !== null ? output.GatewayId : undefined,
     GatewayName: output.GatewayName !== undefined && output.GatewayName !== null ? output.GatewayName : undefined,
@@ -7821,6 +8220,19 @@ const deserializeAws_json1_1JoinDomainOutput = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesOutput = (
+  output: any,
+  context: __SerdeContext
+): ListAutomaticTapeCreationPoliciesOutput => {
+  return {
+    __type: "ListAutomaticTapeCreationPoliciesOutput",
+    AutomaticTapeCreationPolicyInfos:
+      output.AutomaticTapeCreationPolicyInfos !== undefined && output.AutomaticTapeCreationPolicyInfos !== null
+        ? deserializeAws_json1_1AutomaticTapeCreationPolicyInfos(output.AutomaticTapeCreationPolicyInfos, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListFileSharesOutput = (output: any, context: __SerdeContext): ListFileSharesOutput => {
   return {
     __type: "ListFileSharesOutput",
@@ -7941,6 +8353,10 @@ const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __Serd
 const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeContext): NFSFileShareInfo => {
   return {
     __type: "NFSFileShareInfo",
+    CacheAttributes:
+      output.CacheAttributes !== undefined && output.CacheAttributes !== null
+        ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
+        : undefined,
     ClientList:
       output.ClientList !== undefined && output.ClientList !== null
         ? deserializeAws_json1_1FileShareClientList(output.ClientList, context)
@@ -7951,6 +8367,8 @@ const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeCon
         : undefined,
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
     FileShareId: output.FileShareId !== undefined && output.FileShareId !== null ? output.FileShareId : undefined,
+    FileShareName:
+      output.FileShareName !== undefined && output.FileShareName !== null ? output.FileShareName : undefined,
     FileShareStatus:
       output.FileShareStatus !== undefined && output.FileShareStatus !== null ? output.FileShareStatus : undefined,
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
@@ -8087,14 +8505,26 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
       output.AdminUserList !== undefined && output.AdminUserList !== null
         ? deserializeAws_json1_1FileShareUserList(output.AdminUserList, context)
         : undefined,
+    AuditDestinationARN:
+      output.AuditDestinationARN !== undefined && output.AuditDestinationARN !== null
+        ? output.AuditDestinationARN
+        : undefined,
     Authentication:
       output.Authentication !== undefined && output.Authentication !== null ? output.Authentication : undefined,
+    CacheAttributes:
+      output.CacheAttributes !== undefined && output.CacheAttributes !== null
+        ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
+        : undefined,
+    CaseSensitivity:
+      output.CaseSensitivity !== undefined && output.CaseSensitivity !== null ? output.CaseSensitivity : undefined,
     DefaultStorageClass:
       output.DefaultStorageClass !== undefined && output.DefaultStorageClass !== null
         ? output.DefaultStorageClass
         : undefined,
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
     FileShareId: output.FileShareId !== undefined && output.FileShareId !== null ? output.FileShareId : undefined,
+    FileShareName:
+      output.FileShareName !== undefined && output.FileShareName !== null ? output.FileShareName : undefined,
     FileShareStatus:
       output.FileShareStatus !== undefined && output.FileShareStatus !== null ? output.FileShareStatus : undefined,
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
@@ -8308,6 +8738,16 @@ const deserializeAws_json1_1TapeRecoveryPointInfos = (
 
 const deserializeAws_json1_1Tapes = (output: any, context: __SerdeContext): Tape[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Tape(entry, context));
+};
+
+const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateAutomaticTapeCreationPolicyOutput => {
+  return {
+    __type: "UpdateAutomaticTapeCreationPolicyOutput",
+    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateBandwidthRateLimitOutput = (

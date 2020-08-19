@@ -1,4 +1,12 @@
 import {
+  AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+  AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
+} from "../commands/AcceptDomainTransferFromAnotherAwsAccountCommand";
+import {
+  CancelDomainTransferToAnotherAwsAccountCommandInput,
+  CancelDomainTransferToAnotherAwsAccountCommandOutput,
+} from "../commands/CancelDomainTransferToAnotherAwsAccountCommand";
+import {
   CheckDomainAvailabilityCommandInput,
   CheckDomainAvailabilityCommandOutput,
 } from "../commands/CheckDomainAvailabilityCommand";
@@ -40,6 +48,10 @@ import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/L
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "../commands/ListOperationsCommand";
 import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "../commands/ListTagsForDomainCommand";
 import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "../commands/RegisterDomainCommand";
+import {
+  RejectDomainTransferFromAnotherAwsAccountCommandInput,
+  RejectDomainTransferFromAnotherAwsAccountCommandOutput,
+} from "../commands/RejectDomainTransferFromAnotherAwsAccountCommand";
 import { RenewDomainCommandInput, RenewDomainCommandOutput } from "../commands/RenewDomainCommand";
 import {
   ResendContactReachabilityEmailCommandInput,
@@ -50,6 +62,10 @@ import {
   RetrieveDomainAuthCodeCommandOutput,
 } from "../commands/RetrieveDomainAuthCodeCommand";
 import { TransferDomainCommandInput, TransferDomainCommandOutput } from "../commands/TransferDomainCommand";
+import {
+  TransferDomainToAnotherAwsAccountCommandInput,
+  TransferDomainToAnotherAwsAccountCommandOutput,
+} from "../commands/TransferDomainToAnotherAwsAccountCommand";
 import {
   UpdateDomainContactCommandInput,
   UpdateDomainContactCommandOutput,
@@ -68,7 +84,11 @@ import {
 } from "../commands/UpdateTagsForDomainCommand";
 import { ViewBillingCommandInput, ViewBillingCommandOutput } from "../commands/ViewBillingCommand";
 import {
+  AcceptDomainTransferFromAnotherAwsAccountRequest,
+  AcceptDomainTransferFromAnotherAwsAccountResponse,
   BillingRecord,
+  CancelDomainTransferToAnotherAwsAccountRequest,
+  CancelDomainTransferToAnotherAwsAccountResponse,
   CheckDomainAvailabilityRequest,
   CheckDomainAvailabilityResponse,
   CheckDomainTransferabilityRequest,
@@ -110,6 +130,8 @@ import {
   OperationSummary,
   RegisterDomainRequest,
   RegisterDomainResponse,
+  RejectDomainTransferFromAnotherAwsAccountRequest,
+  RejectDomainTransferFromAnotherAwsAccountResponse,
   RenewDomainRequest,
   RenewDomainResponse,
   ResendContactReachabilityEmailRequest,
@@ -120,6 +142,8 @@ import {
   Tag,
   TransferDomainRequest,
   TransferDomainResponse,
+  TransferDomainToAnotherAwsAccountRequest,
+  TransferDomainToAnotherAwsAccountResponse,
   UnsupportedTLD,
   UpdateDomainContactPrivacyRequest,
   UpdateDomainContactPrivacyResponse,
@@ -141,6 +165,32 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+export const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand = async (
+  input: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.AcceptDomainTransferFromAnotherAwsAccount",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand = async (
+  input: CancelDomainTransferToAnotherAwsAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.CancelDomainTransferToAnotherAwsAccount",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1CheckDomainAvailabilityCommand = async (
   input: CheckDomainAvailabilityCommandInput,
@@ -337,6 +387,19 @@ export const serializeAws_json1_1RegisterDomainCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand = async (
+  input: RejectDomainTransferFromAnotherAwsAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RenewDomainCommand = async (
   input: RenewDomainCommandInput,
   context: __SerdeContext
@@ -386,6 +449,19 @@ export const serializeAws_json1_1TransferDomainCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TransferDomainRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TransferDomainToAnotherAwsAccountCommand = async (
+  input: TransferDomainToAnotherAwsAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.TransferDomainToAnotherAwsAccount",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TransferDomainToAnotherAwsAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -452,6 +528,142 @@ export const serializeAws_json1_1ViewBillingCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ViewBillingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountResponse(data, context);
+  const response: AcceptDomainTransferFromAnotherAwsAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AcceptDomainTransferFromAnotherAwsAccountResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DomainLimitExceeded":
+    case "com.amazonaws.route53domains#DomainLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountResponse(data, context);
+  const response: CancelDomainTransferToAnotherAwsAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CancelDomainTransferToAnotherAwsAccountResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CheckDomainAvailabilityCommand = async (
@@ -1502,6 +1714,70 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountResponse(data, context);
+  const response: RejectDomainTransferFromAnotherAwsAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RejectDomainTransferFromAnotherAwsAccountResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RenewDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1801,6 +2077,78 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
     case "com.amazonaws.route53domains#UnsupportedTLD":
       response = {
         ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TransferDomainToAnotherAwsAccountCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TransferDomainToAnotherAwsAccountResponse(data, context);
+  const response: TransferDomainToAnotherAwsAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TransferDomainToAnotherAwsAccountResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TransferDomainToAnotherAwsAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2304,6 +2652,25 @@ const deserializeAws_json1_1UnsupportedTLDResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountRequest = (
+  input: AcceptDomainTransferFromAnotherAwsAccountRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+  };
+};
+
+const serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountRequest = (
+  input: CancelDomainTransferToAnotherAwsAccountRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+  };
+};
+
 const serializeAws_json1_1CheckDomainAvailabilityRequest = (
   input: CheckDomainAvailabilityRequest,
   context: __SerdeContext
@@ -2505,6 +2872,15 @@ const serializeAws_json1_1RegisterDomainRequest = (input: RegisterDomainRequest,
   };
 };
 
+const serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountRequest = (
+  input: RejectDomainTransferFromAnotherAwsAccountRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+  };
+};
+
 const serializeAws_json1_1RenewDomainRequest = (input: RenewDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.CurrentExpiryYear !== undefined && { CurrentExpiryYear: input.CurrentExpiryYear }),
@@ -2577,6 +2953,16 @@ const serializeAws_json1_1TransferDomainRequest = (input: TransferDomainRequest,
   };
 };
 
+const serializeAws_json1_1TransferDomainToAnotherAwsAccountRequest = (
+  input: TransferDomainToAnotherAwsAccountRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+  };
+};
+
 const serializeAws_json1_1UpdateDomainContactPrivacyRequest = (
   input: UpdateDomainContactPrivacyRequest,
   context: __SerdeContext
@@ -2639,6 +3025,16 @@ const serializeAws_json1_1ViewBillingRequest = (input: ViewBillingRequest, conte
   };
 };
 
+const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountResponse = (
+  output: any,
+  context: __SerdeContext
+): AcceptDomainTransferFromAnotherAwsAccountResponse => {
+  return {
+    __type: "AcceptDomainTransferFromAnotherAwsAccountResponse",
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContext): BillingRecord => {
   return {
     __type: "BillingRecord",
@@ -2655,6 +3051,16 @@ const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1BillingRecords = (output: any, context: __SerdeContext): BillingRecord[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1BillingRecord(entry, context));
+};
+
+const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountResponse = (
+  output: any,
+  context: __SerdeContext
+): CancelDomainTransferToAnotherAwsAccountResponse => {
+  return {
+    __type: "CancelDomainTransferToAnotherAwsAccountResponse",
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1CheckDomainAvailabilityResponse = (
@@ -3016,6 +3422,16 @@ const deserializeAws_json1_1RegisterDomainResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountResponse = (
+  output: any,
+  context: __SerdeContext
+): RejectDomainTransferFromAnotherAwsAccountResponse => {
+  return {
+    __type: "RejectDomainTransferFromAnotherAwsAccountResponse",
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RenewDomainResponse = (output: any, context: __SerdeContext): RenewDomainResponse => {
   return {
     __type: "RenewDomainResponse",
@@ -3071,6 +3487,17 @@ const deserializeAws_json1_1TransferDomainResponse = (output: any, context: __Se
   return {
     __type: "TransferDomainResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TransferDomainToAnotherAwsAccountResponse = (
+  output: any,
+  context: __SerdeContext
+): TransferDomainToAnotherAwsAccountResponse => {
+  return {
+    __type: "TransferDomainToAnotherAwsAccountResponse",
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
   } as any;
 };
 

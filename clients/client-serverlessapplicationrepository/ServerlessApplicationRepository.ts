@@ -60,6 +60,11 @@ import {
   PutApplicationPolicyCommandOutput,
 } from "./commands/PutApplicationPolicyCommand";
 import {
+  UnshareApplicationCommand,
+  UnshareApplicationCommandInput,
+  UnshareApplicationCommandOutput,
+} from "./commands/UnshareApplicationCommand";
+import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
@@ -466,6 +471,38 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
     cb?: (err: any, data?: PutApplicationPolicyCommandOutput) => void
   ): Promise<PutApplicationPolicyCommandOutput> | void {
     const command = new PutApplicationPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>
+   */
+  public unshareApplication(
+    args: UnshareApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnshareApplicationCommandOutput>;
+  public unshareApplication(
+    args: UnshareApplicationCommandInput,
+    cb: (err: any, data?: UnshareApplicationCommandOutput) => void
+  ): void;
+  public unshareApplication(
+    args: UnshareApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnshareApplicationCommandOutput) => void
+  ): void;
+  public unshareApplication(
+    args: UnshareApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnshareApplicationCommandOutput) => void),
+    cb?: (err: any, data?: UnshareApplicationCommandOutput) => void
+  ): Promise<UnshareApplicationCommandOutput> | void {
+    const command = new UnshareApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

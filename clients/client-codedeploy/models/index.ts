@@ -66,12 +66,14 @@ export interface AlarmConfiguration {
    *             of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</p>
    *         <ul>
    *             <li>
-   *                 <p>true: The deployment proceeds even if alarm status information can't be
-   *                     retrieved from Amazon CloudWatch.</p>
+   *                 <p>
+   *                   <code>true</code>: The deployment proceeds even if alarm status information
+   *                     can't be retrieved from Amazon CloudWatch.</p>
    *             </li>
    *             <li>
-   *                 <p>false: The deployment stops if alarm status information can't be retrieved
-   *                     from Amazon CloudWatch.</p>
+   *                 <p>
+   *                   <code>false</code>: The deployment stops if alarm status information can't be
+   *                     retrieved from Amazon CloudWatch.</p>
    *             </li>
    *          </ul>
    */
@@ -149,6 +151,11 @@ export namespace ApplicationDoesNotExistException {
 export interface ApplicationInfo {
   __type?: "ApplicationInfo";
   /**
+   * <p>The name for a connection to a GitHub account.</p>
+   */
+  gitHubAccountName?: string;
+
+  /**
    * <p>The application ID.</p>
    */
   applicationId?: string;
@@ -157,6 +164,12 @@ export interface ApplicationInfo {
    * <p>The application name.</p>
    */
   applicationName?: string;
+
+  /**
+   * <p>True if the user has authenticated with GitHub for the specified application.
+   *             Otherwise, false.</p>
+   */
+  linkedToGitHub?: boolean;
 
   /**
    * <p>The destination platform type for deployment of the application (<code>Lambda</code>
@@ -168,17 +181,6 @@ export interface ApplicationInfo {
    * <p>The time at which the application was created.</p>
    */
   createTime?: Date;
-
-  /**
-   * <p>The name for a connection to a GitHub account.</p>
-   */
-  gitHubAccountName?: string;
-
-  /**
-   * <p>True if the user has authenticated with GitHub for the specified application.
-   *             Otherwise, false.</p>
-   */
-  linkedToGitHub?: boolean;
 }
 
 export namespace ApplicationInfo {
@@ -241,6 +243,11 @@ export enum ApplicationRevisionSortBy {
 export interface AppSpecContent {
   __type?: "AppSpecContent";
   /**
+   * <p> The SHA256 hash value of the revision content. </p>
+   */
+  sha256?: string;
+
+  /**
    * <p> The YAML-formatted or JSON-formatted revision string. </p>
    *         <p> For an AWS Lambda deployment, the content includes a Lambda function name, the alias
    *             for its original version, and the alias for its replacement version. The deployment
@@ -252,11 +259,6 @@ export interface AppSpecContent {
    *             specified hooks, such as <code>BeforeInstall</code>, during a deployment. </p>
    */
   content?: string;
-
-  /**
-   * <p> The SHA256 hash value of the revision content. </p>
-   */
-  sha256?: string;
 }
 
 export namespace AppSpecContent {
@@ -324,14 +326,14 @@ export enum AutoRollbackEvent {
 export interface AutoScalingGroup {
   __type?: "AutoScalingGroup";
   /**
-   * <p>An Auto Scaling lifecycle event hook name.</p>
-   */
-  hook?: string;
-
-  /**
    * <p>The Auto Scaling group name.</p>
    */
   name?: string;
+
+  /**
+   * <p>An Auto Scaling lifecycle event hook name.</p>
+   */
+  hook?: string;
 }
 
 export namespace AutoScalingGroup {
@@ -342,7 +344,7 @@ export namespace AutoScalingGroup {
 }
 
 /**
- * <p>Represents the input of a BatchGetApplicationRevisions operation.</p>
+ * <p>Represents the input of a <code>BatchGetApplicationRevisions</code> operation.</p>
  */
 export interface BatchGetApplicationRevisionsInput {
   __type?: "BatchGetApplicationRevisionsInput";
@@ -367,10 +369,15 @@ export namespace BatchGetApplicationRevisionsInput {
 }
 
 /**
- * <p>Represents the output of a BatchGetApplicationRevisions operation.</p>
+ * <p>Represents the output of a <code>BatchGetApplicationRevisions</code> operation.</p>
  */
 export interface BatchGetApplicationRevisionsOutput {
   __type?: "BatchGetApplicationRevisionsOutput";
+  /**
+   * <p>Additional information about the revisions, including the type and location.</p>
+   */
+  revisions?: RevisionInfo[];
+
   /**
    * <p>The name of the application that corresponds to the revisions.</p>
    */
@@ -380,11 +387,6 @@ export interface BatchGetApplicationRevisionsOutput {
    * <p>Information about errors that might have occurred during the API call.</p>
    */
   errorMessage?: string;
-
-  /**
-   * <p>Additional information about the revisions, including the type and location.</p>
-   */
-  revisions?: RevisionInfo[];
 }
 
 export namespace BatchGetApplicationRevisionsOutput {
@@ -396,12 +398,12 @@ export namespace BatchGetApplicationRevisionsOutput {
 }
 
 /**
- * <p>Represents the input of a BatchGetApplications operation.</p>
+ * <p>Represents the input of a <code>BatchGetApplications</code> operation.</p>
  */
 export interface BatchGetApplicationsInput {
   __type?: "BatchGetApplicationsInput";
   /**
-   * <p>A list of application names separated by spaces. The maximum number of application names you can specify is 25.</p>
+   * <p>A list of application names separated by spaces. The maximum number of application names you can specify is 100.</p>
    */
   applicationNames: string[] | undefined;
 }
@@ -414,7 +416,7 @@ export namespace BatchGetApplicationsInput {
 }
 
 /**
- * <p>Represents the output of a BatchGetApplications operation.</p>
+ * <p>Represents the output of a <code>BatchGetApplications</code> operation.</p>
  */
 export interface BatchGetApplicationsOutput {
   __type?: "BatchGetApplicationsOutput";
@@ -432,7 +434,7 @@ export namespace BatchGetApplicationsOutput {
 }
 
 /**
- * <p>Represents the input of a BatchGetDeploymentGroups operation.</p>
+ * <p>Represents the input of a <code>BatchGetDeploymentGroups</code> operation.</p>
  */
 export interface BatchGetDeploymentGroupsInput {
   __type?: "BatchGetDeploymentGroupsInput";
@@ -456,19 +458,19 @@ export namespace BatchGetDeploymentGroupsInput {
 }
 
 /**
- * <p>Represents the output of a BatchGetDeploymentGroups operation.</p>
+ * <p>Represents the output of a <code>BatchGetDeploymentGroups</code> operation.</p>
  */
 export interface BatchGetDeploymentGroupsOutput {
   __type?: "BatchGetDeploymentGroupsOutput";
   /**
-   * <p>Information about the deployment groups.</p>
-   */
-  deploymentGroupsInfo?: DeploymentGroupInfo[];
-
-  /**
    * <p>Information about errors that might have occurred during the API call.</p>
    */
   errorMessage?: string;
+
+  /**
+   * <p>Information about the deployment groups.</p>
+   */
+  deploymentGroupsInfo?: DeploymentGroupInfo[];
 }
 
 export namespace BatchGetDeploymentGroupsOutput {
@@ -479,19 +481,19 @@ export namespace BatchGetDeploymentGroupsOutput {
 }
 
 /**
- * <p> Represents the input of a BatchGetDeploymentInstances operation. </p>
+ * <p> Represents the input of a <code>BatchGetDeploymentInstances</code> operation. </p>
  */
 export interface BatchGetDeploymentInstancesInput {
   __type?: "BatchGetDeploymentInstancesInput";
   /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId: string | undefined;
-
-  /**
    * <p>The unique IDs of instances used in the deployment. The maximum number of instance IDs you can specify is 25.</p>
    */
   instanceIds: string[] | undefined;
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId: string | undefined;
 }
 
 export namespace BatchGetDeploymentInstancesInput {
@@ -502,7 +504,7 @@ export namespace BatchGetDeploymentInstancesInput {
 }
 
 /**
- * <p>Represents the output of a BatchGetDeploymentInstances operation.</p>
+ * <p>Represents the output of a <code>BatchGetDeploymentInstances</code> operation.</p>
  */
 export interface BatchGetDeploymentInstancesOutput {
   __type?: "BatchGetDeploymentInstancesOutput";
@@ -525,7 +527,7 @@ export namespace BatchGetDeploymentInstancesOutput {
 }
 
 /**
- * <p> Represents the input of a BatchGetDeployments operation. </p>
+ * <p> Represents the input of a <code>BatchGetDeployments</code> operation. </p>
  */
 export interface BatchGetDeploymentsInput {
   __type?: "BatchGetDeploymentsInput";
@@ -543,7 +545,7 @@ export namespace BatchGetDeploymentsInput {
 }
 
 /**
- * <p> Represents the output of a BatchGetDeployments operation. </p>
+ * <p> Represents the output of a <code>BatchGetDeployments</code> operation. </p>
  */
 export interface BatchGetDeploymentsOutput {
   __type?: "BatchGetDeploymentsOutput";
@@ -562,11 +564,6 @@ export namespace BatchGetDeploymentsOutput {
 
 export interface BatchGetDeploymentTargetsInput {
   __type?: "BatchGetDeploymentTargetsInput";
-  /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId?: string;
-
   /**
    * <p> The unique IDs of the deployment targets. The compute platform of the deployment
    *             determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.</p>
@@ -587,9 +584,19 @@ export interface BatchGetDeploymentTargetsInput {
    *                     <code><clustername>:<servicename></code>. Their target type is
    *                     <code>ecsTarget</code>. </p>
    *             </li>
+   *             <li>
+   *                 <p> For deployments that are deployed with AWS CloudFormation, the target IDs are
+   *                     CloudFormation stack IDs. Their target type is
+   *                     <code>cloudFormationTarget</code>. </p>
+   *             </li>
    *          </ul>
    */
   targetIds?: string[];
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId?: string;
 }
 
 export namespace BatchGetDeploymentTargetsInput {
@@ -621,6 +628,11 @@ export interface BatchGetDeploymentTargetsOutput {
    *                     <b>Amazon ECS</b>: The target object is an Amazon ECS
    *                     service. </p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                     <b>CloudFormation</b>: The target object is an AWS
+   *                     CloudFormation blue/green deployment. </p>
+   *             </li>
    *          </ul>
    */
   deploymentTargets?: DeploymentTarget[];
@@ -634,7 +646,7 @@ export namespace BatchGetDeploymentTargetsOutput {
 }
 
 /**
- * <p>Represents the input of a BatchGetOnPremisesInstances operation.</p>
+ * <p>Represents the input of a <code>BatchGetOnPremisesInstances</code> operation.</p>
  */
 export interface BatchGetOnPremisesInstancesInput {
   __type?: "BatchGetOnPremisesInstancesInput";
@@ -652,7 +664,7 @@ export namespace BatchGetOnPremisesInstancesInput {
 }
 
 /**
- * <p>Represents the output of a BatchGetOnPremisesInstances operation.</p>
+ * <p>Represents the output of a <code>BatchGetOnPremisesInstances</code> operation.</p>
  */
 export interface BatchGetOnPremisesInstancesOutput {
   __type?: "BatchGetOnPremisesInstancesOutput";
@@ -694,16 +706,16 @@ export namespace BatchLimitExceededException {
 export interface BlueGreenDeploymentConfiguration {
   __type?: "BlueGreenDeploymentConfiguration";
   /**
-   * <p>Information about the action to take when newly provisioned instances are ready to
-   *             receive traffic in a blue/green deployment.</p>
-   */
-  deploymentReadyOption?: DeploymentReadyOption;
-
-  /**
    * <p>Information about how instances are provisioned for a replacement environment in a
    *             blue/green deployment.</p>
    */
   greenFleetProvisioningOption?: GreenFleetProvisioningOption;
+
+  /**
+   * <p>Information about the action to take when newly provisioned instances are ready to
+   *             receive traffic in a blue/green deployment.</p>
+   */
+  deploymentReadyOption?: DeploymentReadyOption;
 
   /**
    * <p>Information about whether to terminate instances in the original fleet during a
@@ -732,11 +744,15 @@ export interface BlueInstanceTerminationOption {
    *             blue/green deployment.</p>
    *         <ul>
    *             <li>
-   *                 <p>TERMINATE: Instances are terminated after a specified wait time.</p>
+   *                 <p>
+   *                   <code>TERMINATE</code>: Instances are terminated after a specified wait
+   *                     time.</p>
    *             </li>
    *             <li>
-   *                 <p>KEEP_ALIVE: Instances are left running after they are deregistered from the
-   *                     load balancer and removed from the deployment group.</p>
+   *                 <p>
+   *                   <code>KEEP_ALIVE</code>: Instances are left running after they are
+   *                     deregistered from the load balancer and removed from the deployment
+   *                     group.</p>
    *             </li>
    *          </ul>
    */
@@ -792,6 +808,60 @@ export enum BundleType {
   Zip = "zip",
 }
 
+/**
+ * <p> Information about the target to be updated by an AWS CloudFormation blue/green
+ *             deployment. This target type is used for all deployments initiated by a CloudFormation
+ *             stack update.</p>
+ */
+export interface CloudFormationTarget {
+  __type?: "CloudFormationTarget";
+  /**
+   * <p>The percentage of production traffic that the target version of an AWS CloudFormation
+   *             blue/green deployment receives.</p>
+   */
+  targetVersionWeight?: number;
+
+  /**
+   * <p>The unique ID of an AWS CloudFormation blue/green deployment.</p>
+   */
+  deploymentId?: string;
+
+  /**
+   * <p> The date and time when the target application was updated by an AWS CloudFormation
+   *             blue/green deployment. </p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p> The lifecycle events of the AWS CloudFormation blue/green deployment to this target
+   *             application. </p>
+   */
+  lifecycleEvents?: LifecycleEvent[];
+
+  /**
+   * <p> The unique ID of a deployment target that has a type
+   *                 of <code>CloudFormationTarget</code>. </p>
+   */
+  targetId?: string;
+
+  /**
+   * <p> The status of an AWS CloudFormation blue/green deployment's target application. </p>
+   */
+  status?: TargetStatus | string;
+
+  /**
+   * <p>The resource type for the AWS CloudFormation blue/green deployment.</p>
+   */
+  resourceType?: string;
+}
+
+export namespace CloudFormationTarget {
+  export const filterSensitiveLog = (obj: CloudFormationTarget): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CloudFormationTarget => __isa(o, "CloudFormationTarget");
+}
+
 export enum ComputePlatform {
   ECS = "ECS",
   LAMBDA = "Lambda",
@@ -807,9 +877,9 @@ export interface ContinueDeploymentInput {
   deploymentId?: string;
 
   /**
-   * <p> The status of the deployment's waiting period. READY_WAIT indicates the deployment is
-   *             ready to start shifting traffic. TERMINATION_WAIT indicates the traffic is shifted, but
-   *             the original target is not terminated. </p>
+   * <p> The status of the deployment's waiting period. <code>READY_WAIT</code> indicates that
+   *             the deployment is ready to start shifting traffic. <code>TERMINATION_WAIT</code>
+   *             indicates that the traffic is shifted, but the original target is not terminated. </p>
    */
   deploymentWaitType?: DeploymentWaitType | string;
 }
@@ -822,16 +892,10 @@ export namespace ContinueDeploymentInput {
 }
 
 /**
- * <p>Represents the input of a CreateApplication operation.</p>
+ * <p>Represents the input of a <code>CreateApplication</code> operation.</p>
  */
 export interface CreateApplicationInput {
   __type?: "CreateApplicationInput";
-  /**
-   * <p>The name of the application. This name must be unique with the applicable IAM user or
-   *             AWS account.</p>
-   */
-  applicationName: string | undefined;
-
   /**
    * <p> The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
@@ -845,6 +909,12 @@ export interface CreateApplicationInput {
    *         </p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The name of the application. This name must be unique with the applicable IAM user or
+   *             AWS account.</p>
+   */
+  applicationName: string | undefined;
 }
 
 export namespace CreateApplicationInput {
@@ -855,7 +925,7 @@ export namespace CreateApplicationInput {
 }
 
 /**
- * <p>Represents the output of a CreateApplication operation.</p>
+ * <p>Represents the output of a <code>CreateApplication</code> operation.</p>
  */
 export interface CreateApplicationOutput {
   __type?: "CreateApplicationOutput";
@@ -873,19 +943,24 @@ export namespace CreateApplicationOutput {
 }
 
 /**
- * <p>Represents the input of a CreateDeploymentConfig operation.</p>
+ * <p>Represents the input of a <code>CreateDeploymentConfig</code> operation.</p>
  */
 export interface CreateDeploymentConfigInput {
   __type?: "CreateDeploymentConfigInput";
+  /**
+   * <p>The name of the deployment configuration to create.</p>
+   */
+  deploymentConfigName: string | undefined;
+
   /**
    * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
    */
   computePlatform?: ComputePlatform | string;
 
   /**
-   * <p>The name of the deployment configuration to create.</p>
+   * <p>The configuration that specifies how the deployment traffic is routed.</p>
    */
-  deploymentConfigName: string | undefined;
+  trafficRoutingConfig?: TrafficRoutingConfig;
 
   /**
    * <p>The minimum number of healthy instances that should be available at any time during
@@ -900,7 +975,7 @@ export interface CreateDeploymentConfigInput {
    *                 <p>FLEET_PERCENT: The value parameter represents the minimum number of healthy
    *                     instances as a percentage of the total number of instances in the deployment. If
    *                     you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy
-   *                     converts the percentage to the equivalent number of instance and rounds up
+   *                     converts the percentage to the equivalent number of instances and rounds up
    *                     fractional instances.</p>
    *             </li>
    *          </ul>
@@ -909,11 +984,6 @@ export interface CreateDeploymentConfigInput {
    *             and a value of 95.</p>
    */
   minimumHealthyHosts?: MinimumHealthyHosts;
-
-  /**
-   * <p>The configuration that specifies how the deployment traffic is routed.</p>
-   */
-  trafficRoutingConfig?: TrafficRoutingConfig;
 }
 
 export namespace CreateDeploymentConfigInput {
@@ -924,7 +994,7 @@ export namespace CreateDeploymentConfigInput {
 }
 
 /**
- * <p>Represents the output of a CreateDeploymentConfig operation.</p>
+ * <p>Represents the output of a <code>CreateDeploymentConfig</code> operation.</p>
  */
 export interface CreateDeploymentConfigOutput {
   __type?: "CreateDeploymentConfigOutput";
@@ -942,15 +1012,21 @@ export namespace CreateDeploymentConfigOutput {
 }
 
 /**
- * <p>Represents the input of a CreateDeploymentGroup operation.</p>
+ * <p>Represents the input of a <code>CreateDeploymentGroup</code> operation.</p>
  */
 export interface CreateDeploymentGroupInput {
   __type?: "CreateDeploymentGroupInput";
   /**
-   * <p>Information to add about Amazon CloudWatch alarms when the deployment group is
-   *             created.</p>
+   * <p>Information about blue/green deployment options for a deployment group.</p>
    */
-  alarmConfiguration?: AlarmConfiguration;
+  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+
+  /**
+   * <p>Information about groups of tags applied to EC2 instances. The deployment group
+   *             includes only EC2 instances identified by all the tag groups. Cannot be used in the same
+   *             call as <code>ec2TagFilters</code>.</p>
+   */
+  ec2TagSet?: EC2TagSet;
 
   /**
    * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
@@ -959,89 +1035,22 @@ export interface CreateDeploymentGroupInput {
   applicationName: string | undefined;
 
   /**
+   * <p>The on-premises instance tags on which to filter. The deployment group includes
+   *             on-premises instances with any of the specified tags. Cannot be used in the same call as
+   *                 <code>OnPremisesTagSet</code>.</p>
+   */
+  onPremisesInstanceTagFilters?: TagFilter[];
+
+  /**
    * <p>Configuration information for an automatic rollback that is added when a deployment
    *             group is created.</p>
    */
   autoRollbackConfiguration?: AutoRollbackConfiguration;
 
   /**
-   * <p>A list of associated Amazon EC2 Auto Scaling groups.</p>
-   */
-  autoScalingGroups?: string[];
-
-  /**
-   * <p>Information about blue/green deployment options for a deployment group.</p>
-   */
-  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
-
-  /**
-   * <p>If specified, the deployment configuration name can be either one of the predefined
-   *             configurations provided with AWS CodeDeploy or a custom deployment configuration that
-   *             you create by calling the create deployment configuration operation.</p>
-   *         <p>CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if a
-   *             configuration isn't specified for the deployment or deployment group.</p>
-   *         <p>For more information about the predefined deployment configurations in AWS CodeDeploy,
-   *             see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working with
-   *                 Deployment Groups in AWS CodeDeploy</a> in the AWS CodeDeploy User Guide.</p>
-   */
-  deploymentConfigName?: string;
-
-  /**
-   * <p>The name of a new deployment group for the specified application.</p>
-   */
-  deploymentGroupName: string | undefined;
-
-  /**
-   * <p>Information about the type of deployment, in-place or blue/green, that you want to run
-   *             and whether to route deployment traffic behind a load balancer.</p>
-   */
-  deploymentStyle?: DeploymentStyle;
-
-  /**
-   * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances
-   *             with any of the specified tags. Cannot be used in the same call as ec2TagSet.</p>
-   */
-  ec2TagFilters?: EC2TagFilter[];
-
-  /**
-   * <p>Information about groups of tags applied to EC2 instances. The deployment group
-   *             includes only EC2 instances identified by all the tag groups. Cannot be used in the same
-   *             call as ec2TagFilters.</p>
-   */
-  ec2TagSet?: EC2TagSet;
-
-  /**
-   * <p> The target Amazon ECS services in the deployment group. This applies only to
-   *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service
-   *             is specified as an Amazon ECS cluster and service name pair using the format
-   *             <code><clustername>:<servicename></code>. </p>
-   */
-  ecsServices?: ECSService[];
-
-  /**
    * <p>Information about the load balancer used in a deployment.</p>
    */
   loadBalancerInfo?: LoadBalancerInfo;
-
-  /**
-   * <p>The on-premises instance tags on which to filter. The deployment group includes
-   *             on-premises instances with any of the specified tags. Cannot be used in the same call as
-   *             OnPremisesTagSet.</p>
-   */
-  onPremisesInstanceTagFilters?: TagFilter[];
-
-  /**
-   * <p>Information about groups of tags applied to on-premises instances. The deployment
-   *             group includes only on-premises instances identified by all of the tag groups. Cannot be
-   *             used in the same call as onPremisesInstanceTagFilters.</p>
-   */
-  onPremisesTagSet?: OnPremisesTagSet;
-
-  /**
-   * <p>A service role ARN that allows AWS CodeDeploy to act on the user's behalf when
-   *             interacting with AWS services.</p>
-   */
-  serviceRoleArn: string | undefined;
 
   /**
    * <p>
@@ -1054,9 +1063,74 @@ export interface CreateDeploymentGroupInput {
   /**
    * <p>Information about triggers to create when the deployment group is created. For
    *             examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html">Create a Trigger for an
-   *                 AWS CodeDeploy Event</a> in the AWS CodeDeploy User Guide.</p>
+   *                 AWS CodeDeploy Event</a> in the <i>AWS CodeDeploy User
+   *             Guide</i>.</p>
    */
   triggerConfigurations?: TriggerConfig[];
+
+  /**
+   * <p>A list of associated Amazon EC2 Auto Scaling groups.</p>
+   */
+  autoScalingGroups?: string[];
+
+  /**
+   * <p> The target Amazon ECS services in the deployment group. This applies only to
+   *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service
+   *             is specified as an Amazon ECS cluster and service name pair using the format
+   *             <code><clustername>:<servicename></code>. </p>
+   */
+  ecsServices?: ECSService[];
+
+  /**
+   * <p>A service role Amazon Resource Name (ARN) that allows AWS CodeDeploy to act on the
+   *             user's behalf when interacting with AWS services.</p>
+   */
+  serviceRoleArn: string | undefined;
+
+  /**
+   * <p>Information to add about Amazon CloudWatch alarms when the deployment group is
+   *             created.</p>
+   */
+  alarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances
+   *             with any of the specified tags. Cannot be used in the same call as ec2TagSet.</p>
+   */
+  ec2TagFilters?: EC2TagFilter[];
+
+  /**
+   * <p>Information about groups of tags applied to on-premises instances. The deployment
+   *             group includes only on-premises instances identified by all of the tag groups. Cannot be
+   *             used in the same call as <code>onPremisesInstanceTagFilters</code>.</p>
+   */
+  onPremisesTagSet?: OnPremisesTagSet;
+
+  /**
+   * <p>Information about the type of deployment, in-place or blue/green, that you want to run
+   *             and whether to route deployment traffic behind a load balancer.</p>
+   */
+  deploymentStyle?: DeploymentStyle;
+
+  /**
+   * <p>If specified, the deployment configuration name can be either one of the predefined
+   *             configurations provided with AWS CodeDeploy or a custom deployment configuration that
+   *             you create by calling the create deployment configuration operation.</p>
+   *         <p>
+   *             <code>CodeDeployDefault.OneAtATime</code> is the default deployment configuration. It
+   *             is used if a configuration isn't specified for the deployment or deployment
+   *             group.</p>
+   *         <p>For more information about the predefined deployment configurations in AWS CodeDeploy,
+   *             see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working with
+   *                 Deployment Configurations in CodeDeploy</a> in the <i>AWS CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  deploymentConfigName?: string;
+
+  /**
+   * <p>The name of a new deployment group for the specified application.</p>
+   */
+  deploymentGroupName: string | undefined;
 }
 
 export namespace CreateDeploymentGroupInput {
@@ -1067,7 +1141,7 @@ export namespace CreateDeploymentGroupInput {
 }
 
 /**
- * <p>Represents the output of a CreateDeploymentGroup operation.</p>
+ * <p>Represents the output of a <code>CreateDeploymentGroup</code> operation.</p>
  */
 export interface CreateDeploymentGroupOutput {
   __type?: "CreateDeploymentGroupOutput";
@@ -1085,45 +1159,24 @@ export namespace CreateDeploymentGroupOutput {
 }
 
 /**
- * <p>Represents the input of a CreateDeployment operation.</p>
+ * <p>Represents the input of a <code>CreateDeployment</code> operation.</p>
  */
 export interface CreateDeploymentInput {
   __type?: "CreateDeploymentInput";
-  /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
-   */
-  applicationName: string | undefined;
-
-  /**
-   * <p>Configuration information for an automatic rollback that is added when a deployment is
-   *             created.</p>
-   */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
-
   /**
    * <p>The name of a deployment configuration associated with the IAM user or AWS
    *             account.</p>
    *         <p>If not specified, the value configured in the deployment group is used as the default.
    *             If the deployment group does not have a deployment configuration associated with it,
-   *             CodeDeployDefault.OneAtATime is used by default.</p>
+   *                 <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</p>
    */
   deploymentConfigName?: string;
 
   /**
-   * <p>The name of the deployment group.</p>
-   */
-  deploymentGroupName?: string;
-
-  /**
-   * <p>A comment about the deployment.</p>
-   */
-  description?: string;
-
-  /**
    * <p>Information about how AWS CodeDeploy handles files that already exist in a deployment
    *             target location but weren't part of the previous successful deployment.</p>
-   *         <p>The fileExistsBehavior parameter takes any of the following values:</p>
+   *         <p>The <code>fileExistsBehavior</code> parameter takes any of the following
+   *             values:</p>
    *         <ul>
    *             <li>
    *                 <p>DISALLOW: The deployment fails. This is also the default behavior if no option
@@ -1142,33 +1195,26 @@ export interface CreateDeploymentInput {
   fileExistsBehavior?: FileExistsBehavior | string;
 
   /**
-   * <p>
-   *             If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to
-   *             an instance fails, then the deployment continues to the next deployment lifecycle event.
-   *             For example, if ApplicationStop fails, the deployment continues with DownloadBundle. If BeforeBlockTraffic fails,
-   *             the deployment continues with BlockTraffic. If AfterBlockTraffic fails, the deployment continues with ApplicationStop.
-   *         </p>
-   *
-   *         <p>
-   *             If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails.
-   *             If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts,
-   *             then a deployment to the next instance is attempted.
-   *         </p>
-   *
-   *         <p>
-   *             During a deployment, the AWS CodeDeploy agent runs the scripts specified for ApplicationStop,
-   *             BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful deployment.
-   *             (All other scripts are run from the AppSpec file in the current deployment.) If one of these scripts
-   *             contains an error and does not run successfully, the deployment can fail.
-   *         </p>
-   *
-   *         <p>
-   *             If the cause of the failure is a script from the last successful deployment that will never run successfully,
-   *             create a new deployment and use <code>ignoreApplicationStopFailures</code> to specify that the ApplicationStop,
-   *             BeforeBlockTraffic, and AfterBlockTraffic failures should be ignored.
-   *         </p>
+   * <p>The name of the deployment group.</p>
    */
-  ignoreApplicationStopFailures?: boolean;
+  deploymentGroupName?: string;
+
+  /**
+   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+   *             account.</p>
+   */
+  applicationName: string | undefined;
+
+  /**
+   * <p>A comment about the deployment.</p>
+   */
+  description?: string;
+
+  /**
+   * <p> Information about the instances that belong to the replacement environment in a
+   *             blue/green deployment. </p>
+   */
+  targetInstances?: TargetInstances;
 
   /**
    * <p> The type and location of the revision to deploy. </p>
@@ -1176,10 +1222,40 @@ export interface CreateDeploymentInput {
   revision?: RevisionLocation;
 
   /**
-   * <p> Information about the instances that belong to the replacement environment in a
-   *             blue/green deployment. </p>
+   * <p>Configuration information for an automatic rollback that is added when a deployment is
+   *             created.</p>
    */
-  targetInstances?: TargetInstances;
+  autoRollbackConfiguration?: AutoRollbackConfiguration;
+
+  /**
+   * <p> If true, then if an <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, or
+   *                 <code>AfterBlockTraffic</code> deployment lifecycle event to an instance fails, then
+   *             the deployment continues to the next deployment lifecycle event. For example, if
+   *                 <code>ApplicationStop</code> fails, the deployment continues with
+   *                 <code>DownloadBundle</code>. If <code>BeforeBlockTraffic</code> fails, the
+   *             deployment continues with <code>BlockTraffic</code>. If <code>AfterBlockTraffic</code>
+   *             fails, the deployment continues with <code>ApplicationStop</code>. </p>
+   *
+   *         <p>
+   *             If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails.
+   *             If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts,
+   *             then a deployment to the next instance is attempted.
+   *         </p>
+   *
+   *         <p> During a deployment, the AWS CodeDeploy agent runs the scripts specified for
+   *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
+   *                 <code>AfterBlockTraffic</code> in the AppSpec file from the previous successful
+   *             deployment. (All other scripts are run from the AppSpec file in the current deployment.)
+   *             If one of these scripts contains an error and does not run successfully, the deployment
+   *             can fail. </p>
+   *
+   *         <p> If the cause of the failure is a script from the last successful deployment that will
+   *             never run successfully, create a new deployment and use
+   *                 <code>ignoreApplicationStopFailures</code> to specify that the
+   *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
+   *                 <code>AfterBlockTraffic</code> failures should be ignored. </p>
+   */
+  ignoreApplicationStopFailures?: boolean;
 
   /**
    * <p> Indicates whether to deploy to all instances or only to instances that are not
@@ -1196,7 +1272,7 @@ export namespace CreateDeploymentInput {
 }
 
 /**
- * <p> Represents the output of a CreateDeployment operation. </p>
+ * <p> Represents the output of a <code>CreateDeployment</code> operation. </p>
  */
 export interface CreateDeploymentOutput {
   __type?: "CreateDeploymentOutput";
@@ -1214,7 +1290,7 @@ export namespace CreateDeploymentOutput {
 }
 
 /**
- * <p>Represents the input of a DeleteApplication operation.</p>
+ * <p>Represents the input of a <code>DeleteApplication</code> operation.</p>
  */
 export interface DeleteApplicationInput {
   __type?: "DeleteApplicationInput";
@@ -1233,7 +1309,7 @@ export namespace DeleteApplicationInput {
 }
 
 /**
- * <p>Represents the input of a DeleteDeploymentConfig operation.</p>
+ * <p>Represents the input of a <code>DeleteDeploymentConfig</code> operation.</p>
  */
 export interface DeleteDeploymentConfigInput {
   __type?: "DeleteDeploymentConfigInput";
@@ -1252,7 +1328,7 @@ export namespace DeleteDeploymentConfigInput {
 }
 
 /**
- * <p>Represents the input of a DeleteDeploymentGroup operation.</p>
+ * <p>Represents the input of a <code>DeleteDeploymentGroup</code> operation.</p>
  */
 export interface DeleteDeploymentGroupInput {
   __type?: "DeleteDeploymentGroupInput";
@@ -1276,7 +1352,7 @@ export namespace DeleteDeploymentGroupInput {
 }
 
 /**
- * <p>Represents the output of a DeleteDeploymentGroup operation.</p>
+ * <p>Represents the output of a <code>DeleteDeploymentGroup</code> operation.</p>
  */
 export interface DeleteDeploymentGroupOutput {
   __type?: "DeleteDeploymentGroupOutput";
@@ -1298,7 +1374,7 @@ export namespace DeleteDeploymentGroupOutput {
 }
 
 /**
- * <p>Represents the input of a DeleteGitHubAccount operation.</p>
+ * <p>Represents the input of a <code>DeleteGitHubAccount</code> operation.</p>
  */
 export interface DeleteGitHubAccountTokenInput {
   __type?: "DeleteGitHubAccountTokenInput";
@@ -1316,7 +1392,7 @@ export namespace DeleteGitHubAccountTokenInput {
 }
 
 /**
- * <p>Represents the output of a DeleteGitHubAccountToken operation.</p>
+ * <p>Represents the output of a <code>DeleteGitHubAccountToken</code> operation.</p>
  */
 export interface DeleteGitHubAccountTokenOutput {
   __type?: "DeleteGitHubAccountTokenOutput";
@@ -1331,6 +1407,33 @@ export namespace DeleteGitHubAccountTokenOutput {
     ...obj,
   });
   export const isa = (o: any): o is DeleteGitHubAccountTokenOutput => __isa(o, "DeleteGitHubAccountTokenOutput");
+}
+
+export interface DeleteResourcesByExternalIdInput {
+  __type?: "DeleteResourcesByExternalIdInput";
+  /**
+   * <p>The unique ID of an external resource (for example, a CloudFormation stack ID) that is
+   *             linked to one or more CodeDeploy resources.</p>
+   */
+  externalId?: string;
+}
+
+export namespace DeleteResourcesByExternalIdInput {
+  export const filterSensitiveLog = (obj: DeleteResourcesByExternalIdInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteResourcesByExternalIdInput => __isa(o, "DeleteResourcesByExternalIdInput");
+}
+
+export interface DeleteResourcesByExternalIdOutput {
+  __type?: "DeleteResourcesByExternalIdOutput";
+}
+
+export namespace DeleteResourcesByExternalIdOutput {
+  export const filterSensitiveLog = (obj: DeleteResourcesByExternalIdOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteResourcesByExternalIdOutput => __isa(o, "DeleteResourcesByExternalIdOutput");
 }
 
 /**
@@ -1354,8 +1457,8 @@ export namespace DeploymentAlreadyCompletedException {
 }
 
 /**
- * <p>A deployment configuration with the specified name with the  IAM user or AWS account
- *             already exists .</p>
+ * <p>A deployment configuration with the specified name with the IAM user or AWS account
+ *             already exists.</p>
  */
 export interface DeploymentConfigAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "DeploymentConfigAlreadyExistsException";
@@ -1400,16 +1503,6 @@ export namespace DeploymentConfigDoesNotExistException {
 export interface DeploymentConfigInfo {
   __type?: "DeploymentConfigInfo";
   /**
-   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
-   */
-  computePlatform?: ComputePlatform | string;
-
-  /**
-   * <p>The time at which the deployment configuration was created.</p>
-   */
-  createTime?: Date;
-
-  /**
    * <p>The deployment configuration ID.</p>
    */
   deploymentConfigId?: string;
@@ -1420,15 +1513,25 @@ export interface DeploymentConfigInfo {
   deploymentConfigName?: string;
 
   /**
+   * <p>The configuration that specifies how the deployment traffic is routed. Used for
+   *         deployments with a Lambda or ECS compute platform only.</p>
+   */
+  trafficRoutingConfig?: TrafficRoutingConfig;
+
+  /**
    * <p>Information about the number or percentage of minimum healthy instance.</p>
    */
   minimumHealthyHosts?: MinimumHealthyHosts;
 
   /**
-   * <p>The configuration that specifies how the deployment traffic is routed. Only
-   *             deployments with a Lambda compute platform can specify this.</p>
+   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
    */
-  trafficRoutingConfig?: TrafficRoutingConfig;
+  computePlatform?: ComputePlatform | string;
+
+  /**
+   * <p>The time at which the deployment configuration was created.</p>
+   */
+  createTime?: Date;
 }
 
 export namespace DeploymentConfigInfo {
@@ -1499,6 +1602,9 @@ export namespace DeploymentConfigNameRequiredException {
 
 export enum DeploymentCreator {
   Autoscaling = "autoscaling",
+  CloudFormation = "CloudFormation",
+  CloudFormationRollback = "CloudFormationRollback",
+  CodeDeploy = "CodeDeploy",
   CodeDeployRollback = "codeDeployRollback",
   User = "user",
 }
@@ -1569,62 +1675,10 @@ export namespace DeploymentGroupDoesNotExistException {
 export interface DeploymentGroupInfo {
   __type?: "DeploymentGroupInfo";
   /**
-   * <p>A list of alarms associated with the deployment group.</p>
-   */
-  alarmConfiguration?: AlarmConfiguration;
-
-  /**
-   * <p>The application name.</p>
-   */
-  applicationName?: string;
-
-  /**
-   * <p>Information about the automatic rollback configuration associated with the deployment
-   *             group.</p>
-   */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
-
-  /**
-   * <p>A list of associated Auto Scaling groups.</p>
-   */
-  autoScalingGroups?: AutoScalingGroup[];
-
-  /**
-   * <p>Information about blue/green deployment options for a deployment group.</p>
-   */
-  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
-
-  /**
-   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
-   */
-  computePlatform?: ComputePlatform | string;
-
-  /**
-   * <p>The deployment configuration name.</p>
-   */
-  deploymentConfigName?: string;
-
-  /**
-   * <p>The deployment group ID.</p>
-   */
-  deploymentGroupId?: string;
-
-  /**
-   * <p>The deployment group name.</p>
-   */
-  deploymentGroupName?: string;
-
-  /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to
    *             run and whether to route deployment traffic behind a load balancer.</p>
    */
   deploymentStyle?: DeploymentStyle;
-
-  /**
-   * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances
-   *             with any of the specified tags.</p>
-   */
-  ec2TagFilters?: EC2TagFilter[];
 
   /**
    * <p>Information about groups of tags applied to an EC2 instance. The deployment group
@@ -1632,6 +1686,17 @@ export interface DeploymentGroupInfo {
    *             same call as ec2TagFilters.</p>
    */
   ec2TagSet?: EC2TagSet;
+
+  /**
+   * <p>Information about blue/green deployment options for a deployment group.</p>
+   */
+  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+
+  /**
+   * <p>Information about the automatic rollback configuration associated with the deployment
+   *             group.</p>
+   */
+  autoRollbackConfiguration?: AutoRollbackConfiguration;
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
@@ -1642,33 +1707,20 @@ export interface DeploymentGroupInfo {
   ecsServices?: ECSService[];
 
   /**
-   * <p>Information about the most recent attempted deployment to the deployment group.</p>
+   * <p>Information about triggers associated with the deployment group.</p>
    */
-  lastAttemptedDeployment?: LastDeploymentInfo;
+  triggerConfigurations?: TriggerConfig[];
 
   /**
-   * <p>Information about the most recent successful deployment to the deployment
-   *             group.</p>
+   * <p>The application name.</p>
    */
-  lastSuccessfulDeployment?: LastDeploymentInfo;
-
-  /**
-   * <p>Information about the load balancer to use in a deployment.</p>
-   */
-  loadBalancerInfo?: LoadBalancerInfo;
+  applicationName?: string;
 
   /**
    * <p>The on-premises instance tags on which to filter. The deployment group includes
    *             on-premises instances with any of the specified tags.</p>
    */
   onPremisesInstanceTagFilters?: TagFilter[];
-
-  /**
-   * <p>Information about groups of tags applied to an on-premises instance. The deployment
-   *             group includes only on-premises instances identified by all the tag groups. Cannot be
-   *             used in the same call as onPremisesInstanceTagFilters.</p>
-   */
-  onPremisesTagSet?: OnPremisesTagSet;
 
   /**
    * <p>A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf.
@@ -1678,15 +1730,69 @@ export interface DeploymentGroupInfo {
   serviceRoleArn?: string;
 
   /**
+   * <p>Information about the most recent successful deployment to the deployment
+   *             group.</p>
+   */
+  lastSuccessfulDeployment?: LastDeploymentInfo;
+
+  /**
+   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
+   */
+  computePlatform?: ComputePlatform | string;
+
+  /**
    * <p>Information about the deployment group's target revision, including type and
    *             location.</p>
    */
   targetRevision?: RevisionLocation;
 
   /**
-   * <p>Information about triggers associated with the deployment group.</p>
+   * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances
+   *             with any of the specified tags.</p>
    */
-  triggerConfigurations?: TriggerConfig[];
+  ec2TagFilters?: EC2TagFilter[];
+
+  /**
+   * <p>Information about groups of tags applied to an on-premises instance. The deployment
+   *             group includes only on-premises instances identified by all the tag groups. Cannot be
+   *             used in the same call as onPremisesInstanceTagFilters.</p>
+   */
+  onPremisesTagSet?: OnPremisesTagSet;
+
+  /**
+   * <p>The deployment configuration name.</p>
+   */
+  deploymentConfigName?: string;
+
+  /**
+   * <p>Information about the load balancer to use in a deployment.</p>
+   */
+  loadBalancerInfo?: LoadBalancerInfo;
+
+  /**
+   * <p>The deployment group name.</p>
+   */
+  deploymentGroupName?: string;
+
+  /**
+   * <p>Information about the most recent attempted deployment to the deployment group.</p>
+   */
+  lastAttemptedDeployment?: LastDeploymentInfo;
+
+  /**
+   * <p>A list of alarms associated with the deployment group.</p>
+   */
+  alarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>A list of associated Auto Scaling groups.</p>
+   */
+  autoScalingGroups?: AutoScalingGroup[];
+
+  /**
+   * <p>The deployment group ID.</p>
+   */
+  deploymentGroupId?: string;
 }
 
 export namespace DeploymentGroupInfo {
@@ -1761,62 +1867,10 @@ export namespace DeploymentIdRequiredException {
 export interface DeploymentInfo {
   __type?: "DeploymentInfo";
   /**
-   * <p>Provides information about the results of a deployment, such as whether instances in
-   *             the original environment in a blue/green deployment were not terminated.</p>
+   * <p>Information about the instances that belong to the replacement environment in a
+   *             blue/green deployment.</p>
    */
-  additionalDeploymentStatusInfo?: string;
-
-  /**
-   * <p>The application name.</p>
-   */
-  applicationName?: string;
-
-  /**
-   * <p>Information about the automatic rollback configuration associated with the
-   *             deployment.</p>
-   */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
-
-  /**
-   * <p>Information about blue/green deployment options for this deployment.</p>
-   */
-  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
-
-  /**
-   * <p>A timestamp that indicates when the deployment was complete.</p>
-   */
-  completeTime?: Date;
-
-  /**
-   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
-   */
-  computePlatform?: ComputePlatform | string;
-
-  /**
-   * <p>A timestamp that indicates when the deployment was created.</p>
-   */
-  createTime?: Date;
-
-  /**
-   * <p>The means by which the deployment was created:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>user: A user created the deployment.</p>
-   *             </li>
-   *             <li>
-   *                 <p>autoscaling: Amazon EC2 Auto Scaling created the deployment.</p>
-   *             </li>
-   *             <li>
-   *                 <p>codeDeployRollback: A rollback process created the deployment.</p>
-   *             </li>
-   *          </ul>
-   */
-  creator?: DeploymentCreator | string;
-
-  /**
-   * <p> The deployment configuration name. </p>
-   */
-  deploymentConfigName?: string;
+  targetInstances?: TargetInstances;
 
   /**
    * <p> The deployment group name. </p>
@@ -1824,19 +1878,18 @@ export interface DeploymentInfo {
   deploymentGroupName?: string;
 
   /**
-   * <p> The unique ID of a deployment. </p>
+   * <p>A timestamp that indicates when the deployment was deployed to the deployment
+   *             group.</p>
+   *         <p>In some cases, the reported value of the start time might be later than the complete
+   *             time. This is due to differences in the clock settings of backend servers that
+   *             participate in the deployment process.</p>
    */
-  deploymentId?: string;
+  startTime?: Date;
 
   /**
-   * <p>A summary of the deployment status of the instances in the deployment.</p>
+   * <p> The deployment configuration name. </p>
    */
-  deploymentOverview?: DeploymentOverview;
-
-  /**
-   * <p>Messages that contain information about the status of a deployment.</p>
-   */
-  deploymentStatusMessages?: string[];
+  deploymentConfigName?: string;
 
   /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to
@@ -1845,34 +1898,55 @@ export interface DeploymentInfo {
   deploymentStyle?: DeploymentStyle;
 
   /**
-   * <p>A comment about the deployment.</p>
+   * <p>Information about the location of stored application artifacts and the service from
+   *             which to retrieve them.</p>
    */
-  description?: string;
+  revision?: RevisionLocation;
 
   /**
-   * <p>Information about any error associated with this deployment.</p>
+   * <p>Indicates whether only instances that are not running the latest application revision
+   *             are to be deployed to.</p>
    */
-  errorInformation?: ErrorInformation;
+  updateOutdatedInstancesOnly?: boolean;
 
   /**
-   * <p>Information about how AWS CodeDeploy handles files that already exist in a deployment
-   *             target location but weren't part of the previous successful deployment.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>DISALLOW: The deployment fails. This is also the default behavior if no option
-   *                     is specified.</p>
-   *             </li>
-   *             <li>
-   *                 <p>OVERWRITE: The version of the file from the application revision currently
-   *                     being deployed replaces the version already on the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>RETAIN: The version of the file already on the instance is kept and used as
-   *                     part of the new deployment.</p>
-   *             </li>
-   *          </ul>
+   * <p>Indicates whether the wait period set for the termination of instances in the original
+   *             environment has started. Status is 'false' if the KEEP_ALIVE option is specified.
+   *             Otherwise, 'true' as soon as the termination wait period starts.</p>
    */
-  fileExistsBehavior?: FileExistsBehavior | string;
+  instanceTerminationWaitTimeStarted?: boolean;
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId?: string;
+
+  /**
+   * <p>The unique ID for an external resource (for example, a CloudFormation stack ID) that
+   *             is linked to this deployment.</p>
+   */
+  externalId?: string;
+
+  /**
+   * <p>A timestamp that indicates when the deployment was complete.</p>
+   */
+  completeTime?: Date;
+
+  /**
+   * <p>The application name.</p>
+   */
+  applicationName?: string;
+
+  /**
+   * <p>Provides information about the results of a deployment, such as whether instances in
+   *             the original environment in a blue/green deployment were not terminated.</p>
+   */
+  additionalDeploymentStatusInfo?: string;
+
+  /**
+   * <p>Information about blue/green deployment options for this deployment.</p>
+   */
+  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
 
   /**
    * <p> If true, then if an <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, or
@@ -1905,16 +1979,37 @@ export interface DeploymentInfo {
   ignoreApplicationStopFailures?: boolean;
 
   /**
-   * <p>Indicates whether the wait period set for the termination of instances in the original
-   *             environment has started. Status is 'false' if the KEEP_ALIVE option is specified.
-   *             Otherwise, 'true' as soon as the termination wait period starts.</p>
+   * <p>Information about how AWS CodeDeploy handles files that already exist in a deployment
+   *             target location but weren't part of the previous successful deployment.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DISALLOW</code>: The deployment fails. This is also the default behavior
+   *                     if no option is specified.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>OVERWRITE</code>: The version of the file from the application revision
+   *                     currently being deployed replaces the version already on the instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RETAIN</code>: The version of the file already on the instance is kept
+   *                     and used as part of the new deployment.</p>
+   *             </li>
+   *          </ul>
    */
-  instanceTerminationWaitTimeStarted?: boolean;
+  fileExistsBehavior?: FileExistsBehavior | string;
 
   /**
-   * <p>Information about the load balancer used in the deployment.</p>
+   * <p>A timestamp that indicates when the deployment was created.</p>
    */
-  loadBalancerInfo?: LoadBalancerInfo;
+  createTime?: Date;
+
+  /**
+   * <p>A comment about the deployment.</p>
+   */
+  description?: string;
 
   /**
    * <p>Information about the application revision that was deployed to the deployment group
@@ -1923,41 +2018,66 @@ export interface DeploymentInfo {
   previousRevision?: RevisionLocation;
 
   /**
-   * <p>Information about the location of stored application artifacts and the service from
-   *             which to retrieve them.</p>
-   */
-  revision?: RevisionLocation;
-
-  /**
-   * <p>Information about a deployment rollback.</p>
-   */
-  rollbackInfo?: RollbackInfo;
-
-  /**
-   * <p>A timestamp that indicates when the deployment was deployed to the deployment
-   *             group.</p>
-   *         <p>In some cases, the reported value of the start time might be later than the complete
-   *             time. This is due to differences in the clock settings of backend servers that
-   *             participate in the deployment process.</p>
-   */
-  startTime?: Date;
-
-  /**
    * <p>The current state of the deployment as a whole.</p>
    */
   status?: DeploymentStatus | string;
 
   /**
-   * <p>Information about the instances that belong to the replacement environment in a
-   *             blue/green deployment.</p>
+   * <p>Messages that contain information about the status of a deployment.</p>
    */
-  targetInstances?: TargetInstances;
+  deploymentStatusMessages?: string[];
 
   /**
-   * <p>Indicates whether only instances that are not running the latest application revision
-   *             are to be deployed to.</p>
+   * <p>Information about the automatic rollback configuration associated with the
+   *             deployment.</p>
    */
-  updateOutdatedInstancesOnly?: boolean;
+  autoRollbackConfiguration?: AutoRollbackConfiguration;
+
+  /**
+   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
+   */
+  computePlatform?: ComputePlatform | string;
+
+  /**
+   * <p>A summary of the deployment status of the instances in the deployment.</p>
+   */
+  deploymentOverview?: DeploymentOverview;
+
+  /**
+   * <p>The means by which the deployment was created:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>user</code>: A user created the deployment.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>autoscaling</code>: Amazon EC2 Auto Scaling created the
+   *                     deployment.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>codeDeployRollback</code>: A rollback process created the
+   *                     deployment.</p>
+   *             </li>
+   *          </ul>
+   */
+  creator?: DeploymentCreator | string;
+
+  /**
+   * <p>Information about the load balancer used in the deployment.</p>
+   */
+  loadBalancerInfo?: LoadBalancerInfo;
+
+  /**
+   * <p>Information about any error associated with this deployment.</p>
+   */
+  errorInformation?: ErrorInformation;
+
+  /**
+   * <p>Information about a deployment rollback.</p>
+   */
+  rollbackInfo?: RollbackInfo;
 }
 
 export namespace DeploymentInfo {
@@ -2036,19 +2156,14 @@ export enum DeploymentOption {
 export interface DeploymentOverview {
   __type?: "DeploymentOverview";
   /**
-   * <p>The number of instances in the deployment in a failed state.</p>
+   * <p>The number of instances in the deployment in a skipped state.</p>
    */
-  Failed?: number;
+  Skipped?: number;
 
   /**
    * <p>The number of instances in which the deployment is in progress.</p>
    */
   InProgress?: number;
-
-  /**
-   * <p>The number of instances in the deployment in a pending state.</p>
-   */
-  Pending?: number;
 
   /**
    * <p>The number of instances in a replacement environment ready to receive traffic in a
@@ -2057,15 +2172,20 @@ export interface DeploymentOverview {
   Ready?: number;
 
   /**
-   * <p>The number of instances in the deployment in a skipped state.</p>
+   * <p>The number of instances in the deployment in a failed state.</p>
    */
-  Skipped?: number;
+  Failed?: number;
 
   /**
    * <p>The number of instances in the deployment to which revisions have been successfully
    *             deployed.</p>
    */
   Succeeded?: number;
+
+  /**
+   * <p>The number of instances in the deployment in a pending state.</p>
+   */
+  Pending?: number;
 }
 
 export namespace DeploymentOverview {
@@ -2107,8 +2227,8 @@ export interface DeploymentReadyOption {
 
   /**
    * <p>The number of minutes to wait before the status of a blue/green deployment is changed
-   *             to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT
-   *             option for actionOnTimeout</p>
+   *             to Stopped if rerouting is not started manually. Applies only to the
+   *                 <code>STOP_DEPLOYMENT</code> option for <code>actionOnTimeout</code>.</p>
    */
   waitTimeInMinutes?: number;
 }
@@ -2121,6 +2241,7 @@ export namespace DeploymentReadyOption {
 }
 
 export enum DeploymentStatus {
+  BAKING = "Baking",
   CREATED = "Created",
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
@@ -2160,15 +2281,17 @@ export namespace DeploymentStyle {
 export interface DeploymentTarget {
   __type?: "DeploymentTarget";
   /**
-   * <p> The deployment type that is specific to the deployment's compute platform. </p>
+   * <p> Information about the target to be updated by an AWS CloudFormation blue/green
+   *             deployment. This target type is used for all deployments initiated by a CloudFormation
+   *             stack update.</p>
    */
-  deploymentTargetType?: DeploymentTargetType | string;
+  cloudFormationTarget?: CloudFormationTarget;
 
   /**
-   * <p> Information about the target for a deployment that uses the Amazon ECS compute
+   * <p> Information about the target for a deployment that uses the AWS Lambda compute
    *             platform. </p>
    */
-  ecsTarget?: ECSTarget;
+  lambdaTarget?: LambdaTarget;
 
   /**
    * <p> Information about the target for a deployment that uses the EC2/On-premises compute
@@ -2177,10 +2300,15 @@ export interface DeploymentTarget {
   instanceTarget?: InstanceTarget;
 
   /**
-   * <p> Information about the target for a deployment that uses the AWS Lambda compute
+   * <p>The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update.</p>
+   */
+  deploymentTargetType?: DeploymentTargetType | string;
+
+  /**
+   * <p> Information about the target for a deployment that uses the Amazon ECS compute
    *             platform. </p>
    */
-  lambdaTarget?: LambdaTarget;
+  ecsTarget?: ECSTarget;
 }
 
 export namespace DeploymentTarget {
@@ -2253,6 +2381,7 @@ export namespace DeploymentTargetListSizeExceededException {
 }
 
 export enum DeploymentTargetType {
+  CLOUDFORMATION_TARGET = "CloudFormationTarget",
   ECS_TARGET = "ECSTarget",
   INSTANCE_TARGET = "InstanceTarget",
   LAMBDA_TARGET = "LambdaTarget",
@@ -2269,7 +2398,7 @@ export enum DeploymentWaitType {
 }
 
 /**
- * <p>Represents the input of a DeregisterOnPremisesInstance operation.</p>
+ * <p>Represents the input of a <code>DeregisterOnPremisesInstance</code> operation.</p>
  */
 export interface DeregisterOnPremisesInstanceInput {
   __type?: "DeregisterOnPremisesInstanceInput";
@@ -2311,6 +2440,12 @@ export namespace DescriptionTooLongException {
 export interface Diagnostics {
   __type?: "Diagnostics";
   /**
+   * <p>The last portion of the diagnostic log.</p>
+   *         <p>If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.</p>
+   */
+  logTail?: string;
+
+  /**
    * <p>The associated error code:</p>
    *         <ul>
    *             <li>
@@ -2339,12 +2474,6 @@ export interface Diagnostics {
   errorCode?: LifecycleErrorCode | string;
 
   /**
-   * <p>The last portion of the diagnostic log.</p>
-   *         <p>If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.</p>
-   */
-  logTail?: string;
-
-  /**
    * <p>The message associated with the error.</p>
    */
   message?: string;
@@ -2368,6 +2497,11 @@ export namespace Diagnostics {
 export interface EC2TagFilter {
   __type?: "EC2TagFilter";
   /**
+   * <p>The tag filter value.</p>
+   */
+  Value?: string;
+
+  /**
    * <p>The tag filter key.</p>
    */
   Key?: string;
@@ -2376,22 +2510,20 @@ export interface EC2TagFilter {
    * <p>The tag filter type:</p>
    *         <ul>
    *             <li>
-   *                 <p>KEY_ONLY: Key only.</p>
+   *                 <p>
+   *                   <code>KEY_ONLY</code>: Key only.</p>
    *             </li>
    *             <li>
-   *                 <p>VALUE_ONLY: Value only.</p>
+   *                 <p>
+   *                   <code>VALUE_ONLY</code>: Value only.</p>
    *             </li>
    *             <li>
-   *                 <p>KEY_AND_VALUE: Key and value.</p>
+   *                 <p>
+   *                   <code>KEY_AND_VALUE</code>: Key and value.</p>
    *             </li>
    *          </ul>
    */
   Type?: EC2TagFilterType | string;
-
-  /**
-   * <p>The tag filter value.</p>
-   */
-  Value?: string;
 }
 
 export namespace EC2TagFilter {
@@ -2434,14 +2566,14 @@ export namespace EC2TagSet {
 export interface ECSService {
   __type?: "ECSService";
   /**
-   * <p> The name of the cluster that the Amazon ECS service is associated with. </p>
-   */
-  clusterName?: string;
-
-  /**
    * <p> The name of the target Amazon ECS service. </p>
    */
   serviceName?: string;
+
+  /**
+   * <p> The name of the cluster that the Amazon ECS service is associated with. </p>
+   */
+  clusterName?: string;
 }
 
 export namespace ECSService {
@@ -2478,30 +2610,19 @@ export namespace ECSServiceMappingLimitExceededException {
 export interface ECSTarget {
   __type?: "ECSTarget";
   /**
+   * <p> The Amazon Resource Name (ARN) of the target. </p>
+   */
+  targetArn?: string;
+
+  /**
    * <p> The unique ID of a deployment. </p>
    */
   deploymentId?: string;
 
   /**
-   * <p> The date and time when the target Amazon ECS application was updated by a deployment.
-   *         </p>
+   * <p> The <code>ECSTaskSet</code> objects associated with the ECS target. </p>
    */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p> The lifecycle events of the deployment to this target Amazon ECS application. </p>
-   */
-  lifecycleEvents?: LifecycleEvent[];
-
-  /**
-   * <p> The status an Amazon ECS deployment's target ECS application. </p>
-   */
-  status?: TargetStatus | string;
-
-  /**
-   * <p> The ARN of the target. </p>
-   */
-  targetArn?: string;
+  taskSetsInfo?: ECSTaskSet[];
 
   /**
    * <p> The unique ID of a deployment target that has a type of <code>ecsTarget</code>.
@@ -2510,9 +2631,20 @@ export interface ECSTarget {
   targetId?: string;
 
   /**
-   * <p> The <code>ECSTaskSet</code> objects associated with the ECS target. </p>
+   * <p> The lifecycle events of the deployment to this target Amazon ECS application. </p>
    */
-  taskSetsInfo?: ECSTaskSet[];
+  lifecycleEvents?: LifecycleEvent[];
+
+  /**
+   * <p> The date and time when the target Amazon ECS application was updated by a deployment.
+   *         </p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p> The status an Amazon ECS deployment's target ECS application. </p>
+   */
+  status?: TargetStatus | string;
 }
 
 export namespace ECSTarget {
@@ -2532,19 +2664,6 @@ export namespace ECSTarget {
 export interface ECSTaskSet {
   __type?: "ECSTaskSet";
   /**
-   * <p> The number of tasks in a task set. During a deployment that uses the Amazon ECS
-   *             compute type, CodeDeploy instructs Amazon ECS to create a new task set and uses this
-   *             value to determine how many tasks to create. After the updated task set is created,
-   *             CodeDeploy shifts traffic to the new task set. </p>
-   */
-  desiredCount?: number;
-
-  /**
-   * <p> A unique ID of an <code>ECSTaskSet</code>. </p>
-   */
-  identifer?: string;
-
-  /**
    * <p> The number of tasks in the task set that are in the <code>PENDING</code> status
    *             during an Amazon ECS deployment. A task in the <code>PENDING</code> state is preparing
    *             to enter the <code>RUNNING</code> state. A task set enters the <code>PENDING</code>
@@ -2552,13 +2671,6 @@ export interface ECSTaskSet {
    *             <code>STOPPED</code> state. </p>
    */
   pendingCount?: number;
-
-  /**
-   * <p> The number of tasks in the task set that are in the <code>RUNNING</code> status
-   *             during an Amazon ECS deployment. A task in the <code>RUNNING</code> state is running and
-   *             ready for use. </p>
-   */
-  runningCount?: number;
 
   /**
    * <p> The status of the task set. There are three valid task set statuses: </p>
@@ -2581,16 +2693,36 @@ export interface ECSTaskSet {
   status?: string;
 
   /**
+   * <p> A unique ID of an <code>ECSTaskSet</code>. </p>
+   */
+  identifer?: string;
+
+  /**
    * <p> The target group associated with the task set. The target group is used by AWS
    *             CodeDeploy to manage traffic to a task set. </p>
    */
   targetGroup?: TargetGroupInfo;
 
   /**
+   * <p> The number of tasks in a task set. During a deployment that uses the Amazon ECS
+   *             compute type, CodeDeploy instructs Amazon ECS to create a new task set and uses this
+   *             value to determine how many tasks to create. After the updated task set is created,
+   *             CodeDeploy shifts traffic to the new task set. </p>
+   */
+  desiredCount?: number;
+
+  /**
    * <p> A label that identifies whether the ECS task set is an original target
    *             (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    */
   taskSetLabel?: TargetLabel | string;
+
+  /**
+   * <p> The number of tasks in the task set that are in the <code>RUNNING</code> status
+   *             during an Amazon ECS deployment. A task in the <code>RUNNING</code> state is running and
+   *             ready for use. </p>
+   */
+  runningCount?: number;
 
   /**
    * <p> The percentage of traffic served by this task set. </p>
@@ -2636,6 +2768,7 @@ export enum ErrorCode {
   AUTOSCALING_VALIDATION_ERROR = "AUTOSCALING_VALIDATION_ERROR",
   AUTO_SCALING_CONFIGURATION = "AUTO_SCALING_CONFIGURATION",
   AUTO_SCALING_IAM_ROLE_PERMISSIONS = "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
+  CLOUDFORMATION_STACK_FAILURE = "CLOUDFORMATION_STACK_FAILURE",
   CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND = "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
   CUSTOMER_APPLICATION_UNHEALTHY = "CUSTOMER_APPLICATION_UNHEALTHY",
   DEPLOYMENT_GROUP_MISSING = "DEPLOYMENT_GROUP_MISSING",
@@ -2670,6 +2803,11 @@ export enum ErrorCode {
  */
 export interface ErrorInformation {
   __type?: "ErrorInformation";
+  /**
+   * <p>An accompanying error message.</p>
+   */
+  message?: string;
+
   /**
    * <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html">Error Codes for AWS
    *                 CodeDeploy</a> in the <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide">AWS CodeDeploy User Guide</a>.</p>
@@ -2729,11 +2867,6 @@ export interface ErrorInformation {
    *          </ul>
    */
   code?: ErrorCode | string;
-
-  /**
-   * <p>An accompanying error message.</p>
-   */
-  message?: string;
 }
 
 export namespace ErrorInformation {
@@ -2755,14 +2888,14 @@ export enum FileExistsBehavior {
 export interface GenericRevisionInfo {
   __type?: "GenericRevisionInfo";
   /**
-   * <p>The deployment groups for which this is the current target revision.</p>
-   */
-  deploymentGroups?: string[];
-
-  /**
    * <p>A comment about the revision.</p>
    */
   description?: string;
+
+  /**
+   * <p>When the revision was registered with AWS CodeDeploy.</p>
+   */
+  registerTime?: Date;
 
   /**
    * <p>When the revision was first used by AWS CodeDeploy.</p>
@@ -2770,14 +2903,14 @@ export interface GenericRevisionInfo {
   firstUsedTime?: Date;
 
   /**
+   * <p>The deployment groups for which this is the current target revision.</p>
+   */
+  deploymentGroups?: string[];
+
+  /**
    * <p>When the revision was last used by AWS CodeDeploy.</p>
    */
   lastUsedTime?: Date;
-
-  /**
-   * <p>When the revision was registered with AWS CodeDeploy.</p>
-   */
-  registerTime?: Date;
 }
 
 export namespace GenericRevisionInfo {
@@ -2788,7 +2921,7 @@ export namespace GenericRevisionInfo {
 }
 
 /**
- * <p>Represents the input of a GetApplication operation.</p>
+ * <p>Represents the input of a <code>GetApplication</code> operation.</p>
  */
 export interface GetApplicationInput {
   __type?: "GetApplicationInput";
@@ -2807,7 +2940,7 @@ export namespace GetApplicationInput {
 }
 
 /**
- * <p>Represents the output of a GetApplication operation.</p>
+ * <p>Represents the output of a <code>GetApplication</code> operation.</p>
  */
 export interface GetApplicationOutput {
   __type?: "GetApplicationOutput";
@@ -2825,19 +2958,19 @@ export namespace GetApplicationOutput {
 }
 
 /**
- * <p>Represents the input of a GetApplicationRevision operation.</p>
+ * <p>Represents the input of a <code>GetApplicationRevision</code> operation.</p>
  */
 export interface GetApplicationRevisionInput {
   __type?: "GetApplicationRevisionInput";
   /**
-   * <p>The name of the application that corresponds to the revision.</p>
-   */
-  applicationName: string | undefined;
-
-  /**
    * <p>Information about the application revision to get, including type and location.</p>
    */
   revision: RevisionLocation | undefined;
+
+  /**
+   * <p>The name of the application that corresponds to the revision.</p>
+   */
+  applicationName: string | undefined;
 }
 
 export namespace GetApplicationRevisionInput {
@@ -2848,7 +2981,7 @@ export namespace GetApplicationRevisionInput {
 }
 
 /**
- * <p>Represents the output of a GetApplicationRevision operation.</p>
+ * <p>Represents the output of a <code>GetApplicationRevision</code> operation.</p>
  */
 export interface GetApplicationRevisionOutput {
   __type?: "GetApplicationRevisionOutput";
@@ -2876,7 +3009,7 @@ export namespace GetApplicationRevisionOutput {
 }
 
 /**
- * <p>Represents the input of a GetDeploymentConfig operation.</p>
+ * <p>Represents the input of a <code>GetDeploymentConfig</code> operation.</p>
  */
 export interface GetDeploymentConfigInput {
   __type?: "GetDeploymentConfigInput";
@@ -2895,7 +3028,7 @@ export namespace GetDeploymentConfigInput {
 }
 
 /**
- * <p>Represents the output of a GetDeploymentConfig operation.</p>
+ * <p>Represents the output of a <code>GetDeploymentConfig</code> operation.</p>
  */
 export interface GetDeploymentConfigOutput {
   __type?: "GetDeploymentConfigOutput";
@@ -2913,7 +3046,7 @@ export namespace GetDeploymentConfigOutput {
 }
 
 /**
- * <p>Represents the input of a GetDeploymentGroup operation.</p>
+ * <p>Represents the input of a <code>GetDeploymentGroup</code> operation.</p>
  */
 export interface GetDeploymentGroupInput {
   __type?: "GetDeploymentGroupInput";
@@ -2937,7 +3070,7 @@ export namespace GetDeploymentGroupInput {
 }
 
 /**
- * <p>Represents the output of a GetDeploymentGroup operation.</p>
+ * <p>Represents the output of a <code>GetDeploymentGroup</code> operation.</p>
  */
 export interface GetDeploymentGroupOutput {
   __type?: "GetDeploymentGroupOutput";
@@ -2955,7 +3088,7 @@ export namespace GetDeploymentGroupOutput {
 }
 
 /**
- * <p>Represents the input of a GetDeployment operation.</p>
+ * <p>Represents the input of a <code>GetDeployment</code> operation.</p>
  */
 export interface GetDeploymentInput {
   __type?: "GetDeploymentInput";
@@ -2973,19 +3106,19 @@ export namespace GetDeploymentInput {
 }
 
 /**
- * <p> Represents the input of a GetDeploymentInstance operation. </p>
+ * <p> Represents the input of a <code>GetDeploymentInstance</code> operation. </p>
  */
 export interface GetDeploymentInstanceInput {
   __type?: "GetDeploymentInstanceInput";
   /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId: string | undefined;
-
-  /**
    * <p> The unique ID of an instance in the deployment group. </p>
    */
   instanceId: string | undefined;
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId: string | undefined;
 }
 
 export namespace GetDeploymentInstanceInput {
@@ -2996,7 +3129,7 @@ export namespace GetDeploymentInstanceInput {
 }
 
 /**
- * <p> Represents the output of a GetDeploymentInstance operation. </p>
+ * <p> Represents the output of a <code>GetDeploymentInstance</code> operation. </p>
  */
 export interface GetDeploymentInstanceOutput {
   __type?: "GetDeploymentInstanceOutput";
@@ -3014,7 +3147,7 @@ export namespace GetDeploymentInstanceOutput {
 }
 
 /**
- * <p>Represents the output of a GetDeployment operation.</p>
+ * <p>Represents the output of a <code>GetDeployment</code> operation.</p>
  */
 export interface GetDeploymentOutput {
   __type?: "GetDeploymentOutput";
@@ -3034,14 +3167,14 @@ export namespace GetDeploymentOutput {
 export interface GetDeploymentTargetInput {
   __type?: "GetDeploymentTargetInput";
   /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId?: string;
-
-  /**
    * <p> The unique ID of a deployment target. </p>
    */
   targetId?: string;
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId?: string;
 }
 
 export namespace GetDeploymentTargetInput {
@@ -3055,7 +3188,7 @@ export interface GetDeploymentTargetOutput {
   __type?: "GetDeploymentTargetOutput";
   /**
    * <p> A deployment target that contains information about a deployment such as its status,
-   *             lifecyle events, and when it was last updated. It also contains metadata about the
+   *             lifecycle events, and when it was last updated. It also contains metadata about the
    *             deployment target. The deployment target metadata depends on the deployment target's
    *             type (<code>instanceTarget</code>, <code>lambdaTarget</code>, or
    *             <code>ecsTarget</code>). </p>
@@ -3071,7 +3204,7 @@ export namespace GetDeploymentTargetOutput {
 }
 
 /**
- * <p> Represents the input of a GetOnPremisesInstance operation. </p>
+ * <p> Represents the input of a <code>GetOnPremisesInstance</code> operation. </p>
  */
 export interface GetOnPremisesInstanceInput {
   __type?: "GetOnPremisesInstanceInput";
@@ -3089,7 +3222,7 @@ export namespace GetOnPremisesInstanceInput {
 }
 
 /**
- * <p> Represents the output of a GetOnPremisesInstance operation. </p>
+ * <p> Represents the output of a <code>GetOnPremisesInstance</code> operation. </p>
  */
 export interface GetOnPremisesInstanceOutput {
   __type?: "GetOnPremisesInstanceOutput";
@@ -3187,12 +3320,14 @@ export interface GreenFleetProvisioningOption {
    * <p>The method used to add instances to a replacement environment.</p>
    *         <ul>
    *             <li>
-   *                 <p>DISCOVER_EXISTING: Use instances that already exist or will be created
-   *                     manually.</p>
+   *                 <p>
+   *                   <code>DISCOVER_EXISTING</code>: Use instances that already exist or will be
+   *                     created manually.</p>
    *             </li>
    *             <li>
-   *                 <p>COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to
-   *                     define and create instances in a new Auto Scaling group.</p>
+   *                 <p>
+   *                   <code>COPY_AUTO_SCALING_GROUP</code>: Use settings from a specified Auto
+   *                     Scaling group to define and create instances in a new Auto Scaling group.</p>
    *             </li>
    *          </ul>
    */
@@ -3341,19 +3476,19 @@ export interface InstanceInfo {
   deregisterTime?: Date;
 
   /**
-   * <p>The ARN of the IAM session associated with the on-premises instance.</p>
+   * <p>The ARN of the on-premises instance.</p>
    */
-  iamSessionArn?: string;
+  instanceArn?: string;
+
+  /**
+   * <p>The tags currently associated with the on-premises instance.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The IAM user ARN associated with the on-premises instance.</p>
    */
   iamUserArn?: string;
-
-  /**
-   * <p>The ARN of the on-premises instance.</p>
-   */
-  instanceArn?: string;
 
   /**
    * <p>The name of the on-premises instance.</p>
@@ -3366,9 +3501,9 @@ export interface InstanceInfo {
   registerTime?: Date;
 
   /**
-   * <p>The tags currently associated with the on-premises instance.</p>
+   * <p>The ARN of the IAM session associated with the on-premises instance.</p>
    */
-  tags?: Tag[];
+  iamSessionArn?: string;
 }
 
 export namespace InstanceInfo {
@@ -3477,9 +3612,38 @@ export interface InstanceSummary {
   deploymentId?: string;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The deployment status for this instance:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Pending</code>: The deployment is pending for this instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>In Progress</code>: The deployment is in progress for this
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Succeeded</code>: The deployment has succeeded for this instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Failed</code>: The deployment has failed for this instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Skipped</code>: The deployment has been skipped for this
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Unknown</code>: The deployment status is unknown for this
+   *                     instance.</p>
+   *             </li>
+   *          </ul>
    */
-  instanceId?: string;
+  status?: InstanceStatus | string;
 
   /**
    * <p>Information about which environment an instance belongs to in a blue/green
@@ -3496,39 +3660,19 @@ export interface InstanceSummary {
   instanceType?: _InstanceType | string;
 
   /**
-   * <p>A timestamp that indicaties when the instance information was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
    * <p>A list of lifecycle events for this instance.</p>
    */
   lifecycleEvents?: LifecycleEvent[];
 
   /**
-   * <p>The deployment status for this instance:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Pending: The deployment is pending for this instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>In Progress: The deployment is in progress for this instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Succeeded: The deployment has succeeded for this instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Failed: The deployment has failed for this instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Skipped: The deployment has been skipped for this instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Unknown: The deployment status is unknown for this instance.</p>
-   *             </li>
-   *          </ul>
+   * <p>A timestamp that indicates when the instance information was last updated.</p>
    */
-  status?: InstanceStatus | string;
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The instance ID.</p>
+   */
+  instanceId?: string;
 }
 
 export namespace InstanceSummary {
@@ -3545,9 +3689,9 @@ export namespace InstanceSummary {
 export interface InstanceTarget {
   __type?: "InstanceTarget";
   /**
-   * <p> The unique ID of a deployment. </p>
+   * <p> The status an EC2/On-premises deployment's target instance. </p>
    */
-  deploymentId?: string;
+  status?: TargetStatus | string;
 
   /**
    * <p> A label that identifies whether the instance is an original target
@@ -3561,19 +3705,19 @@ export interface InstanceTarget {
   lastUpdatedAt?: Date;
 
   /**
+   * <p> The Amazon Resource Name (ARN) of the target. </p>
+   */
+  targetArn?: string;
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId?: string;
+
+  /**
    * <p> The lifecycle events of the deployment to this target instance. </p>
    */
   lifecycleEvents?: LifecycleEvent[];
-
-  /**
-   * <p> The status an EC2/On-premises deployment's target instance. </p>
-   */
-  status?: TargetStatus | string;
-
-  /**
-   * <p> The ARN of the target. </p>
-   */
-  targetArn?: string;
 
   /**
    * <p> The unique ID of a deployment target that has a type of <code>instanceTarget</code>.
@@ -3752,8 +3896,8 @@ export namespace InvalidBucketNameFilterException {
 }
 
 /**
- * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code> or
- *                 <code>Server</code>.</p>
+ * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>,
+ *                 <code>Server</code>, or <code>ECS</code>.</p>
  */
 export interface InvalidComputePlatformException extends __SmithyException, $MetadataBearer {
   name: "InvalidComputePlatformException";
@@ -4007,6 +4151,25 @@ export namespace InvalidECSServiceException {
     ...obj,
   });
   export const isa = (o: any): o is InvalidECSServiceException => __isa(o, "InvalidECSServiceException");
+}
+
+/**
+ * <p>The external ID was specified in an invalid format.</p>
+ */
+export interface InvalidExternalIdException extends __SmithyException, $MetadataBearer {
+  name: "InvalidExternalIdException";
+  $fault: "client";
+  /**
+   * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidExternalIdException {
+  export const filterSensitiveLog = (obj: InvalidExternalIdException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InvalidExternalIdException => __isa(o, "InvalidExternalIdException");
 }
 
 /**
@@ -4697,14 +4860,6 @@ export interface LambdaFunctionInfo {
 
   /**
    * <p>
-   *             The alias of a Lambda function. For more information, see
-   *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction to AWS Lambda Aliases</a>.
-   *         </p>
-   */
-  functionAlias?: string;
-
-  /**
-   * <p>
    *             The name of a Lambda function.
    *         </p>
    */
@@ -4716,6 +4871,12 @@ export interface LambdaFunctionInfo {
    *         </p>
    */
   targetVersion?: string;
+
+  /**
+   * <p> The alias of a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">AWS Lambda Function Aliases</a> in the
+   *                 <i>AWS Lambda Developer Guide</i>.</p>
+   */
+  functionAlias?: string;
 
   /**
    * <p>
@@ -4739,9 +4900,25 @@ export namespace LambdaFunctionInfo {
 export interface LambdaTarget {
   __type?: "LambdaTarget";
   /**
+   * <p> The Amazon Resource Name (ARN) of the target. </p>
+   */
+  targetArn?: string;
+
+  /**
    * <p> The unique ID of a deployment. </p>
    */
   deploymentId?: string;
+
+  /**
+   * <p> The date and time when the target Lambda function was updated by a deployment.
+   *         </p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p> The status an AWS Lambda deployment's target Lambda function. </p>
+   */
+  status?: TargetStatus | string;
 
   /**
    * <p>
@@ -4751,31 +4928,15 @@ export interface LambdaTarget {
   lambdaFunctionInfo?: LambdaFunctionInfo;
 
   /**
-   * <p> The date and time when the target Lambda function was updated by a deployment.
+   * <p> The unique ID of a deployment target that has a type of <code>lambdaTarget</code>.
    *         </p>
    */
-  lastUpdatedAt?: Date;
+  targetId?: string;
 
   /**
    * <p> The lifecycle events of the deployment to this target Lambda function. </p>
    */
   lifecycleEvents?: LifecycleEvent[];
-
-  /**
-   * <p> The status an AWS Lambda deployment's target Lambda function. </p>
-   */
-  status?: TargetStatus | string;
-
-  /**
-   * <p> The ARN of the target. </p>
-   */
-  targetArn?: string;
-
-  /**
-   * <p> The unique ID of a deployment target that has a type of <code>lambdaTarget</code>.
-   *         </p>
-   */
-  targetId?: string;
 }
 
 export namespace LambdaTarget {
@@ -4798,15 +4959,15 @@ export interface LastDeploymentInfo {
   createTime?: Date;
 
   /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId?: string;
-
-  /**
    * <p>A timestamp that indicates when the most recent deployment to the deployment group was
    *             complete.</p>
    */
   endTime?: Date;
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId?: string;
 
   /**
    * <p>The status of the most recent deployment.</p>
@@ -4836,25 +4997,26 @@ export enum LifecycleErrorCode {
 export interface LifecycleEvent {
   __type?: "LifecycleEvent";
   /**
-   * <p>Diagnostic information about the deployment lifecycle event.</p>
-   */
-  diagnostics?: Diagnostics;
-
-  /**
    * <p>A timestamp that indicates when the deployment lifecycle event ended.</p>
    */
   endTime?: Date;
 
   /**
-   * <p>The deployment lifecycle event name, such as ApplicationStop, BeforeInstall,
-   *             AfterInstall, ApplicationStart, or ValidateService.</p>
-   */
-  lifecycleEventName?: string;
-
-  /**
    * <p>A timestamp that indicates when the deployment lifecycle event started.</p>
    */
   startTime?: Date;
+
+  /**
+   * <p>Diagnostic information about the deployment lifecycle event.</p>
+   */
+  diagnostics?: Diagnostics;
+
+  /**
+   * <p>The deployment lifecycle event name, such as <code>ApplicationStop</code>,
+   *                 <code>BeforeInstall</code>, <code>AfterInstall</code>,
+   *             <code>ApplicationStart</code>, or <code>ValidateService</code>.</p>
+   */
+  lifecycleEventName?: string;
 
   /**
    * <p>The deployment lifecycle event status:</p>
@@ -4940,34 +5102,32 @@ export namespace LifecycleHookLimitExceededException {
 }
 
 /**
- * <p> Represents the input of a ListApplicationRevisions operation. </p>
+ * <p> Represents the input of a <code>ListApplicationRevisions</code> operation. </p>
  */
 export interface ListApplicationRevisionsInput {
   __type?: "ListApplicationRevisionsInput";
   /**
-   * <p> The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account. </p>
-   */
-  applicationName: string | undefined;
-
-  /**
-   * <p> Whether to list revisions based on whether the revision is the target revision of an
-   *             deployment group: </p>
+   * <p>The column name to use to sort the list results:</p>
    *         <ul>
    *             <li>
-   *                 <p>include: List revisions that are target revisions of a deployment
-   *                     group.</p>
+   *                 <p>
+   *                   <code>registerTime</code>: Sort by the time the revisions were registered with
+   *                     AWS CodeDeploy.</p>
    *             </li>
    *             <li>
-   *                 <p>exclude: Do not list revisions that are target revisions of a deployment
-   *                     group.</p>
+   *                 <p>
+   *                   <code>firstUsedTime</code>: Sort by the time the revisions were first used in
+   *                     a deployment.</p>
    *             </li>
    *             <li>
-   *                 <p>ignore: List all revisions.</p>
+   *                 <p>
+   *                   <code>lastUsedTime</code>: Sort by the time the revisions were last used in a
+   *                     deployment.</p>
    *             </li>
    *          </ul>
+   *         <p> If not specified or set to null, the results are returned in an arbitrary order. </p>
    */
-  deployed?: ListStateFilterAction | string;
+  sortBy?: ApplicationRevisionSortBy | string;
 
   /**
    * <p>An identifier returned from the previous <code>ListApplicationRevisions</code> call.
@@ -4982,45 +5142,55 @@ export interface ListApplicationRevisionsInput {
   s3Bucket?: string;
 
   /**
-   * <p> A key prefix for the set of Amazon S3 objects to limit the search for revisions.
-   *         </p>
-   */
-  s3KeyPrefix?: string;
-
-  /**
-   * <p>The column name to use to sort the list results:</p>
+   * <p> Whether to list revisions based on whether the revision is the target revision of a
+   *             deployment group: </p>
    *         <ul>
    *             <li>
-   *                 <p>registerTime: Sort by the time the revisions were registered with AWS
-   *                     CodeDeploy.</p>
+   *                 <p>
+   *                   <code>include</code>: List revisions that are target revisions of a deployment
+   *                     group.</p>
    *             </li>
    *             <li>
-   *                 <p>firstUsedTime: Sort by the time the revisions were first used in a
-   *                     deployment.</p>
+   *                 <p>
+   *                   <code>exclude</code>: Do not list revisions that are target revisions of a
+   *                     deployment group.</p>
    *             </li>
    *             <li>
-   *                 <p>lastUsedTime: Sort by the time the revisions were last used in a
-   *                     deployment.</p>
+   *                 <p>
+   *                   <code>ignore</code>: List all revisions.</p>
    *             </li>
    *          </ul>
-   *         <p> If not specified or set to null, the results are returned in an arbitrary order. </p>
    */
-  sortBy?: ApplicationRevisionSortBy | string;
+  deployed?: ListStateFilterAction | string;
+
+  /**
+   * <p> The name of an AWS CodeDeploy application associated with the IAM user or AWS
+   *             account. </p>
+   */
+  applicationName: string | undefined;
 
   /**
    * <p> The order in which to sort the list results: </p>
    *         <ul>
    *             <li>
-   *                 <p>ascending: ascending order.</p>
+   *                 <p>
+   *                   <code>ascending</code>: ascending order.</p>
    *             </li>
    *             <li>
-   *                 <p>descending: descending order.</p>
+   *                 <p>
+   *                   <code>descending</code>: descending order.</p>
    *             </li>
    *          </ul>
    *         <p>If not specified, the results are sorted in ascending order.</p>
    *         <p>If set to null, the results are sorted in an arbitrary order.</p>
    */
   sortOrder?: SortOrder | string;
+
+  /**
+   * <p> A key prefix for the set of Amazon S3 objects to limit the search for revisions.
+   *         </p>
+   */
+  s3KeyPrefix?: string;
 }
 
 export namespace ListApplicationRevisionsInput {
@@ -5031,21 +5201,21 @@ export namespace ListApplicationRevisionsInput {
 }
 
 /**
- * <p>Represents the output of a ListApplicationRevisions operation.</p>
+ * <p>Represents the output of a <code>ListApplicationRevisions</code> operation.</p>
  */
 export interface ListApplicationRevisionsOutput {
   __type?: "ListApplicationRevisionsOutput";
+  /**
+   * <p>A list of locations that contain the matching revisions.</p>
+   */
+  revisions?: RevisionLocation[];
+
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
    *             be used in a subsequent list application revisions call to return the next set of
    *             application revisions in the list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of locations that contain the matching revisions.</p>
-   */
-  revisions?: RevisionLocation[];
 }
 
 export namespace ListApplicationRevisionsOutput {
@@ -5056,7 +5226,7 @@ export namespace ListApplicationRevisionsOutput {
 }
 
 /**
- * <p>Represents the input of a ListApplications operation.</p>
+ * <p>Represents the input of a <code>ListApplications</code> operation.</p>
  */
 export interface ListApplicationsInput {
   __type?: "ListApplicationsInput";
@@ -5080,16 +5250,16 @@ export namespace ListApplicationsInput {
 export interface ListApplicationsOutput {
   __type?: "ListApplicationsOutput";
   /**
-   * <p>A list of application names.</p>
-   */
-  applications?: string[];
-
-  /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
    *             be used in a subsequent list applications call to return the next set of applications in
    *             the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of application names.</p>
+   */
+  applications?: string[];
 }
 
 export namespace ListApplicationsOutput {
@@ -5100,7 +5270,7 @@ export namespace ListApplicationsOutput {
 }
 
 /**
- * <p>Represents the input of a ListDeploymentConfigs operation.</p>
+ * <p>Represents the input of a <code>ListDeploymentConfigs</code> operation.</p>
  */
 export interface ListDeploymentConfigsInput {
   __type?: "ListDeploymentConfigsInput";
@@ -5119,13 +5289,13 @@ export namespace ListDeploymentConfigsInput {
 }
 
 /**
- * <p>Represents the output of a ListDeploymentConfigs operation.</p>
+ * <p>Represents the output of a <code>ListDeploymentConfigs</code> operation.</p>
  */
 export interface ListDeploymentConfigsOutput {
   __type?: "ListDeploymentConfigsOutput";
   /**
    * <p>A list of deployment configurations, including built-in configurations such as
-   *             CodeDeployDefault.OneAtATime.</p>
+   *                 <code>CodeDeployDefault.OneAtATime</code>.</p>
    */
   deploymentConfigsList?: string[];
 
@@ -5145,21 +5315,21 @@ export namespace ListDeploymentConfigsOutput {
 }
 
 /**
- * <p>Represents the input of a ListDeploymentGroups operation.</p>
+ * <p>Represents the input of a <code>ListDeploymentGroups</code> operation.</p>
  */
 export interface ListDeploymentGroupsInput {
   __type?: "ListDeploymentGroupsInput";
-  /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
-   */
-  applicationName: string | undefined;
-
   /**
    * <p>An identifier returned from the previous list deployment groups call. It can be used
    *             to return the next set of deployment groups in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+   *             account.</p>
+   */
+  applicationName: string | undefined;
 }
 
 export namespace ListDeploymentGroupsInput {
@@ -5170,7 +5340,7 @@ export namespace ListDeploymentGroupsInput {
 }
 
 /**
- * <p>Represents the output of a ListDeploymentGroups operation.</p>
+ * <p>Represents the output of a <code>ListDeploymentGroups</code> operation.</p>
  */
 export interface ListDeploymentGroupsOutput {
   __type?: "ListDeploymentGroupsOutput";
@@ -5200,36 +5370,39 @@ export namespace ListDeploymentGroupsOutput {
 }
 
 /**
- * <p> Represents the input of a ListDeploymentInstances operation. </p>
+ * <p> Represents the input of a <code>ListDeploymentInstances</code> operation. </p>
  */
 export interface ListDeploymentInstancesInput {
   __type?: "ListDeploymentInstancesInput";
   /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId: string | undefined;
-
-  /**
    * <p>A subset of instances to list by status:</p>
    *         <ul>
    *             <li>
-   *                 <p>Pending: Include those instances with pending deployments.</p>
+   *                 <p>
+   *                   <code>Pending</code>: Include those instances with pending deployments.</p>
    *             </li>
    *             <li>
-   *                 <p>InProgress: Include those instances where deployments are still in
-   *                     progress.</p>
+   *                 <p>
+   *                   <code>InProgress</code>: Include those instances where deployments are still
+   *                     in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>Succeeded: Include those instances with successful deployments.</p>
+   *                 <p>
+   *                   <code>Succeeded</code>: Include those instances with successful
+   *                     deployments.</p>
    *             </li>
    *             <li>
-   *                 <p>Failed: Include those instances with failed deployments.</p>
+   *                 <p>
+   *                   <code>Failed</code>: Include those instances with failed deployments.</p>
    *             </li>
    *             <li>
-   *                 <p>Skipped: Include those instances with skipped deployments.</p>
+   *                 <p>
+   *                   <code>Skipped</code>: Include those instances with skipped deployments.</p>
    *             </li>
    *             <li>
-   *                 <p>Unknown: Include those instances with deployments in an unknown state.</p>
+   *                 <p>
+   *                   <code>Unknown</code>: Include those instances with deployments in an unknown
+   *                     state.</p>
    *             </li>
    *          </ul>
    */
@@ -5247,6 +5420,11 @@ export interface ListDeploymentInstancesInput {
    *             used to return the next set of deployment instances in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId: string | undefined;
 }
 
 export namespace ListDeploymentInstancesInput {
@@ -5257,21 +5435,21 @@ export namespace ListDeploymentInstancesInput {
 }
 
 /**
- * <p>Represents the output of a ListDeploymentInstances operation.</p>
+ * <p>Represents the output of a <code>ListDeploymentInstances</code> operation.</p>
  */
 export interface ListDeploymentInstancesOutput {
   __type?: "ListDeploymentInstancesOutput";
-  /**
-   * <p>A list of instance IDs.</p>
-   */
-  instancesList?: string[];
-
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
    *             be used in a subsequent list deployment instances call to return the next set of
    *             deployment instances in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of instance IDs.</p>
+   */
+  instancesList?: string[];
 }
 
 export namespace ListDeploymentInstancesOutput {
@@ -5282,10 +5460,67 @@ export namespace ListDeploymentInstancesOutput {
 }
 
 /**
- * <p>Represents the input of a ListDeployments operation.</p>
+ * <p>Represents the input of a <code>ListDeployments</code> operation.</p>
  */
 export interface ListDeploymentsInput {
   __type?: "ListDeploymentsInput";
+  /**
+   * <p>The name of a deployment group for the specified application.</p>
+   *         <note>
+   *             <p>If <code>deploymentGroupName</code> is specified, then <code>applicationName</code> must
+   *                 be specified. If it is not specified, then <code>applicationName</code> must not
+   *                 be specified.
+   *             </p>
+   *         </note>
+   */
+  deploymentGroupName?: string;
+
+  /**
+   * <p>A subset of deployments to list by status:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Created</code>: Include created deployments in the resulting
+   *                     list.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Queued</code>: Include queued deployments in the resulting list.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>In Progress</code>: Include in-progress deployments in the resulting
+   *                     list.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Succeeded</code>: Include successful deployments in the resulting
+   *                     list.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Failed</code>: Include failed deployments in the resulting list.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Stopped</code>: Include stopped deployments in the resulting
+   *                     list.</p>
+   *             </li>
+   *          </ul>
+   */
+  includeOnlyStatuses?: (DeploymentStatus | string)[];
+
+  /**
+   * <p>An identifier returned from the previous list deployments call. It can be used to
+   *             return the next set of deployments in the list.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The unique ID of an external resource for returning deployments linked to the external resource.</p>
+   */
+  externalId?: string;
+
   /**
    * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
    *             account.</p>
@@ -5302,48 +5537,6 @@ export interface ListDeploymentsInput {
    * <p>A time range (start and end) for returning a subset of the list of deployments.</p>
    */
   createTimeRange?: TimeRange;
-
-  /**
-   * <p>The name of a deployment group for the specified application.</p>
-   *         <note>
-   *             <p>If <code>deploymentGroupName</code> is specified, then <code>applicationName</code> must
-   *                 be specified. If it is not specified, then <code>applicationName</code> must not
-   *                 be specified.
-   *             </p>
-   *         </note>
-   */
-  deploymentGroupName?: string;
-
-  /**
-   * <p>A subset of deployments to list by status:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Created: Include created deployments in the resulting list.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Queued: Include queued deployments in the resulting list.</p>
-   *             </li>
-   *             <li>
-   *                 <p>In Progress: Include in-progress deployments in the resulting list.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Succeeded: Include successful deployments in the resulting list.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Failed: Include failed deployments in the resulting list.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Stopped: Include stopped deployments in the resulting list.</p>
-   *             </li>
-   *          </ul>
-   */
-  includeOnlyStatuses?: (DeploymentStatus | string)[];
-
-  /**
-   * <p>An identifier returned from the previous list deployments call. It can be used to
-   *             return the next set of deployments in the list.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListDeploymentsInput {
@@ -5354,21 +5547,21 @@ export namespace ListDeploymentsInput {
 }
 
 /**
- * <p>Represents the output of a ListDeployments operation.</p>
+ * <p>Represents the output of a <code>ListDeployments</code> operation.</p>
  */
 export interface ListDeploymentsOutput {
   __type?: "ListDeploymentsOutput";
-  /**
-   * <p>A list of deployment IDs.</p>
-   */
-  deployments?: string[];
-
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
    *             be used in a subsequent list deployments call to return the next set of deployments in
    *             the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of deployment IDs.</p>
+   */
+  deployments?: string[];
 }
 
 export namespace ListDeploymentsOutput {
@@ -5381,15 +5574,15 @@ export namespace ListDeploymentsOutput {
 export interface ListDeploymentTargetsInput {
   __type?: "ListDeploymentTargetsInput";
   /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId?: string;
-
-  /**
    * <p> A token identifier returned from the previous <code>ListDeploymentTargets</code>
    *             call. It can be used to return the next set of deployment targets in the list. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId?: string;
 
   /**
    * <p> A key used to filter the returned targets. The two valid values are:</p>
@@ -5420,16 +5613,16 @@ export namespace ListDeploymentTargetsInput {
 export interface ListDeploymentTargetsOutput {
   __type?: "ListDeploymentTargetsOutput";
   /**
+   * <p> The unique IDs of deployment targets. </p>
+   */
+  targetIds?: string[];
+
+  /**
    * <p> If a large amount of information is returned, a token identifier is also  returned.
    *             It can be used in a subsequent <code>ListDeploymentTargets</code> call to return the
    *             next set of deployment targets in the list. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p> The unique IDs of deployment targets. </p>
-   */
-  targetIds?: string[];
 }
 
 export namespace ListDeploymentTargetsOutput {
@@ -5440,13 +5633,13 @@ export namespace ListDeploymentTargetsOutput {
 }
 
 /**
- * <p>Represents the input of a ListGitHubAccountTokenNames operation.</p>
+ * <p>Represents the input of a <code>ListGitHubAccountTokenNames</code> operation.</p>
  */
 export interface ListGitHubAccountTokenNamesInput {
   __type?: "ListGitHubAccountTokenNamesInput";
   /**
-   * <p>An identifier returned from the previous ListGitHubAccountTokenNames call. It can be
-   *             used to return the next set of names in the list. </p>
+   * <p>An identifier returned from the previous <code>ListGitHubAccountTokenNames</code>
+   *             call. It can be used to return the next set of names in the list. </p>
    */
   nextToken?: string;
 }
@@ -5459,21 +5652,21 @@ export namespace ListGitHubAccountTokenNamesInput {
 }
 
 /**
- * <p>Represents the output of a ListGitHubAccountTokenNames operation.</p>
+ * <p>Represents the output of a <code>ListGitHubAccountTokenNames</code> operation.</p>
  */
 export interface ListGitHubAccountTokenNamesOutput {
   __type?: "ListGitHubAccountTokenNamesOutput";
   /**
-   * <p>If a large amount of information is returned, an identifier is also returned. It can
-   *             be used in a subsequent ListGitHubAccountTokenNames call to return the next set of names
-   *             in the list. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A list of names of connections to GitHub accounts.</p>
    */
   tokenNameList?: string[];
+
+  /**
+   * <p>If a large amount of information is returned, an identifier is also returned. It can
+   *             be used in a subsequent <code>ListGitHubAccountTokenNames</code> call to return the next
+   *             set of names in the list. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListGitHubAccountTokenNamesOutput {
@@ -5484,10 +5677,16 @@ export namespace ListGitHubAccountTokenNamesOutput {
 }
 
 /**
- * <p>Represents the input of a ListOnPremisesInstances operation.</p>
+ * <p>Represents the input of a <code>ListOnPremisesInstances</code> operation.</p>
  */
 export interface ListOnPremisesInstancesInput {
   __type?: "ListOnPremisesInstancesInput";
+  /**
+   * <p>The on-premises instance tags that are used to restrict the  on-premises instance
+   *             names returned.</p>
+   */
+  tagFilters?: TagFilter[];
+
   /**
    * <p>An identifier returned from the previous list on-premises instances call. It can be
    *             used to return the next set of on-premises instances in the list.</p>
@@ -5498,22 +5697,18 @@ export interface ListOnPremisesInstancesInput {
    * <p>The registration status of the on-premises instances:</p>
    *         <ul>
    *             <li>
-   *                 <p>Deregistered: Include deregistered on-premises instances in the resulting
-   *                     list.</p>
+   *                 <p>
+   *                   <code>Deregistered</code>: Include deregistered on-premises instances in the
+   *                     resulting list.</p>
    *             </li>
    *             <li>
-   *                 <p>Registered: Include registered on-premises instances in the resulting
-   *                     list.</p>
+   *                 <p>
+   *                   <code>Registered</code>: Include registered on-premises instances in the
+   *                     resulting list.</p>
    *             </li>
    *          </ul>
    */
   registrationStatus?: RegistrationStatus | string;
-
-  /**
-   * <p>The on-premises instance tags that are used to restrict the  on-premises instance
-   *             names returned.</p>
-   */
-  tagFilters?: TagFilter[];
 }
 
 export namespace ListOnPremisesInstancesInput {
@@ -5557,18 +5752,18 @@ export enum ListStateFilterAction {
 export interface ListTagsForResourceInput {
   __type?: "ListTagsForResourceInput";
   /**
-   * <p>An identifier returned from the previous <code>ListTagsForResource</code> call.
-   *                 It can be used to return the next set of applications in the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>
    *             The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the tags associated with the
    *             resource that is identified by the <code>ResourceArn</code>.
    *         </p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>An identifier returned from the previous <code>ListTagsForResource</code> call.
+   *                 It can be used to return the next set of applications in the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTagsForResourceInput {
@@ -5649,22 +5844,30 @@ export namespace LoadBalancerInfo {
 export interface MinimumHealthyHosts {
   __type?: "MinimumHealthyHosts";
   /**
+   * <p>The minimum healthy instance value.</p>
+   */
+  value?: number;
+
+  /**
    * <p>The minimum healthy instance type:</p>
    *         <ul>
    *             <li>
-   *                 <p>HOST_COUNT: The minimum number of healthy instance as an absolute
-   *                     value.</p>
+   *                 <p>
+   *                   <code>HOST_COUNT</code>: The minimum number of healthy instances as an
+   *                     absolute value.</p>
    *             </li>
    *             <li>
-   *                 <p>FLEET_PERCENT: The minimum number of healthy instance as a percentage of the
-   *                     total number of instance in the deployment.</p>
+   *                 <p>
+   *                   <code>FLEET_PERCENT</code>: The minimum number of healthy instances as a
+   *                     percentage of the total number of instances in the deployment.</p>
    *             </li>
    *          </ul>
-   *         <p>In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to
+   *         <p>In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up to
    *             three instances at a time. The deployment is successful if six or more instances are
    *             deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is
-   *             specified, deploy to up to five instance at a time. The deployment is successful if four
-   *             or more instance are deployed to successfully. Otherwise, the deployment fails.</p>
+   *             specified, deploy to up to five instances at a time. The deployment is successful if
+   *             four or more instances are deployed to successfully. Otherwise, the deployment
+   *             fails.</p>
    *         <note>
    *             <p>In a call to the <code>GetDeploymentConfig</code>,
    *                 CodeDeployDefault.OneAtATime returns a minimum healthy instance type of
@@ -5680,11 +5883,6 @@ export interface MinimumHealthyHosts {
    *                 Health</a> in the <i>AWS CodeDeploy User Guide</i>.</p>
    */
   type?: MinimumHealthyHostsType | string;
-
-  /**
-   * <p>The minimum healthy instance value.</p>
-   */
-  value?: number;
 }
 
 export namespace MinimumHealthyHosts {
@@ -5808,16 +6006,16 @@ export namespace PutLifecycleEventHookExecutionStatusOutput {
 export interface RawString {
   __type?: "RawString";
   /**
+   * <p>The SHA256 hash value of the revision content.</p>
+   */
+  sha256?: string;
+
+  /**
    * <p>The YAML-formatted or JSON-formatted revision string. It includes information about
    *             which Lambda function to update and optional Lambda functions that validate deployment
    *             lifecycle events.</p>
    */
   content?: string;
-
-  /**
-   * <p>The SHA256 hash value of the revision content.</p>
-   */
-  sha256?: string;
 }
 
 export namespace RawString {
@@ -5833,15 +6031,15 @@ export namespace RawString {
 export interface RegisterApplicationRevisionInput {
   __type?: "RegisterApplicationRevisionInput";
   /**
+   * <p>A comment about the revision.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
    *             account.</p>
    */
   applicationName: string | undefined;
-
-  /**
-   * <p>A comment about the revision.</p>
-   */
-  description?: string;
 
   /**
    * <p>Information about the application revision to register, including type and
@@ -5863,9 +6061,9 @@ export namespace RegisterApplicationRevisionInput {
 export interface RegisterOnPremisesInstanceInput {
   __type?: "RegisterOnPremisesInstanceInput";
   /**
-   * <p>The ARN of the IAM session to associate with the on-premises instance.</p>
+   * <p>The name of the on-premises instance to register.</p>
    */
-  iamSessionArn?: string;
+  instanceName: string | undefined;
 
   /**
    * <p>The ARN of the IAM user to associate with the on-premises instance.</p>
@@ -5873,9 +6071,9 @@ export interface RegisterOnPremisesInstanceInput {
   iamUserArn?: string;
 
   /**
-   * <p>The name of the on-premises instance to register.</p>
+   * <p>The ARN of the IAM session to associate with the on-premises instance.</p>
    */
-  instanceName: string | undefined;
+  iamSessionArn?: string;
 }
 
 export namespace RegisterOnPremisesInstanceInput {
@@ -5891,19 +6089,20 @@ export enum RegistrationStatus {
 }
 
 /**
- * <p>Represents the input of a RemoveTagsFromOnPremisesInstances operation.</p>
+ * <p>Represents the input of a <code>RemoveTagsFromOnPremisesInstances</code>
+ *             operation.</p>
  */
 export interface RemoveTagsFromOnPremisesInstancesInput {
   __type?: "RemoveTagsFromOnPremisesInstancesInput";
   /**
-   * <p>The names of the on-premises instances from which to remove tags.</p>
-   */
-  instanceNames: string[] | undefined;
-
-  /**
    * <p>The tag key-value pairs to remove from the on-premises instances.</p>
    */
   tags: Tag[] | undefined;
+
+  /**
+   * <p>The names of the on-premises instances from which to remove tags.</p>
+   */
+  instanceNames: string[] | undefined;
 }
 
 export namespace RemoveTagsFromOnPremisesInstancesInput {
@@ -6003,15 +6202,26 @@ export namespace RevisionInfo {
 export interface RevisionLocation {
   __type?: "RevisionLocation";
   /**
-   * <p> The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The
-   *             content is formatted as JSON or YAML and stored as a RawString. </p>
+   * <p>Information about the location of a revision stored in Amazon S3. </p>
    */
-  appSpecContent?: AppSpecContent;
+  s3Location?: S3Location;
+
+  /**
+   * <p>Information about the location of an AWS Lambda deployment revision stored as a
+   *             RawString.</p>
+   */
+  string?: RawString;
 
   /**
    * <p>Information about the location of application artifacts stored in GitHub.</p>
    */
   gitHubLocation?: GitHubLocation;
+
+  /**
+   * <p> The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The
+   *             content is formatted as JSON or YAML and stored as a RawString. </p>
+   */
+  appSpecContent?: AppSpecContent;
 
   /**
    * <p>The type of application revision:</p>
@@ -6027,20 +6237,14 @@ export interface RevisionLocation {
    *                 <p>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments
    *                     only).</p>
    *             </li>
+   *             <li>
+   *                 <p>AppSpecContent: An <code>AppSpecContent</code> object that contains the contents of an AppSpec file for
+   *                     an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML
+   *                     stored as a RawString.</p>
+   *             </li>
    *          </ul>
    */
   revisionType?: RevisionLocationType | string;
-
-  /**
-   * <p>Information about the location of a revision stored in Amazon S3. </p>
-   */
-  s3Location?: S3Location;
-
-  /**
-   * <p>Information about the location of an AWS Lambda deployment revision stored as a
-   *             RawString.</p>
-   */
-  string?: RawString;
 }
 
 export namespace RevisionLocation {
@@ -6101,9 +6305,10 @@ export namespace RoleRequiredException {
 export interface RollbackInfo {
   __type?: "RollbackInfo";
   /**
-   * <p>The ID of the deployment rollback.</p>
+   * <p>The deployment ID of the deployment that was underway and triggered a rollback
+   *             deployment because it failed or was stopped.</p>
    */
-  rollbackDeploymentId?: string;
+  rollbackTriggeringDeploymentId?: string;
 
   /**
    * <p>Information that describes the status of a deployment rollback (for example, whether
@@ -6112,10 +6317,9 @@ export interface RollbackInfo {
   rollbackMessage?: string;
 
   /**
-   * <p>The deployment ID of the deployment that was underway and triggered a rollback
-   *             deployment because it failed or was stopped.</p>
+   * <p>The ID of the deployment rollback.</p>
    */
-  rollbackTriggeringDeploymentId?: string;
+  rollbackDeploymentId?: string;
 }
 
 export namespace RollbackInfo {
@@ -6131,27 +6335,6 @@ export namespace RollbackInfo {
 export interface S3Location {
   __type?: "S3Location";
   /**
-   * <p>The name of the Amazon S3 bucket where the application revision is stored.</p>
-   */
-  bucket?: string;
-
-  /**
-   * <p>The file type of the application revision. Must be one of the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>tar: A tar archive file.</p>
-   *             </li>
-   *             <li>
-   *                 <p>tgz: A compressed tar archive file.</p>
-   *             </li>
-   *             <li>
-   *                 <p>zip: A zip archive file.</p>
-   *             </li>
-   *          </ul>
-   */
-  bundleType?: BundleType | string;
-
-  /**
    * <p>The ETag of the Amazon S3 object that represents the bundled artifacts for the
    *             application revision.</p>
    *         <p>If the ETag is not specified as an input parameter, ETag validation of the object is
@@ -6160,18 +6343,42 @@ export interface S3Location {
   eTag?: string;
 
   /**
-   * <p>The name of the Amazon S3 object that represents the bundled artifacts for the
-   *             application revision.</p>
-   */
-  key?: string;
-
-  /**
    * <p>A specific version of the Amazon S3 object that represents the bundled artifacts for
    *             the application revision.</p>
    *         <p>If the version is not specified, the system uses the most recent version by
    *             default.</p>
    */
   version?: string;
+
+  /**
+   * <p>The name of the Amazon S3 object that represents the bundled artifacts for the
+   *             application revision.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket where the application revision is stored.</p>
+   */
+  bucket?: string;
+
+  /**
+   * <p>The file type of the application revision. Must be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>tar</code>: A tar archive file.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tgz</code>: A compressed tar archive file.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>zip</code>: A zip archive file.</p>
+   *             </li>
+   *          </ul>
+   */
+  bundleType?: BundleType | string;
 }
 
 export namespace S3Location {
@@ -6204,20 +6411,20 @@ export enum SortOrder {
 }
 
 /**
- * <p> Represents the input of a StopDeployment operation. </p>
+ * <p> Represents the input of a <code>StopDeployment</code> operation. </p>
  */
 export interface StopDeploymentInput {
   __type?: "StopDeploymentInput";
+  /**
+   * <p> The unique ID of a deployment. </p>
+   */
+  deploymentId: string | undefined;
+
   /**
    * <p> Indicates, when a deployment is stopped, whether instances that have been updated
    *             should be rolled back to the previous version of the application revision. </p>
    */
   autoRollbackEnabled?: boolean;
-
-  /**
-   * <p> The unique ID of a deployment. </p>
-   */
-  deploymentId: string | undefined;
 }
 
 export namespace StopDeploymentInput {
@@ -6228,10 +6435,15 @@ export namespace StopDeploymentInput {
 }
 
 /**
- * <p> Represents the output of a StopDeployment operation. </p>
+ * <p> Represents the output of a <code>StopDeployment</code> operation. </p>
  */
 export interface StopDeploymentOutput {
   __type?: "StopDeploymentOutput";
+  /**
+   * <p>An accompanying status message.</p>
+   */
+  statusMessage?: string;
+
   /**
    * <p>The status of the stop deployment operation:</p>
    *         <ul>
@@ -6244,11 +6456,6 @@ export interface StopDeploymentOutput {
    *          </ul>
    */
   status?: StopStatus | string;
-
-  /**
-   * <p>An accompanying status message.</p>
-   */
-  statusMessage?: string;
 }
 
 export namespace StopDeploymentOutput {
@@ -6292,9 +6499,9 @@ export namespace Tag {
 export interface TagFilter {
   __type?: "TagFilter";
   /**
-   * <p>The on-premises instance tag filter key.</p>
+   * <p>The on-premises instance tag filter value.</p>
    */
-  Key?: string;
+  Value?: string;
 
   /**
    * <p>The on-premises instance tag filter type:</p>
@@ -6313,9 +6520,9 @@ export interface TagFilter {
   Type?: TagFilterType | string;
 
   /**
-   * <p>The on-premises instance tag filter value.</p>
+   * <p>The on-premises instance tag filter key.</p>
    */
-  Value?: string;
+  Key?: string;
 }
 
 export namespace TagFilter {
@@ -6460,10 +6667,10 @@ export namespace TargetGroupInfo {
 export interface TargetGroupPairInfo {
   __type?: "TargetGroupPairInfo";
   /**
-   * <p> The path used by a load balancer to route production traffic when an Amazon ECS
-   *             deployment is complete. </p>
+   * <p> An optional path used by a load balancer to route test traffic after an Amazon ECS
+   *             deployment. Validation can occur while test traffic is served during a deployment. </p>
    */
-  prodTrafficRoute?: TrafficRoute;
+  testTrafficRoute?: TrafficRoute;
 
   /**
    * <p> One pair of target groups. One is associated with the original task set. The second
@@ -6472,10 +6679,10 @@ export interface TargetGroupPairInfo {
   targetGroups?: TargetGroupInfo[];
 
   /**
-   * <p> An optional path used by a load balancer to route test traffic after an Amazon ECS
-   *             deployment. Validation can occur while test traffic is served during a deployment. </p>
+   * <p> The path used by a load balancer to route production traffic when an Amazon ECS
+   *             deployment is complete. </p>
    */
-  testTrafficRoute?: TrafficRoute;
+  prodTrafficRoute?: TrafficRoute;
 }
 
 export namespace TargetGroupPairInfo {
@@ -6492,24 +6699,24 @@ export namespace TargetGroupPairInfo {
 export interface TargetInstances {
   __type?: "TargetInstances";
   /**
-   * <p>The names of one or more Auto Scaling groups to identify a replacement environment for
-   *             a blue/green deployment.</p>
+   * <p>The tag filter key, type, and value used to identify Amazon EC2 instances in a
+   *             replacement environment for a blue/green deployment. Cannot be used in the same call as
+   *                 <code>ec2TagSet</code>.</p>
    */
-  autoScalingGroups?: string[];
+  tagFilters?: EC2TagFilter[];
 
   /**
    * <p>Information about the groups of EC2 instance tags that an instance must be identified
    *             by in order for it to be included in the replacement environment for a blue/green
-   *             deployment. Cannot be used in the same call as tagFilters.</p>
+   *             deployment. Cannot be used in the same call as <code>tagFilters</code>.</p>
    */
   ec2TagSet?: EC2TagSet;
 
   /**
-   * <p>The tag filter key, type, and value used to identify Amazon EC2 instances in a
-   *             replacement environment for a blue/green deployment. Cannot be used in the same call as
-   *             ec2TagSet.</p>
+   * <p>The names of one or more Auto Scaling groups to identify a replacement environment for
+   *             a blue/green deployment.</p>
    */
-  tagFilters?: EC2TagFilter[];
+  autoScalingGroups?: string[];
 }
 
 export namespace TargetInstances {
@@ -6554,23 +6761,23 @@ export namespace ThrottlingException {
 }
 
 /**
- * <p>A configuration that shifts traffic from one version of a Lambda function to another
- *             in two increments. The original and target Lambda function versions are specified in the
+ * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task set to another
+ *             in two increments. The original and target Lambda function versions or ECS task sets are specified in the
  *             deployment's AppSpec file.</p>
  */
 export interface TimeBasedCanary {
   __type?: "TimeBasedCanary";
   /**
-   * <p>The number of minutes between the first and second traffic shifts of a
-   *                 <code>TimeBasedCanary</code> deployment.</p>
-   */
-  canaryInterval?: number;
-
-  /**
    * <p>The percentage of traffic to shift in the first increment of a
    *                 <code>TimeBasedCanary</code> deployment.</p>
    */
   canaryPercentage?: number;
+
+  /**
+   * <p>The number of minutes between the first and second traffic shifts of a
+   *                 <code>TimeBasedCanary</code> deployment.</p>
+   */
+  canaryInterval?: number;
 }
 
 export namespace TimeBasedCanary {
@@ -6581,24 +6788,24 @@ export namespace TimeBasedCanary {
 }
 
 /**
- * <p>A configuration that shifts traffic from one version of a Lambda function to another
+ * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task set to another
  *             in equal increments, with an equal number of minutes between each increment. The
- *             original and target Lambda function versions are specified in the deployment's AppSpec
+ *             original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec
  *             file.</p>
  */
 export interface TimeBasedLinear {
   __type?: "TimeBasedLinear";
   /**
-   * <p>The number of minutes between each incremental traffic shift of a
-   *                 <code>TimeBasedLinear</code> deployment.</p>
-   */
-  linearInterval?: number;
-
-  /**
    * <p>The percentage of traffic that is shifted at the start of each increment of a
    *                 <code>TimeBasedLinear</code> deployment.</p>
    */
   linearPercentage?: number;
+
+  /**
+   * <p>The number of minutes between each incremental traffic shift of a
+   *                 <code>TimeBasedLinear</code> deployment.</p>
+   */
+  linearInterval?: number;
 }
 
 export namespace TimeBasedLinear {
@@ -6644,8 +6851,9 @@ export namespace TimeRange {
 export interface TrafficRoute {
   __type?: "TrafficRoute";
   /**
-   * <p> The ARN of one listener. The listener identifies the route between a target group and
-   *             a load balancer. This is an array of strings with a maximum size of one. </p>
+   * <p> The Amazon Resource Name (ARN) of one listener. The listener identifies the route
+   *             between a target group and a load balancer. This is an array of strings with a maximum
+   *             size of one. </p>
    */
   listenerArns?: string[];
 }
@@ -6659,28 +6867,29 @@ export namespace TrafficRoute {
 
 /**
  * <p>The configuration that specifies how traffic is shifted from one version of a Lambda
- *             function to another version during an AWS Lambda deployment.</p>
+ *             function to another version during an AWS Lambda deployment, or from one Amazon ECS task
+ *             set to another during an Amazon ECS deployment.</p>
  */
 export interface TrafficRoutingConfig {
   __type?: "TrafficRoutingConfig";
   /**
-   * <p>A configuration that shifts traffic from one version of a Lambda function to another
-   *             in two increments. The original and target Lambda function versions are specified in the
+   * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task set to another
+   *             in two increments. The original and target Lambda function versions or ECS task sets are specified in the
    *             deployment's AppSpec file.</p>
    */
   timeBasedCanary?: TimeBasedCanary;
 
   /**
-   * <p>A configuration that shifts traffic from one version of a Lambda function to another
+   * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task set to another
    *             in equal increments, with an equal number of minutes between each increment. The
-   *             original and target Lambda function versions are specified in the deployment's AppSpec
+   *             original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec
    *             file.</p>
    */
   timeBasedLinear?: TimeBasedLinear;
 
   /**
    * <p>The type of traffic shifting (<code>TimeBasedCanary</code> or
-   *                 <code>TimeBasedLinear</code>) used by a deployment configuration .</p>
+   *                 <code>TimeBasedLinear</code>) used by a deployment configuration.</p>
    */
   type?: TrafficRoutingType | string;
 }
@@ -6704,9 +6913,10 @@ export enum TrafficRoutingType {
 export interface TriggerConfig {
   __type?: "TriggerConfig";
   /**
-   * <p>The event type or types for which notifications are triggered.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through
+   *             which notifications about deployment or instance events are sent.</p>
    */
-  triggerEvents?: (TriggerEventType | string)[];
+  triggerTargetArn?: string;
 
   /**
    * <p>The name of the notification trigger.</p>
@@ -6714,10 +6924,9 @@ export interface TriggerConfig {
   triggerName?: string;
 
   /**
-   * <p>The ARN of the Amazon Simple Notification Service topic through which notifications
-   *             about deployment or instance events are sent.</p>
+   * <p>The event type or types for which notifications are triggered.</p>
    */
-  triggerTargetArn?: string;
+  triggerEvents?: (TriggerEventType | string)[];
 }
 
 export namespace TriggerConfig {
@@ -6783,9 +6992,8 @@ export namespace UnsupportedActionForDeploymentTypeException {
 export interface UntagResourceInput {
   __type?: "UntagResourceInput";
   /**
-   * <p>
-   *             The ARN that specifies from which resource to disassociate the tags with the keys in the <code>TagKeys</code> input paramter.
-   *         </p>
+   * <p> The Amazon Resource Name (ARN) that specifies from which resource to disassociate the
+   *             tags with the keys in the <code>TagKeys</code> input parameter. </p>
    */
   ResourceArn: string | undefined;
 
@@ -6817,19 +7025,19 @@ export namespace UntagResourceOutput {
 }
 
 /**
- * <p>Represents the input of an UpdateApplication operation.</p>
+ * <p>Represents the input of an <code>UpdateApplication</code> operation.</p>
  */
 export interface UpdateApplicationInput {
   __type?: "UpdateApplicationInput";
   /**
-   * <p>The current name of the application you want to change.</p>
-   */
-  applicationName?: string;
-
-  /**
    * <p>The new name to give the application.</p>
    */
   newApplicationName?: string;
+
+  /**
+   * <p>The current name of the application you want to change.</p>
+   */
+  applicationName?: string;
 }
 
 export namespace UpdateApplicationInput {
@@ -6840,10 +7048,15 @@ export namespace UpdateApplicationInput {
 }
 
 /**
- * <p>Represents the input of an UpdateDeploymentGroup operation.</p>
+ * <p>Represents the input of an <code>UpdateDeploymentGroup</code> operation.</p>
  */
 export interface UpdateDeploymentGroupInput {
   __type?: "UpdateDeploymentGroupInput";
+  /**
+   * <p>The application name that corresponds to the deployment group to update.</p>
+   */
+  applicationName: string | undefined;
+
   /**
    * <p>Information to add or change about Amazon CloudWatch alarms when the deployment group
    *             is updated.</p>
@@ -6851,22 +7064,22 @@ export interface UpdateDeploymentGroupInput {
   alarmConfiguration?: AlarmConfiguration;
 
   /**
-   * <p>The application name that corresponds to the deployment group to update.</p>
+   * <p>Information about groups of tags applied to on-premises instances. The deployment
+   *             group includes only EC2 instances identified by all the tag groups.</p>
    */
-  applicationName: string | undefined;
+  ec2TagSet?: EC2TagSet;
 
   /**
-   * <p>Information for an automatic rollback configuration that is added or changed when a
-   *             deployment group is updated.</p>
+   * <p>The replacement set of on-premises instance tags on which to filter, if you want to
+   *             change them. To keep the existing tags, enter their names. To remove tags, do not enter
+   *             any tag names.</p>
    */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
+  onPremisesInstanceTagFilters?: TagFilter[];
 
   /**
-   * <p>The replacement list of Auto Scaling groups to be included in the deployment group, if
-   *             you want to change them. To keep the Auto Scaling groups, enter their names. To remove
-   *             Auto Scaling groups, do not enter any Auto Scaling group names.</p>
+   * <p>Information about the load balancer used in a deployment.</p>
    */
-  autoScalingGroups?: string[];
+  loadBalancerInfo?: LoadBalancerInfo;
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
@@ -6879,28 +7092,11 @@ export interface UpdateDeploymentGroupInput {
   currentDeploymentGroupName: string | undefined;
 
   /**
-   * <p>The replacement deployment configuration name to use, if you want to change it.</p>
+   * <p>The replacement list of Auto Scaling groups to be included in the deployment group, if
+   *             you want to change them. To keep the Auto Scaling groups, enter their names. To remove
+   *             Auto Scaling groups, do not enter any Auto Scaling group names.</p>
    */
-  deploymentConfigName?: string;
-
-  /**
-   * <p>Information about the type of deployment, either in-place or blue/green, you want to
-   *             run and whether to route deployment traffic behind a load balancer.</p>
-   */
-  deploymentStyle?: DeploymentStyle;
-
-  /**
-   * <p>The replacement set of Amazon EC2 tags on which to filter, if you want to change them.
-   *             To keep the existing tags, enter their names. To remove tags, do not enter any tag
-   *             names.</p>
-   */
-  ec2TagFilters?: EC2TagFilter[];
-
-  /**
-   * <p>Information about groups of tags applied to on-premises instances. The deployment
-   *             group includes only EC2 instances identified by all the tag groups.</p>
-   */
-  ec2TagSet?: EC2TagSet;
+  autoScalingGroups?: string[];
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
@@ -6911,9 +7107,24 @@ export interface UpdateDeploymentGroupInput {
   ecsServices?: ECSService[];
 
   /**
-   * <p>Information about the load balancer used in a deployment.</p>
+   * <p>Information about an on-premises instance tag set. The deployment group includes only
+   *             on-premises instances identified by all the tag groups.</p>
    */
-  loadBalancerInfo?: LoadBalancerInfo;
+  onPremisesTagSet?: OnPremisesTagSet;
+
+  /**
+   * <p>Information about triggers to change when the deployment group is updated. For
+   *             examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Edit a Trigger in a
+   *                 CodeDeploy Deployment Group</a> in the <i>AWS CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  triggerConfigurations?: TriggerConfig[];
+
+  /**
+   * <p>Information for an automatic rollback configuration that is added or changed when a
+   *             deployment group is updated.</p>
+   */
+  autoRollbackConfiguration?: AutoRollbackConfiguration;
 
   /**
    * <p>The new name of the deployment group, if you want to change it.</p>
@@ -6921,29 +7132,27 @@ export interface UpdateDeploymentGroupInput {
   newDeploymentGroupName?: string;
 
   /**
-   * <p>The replacement set of on-premises instance tags on which to filter, if you want to
-   *             change them. To keep the existing tags, enter their names. To remove tags, do not enter
-   *             any tag names.</p>
-   */
-  onPremisesInstanceTagFilters?: TagFilter[];
-
-  /**
-   * <p>Information about an on-premises instance tag set. The deployment group includes only
-   *             on-premises instances identified by all the tag groups.</p>
-   */
-  onPremisesTagSet?: OnPremisesTagSet;
-
-  /**
    * <p>A replacement ARN for the service role, if you want to change it.</p>
    */
   serviceRoleArn?: string;
 
   /**
-   * <p>Information about triggers to change when the deployment group is updated. For
-   *             examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Modify Triggers in an AWS
-   *                 CodeDeploy Deployment Group</a> in the AWS CodeDeploy User Guide.</p>
+   * <p>The replacement set of Amazon EC2 tags on which to filter, if you want to change them.
+   *             To keep the existing tags, enter their names. To remove tags, do not enter any tag
+   *             names.</p>
    */
-  triggerConfigurations?: TriggerConfig[];
+  ec2TagFilters?: EC2TagFilter[];
+
+  /**
+   * <p>The replacement deployment configuration name to use, if you want to change it.</p>
+   */
+  deploymentConfigName?: string;
+
+  /**
+   * <p>Information about the type of deployment, either in-place or blue/green, you want to
+   *             run and whether to route deployment traffic behind a load balancer.</p>
+   */
+  deploymentStyle?: DeploymentStyle;
 }
 
 export namespace UpdateDeploymentGroupInput {
@@ -6954,7 +7163,7 @@ export namespace UpdateDeploymentGroupInput {
 }
 
 /**
- * <p>Represents the output of an UpdateDeploymentGroup operation.</p>
+ * <p>Represents the output of an <code>UpdateDeploymentGroup</code> operation.</p>
  */
 export interface UpdateDeploymentGroupOutput {
   __type?: "UpdateDeploymentGroupOutput";

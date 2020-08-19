@@ -57,17 +57,10 @@ export interface BundleDetails {
   __type?: "BundleDetails";
   /**
    * <p>
-   *             Developer desktop or mobile app or website platforms.
+   *             Title of the download bundle.
    *         </p>
    */
-  availablePlatforms?: (Platform | string)[];
-
-  /**
-   * <p>
-   *             Unique bundle identifier.
-   *         </p>
-   */
-  bundleId?: string;
+  title?: string;
 
   /**
    * <p>
@@ -78,17 +71,10 @@ export interface BundleDetails {
 
   /**
    * <p>
-   *             Icon for the download bundle.
+   *             Developer desktop or mobile app or website platforms.
    *         </p>
    */
-  iconUrl?: string;
-
-  /**
-   * <p>
-   *             Title of the download bundle.
-   *         </p>
-   */
-  title?: string;
+  availablePlatforms?: (Platform | string)[];
 
   /**
    * <p>
@@ -96,6 +82,20 @@ export interface BundleDetails {
    *         </p>
    */
   version?: string;
+
+  /**
+   * <p>
+   *             Unique bundle identifier.
+   *         </p>
+   */
+  bundleId?: string;
+
+  /**
+   * <p>
+   *             Icon for the download bundle.
+   *         </p>
+   */
+  iconUrl?: string;
 }
 
 export namespace BundleDetails {
@@ -114,19 +114,11 @@ export interface CreateProjectRequest {
   __type?: "CreateProjectRequest";
   /**
    * <p>
-   *             ZIP or YAML file which contains configuration settings to be used when creating
-   *             the project. This may be the contents of the file downloaded from the URL provided
-   *             in an export project operation.
+   *             Unique identifier for an exported snapshot of project configuration. This
+   *             snapshot identifier is included in the share URL when a project is exported.
    *         </p>
    */
-  contents?: Uint8Array;
-
-  /**
-   * <p>
-   *             Name of the project.
-   *         </p>
-   */
-  name?: string;
+  snapshotId?: string;
 
   /**
    * <p>
@@ -137,11 +129,19 @@ export interface CreateProjectRequest {
 
   /**
    * <p>
-   *             Unique identifier for an exported snapshot of project configuration. This
-   *             snapshot identifier is included in the share URL when a project is exported.
+   *             Name of the project.
    *         </p>
    */
-  snapshotId?: string;
+  name?: string;
+
+  /**
+   * <p>
+   *             ZIP or YAML file which contains configuration settings to be used when creating
+   *             the project. This may be the contents of the file downloaded from the URL provided
+   *             in an export project operation.
+   *         </p>
+   */
+  contents?: Uint8Array;
 }
 
 export namespace CreateProjectRequest {
@@ -204,18 +204,18 @@ export interface DeleteProjectResult {
   __type?: "DeleteProjectResult";
   /**
    * <p>
-   *             Resources which were deleted.
-   *         </p>
-   */
-  deletedResources?: Resource[];
-
-  /**
-   * <p>
    *             Resources which were not deleted, due to a risk of losing potentially
    *             important data or files.
    *         </p>
    */
   orphanedResources?: Resource[];
+
+  /**
+   * <p>
+   *             Resources which were deleted.
+   *         </p>
+   */
+  deletedResources?: Resource[];
 }
 
 export namespace DeleteProjectResult {
@@ -330,6 +330,13 @@ export interface ExportBundleRequest {
   __type?: "ExportBundleRequest";
   /**
    * <p>
+   *             Unique project identifier.
+   *         </p>
+   */
+  projectId?: string;
+
+  /**
+   * <p>
    *             Unique bundle identifier.
    *         </p>
    */
@@ -341,13 +348,6 @@ export interface ExportBundleRequest {
    *         </p>
    */
   platform?: Platform | string;
-
-  /**
-   * <p>
-   *             Unique project identifier.
-   *         </p>
-   */
-  projectId?: string;
 }
 
 export namespace ExportBundleRequest {
@@ -414,13 +414,6 @@ export interface ExportProjectResult {
   __type?: "ExportProjectResult";
   /**
    * <p>
-   *             URL which can be used to download the exported project configuation file(s).
-   *         </p>
-   */
-  downloadUrl?: string;
-
-  /**
-   * <p>
    *             URL which can be shared to allow other AWS users to create their own project
    *             in AWS Mobile Hub with the same configuration as the specified project. This
    *             URL pertains to a snapshot in time of the project configuration that is created
@@ -430,6 +423,13 @@ export interface ExportProjectResult {
    *         </p>
    */
   shareUrl?: string;
+
+  /**
+   * <p>
+   *             URL which can be used to download the exported project configuation file(s).
+   *         </p>
+   */
+  downloadUrl?: string;
 
   /**
    * <p>
@@ -487,14 +487,14 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    *             The Exception Error Message.
    *         </p>
    */
-  message?: string;
+  retryAfterSeconds?: string;
 
   /**
    * <p>
    *             The Exception Error Message.
    *         </p>
    */
-  retryAfterSeconds?: string;
+  message?: string;
 }
 
 export namespace LimitExceededException {
@@ -605,19 +605,19 @@ export interface ListProjectsResult {
   __type?: "ListProjectsResult";
   /**
    * <p>
+   *             List of projects.
+   *         </p>
+   */
+  projects?: ProjectSummary[];
+
+  /**
+   * <p>
    *             Pagination token. Set to null to start listing records from start.
    *             If non-null pagination token is returned in a result, then pass its
    *             value in here in another request to list more entries.
    *         </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>
-   *             List of projects.
-   *         </p>
-   */
-  projects?: ProjectSummary[];
 }
 
 export namespace ListProjectsResult {
@@ -676,24 +676,10 @@ export interface ProjectDetails {
 
   /**
    * <p>
-   *             Date the project was created.
+   *             Default region to use for AWS resource creation in the AWS Mobile Hub project.
    *         </p>
    */
-  createdDate?: Date;
-
-  /**
-   * <p>
-   *             Date of the last modification of the project.
-   *         </p>
-   */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>
-   *             Name of the project.
-   *         </p>
-   */
-  name?: string;
+  region?: string;
 
   /**
    * <p>
@@ -704,10 +690,10 @@ export interface ProjectDetails {
 
   /**
    * <p>
-   *             Default region to use for AWS resource creation in the AWS Mobile Hub project.
+   *             Date of the last modification of the project.
    *         </p>
    */
-  region?: string;
+  lastUpdatedDate?: Date;
 
   /**
    * <p>
@@ -722,6 +708,20 @@ export interface ProjectDetails {
    *         </p>
    */
   state?: ProjectState | string;
+
+  /**
+   * <p>
+   *             Name of the project.
+   *         </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *             Date the project was created.
+   *         </p>
+   */
+  createdDate?: Date;
 }
 
 export namespace ProjectDetails {
@@ -746,17 +746,17 @@ export interface ProjectSummary {
   __type?: "ProjectSummary";
   /**
    * <p>
-   *             Name of the project.
-   *         </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
    *             Unique project identifier.
    *         </p>
    */
   projectId?: string;
+
+  /**
+   * <p>
+   *             Name of the project.
+   *         </p>
+   */
+  name?: string;
 }
 
 export namespace ProjectSummary {
@@ -773,6 +773,20 @@ export namespace ProjectSummary {
  */
 export interface Resource {
   __type?: "Resource";
+  /**
+   * <p>
+   *             Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).
+   *         </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
+   *         </p>
+   */
+  type?: string;
+
   /**
    * <p>
    *             AWS resource name which uniquely identifies the resource in AWS systems.
@@ -793,20 +807,6 @@ export interface Resource {
    *         </p>
    */
   feature?: string;
-
-  /**
-   * <p>
-   *             Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).
-   *         </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
-   *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
-   *         </p>
-   */
-  type?: string;
 }
 
 export namespace Resource {
@@ -910,19 +910,19 @@ export interface UpdateProjectRequest {
   __type?: "UpdateProjectRequest";
   /**
    * <p>
+   *             Unique project identifier.
+   *         </p>
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>
    *             ZIP or YAML file which contains project configuration to be updated. This should
    *             be the contents of the file downloaded from the URL provided in an export project
    *             operation.
    *         </p>
    */
   contents?: Uint8Array;
-
-  /**
-   * <p>
-   *             Unique project identifier.
-   *         </p>
-   */
-  projectId: string | undefined;
 }
 
 export namespace UpdateProjectRequest {

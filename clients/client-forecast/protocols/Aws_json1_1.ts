@@ -50,6 +50,12 @@ import {
 } from "../commands/ListForecastExportJobsCommand";
 import { ListForecastsCommandInput, ListForecastsCommandOutput } from "../commands/ListForecastsCommand";
 import { ListPredictorsCommandInput, ListPredictorsCommandOutput } from "../commands/ListPredictorsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput } from "../commands/UpdateDatasetGroupCommand";
 import {
   CategoricalParameterRange,
@@ -118,6 +124,8 @@ import {
   ListForecastsResponse,
   ListPredictorsRequest,
   ListPredictorsResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   Metrics,
   ParameterRanges,
   PredictorExecution,
@@ -131,7 +139,12 @@ import {
   SchemaAttribute,
   Statistics,
   SupplementaryFeature,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
   TestWindowSummary,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateDatasetGroupRequest,
   UpdateDatasetGroupResponse,
   WeightedQuantileLoss,
@@ -469,6 +482,45 @@ export const serializeAws_json1_1ListPredictorsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPredictorsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2229,6 +2281,206 @@ const deserializeAws_json1_1ListPredictorsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2439,6 +2691,7 @@ const serializeAws_json1_1CreateDatasetGroupRequest = (
     ...(input.DatasetArns !== undefined && { DatasetArns: serializeAws_json1_1ArnList(input.DatasetArns, context) }),
     ...(input.DatasetGroupName !== undefined && { DatasetGroupName: input.DatasetGroupName }),
     ...(input.Domain !== undefined && { Domain: input.Domain }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -2450,6 +2703,7 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
     ...(input.DataSource !== undefined && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
     ...(input.DatasetArn !== undefined && { DatasetArn: input.DatasetArn }),
     ...(input.DatasetImportJobName !== undefined && { DatasetImportJobName: input.DatasetImportJobName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TimestampFormat !== undefined && { TimestampFormat: input.TimestampFormat }),
   };
 };
@@ -2464,6 +2718,7 @@ const serializeAws_json1_1CreateDatasetRequest = (input: CreateDatasetRequest, c
       EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
     }),
     ...(input.Schema !== undefined && { Schema: serializeAws_json1_1Schema(input.Schema, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -2477,6 +2732,7 @@ const serializeAws_json1_1CreateForecastExportJobRequest = (
     }),
     ...(input.ForecastArn !== undefined && { ForecastArn: input.ForecastArn }),
     ...(input.ForecastExportJobName !== undefined && { ForecastExportJobName: input.ForecastExportJobName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -2487,6 +2743,7 @@ const serializeAws_json1_1CreateForecastRequest = (input: CreateForecastRequest,
       ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
     }),
     ...(input.PredictorArn !== undefined && { PredictorArn: input.PredictorArn }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -2512,6 +2769,7 @@ const serializeAws_json1_1CreatePredictorRequest = (input: CreatePredictorReques
     ...(input.PerformAutoML !== undefined && { PerformAutoML: input.PerformAutoML }),
     ...(input.PerformHPO !== undefined && { PerformHPO: input.PerformHPO }),
     ...(input.PredictorName !== undefined && { PredictorName: input.PredictorName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TrainingParameters !== undefined && {
       TrainingParameters: serializeAws_json1_1TrainingParameters(input.TrainingParameters, context),
     }),
@@ -2808,6 +3066,15 @@ const serializeAws_json1_1ListPredictorsRequest = (input: ListPredictorsRequest,
   };
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+  };
+};
+
 const serializeAws_json1_1ParameterRanges = (input: ParameterRanges, context: __SerdeContext): any => {
   return {
     ...(input.CategoricalParameterRanges !== undefined && {
@@ -2866,6 +3133,28 @@ const serializeAws_json1_1SupplementaryFeatures = (input: SupplementaryFeature[]
   return input.map((entry) => serializeAws_json1_1SupplementaryFeature(entry, context));
 };
 
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+};
+
 const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -2874,6 +3163,13 @@ const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }
     }),
     {}
   );
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+  };
 };
 
 const serializeAws_json1_1UpdateDatasetGroupRequest = (
@@ -3647,6 +3943,17 @@ const deserializeAws_json1_1ListPredictorsResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    __type: "ListTagsForResourceResponse",
+    Tags:
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
     __type: "Metrics",
@@ -3800,16 +4107,8 @@ const deserializeAws_json1_1Statistics = (output: any, context: __SerdeContext):
     Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
     CountDistinct:
       output.CountDistinct !== undefined && output.CountDistinct !== null ? output.CountDistinct : undefined,
-    CountDistinctLong:
-      output.CountDistinctLong !== undefined && output.CountDistinctLong !== null
-        ? output.CountDistinctLong
-        : undefined,
-    CountLong: output.CountLong !== undefined && output.CountLong !== null ? output.CountLong : undefined,
     CountNan: output.CountNan !== undefined && output.CountNan !== null ? output.CountNan : undefined,
-    CountNanLong: output.CountNanLong !== undefined && output.CountNanLong !== null ? output.CountNanLong : undefined,
     CountNull: output.CountNull !== undefined && output.CountNull !== null ? output.CountNull : undefined,
-    CountNullLong:
-      output.CountNullLong !== undefined && output.CountNullLong !== null ? output.CountNullLong : undefined,
     Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
     Min: output.Min !== undefined && output.Min !== null ? output.Min : undefined,
     Stddev: output.Stddev !== undefined && output.Stddev !== null ? output.Stddev : undefined,
@@ -3826,6 +4125,24 @@ const deserializeAws_json1_1SupplementaryFeature = (output: any, context: __Serd
 
 const deserializeAws_json1_1SupplementaryFeatures = (output: any, context: __SerdeContext): SupplementaryFeature[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1SupplementaryFeature(entry, context));
+};
+
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    __type: "Tag",
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {
+    __type: "TagResourceResponse",
+  } as any;
+};
+
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TestWindowDetails = (output: any, context: __SerdeContext): TestWindowSummary[] => {
@@ -3860,6 +4177,12 @@ const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeC
     }),
     {}
   );
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {
+    __type: "UntagResourceResponse",
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateDatasetGroupResponse = (

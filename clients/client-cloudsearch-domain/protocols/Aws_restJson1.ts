@@ -38,20 +38,20 @@ export const serializeAws_restJson1SearchCommand = async (
   const query: any = {
     format: "sdk",
     pretty: "true",
-    ...(input.cursor !== undefined && { cursor: input.cursor }),
-    ...(input.expr !== undefined && { expr: input.expr }),
-    ...(input.facet !== undefined && { facet: input.facet }),
-    ...(input.filterQuery !== undefined && { fq: input.filterQuery }),
-    ...(input.highlight !== undefined && { highlight: input.highlight }),
-    ...(input.partial !== undefined && { partial: input.partial.toString() }),
-    ...(input.query !== undefined && { q: input.query }),
-    ...(input.queryOptions !== undefined && { "q.options": input.queryOptions }),
-    ...(input.queryParser !== undefined && { "q.parser": input.queryParser }),
-    ...(input.return !== undefined && { return: input.return }),
-    ...(input.size !== undefined && { size: input.size.toString() }),
-    ...(input.sort !== undefined && { sort: input.sort }),
     ...(input.start !== undefined && { start: input.start.toString() }),
+    ...(input.query !== undefined && { q: input.query }),
     ...(input.stats !== undefined && { stats: input.stats }),
+    ...(input.cursor !== undefined && { cursor: input.cursor }),
+    ...(input.queryParser !== undefined && { "q.parser": input.queryParser }),
+    ...(input.sort !== undefined && { sort: input.sort }),
+    ...(input.queryOptions !== undefined && { "q.options": input.queryOptions }),
+    ...(input.size !== undefined && { size: input.size.toString() }),
+    ...(input.partial !== undefined && { partial: input.partial.toString() }),
+    ...(input.highlight !== undefined && { highlight: input.highlight }),
+    ...(input.filterQuery !== undefined && { fq: input.filterQuery }),
+    ...(input.return !== undefined && { return: input.return }),
+    ...(input.facet !== undefined && { facet: input.facet }),
+    ...(input.expr !== undefined && { expr: input.expr }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -78,9 +78,9 @@ export const serializeAws_restJson1SuggestCommand = async (
   const query: any = {
     format: "sdk",
     pretty: "true",
+    ...(input.suggester !== undefined && { suggester: input.suggester }),
     ...(input.query !== undefined && { q: input.query }),
     ...(input.size !== undefined && { size: input.size.toString() }),
-    ...(input.suggester !== undefined && { suggester: input.suggester }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

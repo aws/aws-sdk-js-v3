@@ -4,7 +4,15 @@ import {
 } from "../commands/CancelTaskExecutionCommand";
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "../commands/CreateAgentCommand";
 import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "../commands/CreateLocationEfsCommand";
+import {
+  CreateLocationFsxWindowsCommandInput,
+  CreateLocationFsxWindowsCommandOutput,
+} from "../commands/CreateLocationFsxWindowsCommand";
 import { CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput } from "../commands/CreateLocationNfsCommand";
+import {
+  CreateLocationObjectStorageCommandInput,
+  CreateLocationObjectStorageCommandOutput,
+} from "../commands/CreateLocationObjectStorageCommand";
 import { CreateLocationS3CommandInput, CreateLocationS3CommandOutput } from "../commands/CreateLocationS3Command";
 import { CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput } from "../commands/CreateLocationSmbCommand";
 import { CreateTaskCommandInput, CreateTaskCommandOutput } from "../commands/CreateTaskCommand";
@@ -17,9 +25,17 @@ import {
   DescribeLocationEfsCommandOutput,
 } from "../commands/DescribeLocationEfsCommand";
 import {
+  DescribeLocationFsxWindowsCommandInput,
+  DescribeLocationFsxWindowsCommandOutput,
+} from "../commands/DescribeLocationFsxWindowsCommand";
+import {
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput,
 } from "../commands/DescribeLocationNfsCommand";
+import {
+  DescribeLocationObjectStorageCommandInput,
+  DescribeLocationObjectStorageCommandOutput,
+} from "../commands/DescribeLocationObjectStorageCommand";
 import { DescribeLocationS3CommandInput, DescribeLocationS3CommandOutput } from "../commands/DescribeLocationS3Command";
 import {
   DescribeLocationSmbCommandInput,
@@ -51,8 +67,12 @@ import {
   CreateAgentResponse,
   CreateLocationEfsRequest,
   CreateLocationEfsResponse,
+  CreateLocationFsxWindowsRequest,
+  CreateLocationFsxWindowsResponse,
   CreateLocationNfsRequest,
   CreateLocationNfsResponse,
+  CreateLocationObjectStorageRequest,
+  CreateLocationObjectStorageResponse,
   CreateLocationS3Request,
   CreateLocationS3Response,
   CreateLocationSmbRequest,
@@ -69,8 +89,12 @@ import {
   DescribeAgentResponse,
   DescribeLocationEfsRequest,
   DescribeLocationEfsResponse,
+  DescribeLocationFsxWindowsRequest,
+  DescribeLocationFsxWindowsResponse,
   DescribeLocationNfsRequest,
   DescribeLocationNfsResponse,
+  DescribeLocationObjectStorageRequest,
+  DescribeLocationObjectStorageResponse,
   DescribeLocationS3Request,
   DescribeLocationS3Response,
   DescribeLocationSmbRequest,
@@ -165,6 +189,19 @@ export const serializeAws_json1_1CreateLocationEfsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateLocationFsxWindowsCommand = async (
+  input: CreateLocationFsxWindowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "FmrsService.CreateLocationFsxWindows",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLocationFsxWindowsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateLocationNfsCommand = async (
   input: CreateLocationNfsCommandInput,
   context: __SerdeContext
@@ -175,6 +212,19 @@ export const serializeAws_json1_1CreateLocationNfsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLocationNfsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateLocationObjectStorageCommand = async (
+  input: CreateLocationObjectStorageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "FmrsService.CreateLocationObjectStorage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLocationObjectStorageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -282,6 +332,19 @@ export const serializeAws_json1_1DescribeLocationEfsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeLocationFsxWindowsCommand = async (
+  input: DescribeLocationFsxWindowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "FmrsService.DescribeLocationFsxWindows",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeLocationFsxWindowsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeLocationNfsCommand = async (
   input: DescribeLocationNfsCommandInput,
   context: __SerdeContext
@@ -292,6 +355,19 @@ export const serializeAws_json1_1DescribeLocationNfsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLocationNfsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeLocationObjectStorageCommand = async (
+  input: DescribeLocationObjectStorageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "FmrsService.DescribeLocationObjectStorage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeLocationObjectStorageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -669,6 +745,70 @@ const deserializeAws_json1_1CreateLocationEfsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateLocationFsxWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationFsxWindowsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateLocationFsxWindowsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLocationFsxWindowsResponse(data, context);
+  const response: CreateLocationFsxWindowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateLocationFsxWindowsResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLocationFsxWindowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationFsxWindowsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateLocationNfsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -691,6 +831,70 @@ const deserializeAws_json1_1CreateLocationNfsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLocationNfsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateLocationObjectStorageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationObjectStorageCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateLocationObjectStorageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLocationObjectStorageResponse(data, context);
+  const response: CreateLocationObjectStorageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateLocationObjectStorageResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLocationObjectStorageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationObjectStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1245,6 +1449,70 @@ const deserializeAws_json1_1DescribeLocationEfsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeLocationFsxWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationFsxWindowsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeLocationFsxWindowsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeLocationFsxWindowsResponse(data, context);
+  const response: DescribeLocationFsxWindowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeLocationFsxWindowsResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeLocationFsxWindowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationFsxWindowsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeLocationNfsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1267,6 +1535,70 @@ const deserializeAws_json1_1DescribeLocationNfsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLocationNfsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeLocationObjectStorageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationObjectStorageCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeLocationObjectStorageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeLocationObjectStorageResponse(data, context);
+  const response: DescribeLocationObjectStorageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeLocationObjectStorageResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeLocationObjectStorageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationObjectStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2258,7 +2590,7 @@ const serializeAws_json1_1CreateAgentRequest = (input: CreateAgentRequest, conte
     ...(input.SubnetArns !== undefined && {
       SubnetArns: serializeAws_json1_1PLSubnetArnList(input.SubnetArns, context),
     }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
     ...(input.VpcEndpointId !== undefined && { VpcEndpointId: input.VpcEndpointId }),
   };
 };
@@ -2271,7 +2603,24 @@ const serializeAws_json1_1CreateLocationEfsRequest = (
     ...(input.Ec2Config !== undefined && { Ec2Config: serializeAws_json1_1Ec2Config(input.Ec2Config, context) }),
     ...(input.EfsFilesystemArn !== undefined && { EfsFilesystemArn: input.EfsFilesystemArn }),
     ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateLocationFsxWindowsRequest = (
+  input: CreateLocationFsxWindowsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Domain !== undefined && { Domain: input.Domain }),
+    ...(input.FsxFilesystemArn !== undefined && { FsxFilesystemArn: input.FsxFilesystemArn }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.SecurityGroupArns !== undefined && {
+      SecurityGroupArns: serializeAws_json1_1Ec2SecurityGroupArnList(input.SecurityGroupArns, context),
+    }),
+    ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
+    ...(input.User !== undefined && { User: input.User }),
   };
 };
 
@@ -2288,7 +2637,24 @@ const serializeAws_json1_1CreateLocationNfsRequest = (
     }),
     ...(input.ServerHostname !== undefined && { ServerHostname: input.ServerHostname }),
     ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateLocationObjectStorageRequest = (
+  input: CreateLocationObjectStorageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessKey !== undefined && { AccessKey: input.AccessKey }),
+    ...(input.AgentArns !== undefined && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
+    ...(input.BucketName !== undefined && { BucketName: input.BucketName }),
+    ...(input.SecretKey !== undefined && { SecretKey: input.SecretKey }),
+    ...(input.ServerHostname !== undefined && { ServerHostname: input.ServerHostname }),
+    ...(input.ServerPort !== undefined && { ServerPort: input.ServerPort }),
+    ...(input.ServerProtocol !== undefined && { ServerProtocol: input.ServerProtocol }),
+    ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
   };
 };
 
@@ -2298,7 +2664,7 @@ const serializeAws_json1_1CreateLocationS3Request = (input: CreateLocationS3Requ
     ...(input.S3Config !== undefined && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
     ...(input.S3StorageClass !== undefined && { S3StorageClass: input.S3StorageClass }),
     ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
   };
 };
 
@@ -2315,7 +2681,7 @@ const serializeAws_json1_1CreateLocationSmbRequest = (
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.ServerHostname !== undefined && { ServerHostname: input.ServerHostname }),
     ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
     ...(input.User !== undefined && { User: input.User }),
   };
 };
@@ -2329,7 +2695,7 @@ const serializeAws_json1_1CreateTaskRequest = (input: CreateTaskRequest, context
     ...(input.Options !== undefined && { Options: serializeAws_json1_1Options(input.Options, context) }),
     ...(input.Schedule !== undefined && { Schedule: serializeAws_json1_1TaskSchedule(input.Schedule, context) }),
     ...(input.SourceLocationArn !== undefined && { SourceLocationArn: input.SourceLocationArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
   };
 };
 
@@ -2366,8 +2732,26 @@ const serializeAws_json1_1DescribeLocationEfsRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeLocationFsxWindowsRequest = (
+  input: DescribeLocationFsxWindowsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LocationArn !== undefined && { LocationArn: input.LocationArn }),
+  };
+};
+
 const serializeAws_json1_1DescribeLocationNfsRequest = (
   input: DescribeLocationNfsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LocationArn !== undefined && { LocationArn: input.LocationArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeLocationObjectStorageRequest = (
+  input: DescribeLocationObjectStorageRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -2432,6 +2816,10 @@ const serializeAws_json1_1FilterRule = (input: FilterRule, context: __SerdeConte
   };
 };
 
+const serializeAws_json1_1InputTagList = (input: TagListEntry[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1TagListEntry(entry, context));
+};
+
 const serializeAws_json1_1ListAgentsRequest = (input: ListAgentsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -2492,12 +2880,14 @@ const serializeAws_json1_1Options = (input: Options, context: __SerdeContext): a
     ...(input.Atime !== undefined && { Atime: input.Atime }),
     ...(input.BytesPerSecond !== undefined && { BytesPerSecond: input.BytesPerSecond }),
     ...(input.Gid !== undefined && { Gid: input.Gid }),
+    ...(input.LogLevel !== undefined && { LogLevel: input.LogLevel }),
     ...(input.Mtime !== undefined && { Mtime: input.Mtime }),
     ...(input.OverwriteMode !== undefined && { OverwriteMode: input.OverwriteMode }),
     ...(input.PosixPermissions !== undefined && { PosixPermissions: input.PosixPermissions }),
     ...(input.PreserveDeletedFiles !== undefined && { PreserveDeletedFiles: input.PreserveDeletedFiles }),
     ...(input.PreserveDevices !== undefined && { PreserveDevices: input.PreserveDevices }),
     ...(input.TaskQueueing !== undefined && { TaskQueueing: input.TaskQueueing }),
+    ...(input.TransferMode !== undefined && { TransferMode: input.TransferMode }),
     ...(input.Uid !== undefined && { Uid: input.Uid }),
     ...(input.VerifyMode !== undefined && { VerifyMode: input.VerifyMode }),
   };
@@ -2540,10 +2930,6 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
   return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1TagList = (input: TagListEntry[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1TagListEntry(entry, context));
-};
-
 const serializeAws_json1_1TagListEntry = (input: TagListEntry, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
@@ -2554,7 +2940,7 @@ const serializeAws_json1_1TagListEntry = (input: TagListEntry, context: __SerdeC
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
   };
 };
 
@@ -2632,12 +3018,32 @@ const deserializeAws_json1_1CreateLocationEfsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateLocationFsxWindowsResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLocationFsxWindowsResponse => {
+  return {
+    __type: "CreateLocationFsxWindowsResponse",
+    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateLocationNfsResponse = (
   output: any,
   context: __SerdeContext
 ): CreateLocationNfsResponse => {
   return {
     __type: "CreateLocationNfsResponse",
+    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateLocationObjectStorageResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLocationObjectStorageResponse => {
+  return {
+    __type: "CreateLocationObjectStorageResponse",
     LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
   } as any;
 };
@@ -2728,6 +3134,27 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeLocationFsxWindowsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLocationFsxWindowsResponse => {
+  return {
+    __type: "DescribeLocationFsxWindowsResponse",
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
+    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
+    SecurityGroupArns:
+      output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
+        ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
+        : undefined,
+    User: output.User !== undefined && output.User !== null ? output.User : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeLocationNfsResponse = (
   output: any,
   context: __SerdeContext
@@ -2748,6 +3175,29 @@ const deserializeAws_json1_1DescribeLocationNfsResponse = (
       output.OnPremConfig !== undefined && output.OnPremConfig !== null
         ? deserializeAws_json1_1OnPremConfig(output.OnPremConfig, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeLocationObjectStorageResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLocationObjectStorageResponse => {
+  return {
+    __type: "DescribeLocationObjectStorageResponse",
+    AccessKey: output.AccessKey !== undefined && output.AccessKey !== null ? output.AccessKey : undefined,
+    AgentArns:
+      output.AgentArns !== undefined && output.AgentArns !== null
+        ? deserializeAws_json1_1AgentArnList(output.AgentArns, context)
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
+    ServerPort: output.ServerPort !== undefined && output.ServerPort !== null ? output.ServerPort : undefined,
+    ServerProtocol:
+      output.ServerProtocol !== undefined && output.ServerProtocol !== null ? output.ServerProtocol : undefined,
   } as any;
 };
 
@@ -2974,7 +3424,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
+        ? deserializeAws_json1_1OutputTagList(output.Tags, context)
         : undefined,
   } as any;
 };
@@ -3040,6 +3490,7 @@ const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Op
     BytesPerSecond:
       output.BytesPerSecond !== undefined && output.BytesPerSecond !== null ? output.BytesPerSecond : undefined,
     Gid: output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
+    LogLevel: output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
     Mtime: output.Mtime !== undefined && output.Mtime !== null ? output.Mtime : undefined,
     OverwriteMode:
       output.OverwriteMode !== undefined && output.OverwriteMode !== null ? output.OverwriteMode : undefined,
@@ -3052,9 +3503,14 @@ const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Op
     PreserveDevices:
       output.PreserveDevices !== undefined && output.PreserveDevices !== null ? output.PreserveDevices : undefined,
     TaskQueueing: output.TaskQueueing !== undefined && output.TaskQueueing !== null ? output.TaskQueueing : undefined,
+    TransferMode: output.TransferMode !== undefined && output.TransferMode !== null ? output.TransferMode : undefined,
     Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined,
     VerifyMode: output.VerifyMode !== undefined && output.VerifyMode !== null ? output.VerifyMode : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1OutputTagList = (output: any, context: __SerdeContext): TagListEntry[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1TagListEntry(entry, context));
 };
 
 const deserializeAws_json1_1PLSecurityGroupArnList = (output: any, context: __SerdeContext): string[] => {
@@ -3115,10 +3571,6 @@ const deserializeAws_json1_1StartTaskExecutionResponse = (
     TaskExecutionArn:
       output.TaskExecutionArn !== undefined && output.TaskExecutionArn !== null ? output.TaskExecutionArn : undefined,
   } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): TagListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TagListEntry(entry, context));
 };
 
 const deserializeAws_json1_1TagListEntry = (output: any, context: __SerdeContext): TagListEntry => {

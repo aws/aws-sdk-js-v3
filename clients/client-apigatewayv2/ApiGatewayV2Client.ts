@@ -15,6 +15,11 @@ import {
   CreateRouteResponseCommandOutput,
 } from "./commands/CreateRouteResponseCommand";
 import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "./commands/CreateVpcLinkCommand";
+import {
+  DeleteAccessLogSettingsCommandInput,
+  DeleteAccessLogSettingsCommandOutput,
+} from "./commands/DeleteAccessLogSettingsCommand";
 import { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
 import { DeleteApiMappingCommandInput, DeleteApiMappingCommandOutput } from "./commands/DeleteApiMappingCommand";
 import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand";
@@ -32,6 +37,10 @@ import {
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
+  DeleteRouteRequestParameterCommandInput,
+  DeleteRouteRequestParameterCommandOutput,
+} from "./commands/DeleteRouteRequestParameterCommand";
+import {
   DeleteRouteResponseCommandInput,
   DeleteRouteResponseCommandOutput,
 } from "./commands/DeleteRouteResponseCommand";
@@ -40,6 +49,8 @@ import {
   DeleteRouteSettingsCommandOutput,
 } from "./commands/DeleteRouteSettingsCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "./commands/DeleteVpcLinkCommand";
+import { ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand";
 import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
 import { GetApiMappingCommandInput, GetApiMappingCommandOutput } from "./commands/GetApiMappingCommand";
 import { GetApiMappingsCommandInput, GetApiMappingsCommandOutput } from "./commands/GetApiMappingsCommand";
@@ -70,6 +81,8 @@ import { GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRou
 import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
 import { GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
 import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
+import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
 import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -91,6 +104,7 @@ import {
   UpdateRouteResponseCommandOutput,
 } from "./commands/UpdateRouteResponseCommand";
 import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
+import { UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput } from "./commands/UpdateVpcLinkCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -150,6 +164,8 @@ export type ServiceInputTypes =
   | CreateRouteCommandInput
   | CreateRouteResponseCommandInput
   | CreateStageCommandInput
+  | CreateVpcLinkCommandInput
+  | DeleteAccessLogSettingsCommandInput
   | DeleteApiCommandInput
   | DeleteApiMappingCommandInput
   | DeleteAuthorizerCommandInput
@@ -160,9 +176,12 @@ export type ServiceInputTypes =
   | DeleteIntegrationResponseCommandInput
   | DeleteModelCommandInput
   | DeleteRouteCommandInput
+  | DeleteRouteRequestParameterCommandInput
   | DeleteRouteResponseCommandInput
   | DeleteRouteSettingsCommandInput
   | DeleteStageCommandInput
+  | DeleteVpcLinkCommandInput
+  | ExportApiCommandInput
   | GetApiCommandInput
   | GetApiMappingCommandInput
   | GetApiMappingsCommandInput
@@ -187,6 +206,8 @@ export type ServiceInputTypes =
   | GetStageCommandInput
   | GetStagesCommandInput
   | GetTagsCommandInput
+  | GetVpcLinkCommandInput
+  | GetVpcLinksCommandInput
   | ImportApiCommandInput
   | ReimportApiCommandInput
   | TagResourceCommandInput
@@ -201,7 +222,8 @@ export type ServiceInputTypes =
   | UpdateModelCommandInput
   | UpdateRouteCommandInput
   | UpdateRouteResponseCommandInput
-  | UpdateStageCommandInput;
+  | UpdateStageCommandInput
+  | UpdateVpcLinkCommandInput;
 
 export type ServiceOutputTypes =
   | CreateApiCommandOutput
@@ -215,6 +237,8 @@ export type ServiceOutputTypes =
   | CreateRouteCommandOutput
   | CreateRouteResponseCommandOutput
   | CreateStageCommandOutput
+  | CreateVpcLinkCommandOutput
+  | DeleteAccessLogSettingsCommandOutput
   | DeleteApiCommandOutput
   | DeleteApiMappingCommandOutput
   | DeleteAuthorizerCommandOutput
@@ -225,9 +249,12 @@ export type ServiceOutputTypes =
   | DeleteIntegrationResponseCommandOutput
   | DeleteModelCommandOutput
   | DeleteRouteCommandOutput
+  | DeleteRouteRequestParameterCommandOutput
   | DeleteRouteResponseCommandOutput
   | DeleteRouteSettingsCommandOutput
   | DeleteStageCommandOutput
+  | DeleteVpcLinkCommandOutput
+  | ExportApiCommandOutput
   | GetApiCommandOutput
   | GetApiMappingCommandOutput
   | GetApiMappingsCommandOutput
@@ -252,6 +279,8 @@ export type ServiceOutputTypes =
   | GetStageCommandOutput
   | GetStagesCommandOutput
   | GetTagsCommandOutput
+  | GetVpcLinkCommandOutput
+  | GetVpcLinksCommandOutput
   | ImportApiCommandOutput
   | ReimportApiCommandOutput
   | TagResourceCommandOutput
@@ -266,7 +295,8 @@ export type ServiceOutputTypes =
   | UpdateModelCommandOutput
   | UpdateRouteCommandOutput
   | UpdateRouteResponseCommandOutput
-  | UpdateStageCommandOutput;
+  | UpdateStageCommandOutput
+  | UpdateVpcLinkCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

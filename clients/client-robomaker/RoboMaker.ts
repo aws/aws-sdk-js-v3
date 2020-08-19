@@ -10,6 +10,11 @@ import {
   CancelDeploymentJobCommandOutput,
 } from "./commands/CancelDeploymentJobCommand";
 import {
+  CancelSimulationJobBatchCommand,
+  CancelSimulationJobBatchCommandInput,
+  CancelSimulationJobBatchCommandOutput,
+} from "./commands/CancelSimulationJobBatchCommand";
+import {
   CancelSimulationJobCommand,
   CancelSimulationJobCommandInput,
   CancelSimulationJobCommandOutput,
@@ -89,6 +94,11 @@ import {
   DescribeSimulationApplicationCommandOutput,
 } from "./commands/DescribeSimulationApplicationCommand";
 import {
+  DescribeSimulationJobBatchCommand,
+  DescribeSimulationJobBatchCommandInput,
+  DescribeSimulationJobBatchCommandOutput,
+} from "./commands/DescribeSimulationJobBatchCommand";
+import {
   DescribeSimulationJobCommand,
   DescribeSimulationJobCommandInput,
   DescribeSimulationJobCommandOutput,
@@ -111,6 +121,11 @@ import {
   ListSimulationApplicationsCommandOutput,
 } from "./commands/ListSimulationApplicationsCommand";
 import {
+  ListSimulationJobBatchesCommand,
+  ListSimulationJobBatchesCommandInput,
+  ListSimulationJobBatchesCommandOutput,
+} from "./commands/ListSimulationJobBatchesCommand";
+import {
   ListSimulationJobsCommand,
   ListSimulationJobsCommandInput,
   ListSimulationJobsCommandOutput,
@@ -130,6 +145,11 @@ import {
   RestartSimulationJobCommandInput,
   RestartSimulationJobCommandOutput,
 } from "./commands/RestartSimulationJobCommand";
+import {
+  StartSimulationJobBatchCommand,
+  StartSimulationJobBatchCommandInput,
+  StartSimulationJobBatchCommandOutput,
+} from "./commands/StartSimulationJobBatchCommand";
 import {
   SyncDeploymentJobCommand,
   SyncDeploymentJobCommandInput,
@@ -243,6 +263,41 @@ export class RoboMaker extends RoboMakerClient {
     cb?: (err: any, data?: CancelSimulationJobCommandOutput) => void
   ): Promise<CancelSimulationJobCommandOutput> | void {
     const command = new CancelSimulationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels a simulation job batch. When you cancel a simulation job batch,
+   *       you are also cancelling all of the active simulation jobs created as part of
+   *       the batch.
+   *       </p>
+   */
+  public cancelSimulationJobBatch(
+    args: CancelSimulationJobBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelSimulationJobBatchCommandOutput>;
+  public cancelSimulationJobBatch(
+    args: CancelSimulationJobBatchCommandInput,
+    cb: (err: any, data?: CancelSimulationJobBatchCommandOutput) => void
+  ): void;
+  public cancelSimulationJobBatch(
+    args: CancelSimulationJobBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelSimulationJobBatchCommandOutput) => void
+  ): void;
+  public cancelSimulationJobBatch(
+    args: CancelSimulationJobBatchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelSimulationJobBatchCommandOutput) => void),
+    cb?: (err: any, data?: CancelSimulationJobBatchCommandOutput) => void
+  ): Promise<CancelSimulationJobBatchCommandOutput> | void {
+    const command = new CancelSimulationJobBatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -851,12 +906,41 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * <p>Describes a simulation job batch.</p>
+   */
+  public describeSimulationJobBatch(
+    args: DescribeSimulationJobBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSimulationJobBatchCommandOutput>;
+  public describeSimulationJobBatch(
+    args: DescribeSimulationJobBatchCommandInput,
+    cb: (err: any, data?: DescribeSimulationJobBatchCommandOutput) => void
+  ): void;
+  public describeSimulationJobBatch(
+    args: DescribeSimulationJobBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSimulationJobBatchCommandOutput) => void
+  ): void;
+  public describeSimulationJobBatch(
+    args: DescribeSimulationJobBatchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSimulationJobBatchCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSimulationJobBatchCommandOutput) => void
+  ): Promise<DescribeSimulationJobBatchCommandOutput> | void {
+    const command = new DescribeSimulationJobBatchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve
    *          specific deployment jobs.
    *          </p>
-   *          <note>
-   *             <p> </p>
-   *          </note>
    */
   public listDeploymentJobs(
     args: ListDeploymentJobsCommandInput,
@@ -1008,6 +1092,40 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * <p>Returns a list simulation job batches. You can optionally provide filters to retrieve
+   *          specific simulation batch jobs.
+   *       </p>
+   */
+  public listSimulationJobBatches(
+    args: ListSimulationJobBatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSimulationJobBatchesCommandOutput>;
+  public listSimulationJobBatches(
+    args: ListSimulationJobBatchesCommandInput,
+    cb: (err: any, data?: ListSimulationJobBatchesCommandOutput) => void
+  ): void;
+  public listSimulationJobBatches(
+    args: ListSimulationJobBatchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSimulationJobBatchesCommandOutput) => void
+  ): void;
+  public listSimulationJobBatches(
+    args: ListSimulationJobBatchesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSimulationJobBatchesCommandOutput) => void),
+    cb?: (err: any, data?: ListSimulationJobBatchesCommandOutput) => void
+  ): Promise<ListSimulationJobBatchesCommandOutput> | void {
+    const command = new ListSimulationJobBatchesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
    *          specific simulation jobs. </p>
    */
@@ -1126,6 +1244,39 @@ export class RoboMaker extends RoboMakerClient {
     cb?: (err: any, data?: RestartSimulationJobCommandOutput) => void
   ): Promise<RestartSimulationJobCommandOutput> | void {
     const command = new RestartSimulationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a new simulation job batch. The batch is defined using one or more <code>SimulationJobRequest</code> objects.
+   *       </p>
+   */
+  public startSimulationJobBatch(
+    args: StartSimulationJobBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSimulationJobBatchCommandOutput>;
+  public startSimulationJobBatch(
+    args: StartSimulationJobBatchCommandInput,
+    cb: (err: any, data?: StartSimulationJobBatchCommandOutput) => void
+  ): void;
+  public startSimulationJobBatch(
+    args: StartSimulationJobBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSimulationJobBatchCommandOutput) => void
+  ): void;
+  public startSimulationJobBatch(
+    args: StartSimulationJobBatchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSimulationJobBatchCommandOutput) => void),
+    cb?: (err: any, data?: StartSimulationJobBatchCommandOutput) => void
+  ): Promise<StartSimulationJobBatchCommandOutput> | void {
+    const command = new StartSimulationJobBatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -5,6 +5,11 @@ import {
   CancelIngestionCommandOutput,
 } from "./commands/CancelIngestionCommand";
 import {
+  CreateAccountCustomizationCommand,
+  CreateAccountCustomizationCommandInput,
+  CreateAccountCustomizationCommandOutput,
+} from "./commands/CreateAccountCustomizationCommand";
+import {
   CreateDashboardCommand,
   CreateDashboardCommandInput,
   CreateDashboardCommandOutput,
@@ -36,6 +41,11 @@ import {
   CreateIngestionCommandOutput,
 } from "./commands/CreateIngestionCommand";
 import {
+  CreateNamespaceCommand,
+  CreateNamespaceCommandInput,
+  CreateNamespaceCommandOutput,
+} from "./commands/CreateNamespaceCommand";
+import {
   CreateTemplateAliasCommand,
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
@@ -45,6 +55,17 @@ import {
   CreateTemplateCommandInput,
   CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
+import {
+  CreateThemeAliasCommand,
+  CreateThemeAliasCommandInput,
+  CreateThemeAliasCommandOutput,
+} from "./commands/CreateThemeAliasCommand";
+import { CreateThemeCommand, CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
+import {
+  DeleteAccountCustomizationCommand,
+  DeleteAccountCustomizationCommandInput,
+  DeleteAccountCustomizationCommandOutput,
+} from "./commands/DeleteAccountCustomizationCommand";
 import {
   DeleteDashboardCommand,
   DeleteDashboardCommandInput,
@@ -72,6 +93,11 @@ import {
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
 import {
+  DeleteNamespaceCommand,
+  DeleteNamespaceCommandInput,
+  DeleteNamespaceCommandOutput,
+} from "./commands/DeleteNamespaceCommand";
+import {
   DeleteTemplateAliasCommand,
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -82,11 +108,27 @@ import {
   DeleteTemplateCommandOutput,
 } from "./commands/DeleteTemplateCommand";
 import {
+  DeleteThemeAliasCommand,
+  DeleteThemeAliasCommandInput,
+  DeleteThemeAliasCommandOutput,
+} from "./commands/DeleteThemeAliasCommand";
+import { DeleteThemeCommand, DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
+import {
   DeleteUserByPrincipalIdCommand,
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput,
 } from "./commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DescribeAccountCustomizationCommand,
+  DescribeAccountCustomizationCommandInput,
+  DescribeAccountCustomizationCommandOutput,
+} from "./commands/DescribeAccountCustomizationCommand";
+import {
+  DescribeAccountSettingsCommand,
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "./commands/DescribeAccountSettingsCommand";
 import {
   DescribeDashboardCommand,
   DescribeDashboardCommandInput,
@@ -133,6 +175,11 @@ import {
   DescribeIngestionCommandOutput,
 } from "./commands/DescribeIngestionCommand";
 import {
+  DescribeNamespaceCommand,
+  DescribeNamespaceCommandInput,
+  DescribeNamespaceCommandOutput,
+} from "./commands/DescribeNamespaceCommand";
+import {
   DescribeTemplateAliasCommand,
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -148,6 +195,21 @@ import {
   DescribeTemplatePermissionsCommandOutput,
 } from "./commands/DescribeTemplatePermissionsCommand";
 import {
+  DescribeThemeAliasCommand,
+  DescribeThemeAliasCommandInput,
+  DescribeThemeAliasCommandOutput,
+} from "./commands/DescribeThemeAliasCommand";
+import {
+  DescribeThemeCommand,
+  DescribeThemeCommandInput,
+  DescribeThemeCommandOutput,
+} from "./commands/DescribeThemeCommand";
+import {
+  DescribeThemePermissionsCommand,
+  DescribeThemePermissionsCommandInput,
+  DescribeThemePermissionsCommandOutput,
+} from "./commands/DescribeThemePermissionsCommand";
+import {
   DescribeUserCommand,
   DescribeUserCommandInput,
   DescribeUserCommandOutput,
@@ -157,6 +219,11 @@ import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand";
+import {
+  GetSessionEmbedUrlCommand,
+  GetSessionEmbedUrlCommandInput,
+  GetSessionEmbedUrlCommandOutput,
+} from "./commands/GetSessionEmbedUrlCommand";
 import {
   ListDashboardVersionsCommand,
   ListDashboardVersionsCommandInput,
@@ -199,6 +266,11 @@ import {
   ListIngestionsCommandOutput,
 } from "./commands/ListIngestionsCommand";
 import {
+  ListNamespacesCommand,
+  ListNamespacesCommandInput,
+  ListNamespacesCommandOutput,
+} from "./commands/ListNamespacesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -219,6 +291,17 @@ import {
   ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
 import {
+  ListThemeAliasesCommand,
+  ListThemeAliasesCommandInput,
+  ListThemeAliasesCommandOutput,
+} from "./commands/ListThemeAliasesCommand";
+import {
+  ListThemeVersionsCommand,
+  ListThemeVersionsCommandInput,
+  ListThemeVersionsCommandOutput,
+} from "./commands/ListThemeVersionsCommand";
+import { ListThemesCommand, ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
+import {
   ListUserGroupsCommand,
   ListUserGroupsCommandInput,
   ListUserGroupsCommandOutput,
@@ -229,12 +312,27 @@ import {
   RegisterUserCommandInput,
   RegisterUserCommandOutput,
 } from "./commands/RegisterUserCommand";
+import {
+  SearchDashboardsCommand,
+  SearchDashboardsCommandInput,
+  SearchDashboardsCommandOutput,
+} from "./commands/SearchDashboardsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccountCustomizationCommand,
+  UpdateAccountCustomizationCommandInput,
+  UpdateAccountCustomizationCommandOutput,
+} from "./commands/UpdateAccountCustomizationCommand";
+import {
+  UpdateAccountSettingsCommand,
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
 import {
   UpdateDashboardCommand,
   UpdateDashboardCommandInput,
@@ -291,6 +389,17 @@ import {
   UpdateTemplatePermissionsCommandInput,
   UpdateTemplatePermissionsCommandOutput,
 } from "./commands/UpdateTemplatePermissionsCommand";
+import {
+  UpdateThemeAliasCommand,
+  UpdateThemeAliasCommandInput,
+  UpdateThemeAliasCommandOutput,
+} from "./commands/UpdateThemeAliasCommand";
+import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
+import {
+  UpdateThemePermissionsCommand,
+  UpdateThemePermissionsCommandInput,
+  UpdateThemePermissionsCommandOutput,
+} from "./commands/UpdateThemePermissionsCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -335,8 +444,40 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates a dashboard from a template. To first create a template, see the CreateTemplate API
-   * 			operation.</p>
+   * <p>Creates a customization for the Amazon QuickSight subscription associated with your AWS account.</p>
+   */
+  public createAccountCustomization(
+    args: CreateAccountCustomizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccountCustomizationCommandOutput>;
+  public createAccountCustomization(
+    args: CreateAccountCustomizationCommandInput,
+    cb: (err: any, data?: CreateAccountCustomizationCommandOutput) => void
+  ): void;
+  public createAccountCustomization(
+    args: CreateAccountCustomizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccountCustomizationCommandOutput) => void
+  ): void;
+  public createAccountCustomization(
+    args: CreateAccountCustomizationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccountCustomizationCommandOutput) => void),
+    cb?: (err: any, data?: CreateAccountCustomizationCommandOutput) => void
+  ): Promise<CreateAccountCustomizationCommandOutput> | void {
+    const command = new CreateAccountCustomizationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a dashboard from a template. To first create a template, see the
+   * 			<a>CreateTemplate</a> API operation.</p>
    * 		       <p>A dashboard is an entity in QuickSight that identifies QuickSight reports, created from
    * 			analyses. You can share QuickSight dashboards. With the right permissions, you can
    * 			create scheduled email reports from them. The <code>CreateDashboard</code>,
@@ -537,7 +678,7 @@ export class QuickSight extends QuickSightClient {
    * <p>Creates and starts a new SPICE ingestion on a dataset</p>
    *
    * 		       <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
-   * 			access control. For an example, see <a href="https://aws.example.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How do I create an IAM policy to control access to Amazon EC2 resources using
+   * 			access control. For an example, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How do I create an IAM policy to control access to Amazon EC2 resources using
    * 				tags?</a> in the AWS Knowledge Center. Tags are visible on the tagged dataset, but not on the ingestion resource.</p>
    */
   public createIngestion(
@@ -559,6 +700,45 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: CreateIngestionCommandOutput) => void
   ): Promise<CreateIngestionCommandOutput> | void {
     const command = new CreateIngestionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
+   *         <p>A namespace allows you to isolate the QuickSight users and groups that are registered
+   *             for that namespace. Users that access the namespace can share assets only with other
+   *             users or groups in the same namespace. They can't see users and groups in other
+   *             namespaces. You can create a namespace after your AWS account is subscribed to
+   *             QuickSight. The namespace must be unique within the AWS account. By default, there is a
+   *             limit of 100 namespaces per AWS account. To increase your limit, create a ticket with
+   *             AWS Support. </p>
+   */
+  public createNamespace(
+    args: CreateNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNamespaceCommandOutput>;
+  public createNamespace(
+    args: CreateNamespaceCommandInput,
+    cb: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): void;
+  public createNamespace(
+    args: CreateNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): void;
+  public createNamespace(
+    args: CreateNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): Promise<CreateNamespaceCommandOutput> | void {
+    const command = new CreateNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -630,6 +810,99 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: CreateTemplateAliasCommandOutput) => void
   ): Promise<CreateTemplateAliasCommandOutput> | void {
     const command = new CreateTemplateAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a theme.</p>
+   * 		       <p>A <i>theme</i> is set of configuration options for color and layout.
+   * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
+   * 			Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   */
+  public createTheme(args: CreateThemeCommandInput, options?: __HttpHandlerOptions): Promise<CreateThemeCommandOutput>;
+  public createTheme(args: CreateThemeCommandInput, cb: (err: any, data?: CreateThemeCommandOutput) => void): void;
+  public createTheme(
+    args: CreateThemeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThemeCommandOutput) => void
+  ): void;
+  public createTheme(
+    args: CreateThemeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateThemeCommandOutput) => void),
+    cb?: (err: any, data?: CreateThemeCommandOutput) => void
+  ): Promise<CreateThemeCommandOutput> | void {
+    const command = new CreateThemeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a theme alias for a theme.</p>
+   */
+  public createThemeAlias(
+    args: CreateThemeAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThemeAliasCommandOutput>;
+  public createThemeAlias(
+    args: CreateThemeAliasCommandInput,
+    cb: (err: any, data?: CreateThemeAliasCommandOutput) => void
+  ): void;
+  public createThemeAlias(
+    args: CreateThemeAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThemeAliasCommandOutput) => void
+  ): void;
+  public createThemeAlias(
+    args: CreateThemeAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateThemeAliasCommandOutput) => void),
+    cb?: (err: any, data?: CreateThemeAliasCommandOutput) => void
+  ): Promise<CreateThemeAliasCommandOutput> | void {
+    const command = new CreateThemeAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes customizations for the QuickSight subscription on your AWS account.</p>
+   */
+  public deleteAccountCustomization(
+    args: DeleteAccountCustomizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountCustomizationCommandOutput>;
+  public deleteAccountCustomization(
+    args: DeleteAccountCustomizationCommandInput,
+    cb: (err: any, data?: DeleteAccountCustomizationCommandOutput) => void
+  ): void;
+  public deleteAccountCustomization(
+    args: DeleteAccountCustomizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountCustomizationCommandOutput) => void
+  ): void;
+  public deleteAccountCustomization(
+    args: DeleteAccountCustomizationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccountCustomizationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccountCustomizationCommandOutput) => void
+  ): Promise<DeleteAccountCustomizationCommandOutput> | void {
+    const command = new DeleteAccountCustomizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -828,6 +1101,40 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Deletes a namespace and the users and groups that are associated with the namespace.
+   *         This is an asynchronous process. Assets including dashboards, analyses, datasets and data sources are not
+   *         deleted. To delete these assets, you use the APIs for the relevant asset. </p>
+   */
+  public deleteNamespace(
+    args: DeleteNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNamespaceCommandOutput>;
+  public deleteNamespace(
+    args: DeleteNamespaceCommandInput,
+    cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
+  ): void;
+  public deleteNamespace(
+    args: DeleteNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
+  ): void;
+  public deleteNamespace(
+    args: DeleteNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNamespaceCommandOutput) => void
+  ): Promise<DeleteNamespaceCommandOutput> | void {
+    const command = new DeleteNamespaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a template.</p>
    */
   public deleteTemplate(
@@ -893,6 +1200,66 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Deletes a theme.</p>
+   */
+  public deleteTheme(args: DeleteThemeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteThemeCommandOutput>;
+  public deleteTheme(args: DeleteThemeCommandInput, cb: (err: any, data?: DeleteThemeCommandOutput) => void): void;
+  public deleteTheme(
+    args: DeleteThemeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteThemeCommandOutput) => void
+  ): void;
+  public deleteTheme(
+    args: DeleteThemeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteThemeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteThemeCommandOutput) => void
+  ): Promise<DeleteThemeCommandOutput> | void {
+    const command = new DeleteThemeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the version of the theme that the specified theme alias points to.
+   * 			If you provide a specific alias, you delete the version of the theme
+   * 			that the alias points to.</p>
+   */
+  public deleteThemeAlias(
+    args: DeleteThemeAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThemeAliasCommandOutput>;
+  public deleteThemeAlias(
+    args: DeleteThemeAliasCommandInput,
+    cb: (err: any, data?: DeleteThemeAliasCommandOutput) => void
+  ): void;
+  public deleteThemeAlias(
+    args: DeleteThemeAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteThemeAliasCommandOutput) => void
+  ): void;
+  public deleteThemeAlias(
+    args: DeleteThemeAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteThemeAliasCommandOutput) => void),
+    cb?: (err: any, data?: DeleteThemeAliasCommandOutput) => void
+  ): Promise<DeleteThemeAliasCommandOutput> | void {
+    const command = new DeleteThemeAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the Amazon QuickSight user that is associated with the identity of the AWS
    * 			Identity and Access Management (IAM) user or role that's making the call. The IAM user
    * 			isn't deleted as a result of this call. </p>
@@ -942,6 +1309,71 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
   ): Promise<DeleteUserByPrincipalIdCommandOutput> | void {
     const command = new DeleteUserByPrincipalIdCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the customizations associated with your AWS account.</p>
+   */
+  public describeAccountCustomization(
+    args: DescribeAccountCustomizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountCustomizationCommandOutput>;
+  public describeAccountCustomization(
+    args: DescribeAccountCustomizationCommandInput,
+    cb: (err: any, data?: DescribeAccountCustomizationCommandOutput) => void
+  ): void;
+  public describeAccountCustomization(
+    args: DescribeAccountCustomizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountCustomizationCommandOutput) => void
+  ): void;
+  public describeAccountCustomization(
+    args: DescribeAccountCustomizationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountCustomizationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAccountCustomizationCommandOutput) => void
+  ): Promise<DescribeAccountCustomizationCommandOutput> | void {
+    const command = new DescribeAccountCustomizationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the settings that were used when your QuickSight subscription was first created
+   *           in this AWS Account.</p>
+   */
+  public describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountSettingsCommandOutput>;
+  public describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
+  ): void;
+  public describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
+  ): void;
+  public describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
+  ): Promise<DescribeAccountSettingsCommandOutput> | void {
+    const command = new DescribeAccountSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1242,6 +1674,38 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Describes the current namespace.</p>
+   */
+  public describeNamespace(
+    args: DescribeNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNamespaceCommandOutput>;
+  public describeNamespace(
+    args: DescribeNamespaceCommandInput,
+    cb: (err: any, data?: DescribeNamespaceCommandOutput) => void
+  ): void;
+  public describeNamespace(
+    args: DescribeNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNamespaceCommandOutput) => void
+  ): void;
+  public describeNamespace(
+    args: DescribeNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNamespaceCommandOutput) => void
+  ): Promise<DescribeNamespaceCommandOutput> | void {
+    const command = new DescribeNamespaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes a template's metadata.</p>
    */
   public describeTemplate(
@@ -1338,6 +1802,102 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Describes a theme.</p>
+   */
+  public describeTheme(
+    args: DescribeThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThemeCommandOutput>;
+  public describeTheme(
+    args: DescribeThemeCommandInput,
+    cb: (err: any, data?: DescribeThemeCommandOutput) => void
+  ): void;
+  public describeTheme(
+    args: DescribeThemeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThemeCommandOutput) => void
+  ): void;
+  public describeTheme(
+    args: DescribeThemeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeThemeCommandOutput) => void),
+    cb?: (err: any, data?: DescribeThemeCommandOutput) => void
+  ): Promise<DescribeThemeCommandOutput> | void {
+    const command = new DescribeThemeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the alias for a theme.</p>
+   */
+  public describeThemeAlias(
+    args: DescribeThemeAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThemeAliasCommandOutput>;
+  public describeThemeAlias(
+    args: DescribeThemeAliasCommandInput,
+    cb: (err: any, data?: DescribeThemeAliasCommandOutput) => void
+  ): void;
+  public describeThemeAlias(
+    args: DescribeThemeAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThemeAliasCommandOutput) => void
+  ): void;
+  public describeThemeAlias(
+    args: DescribeThemeAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeThemeAliasCommandOutput) => void),
+    cb?: (err: any, data?: DescribeThemeAliasCommandOutput) => void
+  ): Promise<DescribeThemeAliasCommandOutput> | void {
+    const command = new DescribeThemeAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the read and write permissions for a theme.</p>
+   */
+  public describeThemePermissions(
+    args: DescribeThemePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThemePermissionsCommandOutput>;
+  public describeThemePermissions(
+    args: DescribeThemePermissionsCommandInput,
+    cb: (err: any, data?: DescribeThemePermissionsCommandOutput) => void
+  ): void;
+  public describeThemePermissions(
+    args: DescribeThemePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThemePermissionsCommandOutput) => void
+  ): void;
+  public describeThemePermissions(
+    args: DescribeThemePermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeThemePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeThemePermissionsCommandOutput) => void
+  ): Promise<DescribeThemePermissionsCommandOutput> | void {
+    const command = new DescribeThemePermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a user, given the user name. </p>
    */
   public describeUser(
@@ -1367,13 +1927,28 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Generates a server-side embeddable URL and authorization code. For this process to work
-   * 			properly, first configure the dashboards and user permissions. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight User
-   * 				Guide</i> or <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight API
-   * 				Reference</i>.</p>
-   * 		       <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from
-   * 			the user’s browser.</p>
+   * <p>Generates a URL and authorization code that you can embed in your web server code. Before
+   * 			you use this command, make sure that you have configured the dashboards and permissions. </p>
+   * 		       <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from the
+   * 			user's browser. The following rules apply to the combination of URL and
+   * 			authorization code:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>They must be used together.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>They can be used one time only.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>They are valid for 5 minutes after you run this command.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The resulting user session is valid for 10 hours.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p> For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight User
+   * 			Guide</i> or <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight API
+   * 			Reference</i>.</p>
    */
   public getDashboardEmbedUrl(
     args: GetDashboardEmbedUrlCommandInput,
@@ -1394,6 +1969,38 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
   ): Promise<GetDashboardEmbedUrlCommandOutput> | void {
     const command = new GetDashboardEmbedUrlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Generates a session URL and authorization code that you can embed in your web server code. </p>
+   */
+  public getSessionEmbedUrl(
+    args: GetSessionEmbedUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionEmbedUrlCommandOutput>;
+  public getSessionEmbedUrl(
+    args: GetSessionEmbedUrlCommandInput,
+    cb: (err: any, data?: GetSessionEmbedUrlCommandOutput) => void
+  ): void;
+  public getSessionEmbedUrl(
+    args: GetSessionEmbedUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionEmbedUrlCommandOutput) => void
+  ): void;
+  public getSessionEmbedUrl(
+    args: GetSessionEmbedUrlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSessionEmbedUrlCommandOutput) => void),
+    cb?: (err: any, data?: GetSessionEmbedUrlCommandOutput) => void
+  ): Promise<GetSessionEmbedUrlCommandOutput> | void {
+    const command = new GetSessionEmbedUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1687,6 +2294,38 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Lists the namespaces for the specified AWS account.</p>
+   */
+  public listNamespaces(
+    args: ListNamespacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNamespacesCommandOutput>;
+  public listNamespaces(
+    args: ListNamespacesCommandInput,
+    cb: (err: any, data?: ListNamespacesCommandOutput) => void
+  ): void;
+  public listNamespaces(
+    args: ListNamespacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNamespacesCommandOutput) => void
+  ): void;
+  public listNamespaces(
+    args: ListNamespacesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNamespacesCommandOutput) => void),
+    cb?: (err: any, data?: ListNamespacesCommandOutput) => void
+  ): Promise<ListNamespacesCommandOutput> | void {
+    const command = new ListNamespacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the tags assigned to a resource.</p>
    */
   public listTagsForResource(
@@ -1815,6 +2454,96 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Lists all the aliases of a theme.</p>
+   */
+  public listThemeAliases(
+    args: ListThemeAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThemeAliasesCommandOutput>;
+  public listThemeAliases(
+    args: ListThemeAliasesCommandInput,
+    cb: (err: any, data?: ListThemeAliasesCommandOutput) => void
+  ): void;
+  public listThemeAliases(
+    args: ListThemeAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThemeAliasesCommandOutput) => void
+  ): void;
+  public listThemeAliases(
+    args: ListThemeAliasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListThemeAliasesCommandOutput) => void),
+    cb?: (err: any, data?: ListThemeAliasesCommandOutput) => void
+  ): Promise<ListThemeAliasesCommandOutput> | void {
+    const command = new ListThemeAliasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the themes in the current AWS account.</p>
+   */
+  public listThemes(args: ListThemesCommandInput, options?: __HttpHandlerOptions): Promise<ListThemesCommandOutput>;
+  public listThemes(args: ListThemesCommandInput, cb: (err: any, data?: ListThemesCommandOutput) => void): void;
+  public listThemes(
+    args: ListThemesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThemesCommandOutput) => void
+  ): void;
+  public listThemes(
+    args: ListThemesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListThemesCommandOutput) => void),
+    cb?: (err: any, data?: ListThemesCommandOutput) => void
+  ): Promise<ListThemesCommandOutput> | void {
+    const command = new ListThemesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the versions of the themes in the current AWS account.</p>
+   */
+  public listThemeVersions(
+    args: ListThemeVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThemeVersionsCommandOutput>;
+  public listThemeVersions(
+    args: ListThemeVersionsCommandInput,
+    cb: (err: any, data?: ListThemeVersionsCommandOutput) => void
+  ): void;
+  public listThemeVersions(
+    args: ListThemeVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThemeVersionsCommandOutput) => void
+  ): void;
+  public listThemeVersions(
+    args: ListThemeVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListThemeVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListThemeVersionsCommandOutput) => void
+  ): Promise<ListThemeVersionsCommandOutput> | void {
+    const command = new ListThemeVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
    */
   public listUserGroups(
@@ -1903,6 +2632,38 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Searchs for dashboards that belong to a user. </p>
+   */
+  public searchDashboards(
+    args: SearchDashboardsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchDashboardsCommandOutput>;
+  public searchDashboards(
+    args: SearchDashboardsCommandInput,
+    cb: (err: any, data?: SearchDashboardsCommandOutput) => void
+  ): void;
+  public searchDashboards(
+    args: SearchDashboardsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchDashboardsCommandOutput) => void
+  ): void;
+  public searchDashboards(
+    args: SearchDashboardsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchDashboardsCommandOutput) => void),
+    cb?: (err: any, data?: SearchDashboardsCommandOutput) => void
+  ): Promise<SearchDashboardsCommandOutput> | void {
+    const command = new SearchDashboardsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Assigns one or more tags (key-value pairs) to the specified QuickSight resource. </p>
    * 		       <p>Tags can help you organize and categorize your resources. You can also use them to
    * 			scope user permissions, by granting a user permission to access or change only resources
@@ -1971,6 +2732,70 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates customizations associated with the QuickSight subscription on your AWS account.</p>
+   */
+  public updateAccountCustomization(
+    args: UpdateAccountCustomizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountCustomizationCommandOutput>;
+  public updateAccountCustomization(
+    args: UpdateAccountCustomizationCommandInput,
+    cb: (err: any, data?: UpdateAccountCustomizationCommandOutput) => void
+  ): void;
+  public updateAccountCustomization(
+    args: UpdateAccountCustomizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountCustomizationCommandOutput) => void
+  ): void;
+  public updateAccountCustomization(
+    args: UpdateAccountCustomizationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountCustomizationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAccountCustomizationCommandOutput) => void
+  ): Promise<UpdateAccountCustomizationCommandOutput> | void {
+    const command = new UpdateAccountCustomizationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the settings for the Amazon QuickSight subscription in your AWS Account.</p>
+   */
+  public updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountSettingsCommandOutput>;
+  public updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  public updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  public updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): Promise<UpdateAccountSettingsCommandOutput> | void {
+    const command = new UpdateAccountSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2351,6 +3176,189 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
   ): Promise<UpdateTemplatePermissionsCommandOutput> | void {
     const command = new UpdateTemplatePermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a theme.</p>
+   */
+  public updateTheme(args: UpdateThemeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateThemeCommandOutput>;
+  public updateTheme(args: UpdateThemeCommandInput, cb: (err: any, data?: UpdateThemeCommandOutput) => void): void;
+  public updateTheme(
+    args: UpdateThemeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThemeCommandOutput) => void
+  ): void;
+  public updateTheme(
+    args: UpdateThemeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThemeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateThemeCommandOutput) => void
+  ): Promise<UpdateThemeCommandOutput> | void {
+    const command = new UpdateThemeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an alias of a theme.</p>
+   */
+  public updateThemeAlias(
+    args: UpdateThemeAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThemeAliasCommandOutput>;
+  public updateThemeAlias(
+    args: UpdateThemeAliasCommandInput,
+    cb: (err: any, data?: UpdateThemeAliasCommandOutput) => void
+  ): void;
+  public updateThemeAlias(
+    args: UpdateThemeAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThemeAliasCommandOutput) => void
+  ): void;
+  public updateThemeAlias(
+    args: UpdateThemeAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThemeAliasCommandOutput) => void),
+    cb?: (err: any, data?: UpdateThemeAliasCommandOutput) => void
+  ): Promise<UpdateThemeAliasCommandOutput> | void {
+    const command = new UpdateThemeAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the resource permissions for a theme. Permissions apply to the action to grant or
+   * 			revoke permissions on, for example <code>"quicksight:DescribeTheme"</code>.</p>
+   * 		       <p>Theme permissions apply in groupings. Valid groupings include the following for the three
+   * 			levels of permissions, which are user, owner, or no permissions: </p>
+   * 			      <ul>
+   *             <li>
+   *                <p>User</p>
+   * 					          <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:DescribeTheme"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:DescribeThemeAlias"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:ListThemeAliases"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:ListThemeVersions"</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   * 				        </li>
+   *             <li>
+   *                <p>Owner</p>
+   * 					          <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:DescribeTheme"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:DescribeThemeAlias"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:ListThemeAliases"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:ListThemeVersions"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:DeleteTheme"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:UpdateTheme"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:CreateThemeAlias"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:DeleteThemeAlias"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:UpdateThemeAlias"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:UpdateThemePermissions"</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"quicksight:DescribeThemePermissions"</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   * 				        </li>
+   *             <li>
+   *                <p>To specify no permissions, omit the permissions list.</p>
+   *             </li>
+   *          </ul>
+   */
+  public updateThemePermissions(
+    args: UpdateThemePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThemePermissionsCommandOutput>;
+  public updateThemePermissions(
+    args: UpdateThemePermissionsCommandInput,
+    cb: (err: any, data?: UpdateThemePermissionsCommandOutput) => void
+  ): void;
+  public updateThemePermissions(
+    args: UpdateThemePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThemePermissionsCommandOutput) => void
+  ): void;
+  public updateThemePermissions(
+    args: UpdateThemePermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThemePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateThemePermissionsCommandOutput) => void
+  ): Promise<UpdateThemePermissionsCommandOutput> | void {
+    const command = new UpdateThemePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "api.pricing.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "api.pricing.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "api.pricing.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "api.pricing.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "api.pricing.{region}.amazonaws.com";
+const AWS_TEMPLATE = "pricing.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "pricing.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "pricing.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "pricing.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "pricing.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -37,27 +37,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
-    case "ap-south-1":
-      regionInfo = {
-        hostname: "api.pricing.ap-south-1.amazonaws.com",
-        partition: "aws",
-        signingService: "pricing",
-      };
-      break;
-    case "us-east-1":
-      regionInfo = {
-        hostname: "api.pricing.us-east-1.amazonaws.com",
-        partition: "aws",
-        signingService: "pricing",
-      };
-      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
           partition: "aws",
-          signingService: "pricing",
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
@@ -89,7 +74,6 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         regionInfo = {
           hostname: AWS_TEMPLATE.replace("{region}", region),
           partition: "aws",
-          signingService: "pricing",
         };
       }
   }

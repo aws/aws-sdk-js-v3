@@ -106,11 +106,15 @@ export namespace CreateScalingPlanResponse {
 export interface CustomizedLoadMetricSpecification {
   __type?: "CustomizedLoadMetricSpecification";
   /**
-   * <p>The dimensions of the metric.</p>
-   *          <p>Conditional: If you published your metric with dimensions, you must specify the same
-   *          dimensions in your customized load metric specification.</p>
+   * <p>The statistic of the metric. Currently, the value must always be <code>Sum</code>.
+   *       </p>
    */
-  Dimensions?: MetricDimension[];
+  Statistic: MetricStatistic | string | undefined;
+
+  /**
+   * <p>The unit of the metric.</p>
+   */
+  Unit?: string;
 
   /**
    * <p>The name of the metric.</p>
@@ -123,15 +127,11 @@ export interface CustomizedLoadMetricSpecification {
   Namespace: string | undefined;
 
   /**
-   * <p>The statistic of the metric. Currently, the value must always be <code>Sum</code>.
-   *       </p>
+   * <p>The dimensions of the metric.</p>
+   *          <p>Conditional: If you published your metric with dimensions, you must specify the same
+   *          dimensions in your customized load metric specification.</p>
    */
-  Statistic: MetricStatistic | string | undefined;
-
-  /**
-   * <p>The unit of the metric.</p>
-   */
-  Unit?: string;
+  Dimensions?: MetricDimension[];
 }
 
 export namespace CustomizedLoadMetricSpecification {
@@ -164,6 +164,16 @@ export namespace CustomizedLoadMetricSpecification {
 export interface CustomizedScalingMetricSpecification {
   __type?: "CustomizedScalingMetricSpecification";
   /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName: string | undefined;
+
+  /**
+   * <p>The statistic of the metric.</p>
+   */
+  Statistic: MetricStatistic | string | undefined;
+
+  /**
    * <p>The dimensions of the metric.</p>
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your customized scaling metric specification.</p>
@@ -171,19 +181,9 @@ export interface CustomizedScalingMetricSpecification {
   Dimensions?: MetricDimension[];
 
   /**
-   * <p>The name of the metric.</p>
-   */
-  MetricName: string | undefined;
-
-  /**
    * <p>The namespace of the metric.</p>
    */
   Namespace: string | undefined;
-
-  /**
-   * <p>The statistic of the metric.</p>
-   */
-  Statistic: MetricStatistic | string | undefined;
 
   /**
    * <p>The unit of the metric. </p>
@@ -205,14 +205,14 @@ export namespace CustomizedScalingMetricSpecification {
 export interface Datapoint {
   __type?: "Datapoint";
   /**
-   * <p>The time stamp for the data point in UTC format.</p>
-   */
-  Timestamp?: Date;
-
-  /**
    * <p>The value of the data point.</p>
    */
   Value?: number;
+
+  /**
+   * <p>The time stamp for the data point in UTC format.</p>
+   */
+  Timestamp?: Date;
 }
 
 export namespace Datapoint {
@@ -225,14 +225,14 @@ export namespace Datapoint {
 export interface DeleteScalingPlanRequest {
   __type?: "DeleteScalingPlanRequest";
   /**
-   * <p>The name of the scaling plan.</p>
-   */
-  ScalingPlanName: string | undefined;
-
-  /**
    * <p>The version number of the scaling plan.</p>
    */
   ScalingPlanVersion: number | undefined;
+
+  /**
+   * <p>The name of the scaling plan.</p>
+   */
+  ScalingPlanName: string | undefined;
 }
 
 export namespace DeleteScalingPlanRequest {
@@ -256,6 +256,11 @@ export namespace DeleteScalingPlanResponse {
 export interface DescribeScalingPlanResourcesRequest {
   __type?: "DescribeScalingPlanResourcesRequest";
   /**
+   * <p>The version number of the scaling plan.</p>
+   */
+  ScalingPlanVersion: number | undefined;
+
+  /**
    * <p>The maximum number of scalable resources to return. The value must be between
    *          1 and 50. The default value is 50.</p>
    */
@@ -270,11 +275,6 @@ export interface DescribeScalingPlanResourcesRequest {
    * <p>The name of the scaling plan.</p>
    */
   ScalingPlanName: string | undefined;
-
-  /**
-   * <p>The version number of the scaling plan.</p>
-   */
-  ScalingPlanVersion: number | undefined;
 }
 
 export namespace DescribeScalingPlanResourcesRequest {
@@ -310,21 +310,21 @@ export namespace DescribeScalingPlanResourcesResponse {
 export interface DescribeScalingPlansRequest {
   __type?: "DescribeScalingPlansRequest";
   /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The sources for the applications (up to 10). If you specify scaling plan names, you
    *          cannot specify application sources.</p>
    */
   ApplicationSources?: ApplicationSource[];
 
   /**
-   * <p>The maximum number of scalable resources to return. This value can be between
-   *          1 and 50. The default value is 50.</p>
+   * <p>The version number of the scaling plan. If you specify a scaling plan version, you must
+   *          also specify a scaling plan name.</p>
    */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
+  ScalingPlanVersion?: number;
 
   /**
    * <p>The names of the scaling plans (up to 10). If you specify application sources, you
@@ -333,10 +333,10 @@ export interface DescribeScalingPlansRequest {
   ScalingPlanNames?: string[];
 
   /**
-   * <p>The version number of the scaling plan. If you specify a scaling plan version, you must
-   *          also specify a scaling plan name.</p>
+   * <p>The maximum number of scalable resources to return. This value can be between
+   *          1 and 50. The default value is 50.</p>
    */
-  ScalingPlanVersion?: number;
+  MaxResults?: number;
 }
 
 export namespace DescribeScalingPlansRequest {
@@ -377,6 +377,49 @@ export enum ForecastDataType {
 export interface GetScalingPlanResourceForecastDataRequest {
   __type?: "GetScalingPlanResourceForecastDataRequest";
   /**
+   * <p>The namespace of the AWS service.</p>
+   */
+  ServiceNamespace: ServiceNamespace | string | undefined;
+
+  /**
+   * <p>The inclusive start time of the time range for the forecast data to get. The date and
+   *          time can be at most 56 days before the current date and time. </p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The ID of the resource. This string consists of the resource type and unique identifier.
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>Auto Scaling group - The resource type is <code>autoScalingGroup</code> and the unique identifier is the
+   *                name of the Auto Scaling group. Example: <code>autoScalingGroup/my-asg</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
+   *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the resource ID.
+   *                Example: <code>table/my-table</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the resource ID.
+   *                Example: <code>table/my-table/index/my-table-index</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
+   *                Example: <code>cluster:my-db-cluster</code>.</p>
+   *            </li>
+   *          </ul>
+   */
+  ResourceId: string | undefined;
+
+  /**
    * <p>The exclusive end time of the time range for the forecast data to get. The maximum time
    *          duration between the start and end time is seven days. </p>
    *          <p>Although this parameter can accept a date and time that is more than two days in the
@@ -413,36 +456,9 @@ export interface GetScalingPlanResourceForecastDataRequest {
   ForecastDataType: ForecastDataType | string | undefined;
 
   /**
-   * <p>The ID of the resource. This string consists of the resource type and unique identifier.
-   *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>Auto Scaling group - The resource type is <code>autoScalingGroup</code> and the unique identifier is the
-   *                name of the Auto Scaling group. Example: <code>autoScalingGroup/my-asg</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
-   *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
-   *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the resource ID.
-   *                Example: <code>table/my-table</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the resource ID.
-   *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
-   *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
-   *          </ul>
+   * <p>The name of the scaling plan.</p>
    */
-  ResourceId: string | undefined;
+  ScalingPlanName: string | undefined;
 
   /**
    * <p>The scalable dimension for the resource.</p>
@@ -450,25 +466,9 @@ export interface GetScalingPlanResourceForecastDataRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   * <p>The name of the scaling plan.</p>
-   */
-  ScalingPlanName: string | undefined;
-
-  /**
    * <p>The version number of the scaling plan.</p>
    */
   ScalingPlanVersion: number | undefined;
-
-  /**
-   * <p>The namespace of the AWS service.</p>
-   */
-  ServiceNamespace: ServiceNamespace | string | undefined;
-
-  /**
-   * <p>The inclusive start time of the time range for the forecast data to get. The date and
-   *          time can be at most 56 days before the current date and time. </p>
-   */
-  StartTime: Date | undefined;
 }
 
 export namespace GetScalingPlanResourceForecastDataRequest {
@@ -557,14 +557,14 @@ export enum LoadMetricType {
 export interface MetricDimension {
   __type?: "MetricDimension";
   /**
-   * <p>The name of the dimension.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The value of the dimension.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The name of the dimension.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace MetricDimension {
@@ -608,11 +608,6 @@ export enum PolicyType {
 export interface PredefinedLoadMetricSpecification {
   __type?: "PredefinedLoadMetricSpecification";
   /**
-   * <p>The metric type.</p>
-   */
-  PredefinedLoadMetricType: LoadMetricType | string | undefined;
-
-  /**
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
    *          label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target
    *          group for an Application Load Balancer attached to the Auto Scaling group.</p>
@@ -631,6 +626,11 @@ export interface PredefinedLoadMetricSpecification {
    *          </ul>
    */
   ResourceLabel?: string;
+
+  /**
+   * <p>The metric type.</p>
+   */
+  PredefinedLoadMetricType: LoadMetricType | string | undefined;
 }
 
 export namespace PredefinedLoadMetricSpecification {
@@ -646,12 +646,6 @@ export namespace PredefinedLoadMetricSpecification {
  */
 export interface PredefinedScalingMetricSpecification {
   __type?: "PredefinedScalingMetricSpecification";
-  /**
-   * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
-   *          Auto Scaling groups, Spot Fleet requests, and ECS services.</p>
-   */
-  PredefinedScalingMetricType: ScalingMetricType | string | undefined;
-
   /**
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
    *          label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target
@@ -672,6 +666,12 @@ export interface PredefinedScalingMetricSpecification {
    *          </ul>
    */
   ResourceLabel?: string;
+
+  /**
+   * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
+   *          Auto Scaling groups, Spot Fleet requests, and ECS services.</p>
+   */
+  PredefinedScalingMetricType: ScalingMetricType | string | undefined;
 }
 
 export namespace PredefinedScalingMetricSpecification {
@@ -728,10 +728,59 @@ export enum ScalableDimension {
 export interface ScalingInstruction {
   __type?: "ScalingInstruction";
   /**
+   * <p>The size of the capacity buffer to use when the forecast capacity is close to or exceeds
+   *          the maximum capacity. The value is specified as a percentage relative to the forecast
+   *          capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if
+   *          the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum
+   *          capacity is 55.</p>
+   *          <p>Only valid when configuring predictive scaling. Required if the <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+   *             <code>SetMaxCapacityAboveForecastCapacity</code>, and cannot be used otherwise.</p>
+   *          <p>The range is 1-100.</p>
+   */
+  PredictiveScalingMaxCapacityBuffer?: number;
+
+  /**
    * <p>The customized load metric to use for predictive scaling. This parameter or a <b>PredefinedLoadMetricSpecification</b> is required when configuring
    *          predictive scaling, and cannot be used otherwise. </p>
    */
   CustomizedLoadMetricSpecification?: CustomizedLoadMetricSpecification;
+
+  /**
+   * <p>The predefined load metric to use for predictive scaling. This parameter or a <b>CustomizedLoadMetricSpecification</b> is required when configuring
+   *          predictive scaling, and cannot be used otherwise. </p>
+   */
+  PredefinedLoadMetricSpecification?: PredefinedLoadMetricSpecification;
+
+  /**
+   * <p>The minimum capacity of the resource. </p>
+   */
+  MinCapacity: number | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, to buffer the run time of scheduled scaling actions when
+   *          scaling out. For example, if the forecast says to add capacity at 10:00 AM, and the buffer
+   *          time is 5 minutes, then the run time of the corresponding scheduled scaling action will be
+   *          9:55 AM. The intention is to give resources time to be provisioned. For example, it can
+   *          take a few minutes to launch an EC2 instance. The actual amount of time required depends on
+   *          several factors, such as the size of the instance and whether there are startup scripts to
+   *          complete. </p>
+   *          <p>The value must be less than the forecast interval duration of 3600 seconds (60 minutes).
+   *          The default is 300 seconds. </p>
+   *          <p>Only valid when configuring predictive scaling. </p>
+   */
+  ScheduledActionBufferTime?: number;
+
+  /**
+   * <p>Controls whether a resource's externally created scaling policies are kept or replaced. </p>
+   *          <p>The default value is <code>KeepExternalPolicies</code>. If the parameter is set to
+   *             <code>ReplaceExternalPolicies</code>, any scaling policies that are external to AWS Auto Scaling
+   *          are deleted and new target tracking scaling policies created. </p>
+   *          <p>Only valid when configuring dynamic scaling. </p>
+   *          <p>Condition: The number of existing policies to be replaced must be less than or equal to
+   *          50. If there are more than 50 policies to be replaced, AWS Auto Scaling keeps all existing policies
+   *          and does not create new ones.</p>
+   */
+  ScalingPolicyUpdateBehavior?: ScalingPolicyUpdateBehavior | string;
 
   /**
    * <p>Controls whether dynamic scaling by AWS Auto Scaling is disabled. When dynamic scaling is
@@ -742,21 +791,28 @@ export interface ScalingInstruction {
   DisableDynamicScaling?: boolean;
 
   /**
+   * <p>The structure that defines new target tracking configurations (up to 10). Each of these
+   *          structures includes a specific scaling metric and a target value for the metric, along with
+   *          various parameters to use with dynamic scaling. </p>
+   *          <p>With predictive scaling and dynamic scaling, the resource scales based on the target
+   *          tracking configuration that provides the largest capacity for both scale in and scale out. </p>
+   *          <p>Condition: The scaling metric must be unique across target tracking
+   *          configurations.</p>
+   */
+  TargetTrackingConfigurations: TargetTrackingConfiguration[] | undefined;
+
+  /**
+   * <p>The predictive scaling mode. The default value is <code>ForecastAndScale</code>.
+   *          Otherwise, AWS Auto Scaling forecasts capacity but does not create any scheduled scaling actions
+   *          based on the capacity forecast. </p>
+   */
+  PredictiveScalingMode?: PredictiveScalingMode | string;
+
+  /**
    * <p>The maximum capacity of the resource. The exception to this upper limit is if you
    *          specify a non-default setting for <b>PredictiveScalingMaxCapacityBehavior</b>. </p>
    */
   MaxCapacity: number | undefined;
-
-  /**
-   * <p>The minimum capacity of the resource. </p>
-   */
-  MinCapacity: number | undefined;
-
-  /**
-   * <p>The predefined load metric to use for predictive scaling. This parameter or a <b>CustomizedLoadMetricSpecification</b> is required when configuring
-   *          predictive scaling, and cannot be used otherwise. </p>
-   */
-  PredefinedLoadMetricSpecification?: PredefinedLoadMetricSpecification;
 
   /**
    * <p>Defines the behavior that should be applied if the forecast capacity approaches or
@@ -787,57 +843,6 @@ export interface ScalingInstruction {
    *          <p>Only valid when configuring predictive scaling.</p>
    */
   PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior | string;
-
-  /**
-   * <p>The size of the capacity buffer to use when the forecast capacity is close to or exceeds
-   *          the maximum capacity. The value is specified as a percentage relative to the forecast
-   *          capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if
-   *          the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum
-   *          capacity is 55.</p>
-   *          <p>Only valid when configuring predictive scaling. Required if the <b>PredictiveScalingMaxCapacityBehavior</b> is set to
-   *             <code>SetMaxCapacityAboveForecastCapacity</code>, and cannot be used otherwise.</p>
-   *          <p>The range is 1-100.</p>
-   */
-  PredictiveScalingMaxCapacityBuffer?: number;
-
-  /**
-   * <p>The predictive scaling mode. The default value is <code>ForecastAndScale</code>.
-   *          Otherwise, AWS Auto Scaling forecasts capacity but does not create any scheduled scaling actions
-   *          based on the capacity forecast. </p>
-   */
-  PredictiveScalingMode?: PredictiveScalingMode | string;
-
-  /**
-   * <p>The ID of the resource. This string consists of the resource type and unique
-   *          identifier.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Auto Scaling group - The resource type is <code>autoScalingGroup</code> and the unique identifier is the
-   *                name of the Auto Scaling group. Example: <code>autoScalingGroup/my-asg</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
-   *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
-   *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the resource ID.
-   *                Example: <code>table/my-table</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the resource ID.
-   *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
-   *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
-   *          </ul>
-   */
-  ResourceId: string | undefined;
 
   /**
    * <p>The scalable dimension associated with the resource.</p>
@@ -879,46 +884,41 @@ export interface ScalingInstruction {
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   * <p>Controls whether a resource's externally created scaling policies are kept or replaced. </p>
-   *          <p>The default value is <code>KeepExternalPolicies</code>. If the parameter is set to
-   *             <code>ReplaceExternalPolicies</code>, any scaling policies that are external to AWS Auto Scaling
-   *          are deleted and new target tracking scaling policies created. </p>
-   *          <p>Only valid when configuring dynamic scaling. </p>
-   *          <p>Condition: The number of existing policies to be replaced must be less than or equal to
-   *          50. If there are more than 50 policies to be replaced, AWS Auto Scaling keeps all existing policies
-   *          and does not create new ones.</p>
+   * <p>The ID of the resource. This string consists of the resource type and unique
+   *          identifier.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Auto Scaling group - The resource type is <code>autoScalingGroup</code> and the unique identifier is the
+   *                name of the Auto Scaling group. Example: <code>autoScalingGroup/my-asg</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
+   *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the resource ID.
+   *                Example: <code>table/my-table</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the resource ID.
+   *                Example: <code>table/my-table/index/my-table-index</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
+   *                Example: <code>cluster:my-db-cluster</code>.</p>
+   *            </li>
+   *          </ul>
    */
-  ScalingPolicyUpdateBehavior?: ScalingPolicyUpdateBehavior | string;
-
-  /**
-   * <p>The amount of time, in seconds, to buffer the run time of scheduled scaling actions when
-   *          scaling out. For example, if the forecast says to add capacity at 10:00 AM, and the buffer
-   *          time is 5 minutes, then the run time of the corresponding scheduled scaling action will be
-   *          9:55 AM. The intention is to give resources time to be provisioned. For example, it can
-   *          take a few minutes to launch an EC2 instance. The actual amount of time required depends on
-   *          several factors, such as the size of the instance and whether there are startup scripts to
-   *          complete. </p>
-   *          <p>The value must be less than the forecast interval duration of 3600 seconds (60 minutes).
-   *          The default is 300 seconds. </p>
-   *          <p>Only valid when configuring predictive scaling. </p>
-   */
-  ScheduledActionBufferTime?: number;
+  ResourceId: string | undefined;
 
   /**
    * <p>The namespace of the AWS service.</p>
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
-
-  /**
-   * <p>The structure that defines new target tracking configurations (up to 10). Each of these
-   *          structures includes a specific scaling metric and a target value for the metric, along with
-   *          various parameters to use with dynamic scaling. </p>
-   *          <p>With predictive scaling and dynamic scaling, the resource scales based on the target
-   *          tracking configuration that provides the largest capacity for both scale in and scale out. </p>
-   *          <p>Condition: The scaling metric must be unique across target tracking
-   *          configurations.</p>
-   */
-  TargetTrackingConfigurations: TargetTrackingConfiguration[] | undefined;
 }
 
 export namespace ScalingInstruction {
@@ -950,29 +950,9 @@ export enum ScalingMetricType {
 export interface ScalingPlan {
   __type?: "ScalingPlan";
   /**
-   * <p>The application source.</p>
-   */
-  ApplicationSource: ApplicationSource | undefined;
-
-  /**
-   * <p>The Unix time stamp when the scaling plan was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The scaling instructions.</p>
-   */
-  ScalingInstructions: ScalingInstruction[] | undefined;
-
-  /**
    * <p>The name of the scaling plan.</p>
    */
   ScalingPlanName: string | undefined;
-
-  /**
-   * <p>The version number of the scaling plan.</p>
-   */
-  ScalingPlanVersion: number | undefined;
 
   /**
    * <p>The status of the scaling plan.</p>
@@ -1015,14 +995,34 @@ export interface ScalingPlan {
   StatusCode: ScalingPlanStatusCode | string | undefined;
 
   /**
-   * <p>A simple message about the current status of the scaling plan.</p>
+   * <p>The scaling instructions.</p>
    */
-  StatusMessage?: string;
+  ScalingInstructions: ScalingInstruction[] | undefined;
 
   /**
    * <p>The Unix time stamp when the scaling plan entered the current status.</p>
    */
   StatusStartTime?: Date;
+
+  /**
+   * <p>A simple message about the current status of the scaling plan.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The version number of the scaling plan.</p>
+   */
+  ScalingPlanVersion: number | undefined;
+
+  /**
+   * <p>The Unix time stamp when the scaling plan was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The application source.</p>
+   */
+  ApplicationSource: ApplicationSource | undefined;
 }
 
 export namespace ScalingPlan {
@@ -1038,36 +1038,9 @@ export namespace ScalingPlan {
 export interface ScalingPlanResource {
   __type?: "ScalingPlanResource";
   /**
-   * <p>The ID of the resource. This string consists of the resource type and unique
-   *          identifier.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Auto Scaling group - The resource type is <code>autoScalingGroup</code> and the unique identifier is the
-   *                name of the Auto Scaling group. Example: <code>autoScalingGroup/my-asg</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
-   *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
-   *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the resource ID.
-   *                Example: <code>table/my-table</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the resource ID.
-   *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
-   *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
-   *          </ul>
+   * <p>The namespace of the AWS service.</p>
    */
-  ResourceId: string | undefined;
+  ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
    * <p>The scalable dimension for the resource.</p>
@@ -1109,9 +1082,14 @@ export interface ScalingPlanResource {
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   * <p>The name of the scaling plan.</p>
+   * <p>The scaling policies.</p>
    */
-  ScalingPlanName: string | undefined;
+  ScalingPolicies?: ScalingPolicy[];
+
+  /**
+   * <p>A simple message about the current scaling status of the resource.</p>
+   */
+  ScalingStatusMessage?: string;
 
   /**
    * <p>The version number of the scaling plan.</p>
@@ -1119,9 +1097,36 @@ export interface ScalingPlanResource {
   ScalingPlanVersion: number | undefined;
 
   /**
-   * <p>The scaling policies.</p>
+   * <p>The ID of the resource. This string consists of the resource type and unique
+   *          identifier.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Auto Scaling group - The resource type is <code>autoScalingGroup</code> and the unique identifier is the
+   *                name of the Auto Scaling group. Example: <code>autoScalingGroup/my-asg</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
+   *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the resource ID.
+   *                Example: <code>table/my-table</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the resource ID.
+   *                Example: <code>table/my-table/index/my-table-index</code>.</p>
+   *            </li>
+   *             <li>
+   *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
+   *                Example: <code>cluster:my-db-cluster</code>.</p>
+   *            </li>
+   *          </ul>
    */
-  ScalingPolicies?: ScalingPolicy[];
+  ResourceId: string | undefined;
 
   /**
    * <p>The scaling status of the resource.</p>
@@ -1147,14 +1152,9 @@ export interface ScalingPlanResource {
   ScalingStatusCode: ScalingStatusCode | string | undefined;
 
   /**
-   * <p>A simple message about the current scaling status of the resource.</p>
+   * <p>The name of the scaling plan.</p>
    */
-  ScalingStatusMessage?: string;
-
-  /**
-   * <p>The namespace of the AWS service.</p>
-   */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ScalingPlanName: string | undefined;
 }
 
 export namespace ScalingPlanResource {
@@ -1252,33 +1252,6 @@ export namespace TagFilter {
 export interface TargetTrackingConfiguration {
   __type?: "TargetTrackingConfiguration";
   /**
-   * <p>A customized metric. You can specify either a predefined metric or a customized metric.
-   *       </p>
-   */
-  CustomizedScalingMetricSpecification?: CustomizedScalingMetricSpecification;
-
-  /**
-   * <p>Indicates whether scale in by the target tracking scaling policy is disabled. If the
-   *          value is <code>true</code>, scale in is disabled and the target tracking scaling policy
-   *          doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the
-   *          target tracking scaling policy can remove capacity from the scalable resource. </p>
-   *          <p>The default value is <code>false</code>.</p>
-   */
-  DisableScaleIn?: boolean;
-
-  /**
-   * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
-   *          CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.</p>
-   */
-  EstimatedInstanceWarmup?: number;
-
-  /**
-   * <p>A predefined metric. You can specify either a predefined metric or a customized
-   *          metric.</p>
-   */
-  PredefinedScalingMetricSpecification?: PredefinedScalingMetricSpecification;
-
-  /**
    * <p>The amount of time, in seconds, after a scale in activity completes before another scale
    *          in activity can start. This value is not used if the scalable resource is an Auto Scaling
    *          group.</p>
@@ -1288,6 +1261,18 @@ export interface TargetTrackingConfiguration {
    *          scale-in, AWS Auto Scaling scales out your scalable target immediately.</p>
    */
   ScaleInCooldown?: number;
+
+  /**
+   * <p>A predefined metric. You can specify either a predefined metric or a customized
+   *          metric.</p>
+   */
+  PredefinedScalingMetricSpecification?: PredefinedScalingMetricSpecification;
+
+  /**
+   * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
+   *          or 2e-360 to 2e360 (Base 2).</p>
+   */
+  TargetValue: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, after a scale-out activity completes before another
@@ -1301,10 +1286,25 @@ export interface TargetTrackingConfiguration {
   ScaleOutCooldown?: number;
 
   /**
-   * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
-   *          or 2e-360 to 2e360 (Base 2).</p>
+   * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
+   *          CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.</p>
    */
-  TargetValue: number | undefined;
+  EstimatedInstanceWarmup?: number;
+
+  /**
+   * <p>Indicates whether scale in by the target tracking scaling policy is disabled. If the
+   *          value is <code>true</code>, scale in is disabled and the target tracking scaling policy
+   *          doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the
+   *          target tracking scaling policy can remove capacity from the scalable resource. </p>
+   *          <p>The default value is <code>false</code>.</p>
+   */
+  DisableScaleIn?: boolean;
+
+  /**
+   * <p>A customized metric. You can specify either a predefined metric or a customized metric.
+   *       </p>
+   */
+  CustomizedScalingMetricSpecification?: CustomizedScalingMetricSpecification;
 }
 
 export namespace TargetTrackingConfiguration {
@@ -1317,24 +1317,24 @@ export namespace TargetTrackingConfiguration {
 export interface UpdateScalingPlanRequest {
   __type?: "UpdateScalingPlanRequest";
   /**
-   * <p>A CloudFormation stack or set of tags.</p>
-   */
-  ApplicationSource?: ApplicationSource;
-
-  /**
    * <p>The scaling instructions.</p>
    */
   ScalingInstructions?: ScalingInstruction[];
 
   /**
-   * <p>The name of the scaling plan.</p>
+   * <p>A CloudFormation stack or set of tags.</p>
    */
-  ScalingPlanName: string | undefined;
+  ApplicationSource?: ApplicationSource;
 
   /**
    * <p>The version number of the scaling plan.</p>
    */
   ScalingPlanVersion: number | undefined;
+
+  /**
+   * <p>The name of the scaling plan.</p>
+   */
+  ScalingPlanName: string | undefined;
 }
 
 export namespace UpdateScalingPlanRequest {

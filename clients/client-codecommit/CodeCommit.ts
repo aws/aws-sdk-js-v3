@@ -119,6 +119,11 @@ import { GetBlobCommand, GetBlobCommandInput, GetBlobCommandOutput } from "./com
 import { GetBranchCommand, GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
 import { GetCommentCommand, GetCommentCommandInput, GetCommentCommandOutput } from "./commands/GetCommentCommand";
 import {
+  GetCommentReactionsCommand,
+  GetCommentReactionsCommandInput,
+  GetCommentReactionsCommandOutput,
+} from "./commands/GetCommentReactionsCommand";
+import {
   GetCommentsForComparedCommitCommand,
   GetCommentsForComparedCommitCommandInput,
   GetCommentsForComparedCommitCommandOutput,
@@ -261,6 +266,11 @@ import {
   PostCommentReplyCommandInput,
   PostCommentReplyCommandOutput,
 } from "./commands/PostCommentReplyCommand";
+import {
+  PutCommentReactionCommand,
+  PutCommentReactionCommandInput,
+  PutCommentReactionCommandOutput,
+} from "./commands/PutCommentReactionCommand";
 import { PutFileCommand, PutFileCommandInput, PutFileCommandOutput } from "./commands/PutFileCommand";
 import {
   PutRepositoryTriggersCommand,
@@ -674,6 +684,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                 <p>
+ *                   <a>GetCommentReactions</a>, which returns information about emoji reactions to comments.</p>
+ *             </li>
+ *             <li>
+ *                 <p>
  *                   <a>GetCommentsForComparedCommit</a>, which returns information about comments on the comparison between two commit specifiers
  *                     in a repository.</p>
  *             </li>
@@ -684,6 +698,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             <li>
  *                 <p>
  *                   <a>PostCommentReply</a>, which creates a reply to a comment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutCommentReaction</a>, which creates or updates an emoji reaction to a comment.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -1587,7 +1605,11 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
-   * <p>Returns the content of a comment made on a change, file, or commit in a repository.</p>
+   * <p>Returns the content of a comment made on a change, file, or commit in a repository. </p>
+   *             <note>
+   *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
+   *         reactions from active identities, use GetCommentReactions.</p>
+   *          </note>
    */
   public getComment(args: GetCommentCommandInput, options?: __HttpHandlerOptions): Promise<GetCommentCommandOutput>;
   public getComment(args: GetCommentCommandInput, cb: (err: any, data?: GetCommentCommandOutput) => void): void;
@@ -1613,7 +1635,43 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * <p>Returns information about reactions to a specified comment ID. Reactions from users who have been deleted will not be included in the count.</p>
+   */
+  public getCommentReactions(
+    args: GetCommentReactionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommentReactionsCommandOutput>;
+  public getCommentReactions(
+    args: GetCommentReactionsCommandInput,
+    cb: (err: any, data?: GetCommentReactionsCommandOutput) => void
+  ): void;
+  public getCommentReactions(
+    args: GetCommentReactionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCommentReactionsCommandOutput) => void
+  ): void;
+  public getCommentReactions(
+    args: GetCommentReactionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommentReactionsCommandOutput) => void),
+    cb?: (err: any, data?: GetCommentReactionsCommandOutput) => void
+  ): Promise<GetCommentReactionsCommandOutput> | void {
+    const command = new GetCommentReactionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about comments made on the comparison between two commits.</p>
+   *         <note>
+   *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
+   *             reactions from active identities, use GetCommentReactions.</p>
+   *          </note>
    */
   public getCommentsForComparedCommit(
     args: GetCommentsForComparedCommitCommandInput,
@@ -1646,6 +1704,10 @@ export class CodeCommit extends CodeCommitClient {
 
   /**
    * <p>Returns comments made on a pull request.</p>
+   *         <note>
+   *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
+   *             reactions from active identities, use GetCommentReactions.</p>
+   *          </note>
    */
   public getCommentsForPullRequest(
     args: GetCommentsForPullRequestCommandInput,
@@ -2598,6 +2660,39 @@ export class CodeCommit extends CodeCommitClient {
     cb?: (err: any, data?: PostCommentReplyCommandOutput) => void
   ): Promise<PostCommentReplyCommandOutput> | void {
     const command = new PostCommentReplyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or
+   *         update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
+   */
+  public putCommentReaction(
+    args: PutCommentReactionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCommentReactionCommandOutput>;
+  public putCommentReaction(
+    args: PutCommentReactionCommandInput,
+    cb: (err: any, data?: PutCommentReactionCommandOutput) => void
+  ): void;
+  public putCommentReaction(
+    args: PutCommentReactionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutCommentReactionCommandOutput) => void
+  ): void;
+  public putCommentReaction(
+    args: PutCommentReactionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutCommentReactionCommandOutput) => void),
+    cb?: (err: any, data?: PutCommentReactionCommandOutput) => void
+  ): Promise<PutCommentReactionCommandOutput> | void {
+    const command = new PutCommentReactionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -109,6 +109,10 @@ import {
   ListHostedZonesByNameCommandInput,
   ListHostedZonesByNameCommandOutput,
 } from "../commands/ListHostedZonesByNameCommand";
+import {
+  ListHostedZonesByVPCCommandInput,
+  ListHostedZonesByVPCCommandOutput,
+} from "../commands/ListHostedZonesByVPCCommand";
 import { ListHostedZonesCommandInput, ListHostedZonesCommandOutput } from "../commands/ListHostedZonesCommand";
 import {
   ListQueryLoggingConfigsCommandInput,
@@ -202,6 +206,8 @@ import {
   HostedZoneNotEmpty,
   HostedZoneNotFound,
   HostedZoneNotPrivate,
+  HostedZoneOwner,
+  HostedZoneSummary,
   IncompatibleVersion,
   InsufficientCloudWatchLogsResourcePolicy,
   InvalidArgument,
@@ -356,15 +362,6 @@ export const serializeAws_restXmlChangeTagsForResourceCommand = async (
     "Content-Type": "application/xml",
   };
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
-  if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceId.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceId.");
-  }
   if (input.ResourceType !== undefined) {
     const labelValue: string = input.ResourceType;
     if (labelValue.length <= 0) {
@@ -373,6 +370,15 @@ export const serializeAws_restXmlChangeTagsForResourceCommand = async (
     resolvedPath = resolvedPath.replace("{ResourceType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
+  }
+  if (input.ResourceId !== undefined) {
+    const labelValue: string = input.ResourceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -855,15 +861,6 @@ export const serializeAws_restXmlDeleteTrafficPolicyCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
   if (input.Version !== undefined) {
     const labelValue: string = input.Version.toString();
     if (labelValue.length <= 0) {
@@ -872,6 +869,15 @@ export const serializeAws_restXmlDeleteTrafficPolicyCommand = async (
     resolvedPath = resolvedPath.replace("{Version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
+  }
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1087,8 +1093,8 @@ export const serializeAws_restXmlGetGeoLocationCommand = async (
   };
   let resolvedPath = "/2013-04-01/geolocation";
   const query: any = {
-    ...(input.ContinentCode !== undefined && { continentcode: input.ContinentCode }),
     ...(input.CountryCode !== undefined && { countrycode: input.CountryCode }),
+    ...(input.ContinentCode !== undefined && { continentcode: input.ContinentCode }),
     ...(input.SubdivisionCode !== undefined && { subdivisioncode: input.SubdivisionCode }),
   };
   let body: any;
@@ -1277,15 +1283,6 @@ export const serializeAws_restXmlGetHostedZoneLimitCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}";
-  if (input.HostedZoneId !== undefined) {
-    const labelValue: string = input.HostedZoneId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: HostedZoneId.");
-    }
-    resolvedPath = resolvedPath.replace("{HostedZoneId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: HostedZoneId.");
-  }
   if (input.Type !== undefined) {
     const labelValue: string = input.Type;
     if (labelValue.length <= 0) {
@@ -1294,6 +1291,15 @@ export const serializeAws_restXmlGetHostedZoneLimitCommand = async (
     resolvedPath = resolvedPath.replace("{Type}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
+  }
+  if (input.HostedZoneId !== undefined) {
+    const labelValue: string = input.HostedZoneId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HostedZoneId.");
+    }
+    resolvedPath = resolvedPath.replace("{HostedZoneId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1376,15 +1382,6 @@ export const serializeAws_restXmlGetReusableDelegationSetLimitCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}";
-  if (input.DelegationSetId !== undefined) {
-    const labelValue: string = input.DelegationSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DelegationSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DelegationSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DelegationSetId.");
-  }
   if (input.Type !== undefined) {
     const labelValue: string = input.Type;
     if (labelValue.length <= 0) {
@@ -1393,6 +1390,15 @@ export const serializeAws_restXmlGetReusableDelegationSetLimitCommand = async (
     resolvedPath = resolvedPath.replace("{Type}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
+  }
+  if (input.DelegationSetId !== undefined) {
+    const labelValue: string = input.DelegationSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DelegationSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DelegationSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DelegationSetId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1415,15 +1421,6 @@ export const serializeAws_restXmlGetTrafficPolicyCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
   if (input.Version !== undefined) {
     const labelValue: string = input.Version.toString();
     if (labelValue.length <= 0) {
@@ -1432,6 +1429,15 @@ export const serializeAws_restXmlGetTrafficPolicyCommand = async (
     resolvedPath = resolvedPath.replace("{Version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
+  }
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1507,10 +1513,10 @@ export const serializeAws_restXmlListGeoLocationsCommand = async (
   };
   let resolvedPath = "/2013-04-01/geolocations";
   const query: any = {
-    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
     ...(input.StartContinentCode !== undefined && { startcontinentcode: input.StartContinentCode }),
-    ...(input.StartCountryCode !== undefined && { startcountrycode: input.StartCountryCode }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
     ...(input.StartSubdivisionCode !== undefined && { startsubdivisioncode: input.StartSubdivisionCode }),
+    ...(input.StartCountryCode !== undefined && { startcountrycode: input.StartCountryCode }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1561,9 +1567,9 @@ export const serializeAws_restXmlListHostedZonesCommand = async (
   };
   let resolvedPath = "/2013-04-01/hostedzone";
   const query: any = {
-    ...(input.DelegationSetId !== undefined && { delegationsetid: input.DelegationSetId }),
-    ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.DelegationSetId !== undefined && { delegationsetid: input.DelegationSetId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1588,9 +1594,37 @@ export const serializeAws_restXmlListHostedZonesByNameCommand = async (
   };
   let resolvedPath = "/2013-04-01/hostedzonesbyname";
   const query: any = {
-    ...(input.DNSName !== undefined && { dnsname: input.DNSName }),
     ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.DNSName !== undefined && { dnsname: input.DNSName }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlListHostedZonesByVPCCommand = async (
+  input: ListHostedZonesByVPCCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2013-04-01/hostedzonesbyvpc";
+  const query: any = {
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.VPCRegion !== undefined && { vpcregion: input.VPCRegion }),
+    ...(input.NextToken !== undefined && { nexttoken: input.NextToken }),
+    ...(input.VPCId !== undefined && { vpcid: input.VPCId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1615,9 +1649,9 @@ export const serializeAws_restXmlListQueryLoggingConfigsCommand = async (
   };
   let resolvedPath = "/2013-04-01/queryloggingconfig";
   const query: any = {
-    ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
     ...(input.MaxResults !== undefined && { maxresults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nexttoken: input.NextToken }),
+    ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1651,10 +1685,10 @@ export const serializeAws_restXmlListResourceRecordSetsCommand = async (
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
   const query: any = {
-    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
-    ...(input.StartRecordIdentifier !== undefined && { identifier: input.StartRecordIdentifier }),
-    ...(input.StartRecordName !== undefined && { name: input.StartRecordName }),
     ...(input.StartRecordType !== undefined && { type: input.StartRecordType }),
+    ...(input.StartRecordName !== undefined && { name: input.StartRecordName }),
+    ...(input.StartRecordIdentifier !== undefined && { identifier: input.StartRecordIdentifier }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1679,8 +1713,8 @@ export const serializeAws_restXmlListReusableDelegationSetsCommand = async (
   };
   let resolvedPath = "/2013-04-01/delegationset";
   const query: any = {
-    ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1704,15 +1738,6 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
-  if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceId.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceId.");
-  }
   if (input.ResourceType !== undefined) {
     const labelValue: string = input.ResourceType;
     if (labelValue.length <= 0) {
@@ -1721,6 +1746,15 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
     resolvedPath = resolvedPath.replace("{ResourceType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
+  }
+  if (input.ResourceId !== undefined) {
+    const labelValue: string = input.ResourceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1812,8 +1846,8 @@ export const serializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   };
   let resolvedPath = "/2013-04-01/trafficpolicyinstances";
   const query: any = {
-    ...(input.HostedZoneIdMarker !== undefined && { hostedzoneid: input.HostedZoneIdMarker }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.HostedZoneIdMarker !== undefined && { hostedzoneid: input.HostedZoneIdMarker }),
     ...(input.TrafficPolicyInstanceNameMarker !== undefined && {
       trafficpolicyinstancename: input.TrafficPolicyInstanceNameMarker,
     }),
@@ -1844,14 +1878,14 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand =
   };
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/hostedzone";
   const query: any = {
-    ...(input.HostedZoneId !== undefined && { id: input.HostedZoneId }),
-    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
     ...(input.TrafficPolicyInstanceNameMarker !== undefined && {
       trafficpolicyinstancename: input.TrafficPolicyInstanceNameMarker,
     }),
     ...(input.TrafficPolicyInstanceTypeMarker !== undefined && {
       trafficpolicyinstancetype: input.TrafficPolicyInstanceTypeMarker,
     }),
+    ...(input.HostedZoneId !== undefined && { id: input.HostedZoneId }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1876,16 +1910,16 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = asy
   };
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/trafficpolicy";
   const query: any = {
-    ...(input.HostedZoneIdMarker !== undefined && { hostedzoneid: input.HostedZoneIdMarker }),
-    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
-    ...(input.TrafficPolicyId !== undefined && { id: input.TrafficPolicyId }),
     ...(input.TrafficPolicyInstanceNameMarker !== undefined && {
       trafficpolicyinstancename: input.TrafficPolicyInstanceNameMarker,
     }),
+    ...(input.TrafficPolicyVersion !== undefined && { version: input.TrafficPolicyVersion.toString() }),
+    ...(input.HostedZoneIdMarker !== undefined && { hostedzoneid: input.HostedZoneIdMarker }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.TrafficPolicyId !== undefined && { id: input.TrafficPolicyId }),
     ...(input.TrafficPolicyInstanceTypeMarker !== undefined && {
       trafficpolicyinstancetype: input.TrafficPolicyInstanceTypeMarker,
     }),
-    ...(input.TrafficPolicyVersion !== undefined && { version: input.TrafficPolicyVersion.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1919,8 +1953,8 @@ export const serializeAws_restXmlListTrafficPolicyVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   const query: any = {
-    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
     ...(input.TrafficPolicyVersionMarker !== undefined && { trafficpolicyversion: input.TrafficPolicyVersionMarker }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1981,11 +2015,11 @@ export const serializeAws_restXmlTestDNSAnswerCommand = async (
   let resolvedPath = "/2013-04-01/testdnsanswer";
   const query: any = {
     ...(input.EDNS0ClientSubnetIP !== undefined && { edns0clientsubnetip: input.EDNS0ClientSubnetIP }),
-    ...(input.EDNS0ClientSubnetMask !== undefined && { edns0clientsubnetmask: input.EDNS0ClientSubnetMask }),
     ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
-    ...(input.RecordName !== undefined && { recordname: input.RecordName }),
+    ...(input.EDNS0ClientSubnetMask !== undefined && { edns0clientsubnetmask: input.EDNS0ClientSubnetMask }),
     ...(input.RecordType !== undefined && { recordtype: input.RecordType }),
     ...(input.ResolverIP !== undefined && { resolverip: input.ResolverIP }),
+    ...(input.RecordName !== undefined && { recordname: input.RecordName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2331,6 +2365,14 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
     case "com.amazonaws.route53#NotAuthorizedException":
       response = {
         ...(await deserializeAws_restXmlNotAuthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
+      response = {
+        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5388,6 +5430,84 @@ const deserializeAws_restXmlListHostedZonesByNameCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlListHostedZonesByVPCCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostedZonesByVPCCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restXmlListHostedZonesByVPCCommandError(output, context);
+  }
+  const contents: ListHostedZonesByVPCCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListHostedZonesByVPCResponse",
+    HostedZoneSummaries: undefined,
+    MaxItems: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.HostedZoneSummaries === "") {
+    contents.HostedZoneSummaries = [];
+  }
+  if (data["HostedZoneSummaries"] !== undefined && data["HostedZoneSummaries"]["HostedZoneSummary"] !== undefined) {
+    contents.HostedZoneSummaries = deserializeAws_restXmlHostedZoneSummaries(
+      __getArrayIfSingleItem(data["HostedZoneSummaries"]["HostedZoneSummary"]),
+      context
+    );
+  }
+  if (data["MaxItems"] !== undefined) {
+    contents.MaxItems = data["MaxItems"];
+  }
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = data["NextToken"];
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlListHostedZonesByVPCCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostedZonesByVPCCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      response = {
+        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationToken":
+    case "com.amazonaws.route53#InvalidPaginationToken":
+      response = {
+        ...(await deserializeAws_restXmlInvalidPaginationTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlListQueryLoggingConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7634,8 +7754,8 @@ const serializeAws_restXmlAlarmIdentifier = (input: AlarmIdentifier, context: __
 
 const serializeAws_restXmlAliasTarget = (input: AliasTarget, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("AliasTarget");
-  if (input.DNSName !== undefined) {
-    const node = new __XmlNode("DNSName").addChildNode(new __XmlText(input.DNSName)).withName("DNSName");
+  if (input.HostedZoneId !== undefined) {
+    const node = new __XmlNode("ResourceId").addChildNode(new __XmlText(input.HostedZoneId)).withName("HostedZoneId");
     bodyNode.addChildNode(node);
   }
   if (input.EvaluateTargetHealth !== undefined) {
@@ -7644,8 +7764,8 @@ const serializeAws_restXmlAliasTarget = (input: AliasTarget, context: __SerdeCon
       .withName("EvaluateTargetHealth");
     bodyNode.addChildNode(node);
   }
-  if (input.HostedZoneId !== undefined) {
-    const node = new __XmlNode("ResourceId").addChildNode(new __XmlText(input.HostedZoneId)).withName("HostedZoneId");
+  if (input.DNSName !== undefined) {
+    const node = new __XmlNode("DNSName").addChildNode(new __XmlText(input.DNSName)).withName("DNSName");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7653,12 +7773,12 @@ const serializeAws_restXmlAliasTarget = (input: AliasTarget, context: __SerdeCon
 
 const serializeAws_restXmlChange = (input: Change, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Change");
-  if (input.Action !== undefined) {
-    const node = new __XmlNode("ChangeAction").addChildNode(new __XmlText(input.Action)).withName("Action");
-    bodyNode.addChildNode(node);
-  }
   if (input.ResourceRecordSet !== undefined) {
     const node = serializeAws_restXmlResourceRecordSet(input.ResourceRecordSet, context).withName("ResourceRecordSet");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Action !== undefined) {
+    const node = new __XmlNode("ChangeAction").addChildNode(new __XmlText(input.Action)).withName("Action");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7666,6 +7786,10 @@ const serializeAws_restXmlChange = (input: Change, context: __SerdeContext): any
 
 const serializeAws_restXmlChangeBatch = (input: ChangeBatch, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ChangeBatch");
+  if (input.Comment !== undefined) {
+    const node = new __XmlNode("ResourceDescription").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    bodyNode.addChildNode(node);
+  }
   if (input.Changes !== undefined) {
     const nodes = serializeAws_restXmlChanges(input.Changes, context);
     const containerNode = new __XmlNode("Changes");
@@ -7673,10 +7797,6 @@ const serializeAws_restXmlChangeBatch = (input: ChangeBatch, context: __SerdeCon
       containerNode.addChildNode(node);
     });
     bodyNode.addChildNode(containerNode);
-  }
-  if (input.Comment !== undefined) {
-    const node = new __XmlNode("ResourceDescription").addChildNode(new __XmlText(input.Comment)).withName("Comment");
-    bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
@@ -7697,10 +7817,10 @@ const serializeAws_restXmlChildHealthCheckList = (input: string[], context: __Se
 
 const serializeAws_restXmlGeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("GeoLocation");
-  if (input.ContinentCode !== undefined) {
-    const node = new __XmlNode("GeoLocationContinentCode")
-      .addChildNode(new __XmlText(input.ContinentCode))
-      .withName("ContinentCode");
+  if (input.SubdivisionCode !== undefined) {
+    const node = new __XmlNode("GeoLocationSubdivisionCode")
+      .addChildNode(new __XmlText(input.SubdivisionCode))
+      .withName("SubdivisionCode");
     bodyNode.addChildNode(node);
   }
   if (input.CountryCode !== undefined) {
@@ -7709,10 +7829,10 @@ const serializeAws_restXmlGeoLocation = (input: GeoLocation, context: __SerdeCon
       .withName("CountryCode");
     bodyNode.addChildNode(node);
   }
-  if (input.SubdivisionCode !== undefined) {
-    const node = new __XmlNode("GeoLocationSubdivisionCode")
-      .addChildNode(new __XmlText(input.SubdivisionCode))
-      .withName("SubdivisionCode");
+  if (input.ContinentCode !== undefined) {
+    const node = new __XmlNode("GeoLocationContinentCode")
+      .addChildNode(new __XmlText(input.ContinentCode))
+      .withName("ContinentCode");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7720,8 +7840,16 @@ const serializeAws_restXmlGeoLocation = (input: GeoLocation, context: __SerdeCon
 
 const serializeAws_restXmlHealthCheckConfig = (input: HealthCheckConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("HealthCheckConfig");
-  if (input.AlarmIdentifier !== undefined) {
-    const node = serializeAws_restXmlAlarmIdentifier(input.AlarmIdentifier, context).withName("AlarmIdentifier");
+  if (input.IPAddress !== undefined) {
+    const node = new __XmlNode("IPAddress").addChildNode(new __XmlText(input.IPAddress)).withName("IPAddress");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Port !== undefined) {
+    const node = new __XmlNode("Port").addChildNode(new __XmlText(String(input.Port))).withName("Port");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Disabled !== undefined) {
+    const node = new __XmlNode("Disabled").addChildNode(new __XmlText(String(input.Disabled))).withName("Disabled");
     bodyNode.addChildNode(node);
   }
   if (input.ChildHealthChecks !== undefined) {
@@ -7732,44 +7860,14 @@ const serializeAws_restXmlHealthCheckConfig = (input: HealthCheckConfig, context
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Disabled !== undefined) {
-    const node = new __XmlNode("Disabled").addChildNode(new __XmlText(String(input.Disabled))).withName("Disabled");
-    bodyNode.addChildNode(node);
-  }
-  if (input.EnableSNI !== undefined) {
-    const node = new __XmlNode("EnableSNI").addChildNode(new __XmlText(String(input.EnableSNI))).withName("EnableSNI");
-    bodyNode.addChildNode(node);
-  }
-  if (input.FailureThreshold !== undefined) {
-    const node = new __XmlNode("FailureThreshold")
-      .addChildNode(new __XmlText(String(input.FailureThreshold)))
-      .withName("FailureThreshold");
-    bodyNode.addChildNode(node);
-  }
-  if (input.FullyQualifiedDomainName !== undefined) {
-    const node = new __XmlNode("FullyQualifiedDomainName")
-      .addChildNode(new __XmlText(input.FullyQualifiedDomainName))
-      .withName("FullyQualifiedDomainName");
-    bodyNode.addChildNode(node);
-  }
   if (input.HealthThreshold !== undefined) {
     const node = new __XmlNode("HealthThreshold")
       .addChildNode(new __XmlText(String(input.HealthThreshold)))
       .withName("HealthThreshold");
     bodyNode.addChildNode(node);
   }
-  if (input.IPAddress !== undefined) {
-    const node = new __XmlNode("IPAddress").addChildNode(new __XmlText(input.IPAddress)).withName("IPAddress");
-    bodyNode.addChildNode(node);
-  }
-  if (input.InsufficientDataHealthStatus !== undefined) {
-    const node = new __XmlNode("InsufficientDataHealthStatus")
-      .addChildNode(new __XmlText(input.InsufficientDataHealthStatus))
-      .withName("InsufficientDataHealthStatus");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Inverted !== undefined) {
-    const node = new __XmlNode("Inverted").addChildNode(new __XmlText(String(input.Inverted))).withName("Inverted");
+  if (input.EnableSNI !== undefined) {
+    const node = new __XmlNode("EnableSNI").addChildNode(new __XmlText(String(input.EnableSNI))).withName("EnableSNI");
     bodyNode.addChildNode(node);
   }
   if (input.MeasureLatency !== undefined) {
@@ -7778,8 +7876,28 @@ const serializeAws_restXmlHealthCheckConfig = (input: HealthCheckConfig, context
       .withName("MeasureLatency");
     bodyNode.addChildNode(node);
   }
-  if (input.Port !== undefined) {
-    const node = new __XmlNode("Port").addChildNode(new __XmlText(String(input.Port))).withName("Port");
+  if (input.Inverted !== undefined) {
+    const node = new __XmlNode("Inverted").addChildNode(new __XmlText(String(input.Inverted))).withName("Inverted");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Type !== undefined) {
+    const node = new __XmlNode("HealthCheckType").addChildNode(new __XmlText(input.Type)).withName("Type");
+    bodyNode.addChildNode(node);
+  }
+  if (input.FailureThreshold !== undefined) {
+    const node = new __XmlNode("FailureThreshold")
+      .addChildNode(new __XmlText(String(input.FailureThreshold)))
+      .withName("FailureThreshold");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AlarmIdentifier !== undefined) {
+    const node = serializeAws_restXmlAlarmIdentifier(input.AlarmIdentifier, context).withName("AlarmIdentifier");
+    bodyNode.addChildNode(node);
+  }
+  if (input.FullyQualifiedDomainName !== undefined) {
+    const node = new __XmlNode("FullyQualifiedDomainName")
+      .addChildNode(new __XmlText(input.FullyQualifiedDomainName))
+      .withName("FullyQualifiedDomainName");
     bodyNode.addChildNode(node);
   }
   if (input.Regions !== undefined) {
@@ -7804,8 +7922,10 @@ const serializeAws_restXmlHealthCheckConfig = (input: HealthCheckConfig, context
     const node = new __XmlNode("SearchString").addChildNode(new __XmlText(input.SearchString)).withName("SearchString");
     bodyNode.addChildNode(node);
   }
-  if (input.Type !== undefined) {
-    const node = new __XmlNode("HealthCheckType").addChildNode(new __XmlText(input.Type)).withName("Type");
+  if (input.InsufficientDataHealthStatus !== undefined) {
+    const node = new __XmlNode("InsufficientDataHealthStatus")
+      .addChildNode(new __XmlText(input.InsufficientDataHealthStatus))
+      .withName("InsufficientDataHealthStatus");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7864,38 +7984,10 @@ const serializeAws_restXmlResourceRecords = (input: ResourceRecord[], context: _
 
 const serializeAws_restXmlResourceRecordSet = (input: ResourceRecordSet, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ResourceRecordSet");
-  if (input.AliasTarget !== undefined) {
-    const node = serializeAws_restXmlAliasTarget(input.AliasTarget, context).withName("AliasTarget");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Failover !== undefined) {
-    const node = new __XmlNode("ResourceRecordSetFailover")
-      .addChildNode(new __XmlText(input.Failover))
-      .withName("Failover");
-    bodyNode.addChildNode(node);
-  }
-  if (input.GeoLocation !== undefined) {
-    const node = serializeAws_restXmlGeoLocation(input.GeoLocation, context).withName("GeoLocation");
-    bodyNode.addChildNode(node);
-  }
-  if (input.HealthCheckId !== undefined) {
-    const node = new __XmlNode("HealthCheckId")
-      .addChildNode(new __XmlText(input.HealthCheckId))
-      .withName("HealthCheckId");
-    bodyNode.addChildNode(node);
-  }
-  if (input.MultiValueAnswer !== undefined) {
-    const node = new __XmlNode("ResourceRecordSetMultiValueAnswer")
-      .addChildNode(new __XmlText(String(input.MultiValueAnswer)))
-      .withName("MultiValueAnswer");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Name !== undefined) {
-    const node = new __XmlNode("DNSName").addChildNode(new __XmlText(input.Name)).withName("Name");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Region !== undefined) {
-    const node = new __XmlNode("ResourceRecordSetRegion").addChildNode(new __XmlText(input.Region)).withName("Region");
+  if (input.Weight !== undefined) {
+    const node = new __XmlNode("ResourceRecordSetWeight")
+      .addChildNode(new __XmlText(String(input.Weight)))
+      .withName("Weight");
     bodyNode.addChildNode(node);
   }
   if (input.ResourceRecords !== undefined) {
@@ -7906,14 +7998,20 @@ const serializeAws_restXmlResourceRecordSet = (input: ResourceRecordSet, context
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.SetIdentifier !== undefined) {
-    const node = new __XmlNode("ResourceRecordSetIdentifier")
-      .addChildNode(new __XmlText(input.SetIdentifier))
-      .withName("SetIdentifier");
+  if (input.AliasTarget !== undefined) {
+    const node = serializeAws_restXmlAliasTarget(input.AliasTarget, context).withName("AliasTarget");
     bodyNode.addChildNode(node);
   }
-  if (input.TTL !== undefined) {
-    const node = new __XmlNode("TTL").addChildNode(new __XmlText(String(input.TTL))).withName("TTL");
+  if (input.Name !== undefined) {
+    const node = new __XmlNode("DNSName").addChildNode(new __XmlText(input.Name)).withName("Name");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Region !== undefined) {
+    const node = new __XmlNode("ResourceRecordSetRegion").addChildNode(new __XmlText(input.Region)).withName("Region");
+    bodyNode.addChildNode(node);
+  }
+  if (input.GeoLocation !== undefined) {
+    const node = serializeAws_restXmlGeoLocation(input.GeoLocation, context).withName("GeoLocation");
     bodyNode.addChildNode(node);
   }
   if (input.TrafficPolicyInstanceId !== undefined) {
@@ -7922,14 +8020,36 @@ const serializeAws_restXmlResourceRecordSet = (input: ResourceRecordSet, context
       .withName("TrafficPolicyInstanceId");
     bodyNode.addChildNode(node);
   }
+  if (input.TTL !== undefined) {
+    const node = new __XmlNode("TTL").addChildNode(new __XmlText(String(input.TTL))).withName("TTL");
+    bodyNode.addChildNode(node);
+  }
+  if (input.HealthCheckId !== undefined) {
+    const node = new __XmlNode("HealthCheckId")
+      .addChildNode(new __XmlText(input.HealthCheckId))
+      .withName("HealthCheckId");
+    bodyNode.addChildNode(node);
+  }
   if (input.Type !== undefined) {
     const node = new __XmlNode("RRType").addChildNode(new __XmlText(input.Type)).withName("Type");
     bodyNode.addChildNode(node);
   }
-  if (input.Weight !== undefined) {
-    const node = new __XmlNode("ResourceRecordSetWeight")
-      .addChildNode(new __XmlText(String(input.Weight)))
-      .withName("Weight");
+  if (input.Failover !== undefined) {
+    const node = new __XmlNode("ResourceRecordSetFailover")
+      .addChildNode(new __XmlText(input.Failover))
+      .withName("Failover");
+    bodyNode.addChildNode(node);
+  }
+  if (input.MultiValueAnswer !== undefined) {
+    const node = new __XmlNode("ResourceRecordSetMultiValueAnswer")
+      .addChildNode(new __XmlText(String(input.MultiValueAnswer)))
+      .withName("MultiValueAnswer");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SetIdentifier !== undefined) {
+    const node = new __XmlNode("ResourceRecordSetIdentifier")
+      .addChildNode(new __XmlText(input.SetIdentifier))
+      .withName("SetIdentifier");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -8015,18 +8135,18 @@ const deserializeAws_restXmlAlarmIdentifier = (output: any, context: __SerdeCont
 const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext): AliasTarget => {
   let contents: any = {
     __type: "AliasTarget",
-    DNSName: undefined,
-    EvaluateTargetHealth: undefined,
     HostedZoneId: undefined,
+    EvaluateTargetHealth: undefined,
+    DNSName: undefined,
   };
-  if (output["DNSName"] !== undefined) {
-    contents.DNSName = output["DNSName"];
+  if (output["HostedZoneId"] !== undefined) {
+    contents.HostedZoneId = output["HostedZoneId"];
   }
   if (output["EvaluateTargetHealth"] !== undefined) {
     contents.EvaluateTargetHealth = output["EvaluateTargetHealth"] == "true";
   }
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = output["HostedZoneId"];
+  if (output["DNSName"] !== undefined) {
+    contents.DNSName = output["DNSName"];
   }
   return contents;
 };
@@ -8034,22 +8154,22 @@ const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext)
 const deserializeAws_restXmlChangeInfo = (output: any, context: __SerdeContext): ChangeInfo => {
   let contents: any = {
     __type: "ChangeInfo",
-    Comment: undefined,
-    Id: undefined,
     Status: undefined,
+    Comment: undefined,
     SubmittedAt: undefined,
+    Id: undefined,
   };
-  if (output["Comment"] !== undefined) {
-    contents.Comment = output["Comment"];
-  }
-  if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
-  }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
+  if (output["Comment"] !== undefined) {
+    contents.Comment = output["Comment"];
+  }
   if (output["SubmittedAt"] !== undefined) {
     contents.SubmittedAt = new Date(output["SubmittedAt"]);
+  }
+  if (output["Id"] !== undefined) {
+    contents.Id = output["Id"];
   }
   return contents;
 };
@@ -8068,17 +8188,20 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
 ): CloudWatchAlarmConfiguration => {
   let contents: any = {
     __type: "CloudWatchAlarmConfiguration",
-    ComparisonOperator: undefined,
+    Statistic: undefined,
+    MetricName: undefined,
     Dimensions: undefined,
     EvaluationPeriods: undefined,
-    MetricName: undefined,
     Namespace: undefined,
-    Period: undefined,
-    Statistic: undefined,
     Threshold: undefined,
+    Period: undefined,
+    ComparisonOperator: undefined,
   };
-  if (output["ComparisonOperator"] !== undefined) {
-    contents.ComparisonOperator = output["ComparisonOperator"];
+  if (output["Statistic"] !== undefined) {
+    contents.Statistic = output["Statistic"];
+  }
+  if (output["MetricName"] !== undefined) {
+    contents.MetricName = output["MetricName"];
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
@@ -8092,20 +8215,17 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
   if (output["EvaluationPeriods"] !== undefined) {
     contents.EvaluationPeriods = parseInt(output["EvaluationPeriods"]);
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = output["MetricName"];
-  }
   if (output["Namespace"] !== undefined) {
     contents.Namespace = output["Namespace"];
+  }
+  if (output["Threshold"] !== undefined) {
+    contents.Threshold = parseFloat(output["Threshold"]);
   }
   if (output["Period"] !== undefined) {
     contents.Period = parseInt(output["Period"]);
   }
-  if (output["Statistic"] !== undefined) {
-    contents.Statistic = output["Statistic"];
-  }
-  if (output["Threshold"] !== undefined) {
-    contents.Threshold = parseFloat(output["Threshold"]);
+  if (output["ComparisonOperator"] !== undefined) {
+    contents.ComparisonOperator = output["ComparisonOperator"];
   }
   return contents;
 };
@@ -8146,14 +8266,14 @@ const deserializeAws_restXmlDelegationSets = (output: any, context: __SerdeConte
 const deserializeAws_restXmlDimension = (output: any, context: __SerdeContext): Dimension => {
   let contents: any = {
     __type: "Dimension",
-    Name: undefined,
     Value: undefined,
+    Name: undefined,
   };
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
-  }
   if (output["Value"] !== undefined) {
     contents.Value = output["Value"];
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -8169,18 +8289,18 @@ const deserializeAws_restXmlErrorMessages = (output: any, context: __SerdeContex
 const deserializeAws_restXmlGeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   let contents: any = {
     __type: "GeoLocation",
-    ContinentCode: undefined,
-    CountryCode: undefined,
     SubdivisionCode: undefined,
+    CountryCode: undefined,
+    ContinentCode: undefined,
   };
-  if (output["ContinentCode"] !== undefined) {
-    contents.ContinentCode = output["ContinentCode"];
+  if (output["SubdivisionCode"] !== undefined) {
+    contents.SubdivisionCode = output["SubdivisionCode"];
   }
   if (output["CountryCode"] !== undefined) {
     contents.CountryCode = output["CountryCode"];
   }
-  if (output["SubdivisionCode"] !== undefined) {
-    contents.SubdivisionCode = output["SubdivisionCode"];
+  if (output["ContinentCode"] !== undefined) {
+    contents.ContinentCode = output["ContinentCode"];
   }
   return contents;
 };
@@ -8188,30 +8308,30 @@ const deserializeAws_restXmlGeoLocation = (output: any, context: __SerdeContext)
 const deserializeAws_restXmlGeoLocationDetails = (output: any, context: __SerdeContext): GeoLocationDetails => {
   let contents: any = {
     __type: "GeoLocationDetails",
-    ContinentCode: undefined,
-    ContinentName: undefined,
-    CountryCode: undefined,
-    CountryName: undefined,
-    SubdivisionCode: undefined,
     SubdivisionName: undefined,
+    ContinentName: undefined,
+    CountryName: undefined,
+    CountryCode: undefined,
+    SubdivisionCode: undefined,
+    ContinentCode: undefined,
   };
-  if (output["ContinentCode"] !== undefined) {
-    contents.ContinentCode = output["ContinentCode"];
+  if (output["SubdivisionName"] !== undefined) {
+    contents.SubdivisionName = output["SubdivisionName"];
   }
   if (output["ContinentName"] !== undefined) {
     contents.ContinentName = output["ContinentName"];
   }
-  if (output["CountryCode"] !== undefined) {
-    contents.CountryCode = output["CountryCode"];
-  }
   if (output["CountryName"] !== undefined) {
     contents.CountryName = output["CountryName"];
+  }
+  if (output["CountryCode"] !== undefined) {
+    contents.CountryCode = output["CountryCode"];
   }
   if (output["SubdivisionCode"] !== undefined) {
     contents.SubdivisionCode = output["SubdivisionCode"];
   }
-  if (output["SubdivisionName"] !== undefined) {
-    contents.SubdivisionName = output["SubdivisionName"];
+  if (output["ContinentCode"] !== undefined) {
+    contents.ContinentCode = output["ContinentCode"];
   }
   return contents;
 };
@@ -8223,15 +8343,15 @@ const deserializeAws_restXmlGeoLocationDetailsList = (output: any, context: __Se
 const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
   let contents: any = {
     __type: "HealthCheck",
-    CallerReference: undefined,
-    CloudWatchAlarmConfiguration: undefined,
-    HealthCheckConfig: undefined,
     HealthCheckVersion: undefined,
-    Id: undefined,
+    CloudWatchAlarmConfiguration: undefined,
     LinkedService: undefined,
+    CallerReference: undefined,
+    HealthCheckConfig: undefined,
+    Id: undefined,
   };
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = output["CallerReference"];
+  if (output["HealthCheckVersion"] !== undefined) {
+    contents.HealthCheckVersion = parseInt(output["HealthCheckVersion"]);
   }
   if (output["CloudWatchAlarmConfiguration"] !== undefined) {
     contents.CloudWatchAlarmConfiguration = deserializeAws_restXmlCloudWatchAlarmConfiguration(
@@ -8239,17 +8359,17 @@ const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext)
       context
     );
   }
+  if (output["LinkedService"] !== undefined) {
+    contents.LinkedService = deserializeAws_restXmlLinkedService(output["LinkedService"], context);
+  }
+  if (output["CallerReference"] !== undefined) {
+    contents.CallerReference = output["CallerReference"];
+  }
   if (output["HealthCheckConfig"] !== undefined) {
     contents.HealthCheckConfig = deserializeAws_restXmlHealthCheckConfig(output["HealthCheckConfig"], context);
   }
-  if (output["HealthCheckVersion"] !== undefined) {
-    contents.HealthCheckVersion = parseInt(output["HealthCheckVersion"]);
-  }
   if (output["Id"] !== undefined) {
     contents.Id = output["Id"];
-  }
-  if (output["LinkedService"] !== undefined) {
-    contents.LinkedService = deserializeAws_restXmlLinkedService(output["LinkedService"], context);
   }
   return contents;
 };
@@ -8257,26 +8377,32 @@ const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext)
 const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
   let contents: any = {
     __type: "HealthCheckConfig",
-    AlarmIdentifier: undefined,
-    ChildHealthChecks: undefined,
-    Disabled: undefined,
-    EnableSNI: undefined,
-    FailureThreshold: undefined,
-    FullyQualifiedDomainName: undefined,
-    HealthThreshold: undefined,
     IPAddress: undefined,
-    InsufficientDataHealthStatus: undefined,
-    Inverted: undefined,
-    MeasureLatency: undefined,
     Port: undefined,
+    Disabled: undefined,
+    ChildHealthChecks: undefined,
+    HealthThreshold: undefined,
+    EnableSNI: undefined,
+    MeasureLatency: undefined,
+    Inverted: undefined,
+    Type: undefined,
+    FailureThreshold: undefined,
+    AlarmIdentifier: undefined,
+    FullyQualifiedDomainName: undefined,
     Regions: undefined,
     RequestInterval: undefined,
     ResourcePath: undefined,
     SearchString: undefined,
-    Type: undefined,
+    InsufficientDataHealthStatus: undefined,
   };
-  if (output["AlarmIdentifier"] !== undefined) {
-    contents.AlarmIdentifier = deserializeAws_restXmlAlarmIdentifier(output["AlarmIdentifier"], context);
+  if (output["IPAddress"] !== undefined) {
+    contents.IPAddress = output["IPAddress"];
+  }
+  if (output["Port"] !== undefined) {
+    contents.Port = parseInt(output["Port"]);
+  }
+  if (output["Disabled"] !== undefined) {
+    contents.Disabled = output["Disabled"] == "true";
   }
   if (output.ChildHealthChecks === "") {
     contents.ChildHealthChecks = [];
@@ -8287,35 +8413,29 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
       context
     );
   }
-  if (output["Disabled"] !== undefined) {
-    contents.Disabled = output["Disabled"] == "true";
+  if (output["HealthThreshold"] !== undefined) {
+    contents.HealthThreshold = parseInt(output["HealthThreshold"]);
   }
   if (output["EnableSNI"] !== undefined) {
     contents.EnableSNI = output["EnableSNI"] == "true";
   }
-  if (output["FailureThreshold"] !== undefined) {
-    contents.FailureThreshold = parseInt(output["FailureThreshold"]);
-  }
-  if (output["FullyQualifiedDomainName"] !== undefined) {
-    contents.FullyQualifiedDomainName = output["FullyQualifiedDomainName"];
-  }
-  if (output["HealthThreshold"] !== undefined) {
-    contents.HealthThreshold = parseInt(output["HealthThreshold"]);
-  }
-  if (output["IPAddress"] !== undefined) {
-    contents.IPAddress = output["IPAddress"];
-  }
-  if (output["InsufficientDataHealthStatus"] !== undefined) {
-    contents.InsufficientDataHealthStatus = output["InsufficientDataHealthStatus"];
+  if (output["MeasureLatency"] !== undefined) {
+    contents.MeasureLatency = output["MeasureLatency"] == "true";
   }
   if (output["Inverted"] !== undefined) {
     contents.Inverted = output["Inverted"] == "true";
   }
-  if (output["MeasureLatency"] !== undefined) {
-    contents.MeasureLatency = output["MeasureLatency"] == "true";
+  if (output["Type"] !== undefined) {
+    contents.Type = output["Type"];
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
+  if (output["FailureThreshold"] !== undefined) {
+    contents.FailureThreshold = parseInt(output["FailureThreshold"]);
+  }
+  if (output["AlarmIdentifier"] !== undefined) {
+    contents.AlarmIdentifier = deserializeAws_restXmlAlarmIdentifier(output["AlarmIdentifier"], context);
+  }
+  if (output["FullyQualifiedDomainName"] !== undefined) {
+    contents.FullyQualifiedDomainName = output["FullyQualifiedDomainName"];
   }
   if (output.Regions === "") {
     contents.Regions = [];
@@ -8335,8 +8455,8 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
   if (output["SearchString"] !== undefined) {
     contents.SearchString = output["SearchString"];
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = output["Type"];
+  if (output["InsufficientDataHealthStatus"] !== undefined) {
+    contents.InsufficientDataHealthStatus = output["InsufficientDataHealthStatus"];
   }
   return contents;
 };
@@ -8344,15 +8464,15 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
 const deserializeAws_restXmlHealthCheckObservation = (output: any, context: __SerdeContext): HealthCheckObservation => {
   let contents: any = {
     __type: "HealthCheckObservation",
-    IPAddress: undefined,
     Region: undefined,
+    IPAddress: undefined,
     StatusReport: undefined,
   };
-  if (output["IPAddress"] !== undefined) {
-    contents.IPAddress = output["IPAddress"];
-  }
   if (output["Region"] !== undefined) {
     contents.Region = output["Region"];
+  }
+  if (output["IPAddress"] !== undefined) {
+    contents.IPAddress = output["IPAddress"];
   }
   if (output["StatusReport"] !== undefined) {
     contents.StatusReport = deserializeAws_restXmlStatusReport(output["StatusReport"], context);
@@ -8381,16 +8501,13 @@ const deserializeAws_restXmlHealthChecks = (output: any, context: __SerdeContext
 const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext): HostedZone => {
   let contents: any = {
     __type: "HostedZone",
-    CallerReference: undefined,
     Config: undefined,
     Id: undefined,
     LinkedService: undefined,
     Name: undefined,
+    CallerReference: undefined,
     ResourceRecordSetCount: undefined,
   };
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = output["CallerReference"];
-  }
   if (output["Config"] !== undefined) {
     contents.Config = deserializeAws_restXmlHostedZoneConfig(output["Config"], context);
   }
@@ -8402,6 +8519,9 @@ const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext):
   }
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
+  }
+  if (output["CallerReference"] !== undefined) {
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["ResourceRecordSetCount"] !== undefined) {
     contents.ResourceRecordSetCount = parseInt(output["ResourceRecordSetCount"]);
@@ -8439,21 +8559,59 @@ const deserializeAws_restXmlHostedZoneLimit = (output: any, context: __SerdeCont
   return contents;
 };
 
+const deserializeAws_restXmlHostedZoneOwner = (output: any, context: __SerdeContext): HostedZoneOwner => {
+  let contents: any = {
+    __type: "HostedZoneOwner",
+    OwningService: undefined,
+    OwningAccount: undefined,
+  };
+  if (output["OwningService"] !== undefined) {
+    contents.OwningService = output["OwningService"];
+  }
+  if (output["OwningAccount"] !== undefined) {
+    contents.OwningAccount = output["OwningAccount"];
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlHostedZones = (output: any, context: __SerdeContext): HostedZone[] => {
   return (output || []).map((entry: any) => deserializeAws_restXmlHostedZone(entry, context));
+};
+
+const deserializeAws_restXmlHostedZoneSummaries = (output: any, context: __SerdeContext): HostedZoneSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restXmlHostedZoneSummary(entry, context));
+};
+
+const deserializeAws_restXmlHostedZoneSummary = (output: any, context: __SerdeContext): HostedZoneSummary => {
+  let contents: any = {
+    __type: "HostedZoneSummary",
+    Name: undefined,
+    Owner: undefined,
+    HostedZoneId: undefined,
+  };
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
+  }
+  if (output["Owner"] !== undefined) {
+    contents.Owner = deserializeAws_restXmlHostedZoneOwner(output["Owner"], context);
+  }
+  if (output["HostedZoneId"] !== undefined) {
+    contents.HostedZoneId = output["HostedZoneId"];
+  }
+  return contents;
 };
 
 const deserializeAws_restXmlLinkedService = (output: any, context: __SerdeContext): LinkedService => {
   let contents: any = {
     __type: "LinkedService",
-    Description: undefined,
     ServicePrincipal: undefined,
+    Description: undefined,
   };
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
   if (output["ServicePrincipal"] !== undefined) {
     contents.ServicePrincipal = output["ServicePrincipal"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
   return contents;
 };
@@ -8462,17 +8620,17 @@ const deserializeAws_restXmlQueryLoggingConfig = (output: any, context: __SerdeC
   let contents: any = {
     __type: "QueryLoggingConfig",
     CloudWatchLogsLogGroupArn: undefined,
-    HostedZoneId: undefined,
     Id: undefined,
+    HostedZoneId: undefined,
   };
   if (output["CloudWatchLogsLogGroupArn"] !== undefined) {
     contents.CloudWatchLogsLogGroupArn = output["CloudWatchLogsLogGroupArn"];
   }
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = output["HostedZoneId"];
-  }
   if (output["Id"] !== undefined) {
     contents.Id = output["Id"];
+  }
+  if (output["HostedZoneId"] !== undefined) {
+    contents.HostedZoneId = output["HostedZoneId"];
   }
   return contents;
 };
@@ -8503,40 +8661,22 @@ const deserializeAws_restXmlResourceRecords = (output: any, context: __SerdeCont
 const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeContext): ResourceRecordSet => {
   let contents: any = {
     __type: "ResourceRecordSet",
+    Weight: undefined,
+    ResourceRecords: undefined,
     AliasTarget: undefined,
-    Failover: undefined,
-    GeoLocation: undefined,
-    HealthCheckId: undefined,
-    MultiValueAnswer: undefined,
     Name: undefined,
     Region: undefined,
-    ResourceRecords: undefined,
-    SetIdentifier: undefined,
-    TTL: undefined,
+    GeoLocation: undefined,
     TrafficPolicyInstanceId: undefined,
+    TTL: undefined,
+    HealthCheckId: undefined,
     Type: undefined,
-    Weight: undefined,
+    Failover: undefined,
+    MultiValueAnswer: undefined,
+    SetIdentifier: undefined,
   };
-  if (output["AliasTarget"] !== undefined) {
-    contents.AliasTarget = deserializeAws_restXmlAliasTarget(output["AliasTarget"], context);
-  }
-  if (output["Failover"] !== undefined) {
-    contents.Failover = output["Failover"];
-  }
-  if (output["GeoLocation"] !== undefined) {
-    contents.GeoLocation = deserializeAws_restXmlGeoLocation(output["GeoLocation"], context);
-  }
-  if (output["HealthCheckId"] !== undefined) {
-    contents.HealthCheckId = output["HealthCheckId"];
-  }
-  if (output["MultiValueAnswer"] !== undefined) {
-    contents.MultiValueAnswer = output["MultiValueAnswer"] == "true";
-  }
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
-  }
-  if (output["Region"] !== undefined) {
-    contents.Region = output["Region"];
+  if (output["Weight"] !== undefined) {
+    contents.Weight = parseInt(output["Weight"]);
   }
   if (output.ResourceRecords === "") {
     contents.ResourceRecords = [];
@@ -8547,20 +8687,38 @@ const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeCo
       context
     );
   }
-  if (output["SetIdentifier"] !== undefined) {
-    contents.SetIdentifier = output["SetIdentifier"];
+  if (output["AliasTarget"] !== undefined) {
+    contents.AliasTarget = deserializeAws_restXmlAliasTarget(output["AliasTarget"], context);
   }
-  if (output["TTL"] !== undefined) {
-    contents.TTL = parseInt(output["TTL"]);
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
+  }
+  if (output["Region"] !== undefined) {
+    contents.Region = output["Region"];
+  }
+  if (output["GeoLocation"] !== undefined) {
+    contents.GeoLocation = deserializeAws_restXmlGeoLocation(output["GeoLocation"], context);
   }
   if (output["TrafficPolicyInstanceId"] !== undefined) {
     contents.TrafficPolicyInstanceId = output["TrafficPolicyInstanceId"];
   }
+  if (output["TTL"] !== undefined) {
+    contents.TTL = parseInt(output["TTL"]);
+  }
+  if (output["HealthCheckId"] !== undefined) {
+    contents.HealthCheckId = output["HealthCheckId"];
+  }
   if (output["Type"] !== undefined) {
     contents.Type = output["Type"];
   }
-  if (output["Weight"] !== undefined) {
-    contents.Weight = parseInt(output["Weight"]);
+  if (output["Failover"] !== undefined) {
+    contents.Failover = output["Failover"];
+  }
+  if (output["MultiValueAnswer"] !== undefined) {
+    contents.MultiValueAnswer = output["MultiValueAnswer"] == "true";
+  }
+  if (output["SetIdentifier"] !== undefined) {
+    contents.SetIdentifier = output["SetIdentifier"];
   }
   return contents;
 };
@@ -8601,14 +8759,14 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
 ): ReusableDelegationSetLimit => {
   let contents: any = {
     __type: "ReusableDelegationSetLimit",
-    Type: undefined,
     Value: undefined,
+    Type: undefined,
   };
-  if (output["Type"] !== undefined) {
-    contents.Type = output["Type"];
-  }
   if (output["Value"] !== undefined) {
     contents.Value = parseInt(output["Value"]);
+  }
+  if (output["Type"] !== undefined) {
+    contents.Type = output["Type"];
   }
   return contents;
 };
@@ -8616,14 +8774,14 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
 const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext): StatusReport => {
   let contents: any = {
     __type: "StatusReport",
-    CheckedTime: undefined,
     Status: undefined,
+    CheckedTime: undefined,
   };
-  if (output["CheckedTime"] !== undefined) {
-    contents.CheckedTime = new Date(output["CheckedTime"]);
-  }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
+  }
+  if (output["CheckedTime"] !== undefined) {
+    contents.CheckedTime = new Date(output["CheckedTime"]);
   }
   return contents;
 };
@@ -8654,30 +8812,30 @@ const deserializeAws_restXmlTrafficPolicies = (output: any, context: __SerdeCont
 const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContext): TrafficPolicy => {
   let contents: any = {
     __type: "TrafficPolicy",
+    Id: undefined,
+    Version: undefined,
     Comment: undefined,
     Document: undefined,
-    Id: undefined,
-    Name: undefined,
     Type: undefined,
-    Version: undefined,
+    Name: undefined,
   };
+  if (output["Id"] !== undefined) {
+    contents.Id = output["Id"];
+  }
+  if (output["Version"] !== undefined) {
+    contents.Version = parseInt(output["Version"]);
+  }
   if (output["Comment"] !== undefined) {
     contents.Comment = output["Comment"];
   }
   if (output["Document"] !== undefined) {
     contents.Document = output["Document"];
   }
-  if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
-  }
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
-  }
   if (output["Type"] !== undefined) {
     contents.Type = output["Type"];
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = parseInt(output["Version"]);
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -8685,24 +8843,24 @@ const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContex
 const deserializeAws_restXmlTrafficPolicyInstance = (output: any, context: __SerdeContext): TrafficPolicyInstance => {
   let contents: any = {
     __type: "TrafficPolicyInstance",
+    TrafficPolicyId: undefined,
+    TrafficPolicyVersion: undefined,
     HostedZoneId: undefined,
-    Id: undefined,
-    Message: undefined,
     Name: undefined,
     State: undefined,
-    TTL: undefined,
-    TrafficPolicyId: undefined,
+    Message: undefined,
+    Id: undefined,
     TrafficPolicyType: undefined,
-    TrafficPolicyVersion: undefined,
+    TTL: undefined,
   };
+  if (output["TrafficPolicyId"] !== undefined) {
+    contents.TrafficPolicyId = output["TrafficPolicyId"];
+  }
+  if (output["TrafficPolicyVersion"] !== undefined) {
+    contents.TrafficPolicyVersion = parseInt(output["TrafficPolicyVersion"]);
+  }
   if (output["HostedZoneId"] !== undefined) {
     contents.HostedZoneId = output["HostedZoneId"];
-  }
-  if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
-  }
-  if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
   }
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
@@ -8710,17 +8868,17 @@ const deserializeAws_restXmlTrafficPolicyInstance = (output: any, context: __Ser
   if (output["State"] !== undefined) {
     contents.State = output["State"];
   }
-  if (output["TTL"] !== undefined) {
-    contents.TTL = parseInt(output["TTL"]);
+  if (output["Message"] !== undefined) {
+    contents.Message = output["Message"];
   }
-  if (output["TrafficPolicyId"] !== undefined) {
-    contents.TrafficPolicyId = output["TrafficPolicyId"];
+  if (output["Id"] !== undefined) {
+    contents.Id = output["Id"];
   }
   if (output["TrafficPolicyType"] !== undefined) {
     contents.TrafficPolicyType = output["TrafficPolicyType"];
   }
-  if (output["TrafficPolicyVersion"] !== undefined) {
-    contents.TrafficPolicyVersion = parseInt(output["TrafficPolicyVersion"]);
+  if (output["TTL"] !== undefined) {
+    contents.TTL = parseInt(output["TTL"]);
   }
   return contents;
 };
@@ -8739,26 +8897,26 @@ const deserializeAws_restXmlTrafficPolicySummaries = (output: any, context: __Se
 const deserializeAws_restXmlTrafficPolicySummary = (output: any, context: __SerdeContext): TrafficPolicySummary => {
   let contents: any = {
     __type: "TrafficPolicySummary",
+    TrafficPolicyCount: undefined,
     Id: undefined,
     LatestVersion: undefined,
-    Name: undefined,
-    TrafficPolicyCount: undefined,
     Type: undefined,
+    Name: undefined,
   };
+  if (output["TrafficPolicyCount"] !== undefined) {
+    contents.TrafficPolicyCount = parseInt(output["TrafficPolicyCount"]);
+  }
   if (output["Id"] !== undefined) {
     contents.Id = output["Id"];
   }
   if (output["LatestVersion"] !== undefined) {
     contents.LatestVersion = parseInt(output["LatestVersion"]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
-  }
-  if (output["TrafficPolicyCount"] !== undefined) {
-    contents.TrafficPolicyCount = parseInt(output["TrafficPolicyCount"]);
-  }
   if (output["Type"] !== undefined) {
     contents.Type = output["Type"];
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
   }
   return contents;
 };

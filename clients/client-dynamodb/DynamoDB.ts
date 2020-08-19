@@ -255,10 +255,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more tables. A
-   *       single call to <code>BatchWriteItem</code> can write up to 16 MB of data, which can
-   *       comprise as many as 25 put or delete requests. Individual items
-   *       to be written can be as large as 400 KB.</p>
+   * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more
+   *             tables. A single call to <code>BatchWriteItem</code> can write up to 16 MB of data,
+   *             which can comprise as many as 25 put or delete requests. Individual items to be written
+   *             can be as large as 400 KB.</p>
    *          <note>
    *             <p>
    *                <code>BatchWriteItem</code> cannot update items. To update items, use the <code>UpdateItem</code>
@@ -423,7 +423,7 @@ export class DynamoDB extends DynamoDBClient {
    *             relationship between two or more DynamoDB tables with the same table name in the
    *             provided Regions. </p>
    *          <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
    *
    *          <p>If you want to add a new replica table to a global table, each of the following conditions
@@ -458,6 +458,22 @@ export class DynamoDB extends DynamoDBClient {
    *             </p>
    *             </li>
    *          </ul>
+   *          <p>
+   *      If local secondary indexes are specified, then the following conditions must also be met:
+   *    </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                The local secondary indexes must have the same name.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                The local secondary indexes must have the same hash key and sort key (if present).
+   *             </p>
+   *             </li>
+   *          </ul>
+   *
    *          <important>
    *             <p>
    *        Write capacity settings should be set consistently across your replica tables and
@@ -784,7 +800,8 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Returns information about the specified global table.</p>
    *           <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.
+   *                    If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a> instead.</p>
    *          </note>
    */
   public describeGlobalTable(
@@ -819,7 +836,7 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Describes Region-specific settings for a global table.</p>
    *           <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
    */
   public describeGlobalTableSettings(
@@ -946,13 +963,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p>
-   *          <note>
-   *             <p>If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code> request, DynamoDB might
-   *         return a <code>ResourceNotFoundException</code>. This is because <code>DescribeTable</code> uses an eventually
-   *         consistent query, and the metadata for your table might not be available at that moment.
-   *         Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p>
-   *          </note>
+   * <p>Retrieves information about the table, including the current status of the table, the primary key schema and
+   *        when the table was created.</p>
+   *
+   *     <p>If the table does not exist, Amazon DynamoDB returns a <code>ResourceNotFoundException</code>.</p>
    */
   public describeTable(
     args: DescribeTableCommandInput,
@@ -986,7 +1000,7 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Describes auto scaling settings across replicas of the global table at once.</p>
    *          <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
    *          </note>
    */
   public describeTableReplicaAutoScaling(
@@ -1149,7 +1163,7 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Lists all global tables that have a replica in the specified Region.</p>
    *           <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
    */
   public listGlobalTables(
@@ -1245,72 +1259,11 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>Creates a new item, or replaces an old item with a new item. If an item that has the same primary key as the new item already exists in the specified table, the new item completely replaces the existing item. You can perform a conditional put operation (add a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values. You can return the item's attribute values in the same operation, using the <code>ReturnValues</code> parameter.</p>
-   *          <important>
-   *             <p>This topic provides general information about the <code>PutItem</code> API.</p>
-   *             <p>For information on how to call the <code>PutItem</code> API using the AWS SDK in specific languages, see the following:</p>
-   *             <ul>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem"> PutItem in the AWS Command Line Interface</a>
-   *                     </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem"> PutItem in the AWS SDK for .NET</a>
-   *                     </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem"> PutItem in the AWS SDK for C++</a>
-   *                     </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem"> PutItem in the AWS SDK for Go</a>
-   *                     </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem"> PutItem in the AWS SDK for Java</a>
-   *                     </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem"> PutItem in the AWS SDK for JavaScript</a>
-   *                     </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem"> PutItem in the AWS SDK for PHP V3</a>
-   *                     </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem">
-   *                             PutItem in the AWS SDK for Python</a>
-   *                     </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem"> PutItem in the AWS SDK for Ruby V2</a>
-   *                     </p>
-   *                </li>
-   *             </ul>
-   *          </important>
+   * <p>Creates a new item, or replaces an old item with a new item (including all the attributes).</p>
    *
-   *          <p>When you add an item, the primary key attributes are the only required attributes.
-   *             Attribute values cannot be null. String and Binary type attributes must have lengths
-   *             greater than zero. Set type attributes cannot be empty. Requests with empty values will
-   *             be rejected with a <code>ValidationException</code> exception.</p>
-   *          <note>
-   *             <p>To prevent a new item from replacing an existing item, use a conditional expression
-   *          that contains the <code>attribute_not_exists</code> function with the name of the
-   *          attribute being used as the partition key for the table.  Since every record must contain
-   *          that attribute, the <code>attribute_not_exists</code> function will only succeed if
-   *          no matching item exists.</p>
-   *          </note>
-   *          <p>For more information about <code>PutItem</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">Working with Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *     <p>If an item already exists in the specified table with the same primary key, the new item completely replaces the
+   *        existing item. You can perform a conditional put (insert a new item if one with the specified primary key doesn't
+   *        exist), or replace an existing item if it has certain attribute values.</p>
    */
   public putItem(args: PutItemCommandInput, options?: __HttpHandlerOptions): Promise<PutItemCommandOutput>;
   public putItem(args: PutItemCommandInput, cb: (err: any, data?: PutItemCommandOutput) => void): void;
@@ -1560,31 +1513,9 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>The <code>Scan</code> operation returns one or more items and item attributes by accessing every
-   *       item in a table or a secondary index. To have DynamoDB return fewer items, you can provide a <code>FilterExpression</code> operation.</p>
-   *          <p>If the total number of scanned items exceeds the maximum dataset size limit of 1 MB, the
-   *             scan stops and results are returned to the user as a <code>LastEvaluatedKey</code> value
-   *             to continue the scan in a subsequent operation. The results also include the number of
-   *             items exceeding the limit. A scan can result in no table data meeting the filter
-   *             criteria. </p>
-   *          <p>A single <code>Scan</code> operation reads up to the maximum number of items set (if
-   *             using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then apply any
-   *             filtering to the results using <code>FilterExpression</code>. If
-   *                 <code>LastEvaluatedKey</code> is present in the response, you need to paginate the
-   *             result set. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination">Paginating the
-   *                 Results</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
-   *          <p>
-   *             <code>Scan</code> operations proceed sequentially; however, for faster performance on
-   *             a large table or secondary index, applications can request a parallel <code>Scan</code>
-   *             operation by providing the <code>Segment</code> and <code>TotalSegments</code>
-   *             parameters. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan">Parallel
-   *                 Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   *          <p>
-   *             <code>Scan</code> uses eventually consistent reads when accessing the data in a
-   *             table; therefore, the result set might not include the changes to data in the table
-   *             immediately before the operation began. If you need a consistent copy of the data, as of
-   *             the time that the <code>Scan</code> begins, you can set the <code>ConsistentRead</code>
-   *             parameter to <code>true</code>.</p>
+   * <p>Retrieves one or more items and its attributes by performing a full scan of a table.</p>
+   *
+   *     <p>Provide a <code>ScanFilter</code> to get more specific results.</p>
    */
   public scan(args: ScanCommandInput, options?: __HttpHandlerOptions): Promise<ScanCommandOutput>;
   public scan(args: ScanCommandInput, cb: (err: any, data?: ScanCommandOutput) => void): void;
@@ -2085,7 +2016,7 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Updates auto scaling settings on your global tables at once.</p>
    *          <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
    *          </note>
    */
   public updateTableReplicaAutoScaling(

@@ -1480,15 +1480,6 @@ export const serializeAws_restJson1GetConnectorDefinitionVersionCommand = async 
   };
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions/{ConnectorDefinitionVersionId}";
-  if (input.ConnectorDefinitionId !== undefined) {
-    const labelValue: string = input.ConnectorDefinitionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
-  }
   if (input.ConnectorDefinitionVersionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionVersionId;
     if (labelValue.length <= 0) {
@@ -1497,6 +1488,15 @@ export const serializeAws_restJson1GetConnectorDefinitionVersionCommand = async 
     resolvedPath = resolvedPath.replace("{ConnectorDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConnectorDefinitionVersionId.");
+  }
+  if (input.ConnectorDefinitionId !== undefined) {
+    const labelValue: string = input.ConnectorDefinitionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -1807,15 +1807,6 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
-  if (input.CertificateAuthorityId !== undefined) {
-    const labelValue: string = input.CertificateAuthorityId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: CertificateAuthorityId.");
-    }
-    resolvedPath = resolvedPath.replace("{CertificateAuthorityId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: CertificateAuthorityId.");
-  }
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1824,6 +1815,15 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
     resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
+  }
+  if (input.CertificateAuthorityId !== undefined) {
+    const labelValue: string = input.CertificateAuthorityId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CertificateAuthorityId.");
+    }
+    resolvedPath = resolvedPath.replace("{CertificateAuthorityId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CertificateAuthorityId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1876,15 +1876,6 @@ export const serializeAws_restJson1GetGroupVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/versions/{GroupVersionId}";
-  if (input.GroupId !== undefined) {
-    const labelValue: string = input.GroupId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupId.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupId.");
-  }
   if (input.GroupVersionId !== undefined) {
     const labelValue: string = input.GroupVersionId;
     if (labelValue.length <= 0) {
@@ -1893,6 +1884,15 @@ export const serializeAws_restJson1GetGroupVersionCommand = async (
     resolvedPath = resolvedPath.replace("{GroupVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupVersionId.");
+  }
+  if (input.GroupId !== undefined) {
+    const labelValue: string = input.GroupId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupId.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2110,15 +2110,6 @@ export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = asy
   };
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}";
-  if (input.SubscriptionDefinitionId !== undefined) {
-    const labelValue: string = input.SubscriptionDefinitionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionId.");
-    }
-    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
-  }
   if (input.SubscriptionDefinitionVersionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionVersionId;
     if (labelValue.length <= 0) {
@@ -2127,6 +2118,15 @@ export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = asy
     resolvedPath = resolvedPath.replace("{SubscriptionDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SubscriptionDefinitionVersionId.");
+  }
+  if (input.SubscriptionDefinitionId !== undefined) {
+    const labelValue: string = input.SubscriptionDefinitionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionId.");
+    }
+    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -2215,8 +2215,8 @@ export const serializeAws_restJson1ListConnectorDefinitionsCommand = async (
   };
   let resolvedPath = "/greengrass/definition/connectors";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2250,8 +2250,8 @@ export const serializeAws_restJson1ListConnectorDefinitionVersionsCommand = asyn
     throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2311,8 +2311,8 @@ export const serializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2346,8 +2346,8 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2407,8 +2407,8 @@ export const serializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2433,8 +2433,8 @@ export const serializeAws_restJson1ListFunctionDefinitionsCommand = async (
   };
   let resolvedPath = "/greengrass/definition/functions";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2524,8 +2524,8 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   };
   let resolvedPath = "/greengrass/groups";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2559,8 +2559,8 @@ export const serializeAws_restJson1ListGroupVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2585,8 +2585,8 @@ export const serializeAws_restJson1ListLoggerDefinitionsCommand = async (
   };
   let resolvedPath = "/greengrass/definition/loggers";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2646,8 +2646,8 @@ export const serializeAws_restJson1ListResourceDefinitionsCommand = async (
   };
   let resolvedPath = "/greengrass/definition/resources";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2742,8 +2742,8 @@ export const serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = a
     throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

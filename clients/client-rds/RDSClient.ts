@@ -17,6 +17,7 @@ import {
   AuthorizeDBSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeDBSecurityGroupIngressCommand";
 import { BacktrackDBClusterCommandInput, BacktrackDBClusterCommandOutput } from "./commands/BacktrackDBClusterCommand";
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
 import {
   CopyDBClusterParameterGroupCommandInput,
   CopyDBClusterParameterGroupCommandOutput,
@@ -230,6 +231,10 @@ import {
 } from "./commands/DescribeEventSubscriptionsCommand";
 import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
+  DescribeExportTasksCommandInput,
+  DescribeExportTasksCommandOutput,
+} from "./commands/DescribeExportTasksCommand";
+import {
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
@@ -404,6 +409,7 @@ import {
 } from "./commands/StartActivityStreamCommand";
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
 import { StartDBInstanceCommandInput, StartDBInstanceCommandOutput } from "./commands/StartDBInstanceCommand";
+import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
 import { StopActivityStreamCommandInput, StopActivityStreamCommandOutput } from "./commands/StopActivityStreamCommand";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "./commands/StopDBInstanceCommand";
@@ -462,6 +468,7 @@ export type ServiceInputTypes =
   | ApplyPendingMaintenanceActionCommandInput
   | AuthorizeDBSecurityGroupIngressCommandInput
   | BacktrackDBClusterCommandInput
+  | CancelExportTaskCommandInput
   | CopyDBClusterParameterGroupCommandInput
   | CopyDBClusterSnapshotCommandInput
   | CopyDBParameterGroupCommandInput
@@ -527,6 +534,7 @@ export type ServiceInputTypes =
   | DescribeEventCategoriesCommandInput
   | DescribeEventSubscriptionsCommandInput
   | DescribeEventsCommandInput
+  | DescribeExportTasksCommandInput
   | DescribeGlobalClustersCommandInput
   | DescribeInstallationMediaCommandInput
   | DescribeOptionGroupOptionsCommandInput
@@ -579,6 +587,7 @@ export type ServiceInputTypes =
   | StartActivityStreamCommandInput
   | StartDBClusterCommandInput
   | StartDBInstanceCommandInput
+  | StartExportTaskCommandInput
   | StopActivityStreamCommandInput
   | StopDBClusterCommandInput
   | StopDBInstanceCommandInput;
@@ -591,6 +600,7 @@ export type ServiceOutputTypes =
   | ApplyPendingMaintenanceActionCommandOutput
   | AuthorizeDBSecurityGroupIngressCommandOutput
   | BacktrackDBClusterCommandOutput
+  | CancelExportTaskCommandOutput
   | CopyDBClusterParameterGroupCommandOutput
   | CopyDBClusterSnapshotCommandOutput
   | CopyDBParameterGroupCommandOutput
@@ -656,6 +666,7 @@ export type ServiceOutputTypes =
   | DescribeEventCategoriesCommandOutput
   | DescribeEventSubscriptionsCommandOutput
   | DescribeEventsCommandOutput
+  | DescribeExportTasksCommandOutput
   | DescribeGlobalClustersCommandOutput
   | DescribeInstallationMediaCommandOutput
   | DescribeOptionGroupOptionsCommandOutput
@@ -708,6 +719,7 @@ export type ServiceOutputTypes =
   | StartActivityStreamCommandOutput
   | StartDBClusterCommandOutput
   | StartDBInstanceCommandOutput
+  | StartExportTaskCommandOutput
   | StopActivityStreamCommandOutput
   | StopDBClusterCommandOutput
   | StopDBInstanceCommandOutput;
@@ -834,7 +846,7 @@ export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *           application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for
  *           the resources you use.</p>
  *          <p>This interface reference for Amazon RDS contains documentation for a programming or command line interface
- *           you can use to manage Amazon RDS. Note that Amazon RDS is asynchronous, which means that some interfaces might
+ *           you can use to manage Amazon RDS. Amazon RDS is asynchronous, which means that some interfaces might
  *           require techniques such as polling or callback functions to determine when a command has been applied. In this
  *           reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot,
  *           or during the maintenance window. The reference structure is as follows, and we list following some related topics

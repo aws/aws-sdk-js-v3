@@ -24,6 +24,12 @@ import {
   DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentMembershipCommandInput,
@@ -85,6 +91,9 @@ export type ServiceInputTypes =
   | DescribeEnvironmentStatusCommandInput
   | DescribeEnvironmentsCommandInput
   | ListEnvironmentsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateEnvironmentCommandInput
   | UpdateEnvironmentMembershipCommandInput;
 
@@ -97,6 +106,9 @@ export type ServiceOutputTypes =
   | DescribeEnvironmentStatusCommandOutput
   | DescribeEnvironmentsCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentMembershipCommandOutput;
 
@@ -244,6 +256,18 @@ export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
  *             <li>
  *                <p>
  *                   <code>ListEnvironments</code>: Gets a list of environment identifiers.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ListTagsForResource</code>: Gets the tags for an environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TagResource</code>: Adds tags to an environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UntagResource</code>: Removes tags from an environment.</p>
  *             </li>
  *             <li>
  *                <p>

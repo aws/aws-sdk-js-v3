@@ -41,6 +41,7 @@ export interface BatchDetectDominantLanguageRequest {
 export namespace BatchDetectDominantLanguageRequest {
   export const filterSensitiveLog = (obj: BatchDetectDominantLanguageRequest): any => ({
     ...obj,
+    ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is BatchDetectDominantLanguageRequest =>
     __isa(o, "BatchDetectDominantLanguageRequest");
@@ -102,23 +103,24 @@ export namespace BatchDetectEntitiesItemResult {
 export interface BatchDetectEntitiesRequest {
   __type?: "BatchDetectEntitiesRequest";
   /**
-   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
-   *       Comprehend.
-   *       All documents must be in the same language.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
    * <p>A list containing the text of the input documents. The list can contain a maximum of 25
    *       documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
   TextList: string[] | undefined;
+
+  /**
+   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
+   *       Comprehend.
+   *       All documents must be in the same language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
 }
 
 export namespace BatchDetectEntitiesRequest {
   export const filterSensitiveLog = (obj: BatchDetectEntitiesRequest): any => ({
     ...obj,
+    ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is BatchDetectEntitiesRequest => __isa(o, "BatchDetectEntitiesRequest");
 }
@@ -157,15 +159,15 @@ export namespace BatchDetectEntitiesResponse {
 export interface BatchDetectKeyPhrasesItemResult {
   __type?: "BatchDetectKeyPhrasesItemResult";
   /**
-   * <p>The zero-based index of the document in the input list.</p>
-   */
-  Index?: number;
-
-  /**
    * <p>One or more <a>KeyPhrase</a> objects, one for each key phrase detected in
    *       the document.</p>
    */
   KeyPhrases?: KeyPhrase[];
+
+  /**
+   * <p>The zero-based index of the document in the input list.</p>
+   */
+  Index?: number;
 }
 
 export namespace BatchDetectKeyPhrasesItemResult {
@@ -178,23 +180,24 @@ export namespace BatchDetectKeyPhrasesItemResult {
 export interface BatchDetectKeyPhrasesRequest {
   __type?: "BatchDetectKeyPhrasesRequest";
   /**
-   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
-   *       Comprehend.
-   *       All documents must be in the same language.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
    * <p>A list containing the text of the input documents. The list can contain a maximum of 25
    *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
   TextList: string[] | undefined;
+
+  /**
+   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
+   *       Comprehend.
+   *       All documents must be in the same language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
 }
 
 export namespace BatchDetectKeyPhrasesRequest {
   export const filterSensitiveLog = (obj: BatchDetectKeyPhrasesRequest): any => ({
     ...obj,
+    ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is BatchDetectKeyPhrasesRequest => __isa(o, "BatchDetectKeyPhrasesRequest");
 }
@@ -233,6 +236,12 @@ export namespace BatchDetectKeyPhrasesResponse {
 export interface BatchDetectSentimentItemResult {
   __type?: "BatchDetectSentimentItemResult";
   /**
+   * <p>The level of confidence that Amazon Comprehend has in the accuracy of its sentiment
+   *       detection.</p>
+   */
+  SentimentScore?: SentimentScore;
+
+  /**
    * <p>The zero-based index of the document in the input list.</p>
    */
   Index?: number;
@@ -241,12 +250,6 @@ export interface BatchDetectSentimentItemResult {
    * <p>The sentiment detected in the document.</p>
    */
   Sentiment?: SentimentType | string;
-
-  /**
-   * <p>The level of confidence that Amazon Comprehend has in the accuracy of its sentiment
-   *       detection.</p>
-   */
-  SentimentScore?: SentimentScore;
 }
 
 export namespace BatchDetectSentimentItemResult {
@@ -259,23 +262,24 @@ export namespace BatchDetectSentimentItemResult {
 export interface BatchDetectSentimentRequest {
   __type?: "BatchDetectSentimentRequest";
   /**
-   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
-   *       Comprehend.
-   *       All documents must be in the same language.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
    * <p>A list containing the text of the input documents. The list can contain a maximum of 25
    *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
   TextList: string[] | undefined;
+
+  /**
+   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
+   *       Comprehend.
+   *       All documents must be in the same language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
 }
 
 export namespace BatchDetectSentimentRequest {
   export const filterSensitiveLog = (obj: BatchDetectSentimentRequest): any => ({
     ...obj,
+    ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is BatchDetectSentimentRequest => __isa(o, "BatchDetectSentimentRequest");
 }
@@ -350,6 +354,7 @@ export interface BatchDetectSyntaxRequest {
 export namespace BatchDetectSyntaxRequest {
   export const filterSensitiveLog = (obj: BatchDetectSyntaxRequest): any => ({
     ...obj,
+    ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is BatchDetectSyntaxRequest => __isa(o, "BatchDetectSyntaxRequest");
 }
@@ -357,20 +362,20 @@ export namespace BatchDetectSyntaxRequest {
 export interface BatchDetectSyntaxResponse {
   __type?: "BatchDetectSyntaxResponse";
   /**
-   * <p>A list containing one  object for each document that
-   *       contained an error. The results are sorted in ascending order by the <code>Index</code> field
-   *       and match the order of the documents in the input list. If there are no errors in the batch,
-   *       the <code>ErrorList</code> is empty.</p>
-   */
-  ErrorList: BatchItemError[] | undefined;
-
-  /**
    * <p>A list of  objects containing the results
    *       of the operation. The results are sorted in ascending order by the <code>Index</code> field
    *       and match the order of the documents in the input list. If all of the documents contain an
    *       error, the <code>ResultList</code> is empty.</p>
    */
   ResultList: BatchDetectSyntaxItemResult[] | undefined;
+
+  /**
+   * <p>A list containing one  object for each document that
+   *       contained an error. The results are sorted in ascending order by the <code>Index</code> field
+   *       and match the order of the documents in the input list. If there are no errors in the batch,
+   *       the <code>ErrorList</code> is empty.</p>
+   */
+  ErrorList: BatchItemError[] | undefined;
 }
 
 export namespace BatchDetectSyntaxResponse {
@@ -388,14 +393,14 @@ export namespace BatchDetectSyntaxResponse {
 export interface BatchItemError {
   __type?: "BatchItemError";
   /**
-   * <p>The numeric error code of the error.</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>A text description of the error.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The numeric error code of the error.</p>
+   */
+  ErrorCode?: string;
 
   /**
    * <p>The zero-based index of the document in the input list.</p>
@@ -433,10 +438,23 @@ export namespace BatchSizeLimitExceededException {
 export interface ClassifierEvaluationMetrics {
   __type?: "ClassifierEvaluationMetrics";
   /**
-   * <p>The fraction of the labels that were correct recognized. It is computed by dividing
-   *       the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.</p>
+   * <p>A measure of how accurate the classifier results are for the test data. It is a combination of the <code>Micro Precision</code>
+   *       and <code>Micro Recall</code> values. The <code>Micro F1Score</code> is the harmonic mean of the two scores. The highest score is 1,
+   *       and the worst score is 0.</p>
    */
-  Accuracy?: number;
+  MicroF1Score?: number;
+
+  /**
+   * <p>A measure of the usefulness of the classifier results in the test data. High precision
+   *       means that the classifier returned substantially more relevant results than irrelevant ones.</p>
+   */
+  Precision?: number;
+
+  /**
+   * <p>A measure of how complete the classifier results are for the test data. High recall means
+   *       that the classifier returned most of the relevant results. </p>
+   */
+  Recall?: number;
 
   /**
    * <p>A measure of how accurate the classifier results are for the test data. It is
@@ -453,11 +471,12 @@ export interface ClassifierEvaluationMetrics {
   HammingLoss?: number;
 
   /**
-   * <p>A measure of how accurate the classifier results are for the test data. It is a combination of the <code>Micro Precision</code>
-   *       and <code>Micro Recall</code> values. The <code>Micro F1Score</code> is the harmonic mean of the two scores. The highest score is 1,
-   *       and the worst score is 0.</p>
+   * <p>A measure of how complete the classifier results are for the test data. High recall means that the classifier returned
+   *       most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model
+   *       can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores
+   *       of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.</p>
    */
-  MicroF1Score?: number;
+  MicroRecall?: number;
 
   /**
    * <p>A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned
@@ -467,24 +486,10 @@ export interface ClassifierEvaluationMetrics {
   MicroPrecision?: number;
 
   /**
-   * <p>A measure of how complete the classifier results are for the test data. High recall means that the classifier returned
-   *       most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model
-   *       can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores
-   *       of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.</p>
+   * <p>The fraction of the labels that were correct recognized. It is computed by dividing
+   *       the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.</p>
    */
-  MicroRecall?: number;
-
-  /**
-   * <p>A measure of the usefulness of the classifier results in the test data. High precision
-   *       means that the classifier returned substantially more relevant results than irrelevant ones.</p>
-   */
-  Precision?: number;
-
-  /**
-   * <p>A measure of how complete the classifier results are for the test data. High recall means
-   *       that the classifier returned most of the relevant results. </p>
-   */
-  Recall?: number;
+  Accuracy?: number;
 }
 
 export namespace ClassifierEvaluationMetrics {
@@ -500,6 +505,18 @@ export namespace ClassifierEvaluationMetrics {
 export interface ClassifierMetadata {
   __type?: "ClassifierMetadata";
   /**
+   * <p>The number of documents in the input data that were used to train the classifier.
+   *       Typically this is 80 to 90 percent of the input documents.</p>
+   */
+  NumberOfTrainedDocuments?: number;
+
+  /**
+   * <p>The number of documents in the input data that were used to test the classifier. Typically
+   *       this is 10 to 20 percent of the input documents, up to 10,000 documents.</p>
+   */
+  NumberOfTestDocuments?: number;
+
+  /**
    * <p> Describes the result metrics for the test data associated with an documentation classifier.</p>
    */
   EvaluationMetrics?: ClassifierEvaluationMetrics;
@@ -508,18 +525,6 @@ export interface ClassifierMetadata {
    * <p>The number of labels in the input data. </p>
    */
   NumberOfLabels?: number;
-
-  /**
-   * <p>The number of documents in the input data that were used to test the classifier. Typically
-   *       this is 10 to 20 percent of the input documents.</p>
-   */
-  NumberOfTestDocuments?: number;
-
-  /**
-   * <p>The number of documents in the input data that were used to train the classifier.
-   *       Typically this is 80 to 90 percent of the input documents.</p>
-   */
-  NumberOfTrainedDocuments?: number;
 }
 
 export namespace ClassifierMetadata {
@@ -545,6 +550,7 @@ export interface ClassifyDocumentRequest {
 export namespace ClassifyDocumentRequest {
   export const filterSensitiveLog = (obj: ClassifyDocumentRequest): any => ({
     ...obj,
+    ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is ClassifyDocumentRequest => __isa(o, "ClassifyDocumentRequest");
 }
@@ -552,17 +558,17 @@ export namespace ClassifyDocumentRequest {
 export interface ClassifyDocumentResponse {
   __type?: "ClassifyDocumentResponse";
   /**
-   * <p>The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected
-   *       to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time. </p>
-   */
-  Classes?: DocumentClass[];
-
-  /**
    * <p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner
    *       and are not multually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and
    *       a comedy, all at the same time. </p>
    */
   Labels?: DocumentLabel[];
+
+  /**
+   * <p>The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected
+   *       to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time. </p>
+   */
+  Classes?: DocumentClass[];
 }
 
 export namespace ClassifyDocumentResponse {
@@ -591,55 +597,6 @@ export namespace ConcurrentModificationException {
 export interface CreateDocumentClassifierRequest {
   __type?: "CreateDocumentClassifierRequest";
   /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend
-   *       generates one.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants
-   *       Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn: string | undefined;
-
-  /**
-   * <p>The name of the document classifier.</p>
-   */
-  DocumentClassifierName: string | undefined;
-
-  /**
-   * <p>Specifies the format and location of the input data for the job.</p>
-   */
-  InputDataConfig: DocumentClassifierInputDataConfig | undefined;
-
-  /**
-   * <p>The language of the input documents. You can specify any of the following languages supported by Amazon
-   *       Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All
-   *       documents must be in the same language.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
-   * <p>Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class mode, which
-   *       identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each
-   *       document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default
-   *       delimiter between labels is a pipe (|).</p>
-   */
-  Mode?: DocumentClassifierMode | string;
-
-  /**
-   * <p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>
-   */
-  OutputDataConfig?: DocumentClassifierOutputDataConfig;
-
-  /**
-   * <p>Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource
-   *       used by Amazon Comprehend. For example,
-   *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.   </p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
    *       process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>
    *          <ul>
@@ -656,10 +613,59 @@ export interface CreateDocumentClassifierRequest {
   VolumeKmsKeyId?: string;
 
   /**
+   * <p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>
+   */
+  OutputDataConfig?: DocumentClassifierOutputDataConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants
+   *       Amazon Comprehend read access to your input data.</p>
+   */
+  DataAccessRoleArn: string | undefined;
+
+  /**
+   * <p>Specifies the format and location of the input data for the job.</p>
+   */
+  InputDataConfig: DocumentClassifierInputDataConfig | undefined;
+
+  /**
+   * <p>Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource
+   *       used by Amazon Comprehend. For example,
+   *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.   </p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier.
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The name of the document classifier.</p>
+   */
+  DocumentClassifierName: string | undefined;
+
+  /**
+   * <p>Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class mode, which
+   *       identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each
+   *       document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default
+   *       delimiter between labels is a pipe (|).</p>
+   */
+  Mode?: DocumentClassifierMode | string;
+
+  /**
+   * <p>The language of the input documents. You can specify any of the following languages supported by Amazon
+   *       Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All
+   *       documents must be in the same language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend
+   *       generates one.</p>
+   */
+  ClientRequestToken?: string;
 }
 
 export namespace CreateDocumentClassifierRequest {
@@ -693,6 +699,18 @@ export interface CreateEndpointRequest {
   ClientRequestToken?: string;
 
   /**
+   * <p>Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata
+   *       to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint
+   *       to indicate its use by the sales department. </p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.</p>
+   */
+  ModelArn: string | undefined;
+
+  /**
    * <p> The desired number of inference units to be used by the model using this endpoint.  Each
    *       inference unit represents of a throughput of 100 characters per second.</p>
    */
@@ -702,18 +720,6 @@ export interface CreateEndpointRequest {
    * <p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for all subsequent requests to this resource.  </p>
    */
   EndpointName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.</p>
-   */
-  ModelArn: string | undefined;
-
-  /**
-   * <p>Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata
-   *       to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint
-   *       to indicate its use by the sales department. </p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateEndpointRequest {
@@ -741,15 +747,10 @@ export namespace CreateEndpointResponse {
 export interface CreateEntityRecognizerRequest {
   __type?: "CreateEntityRecognizerRequest";
   /**
-   * <p> A unique identifier for the request. If you don't set the client request token, Amazon Comprehend
-   *       generates one.</p>
+   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
    */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn: string | undefined;
+  VpcConfig?: VpcConfig;
 
   /**
    * <p>Specifies the format and location of the input data. The S3 bucket containing the input data must
@@ -758,9 +759,9 @@ export interface CreateEntityRecognizerRequest {
   InputDataConfig: EntityRecognizerInputDataConfig | undefined;
 
   /**
-   * <p> The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported. </p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  DataAccessRoleArn: string | undefined;
 
   /**
    * <p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters.
@@ -774,6 +775,17 @@ export interface CreateEntityRecognizerRequest {
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.    </p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p> The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported. </p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p> A unique identifier for the request. If you don't set the client request token, Amazon Comprehend
+   *       generates one.</p>
+   */
+  ClientRequestToken?: string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -790,12 +802,6 @@ export interface CreateEntityRecognizerRequest {
    *          </ul>
    */
   VolumeKmsKeyId?: string;
-
-  /**
-   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer.
-   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-   */
-  VpcConfig?: VpcConfig;
 }
 
 export namespace CreateEntityRecognizerRequest {
@@ -959,6 +965,9 @@ export interface DescribeDocumentClassifierResponse {
 export namespace DescribeDocumentClassifierResponse {
   export const filterSensitiveLog = (obj: DescribeDocumentClassifierResponse): any => ({
     ...obj,
+    ...(obj.DocumentClassifierProperties && {
+      DocumentClassifierProperties: DocumentClassifierProperties.filterSensitiveLog(obj.DocumentClassifierProperties),
+    }),
   });
   export const isa = (o: any): o is DescribeDocumentClassifierResponse =>
     __isa(o, "DescribeDocumentClassifierResponse");
@@ -1087,6 +1096,9 @@ export interface DescribeEntityRecognizerResponse {
 export namespace DescribeEntityRecognizerResponse {
   export const filterSensitiveLog = (obj: DescribeEntityRecognizerResponse): any => ({
     ...obj,
+    ...(obj.EntityRecognizerProperties && {
+      EntityRecognizerProperties: EntityRecognizerProperties.filterSensitiveLog(obj.EntityRecognizerProperties),
+    }),
   });
   export const isa = (o: any): o is DescribeEntityRecognizerResponse => __isa(o, "DescribeEntityRecognizerResponse");
 }
@@ -1201,6 +1213,7 @@ export interface DetectDominantLanguageRequest {
 export namespace DetectDominantLanguageRequest {
   export const filterSensitiveLog = (obj: DetectDominantLanguageRequest): any => ({
     ...obj,
+    ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DetectDominantLanguageRequest => __isa(o, "DetectDominantLanguageRequest");
 }
@@ -1226,22 +1239,34 @@ export namespace DetectDominantLanguageResponse {
 export interface DetectEntitiesRequest {
   __type?: "DetectEntitiesRequest";
   /**
-   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
-   *       Comprehend.
-   *       All documents must be in the same language.</p>
+   * <p>The language of the input documents. You can specify any of the primary languages
+   *       supported by Amazon Comprehend. All documents must be in the same language.</p>
+   *          <p>If your request includes the endpoint for a custom entity recognition model, Amazon
+   *       Comprehend uses the language of your custom model, and it ignores any language code that you
+   *       specify here.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode?: LanguageCode | string;
 
   /**
    * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
   Text: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name of an endpoint that is associated with a custom entity
+   *       recognition model. Provide an endpoint if you want to detect entities by using your own custom
+   *       model instead of the default model that is used by Amazon Comprehend.</p>
+   *          <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and
+   *       it ignores any language code that you provide in your request.</p>
+   */
+  EndpointArn?: string;
 }
 
 export namespace DetectEntitiesRequest {
   export const filterSensitiveLog = (obj: DetectEntitiesRequest): any => ({
     ...obj,
+    ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DetectEntitiesRequest => __isa(o, "DetectEntitiesRequest");
 }
@@ -1251,7 +1276,10 @@ export interface DetectEntitiesResponse {
   /**
    * <p>A collection of entities identified in the input text. For each entity, the response
    *       provides the entity text, entity type, where the entity text begins and ends, and the level of
-   *       confidence that Amazon Comprehend has in the detection. For a list of entity types, see <a>how-entities</a>. </p>
+   *       confidence that Amazon Comprehend has in the detection. </p>
+   *          <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the
+   *       entities that the model is trained to recognize. Otherwise, it detects the default entity
+   *       types. For a list of default entity types, see <a>how-entities</a>.</p>
    */
   Entities?: Entity[];
 }
@@ -1282,6 +1310,7 @@ export interface DetectKeyPhrasesRequest {
 export namespace DetectKeyPhrasesRequest {
   export const filterSensitiveLog = (obj: DetectKeyPhrasesRequest): any => ({
     ...obj,
+    ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DetectKeyPhrasesRequest => __isa(o, "DetectKeyPhrasesRequest");
 }
@@ -1322,6 +1351,7 @@ export interface DetectSentimentRequest {
 export namespace DetectSentimentRequest {
   export const filterSensitiveLog = (obj: DetectSentimentRequest): any => ({
     ...obj,
+    ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DetectSentimentRequest => __isa(o, "DetectSentimentRequest");
 }
@@ -1329,15 +1359,15 @@ export namespace DetectSentimentRequest {
 export interface DetectSentimentResponse {
   __type?: "DetectSentimentResponse";
   /**
-   * <p>The inferred sentiment that Amazon Comprehend has the highest level of confidence in.</p>
-   */
-  Sentiment?: SentimentType | string;
-
-  /**
    * <p>An object that lists the sentiments, and their corresponding confidence
    *       levels.</p>
    */
   SentimentScore?: SentimentScore;
+
+  /**
+   * <p>The inferred sentiment that Amazon Comprehend has the highest level of confidence in.</p>
+   */
+  Sentiment?: SentimentType | string;
 }
 
 export namespace DetectSentimentResponse {
@@ -1365,6 +1395,7 @@ export interface DetectSyntaxRequest {
 export namespace DetectSyntaxRequest {
   export const filterSensitiveLog = (obj: DetectSyntaxRequest): any => ({
     ...obj,
+    ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DetectSyntaxRequest => __isa(o, "DetectSyntaxRequest");
 }
@@ -1392,14 +1423,14 @@ export namespace DetectSyntaxResponse {
 export interface DocumentClass {
   __type?: "DocumentClass";
   /**
-   * <p>The name of the class.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The confidence score that Amazon Comprehend has this class correctly attributed.</p>
    */
   Score?: number;
+
+  /**
+   * <p>The name of the class.</p>
+   */
+  Name?: string;
 }
 
 export namespace DocumentClass {
@@ -1417,28 +1448,28 @@ export namespace DocumentClass {
 export interface DocumentClassificationJobFilter {
   __type?: "DocumentClassificationJobFilter";
   /**
-   * <p>Filters on the name of the job.</p>
-   */
-  JobName?: string;
-
-  /**
    * <p>Filters the list based on job status. Returns only jobs with the specified status.</p>
    */
   JobStatus?: JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
-   *       Returns only jobs submitted before the specified time. Jobs are returned in descending order,
+   *       Returns only jobs submitted after the specified time. Jobs are returned in descending order,
    *       newest to oldest.</p>
    */
   SubmitTimeAfter?: Date;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
-   *       Returns only jobs submitted after the specified time. Jobs are returned in ascending order,
+   *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
    *       oldest to newest.</p>
    */
   SubmitTimeBefore?: Date;
+
+  /**
+   * <p>Filters on the name of the job.</p>
+   */
+  JobName?: string;
 }
 
 export namespace DocumentClassificationJobFilter {
@@ -1454,58 +1485,9 @@ export namespace DocumentClassificationJobFilter {
 export interface DocumentClassificationJobProperties {
   __type?: "DocumentClassificationJobProperties";
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
-   */
-  DocumentClassifierArn?: string;
-
-  /**
-   * <p>The time that the document classification job completed.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The input data configuration that you supplied when you created the document
-   *       classification job.</p>
-   */
-  InputDataConfig?: InputDataConfig;
-
-  /**
-   * <p>The identifier assigned to the document classification job.</p>
-   */
-  JobId?: string;
-
-  /**
    * <p>The name that you assigned to the document classification job.</p>
    */
   JobName?: string;
-
-  /**
-   * <p>The current status of the document classification job. If the status is
-   *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
-   * <p>A description of the status of the job.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The output data configuration that you supplied when you created the document
-   *       classification job.</p>
-   */
-  OutputDataConfig?: OutputDataConfig;
-
-  /**
-   * <p>The time that the document classification job was submitted for processing.</p>
-   */
-  SubmitTime?: Date;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -1524,10 +1506,59 @@ export interface DocumentClassificationJobProperties {
   VolumeKmsKeyId?: string;
 
   /**
+   * <p>The input data configuration that you supplied when you created the document
+   *       classification job.</p>
+   */
+  InputDataConfig?: InputDataConfig;
+
+  /**
+   * <p>The output data configuration that you supplied when you created the document
+   *       classification job.</p>
+   */
+  OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that
+   *       grants Amazon Comprehend read access to your input data.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>The time that the document classification job completed.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The current status of the document classification job. If the status is
+   *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job.
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The identifier assigned to the document classification job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>A description of the status of the job.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The time that the document classification job was submitted for processing.</p>
+   */
+  SubmitTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
+   */
+  DocumentClassifierArn?: string;
 }
 
 export namespace DocumentClassificationJobProperties {
@@ -1546,9 +1577,11 @@ export namespace DocumentClassificationJobProperties {
 export interface DocumentClassifierFilter {
   __type?: "DocumentClassifierFilter";
   /**
-   * <p>Filters the list of classifiers based on status. </p>
+   * <p>Filters the list of classifiers based on the time that the classifier was submitted for
+   *       processing. Returns only classifiers submitted before the specified time. Classifiers are returned in
+   *       ascending order, oldest to newest.</p>
    */
-  Status?: ModelStatus | string;
+  SubmitTimeBefore?: Date;
 
   /**
    * <p>Filters the list of classifiers based on the time that the classifier was submitted for
@@ -1558,11 +1591,9 @@ export interface DocumentClassifierFilter {
   SubmitTimeAfter?: Date;
 
   /**
-   * <p>Filters the list of classifiers based on the time that the classifier was submitted for
-   *       processing. Returns only classifiers submitted before the specified time. Classifiers are returned in
-   *       ascending order, oldest to newest.</p>
+   * <p>Filters the list of classifiers based on status. </p>
    */
-  SubmitTimeBefore?: Date;
+  Status?: ModelStatus | string;
 }
 
 export namespace DocumentClassifierFilter {
@@ -1666,55 +1697,20 @@ export namespace DocumentClassifierOutputDataConfig {
 export interface DocumentClassifierProperties {
   __type?: "DocumentClassifierProperties";
   /**
-   * <p>Information about the document classifier, including the number of documents used for
-   *       training the classifier, the number of documents used for test the classifier, and an accuracy
-   *       rating.</p>
-   */
-  ClassifierMetadata?: ClassifierMetadata;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants
-   *       Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>
-   */
-  DocumentClassifierArn?: string;
-
-  /**
-   * <p>The time that training the document classifier completed.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The input data configuration that you supplied when you created the document classifier
-   *       for training.</p>
-   */
-  InputDataConfig?: DocumentClassifierInputDataConfig;
-
-  /**
-   * <p>The language code for the language of the documents that the classifier was trained
-   *       on.</p>
-   */
-  LanguageCode?: LanguageCode | string;
-
-  /**
    * <p>Additional information about the status of the classifier.</p>
    */
   Message?: string;
 
   /**
-   * <p>Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and
-   *       the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.</p>
-   */
-  Mode?: DocumentClassifierMode | string;
-
-  /**
    * <p> Provides output results configuration parameters for custom classifier jobs.</p>
    */
   OutputDataConfig?: DocumentClassifierOutputDataConfig;
+
+  /**
+   * <p>Indicates the time when the training starts on documentation classifiers. You are billed for
+   *       the time interval between this time and the value of TrainingEndTime. </p>
+   */
+  TrainingStartTime?: Date;
 
   /**
    * <p>The status of the document classifier. If the status is <code>TRAINED</code> the
@@ -1724,9 +1720,16 @@ export interface DocumentClassifierProperties {
   Status?: ModelStatus | string;
 
   /**
-   * <p>The time that the document classifier was submitted for training.</p>
+   * <p>Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and
+   *       the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.</p>
    */
-  SubmitTime?: Date;
+  Mode?: DocumentClassifierMode | string;
+
+  /**
+   * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
 
   /**
    * <p>The time that training of the document classifier was completed.
@@ -1736,10 +1739,10 @@ export interface DocumentClassifierProperties {
   TrainingEndTime?: Date;
 
   /**
-   * <p>Indicates the time when the training starts on documentation classifiers. You are billed for
-   *       the time interval between this time and the value of TrainingEndTime. </p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants
+   *       Amazon Comprehend read access to your input data.</p>
    */
-  TrainingStartTime?: Date;
+  DataAccessRoleArn?: string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -1758,15 +1761,44 @@ export interface DocumentClassifierProperties {
   VolumeKmsKeyId?: string;
 
   /**
-   * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier.
-   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   * <p>Information about the document classifier, including the number of documents used for
+   *       training the classifier, the number of documents used for test the classifier, and an accuracy
+   *       rating.</p>
    */
-  VpcConfig?: VpcConfig;
+  ClassifierMetadata?: ClassifierMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>
+   */
+  DocumentClassifierArn?: string;
+
+  /**
+   * <p>The language code for the language of the documents that the classifier was trained
+   *       on.</p>
+   */
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The input data configuration that you supplied when you created the document classifier
+   *       for training.</p>
+   */
+  InputDataConfig?: DocumentClassifierInputDataConfig;
+
+  /**
+   * <p>The time that the document classifier was submitted for training.</p>
+   */
+  SubmitTime?: Date;
+
+  /**
+   * <p>The time that training the document classifier completed.</p>
+   */
+  EndTime?: Date;
 }
 
 export namespace DocumentClassifierProperties {
   export const filterSensitiveLog = (obj: DocumentClassifierProperties): any => ({
     ...obj,
+    ...(obj.ClassifierMetadata && { ClassifierMetadata: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DocumentClassifierProperties => __isa(o, "DocumentClassifierProperties");
 }
@@ -1777,14 +1809,14 @@ export namespace DocumentClassifierProperties {
 export interface DocumentLabel {
   __type?: "DocumentLabel";
   /**
-   * <p>The name of the label.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The confidence score that Amazon Comprehend has this label correctly attributed.</p>
    */
   Score?: number;
+
+  /**
+   * <p>The name of the label.</p>
+   */
+  Name?: string;
 }
 
 export namespace DocumentLabel {
@@ -1801,16 +1833,16 @@ export namespace DocumentLabel {
 export interface DominantLanguage {
   __type?: "DominantLanguage";
   /**
+   * <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
+   */
+  Score?: number;
+
+  /**
    * <p>The RFC 5646 language code for the dominant language. For more information about RFC
    *       5646, see <a href="https://tools.ietf.org/html/rfc5646">Tags for Identifying
    *         Languages</a> on the <i>IETF Tools</i> web site.</p>
    */
   LanguageCode?: string;
-
-  /**
-   * <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
-   */
-  Score?: number;
 }
 
 export namespace DominantLanguage {
@@ -1832,6 +1864,13 @@ export interface DominantLanguageDetectionJobFilter {
   JobName?: string;
 
   /**
+   * <p>Filters the list of jobs based on the time that the job was submitted for processing.
+   *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
+   *       oldest to newest.</p>
+   */
+  SubmitTimeBefore?: Date;
+
+  /**
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
@@ -1843,13 +1882,6 @@ export interface DominantLanguageDetectionJobFilter {
    *       newest to oldest.</p>
    */
   SubmitTimeAfter?: Date;
-
-  /**
-   * <p>Filters the list of jobs based on the time that the job was submitted for processing.
-   *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
-   *       oldest to newest.</p>
-   */
-  SubmitTimeBefore?: Date;
 }
 
 export namespace DominantLanguageDetectionJobFilter {
@@ -1866,52 +1898,15 @@ export namespace DominantLanguageDetectionJobFilter {
 export interface DominantLanguageDetectionJobProperties {
   __type?: "DominantLanguageDetectionJobProperties";
   /**
-   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
-   * <p>The time that the dominant language detection job completed.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The input data configuration that you supplied when you created the dominant language
-   *       detection job.</p>
-   */
-  InputDataConfig?: InputDataConfig;
-
-  /**
-   * <p>The identifier assigned to the dominant language detection job.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>The name that you assigned to the dominant language detection job.</p>
-   */
-  JobName?: string;
-
-  /**
-   * <p>The current status of the dominant language detection job. If the status is
-   *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
-   * <p>A description for the status of a job.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The output data configuration that you supplied when you created the dominant language
    *       detection job.</p>
    */
   OutputDataConfig?: OutputDataConfig;
 
   /**
-   * <p>The time that the dominant language detection job was submitted for processing.</p>
+   * <p>A description for the status of a job.</p>
    */
-  SubmitTime?: Date;
+  Message?: string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -1930,10 +1925,47 @@ export interface DominantLanguageDetectionJobProperties {
   VolumeKmsKeyId?: string;
 
   /**
+   * <p>The current status of the dominant language detection job. If the status is
+   *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The identifier assigned to the dominant language detection job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The time that the dominant language detection job completed.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The time that the dominant language detection job was submitted for processing.</p>
+   */
+  SubmitTime?: Date;
+
+  /**
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job.
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>The input data configuration that you supplied when you created the dominant language
+   *       detection job.</p>
+   */
+  InputDataConfig?: InputDataConfig;
+
+  /**
+   * <p>The name that you assigned to the dominant language detection job.</p>
+   */
+  JobName?: string;
 }
 
 export namespace DominantLanguageDetectionJobProperties {
@@ -1951,11 +1983,6 @@ export namespace DominantLanguageDetectionJobProperties {
 export interface EndpointFilter {
   __type?: "EndpointFilter";
   /**
-   * <p>Specifies a date after which the returned endpoint or endpoints were created.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
    * <p>Specifies a date before which the returned endpoint or endpoints were created.</p>
    */
   CreationTimeBefore?: Date;
@@ -1969,6 +1996,11 @@ export interface EndpointFilter {
    * <p>Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.</p>
    */
   Status?: EndpointStatus | string;
+
+  /**
+   * <p>Specifies a date after which the returned endpoint or endpoints were created.</p>
+   */
+  CreationTimeAfter?: Date;
 }
 
 export namespace EndpointFilter {
@@ -1984,20 +2016,14 @@ export namespace EndpointFilter {
 export interface EndpointProperties {
   __type?: "EndpointProperties";
   /**
+   * <p>The date and time that the endpoint was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
    * <p>The creation date and time of the endpoint.</p>
    */
   CreationTime?: Date;
-
-  /**
-   * <p>The number of inference units currently used by the model using this endpoint.</p>
-   */
-  CurrentInferenceUnits?: number;
-
-  /**
-   * <p>The desired number of inference units to be used by the model using this endpoint.  Each
-   *       inference unit represents of a throughput of 100 characters per second.</p>
-   */
-  DesiredInferenceUnits?: number;
 
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint.</p>
@@ -2005,9 +2031,9 @@ export interface EndpointProperties {
   EndpointArn?: string;
 
   /**
-   * <p>The date and time that the endpoint was last modified.</p>
+   * <p>The number of inference units currently used by the model using this endpoint.</p>
    */
-  LastModifiedTime?: Date;
+  CurrentInferenceUnits?: number;
 
   /**
    * <p>Specifies a reason for failure in cases of <code>Failed</code> status.</p>
@@ -2018,6 +2044,12 @@ export interface EndpointProperties {
    * <p>The Amazon Resource Number (ARN) of the model to which the endpoint is attached.</p>
    */
   ModelArn?: string;
+
+  /**
+   * <p>The desired number of inference units to be used by the model using this endpoint.  Each
+   *       inference unit represents of a throughput of 100 characters per second.</p>
+   */
+  DesiredInferenceUnits?: number;
 
   /**
    * <p>Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so
@@ -2048,9 +2080,11 @@ export enum EndpointStatus {
 export interface EntitiesDetectionJobFilter {
   __type?: "EntitiesDetectionJobFilter";
   /**
-   * <p>Filters on the name of the job.</p>
+   * <p>Filters the list of jobs based on the time that the job was submitted for processing.
+   *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
+   *       oldest to newest.</p>
    */
-  JobName?: string;
+  SubmitTimeBefore?: Date;
 
   /**
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
@@ -2059,18 +2093,16 @@ export interface EntitiesDetectionJobFilter {
   JobStatus?: JobStatus | string;
 
   /**
+   * <p>Filters on the name of the job.</p>
+   */
+  JobName?: string;
+
+  /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
    *       Returns only jobs submitted after the specified time. Jobs are returned in descending order,
    *       newest to oldest.</p>
    */
   SubmitTimeAfter?: Date;
-
-  /**
-   * <p>Filters the list of jobs based on the time that the job was submitted for processing.
-   *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
-   *       oldest to newest.</p>
-   */
-  SubmitTimeBefore?: Date;
 }
 
 export namespace EntitiesDetectionJobFilter {
@@ -2086,35 +2118,19 @@ export namespace EntitiesDetectionJobFilter {
 export interface EntitiesDetectionJobProperties {
   __type?: "EntitiesDetectionJobProperties";
   /**
-   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
-   * <p>The time that the entities detection job completed</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
-   */
-  EntityRecognizerArn?: string;
-
-  /**
-   * <p>The input data configuration that you supplied when you created the entities detection
-   *       job.</p>
-   */
-  InputDataConfig?: InputDataConfig;
-
-  /**
    * <p>The identifier assigned to the entities detection job.</p>
    */
   JobId?: string;
 
   /**
-   * <p>The name that you assigned the entities detection job.</p>
+   * <p>The language code of the input documents.</p>
    */
-  JobName?: string;
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
+   */
+  DataAccessRoleArn?: string;
 
   /**
    * <p>The current status of the entities detection job. If the status is <code>FAILED</code>,
@@ -2123,20 +2139,32 @@ export interface EntitiesDetectionJobProperties {
   JobStatus?: JobStatus | string;
 
   /**
-   * <p>The language code of the input documents.</p>
+   * <p>The input data configuration that you supplied when you created the entities detection
+   *       job.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  InputDataConfig?: InputDataConfig;
 
   /**
-   * <p>A description of the status of a job.</p>
+   * <p>The time that the entities detection job completed</p>
    */
-  Message?: string;
+  EndTime?: Date;
+
+  /**
+   * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
 
   /**
    * <p>The output data configuration that you supplied when you created the entities detection
    *       job. </p>
    */
   OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * <p>A description of the status of a job.</p>
+   */
+  Message?: string;
 
   /**
    * <p>The time that the entities detection job was submitted for processing.</p>
@@ -2160,10 +2188,14 @@ export interface EntitiesDetectionJobProperties {
   VolumeKmsKeyId?: string;
 
   /**
-   * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job.
-   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
    */
-  VpcConfig?: VpcConfig;
+  EntityRecognizerArn?: string;
+
+  /**
+   * <p>The name that you assigned the entities detection job.</p>
+   */
+  JobName?: string;
 }
 
 export namespace EntitiesDetectionJobProperties {
@@ -2189,6 +2221,16 @@ export interface Entity {
   BeginOffset?: number;
 
   /**
+   * <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
+   */
+  Score?: number;
+
+  /**
+   * <p>The entity's type.</p>
+   */
+  Type?: EntityType | string;
+
+  /**
    * <p>A character offset in the input text that shows where the entity ends. The offset
    *       returns the position of each UTF-8 code point in the string. A <i>code point</i>
    *       is the abstract character from a particular graphical representation. For example, a
@@ -2197,19 +2239,9 @@ export interface Entity {
   EndOffset?: number;
 
   /**
-   * <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
-   */
-  Score?: number;
-
-  /**
    * <p>The text of the entity.</p>
    */
   Text?: string;
-
-  /**
-   * <p>The entity's type.</p>
-   */
-  Type?: EntityType | string;
 }
 
 export namespace Entity {
@@ -2282,19 +2314,19 @@ export namespace EntityRecognizerEntityList {
 export interface EntityRecognizerEvaluationMetrics {
   __type?: "EntityRecognizerEvaluationMetrics";
   /**
+   * <p>A measure of the usefulness of the recognizer results in the test data. High precision
+   *       means that the recognizer returned substantially more relevant results than irrelevant ones.
+   *     </p>
+   */
+  Precision?: number;
+
+  /**
    * <p>A measure of how accurate the recognizer results are for the test data. It is
    *       derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is
    *       the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
    *     </p>
    */
   F1Score?: number;
-
-  /**
-   * <p>A measure of the usefulness of the recognizer results in the test data. High precision
-   *       means that the recognizer returned substantially more relevant results than irrelevant ones.
-   *     </p>
-   */
-  Precision?: number;
 
   /**
    * <p>A measure of how complete the recognizer results are for the test data. High recall means that the recognizer returned most of the relevant results.</p>
@@ -2316,11 +2348,6 @@ export namespace EntityRecognizerEvaluationMetrics {
 export interface EntityRecognizerFilter {
   __type?: "EntityRecognizerFilter";
   /**
-   * <p>The status of an entity recognizer.</p>
-   */
-  Status?: ModelStatus | string;
-
-  /**
    * <p>Filters the list of entities based on the time that the list was submitted for processing.
    *     Returns only jobs submitted after the specified time. Jobs are returned in ascending order,
    *     oldest to newest.</p>
@@ -2333,6 +2360,11 @@ export interface EntityRecognizerFilter {
    *       newest to oldest.</p>
    */
   SubmitTimeBefore?: Date;
+
+  /**
+   * <p>The status of an entity recognizer.</p>
+   */
+  Status?: ModelStatus | string;
 }
 
 export namespace EntityRecognizerFilter {
@@ -2348,9 +2380,9 @@ export namespace EntityRecognizerFilter {
 export interface EntityRecognizerInputDataConfig {
   __type?: "EntityRecognizerInputDataConfig";
   /**
-   * <p>S3 location of the annotations file for an entity recognizer.</p>
+   * <p>S3 location of the entity list for an entity recognizer.</p>
    */
-  Annotations?: EntityRecognizerAnnotations;
+  EntityList?: EntityRecognizerEntityList;
 
   /**
    * <p>S3 location of the documents folder for an entity recognizer</p>
@@ -2358,9 +2390,9 @@ export interface EntityRecognizerInputDataConfig {
   Documents: EntityRecognizerDocuments | undefined;
 
   /**
-   * <p>S3 location of the entity list for an entity recognizer.</p>
+   * <p>S3 location of the annotations file for an entity recognizer.</p>
    */
-  EntityList?: EntityRecognizerEntityList;
+  Annotations?: EntityRecognizerAnnotations;
 
   /**
    * <p>The entity types in the input data for an entity recognizer. A maximum of 12 entity types can be used at one time to train an entity recognizer.</p>
@@ -2381,14 +2413,9 @@ export namespace EntityRecognizerInputDataConfig {
 export interface EntityRecognizerMetadata {
   __type?: "EntityRecognizerMetadata";
   /**
-   * <p>Entity types from the metadata of an entity recognizer.</p>
+   * <p> The number of documents in the input data that were used to train the entity recognizer. Typically this is 80 to 90 percent of the input documents.</p>
    */
-  EntityTypes?: EntityRecognizerMetadataEntityTypesListItem[];
-
-  /**
-   * <p>Detailed information about the accuracy of an entity recognizer.</p>
-   */
-  EvaluationMetrics?: EntityRecognizerEvaluationMetrics;
+  NumberOfTrainedDocuments?: number;
 
   /**
    * <p> The number of documents in the input data that were used to test the entity recognizer. Typically this is 10 to 20 percent of the input documents.</p>
@@ -2396,9 +2423,14 @@ export interface EntityRecognizerMetadata {
   NumberOfTestDocuments?: number;
 
   /**
-   * <p> The number of documents in the input data that were used to train the entity recognizer. Typically this is 80 to 90 percent of the input documents.</p>
+   * <p>Detailed information about the accuracy of an entity recognizer.</p>
    */
-  NumberOfTrainedDocuments?: number;
+  EvaluationMetrics?: EntityRecognizerEvaluationMetrics;
+
+  /**
+   * <p>Entity types from the metadata of an entity recognizer.</p>
+   */
+  EntityTypes?: EntityRecognizerMetadataEntityTypesListItem[];
 }
 
 export namespace EntityRecognizerMetadata {
@@ -2414,9 +2446,9 @@ export namespace EntityRecognizerMetadata {
 export interface EntityRecognizerMetadataEntityTypesListItem {
   __type?: "EntityRecognizerMetadataEntityTypesListItem";
   /**
-   * <p>Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types. </p>
+   * <p>Type of entity from the list of entity types in the metadata of an entity recognizer. </p>
    */
-  EvaluationMetrics?: EntityTypesEvaluationMetrics;
+  Type?: string;
 
   /**
    * <p>Indicates the number of times the given entity type was seen in the training data. </p>
@@ -2424,9 +2456,9 @@ export interface EntityRecognizerMetadataEntityTypesListItem {
   NumberOfTrainMentions?: number;
 
   /**
-   * <p>Type of entity from the list of entity types in the metadata of an entity recognizer. </p>
+   * <p>Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types. </p>
    */
-  Type?: string;
+  EvaluationMetrics?: EntityTypesEvaluationMetrics;
 }
 
 export namespace EntityRecognizerMetadataEntityTypesListItem {
@@ -2443,9 +2475,14 @@ export namespace EntityRecognizerMetadataEntityTypesListItem {
 export interface EntityRecognizerProperties {
   __type?: "EntityRecognizerProperties";
   /**
-   * <p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
+   * <p>The time that training of the entity recognizer started.</p>
    */
-  DataAccessRoleArn?: string;
+  TrainingStartTime?: Date;
+
+  /**
+   * <p>Provides the status of the entity recognizer.</p>
+   */
+  Status?: ModelStatus | string;
 
   /**
    * <p>The time that the recognizer creation completed.</p>
@@ -2453,14 +2490,19 @@ export interface EntityRecognizerProperties {
   EndTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
-   */
-  EntityRecognizerArn?: string;
-
-  /**
    * <p>The input data properties of an entity recognizer.</p>
    */
   InputDataConfig?: EntityRecognizerInputDataConfig;
+
+  /**
+   * <p>The time that the recognizer was submitted for processing.</p>
+   */
+  SubmitTime?: Date;
+
+  /**
+   * <p> A description of the status of the recognizer.</p>
+   */
+  Message?: string;
 
   /**
    * <p> The language of the input documents. All documents must be in the same language. Only
@@ -2469,24 +2511,9 @@ export interface EntityRecognizerProperties {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p> A description of the status of the recognizer.</p>
+   * <p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
    */
-  Message?: string;
-
-  /**
-   * <p> Provides information about an entity recognizer.</p>
-   */
-  RecognizerMetadata?: EntityRecognizerMetadata;
-
-  /**
-   * <p>Provides the status of the entity recognizer.</p>
-   */
-  Status?: ModelStatus | string;
-
-  /**
-   * <p>The time that the recognizer was submitted for processing.</p>
-   */
-  SubmitTime?: Date;
+  DataAccessRoleArn?: string;
 
   /**
    * <p>The time that training of the entity recognizer was completed.</p>
@@ -2494,9 +2521,9 @@ export interface EntityRecognizerProperties {
   TrainingEndTime?: Date;
 
   /**
-   * <p>The time that training of the entity recognizer started.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
    */
-  TrainingStartTime?: Date;
+  EntityRecognizerArn?: string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -2519,11 +2546,17 @@ export interface EntityRecognizerProperties {
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p> Provides information about an entity recognizer.</p>
+   */
+  RecognizerMetadata?: EntityRecognizerMetadata;
 }
 
 export namespace EntityRecognizerProperties {
   export const filterSensitiveLog = (obj: EntityRecognizerProperties): any => ({
     ...obj,
+    ...(obj.RecognizerMetadata && { RecognizerMetadata: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is EntityRecognizerProperties => __isa(o, "EntityRecognizerProperties");
 }
@@ -2546,19 +2579,19 @@ export enum EntityType {
 export interface EntityTypesEvaluationMetrics {
   __type?: "EntityTypesEvaluationMetrics";
   /**
+   * <p>A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision
+   *       means that the recognizer returned substantially more relevant results than irrelevant ones.
+   *     </p>
+   */
+  Precision?: number;
+
+  /**
    * <p>A measure of how accurate the recognizer results are for for a specific entity type in the test data. It is
    *       derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is
    *       the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
    *     </p>
    */
   F1Score?: number;
-
-  /**
-   * <p>A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision
-   *       means that the recognizer returned substantially more relevant results than irrelevant ones.
-   *     </p>
-   */
-  Precision?: number;
 
   /**
    * <p>A measure of how complete the recognizer results are for a specific entity type in the test data. High recall means that the recognizer
@@ -2720,13 +2753,9 @@ export enum JobStatus {
 export interface KeyPhrase {
   __type?: "KeyPhrase";
   /**
-   * <p>A character offset in the input text that shows where the key phrase begins (the first
-   *       character is at position 0). The offset returns the position of each UTF-8 code point in the
-   *       string. A <i>code point</i> is the abstract character from a particular
-   *       graphical representation. For example, a multi-byte UTF-8 character maps to a single code
-   *       point.</p>
+   * <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
    */
-  BeginOffset?: number;
+  Score?: number;
 
   /**
    * <p>A character offset in the input text where the key phrase ends. The offset returns the
@@ -2737,14 +2766,18 @@ export interface KeyPhrase {
   EndOffset?: number;
 
   /**
-   * <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
-   */
-  Score?: number;
-
-  /**
    * <p>The text of a key noun phrase.</p>
    */
   Text?: string;
+
+  /**
+   * <p>A character offset in the input text that shows where the key phrase begins (the first
+   *       character is at position 0). The offset returns the position of each UTF-8 code point in the
+   *       string. A <i>code point</i> is the abstract character from a particular
+   *       graphical representation. For example, a multi-byte UTF-8 character maps to a single code
+   *       point.</p>
+   */
+  BeginOffset?: number;
 }
 
 export namespace KeyPhrase {
@@ -2766,17 +2799,17 @@ export interface KeyPhrasesDetectionJobFilter {
   JobName?: string;
 
   /**
-   * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
-   *       status.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
    *       Returns only jobs submitted after the specified time. Jobs are returned in descending order,
    *       newest to oldest.</p>
    */
   SubmitTimeAfter?: Date;
+
+  /**
+   * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
+   *       status.</p>
+   */
+  JobStatus?: JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -2799,41 +2832,10 @@ export namespace KeyPhrasesDetectionJobFilter {
 export interface KeyPhrasesDetectionJobProperties {
   __type?: "KeyPhrasesDetectionJobProperties";
   /**
-   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
-   * <p>The time that the key phrases detection job completed.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The input data configuration that you supplied when you created the key phrases detection
+   * <p>The output data configuration that you supplied when you created the key phrases detection
    *       job.</p>
    */
-  InputDataConfig?: InputDataConfig;
-
-  /**
-   * <p>The identifier assigned to the key phrases detection job.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>The name that you assigned the key phrases detection job.</p>
-   */
-  JobName?: string;
-
-  /**
-   * <p>The current status of the key phrases detection job. If the status is <code>FAILED</code>,
-   *       the <code>Message</code> field shows the reason for the failure.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
-   * <p>The language code of the input documents.</p>
-   */
-  LanguageCode?: LanguageCode | string;
+  OutputDataConfig?: OutputDataConfig;
 
   /**
    * <p>A description of the status of a job.</p>
@@ -2841,15 +2843,41 @@ export interface KeyPhrasesDetectionJobProperties {
   Message?: string;
 
   /**
-   * <p>The output data configuration that you supplied when you created the key phrases detection
-   *       job.</p>
+   * <p>The language code of the input documents.</p>
    */
-  OutputDataConfig?: OutputDataConfig;
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The name that you assigned the key phrases detection job.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The time that the key phrases detection job completed.</p>
+   */
+  EndTime?: Date;
 
   /**
    * <p>The time that the key phrases detection job was submitted for processing.</p>
    */
   SubmitTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>The current status of the key phrases detection job. If the status is <code>FAILED</code>,
+   *       the <code>Message</code> field shows the reason for the failure.</p>
+   */
+  JobStatus?: JobStatus | string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -2868,10 +2896,15 @@ export interface KeyPhrasesDetectionJobProperties {
   VolumeKmsKeyId?: string;
 
   /**
-   * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job.
-   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   * <p>The identifier assigned to the key phrases detection job.</p>
    */
-  VpcConfig?: VpcConfig;
+  JobId?: string;
+
+  /**
+   * <p>The input data configuration that you supplied when you created the key phrases detection
+   *       job.</p>
+   */
+  InputDataConfig?: InputDataConfig;
 }
 
 export namespace KeyPhrasesDetectionJobProperties {
@@ -2942,14 +2975,14 @@ export namespace ListDocumentClassificationJobsRequest {
 export interface ListDocumentClassificationJobsResponse {
   __type?: "ListDocumentClassificationJobsResponse";
   /**
-   * <p>A list containing the properties of each job returned.</p>
-   */
-  DocumentClassificationJobPropertiesList?: DocumentClassificationJobProperties[];
-
-  /**
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list containing the properties of each job returned.</p>
+   */
+  DocumentClassificationJobPropertiesList?: DocumentClassificationJobProperties[];
 }
 
 export namespace ListDocumentClassificationJobsResponse {
@@ -2963,15 +2996,15 @@ export namespace ListDocumentClassificationJobsResponse {
 export interface ListDocumentClassifiersRequest {
   __type?: "ListDocumentClassifiersRequest";
   /**
+   * <p>The maximum number of results to return in each page. The default is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
    *       and time that they were submitted. You can only set one filter at a time.</p>
    */
   Filter?: DocumentClassifierFilter;
-
-  /**
-   * <p>The maximum number of results to return in each page. The default is 100.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -3002,6 +3035,11 @@ export interface ListDocumentClassifiersResponse {
 export namespace ListDocumentClassifiersResponse {
   export const filterSensitiveLog = (obj: ListDocumentClassifiersResponse): any => ({
     ...obj,
+    ...(obj.DocumentClassifierPropertiesList && {
+      DocumentClassifierPropertiesList: obj.DocumentClassifierPropertiesList.map((item) =>
+        DocumentClassifierProperties.filterSensitiveLog(item)
+      ),
+    }),
   });
   export const isa = (o: any): o is ListDocumentClassifiersResponse => __isa(o, "ListDocumentClassifiersResponse");
 }
@@ -3009,15 +3047,15 @@ export namespace ListDocumentClassifiersResponse {
 export interface ListDominantLanguageDetectionJobsRequest {
   __type?: "ListDominantLanguageDetectionJobsRequest";
   /**
+   * <p>The maximum number of results to return in each page. The default is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Filters that jobs that are returned. You can filter jobs on their name, status, or the
    *       date and time that they were submitted. You can only set one filter at a time.</p>
    */
   Filter?: DominantLanguageDetectionJobFilter;
-
-  /**
-   * <p>The maximum number of results to return in each page. The default is 100.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -3103,15 +3141,15 @@ export namespace ListEndpointsResponse {
 export interface ListEntitiesDetectionJobsRequest {
   __type?: "ListEntitiesDetectionJobsRequest";
   /**
+   * <p>The maximum number of results to return in each page. The default is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
    *       and time that they were submitted. You can only set one filter at a time.</p>
    */
   Filter?: EntitiesDetectionJobFilter;
-
-  /**
-   * <p>The maximum number of results to return in each page. The default is 100.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -3129,14 +3167,14 @@ export namespace ListEntitiesDetectionJobsRequest {
 export interface ListEntitiesDetectionJobsResponse {
   __type?: "ListEntitiesDetectionJobsResponse";
   /**
-   * <p>A list containing the properties of each job that is returned.</p>
-   */
-  EntitiesDetectionJobPropertiesList?: EntitiesDetectionJobProperties[];
-
-  /**
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list containing the properties of each job that is returned.</p>
+   */
+  EntitiesDetectionJobPropertiesList?: EntitiesDetectionJobProperties[];
 }
 
 export namespace ListEntitiesDetectionJobsResponse {
@@ -3149,11 +3187,6 @@ export namespace ListEntitiesDetectionJobsResponse {
 export interface ListEntityRecognizersRequest {
   __type?: "ListEntityRecognizersRequest";
   /**
-   * <p>Filters the list of entities returned. You can filter on <code>Status</code>, <code>SubmitTimeBefore</code>, or <code>SubmitTimeAfter</code>. You can only set one filter at a time.</p>
-   */
-  Filter?: EntityRecognizerFilter;
-
-  /**
    * <p> The maximum number of results to return on each page. The default is 100.</p>
    */
   MaxResults?: number;
@@ -3162,6 +3195,11 @@ export interface ListEntityRecognizersRequest {
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Filters the list of entities returned. You can filter on <code>Status</code>, <code>SubmitTimeBefore</code>, or <code>SubmitTimeAfter</code>. You can only set one filter at a time.</p>
+   */
+  Filter?: EntityRecognizerFilter;
 }
 
 export namespace ListEntityRecognizersRequest {
@@ -3187,6 +3225,11 @@ export interface ListEntityRecognizersResponse {
 export namespace ListEntityRecognizersResponse {
   export const filterSensitiveLog = (obj: ListEntityRecognizersResponse): any => ({
     ...obj,
+    ...(obj.EntityRecognizerPropertiesList && {
+      EntityRecognizerPropertiesList: obj.EntityRecognizerPropertiesList.map((item) =>
+        EntityRecognizerProperties.filterSensitiveLog(item)
+      ),
+    }),
   });
   export const isa = (o: any): o is ListEntityRecognizersResponse => __isa(o, "ListEntityRecognizersResponse");
 }
@@ -3194,15 +3237,15 @@ export namespace ListEntityRecognizersResponse {
 export interface ListKeyPhrasesDetectionJobsRequest {
   __type?: "ListKeyPhrasesDetectionJobsRequest";
   /**
+   * <p>The maximum number of results to return in each page. The default is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
    *       and time that they were submitted. You can only set one filter at a time.</p>
    */
   Filter?: KeyPhrasesDetectionJobFilter;
-
-  /**
-   * <p>The maximum number of results to return in each page. The default is 100.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -3221,14 +3264,14 @@ export namespace ListKeyPhrasesDetectionJobsRequest {
 export interface ListKeyPhrasesDetectionJobsResponse {
   __type?: "ListKeyPhrasesDetectionJobsResponse";
   /**
-   * <p>A list containing the properties of each job that is returned.</p>
-   */
-  KeyPhrasesDetectionJobPropertiesList?: KeyPhrasesDetectionJobProperties[];
-
-  /**
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list containing the properties of each job that is returned.</p>
+   */
+  KeyPhrasesDetectionJobPropertiesList?: KeyPhrasesDetectionJobProperties[];
 }
 
 export namespace ListKeyPhrasesDetectionJobsResponse {
@@ -3242,10 +3285,9 @@ export namespace ListKeyPhrasesDetectionJobsResponse {
 export interface ListSentimentDetectionJobsRequest {
   __type?: "ListSentimentDetectionJobsRequest";
   /**
-   * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
-   *       and time that they were submitted. You can only set one filter at a time.</p>
+   * <p>Identifies the next page of results to return.</p>
    */
-  Filter?: SentimentDetectionJobFilter;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return in each page. The default is 100.</p>
@@ -3253,9 +3295,10 @@ export interface ListSentimentDetectionJobsRequest {
   MaxResults?: number;
 
   /**
-   * <p>Identifies the next page of results to return.</p>
+   * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
+   *       and time that they were submitted. You can only set one filter at a time.</p>
    */
-  NextToken?: string;
+  Filter?: SentimentDetectionJobFilter;
 }
 
 export namespace ListSentimentDetectionJobsRequest {
@@ -3325,6 +3368,11 @@ export namespace ListTagsForResourceResponse {
 export interface ListTopicsDetectionJobsRequest {
   __type?: "ListTopicsDetectionJobsRequest";
   /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Filters the jobs that are returned. Jobs can be filtered on their name, status, or the
    *       date and time that they were submitted. You can set only one filter at a time.</p>
    */
@@ -3334,11 +3382,6 @@ export interface ListTopicsDetectionJobsRequest {
    * <p>The maximum number of results to return in each page. The default is 100.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>Identifies the next page of results to return.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListTopicsDetectionJobsRequest {
@@ -3351,14 +3394,14 @@ export namespace ListTopicsDetectionJobsRequest {
 export interface ListTopicsDetectionJobsResponse {
   __type?: "ListTopicsDetectionJobsResponse";
   /**
-   * <p>Identifies the next page of results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
   TopicsDetectionJobPropertiesList?: TopicsDetectionJobProperties[];
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTopicsDetectionJobsResponse {
@@ -3474,7 +3517,7 @@ export enum PartOfSpeechTagType {
 }
 
 /**
- * <p>The specified name is already in use. Use a different name and try your request again.</p>
+ * <p>The specified resource name is already in use. Use a different name and try your request again.</p>
  */
 export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
@@ -3490,7 +3533,7 @@ export namespace ResourceInUseException {
 }
 
 /**
- * <p>The maximum number of recognizers per account has been exceeded. Review the recognizers, perform cleanup, and then try your request again.</p>
+ * <p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>
  */
 export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceLimitExceededException";
@@ -3522,8 +3565,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>The specified resource is not available. Check to see if the resource is in
- *       the <code>TRAINED</code> state and try your request again.</p>
+ * <p>The specified resource is not available. Check the resource and try your request again.</p>
  */
 export interface ResourceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ResourceUnavailableException";
@@ -3545,15 +3587,16 @@ export namespace ResourceUnavailableException {
 export interface SentimentDetectionJobFilter {
   __type?: "SentimentDetectionJobFilter";
   /**
+   * <p>Filters the list of jobs based on the time that the job was submitted for processing.
+   *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
+   *       oldest to newest.</p>
+   */
+  SubmitTimeBefore?: Date;
+
+  /**
    * <p>Filters on the name of the job.</p>
    */
   JobName?: string;
-
-  /**
-   * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
-   *       status.</p>
-   */
-  JobStatus?: JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -3563,11 +3606,10 @@ export interface SentimentDetectionJobFilter {
   SubmitTimeAfter?: Date;
 
   /**
-   * <p>Filters the list of jobs based on the time that the job was submitted for processing.
-   *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
-   *       oldest to newest.</p>
+   * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
+   *       status.</p>
    */
-  SubmitTimeBefore?: Date;
+  JobStatus?: JobStatus | string;
 }
 
 export namespace SentimentDetectionJobFilter {
@@ -3583,57 +3625,9 @@ export namespace SentimentDetectionJobFilter {
 export interface SentimentDetectionJobProperties {
   __type?: "SentimentDetectionJobProperties";
   /**
-   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
-   * <p>The time that the sentiment detection job ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The input data configuration that you supplied when you created the sentiment detection
-   *       job.</p>
-   */
-  InputDataConfig?: InputDataConfig;
-
-  /**
-   * <p>The identifier assigned to the sentiment detection job.</p>
-   */
-  JobId?: string;
-
-  /**
    * <p>The name that you assigned to the sentiment detection job</p>
    */
   JobName?: string;
-
-  /**
-   * <p>The current status of the sentiment detection job. If the status is <code>FAILED</code>,
-   *       the <code>Messages</code> field shows the reason for the failure.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
-   * <p>The language code of the input documents.</p>
-   */
-  LanguageCode?: LanguageCode | string;
-
-  /**
-   * <p>A description of the status of a job.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The output data configuration that you supplied when you created the sentiment detection
-   *       job.</p>
-   */
-  OutputDataConfig?: OutputDataConfig;
-
-  /**
-   * <p>The time that the sentiment detection job was submitted for processing.</p>
-   */
-  SubmitTime?: Date;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -3652,10 +3646,58 @@ export interface SentimentDetectionJobProperties {
   VolumeKmsKeyId?: string;
 
   /**
+   * <p>The input data configuration that you supplied when you created the sentiment detection
+   *       job.</p>
+   */
+  InputDataConfig?: InputDataConfig;
+
+  /**
+   * <p>A description of the status of a job.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The identifier assigned to the sentiment detection job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The time that the sentiment detection job was submitted for processing.</p>
+   */
+  SubmitTime?: Date;
+
+  /**
+   * <p>The current status of the sentiment detection job. If the status is <code>FAILED</code>,
+   *       the <code>Messages</code> field shows the reason for the failure.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job.
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The language code of the input documents.</p>
+   */
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The time that the sentiment detection job ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The output data configuration that you supplied when you created the sentiment detection
+   *       job.</p>
+   */
+  OutputDataConfig?: OutputDataConfig;
 }
 
 export namespace SentimentDetectionJobProperties {
@@ -3679,15 +3721,15 @@ export interface SentimentScore {
 
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the
-   *         <code>NEGATIVE</code> sentiment.</p>
-   */
-  Negative?: number;
-
-  /**
-   * <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the
    *         <code>NEUTRAL</code> sentiment.</p>
    */
   Neutral?: number;
+
+  /**
+   * <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the
+   *         <code>NEGATIVE</code> sentiment.</p>
+   */
+  Negative?: number;
 
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the
@@ -3713,37 +3755,9 @@ export enum SentimentType {
 export interface StartDocumentClassificationJobRequest {
   __type?: "StartDocumentClassificationJobRequest";
   /**
-   * <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend
-   *       generates one.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend read access to your input data.</p>
-   */
-  DataAccessRoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the document classifier to use to process the
-   *       job.</p>
-   */
-  DocumentClassifierArn: string | undefined;
-
-  /**
-   * <p>Specifies the format and location of the input data for the job.</p>
-   */
-  InputDataConfig: InputDataConfig | undefined;
-
-  /**
    * <p>The identifier of the job.</p>
    */
   JobName?: string;
-
-  /**
-   * <p>Specifies where to send the output files.</p>
-   */
-  OutputDataConfig: OutputDataConfig | undefined;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -3762,10 +3776,38 @@ export interface StartDocumentClassificationJobRequest {
   VolumeKmsKeyId?: string;
 
   /**
+   * <p>Specifies where to send the output files.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the document classifier to use to process the
+   *       job.</p>
+   */
+  DocumentClassifierArn: string | undefined;
+
+  /**
    * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job.
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend
+   *       generates one.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   *       grants Amazon Comprehend read access to your input data.</p>
+   */
+  DataAccessRoleArn: string | undefined;
+
+  /**
+   * <p>Specifies the format and location of the input data for the job.</p>
+   */
+  InputDataConfig: InputDataConfig | undefined;
 }
 
 export namespace StartDocumentClassificationJobRequest {
@@ -3778,12 +3820,6 @@ export namespace StartDocumentClassificationJobRequest {
 
 export interface StartDocumentClassificationJobResponse {
   __type?: "StartDocumentClassificationJobResponse";
-  /**
-   * <p>The identifier generated for the job. To get the status of the job, use this identifier
-   *       with the  operation.</p>
-   */
-  JobId?: string;
-
   /**
    * <p>The status of the job:</p>
    *          <ul>
@@ -3808,6 +3844,12 @@ export interface StartDocumentClassificationJobResponse {
    *          </ul>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The identifier generated for the job. To get the status of the job, use this identifier
+   *       with the  operation.</p>
+   */
+  JobId?: string;
 }
 
 export namespace StartDocumentClassificationJobResponse {
@@ -3821,10 +3863,15 @@ export namespace StartDocumentClassificationJobResponse {
 export interface StartDominantLanguageDetectionJobRequest {
   __type?: "StartDominantLanguageDetectionJobRequest";
   /**
-   * <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend
-   *       generates one.</p>
+   * <p>Specifies the format and location of the input data for the job.</p>
    */
-  ClientRequestToken?: string;
+  InputDataConfig: InputDataConfig | undefined;
+
+  /**
+   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -3833,19 +3880,14 @@ export interface StartDominantLanguageDetectionJobRequest {
   DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>Specifies the format and location of the input data for the job.</p>
+   * <p>Specifies where to send the output files.</p>
    */
-  InputDataConfig: InputDataConfig | undefined;
+  OutputDataConfig: OutputDataConfig | undefined;
 
   /**
    * <p>An identifier for the job.</p>
    */
   JobName?: string;
-
-  /**
-   * <p>Specifies where to send the output files.</p>
-   */
-  OutputDataConfig: OutputDataConfig | undefined;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -3864,10 +3906,10 @@ export interface StartDominantLanguageDetectionJobRequest {
   VolumeKmsKeyId?: string;
 
   /**
-   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job.
-   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   * <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend
+   *       generates one.</p>
    */
-  VpcConfig?: VpcConfig;
+  ClientRequestToken?: string;
 }
 
 export namespace StartDominantLanguageDetectionJobRequest {
@@ -3917,18 +3959,6 @@ export namespace StartDominantLanguageDetectionJobResponse {
 export interface StartEntitiesDetectionJobRequest {
   __type?: "StartEntitiesDetectionJobRequest";
   /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend
-   *       generates one.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
-   */
-  DataAccessRoleArn: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by
    *     the <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity
    *     recognition job.</p>
@@ -3941,9 +3971,32 @@ export interface StartEntitiesDetectionJobRequest {
   InputDataConfig: InputDataConfig | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
+   */
+  DataAccessRoleArn: string | undefined;
+
+  /**
+   * <p>Specifies where to send the output files.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
    * <p>The identifier of the job.</p>
    */
   JobName?: string;
+
+  /**
+   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend
+   *       generates one.</p>
+   */
+  ClientRequestToken?: string;
 
   /**
    * <p>The language of the input documents. All documents must be in the same language.
@@ -3951,11 +4004,6 @@ export interface StartEntitiesDetectionJobRequest {
    *     parameter is ignored and the language used for training the model is used instead.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
-
-  /**
-   * <p>Specifies where to send the output files.</p>
-   */
-  OutputDataConfig: OutputDataConfig | undefined;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -3972,12 +4020,6 @@ export interface StartEntitiesDetectionJobRequest {
    *          </ul>
    */
   VolumeKmsKeyId?: string;
-
-  /**
-   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job.
-   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
-   */
-  VpcConfig?: VpcConfig;
 }
 
 export namespace StartEntitiesDetectionJobRequest {
@@ -3989,12 +4031,6 @@ export namespace StartEntitiesDetectionJobRequest {
 
 export interface StartEntitiesDetectionJobResponse {
   __type?: "StartEntitiesDetectionJobResponse";
-  /**
-   * <p>The identifier generated for the job. To get the status of job, use this identifier with
-   *       the  operation.</p>
-   */
-  JobId?: string;
-
   /**
    * <p>The status of the job. </p>
    *          <ul>
@@ -4019,6 +4055,12 @@ export interface StartEntitiesDetectionJobResponse {
    *          </ul>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The identifier generated for the job. To get the status of job, use this identifier with
+   *       the  operation.</p>
+   */
+  JobId?: string;
 }
 
 export namespace StartEntitiesDetectionJobResponse {
@@ -4037,6 +4079,18 @@ export interface StartKeyPhrasesDetectionJobRequest {
   ClientRequestToken?: string;
 
   /**
+   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
+   *       Comprehend. All
+   *       documents must be in the same language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>Specifies where to send the output files.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
    *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
    */
@@ -4051,18 +4105,6 @@ export interface StartKeyPhrasesDetectionJobRequest {
    * <p>The identifier of the job.</p>
    */
   JobName?: string;
-
-  /**
-   * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
-   *       Comprehend. All
-   *       documents must be in the same language.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
-   * <p>Specifies where to send the output files.</p>
-   */
-  OutputDataConfig: OutputDataConfig | undefined;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -4098,12 +4140,6 @@ export namespace StartKeyPhrasesDetectionJobRequest {
 export interface StartKeyPhrasesDetectionJobResponse {
   __type?: "StartKeyPhrasesDetectionJobResponse";
   /**
-   * <p>The identifier generated for the job. To get the status of a job, use this identifier with
-   *       the  operation.</p>
-   */
-  JobId?: string;
-
-  /**
    * <p>The status of the job. </p>
    *          <ul>
    *             <li>
@@ -4121,6 +4157,12 @@ export interface StartKeyPhrasesDetectionJobResponse {
    *          </ul>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The identifier generated for the job. To get the status of a job, use this identifier with
+   *       the  operation.</p>
+   */
+  JobId?: string;
 }
 
 export namespace StartKeyPhrasesDetectionJobResponse {
@@ -4134,26 +4176,10 @@ export namespace StartKeyPhrasesDetectionJobResponse {
 export interface StartSentimentDetectionJobRequest {
   __type?: "StartSentimentDetectionJobRequest";
   /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend
-   *       generates one.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
    *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
-
-  /**
-   * <p>Specifies the format and location of the input data for the job.</p>
-   */
-  InputDataConfig: InputDataConfig | undefined;
-
-  /**
-   * <p>The identifier of the job.</p>
-   */
-  JobName?: string;
 
   /**
    * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
@@ -4163,9 +4189,26 @@ export interface StartSentimentDetectionJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 
   /**
+   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend
+   *       generates one.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
    * <p>Specifies where to send the output files. </p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The identifier of the job.</p>
+   */
+  JobName?: string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -4184,10 +4227,9 @@ export interface StartSentimentDetectionJobRequest {
   VolumeKmsKeyId?: string;
 
   /**
-   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job.
-   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   * <p>Specifies the format and location of the input data for the job.</p>
    */
-  VpcConfig?: VpcConfig;
+  InputDataConfig: InputDataConfig | undefined;
 }
 
 export namespace StartSentimentDetectionJobRequest {
@@ -4236,10 +4278,11 @@ export namespace StartSentimentDetectionJobResponse {
 export interface StartTopicsDetectionJobRequest {
   __type?: "StartTopicsDetectionJobRequest";
   /**
-   * <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend
-   *       generates one.</p>
+   * <p>Specifies where to send the output files. The output is a compressed archive with two
+   *       files, <code>topic-terms.csv</code> that lists the terms associated with each topic, and
+   *         <code>doc-topics.csv</code> that lists the documents associated with each topic</p>
    */
-  ClientRequestToken?: string;
+  OutputDataConfig: OutputDataConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
@@ -4248,26 +4291,25 @@ export interface StartTopicsDetectionJobRequest {
   DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>Specifies the format and location of the input data for the job.</p>
-   */
-  InputDataConfig: InputDataConfig | undefined;
-
-  /**
-   * <p>The identifier of the job.</p>
-   */
-  JobName?: string;
-
-  /**
    * <p>The number of topics to detect.</p>
    */
   NumberOfTopics?: number;
 
   /**
-   * <p>Specifies where to send the output files. The output is a compressed archive with two
-   *       files, <code>topic-terms.csv</code> that lists the terms associated with each topic, and
-   *         <code>doc-topics.csv</code> that lists the documents associated with each topic</p>
+   * <p>Specifies the format and location of the input data for the job.</p>
    */
-  OutputDataConfig: OutputDataConfig | undefined;
+  InputDataConfig: InputDataConfig | undefined;
+
+  /**
+   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The identifier of the job.</p>
+   */
+  JobName?: string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -4286,10 +4328,10 @@ export interface StartTopicsDetectionJobRequest {
   VolumeKmsKeyId?: string;
 
   /**
-   * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job.
-   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+   * <p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend
+   *       generates one.</p>
    */
-  VpcConfig?: VpcConfig;
+  ClientRequestToken?: string;
 }
 
 export namespace StartTopicsDetectionJobRequest {
@@ -4355,16 +4397,16 @@ export namespace StopDominantLanguageDetectionJobRequest {
 export interface StopDominantLanguageDetectionJobResponse {
   __type?: "StopDominantLanguageDetectionJobResponse";
   /**
-   * <p>The identifier of the dominant language detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopDominantLanguageDetectionJob</code> operation.</p>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The identifier of the dominant language detection job to stop.</p>
+   */
+  JobId?: string;
 }
 
 export namespace StopDominantLanguageDetectionJobResponse {
@@ -4430,16 +4472,16 @@ export namespace StopKeyPhrasesDetectionJobRequest {
 export interface StopKeyPhrasesDetectionJobResponse {
   __type?: "StopKeyPhrasesDetectionJobResponse";
   /**
-   * <p>The identifier of the key phrases detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The identifier of the key phrases detection job to stop.</p>
+   */
+  JobId?: string;
 }
 
 export namespace StopKeyPhrasesDetectionJobResponse {
@@ -4468,16 +4510,16 @@ export namespace StopSentimentDetectionJobRequest {
 export interface StopSentimentDetectionJobResponse {
   __type?: "StopSentimentDetectionJobResponse";
   /**
-   * <p>The identifier of the sentiment detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopSentimentDetectionJob</code> operation.</p>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The identifier of the sentiment detection job to stop.</p>
+   */
+  JobId?: string;
 }
 
 export namespace StopSentimentDetectionJobResponse {
@@ -4565,16 +4607,15 @@ export interface SyntaxToken {
   BeginOffset?: number;
 
   /**
+   * <p>A unique identifier for a token.</p>
+   */
+  TokenId?: number;
+
+  /**
    * <p>The zero-based offset from the beginning of the source text to the last character in the
    *       word.</p>
    */
   EndOffset?: number;
-
-  /**
-   * <p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of
-   *       speech was correctly identified. For more information, see <a>how-syntax</a>.</p>
-   */
-  PartOfSpeech?: PartOfSpeechTag;
 
   /**
    * <p>The word that was recognized in the source text.</p>
@@ -4582,9 +4623,10 @@ export interface SyntaxToken {
   Text?: string;
 
   /**
-   * <p>A unique identifier for a token.</p>
+   * <p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of
+   *       speech was correctly identified. For more information, see <a>how-syntax</a>.</p>
    */
-  TokenId?: number;
+  PartOfSpeech?: PartOfSpeechTag;
 }
 
 export namespace SyntaxToken {
@@ -4600,14 +4642,14 @@ export namespace SyntaxToken {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.” </p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p> The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.  </p>
    */
   Value?: string;
+
+  /**
+   * <p>The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.” </p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -4620,14 +4662,14 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>Tags being associated with a specific Amazon Comprehend resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource. </p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4758,58 +4800,9 @@ export namespace TopicsDetectionJobFilter {
 export interface TopicsDetectionJobProperties {
   __type?: "TopicsDetectionJobProperties";
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your job data.  </p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
-   * <p>The time that the topic detection job was completed.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The input data configuration supplied when you created the topic detection
-   *       job.</p>
-   */
-  InputDataConfig?: InputDataConfig;
-
-  /**
-   * <p>The identifier assigned to the topic detection job.</p>
-   */
-  JobId?: string;
-
-  /**
    * <p>The name of the topic detection job.</p>
    */
   JobName?: string;
-
-  /**
-   * <p>The current status of the topic detection job. If the status is <code>Failed</code>,
-   *       the reason for the failure is shown in the <code>Message</code> field.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
-   * <p>A description for the status of a job.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The number of topics to detect supplied when you created the topic detection job. The
-   *       default is 10. </p>
-   */
-  NumberOfTopics?: number;
-
-  /**
-   * <p>The output data configuration supplied when you created the topic detection
-   *       job.</p>
-   */
-  OutputDataConfig?: OutputDataConfig;
-
-  /**
-   * <p>The time that the topic detection job was submitted for processing.</p>
-   */
-  SubmitTime?: Date;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -4828,10 +4821,59 @@ export interface TopicsDetectionJobProperties {
   VolumeKmsKeyId?: string;
 
   /**
+   * <p>The input data configuration supplied when you created the topic detection
+   *       job.</p>
+   */
+  InputDataConfig?: InputDataConfig;
+
+  /**
+   * <p>The output data configuration supplied when you created the topic detection
+   *       job.</p>
+   */
+  OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your job data.  </p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>The time that the topic detection job was completed.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The current status of the topic detection job. If the status is <code>Failed</code>,
+   *       the reason for the failure is shown in the <code>Message</code> field.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The identifier assigned to the topic detection job.</p>
+   */
+  JobId?: string;
+
+  /**
    * <p>Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job.
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>A description for the status of a job.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The time that the topic detection job was submitted for processing.</p>
+   */
+  SubmitTime?: Date;
+
+  /**
+   * <p>The number of topics to detect supplied when you created the topic detection job. The
+   *       default is 10. </p>
+   */
+  NumberOfTopics?: number;
 }
 
 export namespace TopicsDetectionJobProperties {
@@ -4862,16 +4904,16 @@ export namespace UnsupportedLanguageException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you want to remove the tags.  </p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The initial part of a key-value pair that forms a tag being removed from a given resource.
    *       For example,
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. Keys must be unique and cannot be duplicated for a particular resource.    </p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you want to remove the tags.  </p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4895,15 +4937,15 @@ export namespace UntagResourceResponse {
 export interface UpdateEndpointRequest {
   __type?: "UpdateEndpointRequest";
   /**
+   * <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
    * <p> The desired number of inference units to be used by the model using this endpoint.  Each
    *       inference unit represents of a throughput of 100 characters per second.</p>
    */
   DesiredInferenceUnits: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>
-   */
-  EndpointArn: string | undefined;
 }
 
 export namespace UpdateEndpointRequest {

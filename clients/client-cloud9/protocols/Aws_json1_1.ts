@@ -24,6 +24,12 @@ import {
   DescribeEnvironmentsCommandOutput,
 } from "../commands/DescribeEnvironmentsCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "../commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentMembershipCommandInput,
@@ -54,9 +60,16 @@ import {
   LimitExceededException,
   ListEnvironmentsRequest,
   ListEnvironmentsResult,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   NotFoundException,
   Permissions,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
   TooManyRequestsException,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateEnvironmentMembershipRequest,
   UpdateEnvironmentMembershipResult,
   UpdateEnvironmentRequest,
@@ -173,6 +186,45 @@ export const serializeAws_json1_1ListEnvironmentsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEnvironmentsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1034,6 +1086,222 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.cloud9#BadRequestException":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.cloud9#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.cloud9#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1363,6 +1631,7 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
     ...(input.name !== undefined && { name: input.name }),
     ...(input.ownerArn !== undefined && { ownerArn: input.ownerArn }),
     ...(input.subnetId !== undefined && { subnetId: input.subnetId }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -1438,8 +1707,46 @@ const serializeAws_json1_1ListEnvironmentsRequest = (input: ListEnvironmentsRequ
   };
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+  };
+};
+
 const serializeAws_json1_1PermissionsList = (input: (Permissions | string)[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+  };
 };
 
 const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (
@@ -1656,12 +1963,43 @@ const deserializeAws_json1_1ListEnvironmentsResult = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    __type: "ListTagsForResourceResponse",
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
     __type: "NotFoundException",
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    __type: "Tag",
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+};
+
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {
+    __type: "TagResourceResponse",
   } as any;
 };
 
@@ -1674,6 +2012,12 @@ const deserializeAws_json1_1TooManyRequestsException = (
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {
+    __type: "UntagResourceResponse",
   } as any;
 };
 

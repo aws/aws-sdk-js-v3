@@ -17,6 +17,7 @@ export enum __PeriodTriggersElement {
 }
 
 export enum AdMarkers {
+  DATERANGE = "DATERANGE",
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
   SCTE35_ENHANCED = "SCTE35_ENHANCED",
@@ -58,14 +59,14 @@ export namespace Authorization {
 export interface Channel {
   __type?: "Channel";
   /**
-   * The Amazon Resource Name (ARN) assigned to the Channel.
-   */
-  Arn?: string;
-
-  /**
    * A short text description of the Channel.
    */
   Description?: string;
+
+  /**
+   * The ID of the Channel.
+   */
+  Id?: string;
 
   /**
    * An HTTP Live Streaming (HLS) ingest resource configuration.
@@ -73,9 +74,9 @@ export interface Channel {
   HlsIngest?: HlsIngest;
 
   /**
-   * The ID of the Channel.
+   * The Amazon Resource Name (ARN) assigned to the Channel.
    */
-  Id?: string;
+  Arn?: string;
 
   /**
    * A collection of tags associated with a resource
@@ -119,20 +120,15 @@ export namespace CmafEncryption {
 export interface CmafPackage {
   __type?: "CmafPackage";
   /**
-   * A Common Media Application Format (CMAF) encryption configuration.
-   */
-  Encryption?: CmafEncryption;
-
-  /**
-   * A list of HLS manifest configurations
-   */
-  HlsManifests?: HlsManifest[];
-
-  /**
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
    */
   SegmentDurationSeconds?: number;
+
+  /**
+   * A Common Media Application Format (CMAF) encryption configuration.
+   */
+  Encryption?: CmafEncryption;
 
   /**
    * An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
@@ -143,6 +139,11 @@ export interface CmafPackage {
    * A StreamSelection configuration.
    */
   StreamSelection?: StreamSelection;
+
+  /**
+   * A list of HLS manifest configurations
+   */
+  HlsManifests?: HlsManifest[];
 }
 
 export namespace CmafPackage {
@@ -158,20 +159,20 @@ export namespace CmafPackage {
 export interface CmafPackageCreateOrUpdateParameters {
   __type?: "CmafPackageCreateOrUpdateParameters";
   /**
-   * A Common Media Application Format (CMAF) encryption configuration.
-   */
-  Encryption?: CmafEncryption;
-
-  /**
-   * A list of HLS manifest configurations
-   */
-  HlsManifests?: HlsManifestCreateOrUpdateParameters[];
-
-  /**
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
    */
   SegmentDurationSeconds?: number;
+
+  /**
+   * A StreamSelection configuration.
+   */
+  StreamSelection?: StreamSelection;
+
+  /**
+   * A Common Media Application Format (CMAF) encryption configuration.
+   */
+  Encryption?: CmafEncryption;
 
   /**
    * An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
@@ -179,9 +180,9 @@ export interface CmafPackageCreateOrUpdateParameters {
   SegmentPrefix?: string;
 
   /**
-   * A StreamSelection configuration.
+   * A list of HLS manifest configurations
    */
-  StreamSelection?: StreamSelection;
+  HlsManifests?: HlsManifestCreateOrUpdateParameters[];
 }
 
 export namespace CmafPackageCreateOrUpdateParameters {
@@ -198,15 +199,15 @@ export namespace CmafPackageCreateOrUpdateParameters {
 export interface CreateChannelRequest {
   __type?: "CreateChannelRequest";
   /**
-   * A short text description of the Channel.
-   */
-  Description?: string;
-
-  /**
    * The ID of the Channel. The ID must be unique within the region and it
    * cannot be changed after a Channel is created.
    */
   Id: string | undefined;
+
+  /**
+   * A short text description of the Channel.
+   */
+  Description?: string;
 
   /**
    * A collection of tags associated with a resource
@@ -224,16 +225,6 @@ export namespace CreateChannelRequest {
 export interface CreateChannelResponse {
   __type?: "CreateChannelResponse";
   /**
-   * The Amazon Resource Name (ARN) assigned to the Channel.
-   */
-  Arn?: string;
-
-  /**
-   * A short text description of the Channel.
-   */
-  Description?: string;
-
-  /**
    * An HTTP Live Streaming (HLS) ingest resource configuration.
    */
   HlsIngest?: HlsIngest;
@@ -242,6 +233,16 @@ export interface CreateChannelResponse {
    * The ID of the Channel.
    */
   Id?: string;
+
+  /**
+   * A short text description of the Channel.
+   */
+  Description?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) assigned to the Channel.
+   */
+  Arn?: string;
 
   /**
    * A collection of tags associated with a resource
@@ -262,9 +263,9 @@ export namespace CreateChannelResponse {
 export interface CreateHarvestJobRequest {
   __type?: "CreateHarvestJobRequest";
   /**
-   * The end of the time-window which will be harvested
+   * Configuration parameters for where in an S3 bucket to place the harvested content
    */
-  EndTime: string | undefined;
+  S3Destination: S3Destination | undefined;
 
   /**
    * The ID of the HarvestJob. The ID must be unique within the region
@@ -273,20 +274,20 @@ export interface CreateHarvestJobRequest {
   Id: string | undefined;
 
   /**
-   * The ID of the OriginEndpoint that the HarvestJob will harvest from.
-   * This cannot be changed after the HarvestJob is submitted.
+   * The end of the time-window which will be harvested
    */
-  OriginEndpointId: string | undefined;
-
-  /**
-   * Configuration parameters for where in an S3 bucket to place the harvested content
-   */
-  S3Destination: S3Destination | undefined;
+  EndTime: string | undefined;
 
   /**
    * The start of the time-window which will be harvested
    */
   StartTime: string | undefined;
+
+  /**
+   * The ID of the OriginEndpoint that the HarvestJob will harvest from.
+   * This cannot be changed after the HarvestJob is submitted.
+   */
+  OriginEndpointId: string | undefined;
 }
 
 export namespace CreateHarvestJobRequest {
@@ -309,9 +310,16 @@ export interface CreateHarvestJobResponse {
   ChannelId?: string;
 
   /**
-   * The time the HarvestJob was submitted
+   * The start of the time-window which will be harvested.
    */
-  CreatedAt?: string;
+  StartTime?: string;
+
+  /**
+   * The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
+   * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
+   * include an explanation of why the HarvestJob failed.
+   */
+  Status?: Status | string;
 
   /**
    * The end of the time-window which will be harvested.
@@ -319,10 +327,9 @@ export interface CreateHarvestJobResponse {
   EndTime?: string;
 
   /**
-   * The ID of the HarvestJob. The ID must be unique within the region
-   * and it cannot be changed after the HarvestJob is submitted.
+   * The time the HarvestJob was submitted
    */
-  Id?: string;
+  CreatedAt?: string;
 
   /**
    * The ID of the OriginEndpoint that the HarvestJob will harvest from.
@@ -336,16 +343,10 @@ export interface CreateHarvestJobResponse {
   S3Destination?: S3Destination;
 
   /**
-   * The start of the time-window which will be harvested.
+   * The ID of the HarvestJob. The ID must be unique within the region
+   * and it cannot be changed after the HarvestJob is submitted.
    */
-  StartTime?: string;
-
-  /**
-   * The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
-   * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
-   * include an explanation of why the HarvestJob failed.
-   */
-  Status?: Status | string;
+  Id?: string;
 }
 
 export namespace CreateHarvestJobResponse {
@@ -361,46 +362,21 @@ export namespace CreateHarvestJobResponse {
 export interface CreateOriginEndpointRequest {
   __type?: "CreateOriginEndpointRequest";
   /**
-   * CDN Authorization credentials
+   * Amount of delay (seconds) to enforce on the playback of live content.
+   * If not specified, there will be no time delay in effect for the OriginEndpoint.
    */
-  Authorization?: Authorization;
+  TimeDelaySeconds?: number;
+
+  /**
+   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   */
+  Whitelist?: string[];
 
   /**
    * The ID of the Channel that the OriginEndpoint will be associated with.
    * This cannot be changed after the OriginEndpoint is created.
    */
   ChannelId: string | undefined;
-
-  /**
-   * A Common Media Application Format (CMAF) packaging configuration.
-   */
-  CmafPackage?: CmafPackageCreateOrUpdateParameters;
-
-  /**
-   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-   */
-  DashPackage?: DashPackage;
-
-  /**
-   * A short text description of the OriginEndpoint.
-   */
-  Description?: string;
-
-  /**
-   * An HTTP Live Streaming (HLS) packaging configuration.
-   */
-  HlsPackage?: HlsPackage;
-
-  /**
-   * The ID of the OriginEndpoint.  The ID must be unique within the region
-   * and it cannot be changed after the OriginEndpoint is created.
-   */
-  Id: string | undefined;
-
-  /**
-   * A short string that will be used as the filename of the OriginEndpoint URL (defaults to "index").
-   */
-  ManifestName?: string;
 
   /**
    * A Microsoft Smooth Streaming (MSS) packaging configuration.
@@ -421,20 +397,45 @@ export interface CreateOriginEndpointRequest {
   StartoverWindowSeconds?: number;
 
   /**
+   * A Common Media Application Format (CMAF) packaging configuration.
+   */
+  CmafPackage?: CmafPackageCreateOrUpdateParameters;
+
+  /**
+   * The ID of the OriginEndpoint.  The ID must be unique within the region
+   * and it cannot be changed after the OriginEndpoint is created.
+   */
+  Id: string | undefined;
+
+  /**
+   * A short text description of the OriginEndpoint.
+   */
+  Description?: string;
+
+  /**
+   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+   */
+  DashPackage?: DashPackage;
+
+  /**
+   * A short string that will be used as the filename of the OriginEndpoint URL (defaults to "index").
+   */
+  ManifestName?: string;
+
+  /**
    * A collection of tags associated with a resource
    */
   Tags?: { [key: string]: string };
 
   /**
-   * Amount of delay (seconds) to enforce on the playback of live content.
-   * If not specified, there will be no time delay in effect for the OriginEndpoint.
+   * An HTTP Live Streaming (HLS) packaging configuration.
    */
-  TimeDelaySeconds?: number;
+  HlsPackage?: HlsPackage;
 
   /**
-   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   * CDN Authorization credentials
    */
-  Whitelist?: string[];
+  Authorization?: Authorization;
 }
 
 export namespace CreateOriginEndpointRequest {
@@ -447,19 +448,10 @@ export namespace CreateOriginEndpointRequest {
 export interface CreateOriginEndpointResponse {
   __type?: "CreateOriginEndpointResponse";
   /**
-   * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+   * Maximum duration (seconds) of content to retain for startover playback.
+   * If not specified, startover playback will be disabled for the OriginEndpoint.
    */
-  Arn?: string;
-
-  /**
-   * CDN Authorization credentials
-   */
-  Authorization?: Authorization;
-
-  /**
-   * The ID of the Channel the OriginEndpoint is associated with.
-   */
-  ChannelId?: string;
+  StartoverWindowSeconds?: number;
 
   /**
    * A Common Media Application Format (CMAF) packaging configuration.
@@ -467,14 +459,19 @@ export interface CreateOriginEndpointResponse {
   CmafPackage?: CmafPackage;
 
   /**
+   * A short string appended to the end of the OriginEndpoint URL.
+   */
+  ManifestName?: string;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
-
-  /**
-   * A short text description of the OriginEndpoint.
-   */
-  Description?: string;
 
   /**
    * An HTTP Live Streaming (HLS) packaging configuration.
@@ -482,19 +479,35 @@ export interface CreateOriginEndpointResponse {
   HlsPackage?: HlsPackage;
 
   /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
+   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   */
+  Whitelist?: string[];
+
+  /**
+   * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+   */
+  Arn?: string;
+
+  /**
+   * Amount of delay (seconds) to enforce on the playback of live content.
+   * If not specified, there will be no time delay in effect for the OriginEndpoint.
+   */
+  TimeDelaySeconds?: number;
+
+  /**
+   * A short text description of the OriginEndpoint.
+   */
+  Description?: string;
+
+  /**
    * The ID of the OriginEndpoint.
    */
   Id?: string;
-
-  /**
-   * A short string appended to the end of the OriginEndpoint URL.
-   */
-  ManifestName?: string;
-
-  /**
-   * A Microsoft Smooth Streaming (MSS) packaging configuration.
-   */
-  MssPackage?: MssPackage;
 
   /**
    * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
@@ -504,21 +517,9 @@ export interface CreateOriginEndpointResponse {
   Origination?: Origination | string;
 
   /**
-   * Maximum duration (seconds) of content to retain for startover playback.
-   * If not specified, startover playback will be disabled for the OriginEndpoint.
+   * The ID of the Channel the OriginEndpoint is associated with.
    */
-  StartoverWindowSeconds?: number;
-
-  /**
-   * A collection of tags associated with a resource
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Amount of delay (seconds) to enforce on the playback of live content.
-   * If not specified, there will be no time delay in effect for the OriginEndpoint.
-   */
-  TimeDelaySeconds?: number;
+  ChannelId?: string;
 
   /**
    * The URL of the packaged OriginEndpoint for consumption.
@@ -526,9 +527,9 @@ export interface CreateOriginEndpointResponse {
   Url?: string;
 
   /**
-   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   * A Microsoft Smooth Streaming (MSS) packaging configuration.
    */
-  Whitelist?: string[];
+  MssPackage?: MssPackage;
 }
 
 export namespace CreateOriginEndpointResponse {
@@ -544,14 +545,14 @@ export namespace CreateOriginEndpointResponse {
 export interface DashEncryption {
   __type?: "DashEncryption";
   /**
-   * Time (in seconds) between each encryption key rotation.
-   */
-  KeyRotationIntervalSeconds?: number;
-
-  /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
+
+  /**
+   * Time (in seconds) between each encryption key rotation.
+   */
+  KeyRotationIntervalSeconds?: number;
 }
 
 export namespace DashEncryption {
@@ -567,11 +568,55 @@ export namespace DashEncryption {
 export interface DashPackage {
   __type?: "DashPackage";
   /**
+   * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+   */
+  SegmentTemplateFormat?: SegmentTemplateFormat | string;
+
+  /**
+   * Duration (in seconds) of each segment. Actual segments will be
+   * rounded to the nearest multiple of the source segment duration.
+   */
+  SegmentDurationSeconds?: number;
+
+  /**
+   * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
+   */
+  Encryption?: DashEncryption;
+
+  /**
+   * Time window (in seconds) contained in each manifest.
+   */
+  ManifestWindowSeconds?: number;
+
+  /**
+   * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
+   * Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
+   * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
+   * the Channel source contains SCTE-35 ad markers.
+   */
+  PeriodTriggers?: (__PeriodTriggersElement | string)[];
+
+  /**
+   * Duration (in seconds) to delay live content before presentation.
+   */
+  SuggestedPresentationDelaySeconds?: number;
+
+  /**
+   * Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
+   */
+  MinUpdatePeriodSeconds?: number;
+
+  /**
    * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
   AdTriggers?: (__AdTriggersElement | string)[];
+
+  /**
+   * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+   */
+  Profile?: Profile | string;
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -586,53 +631,9 @@ export interface DashPackage {
   AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
 
   /**
-   * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
-   */
-  Encryption?: DashEncryption;
-
-  /**
    * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
    */
   ManifestLayout?: ManifestLayout | string;
-
-  /**
-   * Time window (in seconds) contained in each manifest.
-   */
-  ManifestWindowSeconds?: number;
-
-  /**
-   * Minimum duration (in seconds) that a player will buffer media before starting the presentation.
-   */
-  MinBufferTimeSeconds?: number;
-
-  /**
-   * Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
-   */
-  MinUpdatePeriodSeconds?: number;
-
-  /**
-   * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
-   * Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
-   * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
-   * the Channel source contains SCTE-35 ad markers.
-   */
-  PeriodTriggers?: (__PeriodTriggersElement | string)[];
-
-  /**
-   * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-   */
-  Profile?: Profile | string;
-
-  /**
-   * Duration (in seconds) of each segment. Actual segments will be
-   * rounded to the nearest multiple of the source segment duration.
-   */
-  SegmentDurationSeconds?: number;
-
-  /**
-   * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-   */
-  SegmentTemplateFormat?: SegmentTemplateFormat | string;
 
   /**
    * A StreamSelection configuration.
@@ -640,9 +641,9 @@ export interface DashPackage {
   StreamSelection?: StreamSelection;
 
   /**
-   * Duration (in seconds) to delay live content before presentation.
+   * Minimum duration (in seconds) that a player will buffer media before starting the presentation.
    */
-  SuggestedPresentationDelaySeconds?: number;
+  MinBufferTimeSeconds?: number;
 }
 
 export namespace DashPackage {
@@ -722,19 +723,9 @@ export namespace DescribeChannelRequest {
 export interface DescribeChannelResponse {
   __type?: "DescribeChannelResponse";
   /**
-   * The Amazon Resource Name (ARN) assigned to the Channel.
-   */
-  Arn?: string;
-
-  /**
    * A short text description of the Channel.
    */
   Description?: string;
-
-  /**
-   * An HTTP Live Streaming (HLS) ingest resource configuration.
-   */
-  HlsIngest?: HlsIngest;
 
   /**
    * The ID of the Channel.
@@ -745,6 +736,16 @@ export interface DescribeChannelResponse {
    * A collection of tags associated with a resource
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * The Amazon Resource Name (ARN) assigned to the Channel.
+   */
+  Arn?: string;
+
+  /**
+   * An HTTP Live Streaming (HLS) ingest resource configuration.
+   */
+  HlsIngest?: HlsIngest;
 }
 
 export namespace DescribeChannelResponse {
@@ -777,6 +778,11 @@ export interface DescribeHarvestJobResponse {
   Arn?: string;
 
   /**
+   * The end of the time-window which will be harvested.
+   */
+  EndTime?: string;
+
+  /**
    * The ID of the Channel that the HarvestJob will harvest from.
    */
   ChannelId?: string;
@@ -787,15 +793,11 @@ export interface DescribeHarvestJobResponse {
   CreatedAt?: string;
 
   /**
-   * The end of the time-window which will be harvested.
+   * The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
+   * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
+   * include an explanation of why the HarvestJob failed.
    */
-  EndTime?: string;
-
-  /**
-   * The ID of the HarvestJob. The ID must be unique within the region
-   * and it cannot be changed after the HarvestJob is submitted.
-   */
-  Id?: string;
+  Status?: Status | string;
 
   /**
    * The ID of the OriginEndpoint that the HarvestJob will harvest from.
@@ -804,21 +806,20 @@ export interface DescribeHarvestJobResponse {
   OriginEndpointId?: string;
 
   /**
-   * Configuration parameters for where in an S3 bucket to place the harvested content
-   */
-  S3Destination?: S3Destination;
-
-  /**
    * The start of the time-window which will be harvested.
    */
   StartTime?: string;
 
   /**
-   * The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
-   * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
-   * include an explanation of why the HarvestJob failed.
+   * Configuration parameters for where in an S3 bucket to place the harvested content
    */
-  Status?: Status | string;
+  S3Destination?: S3Destination;
+
+  /**
+   * The ID of the HarvestJob. The ID must be unique within the region
+   * and it cannot be changed after the HarvestJob is submitted.
+   */
+  Id?: string;
 }
 
 export namespace DescribeHarvestJobResponse {
@@ -846,63 +847,6 @@ export namespace DescribeOriginEndpointRequest {
 export interface DescribeOriginEndpointResponse {
   __type?: "DescribeOriginEndpointResponse";
   /**
-   * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
-   */
-  Arn?: string;
-
-  /**
-   * CDN Authorization credentials
-   */
-  Authorization?: Authorization;
-
-  /**
-   * The ID of the Channel the OriginEndpoint is associated with.
-   */
-  ChannelId?: string;
-
-  /**
-   * A Common Media Application Format (CMAF) packaging configuration.
-   */
-  CmafPackage?: CmafPackage;
-
-  /**
-   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-   */
-  DashPackage?: DashPackage;
-
-  /**
-   * A short text description of the OriginEndpoint.
-   */
-  Description?: string;
-
-  /**
-   * An HTTP Live Streaming (HLS) packaging configuration.
-   */
-  HlsPackage?: HlsPackage;
-
-  /**
-   * The ID of the OriginEndpoint.
-   */
-  Id?: string;
-
-  /**
-   * A short string appended to the end of the OriginEndpoint URL.
-   */
-  ManifestName?: string;
-
-  /**
-   * A Microsoft Smooth Streaming (MSS) packaging configuration.
-   */
-  MssPackage?: MssPackage;
-
-  /**
-   * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
-   * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
-   * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-   */
-  Origination?: Origination | string;
-
-  /**
    * Maximum duration (seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
    */
@@ -914,10 +858,19 @@ export interface DescribeOriginEndpointResponse {
   Tags?: { [key: string]: string };
 
   /**
-   * Amount of delay (seconds) to enforce on the playback of live content.
-   * If not specified, there will be no time delay in effect for the OriginEndpoint.
+   * A short string appended to the end of the OriginEndpoint URL.
    */
-  TimeDelaySeconds?: number;
+  ManifestName?: string;
+
+  /**
+   * A Common Media Application Format (CMAF) packaging configuration.
+   */
+  CmafPackage?: CmafPackage;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
 
   /**
    * The URL of the packaged OriginEndpoint for consumption.
@@ -925,9 +878,57 @@ export interface DescribeOriginEndpointResponse {
   Url?: string;
 
   /**
+   * An HTTP Live Streaming (HLS) packaging configuration.
+   */
+  HlsPackage?: HlsPackage;
+
+  /**
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
   Whitelist?: string[];
+
+  /**
+   * Amount of delay (seconds) to enforce on the playback of live content.
+   * If not specified, there will be no time delay in effect for the OriginEndpoint.
+   */
+  TimeDelaySeconds?: number;
+
+  /**
+   * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+   */
+  Arn?: string;
+
+  /**
+   * The ID of the OriginEndpoint.
+   */
+  Id?: string;
+
+  /**
+   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+   */
+  DashPackage?: DashPackage;
+
+  /**
+   * The ID of the Channel the OriginEndpoint is associated with.
+   */
+  ChannelId?: string;
+
+  /**
+   * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+   * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+   * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+   */
+  Origination?: Origination | string;
+
+  /**
+   * A short text description of the OriginEndpoint.
+   */
+  Description?: string;
+
+  /**
+   * A Microsoft Smooth Streaming (MSS) packaging configuration.
+   */
+  MssPackage?: MssPackage;
 }
 
 export namespace DescribeOriginEndpointResponse {
@@ -964,14 +965,36 @@ export namespace ForbiddenException {
 export interface HarvestJob {
   __type?: "HarvestJob";
   /**
-   * The Amazon Resource Name (ARN) assigned to the HarvestJob.
+   * The ID of the HarvestJob. The ID must be unique within the region
+   * and it cannot be changed after the HarvestJob is submitted.
    */
-  Arn?: string;
+  Id?: string;
 
   /**
    * The ID of the Channel that the HarvestJob will harvest from.
    */
   ChannelId?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) assigned to the HarvestJob.
+   */
+  Arn?: string;
+
+  /**
+   * Configuration parameters for where in an S3 bucket to place the harvested content
+   */
+  S3Destination?: S3Destination;
+
+  /**
+   * The ID of the OriginEndpoint that the HarvestJob will harvest from.
+   * This cannot be changed after the HarvestJob is submitted.
+   */
+  OriginEndpointId?: string;
+
+  /**
+   * The start of the time-window which will be harvested.
+   */
+  StartTime?: string;
 
   /**
    * The time the HarvestJob was submitted
@@ -982,28 +1005,6 @@ export interface HarvestJob {
    * The end of the time-window which will be harvested.
    */
   EndTime?: string;
-
-  /**
-   * The ID of the HarvestJob. The ID must be unique within the region
-   * and it cannot be changed after the HarvestJob is submitted.
-   */
-  Id?: string;
-
-  /**
-   * The ID of the OriginEndpoint that the HarvestJob will harvest from.
-   * This cannot be changed after the HarvestJob is submitted.
-   */
-  OriginEndpointId?: string;
-
-  /**
-   * Configuration parameters for where in an S3 bucket to place the harvested content
-   */
-  S3Destination?: S3Destination;
-
-  /**
-   * The start of the time-window which will be harvested.
-   */
-  StartTime?: string;
 
   /**
    * The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
@@ -1032,6 +1033,11 @@ export interface HlsEncryption {
   ConstantInitializationVector?: string;
 
   /**
+   * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+   */
+  SpekeKeyProvider: SpekeKeyProvider | undefined;
+
+  /**
    * The encryption method to use.
    */
   EncryptionMethod?: EncryptionMethod | string;
@@ -1045,11 +1051,6 @@ export interface HlsEncryption {
    * When enabled, the EXT-X-KEY tag will be repeated in output manifests.
    */
   RepeatExtXKey?: boolean;
-
-  /**
-   * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
-   */
-  SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
 export namespace HlsEncryption {
@@ -1083,14 +1084,9 @@ export namespace HlsIngest {
 export interface HlsManifest {
   __type?: "HlsManifest";
   /**
-   * This setting controls how ad markers are included in the packaged OriginEndpoint.
-   * "NONE" will omit all SCTE-35 ad markers from the output.
-   * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
-   * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
-   * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
-   * messages in the input source.
+   * When enabled, an I-Frame only stream will be included in the output.
    */
-  AdMarkers?: AdMarkers | string;
+  IncludeIframeOnlyStream?: boolean;
 
   /**
    * The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
@@ -1098,14 +1094,17 @@ export interface HlsManifest {
   Id: string | undefined;
 
   /**
-   * When enabled, an I-Frame only stream will be included in the output.
+   * This setting controls how ad markers are included in the packaged OriginEndpoint.
+   * "NONE" will omit all SCTE-35 ad markers from the output.
+   * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+   * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+   * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+   * messages in the input source.
+   * "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+   * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+   * that is greater than 0.
    */
-  IncludeIframeOnlyStream?: boolean;
-
-  /**
-   * An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
-   */
-  ManifestName?: string;
+  AdMarkers?: AdMarkers | string;
 
   /**
    * The HTTP Live Streaming (HLS) playlist type.
@@ -1113,11 +1112,6 @@ export interface HlsManifest {
    * entry will be included in the media playlist.
    */
   PlaylistType?: PlaylistType | string;
-
-  /**
-   * Time window (in seconds) contained in each parent manifest.
-   */
-  PlaylistWindowSeconds?: number;
 
   /**
    * The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -1136,6 +1130,16 @@ export interface HlsManifest {
    * The URL of the packaged OriginEndpoint for consumption.
    */
   Url?: string;
+
+  /**
+   * Time window (in seconds) contained in each parent manifest.
+   */
+  PlaylistWindowSeconds?: number;
+
+  /**
+   * An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
+   */
+  ManifestName?: string;
 }
 
 export namespace HlsManifest {
@@ -1151,21 +1155,32 @@ export namespace HlsManifest {
 export interface HlsManifestCreateOrUpdateParameters {
   __type?: "HlsManifestCreateOrUpdateParameters";
   /**
-   * This setting controls how ad markers are included in the packaged OriginEndpoint.
-   * "NONE" will omit all SCTE-35 ad markers from the output.
-   * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
-   * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
-   * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
-   * messages in the input source.
+   * When enabled, an I-Frame only stream will be included in the output.
    */
-  AdMarkers?: AdMarkers | string;
+  IncludeIframeOnlyStream?: boolean;
 
   /**
-   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
-   * ad markers are output.  Specify multiple items to create ad markers for all of the included
-   * message types.
+   * The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  Id: string | undefined;
+
+  /**
+   * The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+   * inserted into manifests. Additionally, when an interval is specified
+   * ID3Timed Metadata messages will be generated every 5 seconds using the
+   * ingest time of the content.
+   * If the interval is not specified, or set to 0, then
+   * no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
+   * ID3Timed Metadata messages will be generated. Note that irrespective
+   * of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
+   * it will be passed through to HLS output.
+   */
+  ProgramDateTimeIntervalSeconds?: number;
+
+  /**
+   * Time window (in seconds) contained in each parent manifest.
+   */
+  PlaylistWindowSeconds?: number;
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -1180,14 +1195,17 @@ export interface HlsManifestCreateOrUpdateParameters {
   AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
 
   /**
-   * The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
+   * This setting controls how ad markers are included in the packaged OriginEndpoint.
+   * "NONE" will omit all SCTE-35 ad markers from the output.
+   * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+   * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+   * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+   * messages in the input source.
+   * "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+   * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+   * that is greater than 0.
    */
-  Id: string | undefined;
-
-  /**
-   * When enabled, an I-Frame only stream will be included in the output.
-   */
-  IncludeIframeOnlyStream?: boolean;
+  AdMarkers?: AdMarkers | string;
 
   /**
    * An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
@@ -1195,29 +1213,18 @@ export interface HlsManifestCreateOrUpdateParameters {
   ManifestName?: string;
 
   /**
+   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
+   * ad markers are output.  Specify multiple items to create ad markers for all of the included
+   * message types.
+   */
+  AdTriggers?: (__AdTriggersElement | string)[];
+
+  /**
    * The HTTP Live Streaming (HLS) playlist type.
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
    */
   PlaylistType?: PlaylistType | string;
-
-  /**
-   * Time window (in seconds) contained in each parent manifest.
-   */
-  PlaylistWindowSeconds?: number;
-
-  /**
-   * The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
-   * inserted into manifests. Additionally, when an interval is specified
-   * ID3Timed Metadata messages will be generated every 5 seconds using the
-   * ingest time of the content.
-   * If the interval is not specified, or set to 0, then
-   * no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
-   * ID3Timed Metadata messages will be generated. Note that irrespective
-   * of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
-   * it will be passed through to HLS output.
-   */
-  ProgramDateTimeIntervalSeconds?: number;
 }
 
 export namespace HlsManifestCreateOrUpdateParameters {
@@ -1234,55 +1241,11 @@ export namespace HlsManifestCreateOrUpdateParameters {
 export interface HlsPackage {
   __type?: "HlsPackage";
   /**
-   * This setting controls how ad markers are included in the packaged OriginEndpoint.
-   * "NONE" will omit all SCTE-35 ad markers from the output.
-   * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
-   * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
-   * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
-   * messages in the input source.
-   */
-  AdMarkers?: AdMarkers | string;
-
-  /**
    * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
   AdTriggers?: (__AdTriggersElement | string)[];
-
-  /**
-   * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
-   * determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become
-   * ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that
-   * contain delivery restrictions will be treated as ads.  Choosing "UNRESTRICTED" means SCTE-35
-   * messages of the types specified in AdTriggers that do not contain delivery restrictions will
-   * be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in
-   * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
-   * and are always treated as ads if specified in AdTriggers.
-   */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
-
-  /**
-   * An HTTP Live Streaming (HLS) encryption configuration.
-   */
-  Encryption?: HlsEncryption;
-
-  /**
-   * When enabled, an I-Frame only stream will be included in the output.
-   */
-  IncludeIframeOnlyStream?: boolean;
-
-  /**
-   * The HTTP Live Streaming (HLS) playlist type.
-   * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
-   * entry will be included in the media playlist.
-   */
-  PlaylistType?: PlaylistType | string;
-
-  /**
-   * Time window (in seconds) contained in each parent manifest.
-   */
-  PlaylistWindowSeconds?: number;
 
   /**
    * The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -1298,10 +1261,21 @@ export interface HlsPackage {
   ProgramDateTimeIntervalSeconds?: number;
 
   /**
-   * Duration (in seconds) of each fragment. Actual fragments will be
-   * rounded to the nearest multiple of the source fragment duration.
+   * When enabled, an I-Frame only stream will be included in the output.
    */
-  SegmentDurationSeconds?: number;
+  IncludeIframeOnlyStream?: boolean;
+
+  /**
+   * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
+   * determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become
+   * ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that
+   * contain delivery restrictions will be treated as ads.  Choosing "UNRESTRICTED" means SCTE-35
+   * messages of the types specified in AdTriggers that do not contain delivery restrictions will
+   * be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in
+   * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
+   * and are always treated as ads if specified in AdTriggers.
+   */
+  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
 
   /**
    * A StreamSelection configuration.
@@ -1309,9 +1283,45 @@ export interface HlsPackage {
   StreamSelection?: StreamSelection;
 
   /**
+   * Duration (in seconds) of each fragment. Actual fragments will be
+   * rounded to the nearest multiple of the source fragment duration.
+   */
+  SegmentDurationSeconds?: number;
+
+  /**
+   * This setting controls how ad markers are included in the packaged OriginEndpoint.
+   * "NONE" will omit all SCTE-35 ad markers from the output.
+   * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+   * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+   * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+   * messages in the input source.
+   * "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+   * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+   * that is greater than 0.
+   */
+  AdMarkers?: AdMarkers | string;
+
+  /**
+   * Time window (in seconds) contained in each parent manifest.
+   */
+  PlaylistWindowSeconds?: number;
+
+  /**
+   * An HTTP Live Streaming (HLS) encryption configuration.
+   */
+  Encryption?: HlsEncryption;
+
+  /**
    * When enabled, audio streams will be placed in rendition groups in the output.
    */
   UseAudioRenditionGroup?: boolean;
+
+  /**
+   * The HTTP Live Streaming (HLS) playlist type.
+   * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
+   * entry will be included in the media playlist.
+   */
+  PlaylistType?: PlaylistType | string;
 }
 
 export namespace HlsPackage {
@@ -1327,6 +1337,16 @@ export namespace HlsPackage {
 export interface IngestEndpoint {
   __type?: "IngestEndpoint";
   /**
+   * The system generated username for ingest authentication.
+   */
+  Username?: string;
+
+  /**
+   * The ingest URL to which the source stream should be sent.
+   */
+  Url?: string;
+
+  /**
    * The system generated unique identifier for the IngestEndpoint
    */
   Id?: string;
@@ -1335,16 +1355,6 @@ export interface IngestEndpoint {
    * The system generated password for ingest authentication.
    */
   Password?: string;
-
-  /**
-   * The ingest URL to which the source stream should be sent.
-   */
-  Url?: string;
-
-  /**
-   * The system generated username for ingest authentication.
-   */
-  Username?: string;
 }
 
 export namespace IngestEndpoint {
@@ -1373,14 +1383,14 @@ export namespace InternalServerErrorException {
 export interface ListChannelsRequest {
   __type?: "ListChannelsRequest";
   /**
-   * Upper bound on number of records to return.
-   */
-  MaxResults?: number;
-
-  /**
    * A token used to resume pagination from the end of a previous request.
    */
   NextToken?: string;
+
+  /**
+   * Upper bound on number of records to return.
+   */
+  MaxResults?: number;
 }
 
 export namespace ListChannelsRequest {
@@ -1413,24 +1423,24 @@ export namespace ListChannelsResponse {
 export interface ListHarvestJobsRequest {
   __type?: "ListHarvestJobsRequest";
   /**
-   * When specified, the request will return only HarvestJobs associated with the given Channel ID.
-   */
-  IncludeChannelId?: string;
-
-  /**
-   * When specified, the request will return only HarvestJobs in the given status.
-   */
-  IncludeStatus?: string;
-
-  /**
    * The upper bound on the number of records to return.
    */
   MaxResults?: number;
 
   /**
+   * When specified, the request will return only HarvestJobs associated with the given Channel ID.
+   */
+  IncludeChannelId?: string;
+
+  /**
    * A token used to resume pagination from the end of a previous request.
    */
   NextToken?: string;
+
+  /**
+   * When specified, the request will return only HarvestJobs in the given status.
+   */
+  IncludeStatus?: string;
 }
 
 export namespace ListHarvestJobsRequest {
@@ -1443,14 +1453,14 @@ export namespace ListHarvestJobsRequest {
 export interface ListHarvestJobsResponse {
   __type?: "ListHarvestJobsResponse";
   /**
-   * A list of HarvestJob records.
-   */
-  HarvestJobs?: HarvestJob[];
-
-  /**
    * A token that can be used to resume pagination from the end of the collection.
    */
   NextToken?: string;
+
+  /**
+   * A list of HarvestJob records.
+   */
+  HarvestJobs?: HarvestJob[];
 }
 
 export namespace ListHarvestJobsResponse {
@@ -1463,11 +1473,6 @@ export namespace ListHarvestJobsResponse {
 export interface ListOriginEndpointsRequest {
   __type?: "ListOriginEndpointsRequest";
   /**
-   * When specified, the request will return only OriginEndpoints associated with the given Channel ID.
-   */
-  ChannelId?: string;
-
-  /**
    * The upper bound on the number of records to return.
    */
   MaxResults?: number;
@@ -1476,6 +1481,11 @@ export interface ListOriginEndpointsRequest {
    * A token used to resume pagination from the end of a previous request.
    */
   NextToken?: string;
+
+  /**
+   * When specified, the request will return only OriginEndpoints associated with the given Channel ID.
+   */
+  ChannelId?: string;
 }
 
 export namespace ListOriginEndpointsRequest {
@@ -1612,14 +1622,9 @@ export enum Origination {
 export interface OriginEndpoint {
   __type?: "OriginEndpoint";
   /**
-   * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+   * The URL of the packaged OriginEndpoint for consumption.
    */
-  Arn?: string;
-
-  /**
-   * CDN Authorization credentials
-   */
-  Authorization?: Authorization;
+  Url?: string;
 
   /**
    * The ID of the Channel the OriginEndpoint is associated with.
@@ -1627,46 +1632,14 @@ export interface OriginEndpoint {
   ChannelId?: string;
 
   /**
-   * A Common Media Application Format (CMAF) packaging configuration.
-   */
-  CmafPackage?: CmafPackage;
-
-  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
 
   /**
-   * A short text description of the OriginEndpoint.
+   * A Common Media Application Format (CMAF) packaging configuration.
    */
-  Description?: string;
-
-  /**
-   * An HTTP Live Streaming (HLS) packaging configuration.
-   */
-  HlsPackage?: HlsPackage;
-
-  /**
-   * The ID of the OriginEndpoint.
-   */
-  Id?: string;
-
-  /**
-   * A short string appended to the end of the OriginEndpoint URL.
-   */
-  ManifestName?: string;
-
-  /**
-   * A Microsoft Smooth Streaming (MSS) packaging configuration.
-   */
-  MssPackage?: MssPackage;
-
-  /**
-   * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
-   * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
-   * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-   */
-  Origination?: Origination | string;
+  CmafPackage?: CmafPackage;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
@@ -1680,20 +1653,57 @@ export interface OriginEndpoint {
   Tags?: { [key: string]: string };
 
   /**
+   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   */
+  Whitelist?: string[];
+
+  /**
+   * An HTTP Live Streaming (HLS) packaging configuration.
+   */
+  HlsPackage?: HlsPackage;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
+   * A short string appended to the end of the OriginEndpoint URL.
+   */
+  ManifestName?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+   */
+  Arn?: string;
+
+  /**
+   * A short text description of the OriginEndpoint.
+   */
+  Description?: string;
+
+  /**
+   * The ID of the OriginEndpoint.
+   */
+  Id?: string;
+
+  /**
    * Amount of delay (seconds) to enforce on the playback of live content.
    * If not specified, there will be no time delay in effect for the OriginEndpoint.
    */
   TimeDelaySeconds?: number;
 
   /**
-   * The URL of the packaged OriginEndpoint for consumption.
+   * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+   * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+   * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Url?: string;
+  Origination?: Origination | string;
 
   /**
-   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   * A Microsoft Smooth Streaming (MSS) packaging configuration.
    */
-  Whitelist?: string[];
+  MssPackage?: MssPackage;
 }
 
 export namespace OriginEndpoint {
@@ -1732,9 +1742,14 @@ export namespace RotateChannelCredentialsRequest {
 export interface RotateChannelCredentialsResponse {
   __type?: "RotateChannelCredentialsResponse";
   /**
-   * The Amazon Resource Name (ARN) assigned to the Channel.
+   * An HTTP Live Streaming (HLS) ingest resource configuration.
    */
-  Arn?: string;
+  HlsIngest?: HlsIngest;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * A short text description of the Channel.
@@ -1742,19 +1757,14 @@ export interface RotateChannelCredentialsResponse {
   Description?: string;
 
   /**
-   * An HTTP Live Streaming (HLS) ingest resource configuration.
+   * The Amazon Resource Name (ARN) assigned to the Channel.
    */
-  HlsIngest?: HlsIngest;
+  Arn?: string;
 
   /**
    * The ID of the Channel.
    */
   Id?: string;
-
-  /**
-   * A collection of tags associated with a resource
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace RotateChannelCredentialsResponse {
@@ -1793,6 +1803,11 @@ export interface RotateIngestEndpointCredentialsResponse {
   Arn?: string;
 
   /**
+   * The ID of the Channel.
+   */
+  Id?: string;
+
+  /**
    * A short text description of the Channel.
    */
   Description?: string;
@@ -1801,11 +1816,6 @@ export interface RotateIngestEndpointCredentialsResponse {
    * An HTTP Live Streaming (HLS) ingest resource configuration.
    */
   HlsIngest?: HlsIngest;
-
-  /**
-   * The ID of the Channel.
-   */
-  Id?: string;
 
   /**
    * A collection of tags associated with a resource
@@ -1877,16 +1887,9 @@ export namespace ServiceUnavailableException {
 export interface SpekeKeyProvider {
   __type?: "SpekeKeyProvider";
   /**
-   * An Amazon Resource Name (ARN) of a Certificate Manager certificate
-   * that MediaPackage will use for enforcing secure end-to-end data
-   * transfer with the key provider service.
+   * The URL of the external key provider service.
    */
-  CertificateArn?: string;
-
-  /**
-   * The resource ID to include in key requests.
-   */
-  ResourceId: string | undefined;
+  Url: string | undefined;
 
   /**
    * An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
@@ -1895,14 +1898,21 @@ export interface SpekeKeyProvider {
   RoleArn: string | undefined;
 
   /**
+   * An Amazon Resource Name (ARN) of a Certificate Manager certificate
+   * that MediaPackage will use for enforcing secure end-to-end data
+   * transfer with the key provider service.
+   */
+  CertificateArn?: string;
+
+  /**
    * The system IDs to include in key requests.
    */
   SystemIds: string[] | undefined;
 
   /**
-   * The URL of the external key provider service.
+   * The resource ID to include in key requests.
    */
-  Url: string | undefined;
+  ResourceId: string | undefined;
 }
 
 export namespace SpekeKeyProvider {
@@ -1930,11 +1940,6 @@ export enum StreamOrder {
 export interface StreamSelection {
   __type?: "StreamSelection";
   /**
-   * The maximum video bitrate (bps) to include in output.
-   */
-  MaxVideoBitsPerSecond?: number;
-
-  /**
    * The minimum video bitrate (bps) to include in output.
    */
   MinVideoBitsPerSecond?: number;
@@ -1943,6 +1948,11 @@ export interface StreamSelection {
    * A directive that determines the order of streams in the output.
    */
   StreamOrder?: StreamOrder | string;
+
+  /**
+   * The maximum video bitrate (bps) to include in output.
+   */
+  MaxVideoBitsPerSecond?: number;
 }
 
 export namespace StreamSelection {
@@ -1954,8 +1964,8 @@ export namespace StreamSelection {
 
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
-  ResourceArn: string | undefined;
   Tags: { [key: string]: string } | undefined;
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1999,11 +2009,12 @@ export namespace UnprocessableEntityException {
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
-  ResourceArn: string | undefined;
   /**
    * The key(s) of tag to be deleted
    */
   TagKeys: string[] | undefined;
+
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2039,16 +2050,6 @@ export namespace UpdateChannelRequest {
 export interface UpdateChannelResponse {
   __type?: "UpdateChannelResponse";
   /**
-   * The Amazon Resource Name (ARN) assigned to the Channel.
-   */
-  Arn?: string;
-
-  /**
-   * A short text description of the Channel.
-   */
-  Description?: string;
-
-  /**
    * An HTTP Live Streaming (HLS) ingest resource configuration.
    */
   HlsIngest?: HlsIngest;
@@ -2059,9 +2060,19 @@ export interface UpdateChannelResponse {
   Id?: string;
 
   /**
+   * The Amazon Resource Name (ARN) assigned to the Channel.
+   */
+  Arn?: string;
+
+  /**
    * A collection of tags associated with a resource
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * A short text description of the Channel.
+   */
+  Description?: string;
 }
 
 export namespace UpdateChannelResponse {
@@ -2077,34 +2088,38 @@ export namespace UpdateChannelResponse {
 export interface UpdateOriginEndpointRequest {
   __type?: "UpdateOriginEndpointRequest";
   /**
+   * Amount of delay (in seconds) to enforce on the playback of live content.
+   * If not specified, there will be no time delay in effect for the OriginEndpoint.
+   */
+  TimeDelaySeconds?: number;
+
+  /**
+   * Maximum duration (in seconds) of content to retain for startover playback.
+   * If not specified, startover playback will be disabled for the OriginEndpoint.
+   */
+  StartoverWindowSeconds?: number;
+
+  /**
+   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   */
+  Whitelist?: string[];
+
+  /**
    * CDN Authorization credentials
    */
   Authorization?: Authorization;
 
   /**
-   * A Common Media Application Format (CMAF) packaging configuration.
+   * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+   * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+   * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  CmafPackage?: CmafPackageCreateOrUpdateParameters;
-
-  /**
-   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-   */
-  DashPackage?: DashPackage;
-
-  /**
-   * A short text description of the OriginEndpoint.
-   */
-  Description?: string;
+  Origination?: Origination | string;
 
   /**
    * An HTTP Live Streaming (HLS) packaging configuration.
    */
   HlsPackage?: HlsPackage;
-
-  /**
-   * The ID of the OriginEndpoint to update.
-   */
-  Id: string | undefined;
 
   /**
    * A short string that will be appended to the end of the Endpoint URL.
@@ -2117,28 +2132,24 @@ export interface UpdateOriginEndpointRequest {
   MssPackage?: MssPackage;
 
   /**
-   * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
-   * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
-   * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
-  Origination?: Origination | string;
+  DashPackage?: DashPackage;
 
   /**
-   * Maximum duration (in seconds) of content to retain for startover playback.
-   * If not specified, startover playback will be disabled for the OriginEndpoint.
+   * A Common Media Application Format (CMAF) packaging configuration.
    */
-  StartoverWindowSeconds?: number;
+  CmafPackage?: CmafPackageCreateOrUpdateParameters;
 
   /**
-   * Amount of delay (in seconds) to enforce on the playback of live content.
-   * If not specified, there will be no time delay in effect for the OriginEndpoint.
+   * A short text description of the OriginEndpoint.
    */
-  TimeDelaySeconds?: number;
+  Description?: string;
 
   /**
-   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   * The ID of the OriginEndpoint to update.
    */
-  Whitelist?: string[];
+  Id: string | undefined;
 }
 
 export namespace UpdateOriginEndpointRequest {
@@ -2151,39 +2162,9 @@ export namespace UpdateOriginEndpointRequest {
 export interface UpdateOriginEndpointResponse {
   __type?: "UpdateOriginEndpointResponse";
   /**
-   * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+   * A Microsoft Smooth Streaming (MSS) packaging configuration.
    */
-  Arn?: string;
-
-  /**
-   * CDN Authorization credentials
-   */
-  Authorization?: Authorization;
-
-  /**
-   * The ID of the Channel the OriginEndpoint is associated with.
-   */
-  ChannelId?: string;
-
-  /**
-   * A Common Media Application Format (CMAF) packaging configuration.
-   */
-  CmafPackage?: CmafPackage;
-
-  /**
-   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-   */
-  DashPackage?: DashPackage;
-
-  /**
-   * A short text description of the OriginEndpoint.
-   */
-  Description?: string;
-
-  /**
-   * An HTTP Live Streaming (HLS) packaging configuration.
-   */
-  HlsPackage?: HlsPackage;
+  MssPackage?: MssPackage;
 
   /**
    * The ID of the OriginEndpoint.
@@ -2191,14 +2172,45 @@ export interface UpdateOriginEndpointResponse {
   Id?: string;
 
   /**
+   * A short text description of the OriginEndpoint.
+   */
+  Description?: string;
+
+  /**
+   * A Common Media Application Format (CMAF) packaging configuration.
+   */
+  CmafPackage?: CmafPackage;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * A short string appended to the end of the OriginEndpoint URL.
    */
   ManifestName?: string;
 
   /**
-   * A Microsoft Smooth Streaming (MSS) packaging configuration.
+   * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
-  MssPackage?: MssPackage;
+  DashPackage?: DashPackage;
+
+  /**
+   * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+   */
+  Arn?: string;
+
+  /**
+   * Maximum duration (seconds) of content to retain for startover playback.
+   * If not specified, startover playback will be disabled for the OriginEndpoint.
+   */
+  StartoverWindowSeconds?: number;
+
+  /**
+   * The URL of the packaged OriginEndpoint for consumption.
+   */
+  Url?: string;
 
   /**
    * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
@@ -2208,15 +2220,19 @@ export interface UpdateOriginEndpointResponse {
   Origination?: Origination | string;
 
   /**
-   * Maximum duration (seconds) of content to retain for startover playback.
-   * If not specified, startover playback will be disabled for the OriginEndpoint.
+   * An HTTP Live Streaming (HLS) packaging configuration.
    */
-  StartoverWindowSeconds?: number;
+  HlsPackage?: HlsPackage;
 
   /**
-   * A collection of tags associated with a resource
+   * CDN Authorization credentials
    */
-  Tags?: { [key: string]: string };
+  Authorization?: Authorization;
+
+  /**
+   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+   */
+  Whitelist?: string[];
 
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
@@ -2225,14 +2241,9 @@ export interface UpdateOriginEndpointResponse {
   TimeDelaySeconds?: number;
 
   /**
-   * The URL of the packaged OriginEndpoint for consumption.
+   * The ID of the Channel the OriginEndpoint is associated with.
    */
-  Url?: string;
-
-  /**
-   * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
-   */
-  Whitelist?: string[];
+  ChannelId?: string;
 }
 
 export namespace UpdateOriginEndpointResponse {

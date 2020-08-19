@@ -17,6 +17,7 @@ export * from "./commands/DeleteApplicationCommand";
 export * from "./commands/DeleteDeploymentConfigCommand";
 export * from "./commands/DeleteDeploymentGroupCommand";
 export * from "./commands/DeleteGitHubAccountTokenCommand";
+export * from "./commands/DeleteResourcesByExternalIdCommand";
 export * from "./commands/DeregisterOnPremisesInstanceCommand";
 export * from "./commands/GetApplicationCommand";
 export * from "./commands/GetApplicationRevisionCommand";

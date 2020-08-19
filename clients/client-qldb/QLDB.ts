@@ -1,5 +1,10 @@
 import { QLDBClient } from "./QLDBClient";
 import {
+  CancelJournalKinesisStreamCommand,
+  CancelJournalKinesisStreamCommandInput,
+  CancelJournalKinesisStreamCommandOutput,
+} from "./commands/CancelJournalKinesisStreamCommand";
+import {
   CreateLedgerCommand,
   CreateLedgerCommandInput,
   CreateLedgerCommandOutput,
@@ -9,6 +14,11 @@ import {
   DeleteLedgerCommandInput,
   DeleteLedgerCommandOutput,
 } from "./commands/DeleteLedgerCommand";
+import {
+  DescribeJournalKinesisStreamCommand,
+  DescribeJournalKinesisStreamCommandInput,
+  DescribeJournalKinesisStreamCommandOutput,
+} from "./commands/DescribeJournalKinesisStreamCommand";
 import {
   DescribeJournalS3ExportCommand,
   DescribeJournalS3ExportCommandInput,
@@ -28,6 +38,11 @@ import { GetBlockCommand, GetBlockCommandInput, GetBlockCommandOutput } from "./
 import { GetDigestCommand, GetDigestCommandInput, GetDigestCommandOutput } from "./commands/GetDigestCommand";
 import { GetRevisionCommand, GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
 import {
+  ListJournalKinesisStreamsForLedgerCommand,
+  ListJournalKinesisStreamsForLedgerCommandInput,
+  ListJournalKinesisStreamsForLedgerCommandOutput,
+} from "./commands/ListJournalKinesisStreamsForLedgerCommand";
+import {
   ListJournalS3ExportsCommand,
   ListJournalS3ExportsCommandInput,
   ListJournalS3ExportsCommandOutput,
@@ -43,6 +58,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StreamJournalToKinesisCommand,
+  StreamJournalToKinesisCommandInput,
+  StreamJournalToKinesisCommandOutput,
+} from "./commands/StreamJournalToKinesisCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -60,6 +80,42 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * <p>The control plane for Amazon QLDB</p>
  */
 export class QLDB extends QLDBClient {
+  /**
+   * <p>Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current
+   *          status must be <code>ACTIVE</code>.</p>
+   *          <p>You can't restart a stream after you cancel it. Canceled QLDB stream resources are
+   *          subject to a 7-day retention period, so they are automatically deleted after this limit
+   *          expires.</p>
+   */
+  public cancelJournalKinesisStream(
+    args: CancelJournalKinesisStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJournalKinesisStreamCommandOutput>;
+  public cancelJournalKinesisStream(
+    args: CancelJournalKinesisStreamCommandInput,
+    cb: (err: any, data?: CancelJournalKinesisStreamCommandOutput) => void
+  ): void;
+  public cancelJournalKinesisStream(
+    args: CancelJournalKinesisStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelJournalKinesisStreamCommandOutput) => void
+  ): void;
+  public cancelJournalKinesisStream(
+    args: CancelJournalKinesisStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJournalKinesisStreamCommandOutput) => void),
+    cb?: (err: any, data?: CancelJournalKinesisStreamCommandOutput) => void
+  ): Promise<CancelJournalKinesisStreamCommandOutput> | void {
+    const command = new CancelJournalKinesisStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a new ledger in your AWS account.</p>
    */
@@ -123,8 +179,44 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * <p>Returns detailed information about a given Amazon QLDB journal stream. The output
+   *          includes the Amazon Resource Name (ARN), stream name, current status, creation time, and
+   *          the parameters of your original stream creation request.</p>
+   */
+  public describeJournalKinesisStream(
+    args: DescribeJournalKinesisStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJournalKinesisStreamCommandOutput>;
+  public describeJournalKinesisStream(
+    args: DescribeJournalKinesisStreamCommandInput,
+    cb: (err: any, data?: DescribeJournalKinesisStreamCommandOutput) => void
+  ): void;
+  public describeJournalKinesisStream(
+    args: DescribeJournalKinesisStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJournalKinesisStreamCommandOutput) => void
+  ): void;
+  public describeJournalKinesisStream(
+    args: DescribeJournalKinesisStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJournalKinesisStreamCommandOutput) => void),
+    cb?: (err: any, data?: DescribeJournalKinesisStreamCommandOutput) => void
+  ): Promise<DescribeJournalKinesisStreamCommandOutput> | void {
+    const command = new DescribeJournalKinesisStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a journal export job, including the ledger name, export ID,
    *          when it was created, current status, and its start and end time export parameters.</p>
+   *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export Job Expiration</a> in the <i>Amazon QLDB Developer
+   *          Guide</i>.</p>
    *          <p>If the export job with the given <code>ExportId</code> doesn't exist, then throws
    *             <code>ResourceNotFoundException</code>.</p>
    *          <p>If the ledger with the given <code>Name</code> doesn't exist, then throws
@@ -231,9 +323,10 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   * <p>Returns a journal block object at a specified address in a ledger. Also returns a proof
-   *          of the specified block for verification if <code>DigestTipAddress</code> is
-   *          provided.</p>
+   * <p>Returns a block object at a specified address in a journal. Also returns a proof of the
+   *          specified block for verification if <code>DigestTipAddress</code> is provided.</p>
+   *          <p>For information about the data contents in a block, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html">Journal contents</a> in the
+   *             <i>Amazon QLDB Developer Guide</i>.</p>
    *          <p>If the specified ledger doesn't exist or is in <code>DELETING</code> status, then throws
    *             <code>ResourceNotFoundException</code>.</p>
    *          <p>If the specified ledger is in <code>CREATING</code> status, then throws
@@ -320,11 +413,50 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * <p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The
+   *          output of each stream descriptor includes the same details that are returned by
+   *             <code>DescribeJournalKinesisStream</code>.</p>
+   *          <p>This action returns a maximum of <code>MaxResults</code> items. It is paginated so that
+   *          you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code>
+   *          multiple times.</p>
+   */
+  public listJournalKinesisStreamsForLedger(
+    args: ListJournalKinesisStreamsForLedgerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput>;
+  public listJournalKinesisStreamsForLedger(
+    args: ListJournalKinesisStreamsForLedgerCommandInput,
+    cb: (err: any, data?: ListJournalKinesisStreamsForLedgerCommandOutput) => void
+  ): void;
+  public listJournalKinesisStreamsForLedger(
+    args: ListJournalKinesisStreamsForLedgerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJournalKinesisStreamsForLedgerCommandOutput) => void
+  ): void;
+  public listJournalKinesisStreamsForLedger(
+    args: ListJournalKinesisStreamsForLedgerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJournalKinesisStreamsForLedgerCommandOutput) => void),
+    cb?: (err: any, data?: ListJournalKinesisStreamsForLedgerCommandOutput) => void
+  ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> | void {
+    const command = new ListJournalKinesisStreamsForLedgerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns an array of journal export job descriptions for all ledgers that are associated
    *          with the current AWS account and Region.</p>
    *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
    *          you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple
    *          times.</p>
+   *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export Job Expiration</a> in the <i>Amazon QLDB Developer
+   *          Guide</i>.</p>
    */
   public listJournalS3Exports(
     args: ListJournalS3ExportsCommandInput,
@@ -360,6 +492,8 @@ export class QLDB extends QLDBClient {
    *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
    *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
    *          multiple times.</p>
+   *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export Job Expiration</a> in the <i>Amazon QLDB Developer
+   *          Guide</i>.</p>
    */
   public listJournalS3ExportsForLedger(
     args: ListJournalS3ExportsForLedgerCommandInput,
@@ -441,6 +575,40 @@ export class QLDB extends QLDBClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a journal stream for a given Amazon QLDB ledger. The stream captures every
+   *          document revision that is committed to the ledger's journal and delivers the data to a
+   *          specified Amazon Kinesis Data Streams resource.</p>
+   */
+  public streamJournalToKinesis(
+    args: StreamJournalToKinesisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StreamJournalToKinesisCommandOutput>;
+  public streamJournalToKinesis(
+    args: StreamJournalToKinesisCommandInput,
+    cb: (err: any, data?: StreamJournalToKinesisCommandOutput) => void
+  ): void;
+  public streamJournalToKinesis(
+    args: StreamJournalToKinesisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StreamJournalToKinesisCommandOutput) => void
+  ): void;
+  public streamJournalToKinesis(
+    args: StreamJournalToKinesisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StreamJournalToKinesisCommandOutput) => void),
+    cb?: (err: any, data?: StreamJournalToKinesisCommandOutput) => void
+  ): Promise<StreamJournalToKinesisCommandOutput> | void {
+    const command = new StreamJournalToKinesisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
