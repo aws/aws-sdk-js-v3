@@ -206,9 +206,8 @@ export const serializeAws_restJson1AssociateAssetsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -248,9 +247,8 @@ export const serializeAws_restJson1BatchAssociateProjectAssetsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -290,9 +288,8 @@ export const serializeAws_restJson1BatchDisassociateProjectAssetsCommand = async
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -324,9 +321,8 @@ export const serializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -364,9 +360,8 @@ export const serializeAws_restJson1CreateAccessPolicyCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -399,9 +394,8 @@ export const serializeAws_restJson1CreateAssetCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -440,9 +434,8 @@ export const serializeAws_restJson1CreateAssetModelCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -477,9 +470,8 @@ export const serializeAws_restJson1CreateDashboardCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -513,9 +505,8 @@ export const serializeAws_restJson1CreateGatewayCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -553,9 +544,8 @@ export const serializeAws_restJson1CreatePortalCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -589,9 +579,8 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -630,9 +619,8 @@ export const serializeAws_restJson1DeleteAccessPolicyCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "DELETE",
     headers,
@@ -672,9 +660,8 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "DELETE",
     headers,
@@ -714,9 +701,8 @@ export const serializeAws_restJson1DeleteAssetModelCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "DELETE",
     headers,
@@ -756,9 +742,8 @@ export const serializeAws_restJson1DeleteDashboardCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "DELETE",
     headers,
@@ -795,9 +780,8 @@ export const serializeAws_restJson1DeleteGatewayCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "DELETE",
     headers,
@@ -836,9 +820,8 @@ export const serializeAws_restJson1DeletePortalCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "DELETE",
     headers,
@@ -878,9 +861,8 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "DELETE",
     headers,
@@ -917,9 +899,8 @@ export const serializeAws_restJson1DescribeAccessPolicyCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -955,9 +936,8 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -993,9 +973,8 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1040,9 +1019,8 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1078,9 +1056,8 @@ export const serializeAws_restJson1DescribeDashboardCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1116,9 +1093,8 @@ export const serializeAws_restJson1DescribeGatewayCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1163,9 +1139,8 @@ export const serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1193,9 +1168,8 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1231,9 +1205,8 @@ export const serializeAws_restJson1DescribePortalCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1269,9 +1242,8 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1312,9 +1284,8 @@ export const serializeAws_restJson1DisassociateAssetsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -1354,9 +1325,8 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1389,9 +1359,8 @@ export const serializeAws_restJson1GetAssetPropertyValueCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1430,9 +1399,8 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1468,9 +1436,8 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1502,9 +1469,8 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1538,9 +1504,8 @@ export const serializeAws_restJson1ListAssetsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1582,9 +1547,8 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1617,9 +1581,8 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1651,9 +1614,8 @@ export const serializeAws_restJson1ListGatewaysCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1685,9 +1647,8 @@ export const serializeAws_restJson1ListPortalsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1728,9 +1689,8 @@ export const serializeAws_restJson1ListProjectAssetsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1763,9 +1723,8 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1823,9 +1782,8 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
@@ -1925,9 +1883,8 @@ export const serializeAws_restJson1UpdateAccessPolicyCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
@@ -1967,9 +1924,8 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
@@ -2016,9 +1972,8 @@ export const serializeAws_restJson1UpdateAssetModelCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
@@ -2070,9 +2025,8 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
@@ -2114,9 +2068,8 @@ export const serializeAws_restJson1UpdateDashboardCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
@@ -2155,9 +2108,8 @@ export const serializeAws_restJson1UpdateGatewayCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
@@ -2197,9 +2149,8 @@ export const serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand =
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -2245,9 +2196,8 @@ export const serializeAws_restJson1UpdatePortalCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
@@ -2288,9 +2238,8 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    hostname: resolvedHostname,
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "PUT",
     headers,
