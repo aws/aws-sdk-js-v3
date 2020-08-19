@@ -26,7 +26,6 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "tslib": "^2.0.0",
     "@aws-crypto/sha256-browser": "^1.0.0-alpha.0",
     "@aws-crypto/sha256-js": "^1.0.0-alpha.0",
     "@aws-sdk/config-resolver": "1.0.0-gamma.5",
@@ -55,15 +54,16 @@
     "@aws-sdk/util-user-agent-browser": "1.0.0-gamma.5",
     "@aws-sdk/util-user-agent-node": "1.0.0-gamma.5",
     "@aws-sdk/util-utf8-browser": "1.0.0-gamma.5",
-    "@aws-sdk/util-utf8-node": "1.0.0-gamma.5"
+    "@aws-sdk/util-utf8-node": "1.0.0-gamma.5",
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-documentation-generator": "1.0.0-gamma.4",
+    "@types/node": "^12.7.5",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
     "typedoc": "^0.17.8",
-    "typescript": "~3.9.3",
-    "@aws-sdk/client-documentation-generator": "1.0.0-gamma.4",
-    "@types/node": "^12.7.5"
+    "typescript": "~3.9.3"
   },
   "engines": {
     "node": ">=8.0.0"
