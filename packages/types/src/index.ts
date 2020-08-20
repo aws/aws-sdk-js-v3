@@ -6,6 +6,7 @@ export * from "./crypto";
 export * from "./eventStream";
 export * from "./http";
 export * from "./logger";
+export * from "./pagination";
 export * from "./serde";
 export * from "./middleware";
 export * from "./response";
